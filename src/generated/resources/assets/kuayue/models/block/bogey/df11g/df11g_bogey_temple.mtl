@@ -1,0 +1,14 @@
+# Made in Blockbench 4.8.1
+newmtl m_f316590b-a53a-5d8b-e95b-4df08f0f14ee
+map_Kd kuayue:block/bogey/df11g/df11g_moto
+newmtl m_541beeca-2a39-3e9e-cbf3-230b76a52e60
+map_Kd kuayue:block/bogey/df11g/df11g_main_structure
+newmtl m_4f8309c6-4428-68b5-7c43-bdac67f40234
+map_Kd kuayue:block/bogey/df11g/df11g_side_spring
+newmtl m_e349dbee-5c9a-1ab1-e941-85372b2c4cee
+map_Kd kuayue:block/bogey/df11g/df11g_primary_hang
+newmtl m_d7a5c785-567e-721e-b4a2-1cf25167efe2
+map_Kd kuayue:block/bogey/df11g/df11g_breaking
+newmtl m_ba3aea9d-6cba-223a-b688-28b7a31e511e
+map_Kd kuayue:block/bogey/df11g/df11g_sanding
+newmtl none

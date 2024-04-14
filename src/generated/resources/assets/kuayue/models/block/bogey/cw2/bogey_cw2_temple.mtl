@@ -1,0 +1,14 @@
+# Made in Blockbench 4.7.4
+newmtl m_07ea9976-b2f4-86e9-d544-f37b4d69f6dc
+map_Kd kuayue:block/bogey/cw2/cw2_spring
+newmtl m_53957c6d-0eb1-aa3d-9466-e92b9d8b3807
+map_Kd kuayue:block/bogey/cw2/main_structure
+newmtl m_0564b964-7172-0858-653b-d43cb64f78f3
+map_Kd kuayue:block/bogey/cw2/bolster
+newmtl m_41043978-6d51-0b9e-96ce-5c16b08b33bd
+map_Kd kuayue:block/bogey/cw2/primary_hang_structure
+newmtl m_82ce9109-0c14-810b-8ea4-2bbb19f36c75
+map_Kd kuayue:block/bogey/cw2/secondary_hang_structure
+newmtl m_2531ef55-892d-9159-7508-31b7104ba698
+map_Kd kuayue:block/bogey/cw2/primary_spring
+newmtl none

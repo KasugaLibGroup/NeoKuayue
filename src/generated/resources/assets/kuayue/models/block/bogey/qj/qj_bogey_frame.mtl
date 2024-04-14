@@ -1,0 +1,12 @@
+# Made in Blockbench 4.8.3
+newmtl m_50cfee0b-2aa2-3316-f787-5ed4cc8ff39b
+map_Kd kuayue:block/bogey/qj/crank_rocker
+newmtl m_5bd5d80b-980b-1ad1-73e2-bdf73ee959aa
+map_Kd kuayue:block/bogey/qj/reversing_system
+newmtl m_44439e6f-848b-861c-7edc-247033ac23dc
+map_Kd kuayue:block/bogey/qj/cylinder
+newmtl m_1395cbbd-45b6-481b-573d-9a264d6bc464
+map_Kd kuayue:block/bogey/qj/structure
+newmtl m_2ff166c6-3c28-889e-ca42-a530833f7f3f
+map_Kd kuayue:block/bogey/qj/breaking
+newmtl none

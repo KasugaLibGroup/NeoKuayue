@@ -1,0 +1,12 @@
+# Made in Blockbench 4.8.1
+newmtl m_fa6e8094-05f0-2846-582e-688b2e27af88
+map_Kd kuayue:block/bogey/pk209p/pk209p_motor
+newmtl m_a7b10f46-7fcd-328e-7436-2247be150586
+map_Kd kuayue:block/bogey/pk209p/pk209p_mainstrture
+newmtl m_6032d230-6703-72b6-f3cb-ee7ff8e9fef8
+map_Kd kuayue:block/bogey/pk209p/pk209p_brk
+newmtl m_b937eadf-aaee-f7d5-7367-dfd1019c25fe
+map_Kd kuayue:block/bogey/pk209p/pk209p_sec_hang
+newmtl m_309836c7-0bc1-4568-fdb7-46dfaab77188
+map_Kd kuayue:block/bogey/pk209p/pk209p_prm_hang
+newmtl none

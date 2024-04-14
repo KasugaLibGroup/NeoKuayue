@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "priority": 1300,
+  "package": "willow.train.kuayue.mixins.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+  ],
+  "client": [
+    "client.MixinCarriageContraptionEntityRenderer"
+  ],
+  "minVersion": "0.8"
+}

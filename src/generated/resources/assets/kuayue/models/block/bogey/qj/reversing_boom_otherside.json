@@ -1,0 +1,6 @@
+{
+  "parent": "block/block",
+  "loader": "forge:obj",
+  "flip_v": true,
+  "model": "kuayue:models/block/bogey/qj/reversing_boom_otherside.obj"
+}
