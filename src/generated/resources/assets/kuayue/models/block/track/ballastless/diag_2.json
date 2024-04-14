@@ -1,0 +1,7 @@
+{
+  "parent": "kuayue:block/track/standard/obj_track",
+  "loader": "forge:obj",
+  "flip_v": true,
+  "render_type": "cutout_mipped",
+  "model": "kuayue:models/block/track/ballastless/diag_2.obj"
+}

@@ -1,0 +1,6 @@
+# Made in Blockbench 4.7.4
+newmtl m_170fbfd2-f08d-9034-5c48-a19326fd24f8
+map_Kd kuayue:block/track/standard_gauge_track/standard_track_crosstie
+newmtl m_d165b866-d2d1-6b7a-e7c8-e0b207803032
+map_Kd kuayue:block/track/standard_gauge_track/standard_track_tie
+newmtl none

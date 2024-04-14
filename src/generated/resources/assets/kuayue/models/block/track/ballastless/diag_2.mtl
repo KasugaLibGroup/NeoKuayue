@@ -1,0 +1,6 @@
+# Made in Blockbench 4.8.3
+newmtl m_8ad0a651-624f-cea2-57ce-d200832d959f
+map_Kd kuayue:block/track/standard_gauge_track/standard_track_tie
+newmtl m_6fb1dd81-adbc-3ca0-bd04-89666c45d249
+map_Kd kuayue:block/track/ballastless/ballastless_track_cross_tie
+newmtl none

@@ -1,0 +1,49 @@
+modLoader="javafml"
+loaderVersion="[43,)"
+license="All rights reserved"
+[[mods]]
+modId="kuayue"
+version="${file.jarVersion}"
+displayName="KuaYue"
+displayURL="http://fairingstudio.com/KuaYue"
+logoFile="kuayue.jpg"
+credits="苟利国家生死以，岂因祸福避趋之。"
+authors="柳树怪,Carole,可爱金发小耗子,HTony03,radekemia,shazimingjiang,荒漠" #optional
+# Display Test controls the display for your mod in the server connection screen
+# MATCH_VERSION means that your mod will cause a red X if the versions on client and server differ. This is the default behaviour and should be what you choose if you have server and client elements to your mod.
+# IGNORE_SERVER_VERSION means that your mod will not cause a red X if it's present on the server but not on the client. This is what you should use if you're a server only mod.
+# IGNORE_ALL_VERSION means that your mod will not cause a red X if it's present on the client or the server. This is a special case and should only be used if your mod has no server component.
+# NONE means that no display test is set on your mod. You need to do this yourself, see IExtensionPoint.DisplayTest for more information. You can define any scheme you wish with this value.
+# IMPORTANT NOTE: this is NOT an instruction as to which environments (CLIENT or DEDICATED SERVER) your mod loads on. Your mod should load (and maybe do nothing!) whereever it finds itself.
+#displayTest="MATCH_VERSION" # MATCH_VERSION is the default if nothing is specified (#optional)
+
+description='''
+原色经典，直特风范——
+我们似乎还可以听到京沪十三猪连发时，震耳欲聋的柴油机轰鸣声响彻夜空。
+这是一个为机械动力mod而制作的装饰类方块mod（暂定） 因为本人是java初学者，不怎么会编程,还请谅解(^^;;;
+'''
+
+[[dependencies.kuayue]]
+    modId="forge"
+    mandatory=true
+    versionRange="[43,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.kuayue]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.19.2,1.20)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.kuayue]]
+    modId="create"
+    mandatory=true
+    versionRange="[0.5.1.e,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.kuayue]]
+    modId="kasuga_lib"
+    mandatory=true
+    versionRange="[0.12,)"
+    ordering="NONE"
+    side="BOTH"

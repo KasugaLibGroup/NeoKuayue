@@ -1,0 +1,12 @@
+{
+	"loader": "forge:obj",
+	"ambientocclusion": false,
+	"flip_v": true,
+	"render_type": "cutout_mipped",
+	"model": "kuayue:models/block/track/standard/ascending.obj",
+	"textures": {
+		"0": "kuayue:block/track/standard_gauge_track/standard_track",
+		"1": "kuayue:block/track/standard_gauge_track/standard_track_mip",
+		"particle": "kuayue:block/palettes/stone_types/polished/andesite_cut_polished"
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"ambientocclusion": false,
+	"render_type": "cutout_mipped",
+	"textures": {
+		"0": "kuayue:block/track/standard_gauge_track/standard_track",
+		"1": "kuayue:block/track/standard_gauge_track/standard_track_mip",
+		"2": "kuayue:block/track/standard_gauge_track/standard_track_crossing",
+		"particle": "kuayue:block/palettes/stone_types/polished/andesite_cut_polished"
+	}
+}
