@@ -1,0 +1,20 @@
+{
+ "variants": {
+  "facing=east": {
+   "model": "kuayue:block/carriage/facilities/direct_drainage_toilet_original_25g",
+   "y": 270
+  },
+  "facing=north": {
+   "model": "kuayue:block/carriage/facilities/direct_drainage_toilet_original_25g",
+   "y": 180
+  },
+  "facing=south": {
+   "model": "kuayue:block/carriage/facilities/direct_drainage_toilet_original_25g",
+   "y": 0
+  },
+  "facing=west": {
+   "model": "kuayue:block/carriage/facilities/direct_drainage_toilet_original_25g",
+   "y": 90
+  }
+ }
+}

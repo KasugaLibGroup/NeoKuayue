@@ -1,0 +1,217 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"1": "kuayue:block/gantry_cast_head_poles",
+		"2": "kuayue:block/fixator",
+		"particle": "kuayue:block/fixator"
+	},
+	"elements": [
+		{
+			"name": "steel_pole",
+			"from": [2.5, 0, 2.5],
+			"to": [5.5, 16, 5.5],
+			"faces": {
+				"north": {"uv": [0, 0, 3, 16], "texture": "#1"},
+				"east": {"uv": [0, 0, 3, 16], "texture": "#1"},
+				"south": {"uv": [0, 0, 3, 16], "texture": "#1"},
+				"west": {"uv": [0, 0, 3, 16], "texture": "#1"},
+				"up": {"uv": [0, 0, 3, 3], "texture": "#1"},
+				"down": {"uv": [0, 0, 3, 3], "texture": "#1"}
+			}
+		},
+		{
+			"name": "steel_pole",
+			"from": [2.5, 0, 10.5],
+			"to": [5.5, 16, 13.5],
+			"faces": {
+				"north": {"uv": [0, 0, 3, 16], "texture": "#1"},
+				"east": {"uv": [0, 0, 3, 16], "texture": "#1"},
+				"south": {"uv": [0, 0, 3, 16], "texture": "#1"},
+				"west": {"uv": [0, 0, 3, 16], "texture": "#1"},
+				"up": {"uv": [0, 0, 3, 3], "texture": "#1"},
+				"down": {"uv": [0, 0, 3, 3], "texture": "#1"}
+			}
+		},
+		{
+			"name": "steel_pole",
+			"from": [10.5, 0, 10.5],
+			"to": [13.5, 16, 13.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [12, 8, 12]},
+			"faces": {
+				"north": {"uv": [0, 0, 3, 16], "texture": "#1"},
+				"east": {"uv": [0, 0, 3, 16], "texture": "#1"},
+				"south": {"uv": [0, 0, 3, 16], "texture": "#1"},
+				"west": {"uv": [0, 0, 3, 16], "texture": "#1"},
+				"up": {"uv": [0, 0, 3, 3], "texture": "#1"},
+				"down": {"uv": [0, 0, 3, 3], "texture": "#1"}
+			}
+		},
+		{
+			"name": "steel_pole",
+			"from": [10.5, 0, 2.5],
+			"to": [13.5, 16, 5.5],
+			"faces": {
+				"north": {"uv": [0, 0, 3, 16], "texture": "#1"},
+				"east": {"uv": [0, 0, 3, 16], "texture": "#1"},
+				"south": {"uv": [0, 0, 3, 16], "texture": "#1"},
+				"west": {"uv": [0, 0, 3, 16], "texture": "#1"},
+				"up": {"uv": [0, 0, 3, 3], "texture": "#1"},
+				"down": {"uv": [0, 0, 3, 3], "texture": "#1"}
+			}
+		},
+		{
+			"name": "slide_pole",
+			"from": [3, 5, 3],
+			"to": [5, 15, 5],
+			"rotation": {"angle": 45, "axis": "z", "origin": [4, 16, 4]},
+			"faces": {
+				"north": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"east": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"south": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"west": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"up": {"uv": [0, 0, 2, 2], "texture": "#2"},
+				"down": {"uv": [0, 0, 2, 2], "texture": "#2"}
+			}
+		},
+		{
+			"name": "slide_pole",
+			"from": [3, 5, 3],
+			"to": [5, 15, 5],
+			"rotation": {"angle": -45, "axis": "x", "origin": [4, 16, 4]},
+			"faces": {
+				"north": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"east": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"south": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"west": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"up": {"uv": [0, 0, 2, 2], "texture": "#2"},
+				"down": {"uv": [0, 0, 2, 2], "texture": "#2"}
+			}
+		},
+		{
+			"name": "slide_pole",
+			"from": [3, 1, 3],
+			"to": [5, 11, 5],
+			"rotation": {"angle": -45, "axis": "z", "origin": [4, 0, 4]},
+			"faces": {
+				"north": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"east": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"south": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"west": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"up": {"uv": [0, 0, 2, 2], "texture": "#2"},
+				"down": {"uv": [0, 0, 2, 2], "texture": "#2"}
+			}
+		},
+		{
+			"name": "slide_pole",
+			"from": [3, 1, 3],
+			"to": [5, 11, 5],
+			"rotation": {"angle": 45, "axis": "x", "origin": [4, 0, 4]},
+			"faces": {
+				"north": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"east": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"south": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"west": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"up": {"uv": [0, 0, 2, 2], "texture": "#2"},
+				"down": {"uv": [0, 0, 2, 2], "texture": "#2"}
+			}
+		},
+		{
+			"name": "slide_pole",
+			"from": [11, 5, 11],
+			"to": [13, 15, 13],
+			"rotation": {"angle": 45, "axis": "x", "origin": [12, 16, 12]},
+			"faces": {
+				"north": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"east": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"south": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"west": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"up": {"uv": [0, 0, 2, 2], "texture": "#2"},
+				"down": {"uv": [0, 0, 2, 2], "texture": "#2"}
+			}
+		},
+		{
+			"name": "slide_pole",
+			"from": [11, 5, 11],
+			"to": [13, 15, 13],
+			"rotation": {"angle": -45, "axis": "z", "origin": [12, 16, 12]},
+			"faces": {
+				"north": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"east": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"south": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"west": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"up": {"uv": [0, 0, 2, 2], "texture": "#2"},
+				"down": {"uv": [0, 0, 2, 2], "texture": "#2"}
+			}
+		},
+		{
+			"name": "slide_pole",
+			"from": [11, 1, 11],
+			"to": [13, 11, 13],
+			"rotation": {"angle": 45, "axis": "z", "origin": [12, 0, 12]},
+			"faces": {
+				"north": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"east": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"south": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"west": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"up": {"uv": [0, 0, 2, 2], "texture": "#2"},
+				"down": {"uv": [0, 0, 2, 2], "texture": "#2"}
+			}
+		},
+		{
+			"name": "slide_pole",
+			"from": [11, 1, 11],
+			"to": [13, 11, 13],
+			"rotation": {"angle": -45, "axis": "x", "origin": [12, 0, 12]},
+			"faces": {
+				"north": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"east": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"south": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"west": {"uv": [0, 0, 2, 10], "texture": "#2"},
+				"up": {"uv": [0, 0, 2, 2], "texture": "#2"},
+				"down": {"uv": [0, 0, 2, 2], "texture": "#2"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"scale": [0.2, 0.2, 0.2]
+		},
+		"thirdperson_lefthand": {
+			"scale": [0.2, 0.2, 0.2]
+		},
+		"firstperson_righthand": {
+			"translation": [0, 2.5, 0],
+			"scale": [0.2, 0.2, 0.2]
+		},
+		"firstperson_lefthand": {
+			"translation": [0, 2.5, 0],
+			"scale": [0.2, 0.2, 0.2]
+		},
+		"ground": {
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"gui": {
+			"rotation": [37, -22, 0],
+			"scale": [0.6, 0.6, 0.6]
+		}
+	},
+	"groups": [
+		{
+			"name": "pillar",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [
+				0,
+				1,
+				2,
+				3,
+				{
+					"name": "slide_poles",
+					"origin": [8, 8, 8],
+					"color": 0,
+					"children": [4, 5, 6, 7, 8, 9, 10, 11]
+				}
+			]
+		}
+	]
+}

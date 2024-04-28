@@ -1,0 +1,7 @@
+{
+	"parent": "kuayue:block/door/sliding_door_25t_upper_open",
+	"textures": {
+		"0": "kuayue:block/sliding_door_25k",
+		"particle": "kuayue:block/sliding_door_25k"
+	}
+}

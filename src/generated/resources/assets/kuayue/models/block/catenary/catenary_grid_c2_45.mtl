@@ -1,0 +1,8 @@
+# Made in Blockbench 4.7.2
+newmtl m_b0d90ce6-6376-66ba-f631-bfe8cf75fbea
+map_Kd kuayue:block/catenary_grid_a1_45
+newmtl m_6b080c85-026e-6793-8ed0-b32156cfc59d
+map_Kd kuayue:block/fixator
+newmtl m_8f72a372-cba6-b92b-e2e6-d0bbdcdbd5f9
+map_Kd kuayue:block/lines
+newmtl none

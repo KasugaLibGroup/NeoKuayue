@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayue:block/flourescent_light",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "kuayue:block/flourescent_light",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "kuayue:block/flourescent_light",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "kuayue:block/flourescent_light",
+      "y": 90
+    }
+  }
+}

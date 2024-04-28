@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayue:block/tactile_paving_pin",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "kuayue:block/tactile_paving_pin",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "kuayue:block/tactile_paving_pin",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "kuayue:block/tactile_paving_pin",
+      "y": 90
+    }
+  }
+}

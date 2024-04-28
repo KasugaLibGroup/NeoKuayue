@@ -1,0 +1,23 @@
+{
+	"credit": "Made by WillowKoishi",
+	"ambientocclusion": false,
+	"render_type": "translucent",
+	"textures": {
+		"14": "kuayue:block/carriage/carriage_25z/original_25z_bottom",
+		"particle": "kuayue:block/carriage/carriage_25z/original_25z_bottom"
+	},
+	"elements": [
+		{
+			"from": [0, 0, -1],
+			"to": [16, 16, 1],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [4, 0, 0, 4], "texture": "#14", "cullface": "west"},
+				"east": {"uv": [4.5, 4, 4, 8], "texture": "#14", "cullface": "south"},
+				"south": {"uv": [4, 4, 0, 8], "texture": "#14"},
+				"west": {"uv": [4.5, 0, 4, 4], "texture": "#14", "cullface": "north"},
+				"down": {"uv": [4.5, 0, 8.5, 0.5], "texture": "#14", "cullface": "down"}
+			}
+		}
+	]
+}

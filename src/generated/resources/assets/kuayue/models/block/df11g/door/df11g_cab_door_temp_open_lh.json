@@ -1,0 +1,58 @@
+{
+	"credit": "Made by WillowKoishi",
+	"render_type": "translucent",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "kuayue:block/df11g/door/df11g_cab_door_temp_upper",
+		"particle": "kuayue:block/df11g/door/df11g_cab_door_temp_upper"
+	},
+	"elements": [
+		{
+			"from": [0, 0, -1.25],
+			"to": [4, 16.4, 1],
+			"rotation": {"angle": 0, "axis": "y", "origin": [16, 0, 0]},
+			"faces": {
+				"north": {"uv": [4.03125, 10.75, 3.03125, 14.75], "texture": "#0"},
+				"east": {"uv": [3, 4, 2.5, 8], "texture": "#0"},
+				"south": {"uv": [1.875, 4, 1, 8], "texture": "#0"},
+				"west": {"uv": [2.5, 4, 2, 8], "texture": "#0"},
+				"up": {"uv": [5.5, 1, 6.375, 0.5], "texture": "#0"},
+				"down": {"uv": [5.5, 1, 6.375, 1.5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [14.1, 0, -1.25],
+			"to": [16, 16.4, 1],
+			"rotation": {"angle": 0, "axis": "y", "origin": [16, 0, 0]},
+			"faces": {
+				"north": {"uv": [3.5, 4, 3, 8], "texture": "#0"},
+				"east": {"uv": [5, 4, 4.5, 8], "texture": "#0"},
+				"south": {"uv": [4.5, 4, 4, 8], "texture": "#0"},
+				"west": {"uv": [4, 4, 3.5, 8], "texture": "#0"},
+				"up": {"uv": [5.5, 2, 6, 1.5], "texture": "#0"},
+				"down": {"uv": [5.5, 2, 6, 2.5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [3.15, 0, -0.75],
+			"to": [4.4, 16.4, 9.7],
+			"rotation": {"angle": 0, "axis": "y", "origin": [9.025, 8.2, -0.525]},
+			"faces": {
+				"north": {"uv": [5.25, 4, 5, 8], "texture": "#0"},
+				"east": {"uv": [2.625, 0, 0, 4], "texture": "#0"},
+				"south": {"uv": [5.5, 4, 5.25, 8], "texture": "#0"},
+				"west": {"uv": [5.375, 0, 2.75, 4], "texture": "#0"},
+				"up": {"uv": [8.125, 0, 5.5, 0.25], "rotation": 270, "texture": "#0"},
+				"down": {"uv": [8.125, 0.5, 5.5, 0.25], "rotation": 90, "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "door",
+			"origin": [-0.5, 0, 0],
+			"color": 0,
+			"children": [0, 1, 2]
+		}
+	]
+}

@@ -1,0 +1,5 @@
+{
+  "loader": "forge:obj",
+  "flip_v": true,
+  "model": "kuayue:models/block/carriage/carriage_marshalled_cr200j/head/coupler_fairing.obj"
+}

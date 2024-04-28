@@ -1,0 +1,20 @@
+{
+ "variants": {
+  "facing=east": {
+   "model": "kuayue:block/carport_25t_toilet",
+   "y": 270
+  },
+  "facing=north": {
+   "model": "kuayue:block/carport_25t_toilet",
+   "y": 180
+  },
+  "facing=south": {
+   "model": "kuayue:block/carport_25t_toilet",
+   "y": 0
+  },
+  "facing=west": {
+   "model": "kuayue:block/carport_25t_toilet",
+   "y": 90
+  }
+ }
+}

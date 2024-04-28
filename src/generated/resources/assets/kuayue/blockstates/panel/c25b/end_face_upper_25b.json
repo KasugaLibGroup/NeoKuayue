@@ -1,0 +1,20 @@
+{
+ "variants": {
+  "facing=east": {
+   "model": "kuayue:block/carriage_end_face/end_face_25b_original_upper",
+   "y": 270
+  },
+  "facing=north": {
+   "model": "kuayue:block/carriage_end_face/end_face_25b_original_upper",
+   "y": 180
+  },
+  "facing=south": {
+   "model": "kuayue:block/carriage_end_face/end_face_25b_original_upper",
+   "y": 0
+  },
+  "facing=west": {
+   "model": "kuayue:block/carriage_end_face/end_face_25b_original_upper",
+   "y": 90
+  }
+ }
+}

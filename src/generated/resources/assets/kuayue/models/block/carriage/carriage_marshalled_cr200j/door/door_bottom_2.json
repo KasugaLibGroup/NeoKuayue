@@ -1,0 +1,36 @@
+{
+	"credit": "Made with Blockbench",
+	"ambientocclusion": false,
+	"render_type": "translucent",
+	"texture_size": [256, 256],
+	"textures": {
+		"14": "kuayue:block/carriage/cr200j/door_bottom_2",
+		"particle": "kuayue:block/carriage/cr200j/cr200j_particle"
+	},
+	"elements": [
+		{
+			"from": [0, 0, -1],
+			"to": [16, 16, 1],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [4, 0, 0, 4], "texture": "#14", "cullface": "west"},
+				"east": {"uv": [5, 4, 4.5, 8], "texture": "#14", "cullface": "south"},
+				"south": {"uv": [4, 4, 0, 8], "texture": "#14"},
+				"west": {"uv": [5, 4, 4.5, 8], "texture": "#14", "cullface": "north"},
+				"down": {"uv": [4.5, 0, 8.5, 0.5], "texture": "#14", "cullface": "down"}
+			}
+		},
+		{
+			"from": [0, -15, -1],
+			"to": [16, 0, 1],
+			"faces": {
+				"north": {"uv": [0, 8, 4, 12], "texture": "#14"},
+				"east": {"uv": [4, 4, 4.5, 8], "texture": "#14"},
+				"south": {"uv": [0, 12, 4, 16], "texture": "#14"},
+				"west": {"uv": [4, 0, 4.5, 3.99375], "texture": "#14"},
+				"up": {"uv": [0, 0, 1, 0.125], "texture": "#14"},
+				"down": {"uv": [0, 0.00625, 4, 0.5], "texture": "#14"}
+			}
+		}
+	]
+}

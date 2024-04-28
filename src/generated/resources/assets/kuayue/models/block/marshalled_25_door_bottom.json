@@ -1,0 +1,6 @@
+{
+  "parent": "kuayue:block/door_bottom",
+  "textures": {
+    "1": "kuayue:block/marshalled_25_door_bottom"
+  }
+}

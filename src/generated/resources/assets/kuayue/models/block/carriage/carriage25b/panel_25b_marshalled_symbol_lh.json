@@ -1,0 +1,7 @@
+{
+  "parent": "kuayue:block/kuayue_panel_lh",
+  "textures": {
+    "0": "kuayue:block/panel_25b_marshalled_symbol",
+    "particle": "kuayue:block/panel_25b_marshalled_symbol"
+  }
+}

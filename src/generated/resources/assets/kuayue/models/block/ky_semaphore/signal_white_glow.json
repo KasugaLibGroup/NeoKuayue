@@ -1,0 +1,6 @@
+{
+  "parent": "block/block",
+  "loader": "forge:obj",
+  "flip_v": true,
+  "model": "kuayue:models/block/ky_semaphore/signal_white_glow.obj"
+}

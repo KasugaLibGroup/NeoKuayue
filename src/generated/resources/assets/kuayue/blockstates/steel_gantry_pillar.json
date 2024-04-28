@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayue:block/catenary/steel_gantry_pillar",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "kuayue:block/catenary/steel_gantry_pillar",
+      "y": 0
+    },
+    "facing=south": {
+      "model": "kuayue:block/catenary/steel_gantry_pillar",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "kuayue:block/catenary/steel_gantry_pillar",
+      "y": 270
+    }
+  }
+}

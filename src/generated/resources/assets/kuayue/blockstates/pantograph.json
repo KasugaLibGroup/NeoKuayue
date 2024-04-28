@@ -1,0 +1,68 @@
+{
+  "variants": {
+    "facing=east,open=true,half=bottom": {
+      "model": "kuayue:block/pantograph",
+      "y": 90
+    },
+    "facing=north,open=true,half=bottom": {
+      "model": "kuayue:block/pantograph",
+      "y": 0
+    },
+    "facing=south,open=true,half=bottom": {
+      "model": "kuayue:block/pantograph",
+      "y": 180
+    },
+    "facing=west,open=true,half=bottom": {
+      "model": "kuayue:block/pantograph",
+      "y": 270
+    },
+    "facing=east,open=true,half=top": {
+      "model": "kuayue:block/pantograph",
+      "y": 90
+    },
+    "facing=north,open=true,half=top": {
+      "model": "kuayue:block/pantograph",
+      "y": 0
+    },
+    "facing=south,open=true,half=top": {
+      "model": "kuayue:block/pantograph",
+      "y": 180
+    },
+    "facing=west,open=true,half=top": {
+      "model": "kuayue:block/pantograph",
+      "y": 270
+    },
+    "facing=east,open=false,half=bottom": {
+      "model": "kuayue:block/pantograph_off",
+      "y": 90
+    },
+    "facing=north,open=false,half=bottom": {
+      "model": "kuayue:block/pantograph_off",
+      "y": 0
+    },
+    "facing=south,open=false,half=bottom": {
+      "model": "kuayue:block/pantograph_off",
+      "y": 180
+    },
+    "facing=west,open=false,half=bottom": {
+      "model": "kuayue:block/pantograph_off",
+      "y": 270
+    },
+    "facing=east,open=false,half=top": {
+      "model": "kuayue:block/pantograph_off",
+      "y": 90
+    },
+    "facing=north,open=false,half=top": {
+      "model": "kuayue:block/pantograph_off",
+      "y": 0
+    },
+    "facing=south,open=false,half=top": {
+      "model": "kuayue:block/pantograph_off",
+      "y": 180
+    },
+    "facing=west,open=false,half=top": {
+      "model": "kuayue:block/pantograph_off",
+      "y": 270
+    }
+  }
+}

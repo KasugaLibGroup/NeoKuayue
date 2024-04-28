@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayue:block/signal_pole_light",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "kuayue:block/signal_pole_light",
+      "y": 0
+    },
+    "facing=south": {
+      "model": "kuayue:block/signal_pole_light",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "kuayue:block/signal_pole_light",
+      "y": 270
+    }
+  }
+}

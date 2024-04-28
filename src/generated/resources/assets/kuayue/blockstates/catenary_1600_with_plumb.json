@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayue:block/catenary/catenary_1600_with_plumb",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "kuayue:block/catenary/catenary_1600_with_plumb",
+      "y": 0
+    },
+    "facing=south": {
+      "model": "kuayue:block/catenary/catenary_1600_with_plumb",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "kuayue:block/catenary/catenary_1600_with_plumb",
+      "y": 270
+    }
+  }
+}

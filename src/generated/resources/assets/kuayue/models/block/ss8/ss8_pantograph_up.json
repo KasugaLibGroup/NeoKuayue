@@ -1,0 +1,5 @@
+{
+  "loader": "forge:obj",
+  "model": "kuayue:models/block/ss8/ss8_pantograph_up.obj",
+  "flip_v": true
+}

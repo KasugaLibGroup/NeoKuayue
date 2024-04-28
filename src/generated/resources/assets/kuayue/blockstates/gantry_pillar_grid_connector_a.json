@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayue:block/catenary/gantry_pillar_grid_connector_a",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "kuayue:block/catenary/gantry_pillar_grid_connector_a",
+      "y": 0
+    },
+    "facing=south": {
+      "model": "kuayue:block/catenary/gantry_pillar_grid_connector_a",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "kuayue:block/catenary/gantry_pillar_grid_connector_a",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "facing=north,waterlogged=true": { "model": "kuayue:block/seats/seat_rz", "y": 0 },
+    "facing=east,waterlogged=true":  { "model": "kuayue:block/seats/seat_rz", "y": 90 },
+    "facing=south,waterlogged=true": { "model": "kuayue:block/seats/seat_rz", "y": 180 },
+    "facing=west,waterlogged=true":  { "model": "kuayue:block/seats/seat_rz", "y":  270 },
+    "facing=north,waterlogged=false": { "model": "kuayue:block/seats/seat_rz", "y": 0 },
+    "facing=east,waterlogged=false":  { "model": "kuayue:block/seats/seat_rz", "y": 90 },
+    "facing=south,waterlogged=false": { "model": "kuayue:block/seats/seat_rz", "y": 180 },
+    "facing=west,waterlogged=false":  { "model": "kuayue:block/seats/seat_rz", "y":  270 }
+  }
+}

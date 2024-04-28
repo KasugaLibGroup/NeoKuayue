@@ -1,0 +1,112 @@
+{
+ "variants": {
+  "facing=east,half=lower,hinge=left,open=false": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/cabin_door_handler",
+   "y": 270
+  },
+  "facing=east,half=lower,hinge=left,open=true": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/cabin_door_handler",
+   "y": 270
+  },
+  "facing=east,half=lower,hinge=right,open=false": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/cabin_door_handler",
+   "y": 270
+  },
+  "facing=east,half=lower,hinge=right,open=true": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/cabin_door_handler",
+   "y": 270
+  },
+  "facing=east,half=upper,hinge=left,open=false": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/empty"
+  },
+  "facing=east,half=upper,hinge=left,open=true": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/empty"
+  },
+  "facing=east,half=upper,hinge=right,open=false": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/empty"
+  },
+  "facing=east,half=upper,hinge=right,open=true": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/empty"
+  },
+  "facing=north,half=lower,hinge=left,open=false": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/cabin_door_handler",
+   "y": 180
+  },
+  "facing=north,half=lower,hinge=left,open=true": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/cabin_door_handler",
+   "y": 180
+  },
+  "facing=north,half=lower,hinge=right,open=false": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/cabin_door_handler",
+   "y": 180
+  },
+  "facing=north,half=lower,hinge=right,open=true": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/cabin_door_handler",
+   "y": 180
+  },
+  "facing=north,half=upper,hinge=left,open=false": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/empty"
+  },
+  "facing=north,half=upper,hinge=left,open=true": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/empty"
+  },
+  "facing=north,half=upper,hinge=right,open=false": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/empty"
+  },
+  "facing=north,half=upper,hinge=right,open=true": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/empty"
+  },
+  "facing=south,half=lower,hinge=left,open=false": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/cabin_door_handler"
+  },
+  "facing=south,half=lower,hinge=left,open=true": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/cabin_door_handler"
+  },
+  "facing=south,half=lower,hinge=right,open=false": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/cabin_door_handler"
+  },
+  "facing=south,half=lower,hinge=right,open=true": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/cabin_door_handler"
+  },
+  "facing=south,half=upper,hinge=left,open=false": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/empty"
+  },
+  "facing=south,half=upper,hinge=left,open=true": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/empty"
+  },
+  "facing=south,half=upper,hinge=right,open=false": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/empty"
+  },
+  "facing=south,half=upper,hinge=right,open=true": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/empty"
+  },
+  "facing=west,half=lower,hinge=left,open=false": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/cabin_door_handler",
+   "y": 90
+  },
+  "facing=west,half=lower,hinge=left,open=true": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/cabin_door_handler",
+   "y": 90
+  },
+  "facing=west,half=lower,hinge=right,open=false": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/cabin_door_handler",
+   "y": 90
+  },
+  "facing=west,half=lower,hinge=right,open=true": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/cabin_door_handler",
+   "y": 90
+  },
+  "facing=west,half=upper,hinge=left,open=false": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/empty"
+  },
+  "facing=west,half=upper,hinge=left,open=true": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/empty"
+  },
+  "facing=west,half=upper,hinge=right,open=false": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/empty"
+  },
+  "facing=west,half=upper,hinge=right,open=true": {
+   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/door/empty"
+  }
+ }
+}

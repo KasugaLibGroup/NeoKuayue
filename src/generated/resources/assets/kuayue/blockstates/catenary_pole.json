@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayue:block/catenary_pole",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "kuayue:block/catenary_pole",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "kuayue:block/catenary_pole",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "kuayue:block/catenary_pole",
+      "y": 90
+    }
+  }
+}

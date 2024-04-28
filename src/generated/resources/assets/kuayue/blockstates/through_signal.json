@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=east,powered=false,through_type=cross_signal": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 90
+    },
+    "facing=east,powered=false,through_type=entry_signal": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 90
+    },
+    "facing=east,powered=true,through_type=cross_signal": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 90
+    },
+    "facing=east,powered=true,through_type=entry_signal": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 90
+    },
+    "facing=north,powered=false,through_type=cross_signal": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal"
+    },
+    "facing=north,powered=false,through_type=entry_signal": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal"
+    },
+    "facing=north,powered=true,through_type=cross_signal": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal"
+    },
+    "facing=north,powered=true,through_type=entry_signal": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal"
+    },
+    "facing=south,powered=false,through_type=cross_signal": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 180
+    },
+    "facing=south,powered=false,through_type=entry_signal": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 180
+    },
+    "facing=south,powered=true,through_type=cross_signal": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 180
+    },
+    "facing=south,powered=true,through_type=entry_signal": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 180
+    },
+    "facing=west,powered=false,through_type=cross_signal": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 270
+    },
+    "facing=west,powered=false,through_type=entry_signal": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 270
+    },
+    "facing=west,powered=true,through_type=cross_signal": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 270
+    },
+    "facing=west,powered=true,through_type=entry_signal": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 270
+    }
+  }
+}

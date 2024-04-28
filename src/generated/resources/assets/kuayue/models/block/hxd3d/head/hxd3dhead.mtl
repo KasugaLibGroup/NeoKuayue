@@ -1,0 +1,10 @@
+# Made in Blockbench 4.5.2
+newmtl m_a1e7a791-858b-ef98-1a2d-c899225f8f27
+map_Kd kuayue:block/hxd3d/head/hxd3dhead
+newmtl m_3f063f9b-860b-8bc3-2135-847c7d1e2646
+map_Kd kuayue:block/hxd3d/head/hxd3d_upper_hlf_0
+newmtl m_d6888e13-e152-70ee-1a18-e02b188895a0
+map_Kd kuayue:block/hxd3d/head/hxd3d_side_pane_0
+newmtl m_a3661fb9-cddf-6e31-9b86-e5a761ea728b
+map_Kd kuayue:block/hxd3d/head/hxd3d_side_pane_1
+newmtl none

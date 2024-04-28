@@ -1,0 +1,132 @@
+{
+ "variants": {
+  "facing=east,half=lower,hinge=left,open=false": {
+   "model": "kuayue:block/door/sliding_door_25k_bottom",
+   "y": 270
+  },
+  "facing=east,half=lower,hinge=left,open=true": {
+   "model": "kuayue:block/door/sliding_door_25k_bottom_open",
+   "y": 270
+  },
+  "facing=east,half=lower,hinge=right,open=false": {
+   "model": "kuayue:block/door/sliding_door_25k_bottom_lh",
+   "y": 270
+  },
+  "facing=east,half=lower,hinge=right,open=true": {
+   "model": "kuayue:block/door/sliding_door_25k_bottom_open_lh",
+   "y": 270
+  },
+  "facing=east,half=upper,hinge=left,open=false": {
+   "model": "kuayue:block/door/sliding_door_25k_upper",
+   "y": 270
+  },
+  "facing=east,half=upper,hinge=left,open=true": {
+   "model": "kuayue:block/door/sliding_door_25k_upper_open",
+   "y": 270
+  },
+  "facing=east,half=upper,hinge=right,open=false": {
+   "model": "kuayue:block/door/sliding_door_25k_upper",
+   "y": 270
+  },
+  "facing=east,half=upper,hinge=right,open=true": {
+   "model": "kuayue:block/door/sliding_door_25k_upper_open_lh",
+   "y": 270
+  },
+  "facing=north,half=lower,hinge=left,open=false": {
+   "model": "kuayue:block/door/sliding_door_25k_bottom",
+   "y": 180
+  },
+  "facing=north,half=lower,hinge=left,open=true": {
+   "model": "kuayue:block/door/sliding_door_25k_bottom_open",
+   "y": 180
+  },
+  "facing=north,half=lower,hinge=right,open=false": {
+   "model": "kuayue:block/door/sliding_door_25k_bottom_lh",
+   "y": 180
+  },
+  "facing=north,half=lower,hinge=right,open=true": {
+   "model": "kuayue:block/door/sliding_door_25k_bottom_open_lh",
+   "y": 180
+  },
+  "facing=north,half=upper,hinge=left,open=false": {
+   "model": "kuayue:block/door/sliding_door_25k_upper",
+   "y": 180
+  },
+  "facing=north,half=upper,hinge=left,open=true": {
+   "model": "kuayue:block/door/sliding_door_25k_upper_open",
+   "y": 180
+  },
+  "facing=north,half=upper,hinge=right,open=false": {
+   "model": "kuayue:block/door/sliding_door_25k_upper",
+   "y": 180
+  },
+  "facing=north,half=upper,hinge=right,open=true": {
+   "model": "kuayue:block/door/sliding_door_25k_upper_open_lh",
+   "y": 180
+  },
+  "facing=south,half=lower,hinge=left,open=false": {
+   "model": "kuayue:block/door/sliding_door_25k_bottom",
+   "y": 0
+  },
+  "facing=south,half=lower,hinge=left,open=true": {
+   "model": "kuayue:block/door/sliding_door_25k_bottom_open",
+   "y": 0
+  },
+  "facing=south,half=lower,hinge=right,open=false": {
+   "model": "kuayue:block/door/sliding_door_25k_bottom_lh",
+   "y": 0
+  },
+  "facing=south,half=lower,hinge=right,open=true": {
+   "model": "kuayue:block/door/sliding_door_25k_bottom_open_lh",
+   "y": 0
+  },
+  "facing=south,half=upper,hinge=left,open=false": {
+   "model": "kuayue:block/door/sliding_door_25k_upper",
+   "y": 0
+  },
+  "facing=south,half=upper,hinge=left,open=true": {
+   "model": "kuayue:block/door/sliding_door_25k_upper_open",
+   "y": 0
+  },
+  "facing=south,half=upper,hinge=right,open=false": {
+   "model": "kuayue:block/door/sliding_door_25k_upper",
+   "y": 0
+  },
+  "facing=south,half=upper,hinge=right,open=true": {
+   "model": "kuayue:block/door/sliding_door_25k_upper_open_lh",
+   "y": 0
+  },
+  "facing=west,half=lower,hinge=left,open=false": {
+   "model": "kuayue:block/door/sliding_door_25k_bottom",
+   "y": 90
+  },
+  "facing=west,half=lower,hinge=left,open=true": {
+   "model": "kuayue:block/door/sliding_door_25k_bottom_open",
+   "y": 90
+  },
+  "facing=west,half=lower,hinge=right,open=false": {
+   "model": "kuayue:block/door/sliding_door_25k_bottom_lh",
+   "y": 90
+  },
+  "facing=west,half=lower,hinge=right,open=true": {
+   "model": "kuayue:block/door/sliding_door_25k_bottom_open_lh",
+   "y": 90
+  },
+  "facing=west,half=upper,hinge=left,open=false": {
+   "model": "kuayue:block/door/sliding_door_25k_upper",
+   "y": 90
+  },
+  "facing=west,half=upper,hinge=left,open=true": {
+   "model": "kuayue:block/door/sliding_door_25k_upper_open",
+   "y": 90
+  },
+  "facing=west,half=upper,hinge=right,open=false": {
+   "model": "kuayue:block/door/sliding_door_25k_upper",
+   "y": 90
+  },
+  "facing=west,half=upper,hinge=right,open=true": {
+   "model": "kuayue:block/door/sliding_door_25k_upper_open_lh",
+   "y": 90
+  }
+ }
+}

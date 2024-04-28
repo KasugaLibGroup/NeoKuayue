@@ -1,0 +1,10 @@
+{
+	"credit": "Made by WillowKoishi",
+	"render_type": "translucent",
+	"parent": "kuayue:block/carriage/windows/original_color_window_25t_sealed_small",
+	"textures": {
+		"0": "kuayue:block/windows/original_color_window_25b",
+		"3": "kuayue:block/panel_25g_original_mid",
+		"particle": "kuayue:block/panel_25g_original_mid"
+	}
+}

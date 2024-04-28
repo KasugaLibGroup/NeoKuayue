@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayue:block/switch_on_sign",
+      "y": 0
+    },
+    "facing=north": {
+      "model": "kuayue:block/switch_on_sign",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "kuayue:block/switch_on_sign",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "kuayue:block/switch_on_sign",
+      "y": 180
+    }
+  }
+}

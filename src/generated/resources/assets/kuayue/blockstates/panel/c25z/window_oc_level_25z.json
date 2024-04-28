@@ -1,0 +1,143 @@
+
+
+{
+  "variants": {
+    "facing=east,open=false,hinge=left,type=0": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_lh",
+      "y": 270
+    },
+    "facing=north,open=false,hinge=left,type=0": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_lh",
+      "y": 180
+    },
+    "facing=south,open=false,hinge=left,type=0": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_lh",
+      "y": 0
+    },
+    "facing=west,open=false,hinge=left,type=0": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_lh",
+      "y": 90
+    },
+
+    "facing=east,open=false,hinge=left,type=1": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_lh_2",
+      "y": 270
+    },
+    "facing=north,open=false,hinge=left,type=1": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_lh_2",
+      "y": 180
+    },
+    "facing=south,open=false,hinge=left,type=1": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_lh_2",
+      "y": 0
+    },
+    "facing=west,open=false,hinge=left,type=1": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_lh_2",
+      "y": 90
+    },
+
+    "facing=east,open=true,hinge=left,type=0": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_lh_open",
+      "y": 270
+    },
+    "facing=north,open=true,hinge=left,type=0": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_lh_open",
+      "y": 180
+    },
+    "facing=south,open=true,hinge=left,type=0": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_lh_open",
+      "y": 0
+    },
+    "facing=west,open=true,hinge=left,type=0": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_lh_open",
+      "y": 90
+    },
+
+    "facing=east,open=true,hinge=left,type=1": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_lh_open_2",
+      "y": 270
+    },
+    "facing=north,open=true,hinge=left,type=1": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_lh_open_2",
+      "y": 180
+    },
+    "facing=south,open=true,hinge=left,type=1": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_lh_open_2",
+      "y": 0
+    },
+    "facing=west,open=true,hinge=left,type=1": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_lh_open_2",
+      "y": 90
+    },
+
+
+
+    "facing=east,open=false,hinge=right,type=0": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level",
+      "y": 270
+    },
+    "facing=north,open=false,hinge=right,type=0": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level",
+      "y": 180
+    },
+    "facing=south,open=false,hinge=right,type=0": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level",
+      "y": 0
+    },
+    "facing=west,open=false,hinge=right,type=0": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level",
+      "y": 90
+    },
+
+    "facing=east,open=false,hinge=right,type=1": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_2",
+      "y": 270
+    },
+    "facing=north,open=false,hinge=right,type=1": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_2",
+      "y": 180
+    },
+    "facing=south,open=false,hinge=right,type=1": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_2",
+      "y": 0
+    },
+    "facing=west,open=false,hinge=right,type=1": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_2",
+      "y": 90
+    },
+
+    "facing=east,open=true,hinge=right,type=0": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_open",
+      "y": 270
+    },
+    "facing=north,open=true,hinge=right,type=0": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_open",
+      "y": 180
+    },
+    "facing=south,open=true,hinge=right,type=0": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_open",
+      "y": 0
+    },
+    "facing=west,open=true,hinge=right,type=0": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_open",
+      "y": 90
+    },
+
+    "facing=east,open=true,hinge=right,type=1": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_open_2",
+      "y": 270
+    },
+    "facing=north,open=true,hinge=right,type=1": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_open_2",
+      "y": 180
+    },
+    "facing=south,open=true,hinge=right,type=1": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_open_2",
+      "y": 0
+    },
+    "facing=west,open=true,hinge=right,type=1": {
+      "model": "kuayue:block/carriage/windows/original_color_window_25z_level_open_2",
+      "y": 90
+    }
+  }
+}

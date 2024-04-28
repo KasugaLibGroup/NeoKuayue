@@ -1,0 +1,9 @@
+{
+	"parent": "kuayue:block/carriage/windows/original_color_window_25g_toilet",
+	"render_type": "translucent",
+	"textures": {
+		"0": "kuayue:block/windows/original_color_window_25b",
+		"2": "kuayue:block/panel_25k_original_mid",
+		"particle": "kuayue:block/panel_25k_original_mid"
+	}
+}

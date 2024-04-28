@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "kuayue:block/hxd3d/hxd3d_slab",
+    "top": "kuayue:block/hxd3d/hxd3d_slab",
+    "side": "kuayue:block/hxd3d/hxd3d_slab"
+  }
+}

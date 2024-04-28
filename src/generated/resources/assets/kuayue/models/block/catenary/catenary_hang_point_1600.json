@@ -1,0 +1,145 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"1": "kuayue:block/catenary_line",
+		"3": "kuayue:block/plumb_line",
+		"particle": "kuayue:block/catenary_hang_line_all"
+	},
+	"elements": [
+		{
+			"name": "catenary_line",
+			"from": [7.5, 0, 0],
+			"to": [8.5, 0.25, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"east": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"south": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"west": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"up": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"down": {"uv": [0, 0, 1, 1], "texture": "#1"}
+			}
+		},
+		{
+			"name": "catenary_line",
+			"from": [7.5, 0, 16],
+			"to": [8.5, 0.25, 32],
+			"faces": {
+				"north": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"east": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"south": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"west": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"up": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"down": {"uv": [0, 0, 1, 1], "texture": "#1"}
+			}
+		},
+		{
+			"name": "catenary_line",
+			"from": [7.5, 0, -16],
+			"to": [8.5, 0.25, 0],
+			"faces": {
+				"north": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"east": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"south": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"west": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"up": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"down": {"uv": [0, 0, 1, 1], "texture": "#1"}
+			}
+		},
+		{
+			"name": "plumb_line",
+			"from": [7.6, 0.25, -8.8],
+			"to": [8.3, 16.1, -8.2],
+			"faces": {
+				"north": {"uv": [0, 0, 1, 12], "texture": "#3"},
+				"east": {"uv": [1, 0, 2, 12], "texture": "#3"},
+				"south": {"uv": [2, 0, 3, 12], "texture": "#3"},
+				"west": {"uv": [3, 0, 4, 12], "texture": "#3"},
+				"up": {"uv": [5, 1, 4, 0], "texture": "#3"},
+				"down": {"uv": [5, 1, 4, 2], "texture": "#3"}
+			}
+		},
+		{
+			"name": "plumb_line",
+			"from": [7.6, 0.25, 24.2],
+			"to": [8.3, 16, 24.8],
+			"faces": {
+				"north": {"uv": [0, 0, 0.7, 12.25], "texture": "#3"},
+				"east": {"uv": [0, 0, 0.6, 12.25], "texture": "#3"},
+				"south": {"uv": [0, 0, 0.7, 12.25], "texture": "#3"},
+				"west": {"uv": [0, 0, 0.6, 12.25], "texture": "#3"},
+				"up": {"uv": [0, 0, 0.7, 0.6], "texture": "#3"},
+				"down": {"uv": [0, 0, 0.7, 0.6], "texture": "#3"}
+			}
+		},
+		{
+			"name": "catenary_line",
+			"from": [7.5, 16, 0],
+			"to": [8.5, 16.25, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"east": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"south": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"west": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"up": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"down": {"uv": [0, 0, 1, 1], "texture": "#1"}
+			}
+		},
+		{
+			"name": "catenary_line",
+			"from": [7.5, 16, -16],
+			"to": [8.5, 16.25, 0],
+			"faces": {
+				"north": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"east": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"south": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"west": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"up": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"down": {"uv": [0, 0, 1, 1], "texture": "#1"}
+			}
+		},
+		{
+			"name": "catenary_line",
+			"from": [7.5, 16, 16],
+			"to": [8.5, 16.25, 32],
+			"faces": {
+				"north": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"east": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"south": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"west": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"up": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"down": {"uv": [0, 0, 1, 1], "texture": "#1"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [65, 0, 0],
+			"scale": [0.2, 0.2, 0.2]
+		},
+		"firstperson_righthand": {
+			"scale": [0.2, 0.2, 0.2]
+		},
+		"firstperson_lefthand": {
+			"scale": [0.2, 0.2, 0.2]
+		},
+		"ground": {
+			"scale": [0.2, 0.2, 0.2]
+		},
+		"gui": {
+			"rotation": [28, 35, 5],
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"fixed": {
+			"rotation": [0, -37, 25],
+			"scale": [0.2, 0.2, 0.2]
+		}
+	},
+	"groups": [
+		{
+			"name": "catenary_lines",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [0, 1, 2, 3, 4, 5, 6, 7]
+		}
+	]
+}

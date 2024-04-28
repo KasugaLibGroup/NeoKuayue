@@ -1,0 +1,5 @@
+{
+  "loader": "forge:obj",
+  "flip_v": true,
+  "model": "kuayue:models/block/carriage/carriage_marshalled_cr200j/end_face/end_face_frame.obj"
+}

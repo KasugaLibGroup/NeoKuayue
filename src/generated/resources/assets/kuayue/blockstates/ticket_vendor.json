@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "kuayue:block/ticket_vendor/ticket_vendor_2", "y": 0 },
+    "facing=east":  { "model": "kuayue:block/ticket_vendor/ticket_vendor_2", "y": 90 },
+    "facing=south": { "model": "kuayue:block/ticket_vendor/ticket_vendor_2" ,"y": 180},
+    "facing=west":  { "model": "kuayue:block/ticket_vendor/ticket_vendor_2", "y":  270 }
+  }
+}

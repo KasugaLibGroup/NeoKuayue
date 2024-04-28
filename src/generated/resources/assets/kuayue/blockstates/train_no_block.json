@@ -1,0 +1,385 @@
+{
+  "variants": {
+    "type=p25ba,hinge=left,facing=east": {
+      "model": "kuayue:block/carriage/carriage25b/panel_25b_original_top",
+      "y": 270
+    },
+    "type=p25ba,hinge=left,facing=north": {
+      "model": "kuayue:block/carriage/carriage25b/panel_25b_original_top",
+      "y": 180
+    },
+    "type=p25ba,hinge=left,facing=west": {
+      "model": "kuayue:block/carriage/carriage25b/panel_25b_original_top",
+      "y": 90
+    },
+    "type=p25ba,hinge=left,facing=south": {
+      "model": "kuayue:block/carriage/carriage25b/panel_25b_original_top",
+      "y": 0
+    },
+    "type=p25ba,hinge=right,facing=east": {
+      "model": "kuayue:block/carriage/carriage25b/panel_25b_original_top",
+      "y": 270
+    },
+    "type=p25ba,hinge=right,facing=north": {
+      "model": "kuayue:block/carriage/carriage25b/panel_25b_original_top",
+      "y": 180
+    },
+    "type=p25ba,hinge=right,facing=west": {
+      "model": "kuayue:block/carriage/carriage25b/panel_25b_original_top",
+      "y": 90
+    },
+    "type=p25ba,hinge=right,facing=south": {
+      "model": "kuayue:block/carriage/carriage25b/panel_25b_original_top",
+      "y": 0
+    },
+
+
+
+    "type=p25bb,hinge=left,facing=east": {
+      "model": "kuayue:block/carriage/carriage25b/panel_25b_original_top_b",
+      "y": 270
+    },
+    "type=p25bb,hinge=left,facing=north": {
+      "model": "kuayue:block/carriage/carriage25b/panel_25b_original_top_b",
+      "y": 180
+    },
+    "type=p25bb,hinge=left,facing=west": {
+      "model": "kuayue:block/carriage/carriage25b/panel_25b_original_top_b",
+      "y": 90
+    },
+    "type=p25bb,hinge=left,facing=south": {
+      "model": "kuayue:block/carriage/carriage25b/panel_25b_original_top_b",
+      "y": 0
+    },
+    "type=p25bb,hinge=right,facing=east": {
+      "model": "kuayue:block/carriage/carriage25b/panel_25b_original_top_b",
+      "y": 270
+    },
+    "type=p25bb,hinge=right,facing=north": {
+      "model": "kuayue:block/carriage/carriage25b/panel_25b_original_top_b",
+      "y": 180
+    },
+    "type=p25bb,hinge=right,facing=west": {
+      "model": "kuayue:block/carriage/carriage25b/panel_25b_original_top_b",
+      "y": 90
+    },
+    "type=p25bb,hinge=right,facing=south": {
+      "model": "kuayue:block/carriage/carriage25b/panel_25b_original_top_b",
+      "y": 0
+    },
+
+
+
+    "type=p25g,hinge=left,facing=east": {
+      "model": "kuayue:block/carriage/carriage25g/panel_25g_original_top",
+      "y": 270
+    },
+    "type=p25g,hinge=left,facing=north": {
+      "model": "kuayue:block/carriage/carriage25g/panel_25g_original_top",
+      "y": 180
+    },
+    "type=p25g,hinge=left,facing=west": {
+      "model": "kuayue:block/carriage/carriage25g/panel_25g_original_top",
+      "y": 90
+    },
+    "type=p25g,hinge=left,facing=south": {
+      "model": "kuayue:block/carriage/carriage25g/panel_25g_original_top",
+      "y": 0
+    },
+    "type=p25g,hinge=right,facing=east": {
+      "model": "kuayue:block/carriage/carriage25g/panel_25g_original_top",
+      "y": 270
+    },
+    "type=p25g,hinge=right,facing=north": {
+      "model": "kuayue:block/carriage/carriage25g/panel_25g_original_top",
+      "y": 180
+    },
+    "type=p25g,hinge=right,facing=west": {
+      "model": "kuayue:block/carriage/carriage25g/panel_25g_original_top",
+      "y": 90
+    },
+    "type=p25g,hinge=right,facing=south": {
+      "model": "kuayue:block/carriage/carriage25g/panel_25g_original_top",
+      "y": 0
+    },
+
+
+
+    "type=p25z,hinge=left,facing=east": {
+      "model": "kuayue:block/carriage/carriage25z/panel_25z_original_top",
+      "y": 270
+    },
+    "type=p25z,hinge=left,facing=north": {
+      "model": "kuayue:block/carriage/carriage25z/panel_25z_original_top",
+      "y": 180
+    },
+    "type=p25z,hinge=left,facing=west": {
+      "model": "kuayue:block/carriage/carriage25z/panel_25z_original_top",
+      "y": 90
+    },
+    "type=p25z,hinge=left,facing=south": {
+      "model": "kuayue:block/carriage/carriage25z/panel_25z_original_top",
+      "y": 0
+    },
+    "type=p25z,hinge=right,facing=east": {
+      "model": "kuayue:block/carriage/carriage25z/panel_25z_original_top",
+      "y": 270
+    },
+    "type=p25z,hinge=right,facing=north": {
+      "model": "kuayue:block/carriage/carriage25z/panel_25z_original_top",
+      "y": 180
+    },
+    "type=p25z,hinge=right,facing=west": {
+      "model": "kuayue:block/carriage/carriage25z/panel_25z_original_top",
+      "y": 90
+    },
+    "type=p25z,hinge=right,facing=south": {
+      "model": "kuayue:block/carriage/carriage25z/panel_25z_original_top",
+      "y": 0
+    },
+
+
+
+    "type=p25k,hinge=left,facing=east": {
+      "model": "kuayue:block/carriage/carriage25k/panel_25k_original_top",
+      "y": 270
+    },
+    "type=p25k,hinge=left,facing=north": {
+      "model": "kuayue:block/carriage/carriage25k/panel_25k_original_top",
+      "y": 180
+    },
+    "type=p25k,hinge=left,facing=west": {
+      "model": "kuayue:block/carriage/carriage25k/panel_25k_original_top",
+      "y": 90
+    },
+    "type=p25k,hinge=left,facing=south": {
+      "model": "kuayue:block/carriage/carriage25k/panel_25k_original_top",
+      "y": 0
+    },
+    "type=p25k,hinge=right,facing=east": {
+      "model": "kuayue:block/carriage/carriage25k/panel_25k_original_top",
+      "y": 270
+    },
+    "type=p25k,hinge=right,facing=north": {
+      "model": "kuayue:block/carriage/carriage25k/panel_25k_original_top",
+      "y": 180
+    },
+    "type=p25k,hinge=right,facing=west": {
+      "model": "kuayue:block/carriage/carriage25k/panel_25k_original_top",
+      "y": 90
+    },
+    "type=p25k,hinge=right,facing=south": {
+      "model": "kuayue:block/carriage/carriage25k/panel_25k_original_top",
+      "y": 0
+    },
+
+
+
+    "type=p25ta,hinge=left,facing=east": {
+      "model": "kuayue:block/carriage/carriage25t/panel_25t_original_top",
+      "y": 270
+    },
+    "type=p25ta,hinge=left,facing=north": {
+      "model": "kuayue:block/carriage/carriage25t/panel_25t_original_top",
+      "y": 180
+    },
+    "type=p25ta,hinge=left,facing=west": {
+      "model": "kuayue:block/carriage/carriage25t/panel_25t_original_top",
+      "y": 90
+    },
+    "type=p25ta,hinge=left,facing=south": {
+      "model": "kuayue:block/carriage/carriage25t/panel_25t_original_top",
+      "y": 0
+    },
+    "type=p25ta,hinge=right,facing=east": {
+      "model": "kuayue:block/carriage/carriage25t/panel_25t_original_top",
+      "y": 270
+    },
+    "type=p25ta,hinge=right,facing=north": {
+      "model": "kuayue:block/carriage/carriage25t/panel_25t_original_top",
+      "y": 180
+    },
+    "type=p25ta,hinge=right,facing=west": {
+      "model": "kuayue:block/carriage/carriage25t/panel_25t_original_top",
+      "y": 90
+    },
+    "type=p25ta,hinge=right,facing=south": {
+      "model": "kuayue:block/carriage/carriage25t/panel_25t_original_top",
+      "y": 0
+    },
+
+
+
+    "type=p25tb,hinge=left,facing=east": {
+      "model": "kuayue:block/carriage/carriage25t/panel_25t_original_top_b_lh",
+      "y": 270
+    },
+    "type=p25tb,hinge=left,facing=north": {
+      "model": "kuayue:block/carriage/carriage25t/panel_25t_original_top_b_lh",
+      "y": 180
+    },
+    "type=p25tb,hinge=left,facing=west": {
+      "model": "kuayue:block/carriage/carriage25t/panel_25t_original_top_b_lh",
+      "y": 90
+    },
+    "type=p25tb,hinge=left,facing=south": {
+      "model": "kuayue:block/carriage/carriage25t/panel_25t_original_top_b_lh",
+      "y": 0
+    },
+    "type=p25tb,hinge=right,facing=east": {
+      "model": "kuayue:block/carriage/carriage25t/panel_25t_original_top_b",
+      "y": 270
+    },
+    "type=p25tb,hinge=right,facing=north": {
+      "model": "kuayue:block/carriage/carriage25t/panel_25t_original_top_b",
+      "y": 180
+    },
+    "type=p25tb,hinge=right,facing=west": {
+      "model": "kuayue:block/carriage/carriage25t/panel_25t_original_top_b",
+      "y": 90
+    },
+    "type=p25tb,hinge=right,facing=south": {
+      "model": "kuayue:block/carriage/carriage25t/panel_25t_original_top_b",
+      "y": 0
+    },
+
+
+
+    "type=p25tc,hinge=left,facing=east": {
+      "model": "kuayue:block/carriage/carriage25t/panel_xl25t_original_top",
+      "y": 270
+    },
+    "type=p25tc,hinge=left,facing=north": {
+      "model": "kuayue:block/carriage/carriage25t/panel_xl25t_original_top",
+      "y": 180
+    },
+    "type=p25tc,hinge=left,facing=west": {
+      "model": "kuayue:block/carriage/carriage25t/panel_xl25t_original_top",
+      "y": 90
+    },
+    "type=p25tc,hinge=left,facing=south": {
+      "model": "kuayue:block/carriage/carriage25t/panel_xl25t_original_top",
+      "y": 0
+    },
+    "type=p25tc,hinge=right,facing=east": {
+      "model": "kuayue:block/carriage/carriage25t/panel_xl25t_original_top",
+      "y": 270
+    },
+    "type=p25tc,hinge=right,facing=north": {
+      "model": "kuayue:block/carriage/carriage25t/panel_xl25t_original_top",
+      "y": 180
+    },
+    "type=p25tc,hinge=right,facing=west": {
+      "model": "kuayue:block/carriage/carriage25t/panel_xl25t_original_top",
+      "y": 90
+    },
+    "type=p25tc,hinge=right,facing=south": {
+      "model": "kuayue:block/carriage/carriage25t/panel_xl25t_original_top",
+      "y": 0
+    },
+
+
+
+    "type=m25a,hinge=left,facing=east": {
+      "model": "kuayue:block/carriage/carriage25gaozu_niucha/panel_25_marshalled_top",
+      "y": 270
+    },
+    "type=m25a,hinge=left,facing=north": {
+      "model": "kuayue:block/carriage/carriage25gaozu_niucha/panel_25_marshalled_top",
+      "y": 180
+    },
+    "type=m25a,hinge=left,facing=west": {
+      "model": "kuayue:block/carriage/carriage25gaozu_niucha/panel_25_marshalled_top",
+      "y": 90
+    },
+    "type=m25a,hinge=left,facing=south": {
+      "model": "kuayue:block/carriage/carriage25gaozu_niucha/panel_25_marshalled_top",
+      "y": 0
+    },
+    "type=m25a,hinge=right,facing=east": {
+      "model": "kuayue:block/carriage/carriage25gaozu_niucha/panel_25_marshalled_top",
+      "y": 270
+    },
+    "type=m25a,hinge=right,facing=north": {
+      "model": "kuayue:block/carriage/carriage25gaozu_niucha/panel_25_marshalled_top",
+      "y": 180
+    },
+    "type=m25a,hinge=right,facing=west": {
+      "model": "kuayue:block/carriage/carriage25gaozu_niucha/panel_25_marshalled_top",
+      "y": 90
+    },
+    "type=m25a,hinge=right,facing=south": {
+      "model": "kuayue:block/carriage/carriage25gaozu_niucha/panel_25_marshalled_top",
+      "y": 0
+    },
+
+
+
+    "type=m25b,hinge=left,facing=east": {
+      "model": "kuayue:block/carriage/carriage25gaozu_niucha/panel_25_marshalled_top_b",
+      "y": 270
+    },
+    "type=m25b,hinge=left,facing=north": {
+      "model": "kuayue:block/carriage/carriage25gaozu_niucha/panel_25_marshalled_top_b",
+      "y": 180
+    },
+    "type=m25b,hinge=left,facing=west": {
+      "model": "kuayue:block/carriage/carriage25gaozu_niucha/panel_25_marshalled_top_b",
+      "y": 90
+    },
+    "type=m25b,hinge=left,facing=south": {
+      "model": "kuayue:block/carriage/carriage25gaozu_niucha/panel_25_marshalled_top_b",
+      "y": 0
+    },
+    "type=m25b,hinge=right,facing=east": {
+      "model": "kuayue:block/carriage/carriage25gaozu_niucha/panel_25_marshalled_top_b",
+      "y": 270
+    },
+    "type=m25b,hinge=right,facing=north": {
+      "model": "kuayue:block/carriage/carriage25gaozu_niucha/panel_25_marshalled_top_b",
+      "y": 180
+    },
+    "type=m25b,hinge=right,facing=west": {
+      "model": "kuayue:block/carriage/carriage25gaozu_niucha/panel_25_marshalled_top_b",
+      "y": 90
+    },
+    "type=m25b,hinge=right,facing=south": {
+      "model": "kuayue:block/carriage/carriage25gaozu_niucha/panel_25_marshalled_top_b",
+      "y": 0
+    },
+
+
+    "type=cr200j,hinge=left,facing=east": {
+      "model": "kuayue:block/carriage/carriage_marshalled_cr200j/panel_top",
+      "y": 270
+    },
+    "type=cr200j,hinge=left,facing=north": {
+      "model": "kuayue:block/carriage/carriage_marshalled_cr200j/panel_top",
+      "y": 180
+    },
+    "type=cr200j,hinge=left,facing=west": {
+      "model": "kuayue:block/carriage/carriage_marshalled_cr200j/panel_top",
+      "y": 90
+    },
+    "type=cr200j,hinge=left,facing=south": {
+      "model": "kuayue:block/carriage/carriage_marshalled_cr200j/panel_top",
+      "y": 0
+    },
+    "type=cr200j,hinge=right,facing=east": {
+      "model": "kuayue:block/carriage/carriage_marshalled_cr200j/panel_top",
+      "y": 270
+    },
+    "type=cr200j,hinge=right,facing=north": {
+      "model": "kuayue:block/carriage/carriage_marshalled_cr200j/panel_top",
+      "y": 180
+    },
+    "type=cr200j,hinge=right,facing=west": {
+      "model": "kuayue:block/carriage/carriage_marshalled_cr200j/panel_top",
+      "y": 90
+    },
+    "type=cr200j,hinge=right,facing=south": {
+      "model": "kuayue:block/carriage/carriage_marshalled_cr200j/panel_top",
+      "y": 0
+    }
+  }
+}

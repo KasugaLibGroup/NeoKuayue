@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "kuayue:block/crafting/weathering_steel_blocks/weathering_steel_block"
+    }
+  }
+}

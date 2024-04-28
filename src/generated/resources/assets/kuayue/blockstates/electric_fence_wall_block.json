@@ -1,0 +1,56 @@
+{
+  "variants": {
+    "type=0,facing=east": {
+      "model": "kuayue:block/shielded_gate/electric_fence/electric_fence_wall_center",
+      "y": 270
+    },
+    "type=0,facing=north": {
+      "model": "kuayue:block/shielded_gate/electric_fence/electric_fence_wall_center",
+      "y": 180
+    },
+    "type=0,facing=south": {
+      "model": "kuayue:block/shielded_gate/electric_fence/electric_fence_wall_center",
+      "y": 0
+    },
+    "type=0,facing=west": {
+      "model": "kuayue:block/shielded_gate/electric_fence/electric_fence_wall_center",
+      "y": 90
+    },
+
+
+    "type=1,facing=east": {
+      "model": "kuayue:block/shielded_gate/electric_fence/electric_fence_wall_left",
+      "y": 270
+    },
+    "type=1,facing=north": {
+      "model": "kuayue:block/shielded_gate/electric_fence/electric_fence_wall_left",
+      "y": 180
+    },
+    "type=1,facing=south": {
+      "model": "kuayue:block/shielded_gate/electric_fence/electric_fence_wall_left",
+      "y": 0
+    },
+    "type=1,facing=west": {
+      "model": "kuayue:block/shielded_gate/electric_fence/electric_fence_wall_left",
+      "y": 90
+    },
+
+
+    "type=2,facing=east": {
+      "model": "kuayue:block/shielded_gate/electric_fence/electric_fence_wall_right",
+      "y": 270
+    },
+    "type=2,facing=north": {
+      "model": "kuayue:block/shielded_gate/electric_fence/electric_fence_wall_right",
+      "y": 180
+    },
+    "type=2,facing=south": {
+      "model": "kuayue:block/shielded_gate/electric_fence/electric_fence_wall_right",
+      "y": 0
+    },
+    "type=2,facing=west": {
+      "model": "kuayue:block/shielded_gate/electric_fence/electric_fence_wall_right",
+      "y": 90
+    }
+  }
+}

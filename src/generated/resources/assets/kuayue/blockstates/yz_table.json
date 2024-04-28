@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "kuayue:block/carriage/facilities/yz_table", "y": 180 },
+    "facing=east":  { "model": "kuayue:block/carriage/facilities/yz_table", "y": 270 },
+    "facing=south": { "model": "kuayue:block/carriage/facilities/yz_table", "y": 0 },
+    "facing=west":  { "model": "kuayue:block/carriage/facilities/yz_table", "y":  90 }
+  }
+}

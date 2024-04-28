@@ -1,0 +1,6 @@
+{
+  "loader": "forge:obj",
+  "render_type": "translucent",
+  "model": "kuayue:models/block/qj_steam_loco/qj_pot_carcass.obj",
+  "flip_v": true
+}

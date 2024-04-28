@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "lead_beyond:block/ticket_vendor", "y": 180 },
+    "facing=east":  { "model": "lead_beyond:block/ticket_vendor", "y": 270 },
+    "facing=south": { "model": "lead_beyond:block/ticket_vendor" },
+    "facing=west":  { "model": "lead_beyond:block/ticket_vendor", "y":  90 }
+  }
+}

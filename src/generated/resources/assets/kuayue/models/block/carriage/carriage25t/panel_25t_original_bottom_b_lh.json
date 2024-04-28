@@ -1,0 +1,7 @@
+{
+  "parent": "kuayue:block/kuayue_panel_lh",
+  "textures": {
+    "0": "kuayue:block/panel_25t_original_bottom_b",
+    "particle": "kuayue:block/panel_25t_original_bottom_b"
+  }
+}

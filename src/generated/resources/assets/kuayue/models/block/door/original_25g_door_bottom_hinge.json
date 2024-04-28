@@ -1,0 +1,6 @@
+{
+  "parent": "kuayue:block/door/door_bottom_rh",
+  "textures": {
+    "1": "kuayue:block/original_25g_door_bottom"
+  }
+}

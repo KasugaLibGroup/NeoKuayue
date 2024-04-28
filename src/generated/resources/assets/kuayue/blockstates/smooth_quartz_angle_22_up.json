@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayue:block/smooth_quartz_angle_22_up",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "kuayue:block/smooth_quartz_angle_22_up",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "kuayue:block/smooth_quartz_angle_22_up",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "kuayue:block/smooth_quartz_angle_22_up",
+      "y": 90
+    }
+  }
+}

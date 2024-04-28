@@ -1,0 +1,9 @@
+{
+	"parent": "create:block/block",
+	"loader": "forge:obj",
+	"flip_v": true,
+	"model": "kuayue:models/block/df11g/df11g_front.obj",
+	"textures": {
+		"0": "kuayue:block/df11g/df11g_front"
+	}
+}

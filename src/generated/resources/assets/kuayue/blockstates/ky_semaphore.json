@@ -1,0 +1,124 @@
+{
+  "variants": {
+    "facing=east,flipped=false,full=false,upside_down=false": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 90
+    },
+    "facing=east,flipped=false,full=false,upside_down=true": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 90
+    },
+    "facing=east,flipped=false,full=true,upside_down=false": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 90
+    },
+    "facing=east,flipped=false,full=true,upside_down=true": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 90
+    },
+    "facing=east,flipped=true,full=false,upside_down=false": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 90
+    },
+    "facing=east,flipped=true,full=false,upside_down=true": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 90
+    },
+    "facing=east,flipped=true,full=true,upside_down=false": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 90
+    },
+    "facing=east,flipped=true,full=true,upside_down=true": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 90
+    },
+    "facing=north,flipped=false,full=false,upside_down=false": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal"
+    },
+    "facing=north,flipped=false,full=false,upside_down=true": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal"
+    },
+    "facing=north,flipped=false,full=true,upside_down=false": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal"
+    },
+    "facing=north,flipped=false,full=true,upside_down=true": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal"
+    },
+    "facing=north,flipped=true,full=false,upside_down=false": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal"
+    },
+    "facing=north,flipped=true,full=false,upside_down=true": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal"
+    },
+    "facing=north,flipped=true,full=true,upside_down=false": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal"
+    },
+    "facing=north,flipped=true,full=true,upside_down=true": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal"
+    },
+    "facing=south,flipped=false,full=false,upside_down=false": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 180
+    },
+    "facing=south,flipped=false,full=false,upside_down=true": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 180
+    },
+    "facing=south,flipped=false,full=true,upside_down=false": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 180
+    },
+    "facing=south,flipped=false,full=true,upside_down=true": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 180
+    },
+    "facing=south,flipped=true,full=false,upside_down=false": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 180
+    },
+    "facing=south,flipped=true,full=false,upside_down=true": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 180
+    },
+    "facing=south,flipped=true,full=true,upside_down=false": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 180
+    },
+    "facing=south,flipped=true,full=true,upside_down=true": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 180
+    },
+    "facing=west,flipped=false,full=false,upside_down=false": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 270
+    },
+    "facing=west,flipped=false,full=false,upside_down=true": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 270
+    },
+    "facing=west,flipped=false,full=true,upside_down=false": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 270
+    },
+    "facing=west,flipped=false,full=true,upside_down=true": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 270
+    },
+    "facing=west,flipped=true,full=false,upside_down=false": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 270
+    },
+    "facing=west,flipped=true,full=false,upside_down=true": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 270
+    },
+    "facing=west,flipped=true,full=true,upside_down=false": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 270
+    },
+    "facing=west,flipped=true,full=true,upside_down=true": {
+      "model": "kuayue:block/ky_semaphore/ky_shunting_signal",
+      "y": 270
+    }
+  }
+}

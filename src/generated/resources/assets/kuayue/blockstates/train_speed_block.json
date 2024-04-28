@@ -1,0 +1,218 @@
+{
+  "variants": {
+    "type=s25b,facing=east": {
+      "model": "kuayue:block/carriage/carriage25b/slab_25b_original_top",
+      "y": 270
+    },
+    "type=s25b,facing=north": {
+      "model": "kuayue:block/carriage/carriage25b/slab_25b_original_top",
+      "y": 180
+    },
+    "type=s25b,facing=south": {
+      "model": "kuayue:block/carriage/carriage25b/slab_25b_original_top",
+      "y": 0
+    },
+    "type=s25b,facing=west": {
+      "model": "kuayue:block/carriage/carriage25b/slab_25b_original_top",
+      "y": 90
+    },
+
+
+    "type=s25g,facing=east": {
+      "model": "kuayue:block/carriage/carriage25g/slab_25g_original_top",
+      "y": 270
+    },
+    "type=s25g,facing=north": {
+      "model": "kuayue:block/carriage/carriage25g/slab_25g_original_top",
+      "y": 180
+    },
+    "type=s25g,facing=south": {
+      "model": "kuayue:block/carriage/carriage25g/slab_25g_original_top",
+      "y": 0
+    },
+    "type=s25g,facing=west": {
+      "model": "kuayue:block/carriage/carriage25g/slab_25g_original_top",
+      "y": 90
+    },
+
+
+    "type=s25z,facing=east": {
+      "model": "kuayue:block/carriage/carriage25z/slab_25z_original_top",
+      "y": 270
+    },
+    "type=s25z,facing=north": {
+      "model": "kuayue:block/carriage/carriage25z/slab_25z_original_top",
+      "y": 180
+    },
+    "type=s25z,facing=south": {
+      "model": "kuayue:block/carriage/carriage25z/slab_25z_original_top",
+      "y": 0
+    },
+    "type=s25z,facing=west": {
+      "model": "kuayue:block/carriage/carriage25z/slab_25z_original_top",
+      "y": 90
+    },
+
+
+    "type=s25k,facing=east": {
+      "model": "kuayue:block/carriage/carriage25k/slab_25k_original_top",
+      "y": 270
+    },
+    "type=s25k,facing=north": {
+      "model": "kuayue:block/carriage/carriage25k/slab_25k_original_top",
+      "y": 180
+    },
+    "type=s25k,facing=south": {
+      "model": "kuayue:block/carriage/carriage25k/slab_25k_original_top",
+      "y": 0
+    },
+    "type=s25k,facing=west": {
+      "model": "kuayue:block/carriage/carriage25k/slab_25k_original_top",
+      "y": 90
+    },
+
+
+    "type=s25t,facing=east": {
+      "model": "kuayue:block/carriage/carriage25t/slab_25t_original_top",
+      "y": 270
+    },
+    "type=s25t,facing=north": {
+      "model": "kuayue:block/carriage/carriage25t/slab_25t_original_top",
+      "y": 180
+    },
+    "type=s25t,facing=south": {
+      "model": "kuayue:block/carriage/carriage25t/slab_25t_original_top",
+      "y": 0
+    },
+    "type=s25t,facing=west": {
+      "model": "kuayue:block/carriage/carriage25t/slab_25t_original_top",
+      "y": 90
+    },
+
+
+    "type=s25m,facing=east": {
+      "model": "kuayue:block/carriage/carriage25gaozu_niucha/slab_25_marshalled_top",
+      "y": 270
+    },
+    "type=s25m,facing=north": {
+      "model": "kuayue:block/carriage/carriage25gaozu_niucha/slab_25_marshalled_top",
+      "y": 180
+    },
+    "type=s25m,facing=south": {
+      "model": "kuayue:block/carriage/carriage25gaozu_niucha/slab_25_marshalled_top",
+      "y": 0
+    },
+    "type=s25m,facing=west": {
+      "model": "kuayue:block/carriage/carriage25gaozu_niucha/slab_25_marshalled_top",
+      "y": 90
+    },
+
+
+    "type=d25b,facing=east": {
+      "model": "kuayue:block/carriage/facilities/direct_drainage_toilet_original_25b",
+      "y": 270
+    },
+    "type=d25b,facing=north": {
+      "model": "kuayue:block/carriage/facilities/direct_drainage_toilet_original_25b",
+      "y": 180
+    },
+    "type=d25b,facing=south": {
+      "model": "kuayue:block/carriage/facilities/direct_drainage_toilet_original_25b",
+      "y": 0
+    },
+    "type=d25b,facing=west": {
+      "model": "kuayue:block/carriage/facilities/direct_drainage_toilet_original_25b",
+      "y": 90
+    },
+
+
+    "type=d25g,facing=east": {
+      "model": "kuayue:block/carriage/facilities/direct_drainage_toilet_original_25g",
+      "y": 270
+    },
+    "type=d25g,facing=north": {
+      "model": "kuayue:block/carriage/facilities/direct_drainage_toilet_original_25g",
+      "y": 180
+    },
+    "type=d25g,facing=south": {
+      "model": "kuayue:block/carriage/facilities/direct_drainage_toilet_original_25g",
+      "y": 0
+    },
+    "type=d25g,facing=west": {
+      "model": "kuayue:block/carriage/facilities/direct_drainage_toilet_original_25g",
+      "y": 90
+    },
+
+
+    "type=d25k,facing=east": {
+      "model": "kuayue:block/carriage/facilities/direct_drainage_toilet_original_25k",
+      "y": 270
+    },
+    "type=d25k,facing=north": {
+      "model": "kuayue:block/carriage/facilities/direct_drainage_toilet_original_25k",
+      "y": 180
+    },
+    "type=d25k,facing=south": {
+      "model": "kuayue:block/carriage/facilities/direct_drainage_toilet_original_25k",
+      "y": 0
+    },
+    "type=d25k,facing=west": {
+      "model": "kuayue:block/carriage/facilities/direct_drainage_toilet_original_25k",
+      "y": 90
+    },
+
+
+    "type=d25t,facing=east": {
+      "model": "kuayue:block/carriage/facilities/direct_drainage_toilet_original_25t",
+      "y": 270
+    },
+    "type=d25t,facing=north": {
+      "model": "kuayue:block/carriage/facilities/direct_drainage_toilet_original_25t",
+      "y": 180
+    },
+    "type=d25t,facing=south": {
+      "model": "kuayue:block/carriage/facilities/direct_drainage_toilet_original_25t",
+      "y": 0
+    },
+    "type=d25t,facing=west": {
+      "model": "kuayue:block/carriage/facilities/direct_drainage_toilet_original_25t",
+      "y": 90
+    },
+
+
+    "type=d25z,facing=east": {
+      "model": "kuayue:block/carriage/facilities/direct_drainage_toilet_original_25z",
+      "y": 270
+    },
+    "type=d25z,facing=north": {
+      "model": "kuayue:block/carriage/facilities/direct_drainage_toilet_original_25z",
+      "y": 180
+    },
+    "type=d25z,facing=south": {
+      "model": "kuayue:block/carriage/facilities/direct_drainage_toilet_original_25z",
+      "y": 0
+    },
+    "type=d25z,facing=west": {
+      "model": "kuayue:block/carriage/facilities/direct_drainage_toilet_original_25z",
+      "y": 90
+    },
+
+
+    "type=cr200j,facing=east": {
+      "model": "kuayue:block/carriage/carriage_marshalled_cr200j/slab",
+      "y": 270
+    },
+    "type=cr200j,facing=north": {
+      "model": "kuayue:block/carriage/carriage_marshalled_cr200j/slab",
+      "y": 180
+    },
+    "type=cr200j,facing=south": {
+      "model": "kuayue:block/carriage/carriage_marshalled_cr200j/slab",
+      "y": 0
+    },
+    "type=cr200j,facing=west": {
+      "model": "kuayue:block/carriage/carriage_marshalled_cr200j/slab",
+      "y": 90
+    }
+  }
+}

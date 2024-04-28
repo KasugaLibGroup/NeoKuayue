@@ -1,0 +1,10 @@
+{
+	"parent": "kuayue:block/carriage/facilities/direct_drainage_toilet_original_25g",
+	"render_type": "translucent",
+	"textures": {
+		"1": "kuayue:block/panel_slab_25t",
+		"2": "kuayue:block/carriage_facilities/direct_drainage_toilet_original_25g",
+		"3": "kuayue:block/carriage_facilities/direct_drainage_toilet_urinal",
+		"particle": "kuayue:block/panel_slab_25t"
+	}
+}

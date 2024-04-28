@@ -1,0 +1,63 @@
+{
+	"credit": "Made by WillowKoishi",
+	"render_type": "translucent",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "kuayue:block/hxd3d/door/hxd3d_door_upper",
+		"particle": "kuayue:block/hxd3d/door/hxd3d_door_bottom"
+	},
+	"elements": [
+		{
+			"from": [11, 0, 15.5],
+			"to": [16, 14.75, 16.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [14, 0, 15]},
+			"faces": {
+				"north": {"uv": [0, 6.5, 2.5, 14], "texture": "#0"},
+				"east": {"uv": [7, 7.5, 7.5, 15], "texture": "#0"},
+				"south": {"uv": [2.5, 6.5, 5, 14], "texture": "#0"},
+				"west": {"uv": [7.5, 7.5, 8, 15], "texture": "#0"},
+				"up": {"uv": [12, 4.5, 9.5, 4], "texture": "#0"},
+				"down": {"uv": [12, 4.5, 9.5, 5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [0, 0, 15.5],
+			"to": [4, 14.75, 16.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [3, 0, 15]},
+			"faces": {
+				"north": {"uv": [5, 6.5, 7, 14], "texture": "#0"},
+				"east": {"uv": [8, 7.5, 8.5, 15], "texture": "#0"},
+				"south": {"uv": [7, 0, 9, 7.5], "texture": "#0"},
+				"west": {"uv": [8.5, 7.5, 9, 15], "texture": "#0"},
+				"up": {"uv": [11.5, 5.5, 9.5, 5], "texture": "#0"},
+				"down": {"uv": [11.5, 5.5, 9.5, 6], "texture": "#0"}
+			}
+		},
+		{
+			"from": [4, 13, 15.5],
+			"to": [11, 14.75, 16.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [3, 12, 15]},
+			"faces": {
+				"north": {"uv": [9, 0, 12.5, 1], "texture": "#0"},
+				"east": {"uv": [9.5, 6, 10, 7], "texture": "#0"},
+				"south": {"uv": [9, 1, 12.5, 2], "texture": "#0"},
+				"west": {"uv": [9.5, 7, 10, 8], "texture": "#0"},
+				"up": {"uv": [13, 2.5, 9.5, 2], "texture": "#0"},
+				"down": {"uv": [13, 2.5, 9.5, 3], "texture": "#0"}
+			}
+		},
+		{
+			"from": [12, 0, 15.5],
+			"to": [13, 13, 22.5],
+			"rotation": {"angle": 22.5, "axis": "y", "origin": [12.5, 6.5, 19]},
+			"faces": {
+				"north": {"uv": [9, 2, 9.5, 8.5], "texture": "#0"},
+				"east": {"uv": [3.5, 0, 7, 6.5], "texture": "#0"},
+				"south": {"uv": [9, 8.5, 9.5, 15], "texture": "#0"},
+				"west": {"uv": [0, 0, 3.5, 6.5], "texture": "#0"},
+				"up": {"uv": [13, 3.5, 9.5, 3], "rotation": 270, "texture": "#0"},
+				"down": {"uv": [13, 3.5, 9.5, 4], "rotation": 90, "texture": "#0"}
+			}
+		}
+	]
+}

@@ -1,0 +1,20 @@
+{
+ "variants": {
+  "facing=east": {
+   "model": "kuayue:block/df11g/cowcatcher/df11g_cowcatcher",
+   "y": 90
+  },
+  "facing=north": {
+   "model": "kuayue:block/df11g/cowcatcher/df11g_cowcatcher",
+   "y": 0
+  },
+  "facing=south": {
+   "model": "kuayue:block/df11g/cowcatcher/df11g_cowcatcher",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "kuayue:block/df11g/cowcatcher/df11g_cowcatcher",
+   "y": 270
+  }
+ }
+}

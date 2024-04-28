@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "lead_beyond:block/yz_seat2", "y": 0 },
+    "facing=east":  { "model": "lead_beyond:block/yz_seat2", "y": 90 },
+    "facing=south": { "model": "lead_beyond:block/yz_seat2", "y": 180 },
+    "facing=west":  { "model": "lead_beyond:block/yz_seat2", "y":  270 }
+  }
+}

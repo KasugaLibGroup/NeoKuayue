@@ -1,0 +1,20 @@
+{
+ "variants": {
+  "facing=east": {
+   "model": "kuayue:block/hxd3d/hxd3d_carport_general",
+   "y": 270
+  },
+  "facing=north": {
+   "model": "kuayue:block/hxd3d/hxd3d_carport_general",
+   "y": 180
+  },
+  "facing=south": {
+   "model": "kuayue:block/hxd3d/hxd3d_carport_general",
+   "y": 0
+  },
+  "facing=west": {
+   "model": "kuayue:block/hxd3d/hxd3d_carport_general",
+   "y": 90
+  }
+ }
+}

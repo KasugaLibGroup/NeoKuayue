@@ -1,0 +1,86 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"1": "kuayue:block/catenary_line",
+		"18": "kuayue:block/long_plumb_line",
+		"particle": "kuayue:block/catenary_hang_line_all"
+	},
+	"elements": [
+		{
+			"name": "catenary_line",
+			"from": [7.5, 0, 0],
+			"to": [8.5, 0.25, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"east": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"south": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"west": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"up": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"down": {"uv": [0, 0, 1, 1], "texture": "#1"}
+			}
+		},
+		{
+			"name": "catenary_line",
+			"from": [7.5, 15, 0],
+			"to": [8.5, 15.25, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"east": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"south": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"west": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"up": {"uv": [0, 0, 1, 1], "texture": "#1"},
+				"down": {"uv": [0, 0, 1, 1], "texture": "#1"}
+			}
+		},
+		{
+			"name": "plumb_line",
+			"from": [7.6, 0.25, 7.7],
+			"to": [8.3, 15.1, 8.3],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, -16, 0]},
+			"faces": {
+				"north": {"uv": [0, 0, 1, 15], "texture": "#18"},
+				"east": {"uv": [1, 0, 2, 15], "texture": "#18"},
+				"south": {"uv": [2, 0, 3, 15], "texture": "#18"},
+				"west": {"uv": [3, 0, 4, 15], "texture": "#18"},
+				"up": {"uv": [5, 1, 4, 0], "texture": "#18"},
+				"down": {"uv": [5, 1, 4, 2], "texture": "#18"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [65, 0, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"thirdperson_lefthand": {
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_righthand": {
+			"translation": [0, 3, 0],
+			"scale": [0.2, 0.2, 0.2]
+		},
+		"firstperson_lefthand": {
+			"translation": [0, 3, 0],
+			"scale": [0.2, 0.2, 0.2]
+		},
+		"ground": {
+			"scale": [0.2, 0.2, 0.2]
+		},
+		"gui": {
+			"rotation": [28, 35, 5],
+			"scale": [0.5, 0.5, 0.3]
+		},
+		"fixed": {
+			"rotation": [0, -37, 25],
+			"scale": [0.2, 0.2, 0.2]
+		}
+	},
+	"groups": [
+		{
+			"name": "catenary_lines",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [0, 1, 2]
+		}
+	]
+}

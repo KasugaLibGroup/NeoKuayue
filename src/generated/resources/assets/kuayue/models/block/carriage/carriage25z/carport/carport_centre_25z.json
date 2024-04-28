@@ -1,0 +1,51 @@
+{
+	"credit": "Made by WillowKoishi",
+	"textures": {
+		"30": "kuayue:block/carriage/carriage_25z/original_25z_carport_centre",
+		"particle":"kuayue:block/carriage/carriage_25z/original_25z_carport_centre"
+	},
+	"elements": [
+		{
+			"name": "carport_centre",
+			"from": [0, 0, 0],
+			"to": [16, 8, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [2.25, 10, 6, 8.25], "texture": "#30"},
+				"east": {"uv": [4, 1, 7.75, 3], "texture": "#30"},
+				"south": {"uv": [4, 1.25, 8, 3], "texture": "#30"},
+				"west": {"uv": [4, 1.25, 8, 3], "texture": "#30"},
+				"up": {"uv": [7, 6.75, 11, 11.25], "texture": "#30"},
+				"down": {"uv": [7.5, 2.75, 11.5, 6.5], "texture": "#30"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, 1, -2.25],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, 1, -2.25],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_righthand": {
+			"rotation": [45, 39, 37],
+			"translation": [8, -1.5, 0]
+		},
+		"firstperson_lefthand": {
+			"rotation": [57, 25, 0],
+			"translation": [13.5, -2.25, 0]
+		},
+		"ground": {
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"gui": {
+			"rotation": [30, 225, 0],
+			"scale": [0.625, 0.625, 0.625]
+		},
+		"head": {
+			"translation": [0, 12.75, 0]
+		}
+	}
+}

@@ -1,0 +1,13 @@
+{
+ "variants": {
+  "type=bottom": {
+   "model": "kuayue:block/hxd3d/hxd3d_slab_l"
+  },
+  "type=double": {
+   "model": "kuayue:block/hxd3d/hxd3d_slab_a"
+  },
+  "type=top": {
+   "model": "kuayue:block/hxd3d/hxd3d_slab_h"
+  }
+ }
+}

@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayue:block/megaphone",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "kuayue:block/megaphone",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "kuayue:block/megaphone",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "kuayue:block/megaphone",
+      "y": 90
+    }
+  }
+}

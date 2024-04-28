@@ -1,0 +1,61 @@
+{
+	"credit": "Made by WillowKoishi",
+	"texture_size": [32, 32],
+	"textures": {
+		"11": "kuayue:block/hxd3d/hxd3d_side_panel_hexie",
+		"particle": "kuayue:block/hxd3d/hxd3d_side_panel_hexie"
+	},
+	"elements": [
+		{
+			"name": "sidepane4",
+			"from": [-16, 0, 15.5],
+			"to": [32, 32, 16.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 15, 1]},
+			"faces": {
+				"north": {"uv": [0, 4, 6, 7.9375], "texture": "#11"},
+				"east": {"uv": [6.1875, 4.1875, 6, 7.4375], "texture": "#11"},
+				"south": {"uv": [5.9375, 0, 0, 3.875], "texture": "#11"},
+				"west": {"uv": [6.1875, 0, 6.09375, 1.88672], "texture": "#11"},
+				"up": {"uv": [6.0625, 3.3125, 6.21875, 0.4375], "rotation": 270, "texture": "#11"},
+				"down": {"uv": [6.125, 4.1875, 6.1875, 7.875], "rotation": 90, "texture": "#11"}
+			}
+		}
+	],
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0.5, -2.25, -3.25],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, -2.25, -3.5],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 103, 0],
+			"translation": [1.75, -1.25, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 133, 0],
+			"translation": [8.75, -3, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 3, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"gui": {
+			"rotation": [30, 225, 0],
+			"translation": [2, -2.75, 0],
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"head": {
+			"translation": [0, -1.75, -14.25]
+		},
+		"fixed": {
+			"translation": [0, -3.5, -4],
+			"scale": [0.5, 0.5, 0.5]
+		}
+	}
+}

@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "facing=north,open=false": { "model": "lead_beyond:block/turnstile", "y": 0 },
+    "facing=east,open=false":  { "model": "lead_beyond:block/turnstile", "y": 90 },
+    "facing=south,open=false": { "model": "lead_beyond:block/turnstile", "y": 180 },
+    "facing=west,open=false":  { "model": "lead_beyond:block/turnstile", "y":  270 },
+    "facing=north,open=true": { "model": "lead_beyond:block/turnstile_open", "y": 0 },
+    "facing=east,open=true":  { "model": "lead_beyond:block/turnstile_open", "y": 90 },
+    "facing=south,open=true": { "model": "lead_beyond:block/turnstile_open", "y": 180 },
+    "facing=west,open=true":  { "model": "lead_beyond:block/turnstile_open", "y":  270 }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "loader": "forge:obj",
+  "model": "kuayue:models/block/df11g/cowcatcher/df11g_cowcatcher.obj",
+  "flip_v": true
+}

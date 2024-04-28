@@ -1,0 +1,8 @@
+{
+  "parent": "kuayue:block/train_ladder/ladder_25g_original_open_lh",
+  "textures": {
+    "0": "kuayue:block/train_ladder/ladder_25z_original",
+    "1": "kuayue:block/train_ladder/ladder_trapdoor_original_25z",
+    "particle": "kuayue:block/train_ladder/ladder_25z_original"
+  }
+}

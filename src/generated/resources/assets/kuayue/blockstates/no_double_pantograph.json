@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayue:block/no_double_pantograph",
+      "y": 0
+    },
+    "facing=north": {
+      "model": "kuayue:block/no_double_pantograph",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "kuayue:block/no_double_pantograph",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "kuayue:block/no_double_pantograph",
+      "y": 180
+    }
+  }
+}

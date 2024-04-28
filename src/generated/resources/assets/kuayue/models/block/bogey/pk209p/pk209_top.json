@@ -3,7 +3,7 @@
 	"render_type": "translucent",
 	"texture_size": [64, 64],
 	"textures": {
-		"4": "kuayue:block/bogey/cw2/cw2_top",
+		"4": "kuayue:block/bogey/cw2_top",
 		"particle": "create:block/bogey/particle"
 	},
 	"elements": [

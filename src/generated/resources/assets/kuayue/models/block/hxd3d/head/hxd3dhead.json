@@ -1,0 +1,5 @@
+{
+  "loader": "forge:obj",
+  "model": "kuayue:models/block/hxd3d/hxd3d_front.obj",
+  "flip_v": false
+}

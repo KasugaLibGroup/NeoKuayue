@@ -1,0 +1,62 @@
+{
+	"credit": "Made by WillowKoishi",
+	"texture_size": [64, 64],
+	"textures": {
+		"5": "kuayue:block/df11g/df11g_panel_kuayue_cr",
+		"particle": "kuayue:block/df11g/df11g_carport_side_general"
+	},
+	"elements": [
+		{
+			"from": [-16, 0, 14.75],
+			"to": [32, 16, 17],
+			"faces": {
+				"north": {"uv": [0, 0, 12, 4], "texture": "#5"},
+				"east": {"uv": [0, 9, 0.5, 13], "texture": "#5"},
+				"south": {"uv": [0, 4, 12, 8], "texture": "#5"},
+				"west": {"uv": [0.5, 9, 1, 13], "texture": "#5"},
+				"up": {"uv": [12, 8.5, 0, 8], "texture": "#5"},
+				"down": {"uv": [12, 8.5, 0, 9], "texture": "#5"}
+			}
+		}
+	],
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [-175.94, -90, -179.23],
+			"translation": [5.75, -1, 4],
+			"scale": [0.55, 0.55, 0.55]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, -92, 0],
+			"translation": [5.75, -1, 1],
+			"scale": [0.55, 0.55, 0.55]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 120, 25],
+			"translation": [3.63, 2.25, 1.13],
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 109, 25],
+			"translation": [1.13, 3.2, 1.13],
+			"scale": [0.3, 0.3, 0.3]
+		},
+		"ground": {
+			"translation": [0, 2, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [30, 225, 0],
+			"translation": [2, -1, 0],
+			"scale": [0.4, 0.5, 0.4]
+		},
+		"head": {
+			"rotation": [0, 180, 0],
+			"translation": [0, 1.5, -3.5]
+		},
+		"fixed": {
+			"translation": [0, 0, -8.25],
+			"scale": [0.61, 1, 1]
+		}
+	}
+}

@@ -1,0 +1,5 @@
+{
+  "loader": "forge:obj",
+  "model": "kuayue:models/block/catenary/catenary_grid_a1_45.obj",
+  "flip_v": true
+}
