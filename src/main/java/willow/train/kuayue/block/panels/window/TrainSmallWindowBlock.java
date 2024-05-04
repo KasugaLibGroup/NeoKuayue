@@ -1,11 +1,10 @@
-package willow.train.kuayue.block.panels;
+package willow.train.kuayue.block.panels.window;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -18,9 +17,10 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec2;
 import org.jetbrains.annotations.Nullable;
+import willow.train.kuayue.block.panels.TrainPanelBlock;
 import willow.train.kuayue.item.PanelBlockItem;
 
-import static willow.train.kuayue.block.panels.TrainDoorBlock.*;
+import static willow.train.kuayue.block.panels.door.TrainDoorBlock.*;
 
 public class TrainSmallWindowBlock extends TrainPanelBlock {
     public static final BooleanProperty OPEN = BlockStateProperties.OPEN;

@@ -7,7 +7,7 @@ import kasuga.lib.registrations.common.CreativeTabReg;
 import kasuga.lib.registrations.registry.CreateRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import willow.train.kuayue.Kuayue;
-import willow.train.kuayue.event.client.RenderArrorEvent;
+import willow.train.kuayue.event.client.RenderArrowEvent;
 
 public class AllElements {
 
@@ -25,7 +25,7 @@ public class AllElements {
         AllCarriageBogeys.invoke();
         if (Envs.isClient()) {
             ClientInit.invoke();
-            MinecraftForge.EVENT_BUS.addListener(RenderArrorEvent::renderBlockBounds);
+            MinecraftForge.EVENT_BUS.addListener(RenderArrowEvent::renderBlockBounds);
         }
         testRegistry.submit();
     }

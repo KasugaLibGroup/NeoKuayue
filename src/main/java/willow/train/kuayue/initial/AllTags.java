@@ -19,6 +19,12 @@ public class AllTags {
     public static final BlockTagReg BOTTOM_PANEL = new BlockTagReg("bottom_panel", "panel/bottom_panel")
             .submit(AllElements.testRegistry);
 
+    public static final BlockTagReg CARPORT = new BlockTagReg("carport", "panel/carport")
+            .submit(AllElements.testRegistry);
+
+    public static final BlockTagReg FLOOR = new BlockTagReg("floor", "panel/floor")
+            .submit(AllElements.testRegistry);
+
     public static final BlockTagReg C25T = new BlockTagReg("c25t", "panel/c25t")
             .submit(AllElements.testRegistry);
     public static final BlockTagReg C25K = new BlockTagReg("c25k", "panel/c25k")

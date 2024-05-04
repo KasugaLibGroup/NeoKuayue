@@ -1,36 +1,27 @@
-package willow.train.kuayue.block.panels;
+package willow.train.kuayue.block.panels.door;
 
 import com.jozufozu.flywheel.core.PartialModel;
-import com.simibubi.create.content.decoration.slidingDoor.SlidingDoorShapes;
 import com.simibubi.create.foundation.block.IBE;
 import com.simibubi.create.foundation.utility.Couple;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoorHingeSide;
-import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.pathfinder.PathComputationType;
-import net.minecraft.world.level.storage.loot.LootContext;
-import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import willow.train.kuayue.block.panels.block_entity.ContraptionAnimatableBlockEntity;
+import willow.train.kuayue.block.panels.TrainPanelBlock;
+import willow.train.kuayue.block.panels.base.TrainPanelShapes;
 import willow.train.kuayue.block.panels.block_entity.CustomRenderedDoorEntity;
 import willow.train.kuayue.initial.AllBlocks;
 import willow.train.kuayue.initial.AllElements;
-
-import java.util.List;
 
 public class CustomRenderedDoorBlock extends TrainDoorBlock implements IBE<CustomRenderedDoorEntity> {
     boolean isSlideDoor;
@@ -38,7 +29,7 @@ public class CustomRenderedDoorBlock extends TrainDoorBlock implements IBE<Custo
     final Couple<PartialModel> rightDoorModels;
     final RenderShape renderShape;
 
-    public CustomRenderedDoorBlock(Properties pProperties,
+    public CustomRenderedDoorBlock(BlockBehaviour.Properties pProperties,
                                    Couple<ResourceLocation> leftDoorModels,
                                    Couple<ResourceLocation> rightDoorModels,
                                    RenderShape renderShape, boolean isSlideDoor) {
@@ -49,7 +40,7 @@ public class CustomRenderedDoorBlock extends TrainDoorBlock implements IBE<Custo
         this.isSlideDoor = isSlideDoor;
     }
 
-    public CustomRenderedDoorBlock(Properties pProperties,
+    public CustomRenderedDoorBlock(BlockBehaviour.Properties pProperties,
                                    CustomRenderedDoorBlock modelFrom,
                                    RenderShape renderShape, boolean isSlideDoor) {
         super(pProperties);
@@ -61,10 +52,9 @@ public class CustomRenderedDoorBlock extends TrainDoorBlock implements IBE<Custo
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        if(!isSlideDoor || !pState.getValue(OPEN))
+        if(!isSlideDoor)
             return super.getShape(pState, pLevel, pPos, pContext);
-        else
-            return SlidingDoorShapes.get(pState.getValue(DoorBlock.FACING), pState.getValue(DoorBlock.HINGE) == DoorHingeSide.RIGHT, false);
+        return TrainPanelShapes.getSlidingDoorShape(pState.getValue(TrainPanelBlock.FACING).getOpposite(), pState.getValue(HINGE), pState.getValue(OPEN));
     }
 
     public Couple<PartialModel> getLeftDoorModels() {
@@ -98,6 +88,16 @@ public class CustomRenderedDoorBlock extends TrainDoorBlock implements IBE<Custo
     @Override
     public BlockEntityType<CustomRenderedDoorEntity> getBlockEntityType() {
         return AllBlocks.CUSTOM_RENDERED_DOOR_ENTITY.getType();
+    }
+
+    @Override
+    public BlockState generateCompanyState(Direction direction, DoorHingeSide hingeSide, boolean open) {
+        if (!isSlideDoor)
+            return super.generateCompanyState(direction, hingeSide, open);
+        return AllBlocks.COMPANY_SLIDING_DOOR.instance().defaultBlockState()
+                .setValue(BlockStateProperties.HORIZONTAL_FACING, direction)
+                .setValue(BlockStateProperties.DOOR_HINGE, hingeSide)
+                .setValue(BlockStateProperties.OPEN, open);
     }
 
     @Override

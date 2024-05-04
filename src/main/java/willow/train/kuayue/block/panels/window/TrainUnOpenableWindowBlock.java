@@ -1,4 +1,4 @@
-package willow.train.kuayue.block.panels;
+package willow.train.kuayue.block.panels.window;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -11,14 +11,12 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DoorHingeSide;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec2;
-import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
-import willow.train.kuayue.utils.DirectionUtil;
+import willow.train.kuayue.block.panels.TrainPanelBlock;
 
 public class TrainUnOpenableWindowBlock extends TrainPanelBlock {
     public static final EnumProperty<DoorHingeSide> HINGE = BlockStateProperties.DOOR_HINGE;

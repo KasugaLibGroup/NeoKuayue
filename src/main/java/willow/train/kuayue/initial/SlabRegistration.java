@@ -1,0 +1,63 @@
+package willow.train.kuayue.initial;
+
+import kasuga.lib.registrations.common.BlockEntityReg;
+import kasuga.lib.registrations.common.BlockReg;
+import kasuga.lib.registrations.common.CreativeTabReg;
+import kasuga.lib.registrations.common.ItemReg;
+import kasuga.lib.registrations.registry.SimpleRegistry;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
+import willow.train.kuayue.block.panels.slab.TrainSlabBlock;
+import willow.train.kuayue.item.SlabBlockItem;
+
+public class SlabRegistration<T extends TrainSlabBlock> extends PanelRegistration<T> {
+
+    public SlabRegistration(String registrationKey) {
+        super(registrationKey);
+        item = new ItemReg<SlabBlockItem>(registrationKey);
+        item.itemType(p -> new SlabBlockItem(block.getBlock(), p));
+    }
+    
+    public SlabRegistration<T> materialAndColor(Material material, MaterialColor materialColor) {
+        block.material(material).materialColor(materialColor);
+        return this;
+    }
+
+    public SlabRegistration<T> noOcclusion() {
+        block.addProperty(BlockBehaviour.Properties::noOcclusion);
+        return this;
+    }
+
+    public SlabRegistration<T> block(BlockReg.BlockBuilder<T> builder) {
+        this.block.blockType(builder);
+        return this;
+    }
+
+    public SlabRegistration<T> blockEntity(BlockEntityType.BlockEntitySupplier<?> provider) {
+        block.withBlockEntity(block.registrationKey, provider);
+        return this;
+    }
+
+    public SlabRegistration<T> blockEntityRenderer(BlockEntityReg.BlockEntityRendererBuilder<?> renderer) {
+        block.withBlockEntityRenderer(renderer);
+        return this;
+    }
+
+    public SlabRegistration<T> tab(CreativeTabReg reg) {
+        this.item.tab(reg);
+        return this;
+    }
+
+    public SlabRegistration<T> stackSize(int size) {
+        this.item.stackTo(size);
+        return this;
+    }
+
+    public SlabRegistration<T> submit(SimpleRegistry registry) {
+        this.block.submit(registry);
+        this.item.submit(registry);
+        return this;
+    }
+}

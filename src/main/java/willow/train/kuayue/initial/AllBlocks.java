@@ -2,6 +2,7 @@ package willow.train.kuayue.initial;
 
 import kasuga.lib.registrations.common.BlockEntityReg;
 import kasuga.lib.registrations.common.BlockReg;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
@@ -10,6 +11,10 @@ import willow.train.kuayue.block.panels.base.CompanyTrainDoor;
 import willow.train.kuayue.block.panels.base.CompanyTrainPanel;
 import willow.train.kuayue.block.panels.block_entity.CustomRenderedDoorEntity;
 import willow.train.kuayue.block.panels.block_entity.CustomRenderedDoorRenderer;
+import willow.train.kuayue.block.panels.block_entity.CustomRenderedEndFaceRenderer;
+import willow.train.kuayue.block.panels.block_entity.CustomRenderedEndfaceEntity;
+import willow.train.kuayue.initial.panel.C25BPanel;
+import willow.train.kuayue.initial.panel.C25GPanel;
 import willow.train.kuayue.initial.panel.CR200JPanel;
 
 public class AllBlocks {
@@ -51,9 +56,20 @@ public class AllBlocks {
                     .blockEntityType(CustomRenderedDoorEntity::new)
                     .withRenderer(CustomRenderedDoorRenderer::new)
                     .addBlock(CR200JPanel.DOOR_CR200J.block)
+                    .addBlock(CR200JPanel.DOOR_CR200J_2.block)
                     .submit(AllElements.testRegistry);
 
-    public static void invoke(){
+    public static final BlockEntityReg<CustomRenderedEndfaceEntity> CUSTOM_RENDERED_ENDFACE_ENTITY =
+            new BlockEntityReg<CustomRenderedEndfaceEntity>("custom_rendered_end_face")
+                    .blockEntityType(CustomRenderedEndfaceEntity::new)
+                    .withRenderer(CustomRenderedEndFaceRenderer::new)
+                    .addBlock(CR200JPanel.END_FACE_MARSHALLED_CR200J.block)
+                    .addBlock(CR200JPanel.END_FACE_MARSHALLED_CR200J_2.block)
+                    .submit(AllElements.testRegistry);
+
+    public static void invoke() {
+        C25GPanel.invoke();
+        C25BPanel.invoke();
         CR200JPanel.invoke();
     }
 }

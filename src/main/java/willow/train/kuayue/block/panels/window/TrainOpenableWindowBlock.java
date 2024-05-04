@@ -1,4 +1,4 @@
-package willow.train.kuayue.block.panels;
+package willow.train.kuayue.block.panels.window;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -18,6 +18,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
+import willow.train.kuayue.block.panels.TrainPanelBlock;
 import willow.train.kuayue.utils.DirectionUtil;
 
 public class TrainOpenableWindowBlock extends TrainPanelBlock {

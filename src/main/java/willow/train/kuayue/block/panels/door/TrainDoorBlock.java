@@ -1,4 +1,4 @@
-package willow.train.kuayue.block.panels;
+package willow.train.kuayue.block.panels.door;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -19,6 +19,7 @@ import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
+import willow.train.kuayue.block.panels.TrainPanelBlock;
 import willow.train.kuayue.block.panels.base.CompanyTrainDoor;
 import willow.train.kuayue.block.panels.base.TrainPanelShapes;
 import willow.train.kuayue.initial.AllBlocks;
@@ -119,7 +120,7 @@ public class TrainDoorBlock extends TrainPanelBlock {
 
         @Override
         public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-            return TrainPanelShapes.getSlidingDoorShape(pState.getValue(FACING).getOpposite(), pState.getValue(HINGE), pState.getValue(OPEN));
+            return TrainPanelShapes.getSlidingDoorShape(pState.getValue(FACING), pState.getValue(HINGE), pState.getValue(OPEN));
         }
     }
 }

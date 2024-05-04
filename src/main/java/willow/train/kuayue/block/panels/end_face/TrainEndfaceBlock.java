@@ -1,12 +1,12 @@
-package willow.train.kuayue.block.panels;
+package willow.train.kuayue.block.panels.end_face;
 
-import kasuga.lib.registrations.common.BlockReg;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -16,16 +16,21 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DoorHingeSide;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec2;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
+import willow.train.kuayue.block.panels.TrainPanelBlock;
+import willow.train.kuayue.block.panels.window.TrainSmallWindowBlock;
 import willow.train.kuayue.block.panels.base.CompanyTrainPanel;
+import willow.train.kuayue.block.panels.base.EndFaceShapes;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
-import willow.train.kuayue.initial.AllBlocks;
 import willow.train.kuayue.utils.DirectionUtil;
 
-public class CarriageEndfaceBlock extends TrainPanelBlock {
+public class TrainEndfaceBlock extends TrainPanelBlock {
     public final TrainPanelProperties.DoorType DOOR_TYPE;
+
     public static final BooleanProperty OPEN = BlockStateProperties.OPEN;
-    public CarriageEndfaceBlock(Properties pProperties, TrainPanelProperties.DoorType doorType) {
+    public TrainEndfaceBlock(Properties pProperties, TrainPanelProperties.DoorType doorType) {
         super(pProperties, new Vec2(-1, 0), new Vec2(2, 3));
         this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.EAST).setValue(OPEN, false));
         this.DOOR_TYPE = doorType;
@@ -34,6 +39,16 @@ public class CarriageEndfaceBlock extends TrainPanelBlock {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         super.createBlockStateDefinition(pBuilder.add(OPEN));
+    }
+
+    @Override
+    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        return EndFaceShapes.getEndFaceShape(pState.getValue(FACING).getOpposite(), DOOR_TYPE, pState.getValue(OPEN)).move(0, 1, 0);
+    }
+
+    @Override
+    public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        return getShape(pState, pLevel, pPos, pContext);
     }
 
     @Override

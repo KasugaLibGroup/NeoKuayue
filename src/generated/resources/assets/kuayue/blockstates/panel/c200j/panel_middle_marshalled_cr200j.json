@@ -2,35 +2,35 @@
  "variants": {
   "facing=east,hinge=left": {
    "model": "kuayue:block/carriage/carriage_marshalled_cr200j/panel_middle_lh",
-   "y": 270
+   "y": 90
   },
   "facing=north,hinge=left": {
    "model": "kuayue:block/carriage/carriage_marshalled_cr200j/panel_middle_lh",
-   "y": 180
+   "y": 0
   },
   "facing=south,hinge=left": {
    "model": "kuayue:block/carriage/carriage_marshalled_cr200j/panel_middle_lh",
-   "y": 0
+   "y": 180
   },
   "facing=west,hinge=left": {
    "model": "kuayue:block/carriage/carriage_marshalled_cr200j/panel_middle_lh",
-   "y": 90
+   "y": 270
   },
   "facing=east,hinge=right": {
    "model": "kuayue:block/carriage/carriage_marshalled_cr200j/panel_middle",
-   "y": 270
+   "y": 90
   },
   "facing=north,hinge=right": {
    "model": "kuayue:block/carriage/carriage_marshalled_cr200j/panel_middle",
-   "y": 180
+   "y": 0
   },
   "facing=south,hinge=right": {
    "model": "kuayue:block/carriage/carriage_marshalled_cr200j/panel_middle",
-   "y": 0
+   "y": 180
   },
   "facing=west,hinge=right": {
    "model": "kuayue:block/carriage/carriage_marshalled_cr200j/panel_middle",
-   "y": 90
+   "y": 270
   }
  }
 }

@@ -2,6 +2,6 @@
 	"parent": "block/block",
 	"loader": "forge:obj",
 	"flip_v": true,
-	"model": "kuayue:models/block/bogey/ky_standard/bogey_cw2_temple.obj"
+	"model": "kuayue:models/block/bogey/cw2/bogey_cw2_temple.obj"
 
 }

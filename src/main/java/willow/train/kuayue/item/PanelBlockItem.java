@@ -2,15 +2,11 @@ package willow.train.kuayue.item;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DoorHingeSide;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
@@ -42,7 +38,7 @@ public class PanelBlockItem extends BlockItem {
     }
 
     public BlockPos getPlacePos(BlockPlaceContext context, Vec2 first, Vec2 last, float radius) {
-        if (context.getPlayer().isShiftKeyDown()) {
+        if (context.getPlayer() == null || context.getPlayer().isShiftKeyDown()) {
             return context.getClickedPos();
         }
         BlockPos pos = context.getClickedPos();
@@ -63,6 +59,9 @@ public class PanelBlockItem extends BlockItem {
             return parentPos.relative(Direction.UP, (int) - first.y + 1);
         } else if (leftHinge == Face.DOWN) {
             return parentPos.relative(Direction.DOWN, (int) (last.y));
+        }
+        if (panel.beginPos.equals(Vec2.ZERO) && panel.endPos.equals(Vec2.ONE)) {
+            return DirectionUtil.left(parentPos, direction.getOpposite(), leftHinge == Face.LEFT ? 1 : -1);
         }
         parentPos = DirectionUtil.left(parentPos, direction.getOpposite(), leftHinge == Face.LEFT ? 1 : -1);
         parentPos = DirectionUtil.left(parentPos, direction.getOpposite(),
@@ -122,7 +121,7 @@ public class PanelBlockItem extends BlockItem {
         return py >= radius / 2;
     }
 
-    public Face getArrorDirection(BlockHitResult hit) {
+    public Face getArrowDirection(BlockHitResult hit) {
         return isLeftHinge(hit.getBlockPos(), hit.getDirection(), hit.getLocation());
     }
 

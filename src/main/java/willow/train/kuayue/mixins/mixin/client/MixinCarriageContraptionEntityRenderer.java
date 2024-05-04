@@ -16,7 +16,6 @@ public class MixinCarriageContraptionEntityRenderer {
             PoseStack ms, CarriageBogey bogey, int bogeySpacing,
             float viewYRot, float viewXRot, float partialTicks,
             CallbackInfo ci) {
-
         QJMainRenderer.carriage = bogey.carriage;
     }
 }

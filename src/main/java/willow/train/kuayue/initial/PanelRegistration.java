@@ -16,9 +16,9 @@ import willow.train.kuayue.item.PanelBlockItem;
 
 public class PanelRegistration<T extends TrainPanelBlock> {
 
-    public final BlockReg<T> block;
+    public BlockReg<T> block;
 
-    public final ItemReg<PanelBlockItem> item;
+    public ItemReg item;
 
     public PanelRegistration(String registrationKey) {
         block = new BlockReg<T>(registrationKey);

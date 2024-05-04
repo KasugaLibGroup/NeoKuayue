@@ -3,6 +3,7 @@ package willow.train.kuayue.utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class DirectionUtil {
@@ -68,5 +69,9 @@ public class DirectionUtil {
             case 270 -> Rotation.COUNTERCLOCKWISE_90;
             default -> Rotation.NONE;
         };
+    }
+
+    public static Vec3 centerOf(BlockPos pos) {
+        return new Vec3(pos.getX() + .5, pos.getY() + .5, pos.getZ() + .5);
     }
 }
