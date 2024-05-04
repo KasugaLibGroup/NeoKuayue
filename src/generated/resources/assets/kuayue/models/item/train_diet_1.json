@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "kuayue:item/diet/train_diet_1"
+  }
+}

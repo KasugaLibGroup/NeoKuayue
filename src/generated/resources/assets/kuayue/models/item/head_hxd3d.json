@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "kuayue:item/logo/hxd3d_icon"
+  }
+}

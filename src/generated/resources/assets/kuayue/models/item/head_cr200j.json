@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "kuayue:block/carriage/cr200j/cr200j_head_item"
+  }
+}

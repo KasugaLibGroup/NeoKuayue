@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "kuayue:block/carriage/cr200j/end_face_item"
+  }
+}
