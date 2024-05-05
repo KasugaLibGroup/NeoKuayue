@@ -2,6 +2,8 @@ package willow.train.kuayue.block.panels.base;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -10,6 +12,7 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -26,9 +29,12 @@ import willow.train.kuayue.block.panels.TrainPanelBlock;
 import willow.train.kuayue.utils.DirectionUtil;
 
 public class CompanyTrainPanel extends BaseEntityBlock {
+
     public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final EnumProperty<DoorHingeSide> HINGE = BlockStateProperties.DOOR_HINGE;
+
     public static final BooleanProperty OPEN = BlockStateProperties.OPEN;
+
     public CompanyTrainPanel(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(
@@ -37,6 +43,16 @@ public class CompanyTrainPanel extends BaseEntityBlock {
                         .setValue(HINGE, DoorHingeSide.LEFT)
                         .setValue(OPEN, false)
         );
+    }
+
+    @Override
+    public void neighborChanged(BlockState pState, Level pLevel, BlockPos pPos, Block pBlock, BlockPos pFromPos, boolean pIsMoving) {
+        super.neighborChanged(pState, pLevel, pPos, pBlock, pFromPos, pIsMoving);
+    }
+
+    @Override
+    public void onNeighborChange(BlockState state, LevelReader level, BlockPos pos, BlockPos neighbor) {
+        super.onNeighborChange(state, level, pos, neighbor);
     }
 
     @Override
@@ -51,10 +67,6 @@ public class CompanyTrainPanel extends BaseEntityBlock {
 
     @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-        if (pIsMoving) {
-            super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
-            return;
-        }
         BlockPos pos = getParentPos(pLevel, pPos);
         if (pos == null) {
             super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);

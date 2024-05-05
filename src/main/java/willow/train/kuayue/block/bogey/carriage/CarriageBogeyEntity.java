@@ -6,7 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
-import willow.train.kuayue.initial.AllCarriageBogeys;
+import willow.train.kuayue.initial.create.AllCarriageBogeys;
 
 public class CarriageBogeyEntity extends AbstractBogeyBlockEntity {
 

@@ -1,4 +1,4 @@
-package willow.train.kuayue.initial;
+package willow.train.kuayue.initial.create;
 
 import com.simibubi.create.content.trains.bogey.BogeyBlockEntityRenderer;
 import kasuga.lib.registrations.BundledReg;
@@ -15,6 +15,7 @@ import willow.train.kuayue.block.bogey.carriage.renderer.CW2BogeyRenderer;
 import willow.train.kuayue.block.bogey.carriage.renderer.PK209PRenderer;
 import willow.train.kuayue.block.bogey.carriage.renderer.SW160Renderer;
 import willow.train.kuayue.block.bogey.carriage.renderer.SW220KRenderer;
+import willow.train.kuayue.initial.AllElements;
 
 public class AllCarriageBogeys {
     public static final CreateRegistry testRegistry = AllElements.testRegistry;

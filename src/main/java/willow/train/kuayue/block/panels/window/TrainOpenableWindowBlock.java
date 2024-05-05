@@ -33,6 +33,15 @@ public class TrainOpenableWindowBlock extends TrainPanelBlock {
         );
     }
 
+    public TrainOpenableWindowBlock(Properties pProperties, int left, int right) {
+        super(pProperties, new Vec2(left, 0), new Vec2(right, 1));
+        this.registerDefaultState(this.getStateDefinition().any()
+                .setValue(TrainPanelBlock.FACING, Direction.EAST)
+                .setValue(HINGE, DoorHingeSide.LEFT)
+                .setValue(OPEN, false)
+        );
+    }
+
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         super.createBlockStateDefinition(pBuilder.add(OPEN, HINGE));

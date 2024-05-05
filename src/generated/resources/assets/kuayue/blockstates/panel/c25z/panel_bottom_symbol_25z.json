@@ -1,20 +1,20 @@
 {
-  "variants": {
-    "facing=east": {
-      "model": "kuayue:block/carriage/carriage25z/panel_25z_original_bottom_toilet",
-      "y": 270
-    },
-    "facing=north": {
-      "model": "kuayue:block/carriage/carriage25z/panel_25z_original_bottom_toilet",
-      "y": 180
-    },
-    "facing=south": {
-      "model": "kuayue:block/carriage/carriage25z/panel_25z_original_bottom_toilet",
-      "y": 0
-    },
-    "facing=west": {
-      "model": "kuayue:block/carriage/carriage25z/panel_25z_original_bottom_toilet",
-      "y": 90
-    }
+ "variants": {
+  "facing=east": {
+   "model": "kuayue:block/carriage/carriage25z/panel_25z_original_bottom_toilet",
+   "y": 90
+  },
+  "facing=north": {
+   "model": "kuayue:block/carriage/carriage25z/panel_25z_original_bottom_toilet",
+   "y": 0
+  },
+  "facing=south": {
+   "model": "kuayue:block/carriage/carriage25z/panel_25z_original_bottom_toilet",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "kuayue:block/carriage/carriage25z/panel_25z_original_bottom_toilet",
+   "y": 270
   }
+ }
 }

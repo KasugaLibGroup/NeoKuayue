@@ -18,7 +18,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.phys.Vec3;
 import willow.train.kuayue.initial.AllElements;
-import willow.train.kuayue.initial.AllLocoBogeys;
+import willow.train.kuayue.initial.create.AllLocoBogeys;
 
 public class QJMainRenderer extends BogeyRenderer {
 

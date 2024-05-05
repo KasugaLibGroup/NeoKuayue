@@ -1,4 +1,4 @@
-package willow.train.kuayue.initial;
+package willow.train.kuayue.initial.create;
 
 import com.simibubi.create.AllTags;
 import com.simibubi.create.content.trains.track.TrackBlock;
@@ -7,7 +7,7 @@ import kasuga.lib.core.create.TrackStateGenerator;
 import kasuga.lib.registrations.create.TrackReg;
 import kasuga.lib.registrations.registry.CreateRegistry;
 import net.minecraft.world.level.material.Material;
-import willow.train.kuayue.block.track.TrackBlockRenderer;
+import willow.train.kuayue.initial.AllElements;
 
 public class AllTracks {
     public static final CreateRegistry testRegistry = AllElements.testRegistry;

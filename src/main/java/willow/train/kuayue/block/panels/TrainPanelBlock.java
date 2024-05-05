@@ -80,8 +80,7 @@ public class TrainPanelBlock extends Block {
     @Override
     public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
         super.onPlace(pState, pLevel, pPos, pOldState, pIsMoving);
-        if (!pIsMoving)
-            generateCompanyBlock(pLevel, pState, pPos, pIsMoving);
+        generateCompanyBlock(pLevel, pState, pPos, pIsMoving);
     }
 
     public boolean hasHinge() {
@@ -115,11 +114,9 @@ public class TrainPanelBlock extends Block {
     @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
         super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
-        if (!pIsMoving) {
-            removeCompanyBlock(pLevel, pState, pPos, pIsMoving);
-            if(pNewState.getBlock().getClass().equals(pState.getBlock().getClass())) return;
-            pLevel.removeBlock(pPos, pIsMoving);
-        }
+        removeCompanyBlock(pLevel, pState, pPos, pIsMoving);
+        if(pNewState.getBlock().getClass().equals(pState.getBlock().getClass())) return;
+        pLevel.removeBlock(pPos, pIsMoving);
     }
 
     public void removeCompanyBlock(Level level, BlockState state, BlockPos pos, boolean isMoving) {

@@ -1,20 +1,52 @@
 {
  "variants": {
-  "facing=east": {
+  "facing=east,skirt=middle": {
    "model": "kuayue:block/carriage/carriage25t/panel_25t_original_skirt",
-   "y": 270
+   "y": 90
   },
-  "facing=north": {
-   "model": "kuayue:block/carriage/carriage25t/panel_25t_original_skirt",
-   "y": 180
-  },
-  "facing=south": {
+  "facing=north,skirt=middle": {
    "model": "kuayue:block/carriage/carriage25t/panel_25t_original_skirt",
    "y": 0
   },
-  "facing=west": {
+  "facing=south,skirt=middle": {
    "model": "kuayue:block/carriage/carriage25t/panel_25t_original_skirt",
+   "y": 180
+  },
+  "facing=west,skirt=middle": {
+   "model": "kuayue:block/carriage/carriage25t/panel_25t_original_skirt",
+   "y": 270
+  },
+  "facing=east,skirt=right": {
+   "model": "kuayue:block/carriage/carriage25t/panel_25t_original_skirt_side_lh",
    "y": 90
+  },
+  "facing=north,skirt=right": {
+   "model": "kuayue:block/carriage/carriage25t/panel_25t_original_skirt_side_lh",
+   "y": 0
+  },
+  "facing=south,skirt=right": {
+   "model": "kuayue:block/carriage/carriage25t/panel_25t_original_skirt_side_lh",
+   "y": 180
+  },
+  "facing=west,skirt=right": {
+   "model": "kuayue:block/carriage/carriage25t/panel_25t_original_skirt_side_lh",
+   "y": 270
+  },
+  "facing=east,skirt=left": {
+   "model": "kuayue:block/carriage/carriage25t/panel_25t_original_skirt_side",
+   "y": 90
+  },
+  "facing=north,skirt=left": {
+   "model": "kuayue:block/carriage/carriage25t/panel_25t_original_skirt_side",
+   "y": 0
+  },
+  "facing=south,skirt=left": {
+   "model": "kuayue:block/carriage/carriage25t/panel_25t_original_skirt_side",
+   "y": 180
+  },
+  "facing=west,skirt=left": {
+   "model": "kuayue:block/carriage/carriage25t/panel_25t_original_skirt_side",
+   "y": 270
   }
  }
 }

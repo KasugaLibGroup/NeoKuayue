@@ -10,7 +10,7 @@ import com.simibubi.create.content.trains.entity.CarriageBogey;
 import com.simibubi.create.foundation.utility.Iterate;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
-import willow.train.kuayue.initial.AllCarriageBogeys;
+import willow.train.kuayue.initial.create.AllCarriageBogeys;
 import willow.train.kuayue.initial.AllElements;
 
 public class SW160Renderer extends BogeyRenderer {

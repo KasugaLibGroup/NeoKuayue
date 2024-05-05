@@ -23,8 +23,8 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.Vec3;
-import willow.train.kuayue.initial.AllCarriageBogeys;
-import willow.train.kuayue.initial.AllTrackMaterial;
+import willow.train.kuayue.initial.create.AllCarriageBogeys;
+import willow.train.kuayue.initial.create.AllTrackMaterial;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;

@@ -13,9 +13,7 @@ import willow.train.kuayue.block.panels.block_entity.CustomRenderedDoorEntity;
 import willow.train.kuayue.block.panels.block_entity.CustomRenderedDoorRenderer;
 import willow.train.kuayue.block.panels.block_entity.CustomRenderedEndFaceRenderer;
 import willow.train.kuayue.block.panels.block_entity.CustomRenderedEndfaceEntity;
-import willow.train.kuayue.initial.panel.C25BPanel;
-import willow.train.kuayue.initial.panel.C25GPanel;
-import willow.train.kuayue.initial.panel.CR200JPanel;
+import willow.train.kuayue.initial.panel.*;
 
 public class AllBlocks {
 
@@ -57,6 +55,13 @@ public class AllBlocks {
                     .withRenderer(CustomRenderedDoorRenderer::new)
                     .addBlock(CR200JPanel.DOOR_CR200J.block)
                     .addBlock(CR200JPanel.DOOR_CR200J_2.block)
+                    .addBlock(CR200JPanel.DOOR_CABIN_MARSHALLED_CR200J.block)
+                    .addBlock(C25BPanel.DOOR_25B.block)
+                    .addBlock(C25GPanel.DOOR_25G.block)
+                    .addBlock(C25KPanel.DOOR_25K.block)
+                    .addBlock(C25TPanel.DOOR_25T.block)
+                    .addBlock(C25TPanel.DOOR_SLIDING_25T.block)
+                    .addBlock(C25ZPanel.DOOR_25Z.block)
                     .submit(AllElements.testRegistry);
 
     public static final BlockEntityReg<CustomRenderedEndfaceEntity> CUSTOM_RENDERED_ENDFACE_ENTITY =
@@ -70,6 +75,9 @@ public class AllBlocks {
     public static void invoke() {
         C25GPanel.invoke();
         C25BPanel.invoke();
+        C25KPanel.invoke();
+        C25TPanel.invoke();
+        C25ZPanel.invoke();
         CR200JPanel.invoke();
     }
 }

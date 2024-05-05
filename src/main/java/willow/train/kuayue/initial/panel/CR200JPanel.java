@@ -8,7 +8,6 @@ import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.Vec2;
 import willow.train.kuayue.block.panels.*;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
-import willow.train.kuayue.block.panels.block_entity.CustomRenderedEndFaceRenderer;
 import willow.train.kuayue.block.panels.door.CustomRenderedDoorBlock;
 import willow.train.kuayue.block.panels.end_face.CustomRenderedEndfaceBlock;
 import willow.train.kuayue.block.panels.slab.TrainLadderBlock;
@@ -18,9 +17,9 @@ import willow.train.kuayue.block.panels.window.TrainSmallWindowBlock;
 import willow.train.kuayue.block.panels.window.TrainUnOpenableSmallWindowBlock;
 import willow.train.kuayue.block.panels.window.TrainUnOpenableWindowBlock;
 import willow.train.kuayue.initial.AllElements;
-import willow.train.kuayue.initial.PanelRegistration;
-import willow.train.kuayue.initial.SkirtRegistration;
-import willow.train.kuayue.initial.SlabRegistration;
+import willow.train.kuayue.initial.registration.PanelRegistration;
+import willow.train.kuayue.initial.registration.SkirtRegistration;
+import willow.train.kuayue.initial.registration.SlabRegistration;
 
 public class CR200JPanel {
     public static final MaterialColor CR200J_COLOR = MaterialColor.COLOR_GREEN;
@@ -52,6 +51,21 @@ public class CR200JPanel {
                                     registry.asResource("carriage/carriage_marshalled_cr200j/door/door_bottom_2"),
                                     registry.asResource("carriage/carriage_marshalled_cr200j/door/door_top")),
                                     RenderShape.ENTITYBLOCK_ANIMATED, true))
+                    .materialAndColor(CR200J_MATERIAL, CR200J_COLOR)
+                    .tab(AllElements.neoKuayueMainTab)
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
+    public static final PanelRegistration<CustomRenderedDoorBlock> DOOR_CABIN_MARSHALLED_CR200J =
+            new PanelRegistration<CustomRenderedDoorBlock>("door_cabin_marshalled_cr200j")
+                    .block(properties ->
+                            new CustomRenderedDoorBlock(properties, Couple.create(
+                                    registry.asResource("carriage/carriage_marshalled_cr200j/door/door_bottom_lh"),
+                                    registry.asResource("carriage/carriage_marshalled_cr200j/door/door_top_lh_2"))
+                                    , Couple.create(
+                                    registry.asResource("carriage/carriage_marshalled_cr200j/door/door_bottom"),
+                                    registry.asResource("carriage/carriage_marshalled_cr200j/door/door_top_2")),
+                                    RenderShape.MODEL, true))
                     .materialAndColor(CR200J_MATERIAL, CR200J_COLOR)
                     .tab(AllElements.neoKuayueMainTab)
                     .noOcclusion()

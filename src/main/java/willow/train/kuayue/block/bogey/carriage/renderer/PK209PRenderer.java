@@ -11,11 +11,10 @@ import com.simibubi.create.foundation.utility.Iterate;
 import com.simibubi.create.foundation.utility.NBTHelper;
 import kasuga.lib.core.create.BogeyDataConstants;
 import kasuga.lib.example_env.AllExampleBogey;
-import kasuga.lib.example_env.AllExampleElements;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
-import willow.train.kuayue.initial.AllCarriageBogeys;
+import willow.train.kuayue.initial.create.AllCarriageBogeys;
 import willow.train.kuayue.initial.AllElements;
 
 public class PK209PRenderer extends BogeyRenderer {

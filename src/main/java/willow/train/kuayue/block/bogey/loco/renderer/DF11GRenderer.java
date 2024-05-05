@@ -13,7 +13,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import willow.train.kuayue.initial.AllElements;
-import willow.train.kuayue.initial.AllLocoBogeys;
+import willow.train.kuayue.initial.create.AllLocoBogeys;
 
 public class DF11GRenderer extends BogeyRenderer {
 

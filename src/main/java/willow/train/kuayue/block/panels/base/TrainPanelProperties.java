@@ -2,11 +2,14 @@ package willow.train.kuayue.block.panels.base;
 
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import org.jetbrains.annotations.NotNull;
 
 public class TrainPanelProperties {
 
     public static final EnumProperty<SkirtType> SKIRT_TYPE = EnumProperty.create("skirt", SkirtType.class);
+    public static final IntegerProperty TYPE = IntegerProperty.create("type", 0, 1);
+    public static final IntegerProperty TYPE_2 = IntegerProperty.create("type", 0, 2);
 
     public enum DoorType implements StringRepresentable {
         FOLD, SLIDE, ROTATE;

@@ -1,6 +1,13 @@
 {
   "values": [
     "kuayue:carport_center_marshalled_cr200j",
-    "kuayue:carport_marshalled_cr200j"
+    "kuayue:carport_marshalled_cr200j",
+    "kuayue:carport_25t",
+    "kuayue:carport_center_bsp25t",
+    "kuayue:carport_toilet_25t",
+    "kuayue:carport_ac_25z",
+    "kuayue:carport_center_25z",
+    "kuayue:carport_side_ac_25z",
+    "kuayue:carport_25z"
   ]
 }

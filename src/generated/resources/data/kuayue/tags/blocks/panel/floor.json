@@ -1,7 +1,22 @@
 {
   "values": [
-    "floor_marshalled_cr200j",
-    "toilet_dd_marshalled_cr200j",
-    "ladder_marshalled_cr200j"
+    "kuayue:floor_marshalled_cr200j",
+    "kuayue:toilet_dd_marshalled_cr200j",
+    "kuayue:ladder_marshalled_cr200j",
+    "kuayue:floor_25b",
+    "kuayue:toilet_dd_25b",
+    "kuayue:ladder_25b",
+    "kuayue:floor_25g",
+    "kuayue:toilet_dd_25g",
+    "kuayue:ladder_25g",
+    "kuayue:floor_25t",
+    "kuayue:toilet_dd_25t",
+    "kuayue:ladder_sliding_25t",
+    "kuayue:floor_25k",
+    "kuayue:toilet_dd_25k",
+    "kuayue:ladder_sliding_25k",
+    "kuayue:floor_25z",
+    "kuayue:toilet_dd_25z",
+    "kuayue:ladder_sliding_25z"
   ]
 }

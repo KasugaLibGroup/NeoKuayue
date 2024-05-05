@@ -1,66 +1,66 @@
 {
  "variants": {
-  "facing=east,open=false,half=bottom": {
+  "facing=east,open=false,hinge=right": {
    "model": "kuayue:block/carriage/windows/original_color_window_25t_wide",
    "y": 90
   },
-  "facing=north,open=false,half=bottom": {
+  "facing=north,open=false,hinge=right": {
    "model": "kuayue:block/carriage/windows/original_color_window_25t_wide",
    "y": 0
   },
-  "facing=south,open=false,half=bottom": {
+  "facing=south,open=false,hinge=right": {
    "model": "kuayue:block/carriage/windows/original_color_window_25t_wide",
    "y": 180
   },
-  "facing=west,open=false,half=bottom": {
+  "facing=west,open=false,hinge=right": {
    "model": "kuayue:block/carriage/windows/original_color_window_25t_wide",
    "y": 270
   },
-  "facing=east,open=true,half=bottom": {
+  "facing=east,open=true,hinge=right": {
    "model": "kuayue:block/carriage/windows/original_color_window_25t_wide_open",
    "y": 90
   },
-  "facing=north,open=true,half=bottom": {
+  "facing=north,open=true,hinge=right": {
    "model": "kuayue:block/carriage/windows/original_color_window_25t_wide_open",
    "y": 0
   },
-  "facing=south,open=true,half=bottom": {
+  "facing=south,open=true,hinge=right": {
    "model": "kuayue:block/carriage/windows/original_color_window_25t_wide_open",
    "y": 180
   },
-  "facing=west,open=true,half=bottom": {
+  "facing=west,open=true,hinge=right": {
    "model": "kuayue:block/carriage/windows/original_color_window_25t_wide_open",
    "y": 270
   },
-  "facing=east,open=false,half=top": {
+  "facing=east,open=false,hinge=left": {
    "model": "kuayue:block/carriage/windows/original_color_window_25t_wide_lh",
    "y": 90
   },
-  "facing=north,open=false,half=top": {
+  "facing=north,open=false,hinge=left": {
    "model": "kuayue:block/carriage/windows/original_color_window_25t_wide_lh",
    "y": 0
   },
-  "facing=south,open=false,half=top": {
+  "facing=south,open=false,hinge=left": {
    "model": "kuayue:block/carriage/windows/original_color_window_25t_wide_lh",
    "y": 180
   },
-  "facing=west,open=false,half=top": {
+  "facing=west,open=false,hinge=left": {
    "model": "kuayue:block/carriage/windows/original_color_window_25t_wide_lh",
    "y": 270
   },
-  "facing=east,open=true,half=top": {
+  "facing=east,open=true,hinge=left": {
    "model": "kuayue:block/carriage/windows/original_color_window_25t_wide_open_lh",
    "y": 90
   },
-  "facing=north,open=true,half=top": {
+  "facing=north,open=true,hinge=left": {
    "model": "kuayue:block/carriage/windows/original_color_window_25t_wide_open_lh",
    "y": 0
   },
-  "facing=south,open=true,half=top": {
+  "facing=south,open=true,hinge=left": {
    "model": "kuayue:block/carriage/windows/original_color_window_25t_wide_open_lh",
    "y": 180
   },
-  "facing=west,open=true,half=top": {
+  "facing=west,open=true,hinge=left": {
    "model": "kuayue:block/carriage/windows/original_color_window_25t_wide_open_lh",
    "y": 270
   }

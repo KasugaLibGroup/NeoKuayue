@@ -1,4 +1,4 @@
-package willow.train.kuayue.initial;
+package willow.train.kuayue.initial.create;
 
 import com.simibubi.create.content.trains.bogey.BogeyBlockEntityRenderer;
 import kasuga.lib.registrations.common.BlockEntityReg;
@@ -12,6 +12,7 @@ import willow.train.kuayue.block.bogey.loco.LocoBogeyBlock;
 import willow.train.kuayue.block.bogey.loco.LocoBogeyEntity;
 import willow.train.kuayue.block.bogey.loco.renderer.DF11GRenderer;
 import willow.train.kuayue.block.bogey.loco.renderer.QJMainRenderer;
+import willow.train.kuayue.initial.AllElements;
 
 public class AllLocoBogeys {
     public static CreateRegistry testRegistry = AllElements.testRegistry;
