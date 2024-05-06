@@ -10,6 +10,7 @@ public class TrainPanelProperties {
     public static final EnumProperty<SkirtType> SKIRT_TYPE = EnumProperty.create("skirt", SkirtType.class);
     public static final IntegerProperty TYPE = IntegerProperty.create("type", 0, 1);
     public static final IntegerProperty TYPE_2 = IntegerProperty.create("type", 0, 2);
+    public static final EnumProperty<FloorHeight> FLOOR_HEIGHT = EnumProperty.create("floor", FloorHeight.class);
 
     public enum DoorType implements StringRepresentable {
         FOLD, SLIDE, ROTATE;
@@ -51,6 +52,27 @@ public class TrainPanelProperties {
                 case "right" -> RIGHT;
                 case "middle" -> MIDDLE;
                 default -> LEFT;
+            };
+        }
+    }
+
+    public enum FloorHeight implements StringRepresentable {
+        BOTTOM, DOUBLE, TOP;
+
+        @Override
+        public @NotNull String getSerializedName() {
+            return switch (this) {
+                case TOP -> "top";
+                case BOTTOM -> "bottom";
+                case DOUBLE -> "double";
+            };
+        }
+
+        public static FloorHeight fromString(String input) {
+            return switch (input) {
+                case "double" -> DOUBLE;
+                case "bottom" -> BOTTOM;
+                default -> TOP;
             };
         }
     }

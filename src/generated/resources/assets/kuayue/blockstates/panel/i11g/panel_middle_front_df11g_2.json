@@ -2,35 +2,35 @@
  "variants": {
   "facing=east,hinge=right": {
    "model": "kuayue:block/df11g/df11g_panel_mid_front_2",
-   "y": 270
+   "y": 90
   },
   "facing=north,hinge=right": {
    "model": "kuayue:block/df11g/df11g_panel_mid_front_2",
-   "y": 180
+   "y": 0
   },
   "facing=south,hinge=right": {
    "model": "kuayue:block/df11g/df11g_panel_mid_front_2",
-   "y": 0
+   "y": 180
   },
   "facing=west,hinge=right": {
    "model": "kuayue:block/df11g/df11g_panel_mid_front_2",
-   "y": 90
+   "y": 270
   },
   "facing=east,hinge=left": {
    "model": "kuayue:block/df11g/df11g_panel_mid_front_2_lh",
-   "y": 270
+   "y": 90
   },
   "facing=north,hinge=left": {
    "model": "kuayue:block/df11g/df11g_panel_mid_front_2_lh",
-   "y": 180
+   "y": 0
   },
   "facing=south,hinge=left": {
    "model": "kuayue:block/df11g/df11g_panel_mid_front_2_lh",
-   "y": 0
+   "y": 180
   },
   "facing=west,hinge=left": {
    "model": "kuayue:block/df11g/df11g_panel_mid_front_2_lh",
-   "y": 90
+   "y": 270
   }
  }
 }

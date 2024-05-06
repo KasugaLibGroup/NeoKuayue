@@ -9,6 +9,7 @@ import net.minecraft.world.level.material.MaterialColor;
 import willow.train.kuayue.block.panels.base.CompanyTrainBlockEntity;
 import willow.train.kuayue.block.panels.base.CompanyTrainDoor;
 import willow.train.kuayue.block.panels.base.CompanyTrainPanel;
+import willow.train.kuayue.block.panels.base.CompanyTrainSlab;
 import willow.train.kuayue.block.panels.block_entity.CustomRenderedDoorEntity;
 import willow.train.kuayue.block.panels.block_entity.CustomRenderedDoorRenderer;
 import willow.train.kuayue.block.panels.block_entity.CustomRenderedEndFaceRenderer;
@@ -41,12 +42,30 @@ public class AllBlocks {
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
                     .submit(AllElements.testRegistry);
 
+    public static final BlockReg<CompanyTrainSlab> COMPANY_FLOOR =
+            new BlockReg<CompanyTrainSlab>("company_floor")
+                    .blockType(p -> new CompanyTrainSlab(p, false))
+                    .material(Material.METAL)
+                    .materialColor(MaterialColor.COLOR_GRAY)
+                    .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .submit(AllElements.testRegistry);
+
+    public static final BlockReg<CompanyTrainSlab> COMPANY_CARPORT =
+            new BlockReg<CompanyTrainSlab>("company_carport")
+                    .blockType(p -> new CompanyTrainSlab(p, true))
+                    .material(Material.METAL)
+                    .materialColor(MaterialColor.COLOR_GRAY)
+                    .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .submit(AllElements.testRegistry);
+
     public static final BlockEntityReg<CompanyTrainBlockEntity> COMPANY_TRAIN_BLOCK_ENTITY =
             new BlockEntityReg<CompanyTrainBlockEntity>("company_panel")
                     .blockEntityType(CompanyTrainBlockEntity::new)
                     .addBlock(COMPANY_TRAIN_PANEL)
                     .addBlock(COMPANY_TRAIN_DOOR)
                     .addBlock(COMPANY_SLIDING_DOOR)
+                    .addBlock(COMPANY_FLOOR)
+                    .addBlock(COMPANY_CARPORT)
                     .submit(AllElements.testRegistry);
 
     public static final BlockEntityReg<CustomRenderedDoorEntity> CUSTOM_RENDERED_DOOR_ENTITY =
@@ -78,6 +97,9 @@ public class AllBlocks {
         C25KPanel.invoke();
         C25TPanel.invoke();
         C25ZPanel.invoke();
+        C25Panel.invoke();
+        I11GPanel.invoke();
+        I3DPanel.invoke();
         CR200JPanel.invoke();
     }
 }
