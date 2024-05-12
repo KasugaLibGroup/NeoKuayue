@@ -2,7 +2,6 @@ package willow.train.kuayue.initial;
 
 import kasuga.lib.registrations.common.BlockEntityReg;
 import kasuga.lib.registrations.common.BlockReg;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
@@ -14,6 +13,7 @@ import willow.train.kuayue.block.panels.block_entity.CustomRenderedDoorEntity;
 import willow.train.kuayue.block.panels.block_entity.CustomRenderedDoorRenderer;
 import willow.train.kuayue.block.panels.block_entity.CustomRenderedEndFaceRenderer;
 import willow.train.kuayue.block.panels.block_entity.CustomRenderedEndfaceEntity;
+import willow.train.kuayue.block.seat.SeatBlockEntity;
 import willow.train.kuayue.initial.panel.*;
 
 public class AllBlocks {
@@ -91,6 +91,13 @@ public class AllBlocks {
                     .addBlock(CR200JPanel.END_FACE_MARSHALLED_CR200J_2.block)
                     .submit(AllElements.testRegistry);
 
+    public static final BlockEntityReg<SeatBlockEntity> SEAT_BLOCK_ENTITY =
+            new BlockEntityReg<SeatBlockEntity>("seat_block_entity")
+                    .blockEntityType(SeatBlockEntity::new)
+                    .addBlock(AllDecoBlocks.YZ_SEAT_BLUE)
+                    .addBlock(AllDecoBlocks.YZ_SEAT_2)
+                    .submit(AllElements.testRegistry);
+
     public static void invoke() {
         C25GPanel.invoke();
         C25BPanel.invoke();
@@ -100,6 +107,7 @@ public class AllBlocks {
         C25Panel.invoke();
         I11GPanel.invoke();
         I3DPanel.invoke();
+        AllDecoBlocks.invoke();
         CR200JPanel.invoke();
     }
 }

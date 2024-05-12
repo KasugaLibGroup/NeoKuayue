@@ -2,8 +2,8 @@
 	"credit": "Made by WillowKoishi",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "kuayue:block/seats/seat_yz",
-		"particle": "kuayue:block/seats/seat_yz"
+		"0": "kuayue:block/seats/seat_yz_blue",
+		"particle": "kuayue:block/seats/seat_yz_blue"
 	},
 	"elements": [
 		{

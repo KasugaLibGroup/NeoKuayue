@@ -11,6 +11,7 @@ public class TrainPanelProperties {
     public static final IntegerProperty TYPE = IntegerProperty.create("type", 0, 1);
     public static final IntegerProperty TYPE_2 = IntegerProperty.create("type", 0, 2);
     public static final EnumProperty<FloorHeight> FLOOR_HEIGHT = EnumProperty.create("floor", FloorHeight.class);
+    public static final EnumProperty<ExternalHinge> EXTERNAL_HINGE = EnumProperty.create("hinge", ExternalHinge.class);
 
     public enum DoorType implements StringRepresentable {
         FOLD, SLIDE, ROTATE;
@@ -73,6 +74,29 @@ public class TrainPanelProperties {
                 case "double" -> DOUBLE;
                 case "bottom" -> BOTTOM;
                 default -> TOP;
+            };
+        }
+    }
+
+    public enum ExternalHinge implements StringRepresentable {
+        SINGLE, LEFT, RIGHT, DOUBLE;
+
+        @Override
+        public String getSerializedName() {
+            return switch (this) {
+                case DOUBLE -> "double";
+                case RIGHT -> "right";
+                case LEFT -> "left";
+                case SINGLE -> "single";
+            };
+        }
+
+        public static ExternalHinge fromString(String input) {
+            return switch (input) {
+                case "single" -> SINGLE;
+                case "right" -> RIGHT;
+                case "left" -> LEFT;
+                default -> DOUBLE;
             };
         }
     }

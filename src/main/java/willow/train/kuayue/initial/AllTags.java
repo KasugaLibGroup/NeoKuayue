@@ -44,5 +44,13 @@ public class AllTags {
     public static final BlockTagReg C200J = new BlockTagReg("c200j", "panel/c200j")
             .submit(AllElements.testRegistry);
 
+    public static final BlockTagReg I3D = new BlockTagReg("i3d", "panel/i3d")
+            .submit(AllElements.testRegistry);
+
+    public static final BlockTagReg I11G = new BlockTagReg("i11g", "panel/i11g")
+            .submit(AllElements.testRegistry);
+    public static final BlockTagReg MULTI_SEAT_BLOCK = new BlockTagReg("multi_seat_block", "multi_seat_block")
+            .submit(AllElements.testRegistry);
+
     public static void invoke() {}
 }

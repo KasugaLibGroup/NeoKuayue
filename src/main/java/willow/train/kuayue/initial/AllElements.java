@@ -26,6 +26,7 @@ public class AllElements {
         AllLocoBogeys.invoke();
         AllCarriageBogeys.invoke();
         AllBehaviours.invoke();
+        AllPackets.invoke();
         if (Envs.isClient()) {
             ClientInit.invoke();
             MinecraftForge.EVENT_BUS.addListener(RenderArrowEvent::renderBlockBounds);

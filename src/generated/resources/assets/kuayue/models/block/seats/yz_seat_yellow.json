@@ -1,0 +1,7 @@
+{
+  "parent": "kuayue:block/seats/yz_seat_blue",
+  "textures": {
+    "0": "kuayue:block/seats/seat_yz_yellow",
+    "particles": "kuayue:block/seats/seat_yz_yellow"
+  }
+}

@@ -1,5 +1,6 @@
 package willow.train.kuayue.block.panels;
 
+import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import kasuga.lib.registrations.common.BlockReg;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -7,6 +8,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -27,7 +29,7 @@ import willow.train.kuayue.block.panels.base.TrainPanelShapes;
 import willow.train.kuayue.initial.AllBlocks;
 import willow.train.kuayue.utils.DirectionUtil;
 
-public class TrainPanelBlock extends Block {
+public class TrainPanelBlock extends Block implements IWrenchable {
     public final Vec2 beginPos, endPos;
     public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
     public TrainPanelBlock(Properties pProperties, Vec2 beginPos, Vec2 endPos) {
@@ -148,6 +150,11 @@ public class TrainPanelBlock extends Block {
             firstPos = firstPos.offset(0, - height, 0);
             firstPos = DirectionUtil.right(firstPos, direction, leftHinge ? 1 : -1);
         }
+    }
+
+    @Override
+    public InteractionResult onWrenched(BlockState state, UseOnContext context) {
+        return InteractionResult.PASS;
     }
 
     public interface BlockUseFunction {

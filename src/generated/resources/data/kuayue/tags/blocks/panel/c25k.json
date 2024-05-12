@@ -1,3 +1,26 @@
 {
-  "values": []
+  "values": [
+    "kuayue:door_25k",
+    "kuayue:door_sliding_25k",
+    "kuayue:end_face_25k",
+    "kuayue:end_face_rubber_25k",
+    "kuayue:end_face_rubber_upper_25k",
+    "kuayue:end_face_rubber_upper_25k_2",
+    "kuayue:end_face_upper_25k",
+    "kuayue:end_face_upper_25k_2",
+    "kuayue:floor_25k",
+    "kuayue:ladder_sliding_25k",
+    "kuayue:panel_bottom_25k",
+    "kuayue:panel_bottom_line_25k",
+    "kuayue:panel_middle_25k",
+    "kuayue:panel_symbol_25k",
+    "kuayue:panel_symbol_marshalled_25k",
+    "kuayue:panel_top_25k",
+    "kuayue:toilet_dd_25k",
+    "kuayue:window_oc_sealed_small_25k",
+    "kuayue:window_oc_small_25k",
+    "kuayue:window_oc_toilet_25k",
+    "kuayue:window_oc_wide_25k",
+    "kuayue:window_oc_wide_sealed_25k"
+  ]
 }

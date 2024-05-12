@@ -4,6 +4,7 @@
   "package": "willow.train.kuayue.mixins.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "MixinAbstractContraptionEntity"
   ],
   "client": [
     "client.MixinCarriageContraptionEntityRenderer"

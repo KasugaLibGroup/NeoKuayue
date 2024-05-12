@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "kuayue:block/seats/yz_seat_red", "y": 0 },
+    "facing=east":  { "model": "kuayue:block/seats/yz_seat_red", "y": 90 },
+    "facing=south": { "model": "kuayue:block/seats/yz_seat_red", "y": 180 },
+    "facing=west":  { "model": "kuayue:block/seats/yz_seat_red", "y":  270 }
+  }
+}

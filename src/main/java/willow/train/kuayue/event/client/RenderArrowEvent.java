@@ -9,6 +9,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.RenderGuiEvent;
@@ -30,7 +31,8 @@ public class RenderArrowEvent {
     public static void renderBlockBounds(RenderGuiEvent event) {
         Player player = Minecraft.getInstance().player;
         ClientLevel level = Minecraft.getInstance().level;
-        BlockHitResult result = (BlockHitResult) Minecraft.getInstance().hitResult;
+        HitResult hitResult = Minecraft.getInstance().hitResult;
+        if (!(hitResult instanceof BlockHitResult result)) return;
         if (result == null) return;
         if (player == null) return;
         if (player.isShiftKeyDown()) return;

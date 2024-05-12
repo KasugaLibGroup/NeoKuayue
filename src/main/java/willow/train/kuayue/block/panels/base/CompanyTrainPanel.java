@@ -1,5 +1,6 @@
 package willow.train.kuayue.block.panels.base;
 
+import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -9,6 +10,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -22,13 +24,14 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DoorHingeSide;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 import willow.train.kuayue.block.panels.TrainPanelBlock;
 import willow.train.kuayue.utils.DirectionUtil;
 
-public class CompanyTrainPanel extends BaseEntityBlock {
+public class CompanyTrainPanel extends BaseEntityBlock implements IWrenchable {
 
     public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final EnumProperty<DoorHingeSide> HINGE = BlockStateProperties.DOOR_HINGE;
@@ -139,5 +142,33 @@ public class CompanyTrainPanel extends BaseEntityBlock {
     @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
         return new CompanyTrainBlockEntity(pPos, pState);
+    }
+
+    @Override
+    public InteractionResult onWrenched(BlockState state, UseOnContext context) {
+        Level level = context.getLevel();
+        BlockEntity entity = level.getBlockEntity(context.getClickedPos());
+        if (!(entity instanceof CompanyTrainBlockEntity)) return InteractionResult.PASS;
+        BlockPos parentPos = context.getClickedPos().offset(((CompanyTrainBlockEntity) entity).getParentPos());
+        BlockState state1 = level.getBlockState(parentPos);
+        if (!(state1.getBlock() instanceof TrainPanelBlock)) return InteractionResult.PASS;
+        Vec3 hitLoc = context.getClickLocation().add(DirectionUtil.toVec3(((CompanyTrainBlockEntity) entity).getParentPos()));
+        BlockHitResult result = new BlockHitResult(hitLoc, context.getClickedFace(), parentPos, context.isInside());
+        UseOnContext context1 = new UseOnContext(context.getPlayer(), context.getHand(), result);
+        return ((IWrenchable)state1.getBlock()).onWrenched(state1, context1);
+    }
+
+    @Override
+    public InteractionResult onSneakWrenched(BlockState state, UseOnContext context) {
+        Level level = context.getLevel();
+        BlockEntity entity = level.getBlockEntity(context.getClickedPos());
+        if (!(entity instanceof CompanyTrainBlockEntity)) return InteractionResult.PASS;
+        BlockPos parentPos = context.getClickedPos().offset(((CompanyTrainBlockEntity) entity).getParentPos());
+        BlockState state1 = level.getBlockState(parentPos);
+        if (!(state1.getBlock() instanceof TrainPanelBlock)) return InteractionResult.PASS;
+        Vec3 hitLoc = context.getClickLocation().add(DirectionUtil.toVec3(((CompanyTrainBlockEntity) entity).getParentPos()));
+        BlockHitResult result = new BlockHitResult(hitLoc, context.getClickedFace(), parentPos, context.isInside());
+        UseOnContext context1 = new UseOnContext(context.getPlayer(), context.getHand(), result);
+        return ((IWrenchable)state1.getBlock()).onSneakWrenched(state1, context1);
     }
 }
