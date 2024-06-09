@@ -283,5 +283,13 @@ public class C25TPanel {
                     .tab(AllElements.neoKuayueMainTab)
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
+
+    public static final SlabRegistration<TrainSlabBlock> AIR_CONDITION_BSP25T =
+            new SlabRegistration<TrainSlabBlock>("air_condition_bsp25t")
+                    .block(p -> new TrainSlabBlock(p, true))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueMainTab)
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
     public static void invoke(){}
 }

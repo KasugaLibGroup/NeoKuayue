@@ -10,9 +10,6 @@
     "kuayue:cowcatcher_df11g",
     "kuayue:door_cabin_df11g",
     "kuayue:door_equip_room_df11g",
-    "kuayue:end_face_df11g",
-    "kuayue:head_df11g",
-    "kuayue:head_df11g_2",
     "kuayue:panel_cr_df11g",
     "kuayue:panel_general_df11g",
     "kuayue:panel_kuayue_df11g",
@@ -21,6 +18,7 @@
     "kuayue:panel_middle_general_df11g",
     "kuayue:panel_middle_shades_df11g",
     "kuayue:panel_shades_df11g",
-    "kuayue:window_middle_df11g"
+    "kuayue:window_middle_df11g",
+    "kuayue:head_df11g_2"
   ]
 }

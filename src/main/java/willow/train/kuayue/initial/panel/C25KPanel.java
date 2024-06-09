@@ -20,6 +20,8 @@ import willow.train.kuayue.initial.AllElements;
 import willow.train.kuayue.initial.registration.PanelRegistration;
 import willow.train.kuayue.initial.registration.SlabRegistration;
 
+import static willow.train.kuayue.initial.panel.CR200JPanel.registry;
+
 public class C25KPanel {
 
     public static final PanelRegistration<CustomRenderedDoorBlock> DOOR_25K =
@@ -32,6 +34,21 @@ public class C25KPanel {
                             new ResourceLocation(Kuayue.MODID, "door/original_25k_door_bottom"),
                             new ResourceLocation(Kuayue.MODID, "door/original_25k_door_top")
                     ), RenderShape.ENTITYBLOCK_ANIMATED, false))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueMainTab)
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
+    public static final PanelRegistration<CustomRenderedDoorBlock> DOOR_SLIDING_25K =
+            new PanelRegistration<CustomRenderedDoorBlock>("door_sliding_25k")
+                    .block(properties ->
+                            new CustomRenderedDoorBlock(properties, Couple.create(
+                                    registry.asResource("door/sliding_door_25k_bottom"),
+                                    registry.asResource("door/sliding_door_25k_upper"))
+                                    , Couple.create(
+                                    registry.asResource("door/sliding_door_25k_bottom_lh"),
+                                    registry.asResource("door/sliding_door_25k_upper_lh")),
+                                    RenderShape.ENTITYBLOCK_ANIMATED, true))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueMainTab)
                     .noOcclusion()

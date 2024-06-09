@@ -71,13 +71,14 @@ public class AllBlocks {
     public static final BlockEntityReg<CustomRenderedDoorEntity> CUSTOM_RENDERED_DOOR_ENTITY =
             new BlockEntityReg<CustomRenderedDoorEntity>("custom_rendered_door")
                     .blockEntityType(CustomRenderedDoorEntity::new)
-                    .withRenderer(CustomRenderedDoorRenderer::new)
+                    .withRenderer(() -> CustomRenderedDoorRenderer::new)
                     .addBlock(CR200JPanel.DOOR_CR200J.block)
                     .addBlock(CR200JPanel.DOOR_CR200J_2.block)
                     .addBlock(CR200JPanel.DOOR_CABIN_MARSHALLED_CR200J.block)
                     .addBlock(C25BPanel.DOOR_25B.block)
                     .addBlock(C25GPanel.DOOR_25G.block)
                     .addBlock(C25KPanel.DOOR_25K.block)
+                    .addBlock(C25KPanel.DOOR_SLIDING_25K.block)
                     .addBlock(C25TPanel.DOOR_25T.block)
                     .addBlock(C25TPanel.DOOR_SLIDING_25T.block)
                     .addBlock(C25ZPanel.DOOR_25Z.block)
@@ -86,7 +87,7 @@ public class AllBlocks {
     public static final BlockEntityReg<CustomRenderedEndfaceEntity> CUSTOM_RENDERED_ENDFACE_ENTITY =
             new BlockEntityReg<CustomRenderedEndfaceEntity>("custom_rendered_end_face")
                     .blockEntityType(CustomRenderedEndfaceEntity::new)
-                    .withRenderer(CustomRenderedEndFaceRenderer::new)
+                    .withRenderer(() -> CustomRenderedEndFaceRenderer::new)
                     .addBlock(CR200JPanel.END_FACE_MARSHALLED_CR200J.block)
                     .addBlock(CR200JPanel.END_FACE_MARSHALLED_CR200J_2.block)
                     .submit(AllElements.testRegistry);

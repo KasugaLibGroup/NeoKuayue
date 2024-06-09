@@ -1,9 +1,6 @@
 {
   "values": [
     "kuayue:door_25b",
-    "kuayue:end_face_25b",
-    "kuayue:end_face_upper_25b",
-    "kuayue:end_face_upper_25b_2",
     "kuayue:floor_25b",
     "kuayue:ladder_25b",
     "kuayue:panel_bottom_25b",
@@ -12,7 +9,6 @@
     "kuayue:panel_top_25b",
     "kuayue:panel_top_25b_2",
     "kuayue:toilet_dd_25b",
-    "kuayue:ventiduct_25b",
     "kuayue:window_25b",
     "kuayue:window_marshalled_25b",
     "kuayue:window_oc_25b",

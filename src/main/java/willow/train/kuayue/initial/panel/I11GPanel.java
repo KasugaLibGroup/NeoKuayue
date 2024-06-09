@@ -1,8 +1,12 @@
 package willow.train.kuayue.initial.panel;
 
+import kasuga.lib.registrations.common.BlockReg;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.Vec2;
+import willow.train.kuayue.block.panels.FullShapeDirectionalBlock;
 import willow.train.kuayue.block.panels.TrainHingePanelBlock;
 import willow.train.kuayue.block.panels.TrainPanelBlock;
 import willow.train.kuayue.block.panels.slab.HingeSlabBlock;
@@ -126,6 +130,24 @@ public class I11GPanel {
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueMainTab)
                     .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
+    public static final BlockReg<FullShapeDirectionalBlock> COWCATCHER_DF11G =
+            new BlockReg<FullShapeDirectionalBlock>("cowcatcher_df11g")
+                    .blockType(FullShapeDirectionalBlock::new)
+                    .material(Material.METAL).materialColor(MaterialColor.COLOR_BLACK)
+                    .defaultBlockItem()
+                    .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .tabTo(AllElements.neoKuayueMainTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final BlockReg<FullShapeDirectionalBlock> HEAD_DF11G_2 =
+            new BlockReg<FullShapeDirectionalBlock>("head_df11g_2")
+                    .blockType(FullShapeDirectionalBlock::new)
+                    .material(Material.METAL).materialColor(MaterialColor.COLOR_BLACK)
+                    .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .defaultBlockItem()
+                    .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
 
     public static void invoke(){}

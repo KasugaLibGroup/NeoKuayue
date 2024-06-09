@@ -1,8 +1,11 @@
 package willow.train.kuayue.initial.panel;
 
+import kasuga.lib.registrations.common.BlockReg;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.Vec2;
+import willow.train.kuayue.block.panels.FullShapeDirectionalBlock;
 import willow.train.kuayue.block.panels.TrainPanelBlock;
 import willow.train.kuayue.block.panels.slab.HeightSlabBlock;
 import willow.train.kuayue.block.panels.slab.TrainSlabBlock;
@@ -40,6 +43,16 @@ public class I3DPanel {
                     .tab(AllElements.neoKuayueMainTab)
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
+
+    public static final BlockReg<FullShapeDirectionalBlock> HEAD_HXD3D =
+            new BlockReg<FullShapeDirectionalBlock>("head_hxd3d")
+                    .blockType(FullShapeDirectionalBlock::new)
+                    .material(Material.METAL).materialColor(MaterialColor.COLOR_BLACK)
+                    .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .defaultBlockItem()
+                    .tabTo(AllElements.neoKuayueMainTab)
+                    .submit(AllElements.testRegistry);
+
 
     public static void invoke(){}
 }

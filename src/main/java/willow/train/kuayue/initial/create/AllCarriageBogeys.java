@@ -91,7 +91,7 @@ public class AllCarriageBogeys {
                     .addBlock(() -> carriageBlockBundle.getElement("sw220k_bogey").getEntry().get())
                     .addBlock(() -> carriageBlockBundle.getElement("sw220k_backward_bogey").getEntry().get())
                     .addBlock(() -> carriageBlockBundle.getElement("sw160_bogey").getEntry().get())
-                    .withRenderer(BogeyBlockEntityRenderer::new)
+                    .withRenderer(() -> BogeyBlockEntityRenderer::new)
                     .submit(testRegistry);
 
     public static void invoke() {}

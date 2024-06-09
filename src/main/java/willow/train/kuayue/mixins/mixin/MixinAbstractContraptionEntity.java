@@ -29,7 +29,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
-@Mixin(AbstractContraptionEntity.class)
+@Mixin(value = AbstractContraptionEntity.class, remap = false)
 public abstract class MixinAbstractContraptionEntity {
 
     @Shadow(remap = false)
@@ -51,7 +51,7 @@ public abstract class MixinAbstractContraptionEntity {
         return instance.indexOf(o);
     }
 
-    @Inject(method = "removePassenger", at = @At("HEAD"))
+    @Inject(method = "removePassenger", at = @At("HEAD"), remap = false)
     public void doRemovePassenger(Entity passenger, CallbackInfo ci) {
         BlockPos pos = contraption.getSeatOf(passenger.getUUID());
         if (pos == null) return;

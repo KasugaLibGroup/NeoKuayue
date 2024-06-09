@@ -68,7 +68,7 @@ public class AllLocoBogeys {
                     .addBlock(() -> df11gBogey.getEntry().get())
                     .addBlock(() -> df11gBackwardBogey.getEntry().get())
                     .addBlock(() -> qjMainBogey.getEntry().get())
-                    .withRenderer(BogeyBlockEntityRenderer::new)
+                    .withRenderer(() -> BogeyBlockEntityRenderer::new)
                     .submit(testRegistry);
 
     public static void invoke() {}

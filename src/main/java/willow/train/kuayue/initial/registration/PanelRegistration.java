@@ -1,5 +1,6 @@
 package willow.train.kuayue.initial.registration;
 
+import kasuga.lib.registrations.BlockEntityRendererBuilder;
 import kasuga.lib.registrations.common.BlockEntityReg;
 import kasuga.lib.registrations.common.BlockReg;
 import kasuga.lib.registrations.common.CreativeTabReg;
@@ -11,6 +12,8 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import willow.train.kuayue.block.panels.TrainPanelBlock;
 import willow.train.kuayue.item.PanelBlockItem;
+
+import java.util.function.Supplier;
 
 public class PanelRegistration<T extends TrainPanelBlock> {
 
@@ -44,7 +47,7 @@ public class PanelRegistration<T extends TrainPanelBlock> {
         return this;
     }
 
-    public PanelRegistration<T> blockEntityRenderer(BlockEntityReg.BlockEntityRendererBuilder<?> renderer) {
+    public PanelRegistration<T> blockEntityRenderer(Supplier<BlockEntityRendererBuilder> renderer) {
         block.withBlockEntityRenderer(renderer);
         return this;
     }
