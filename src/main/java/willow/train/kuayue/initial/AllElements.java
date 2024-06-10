@@ -10,6 +10,7 @@ import net.minecraftforge.common.MinecraftForge;
 import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.event.client.RenderArrowEvent;
 import willow.train.kuayue.initial.create.*;
+import willow.train.kuayue.initial.material.AllMaterials;
 
 public class AllElements {
 
@@ -27,6 +28,7 @@ public class AllElements {
         AllCarriageBogeys.invoke();
         AllBehaviours.invoke();
         AllPackets.invoke();
+        AllMaterials.invoke();
         if (Envs.isClient()) {
             ClientInit.invoke();
             MinecraftForge.EVENT_BUS.addListener(RenderArrowEvent::renderBlockBounds);
