@@ -47,7 +47,7 @@ public class AllTrackMaterial {
             .lang("ballastless_track")
             .block(() -> AllTracks.ballastlessTrack)
             .trackParticle(new ResourceLocation("minecraft", "block/palettes/stone_types/polished/andesite_cut_polished"))
-            .type(testRegistry.asResource("tieless"), builder::build)
+            .type(testRegistry.asResource("ballastless"), builder::build)
             .customModel(
                     () -> new PartialModel(testRegistry.asResource("block/track/ballastless/tie")),
                     () -> new PartialModel(testRegistry.asResource("block/track/standard/segment_left")),
@@ -56,5 +56,20 @@ public class AllTrackMaterial {
             .simpleTrackModelOffset(0.755f)
             .sleeper(Blocks.ANDESITE_SLAB)
             .submit(testRegistry);
+
+    public static final TrackMaterialReg meterMaterial = new TrackMaterialReg("meter")
+            .lang("meter_track")
+            .block(() -> AllTracks.meterTrack)
+            .trackParticle(new ResourceLocation("minecraft", "block/palettes/stone_types/polished/andesite_cut_polished"))
+            .type(testRegistry.asResource("meter"), builder::build)
+            .customModel(
+                    () -> new PartialModel(testRegistry.asResource("block/track/standard/tie")),
+                    () -> new PartialModel(testRegistry.asResource("block/track/standard/segment_left")),
+                    () -> new PartialModel(testRegistry.asResource("block/track/standard/segment_right"))
+            )
+            .simpleTrackModelOffset(0.525f)
+            .sleeper(Blocks.ANDESITE_SLAB)
+            .submit(testRegistry);
+
     public static void invoke(){}
 }

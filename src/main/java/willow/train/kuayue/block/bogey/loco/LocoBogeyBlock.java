@@ -110,7 +110,8 @@ public class LocoBogeyBlock extends AbstractBogeyBlock<LocoBogeyEntity>
         return Set.of(
                 getTrackType(style),
                 AllTrackMaterial.tielessMaterial.getTrackType(),
-                AllTrackMaterial.ballastlessMaterial.getTrackType()
+                AllTrackMaterial.ballastlessMaterial.getTrackType(),
+                AllTrackMaterial.meterMaterial.getTrackType()
         );
     }
 

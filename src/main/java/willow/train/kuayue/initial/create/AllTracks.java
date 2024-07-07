@@ -62,5 +62,18 @@ public class AllTracks {
                     .tab(AllElements.neoKuayueMainTab)
                     .submit(testRegistry);
 
+    public static final TrackReg<SimpleTrackBlock> meterTrack =
+            new TrackReg<SimpleTrackBlock>("meter_track")
+                    .trackState(stateBuilder)
+                    .trackNameSuffix("Meter Track")
+                    .material(Material.STONE)
+                    .trackMaterial(AllTrackMaterial.meterMaterial::getMaterial)
+                    .pickaxeOnly()
+                    .addTags(AllTags.AllBlockTags.TRACKS.tag)
+                    .addTags(AllTags.AllBlockTags.GIRDABLE_TRACKS.tag)
+                    .addTags(AllTags.AllBlockTags.RELOCATION_NOT_SUPPORTED.tag)
+                    .tab(AllElements.neoKuayueMainTab)
+                    .submit(testRegistry);
+
     public static void invoke(){}
 }

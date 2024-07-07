@@ -12,6 +12,7 @@
  "block.kuayue.standard_track": "Standard Track",
  "block.kuayue.ballastless_track": "Ballastless Track",
  "block.kuayue.tieless_track": "Tieless Track",
+ "block.kuayue.meter_track": "Meter Track",
  "block.kuayue.ky_standard_bogey": "CW2 Bogey",
  "kuayue.bogeys.styles.kystandardbogey": "Passanger Cart Bogey",
  "kuayue.bogeys.styles.df11gbogey": "Loco Bogey",

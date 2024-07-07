@@ -25,6 +25,6 @@ public class FullWeatheringSteelBlock extends Block implements IWeatheringSteel 
 
     @Override
     public WSWeatherState getAge() {
-        return null;
+        return this.wsWeatherState;
     }
 }
