@@ -32,19 +32,19 @@ import java.util.Set;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
-public class LocoBogeyBlock extends AbstractBogeyBlock<LocoBogeyEntity>
-        implements IBE<LocoBogeyEntity>,
-                ProperWaterloggedBlock,
-                ISpecialBlockItemRequirement {
+public class MeterLocoBogeyBlock extends AbstractBogeyBlock<MeterLocoBogeyEntity>
+        implements IBE<MeterLocoBogeyEntity>,
+        ProperWaterloggedBlock,
+        ISpecialBlockItemRequirement {
 
-    public LocoBogeyBlock(Properties props, BogeySizes.BogeySize size) {
-        super(props, size);
+    public MeterLocoBogeyBlock(Properties pProperties, BogeySizes.BogeySize size) {
+        super(pProperties, size);
         registerDefaultState(defaultBlockState().setValue(WATERLOGGED, false));
     }
 
     @Override
     public TrackMaterial.TrackType getTrackType(BogeyStyle style) {
-        return AllTrackMaterial.standardMaterial.getTrackType();
+        return AllTrackMaterial.meterMaterial.getTrackType();
     }
 
     @Override
@@ -63,18 +63,13 @@ public class LocoBogeyBlock extends AbstractBogeyBlock<LocoBogeyEntity>
     }
 
     @Override
-    public Vec3 getConnectorAnchorOffset() {
+    protected Vec3 getConnectorAnchorOffset() {
         return new Vec3(0, 7 / 32f, 1);
     }
 
     @Override
-    public boolean allowsSingleBogeyCarriage() {
-        return true;
-    }
-
-    @Override
     public BogeyStyle getDefaultStyle() {
-        return AllLocoBogeys.locoBogeyGroup.getStyle();
+        return AllLocoBogeys.meterLocoBogeyGroup.getStyle();
     }
 
     @Override
@@ -83,13 +78,13 @@ public class LocoBogeyBlock extends AbstractBogeyBlock<LocoBogeyEntity>
     }
 
     @Override
-    public Class<LocoBogeyEntity> getBlockEntityClass() {
-        return LocoBogeyEntity.class;
+    public Class<MeterLocoBogeyEntity> getBlockEntityClass() {
+        return MeterLocoBogeyEntity.class;
     }
 
     @Override
-    public BlockEntityType<? extends LocoBogeyEntity> getBlockEntityType() {
-        return AllLocoBogeys.locoBogeyEntity.getType();
+    public BlockEntityType<? extends MeterLocoBogeyEntity> getBlockEntityType() {
+        return AllLocoBogeys.meterLocoBogeyEntity.getType();
     }
 
     @Override
@@ -108,9 +103,7 @@ public class LocoBogeyBlock extends AbstractBogeyBlock<LocoBogeyEntity>
     @Override
     public Set<TrackMaterial.TrackType> getValidPathfindingTypes(BogeyStyle style) {
         return Set.of(
-                getTrackType(style),
-                AllTrackMaterial.tielessMaterial.getTrackType(),
-                AllTrackMaterial.ballastlessMaterial.getTrackType()
+                getTrackType(style)
         );
     }
 

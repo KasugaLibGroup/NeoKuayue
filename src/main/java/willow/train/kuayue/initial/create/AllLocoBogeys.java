@@ -10,7 +10,10 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import willow.train.kuayue.block.bogey.loco.LocoBogeyBlock;
 import willow.train.kuayue.block.bogey.loco.LocoBogeyEntity;
+import willow.train.kuayue.block.bogey.loco.MeterLocoBogeyBlock;
+import willow.train.kuayue.block.bogey.loco.MeterLocoBogeyEntity;
 import willow.train.kuayue.block.bogey.loco.renderer.DF11GRenderer;
+import willow.train.kuayue.block.bogey.loco.renderer.DF21Renderer;
 import willow.train.kuayue.block.bogey.loco.renderer.QJMainRenderer;
 import willow.train.kuayue.initial.AllElements;
 
@@ -28,11 +31,21 @@ public class AllLocoBogeys {
     public static final BogeySizeReg qjMain = new BogeySizeReg("qj_main")
             .size(0.915F / 2F)
             .submit(testRegistry);
+
+    public static final BogeySizeReg df21 = new BogeySizeReg("df21")
+            .size(0.915F / 2F)
+            .submit(testRegistry);
+
     public static final BogeyGroupReg locoBogeyGroup = new BogeyGroupReg("loco", "kuayue_bogey")
             .bogey(df11g.getSize(), DF11GRenderer::new, testRegistry.asResource("df11g_bogey"))
             .bogey(df11gBackward.getSize(), DF11GRenderer.Backward::new, testRegistry.asResource("df11g_backward_bogey"))
             .bogey(qjMain.getSize(), QJMainRenderer::new, testRegistry.asResource("qj_bogey"))
             .translationKey("loco_group")
+            .submit(testRegistry);
+
+    public static final BogeyGroupReg meterLocoBogeyGroup = new BogeyGroupReg("meter_loco", "kuayue_bogey")
+            .bogey(df21.getSize(), DF21Renderer::new, testRegistry.asResource("df21_bogey"))
+            .translationKey("meter_loco_group")
             .submit(testRegistry);
 
     public static final BogeyBlockReg<LocoBogeyBlock> df11gBogey =
@@ -68,6 +81,22 @@ public class AllLocoBogeys {
                     .addBlock(() -> df11gBogey.getEntry().get())
                     .addBlock(() -> df11gBackwardBogey.getEntry().get())
                     .addBlock(() -> qjMainBogey.getEntry().get())
+                    .withRenderer(() -> BogeyBlockEntityRenderer::new)
+                    .submit(testRegistry);
+
+    public static final BogeyBlockReg<MeterLocoBogeyBlock> df21Bogey =
+            new BogeyBlockReg<MeterLocoBogeyBlock>("df21_bogey")
+                    .block(MeterLocoBogeyBlock::new)
+                    .material(Material.METAL)
+                    .materialColor(MaterialColor.PODZOL)
+                    .translationKey("df21_bogey")
+                    .size(df21)
+                    .submit(testRegistry);
+
+    public static final BlockEntityReg<MeterLocoBogeyEntity> meterLocoBogeyEntity =
+            new BlockEntityReg<MeterLocoBogeyEntity>("meter_loco_bogey_entity")
+                    .blockEntityType(MeterLocoBogeyEntity::new)
+                    .addBlock(() -> df21Bogey.getEntry().get())
                     .withRenderer(() -> BogeyBlockEntityRenderer::new)
                     .submit(testRegistry);
 

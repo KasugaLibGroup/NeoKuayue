@@ -63,7 +63,7 @@ public class AllTrackMaterial {
             .trackParticle(new ResourceLocation("minecraft", "block/palettes/stone_types/polished/andesite_cut_polished"))
             .type(testRegistry.asResource("meter"), builder::build)
             .customModel(
-                    () -> new PartialModel(testRegistry.asResource("block/track/standard/tie")),
+                    () -> new PartialModel(testRegistry.asResource("block/track/meter/tie")),
                     () -> new PartialModel(testRegistry.asResource("block/track/standard/segment_left")),
                     () -> new PartialModel(testRegistry.asResource("block/track/standard/segment_right"))
             )

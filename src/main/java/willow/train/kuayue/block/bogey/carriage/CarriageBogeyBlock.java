@@ -110,8 +110,7 @@ public class CarriageBogeyBlock extends AbstractBogeyBlock<CarriageBogeyEntity>
         return Set.of(
                 getTrackType(style),
                 AllTrackMaterial.tielessMaterial.getTrackType(),
-                AllTrackMaterial.ballastlessMaterial.getTrackType(),
-                AllTrackMaterial.meterMaterial.getTrackType()
+                AllTrackMaterial.ballastlessMaterial.getTrackType()
         );
     }
 

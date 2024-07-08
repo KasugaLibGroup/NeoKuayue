@@ -11,58 +11,64 @@
       "model": "kuayue:block/track/meter/x_ortho"
     },
     "shape=pd,turn=false,waterlogged=false": {
-      "model": "kuayue:block/track/standard/diag"
+      "model": "kuayue:block/track/meter/diag"
     },
     "shape=nd,turn=false,waterlogged=false": {
-      "model": "kuayue:block/track/standard/diag_2"
-    },
-    "shape=an,turn=false,waterlogged=false": {
-      "model": "kuayue:block/track/standard/ascending",
-      "y": 180
-    },
-    "shape=as,turn=false,waterlogged=false": {
-      "model": "kuayue:block/track/standard/ascending"
-    },
-    "shape=ae,turn=false,waterlogged=false": {
-      "model": "kuayue:block/track/standard/ascending",
-      "y": 270
-    },
-    "shape=aw,turn=false,waterlogged=false": {
-      "model": "kuayue:block/track/standard/ascending",
+      "model": "kuayue:block/track/meter/diag",
       "y": 90
     },
+    "shape=an,turn=false,waterlogged=false": {
+      "model": "kuayue:block/track/meter/ascending",
+      "y": 270
+    },
+    "shape=as,turn=false,waterlogged=false": {
+      "model": "kuayue:block/track/meter/ascending",
+      "y": 90
+    },
+    "shape=ae,turn=false,waterlogged=false": {
+      "model": "kuayue:block/track/meter/ascending",
+      "y": 0
+    },
+    "shape=aw,turn=false,waterlogged=false": {
+      "model": "kuayue:block/track/meter/ascending",
+      "y": 180
+    },
     "shape=tn,turn=false,waterlogged=false": {
-      "model": "kuayue:block/track/standard/teleport",
+      "model": "kuayue:block/track/meter/teleport",
       "y": 180
     },
     "shape=ts,turn=false,waterlogged=false": {
-      "model": "kuayue:block/track/standard/teleport"
+      "model": "kuayue:block/track/meter/teleport"
     },
     "shape=te,turn=false,waterlogged=false": {
-      "model": "kuayue:block/track/standard/teleport",
+      "model": "kuayue:block/track/meter/teleport",
       "y": 270
     },
     "shape=tw,turn=false,waterlogged=false": {
-      "model": "kuayue:block/track/standard/teleport",
+      "model": "kuayue:block/track/meter/teleport",
       "y": 90
     },
     "shape=cr_o,turn=false,waterlogged=false": {
-      "model": "kuayue:block/track/standard/cross_ortho"
+      "model": "kuayue:block/track/meter/cross_ortho"
     },
     "shape=cr_d,turn=false,waterlogged=false": {
-      "model": "kuayue:block/track/standard/cross_diag"
+      "model": "kuayue:block/track/meter/cross_diag"
     },
     "shape=cr_pdx,turn=false,waterlogged=false": {
-      "model": "kuayue:block/track/standard/cross_d1_xo"
+      "model": "kuayue:block/track/meter/cross_d1_xo",
+      "y": 90
     },
     "shape=cr_pdz,turn=false,waterlogged=false": {
-      "model": "kuayue:block/track/standard/cross_d1_zo"
+      "model": "kuayue:block/track/meter/cross_d2_xo",
+      "y": 180
     },
     "shape=cr_ndx,turn=false,waterlogged=false": {
-      "model": "kuayue:block/track/standard/cross_d2_xo"
+      "model": "kuayue:block/track/meter/cross_d2_xo",
+      "y": 270
     },
     "shape=cr_ndz,turn=false,waterlogged=false": {
-      "model": "kuayue:block/track/standard/cross_d2_zo"
+      "model": "kuayue:block/track/meter/cross_d1_xo",
+      "y": 0
     },
     "shape=none,turn=true,waterlogged=false": {
       "model": "minecraft:block/air"
@@ -75,58 +81,64 @@
       "model": "kuayue:block/track/meter/x_ortho"
     },
     "shape=pd,turn=true,waterlogged=false": {
-      "model": "kuayue:block/track/standard/diag"
+      "model": "kuayue:block/track/meter/diag"
     },
     "shape=nd,turn=true,waterlogged=false": {
-      "model": "kuayue:block/track/standard/diag_2"
-    },
-    "shape=an,turn=true,waterlogged=false": {
-      "model": "kuayue:block/track/standard/ascending",
-      "y": 180
-    },
-    "shape=as,turn=true,waterlogged=false": {
-      "model": "kuayue:block/track/standard/ascending"
-    },
-    "shape=ae,turn=true,waterlogged=false": {
-      "model": "kuayue:block/track/standard/ascending",
-      "y": 270
-    },
-    "shape=aw,turn=true,waterlogged=false": {
-      "model": "kuayue:block/track/standard/ascending",
+      "model": "kuayue:block/track/meter/diag",
       "y": 90
     },
+    "shape=an,turn=true,waterlogged=false": {
+      "model": "kuayue:block/track/meter/ascending",
+      "y": 270
+    },
+    "shape=as,turn=true,waterlogged=false": {
+      "model": "kuayue:block/track/meter/ascending",
+      "y": 90
+    },
+    "shape=ae,turn=true,waterlogged=false": {
+      "model": "kuayue:block/track/meter/ascending",
+      "y": 0
+    },
+    "shape=aw,turn=true,waterlogged=false": {
+      "model": "kuayue:block/track/meter/ascending",
+      "y": 180
+    },
     "shape=tn,turn=true,waterlogged=false": {
-      "model": "kuayue:block/track/standard/teleport",
+      "model": "kuayue:block/track/meter/teleport",
       "y": 180
     },
     "shape=ts,turn=true,waterlogged=false": {
-      "model": "kuayue:block/track/standard/teleport"
+      "model": "kuayue:block/track/meter/teleport"
     },
     "shape=te,turn=true,waterlogged=false": {
-      "model": "kuayue:block/track/standard/teleport",
+      "model": "kuayue:block/track/meter/teleport",
       "y": 270
     },
     "shape=tw,turn=true,waterlogged=false": {
-      "model": "kuayue:block/track/standard/teleport",
+      "model": "kuayue:block/track/meter/teleport",
       "y": 90
     },
     "shape=cr_o,turn=true,waterlogged=false": {
-      "model": "kuayue:block/track/standard/cross_ortho"
+      "model": "kuayue:block/track/meter/cross_ortho"
     },
     "shape=cr_d,turn=true,waterlogged=false": {
-      "model": "kuayue:block/track/standard/cross_diag"
+      "model": "kuayue:block/track/meter/cross_diag"
     },
     "shape=cr_pdx,turn=true,waterlogged=false": {
-      "model": "kuayue:block/track/standard/cross_d1_xo"
+      "model": "kuayue:block/track/standard/cross_d1_xo",
+      "y": 0
     },
     "shape=cr_pdz,turn=true,waterlogged=false": {
-      "model": "kuayue:block/track/standard/cross_d1_zo"
+      "model": "kuayue:block/track/meter/cross_d1_xo",
+      "y": 90
     },
     "shape=cr_ndx,turn=true,waterlogged=false": {
-      "model": "kuayue:block/track/standard/cross_d2_xo"
+      "model": "kuayue:block/track/meter/cross_d1_xo",
+      "y": 180
     },
     "shape=cr_ndz,turn=true,waterlogged=false": {
-      "model": "kuayue:block/track/standard/cross_d2_zo"
+      "model": "kuayue:block/track/meter/cross_d1_xo",
+      "y": 270
     },
     "shape=none,turn=false,waterlogged=true": {
       "model": "minecraft:block/air"
@@ -139,58 +151,64 @@
       "model": "kuayue:block/track/meter/x_ortho"
     },
     "shape=pd,turn=false,waterlogged=true": {
-      "model": "kuayue:block/track/standard/diag"
+      "model": "kuayue:block/track/meter/diag"
     },
     "shape=nd,turn=false,waterlogged=true": {
-      "model": "kuayue:block/track/standard/diag_2"
-    },
-    "shape=an,turn=false,waterlogged=true": {
-      "model": "kuayue:block/track/standard/ascending",
-      "y": 180
-    },
-    "shape=as,turn=false,waterlogged=true": {
-      "model": "kuayue:block/track/standard/ascending"
-    },
-    "shape=ae,turn=false,waterlogged=true": {
-      "model": "kuayue:block/track/standard/ascending",
-      "y": 270
-    },
-    "shape=aw,turn=false,waterlogged=true": {
-      "model": "kuayue:block/track/standard/ascending",
+      "model": "kuayue:block/track/meter/diag",
       "y": 90
     },
+    "shape=an,turn=false,waterlogged=true": {
+      "model": "kuayue:block/track/meter/ascending",
+      "y": 270
+    },
+    "shape=as,turn=false,waterlogged=true": {
+      "model": "kuayue:block/track/meter/ascending",
+      "y": 90
+    },
+    "shape=ae,turn=false,waterlogged=true": {
+      "model": "kuayue:block/track/meter/ascending",
+      "y": 0
+    },
+    "shape=aw,turn=false,waterlogged=true": {
+      "model": "kuayue:block/track/meter/ascending",
+      "y": 180
+    },
     "shape=tn,turn=false,waterlogged=true": {
-      "model": "kuayue:block/track/standard/teleport",
+      "model": "kuayue:block/track/meter/teleport",
       "y": 180
     },
     "shape=ts,turn=false,waterlogged=true": {
-      "model": "kuayue:block/track/standard/teleport"
+      "model": "kuayue:block/track/meter/teleport"
     },
     "shape=te,turn=false,waterlogged=true": {
-      "model": "kuayue:block/track/standard/teleport",
+      "model": "kuayue:block/track/meter/teleport",
       "y": 270
     },
     "shape=tw,turn=false,waterlogged=true": {
-      "model": "kuayue:block/track/standard/teleport",
+      "model": "kuayue:block/track/meter/teleport",
       "y": 90
     },
     "shape=cr_o,turn=false,waterlogged=true": {
-      "model": "kuayue:block/track/standard/cross_ortho"
+      "model": "kuayue:block/track/meter/cross_ortho"
     },
     "shape=cr_d,turn=false,waterlogged=true": {
-      "model": "kuayue:block/track/standard/cross_diag"
+      "model": "kuayue:block/track/meter/cross_diag"
     },
     "shape=cr_pdx,turn=false,waterlogged=true": {
-      "model": "kuayue:block/track/standard/cross_d1_xo"
+      "model": "kuayue:block/track/standard/cross_d1_xo",
+      "y": 90
     },
     "shape=cr_pdz,turn=false,waterlogged=true": {
-      "model": "kuayue:block/track/standard/cross_d1_zo"
+      "model": "kuayue:block/track/meter/cross_d1_xo",
+      "y": 180
     },
     "shape=cr_ndx,turn=false,waterlogged=true": {
-      "model": "kuayue:block/track/standard/cross_d2_xo"
+      "model": "kuayue:block/track/meter/cross_d1_xo",
+      "y": 270
     },
     "shape=cr_ndz,turn=false,waterlogged=true": {
-      "model": "kuayue:block/track/standard/cross_d2_zo"
+      "model": "kuayue:block/track/meter/cross_d1_xo",
+      "y": 0
     },
     "shape=none,turn=true,waterlogged=true": {
       "model": "minecraft:block/air"
@@ -203,58 +221,63 @@
       "model": "kuayue:block/track/meter/x_ortho"
     },
     "shape=pd,turn=true,waterlogged=true": {
-      "model": "kuayue:block/track/standard/diag"
+      "model": "kuayue:block/track/meter/diag"
     },
     "shape=nd,turn=true,waterlogged=true": {
-      "model": "kuayue:block/track/standard/diag_2"
-    },
-    "shape=an,turn=true,waterlogged=true": {
-      "model": "kuayue:block/track/standard/ascending",
-      "y": 180
-    },
-    "shape=as,turn=true,waterlogged=true": {
-      "model": "kuayue:block/track/standard/ascending"
-    },
-    "shape=ae,turn=true,waterlogged=true": {
-      "model": "kuayue:block/track/standard/ascending",
-      "y": 270
-    },
-    "shape=aw,turn=true,waterlogged=true": {
-      "model": "kuayue:block/track/standard/ascending",
+      "model": "kuayue:block/track/meter/diag",
       "y": 90
     },
+    "shape=an,turn=true,waterlogged=true": {
+      "model": "kuayue:block/track/meter/ascending",
+      "y": 270
+    },
+    "shape=as,turn=true,waterlogged=true": {
+      "model": "kuayue:block/track/meter/ascending",
+      "y": 90
+    },
+    "shape=ae,turn=true,waterlogged=true": {
+      "model": "kuayue:block/track/meter/ascending",
+      "y": 0
+    },
+    "shape=aw,turn=true,waterlogged=true": {
+      "model": "kuayue:block/track/meter/ascending",
+      "y": 180
+    },
     "shape=tn,turn=true,waterlogged=true": {
-      "model": "kuayue:block/track/standard/teleport",
+      "model": "kuayue:block/track/meter/teleport",
       "y": 180
     },
     "shape=ts,turn=true,waterlogged=true": {
-      "model": "kuayue:block/track/standard/teleport"
+      "model": "kuayue:block/track/meter/teleport"
     },
     "shape=te,turn=true,waterlogged=true": {
-      "model": "kuayue:block/track/standard/teleport",
+      "model": "kuayue:block/track/meter/teleport",
       "y": 270
     },
     "shape=tw,turn=true,waterlogged=true": {
-      "model": "kuayue:block/track/standard/teleport",
+      "model": "kuayue:block/track/meter/teleport",
       "y": 90
     },
     "shape=cr_o,turn=true,waterlogged=true": {
-      "model": "kuayue:block/track/standard/cross_ortho"
+      "model": "kuayue:block/track/meter/cross_ortho"
     },
     "shape=cr_d,turn=true,waterlogged=true": {
-      "model": "kuayue:block/track/standard/cross_diag"
+      "model": "kuayue:block/track/meter/cross_diag"
     },
     "shape=cr_pdx,turn=true,waterlogged=true": {
       "model": "kuayue:block/track/standard/cross_d1_xo"
     },
     "shape=cr_pdz,turn=true,waterlogged=true": {
-      "model": "kuayue:block/track/standard/cross_d1_zo"
+      "model": "kuayue:block/track/meter/cross_d1_xo",
+      "y": 90
     },
     "shape=cr_ndx,turn=true,waterlogged=true": {
-      "model": "kuayue:block/track/standard/cross_d2_xo"
+      "model": "kuayue:block/track/meter/cross_d1_xo",
+      "y": 180
     },
     "shape=cr_ndz,turn=true,waterlogged=true": {
-      "model": "kuayue:block/track/standard/cross_d2_zo"
+      "model": "kuayue:block/track/meter/cross_d1_xo",
+      "y": 270
     }
   }
 }
