@@ -36,6 +36,10 @@ public class AllLocoBogeys {
             .size(0.915F / 2F)
             .submit(testRegistry);
 
+    public static final BogeySizeReg df21Backward = new BogeySizeReg("df21_backward")
+            .size(0.915F / 2F)
+            .submit(testRegistry);
+
     public static final BogeyGroupReg locoBogeyGroup = new BogeyGroupReg("loco", "kuayue_bogey")
             .bogey(df11g.getSize(), DF11GRenderer::new, testRegistry.asResource("df11g_bogey"))
             .bogey(df11gBackward.getSize(), DF11GRenderer.Backward::new, testRegistry.asResource("df11g_backward_bogey"))
@@ -45,6 +49,7 @@ public class AllLocoBogeys {
 
     public static final BogeyGroupReg meterLocoBogeyGroup = new BogeyGroupReg("meter_loco", "kuayue_bogey")
             .bogey(df21.getSize(), DF21Renderer::new, testRegistry.asResource("df21_bogey"))
+            .bogey(df21Backward.getSize(), DF21Renderer.Backward::new, testRegistry.asResource("df21_backward_bogey"))
             .translationKey("meter_loco_group")
             .submit(testRegistry);
 
@@ -93,10 +98,20 @@ public class AllLocoBogeys {
                     .size(df21)
                     .submit(testRegistry);
 
+    public static final BogeyBlockReg<MeterLocoBogeyBlock> df21BackwardBogey =
+            new BogeyBlockReg<MeterLocoBogeyBlock>("df21_backward_bogey")
+                    .block(MeterLocoBogeyBlock::new)
+                    .material(Material.METAL)
+                    .materialColor(MaterialColor.PODZOL)
+                    .translationKey("df21_backward_bogey")
+                    .size(df21Backward)
+                    .submit(testRegistry);
+
     public static final BlockEntityReg<MeterLocoBogeyEntity> meterLocoBogeyEntity =
             new BlockEntityReg<MeterLocoBogeyEntity>("meter_loco_bogey_entity")
                     .blockEntityType(MeterLocoBogeyEntity::new)
                     .addBlock(() -> df21Bogey.getEntry().get())
+                    .addBlock(() -> df21BackwardBogey.getEntry().get())
                     .withRenderer(() -> BogeyBlockEntityRenderer::new)
                     .submit(testRegistry);
 

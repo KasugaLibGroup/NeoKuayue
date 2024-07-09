@@ -22,14 +22,14 @@ public class DF21Renderer extends BogeyRenderer {
     }
 
     public static final PartialModel
-            DF11G_FRAME = new PartialModel(asBlockModelResource("bogey/df11g/df11g_bogey_temple")),
-            DF11G_WHEEL = new PartialModel(asBlockModelResource("bogey/df11g/df11g_wheel"));
+            DF21_FRAME = new PartialModel(asBlockModelResource("bogey/df21/df21_bogey_temple")),
+            DF21_WHEEL = new PartialModel(asBlockModelResource("bogey/df21/df21_wheel"));
 
     @Override
     public void initialiseContraptionModelData(
             MaterialManager materialManager, CarriageBogey carriageBogey) {
-        this.createModelInstance(materialManager, DF11G_FRAME);
-        this.createModelInstance(materialManager, DF11G_WHEEL, 3);
+        this.createModelInstance(materialManager, DF21_FRAME);
+        this.createModelInstance(materialManager, DF21_WHEEL, 3);
     }
 
     @Override
@@ -50,12 +50,10 @@ public class DF21Renderer extends BogeyRenderer {
                         Direction.class)
                         : Direction.NORTH;
 
-        //LOGGER.info(bogeyData + "DF11G direction:" + direction + ";DF11G forwards:" + forwards);
-
         boolean inInstancedContraption = vb == null;
 
-        BogeyModelData frame = getTransform(DF11G_FRAME, ms, inInstancedContraption);
-        BogeyModelData[] wheels = getTransform(DF11G_WHEEL, ms, inInstancedContraption, 3);
+        BogeyModelData frame = getTransform(DF21_FRAME, ms, inInstancedContraption);
+        BogeyModelData[] wheels = getTransform(DF21_WHEEL, ms, inInstancedContraption, 3);
 
         if (direction == Direction.SOUTH || direction == Direction.EAST) {
             if (inContraption) {
@@ -91,6 +89,76 @@ public class DF21Renderer extends BogeyRenderer {
                         .rotateX(wheelAngle)
                         .render(ms, light, vb);
                 if (!inInstancedContraption) ms.popPose();
+            }
+        }
+    }
+
+    public static class Backward extends BogeyRenderer {
+
+        @Override
+        public void initialiseContraptionModelData(MaterialManager materialManager, CarriageBogey carriageBogey) {
+            this.createModelInstance(materialManager, DF21_FRAME);
+            this.createModelInstance(materialManager, DF21_WHEEL, 3);
+        }
+
+        @Override
+        public BogeySizes.BogeySize getSize() {
+            return AllLocoBogeys.df21Backward.getSize();
+        }
+
+        @Override
+        public void render(CompoundTag bogeyData, float wheelAngle, PoseStack ms, int light, VertexConsumer vb, boolean inContraption) {
+            boolean forwards = BogeyDataConstants.isForwards(bogeyData, inContraption);
+
+            Direction direction =
+                    bogeyData.contains(BogeyDataConstants.BOGEY_ASSEMBLY_DIRECTION_KEY)
+                            ? NBTHelper.readEnum(
+                            bogeyData,
+                            BogeyDataConstants.BOGEY_ASSEMBLY_DIRECTION_KEY,
+                            Direction.class)
+                            : Direction.NORTH;
+
+            wheelAngle = -wheelAngle;
+            boolean inInstancedContraption = vb == null;
+
+            BogeyModelData frame = getTransform(DF21_FRAME, ms, inInstancedContraption);
+            BogeyModelData[] wheels = getTransform(DF21_WHEEL, ms, inInstancedContraption, 3);
+
+            if (direction == Direction.SOUTH || direction == Direction.EAST) {
+                if (inContraption) {
+                    frame.rotateY(180).translate(0, 0.375, 0).render(ms, light, vb);
+
+                    for (int side = -1; side < 2; side++) {
+                        if (!inInstancedContraption) ms.pushPose();
+                        BogeyModelData wheel = wheels[side + 1];
+                        wheel.translate(0, 0.88, ((double) side) * 2d)
+                                .rotateX(-wheelAngle)
+                                .render(ms, light, vb);
+                        if (!inInstancedContraption) ms.popPose();
+                    }
+                } else {
+                    frame.translate(0, 0.375, 0).render(ms, light, vb);
+
+                    for (int side = -1; side < 2; side++) {
+                        if (!inInstancedContraption) ms.pushPose();
+                        BogeyModelData wheel = wheels[side + 1];
+                        wheel.translate(0, 0.88, ((double) side) * 2d)
+                                .rotateX(wheelAngle)
+                                .render(ms, light, vb);
+                        if (!inInstancedContraption) ms.popPose();
+                    }
+                }
+            } else {
+                frame.rotateY(180).translate(0, 0.375, 0).render(ms, light, vb);
+
+                for (int side = -1; side < 2; side++) {
+                    if (!inInstancedContraption) ms.pushPose();
+                    BogeyModelData wheel = wheels[side + 1];
+                    wheel.translate(0, 0.88, ((double) side) * 2d)
+                            .rotateX(-wheelAngle)
+                            .render(ms, light, vb);
+                    if (!inInstancedContraption) ms.popPose();
+                }
             }
         }
     }

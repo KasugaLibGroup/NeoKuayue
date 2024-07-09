@@ -1,0 +1,12 @@
+# Made in Blockbench 4.10.4
+newmtl m_86edc1a4-eaa5-12cb-ff76-2b37526aebc0
+map_Kd kuayue:block/bogey/df21/df21_shock_absorption
+newmtl m_74753b12-f1d5-98ba-d974-aa7843b80165
+map_Kd kuayue:block/bogey/df21/df21_motor
+newmtl m_0968b586-ba25-3d45-1882-e5c82a3e094a
+map_Kd kuayue:block/bogey/df21/df21_brake
+newmtl m_3bda84ad-88e9-3a33-1d46-8e51c0f2c6e6
+map_Kd kuayue:block/bogey/df21/df21_annex
+newmtl m_8ecdebdf-dd40-ff9d-0ead-c9b2a68a47b4
+map_Kd kuayue:block/bogey/df21/df21_frame
+newmtl none
