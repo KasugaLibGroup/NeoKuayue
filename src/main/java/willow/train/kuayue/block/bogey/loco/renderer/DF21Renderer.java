@@ -55,37 +55,25 @@ public class DF21Renderer extends BogeyRenderer {
         BogeyModelData frame = getTransform(DF21_FRAME, ms, inInstancedContraption);
         BogeyModelData[] wheels = getTransform(DF21_WHEEL, ms, inInstancedContraption, 3);
 
-        if (direction == Direction.SOUTH || direction == Direction.EAST) {
-            if (inContraption) {
-                frame.translate(0, 0.375, 0).render(ms, light, vb);
+        if ((direction == Direction.SOUTH || direction == Direction.EAST) && !inContraption) {
 
-                for (int side = -1; side < 2; side++) {
-                    if (!inInstancedContraption) ms.pushPose();
-                    BogeyModelData wheel = wheels[side + 1];
-                    wheel.translate(0, 0.88, ((double) side) * 2d)
-                            .rotateX(wheelAngle)
-                            .render(ms, light, vb);
-                    if (!inInstancedContraption) ms.popPose();
-                }
-            } else {
-                frame.rotateY(180).translate(0, 0.375, 0).render(ms, light, vb);
-
-                for (int side = -1; side < 2; side++) {
-                    if (!inInstancedContraption) ms.pushPose();
-                    BogeyModelData wheel = wheels[side + 1];
-                    wheel.translate(0, 0.88, ((double) side) * 2d)
-                            .rotateX(wheelAngle)
-                            .render(ms, light, vb);
-                    if (!inInstancedContraption) ms.popPose();
-                }
-            }
-        } else {
-            frame.translate(0, 0.375, 0).render(ms, light, vb);
+            frame.rotateY(180).translate(0, 0.225, 0.17).render(ms, light, vb);
 
             for (int side = -1; side < 2; side++) {
                 if (!inInstancedContraption) ms.pushPose();
                 BogeyModelData wheel = wheels[side + 1];
-                wheel.translate(0, 0.88, ((double) side) * 2d)
+                wheel.translate(0, 0.88, ((double) side) * 1.805d)
+                        .rotateX(wheelAngle)
+                        .render(ms, light, vb);
+                if (!inInstancedContraption) ms.popPose();
+            }
+        } else {
+            frame.translate(0, 0.225, 0.17).render(ms, light, vb);
+
+            for (int side = -1; side < 2; side++) {
+                if (!inInstancedContraption) ms.pushPose();
+                BogeyModelData wheel = wheels[side + 1];
+                wheel.translate(0, 0.88, ((double) side) * 1.805d)
                         .rotateX(wheelAngle)
                         .render(ms, light, vb);
                 if (!inInstancedContraption) ms.popPose();
@@ -124,37 +112,24 @@ public class DF21Renderer extends BogeyRenderer {
             BogeyModelData frame = getTransform(DF21_FRAME, ms, inInstancedContraption);
             BogeyModelData[] wheels = getTransform(DF21_WHEEL, ms, inInstancedContraption, 3);
 
-            if (direction == Direction.SOUTH || direction == Direction.EAST) {
-                if (inContraption) {
-                    frame.rotateY(180).translate(0, 0.375, 0).render(ms, light, vb);
-
-                    for (int side = -1; side < 2; side++) {
-                        if (!inInstancedContraption) ms.pushPose();
-                        BogeyModelData wheel = wheels[side + 1];
-                        wheel.translate(0, 0.88, ((double) side) * 2d)
-                                .rotateX(-wheelAngle)
-                                .render(ms, light, vb);
-                        if (!inInstancedContraption) ms.popPose();
-                    }
-                } else {
-                    frame.translate(0, 0.375, 0).render(ms, light, vb);
-
-                    for (int side = -1; side < 2; side++) {
-                        if (!inInstancedContraption) ms.pushPose();
-                        BogeyModelData wheel = wheels[side + 1];
-                        wheel.translate(0, 0.88, ((double) side) * 2d)
-                                .rotateX(wheelAngle)
-                                .render(ms, light, vb);
-                        if (!inInstancedContraption) ms.popPose();
-                    }
-                }
-            } else {
-                frame.rotateY(180).translate(0, 0.375, 0).render(ms, light, vb);
+            if ((direction == Direction.SOUTH || direction == Direction.EAST) && !inContraption) {
+                frame.translate(0, 0.225, 0.17).render(ms, light, vb);
 
                 for (int side = -1; side < 2; side++) {
                     if (!inInstancedContraption) ms.pushPose();
                     BogeyModelData wheel = wheels[side + 1];
-                    wheel.translate(0, 0.88, ((double) side) * 2d)
+                    wheel.translate(0, 0.88, ((double) side) * 1.805d)
+                            .rotateX(wheelAngle)
+                            .render(ms, light, vb);
+                    if (!inInstancedContraption) ms.popPose();
+                }
+            } else {
+                frame.rotateY(180).translate(0, 0.225, 0.17).render(ms, light, vb);
+
+                for (int side = -1; side < 2; side++) {
+                    if (!inInstancedContraption) ms.pushPose();
+                    BogeyModelData wheel = wheels[side + 1];
+                    wheel.translate(0, 0.88, ((double) side) * 1.805d)
                             .rotateX(-wheelAngle)
                             .render(ms, light, vb);
                     if (!inInstancedContraption) ms.popPose();
