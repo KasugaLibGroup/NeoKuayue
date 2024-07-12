@@ -1,0 +1,10 @@
+# Made in Blockbench 4.10.4
+newmtl m_076fea49-ca87-088e-2657-e88614916a9e
+map_Kd kuayue:block/bogey/mkz/mkz_hang
+newmtl m_01eb6a8f-6f9e-773b-7599-711e77d09bc9
+map_Kd kuayue:block/bogey/mkz/mkz_brake
+newmtl m_f294b111-1c74-e4e9-c461-e59303715289
+map_Kd kuayue:block/bogey/mkz/mkz_frame_middle
+newmtl m_7ddb36f6-a4b3-af39-82b6-49f40ab9f920
+map_Kd kuayue:block/bogey/mkz/mkz_frame_side
+newmtl none
