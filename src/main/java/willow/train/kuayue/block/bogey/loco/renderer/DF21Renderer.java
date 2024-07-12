@@ -55,8 +55,7 @@ public class DF21Renderer extends BogeyRenderer {
         BogeyModelData frame = getTransform(DF21_FRAME, ms, inInstancedContraption);
         BogeyModelData[] wheels = getTransform(DF21_WHEEL, ms, inInstancedContraption, 3);
 
-        if ((direction == Direction.SOUTH || direction == Direction.EAST) && !inContraption) {
-
+        if (!inContraption) {
             frame.rotateY(180).translate(0, 0.225, 0.17).render(ms, light, vb);
 
             for (int side = -1; side < 2; side++) {
@@ -67,8 +66,11 @@ public class DF21Renderer extends BogeyRenderer {
                         .render(ms, light, vb);
                 if (!inInstancedContraption) ms.popPose();
             }
-        } else {
-            frame.translate(0, 0.225, 0.17).render(ms, light, vb);
+            return;
+        }
+
+        if (direction == Direction.NORTH || direction == Direction.WEST) {
+            frame.rotateY(180).translate(0, 0.225, 0.17).render(ms, light, vb);
 
             for (int side = -1; side < 2; side++) {
                 if (!inInstancedContraption) ms.pushPose();
@@ -78,7 +80,20 @@ public class DF21Renderer extends BogeyRenderer {
                         .render(ms, light, vb);
                 if (!inInstancedContraption) ms.popPose();
             }
+            return;
         }
+
+        frame.translate(0, 0.225, 0.17).render(ms, light, vb);
+
+        for (int side = -1; side < 2; side++) {
+            if (!inInstancedContraption) ms.pushPose();
+            BogeyModelData wheel = wheels[side + 1];
+            wheel.translate(0, 0.88, ((double) side) * 1.805d)
+                    .rotateX(wheelAngle)
+                    .render(ms, light, vb);
+            if (!inInstancedContraption) ms.popPose();
+        }
+
     }
 
     public static class Backward extends BogeyRenderer {
@@ -112,7 +127,20 @@ public class DF21Renderer extends BogeyRenderer {
             BogeyModelData frame = getTransform(DF21_FRAME, ms, inInstancedContraption);
             BogeyModelData[] wheels = getTransform(DF21_WHEEL, ms, inInstancedContraption, 3);
 
-            if ((direction == Direction.SOUTH || direction == Direction.EAST) && !inContraption) {
+            if (!inContraption) {
+                frame.translate(0, 0.225, 0.17).render(ms, light, vb);
+                for (int side = -1; side < 2; side++) {
+                    if (!inInstancedContraption) ms.pushPose();
+                    BogeyModelData wheel = wheels[side + 1];
+                    wheel.translate(0, 0.88, ((double) side) * 1.805d)
+                            .rotateX(wheelAngle)
+                            .render(ms, light, vb);
+                    if (!inInstancedContraption) ms.popPose();
+                }
+                return;
+            }
+
+            if (direction == Direction.NORTH || direction == Direction.WEST) {
                 frame.translate(0, 0.225, 0.17).render(ms, light, vb);
 
                 for (int side = -1; side < 2; side++) {
@@ -123,17 +151,18 @@ public class DF21Renderer extends BogeyRenderer {
                             .render(ms, light, vb);
                     if (!inInstancedContraption) ms.popPose();
                 }
-            } else {
-                frame.rotateY(180).translate(0, 0.225, 0.17).render(ms, light, vb);
+                return;
+            }
 
-                for (int side = -1; side < 2; side++) {
-                    if (!inInstancedContraption) ms.pushPose();
-                    BogeyModelData wheel = wheels[side + 1];
-                    wheel.translate(0, 0.88, ((double) side) * 1.805d)
-                            .rotateX(-wheelAngle)
-                            .render(ms, light, vb);
-                    if (!inInstancedContraption) ms.popPose();
-                }
+            frame.rotateY(180).translate(0, 0.225, 0.17).render(ms, light, vb);
+
+            for (int side = -1; side < 2; side++) {
+                if (!inInstancedContraption) ms.pushPose();
+                BogeyModelData wheel = wheels[side + 1];
+                wheel.translate(0, 0.88, ((double) side) * 1.805d)
+                        .rotateX(-wheelAngle)
+                        .render(ms, light, vb);
+                if (!inInstancedContraption) ms.popPose();
             }
         }
     }
