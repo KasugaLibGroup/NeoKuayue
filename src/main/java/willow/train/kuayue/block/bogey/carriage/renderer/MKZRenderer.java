@@ -40,7 +40,7 @@ public class MKZRenderer extends BogeyRenderer {
         boolean inInstancedContraption = vb == null;
 
         BogeyModelData frame = getTransform(MKZ_FRAME, ms, inInstancedContraption);
-        frame.render(ms, light, vb);
+        frame.translate(0, 0.320, 0).render(ms, light, vb);
 
         BogeyModelData[] wheels =
                 getTransform(MKZ_WHEEL, ms, inInstancedContraption, 2);
@@ -48,7 +48,7 @@ public class MKZRenderer extends BogeyRenderer {
         for (int side : Iterate.positiveAndNegative) {
             if (!inInstancedContraption) ms.pushPose();
             BogeyModelData wheel = wheels[(side + 1) / 2];
-            wheel.translate(0, 0.805, ((double) side) * 1.2d).rotateX(wheelAngle);
+            wheel.translate(0, 0.695, ((double) side) * 0.733d).rotateX(wheelAngle);
             wheel.render(ms, light, vb);
             if (!inInstancedContraption) ms.popPose();
         }
