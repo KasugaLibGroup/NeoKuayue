@@ -1,0 +1,39 @@
+{
+	"credit": "Made with Blockbench",
+	"ambientocclusion": false,
+	"render_type": "translucent",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "kuayue:block/platform_door/platform_door",
+		"particle": "kuayue:block/platform_door/platform_door"
+	},
+	"elements": [
+		{
+			"from": [8, 0, 2],
+			"to": [24, 20, 4],
+			"rotation": {"angle": 0, "axis": "y", "origin": [16, 0, 2]},
+			"faces": {
+				"north": {"uv": [0, 0, 4, 5], "texture": "#0"},
+				"east": {"uv": [6.5, 10, 7, 15], "texture": "#0"},
+				"south": {"uv": [4, 0, 8, 5], "texture": "#0"},
+				"west": {"uv": [7, 10, 7.5, 15], "texture": "#0"},
+				"up": {"uv": [14.25, 5.5, 10.25, 5], "texture": "#0"},
+				"down": {"uv": [14.25, 5.5, 10.25, 6], "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "group",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0]
+		},
+		{
+			"name": "group",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": []
+		}
+	]
+}

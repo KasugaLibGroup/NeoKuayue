@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "facing=east,open=false": {
+      "model": "kuayue:block/door/platform_door/platform_door_side",
+      "y": 270
+    },
+    "facing=north,open=false": {
+      "model": "kuayue:block/door/platform_door/platform_door_side",
+      "y": 180
+    },
+    "facing=south,open=false": {
+      "model": "kuayue:block/door/platform_door/platform_door_side",
+      "y": 0
+    },
+    "facing=west,open=false": {
+      "model": "kuayue:block/door/platform_door/platform_door_side",
+      "y": 90
+    },
+    "facing=east,open=true": {
+      "model": "kuayue:block/door/platform_door/platform_door_side",
+      "y": 270
+    },
+    "facing=north,open=true": {
+      "model": "kuayue:block/door/platform_door/platform_door_side",
+      "y": 180
+    },
+    "facing=south,open=true": {
+      "model": "kuayue:block/door/platform_door/platform_door_side",
+      "y": 0
+    },
+    "facing=west,open=true": {
+      "model": "kuayue:block/door/platform_door/platform_door_side",
+      "y": 90
+    }
+  }
+}

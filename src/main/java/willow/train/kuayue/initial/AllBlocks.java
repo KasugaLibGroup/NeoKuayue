@@ -5,16 +5,12 @@ import kasuga.lib.registrations.common.BlockReg;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
-import willow.train.kuayue.block.panels.base.CompanyTrainBlockEntity;
-import willow.train.kuayue.block.panels.base.CompanyTrainDoor;
-import willow.train.kuayue.block.panels.base.CompanyTrainPanel;
-import willow.train.kuayue.block.panels.base.CompanyTrainSlab;
-import willow.train.kuayue.block.panels.block_entity.CustomRenderedDoorEntity;
-import willow.train.kuayue.block.panels.block_entity.CustomRenderedDoorRenderer;
-import willow.train.kuayue.block.panels.block_entity.CustomRenderedEndFaceRenderer;
-import willow.train.kuayue.block.panels.block_entity.CustomRenderedEndfaceEntity;
+import willow.train.kuayue.block.panels.base.*;
+import willow.train.kuayue.block.panels.block_entity.*;
+import willow.train.kuayue.block.panels.door.DoubleDoorBlock;
 import willow.train.kuayue.block.seat.SeatBlockEntity;
 import willow.train.kuayue.initial.panel.*;
+import willow.train.kuayue.initial.registration.PanelRegistration;
 
 public class AllBlocks {
 
@@ -58,6 +54,20 @@ public class AllBlocks {
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
                     .submit(AllElements.testRegistry);
 
+    public static final PanelRegistration<DoubleDoorBlock> PLATFORM_DOOR =
+            new PanelRegistration<DoubleDoorBlock>("platform_door")
+                    .block(properties ->
+                            new DoubleDoorBlock(
+                                    properties, TrainPanelProperties.DoorType.SLIDE,
+                                    "door/platform_door/platform_door_side",
+                                    "door/platform_door/platform_door_left",
+                                    "door/platform_door/platform_door_right"
+                            )
+                    ).materialAndColor(Material.METAL, MaterialColor.METAL)
+                    .tab(AllElements.neoKuayueMainTab)
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
     public static final BlockEntityReg<CompanyTrainBlockEntity> COMPANY_TRAIN_BLOCK_ENTITY =
             new BlockEntityReg<CompanyTrainBlockEntity>("company_panel")
                     .blockEntityType(CompanyTrainBlockEntity::new)
@@ -90,6 +100,13 @@ public class AllBlocks {
                     .withRenderer(() -> CustomRenderedEndFaceRenderer::new)
                     .addBlock(CR200JPanel.END_FACE_MARSHALLED_CR200J.block)
                     .addBlock(CR200JPanel.END_FACE_MARSHALLED_CR200J_2.block)
+                    .submit(AllElements.testRegistry);
+
+    public static final BlockEntityReg<DoubleDoorEntity> DOUBLE_DOOR_ENTITY =
+            new BlockEntityReg<DoubleDoorEntity>("double_door")
+                    .blockEntityType(DoubleDoorEntity::new)
+                    .withRenderer(() -> DoubleDoorRenderer::new)
+                    .addBlock(PLATFORM_DOOR.block)
                     .submit(AllElements.testRegistry);
 
     public static final BlockEntityReg<SeatBlockEntity> SEAT_BLOCK_ENTITY =
