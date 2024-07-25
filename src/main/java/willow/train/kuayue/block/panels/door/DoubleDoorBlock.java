@@ -14,7 +14,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
 import willow.train.kuayue.block.panels.base.TrainPanelShapes;
-import willow.train.kuayue.block.panels.block_entity.CustomRenderedEndfaceEntity;
 import willow.train.kuayue.block.panels.block_entity.DoubleDoorEntity;
 import willow.train.kuayue.block.panels.end_face.TrainEndfaceBlock;
 import willow.train.kuayue.initial.AllBlocks;
