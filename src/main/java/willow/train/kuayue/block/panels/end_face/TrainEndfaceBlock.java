@@ -30,8 +30,8 @@ public class TrainEndfaceBlock extends TrainPanelBlock {
     public final TrainPanelProperties.DoorType DOOR_TYPE;
 
     public static final BooleanProperty OPEN = BlockStateProperties.OPEN;
-    public TrainEndfaceBlock(Properties pProperties, TrainPanelProperties.DoorType doorType) {
-        super(pProperties, new Vec2(-1, 0), new Vec2(2, 3));
+    public TrainEndfaceBlock(Properties pProperties, Vec2 beginPos, Vec2 endPos, TrainPanelProperties.DoorType doorType) {
+        super(pProperties, beginPos, endPos);
         this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.EAST).setValue(OPEN, false));
         this.DOOR_TYPE = doorType;
     }

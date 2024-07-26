@@ -9,6 +9,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import willow.train.kuayue.Kuayue;
@@ -23,9 +24,9 @@ public class DoubleDoorBlock extends TrainEndfaceBlock implements IBE<DoubleDoor
     public final Couple<PartialModel> models;
     public final PartialModel frameModel;
 
-    public DoubleDoorBlock(Properties pProperties, TrainPanelProperties.DoorType doorType,
+    public DoubleDoorBlock(Properties pProperties, Vec2 beginPos, Vec2 endPos, TrainPanelProperties.DoorType doorType,
                            String frameModel, String leftModel, String rightModel) {
-        super(pProperties, doorType);
+        super(pProperties, beginPos, endPos, doorType);
         this.models = Couple.create(
                 leftModel == null ? null : new PartialModel(new ResourceLocation(Kuayue.MODID,"block/" + leftModel)),
                 rightModel == null ? null : new PartialModel(new ResourceLocation(Kuayue.MODID,"block/" + rightModel)));

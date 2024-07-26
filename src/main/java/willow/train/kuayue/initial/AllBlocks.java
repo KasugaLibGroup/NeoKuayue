@@ -5,6 +5,7 @@ import kasuga.lib.registrations.common.BlockReg;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.phys.Vec2;
 import willow.train.kuayue.block.panels.base.*;
 import willow.train.kuayue.block.panels.block_entity.*;
 import willow.train.kuayue.block.panels.door.DoubleDoorBlock;
@@ -58,7 +59,8 @@ public class AllBlocks {
             new PanelRegistration<DoubleDoorBlock>("platform_door")
                     .block(properties ->
                             new DoubleDoorBlock(
-                                    properties, TrainPanelProperties.DoorType.SLIDE,
+                                    properties, new Vec2(0, 0), new Vec2(1, 1),
+                                    TrainPanelProperties.DoorType.SLIDE,
                                     "door/platform_door/platform_door_side",
                                     "door/platform_door/platform_door_left",
                                     "door/platform_door/platform_door_right"

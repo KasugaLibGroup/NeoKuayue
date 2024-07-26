@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec2;
 import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
 import willow.train.kuayue.block.panels.block_entity.CustomRenderedEndfaceEntity;
@@ -21,7 +22,7 @@ public class CustomRenderedEndfaceBlock extends TrainEndfaceBlock implements IBE
     public CustomRenderedEndfaceBlock(BlockBehaviour.Properties pProperties,
                                       TrainPanelProperties.DoorType doorType,
                                     PartialModel leftModel, PartialModel rightModel, PartialModel frameModel) {
-        super(pProperties, doorType);
+        super(pProperties, new Vec2(-1, 0), new Vec2(2, 3), doorType);
         this.models = Couple.create(leftModel, rightModel);
         this.frameModel = frameModel;
     }
@@ -29,14 +30,14 @@ public class CustomRenderedEndfaceBlock extends TrainEndfaceBlock implements IBE
     public CustomRenderedEndfaceBlock(BlockBehaviour.Properties prop,
                                       TrainPanelProperties.DoorType doorType,
                                       ResourceLocation left, ResourceLocation right, ResourceLocation frame) {
-        super(prop, doorType);
+        super(prop, new Vec2(-1, 0), new Vec2(2, 3), doorType);
         this.models = Couple.create(new PartialModel(left), new PartialModel(right));
         this.frameModel = new PartialModel(frame);
     }
 
     public CustomRenderedEndfaceBlock(BlockBehaviour.Properties properties, TrainPanelProperties.DoorType doorType,
                                       String leftModel, String rightModel, String frameModel) {
-        super(properties, doorType);
+        super(properties, new Vec2(-1, 0), new Vec2(2, 3), doorType);
         this.models = Couple.create(
                 leftModel == null ? null : new PartialModel(new ResourceLocation(Kuayue.MODID,"block/" + leftModel)),
                 rightModel == null ? null : new PartialModel(new ResourceLocation(Kuayue.MODID,"block/" + rightModel)));
