@@ -7,7 +7,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoorHingeSide;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.openjdk.nashorn.internal.runtime.regexp.joni.constants.OPCode;
 import willow.train.kuayue.utils.DirectionUtil;
 
 public class TrainPanelShapes {
@@ -22,10 +21,10 @@ public class TrainPanelShapes {
     public static final VoxelShape DOOR_WEST_AABB = Block.box(13.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
     public static final VoxelShape DOOR_EAST_AABB = Block.box(0.0D, 0.0D, 0.0D, 3.0D, 16.0D, 16.0D);
 
-    public static final VoxelShape DOUBLE_DOOR_CLOSE_SOUTH_AABB = Block.box(-16.0D, 0.0D, -1.0D, 32.0D, 16.0D, 6.0D);
-    public static final VoxelShape DOUBLE_DOOR_CLOSE_NORTH_AABB = Block.box(-16.0D, 0.0D, 10.0D, 32.0D, 16.0D, 17.0D);
-    public static final VoxelShape DOUBLE_DOOR_CLOSE_WEST_AABB = Block.box(10.0D, 0.0D, -16.0D, 17.0D, 16.0D, 32.0D);
-    public static final VoxelShape DOUBLE_DOOR_CLOSE_EAST_AABB = Block.box(-1.0D, 0.0D, -16.0D, 6.0D, 16.0D, 32.0D);
+    public static final VoxelShape DOUBLE_DOOR_CLOSE_NORTH_AABB = Block.box(-16.0D, 0.0D, -1.0D, 32.0D, 16.0D, 6.0D);
+    public static final VoxelShape DOUBLE_DOOR_CLOSE_SOUTH_AABB = Block.box(-16.0D, 0.0D, 10.0D, 32.0D, 16.0D, 17.0D);
+    public static final VoxelShape DOUBLE_DOOR_CLOSE_EAST_AABB = Block.box(10.0D, 0.0D, -16.0D, 17.0D, 16.0D, 32.0D);
+    public static final VoxelShape DOUBLE_DOOR_CLOSE_WEST_AABB = Block.box(-1.0D, 0.0D, -16.0D, 6.0D, 16.0D, 32.0D);
 
     public static final VoxelShape DOUBLE_DOOR_OPEN_SOUTH_AABB = Shapes.or(
             Block.box(-24.0D, 0.0D, -1.0D, -8.0D, 16.0D, 6.0D),

@@ -22,7 +22,7 @@ public class CustomRenderedEndfaceBlock extends TrainEndfaceBlock implements IBE
     public CustomRenderedEndfaceBlock(BlockBehaviour.Properties pProperties,
                                       TrainPanelProperties.DoorType doorType,
                                     PartialModel leftModel, PartialModel rightModel, PartialModel frameModel) {
-        super(pProperties, new Vec2(-1, 0), new Vec2(2, 3), doorType);
+        super(pProperties, doorType);
         this.models = Couple.create(leftModel, rightModel);
         this.frameModel = frameModel;
     }
@@ -30,14 +30,14 @@ public class CustomRenderedEndfaceBlock extends TrainEndfaceBlock implements IBE
     public CustomRenderedEndfaceBlock(BlockBehaviour.Properties prop,
                                       TrainPanelProperties.DoorType doorType,
                                       ResourceLocation left, ResourceLocation right, ResourceLocation frame) {
-        super(prop, new Vec2(-1, 0), new Vec2(2, 3), doorType);
+        super(prop, doorType);
         this.models = Couple.create(new PartialModel(left), new PartialModel(right));
         this.frameModel = new PartialModel(frame);
     }
 
     public CustomRenderedEndfaceBlock(BlockBehaviour.Properties properties, TrainPanelProperties.DoorType doorType,
                                       String leftModel, String rightModel, String frameModel) {
-        super(properties, new Vec2(-1, 0), new Vec2(2, 3), doorType);
+        super(properties, doorType);
         this.models = Couple.create(
                 leftModel == null ? null : new PartialModel(new ResourceLocation(Kuayue.MODID,"block/" + leftModel)),
                 rightModel == null ? null : new PartialModel(new ResourceLocation(Kuayue.MODID,"block/" + rightModel)));

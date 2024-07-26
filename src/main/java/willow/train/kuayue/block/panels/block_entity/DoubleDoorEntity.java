@@ -11,6 +11,8 @@ import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
 import willow.train.kuayue.block.panels.door.DoubleDoorBlock;
 import willow.train.kuayue.initial.AllBlocks;
@@ -88,5 +90,10 @@ public class DoubleDoorEntity extends SmartBlockEntity implements IContraptionMo
     public void doMovement(Contraption contraption, BlockPos blockPos, BlockState blockState, BlockEntity blockEntity) {
         ((DoubleDoorEntity) blockEntity).setOpen(contraption.getBlocks().get(blockPos).state.getValue(DoorBlock.OPEN));
         contraption.presentBlockEntities.put(blockPos, blockEntity);
+    }
+
+    @Override
+    protected AABB createRenderBoundingBox() {
+        return AABB.ofSize(Vec3.atCenterOf(this.getBlockPos()), 5, 5, 5);
     }
 }

@@ -66,20 +66,22 @@ public class DoubleDoorRenderer implements BlockEntityRenderer<DoubleDoorEntity>
             rightBuffer.translate(-0.5f, 0, -0.5f);
 
         //如果门开启且counter小于1
-        if(isOpened && pBlockEntity.counter < 1.0f) {
+        if(isOpened && pBlockEntity.counter < 1f) {
             //没有开启到位则一直累加counter，每次0.0125f
             pBlockEntity.counter += STEP;
         } else if (!isOpened && pBlockEntity.counter > 0.01f) {
             //没有关闭到位则一直累减counter，每次0.0125f
             pBlockEntity.counter -= STEP;
-        }
+        } else if (isOpened) pBlockEntity.counter = 1f;
+        else pBlockEntity.counter = 0f;
         /*如果将判断条件设置为counter > 0.0f，两侧门在关闭时均会超出行程并出现一小部分建模重叠的现象。*/
 
+        float offset = ((float) Math.cos((pBlockEntity.counter + 1) * Math.PI) + 1f) * .4f;
         // 门的滑动渲染，通过counter设置左右门偏移量。
         if (leftBuffer != null)
-            leftBuffer.translate(pBlockEntity.counter, 0, 0);
+            leftBuffer.translate(offset, 0, 0);
         if (rightBuffer != null)
-            rightBuffer.translate(-pBlockEntity.counter, 0, 0);
+            rightBuffer.translate(- offset, 0, 0);
 
         //渲染左右门
         if (leftBuffer != null)
@@ -88,5 +90,10 @@ public class DoubleDoorRenderer implements BlockEntityRenderer<DoubleDoorEntity>
             rightBuffer.renderInto(pose, pBufferSource.getBuffer(RenderType.cutout()));
 
         pose.popPose();
+    }
+
+    @Override
+    public boolean shouldRenderOffScreen(DoubleDoorEntity pBlockEntity) {
+        return true;
     }
 }

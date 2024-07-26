@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.state.properties.DoorHingeSide;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 import willow.train.kuayue.block.panels.TrainPanelBlock;
@@ -30,8 +31,14 @@ public class TrainEndfaceBlock extends TrainPanelBlock {
     public final TrainPanelProperties.DoorType DOOR_TYPE;
 
     public static final BooleanProperty OPEN = BlockStateProperties.OPEN;
-    public TrainEndfaceBlock(Properties pProperties, Vec2 beginPos, Vec2 endPos, TrainPanelProperties.DoorType doorType) {
-        super(pProperties, beginPos, endPos);
+    public TrainEndfaceBlock(Properties pProperties, TrainPanelProperties.DoorType doorType) {
+        super(pProperties, new Vec2(-1, 0), new Vec2(2, 3));
+        this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.EAST).setValue(OPEN, false));
+        this.DOOR_TYPE = doorType;
+    }
+
+    public TrainEndfaceBlock(Properties properties, Vec2 beginPos, Vec2 endPos, TrainPanelProperties.DoorType doorType) {
+        super(properties, beginPos, endPos);
         this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.EAST).setValue(OPEN, false));
         this.DOOR_TYPE = doorType;
     }
@@ -56,35 +63,19 @@ public class TrainEndfaceBlock extends TrainPanelBlock {
         return super.getStateForPlacement(pContext).setValue(OPEN, false);
     }
 
-    @Override
     public void generateCompanyBlock(Level level, BlockState state, BlockPos pos, boolean isMoving) {
         Direction direction = state.getValue(FACING);
-        BlockPos firstPos = pos;
         boolean open = state.hasProperty(BlockStateProperties.OPEN) ?
                 state.getValue(BlockStateProperties.OPEN) : false;
-        boolean leftHinge = state.hasProperty(BlockStateProperties.DOOR_HINGE) ?
-                state.getValue(BlockStateProperties.DOOR_HINGE) != DoorHingeSide.LEFT : false;
-        firstPos = DirectionUtil.left(firstPos, direction, (int) (leftHinge ? - beginPos.x : beginPos.x));
-        firstPos = firstPos.offset(0, beginPos.y, 0);
-        int length = (int) (endPos.x - beginPos.x),
-                height = (int) (endPos.y - beginPos.y);
-
-        BlockPos centerBlock = new BlockPos((int) - beginPos.x, (int) beginPos.y, 0);
-        for (int i = 0; i < length; i++) {
-            for (int j = 0; j < height; j++) {
-                if (i == centerBlock.getX() && j == centerBlock.getY()) {
-                    firstPos = firstPos.above().above();
-                    j++;
-                    continue;
-                }
-                BlockState state1 = generateCompanyState(direction, leftHinge ? DoorHingeSide.LEFT : DoorHingeSide.RIGHT, open);
-                level.setBlock(firstPos, state1, 10);
-                CompanyTrainPanel.setParentBlock(firstPos, level, state1, pos);
-                firstPos = firstPos.above();
-            }
-            firstPos = firstPos.offset(0, - height, 0);
-            firstPos = DirectionUtil.right(firstPos, direction, leftHinge ? 1 : -1);
-        }
+        boolean leftHinge = !state.hasProperty(BlockStateProperties.DOOR_HINGE) || state.getValue(BlockStateProperties.DOOR_HINGE) == DoorHingeSide.LEFT;
+        BlockUseFunction function = (l, p, parentState, myPos, myState, player, hand, hit) -> {
+            if (p.equals(myPos) || p.equals(myPos.above())) return InteractionResult.SUCCESS;
+            BlockState state1 = generateCompanyState(direction, leftHinge ? DoorHingeSide.LEFT : DoorHingeSide.RIGHT, open);
+            level.setBlock(myPos, state1, 10);
+            CompanyTrainPanel.setParentBlock(myPos, level, state1, pos);
+            return InteractionResult.SUCCESS;
+        };
+        walkAllValidPos(level, pos, state, null, null, null, function);
     }
 
     @Override
