@@ -25,7 +25,7 @@ public class DoubleDoorRenderer implements BlockEntityRenderer<DoubleDoorEntity>
                        MultiBufferSource pBufferSource,
                        int pPackedLight, int pPackedOverlay) {
 
-        double truePackedLight = pPackedLight * 0.8;
+        pPackedLight *= 0.8;
         //获取方块实体状态
         BlockState blockState = pBlockEntity.getBlockState();
         //获取门是否开闭的布尔值
@@ -42,8 +42,8 @@ public class DoubleDoorRenderer implements BlockEntityRenderer<DoubleDoorEntity>
 
         float f = -blockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite().toYRot() - 90;
 
-        SuperByteBuffer leftBuffer = left == null ? null : CachedBufferer.partial(left, blockState);
-        SuperByteBuffer rightBuffer = right == null ? null : CachedBufferer.partial(right, blockState);
+        SuperByteBuffer leftBuffer = left == null ? null : CachedBufferer.partial(left, blockState).light(pPackedLight);
+        SuperByteBuffer rightBuffer = right == null ? null : CachedBufferer.partial(right, blockState).light(pPackedLight);
 
         pose.pushPose();
 
@@ -55,7 +55,7 @@ public class DoubleDoorRenderer implements BlockEntityRenderer<DoubleDoorEntity>
         if (frame != null) {
             //将门框抬高一格渲染
             pose.translate(-0.5f, 1f, -0.5f);
-            SuperByteBuffer frameBuffer = CachedBufferer.partial(frame, blockState);
+            SuperByteBuffer frameBuffer = CachedBufferer.partial(frame, blockState).light(pPackedLight);
             frameBuffer.renderInto(pose, pBufferSource.getBuffer(RenderType.cutout()));
             pose.translate(0.5f, -1f, 0.5f);
         }
