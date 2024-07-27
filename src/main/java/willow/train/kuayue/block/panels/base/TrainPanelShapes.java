@@ -21,23 +21,23 @@ public class TrainPanelShapes {
     public static final VoxelShape DOOR_WEST_AABB = Block.box(13.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
     public static final VoxelShape DOOR_EAST_AABB = Block.box(0.0D, 0.0D, 0.0D, 3.0D, 16.0D, 16.0D);
 
-    public static final VoxelShape DOUBLE_DOOR_CLOSE_NORTH_AABB = Block.box(-16.0D, 0.0D, -1.0D, 32.0D, 16.0D, 6.0D);
-    public static final VoxelShape DOUBLE_DOOR_CLOSE_SOUTH_AABB = Block.box(-16.0D, 0.0D, 10.0D, 32.0D, 16.0D, 17.0D);
-    public static final VoxelShape DOUBLE_DOOR_CLOSE_EAST_AABB = Block.box(10.0D, 0.0D, -16.0D, 17.0D, 16.0D, 32.0D);
-    public static final VoxelShape DOUBLE_DOOR_CLOSE_WEST_AABB = Block.box(-1.0D, 0.0D, -16.0D, 6.0D, 16.0D, 32.0D);
+    public static final VoxelShape DOUBLE_DOOR_CLOSE_NORTH_AABB = Block.box(-16.0D, 0.0D, 0.0D, 32.0D, 20.0D, 5.0D);
+    public static final VoxelShape DOUBLE_DOOR_CLOSE_SOUTH_AABB = Block.box(-16.0D, 0.0D, 11.0D, 32.0D, 20.0D, 16.0D);
+    public static final VoxelShape DOUBLE_DOOR_CLOSE_EAST_AABB = Block.box(11.0D, 0.0D, -16.0D, 16.0D, 20.0D, 32.0D);
+    public static final VoxelShape DOUBLE_DOOR_CLOSE_WEST_AABB = Block.box(0.0D, 0.0D, -16.0D, 5.0D, 20.0D, 32.0D);
 
-    public static final VoxelShape DOUBLE_DOOR_OPEN_SOUTH_AABB = Shapes.or(
-            Block.box(-24.0D, 0.0D, -1.0D, -8.0D, 16.0D, 6.0D),
-            Block.box(24.0D, 0.0D, -1.0D, 40.0D, 16.0D, 6.0D));
     public static final VoxelShape DOUBLE_DOOR_OPEN_NORTH_AABB = Shapes.or(
-            Block.box(-24.0D, 0.0D, 10.0D, -8.0D, 16.0D, 17.0D),
-            Block.box(24.0D, 0.0D, 10.0D, 40.0D, 16.0D, 17.0D));
-    public static final VoxelShape DOUBLE_DOOR_OPEN_WEST_AABB = Shapes.or(
-            Block.box(10.0D, 0.0D, -24.0D, 17.0D, 16.0D, -8.0D),
-            Block.box(10.0D, 0.0D, 24.0D, 17.0D, 16.0D, 40.0D));
+            Block.box(-24.0D, 0.0D, 0.0D, -8.0D, 20.0D, 5.0D),
+            Block.box(24.0D, 0.0D, 0.0D, 40.0D, 20.0D, 5.0D));
+    public static final VoxelShape DOUBLE_DOOR_OPEN_SOUTH_AABB = Shapes.or(
+            Block.box(-24.0D, 0.0D, 11.0D, -8.0D, 20.0D, 16.0D),
+            Block.box(24.0D, 0.0D, 11.0D, 40.0D, 20.0D, 16.0D));
     public static final VoxelShape DOUBLE_DOOR_OPEN_EAST_AABB = Shapes.or(
-            Block.box(-1.0D, 0.0D, -24.0D, 6.0D, 16.0D, -8.0D),
-            Block.box(-1.0D, 0.0D, 24.0D, 6.0D, 16.0D, 40.0D));
+            Block.box(11.0D, 0.0D, -24.0D, 16.0D, 20.0D, -8.0D),
+            Block.box(11.0D, 0.0D, 24.0D, 16.0D, 20.0D, 40.0D));
+    public static final VoxelShape DOUBLE_DOOR_OPEN_WEST_AABB = Shapes.or(
+            Block.box(0.0D, 0.0D, -24.0D, 5.0D, 20.0D, -8.0D),
+            Block.box(0.0D, 0.0D, 24.0D, 5.0D, 20.0D, 40.0D));
 
     public static final VoxelShape FLOOR = Block.box(0, 8, 0, 16, 16, 16);
     public static final VoxelShape CARPORT_CENTER = Block.box(0, 0, 0, 16, 8, 16);

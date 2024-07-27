@@ -1,0 +1,32 @@
+{
+	"credit": "Made with Blockbench",
+	"render_type": "translucent",
+	"texture_size": [64, 64],
+	"textures": {
+		"1": "kuayue:block/platform_wall",
+		"particle": "kuayue:block/platform_wall"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 3],
+			"to": [16, 20, 5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 3]},
+			"faces": {
+				"north": {"uv": [0, 0, 4, 5], "texture": "#1"},
+				"east": {"uv": [0, 5, 0.5, 10], "texture": "#1"},
+				"south": {"uv": [4, 0, 8, 5], "texture": "#1"},
+				"west": {"uv": [0.5, 5, 1, 10], "texture": "#1"},
+				"up": {"uv": [5, 5.5, 1, 5], "texture": "#1"},
+				"down": {"uv": [9, 5, 5, 5.5], "texture": "#1"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "group",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0]
+		}
+	]
+}

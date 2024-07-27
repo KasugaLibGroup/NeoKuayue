@@ -10,6 +10,7 @@ import willow.train.kuayue.block.panels.base.*;
 import willow.train.kuayue.block.panels.block_entity.*;
 import willow.train.kuayue.block.panels.door.DoubleDoorBlock;
 import willow.train.kuayue.block.seat.SeatBlockEntity;
+import willow.train.kuayue.block.structure.platform.PlatformWallBlock;
 import willow.train.kuayue.initial.panel.*;
 import willow.train.kuayue.initial.registration.PanelRegistration;
 
@@ -68,6 +69,16 @@ public class AllBlocks {
                     ).materialAndColor(Material.METAL, MaterialColor.METAL)
                     .tab(AllElements.neoKuayueMainTab)
                     .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
+    public static final BlockReg<PlatformWallBlock> PLATFORM_WALL =
+            new BlockReg<PlatformWallBlock>("platform_wall")
+                    .blockType(PlatformWallBlock::new)
+                    .material(Material.METAL)
+                    .materialColor(MaterialColor.METAL)
+                    .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .defaultBlockItem()
+                    .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
 
     public static final BlockEntityReg<CompanyTrainBlockEntity> COMPANY_TRAIN_BLOCK_ENTITY =
