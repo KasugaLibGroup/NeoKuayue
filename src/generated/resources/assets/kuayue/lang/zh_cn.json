@@ -7,8 +7,8 @@
   "block.kuayue.clay_stairs": "黏土楼梯",
   "block.kuayue.green_fence": "绿色隔离栅栏",
   "block.kuayue.green_fence_45": "绿色隔离栅栏(45度)",
-  "block.kuayue.original_color_window_25": "25系列车厢窗户",
-  "block.kuayue.original_color_window_25_sealed": "25系列车厢密封窗户",
+  "block.kuayue.window_oc_25": "25系列车厢窗户",
+  "block.kuayue.window_oc_sealed_25": "25系列车厢密封窗户",
   "block.kuayue.standard_track": "标准轨距铁轨",
   "block.kuayue.ballastless_track": "无砟轨道",
   "block.kuayue.tieless_track": "无枕轨道",
@@ -23,7 +23,7 @@
   "block.kuayue.panel_line_25k": "原色25K车厢腰线",
   "block.kuayue.panel_symbol_25k": "原色25K车厢标识线",
   "block.kuayue.panel_top_25k": "原色25K车厢上厢板",
-  "block.kuayue.sliding_door_25k": "原色25K塞拉门",
+  "block.kuayue.door_sliding_25k": "原色25K塞拉门",
   "block.kuayue.panel_symbol_marshalled_25k": "高阻绿25K标识线",
   "block.kuayue.toilet_dd_25z": "原色25Z直排式便池",
   "block.kuayue.ladder_25z": "原色25Z车梯",
@@ -596,5 +596,6 @@
   "block.kuayue.head_hxd3d.tooltip": "§c不是红枣！",
   "block.kuayue.panel_hexie_hxd3d": "HXD3D车厢板\"和谐\"",
   "block.kuayue.panel_red_hxd3d": "HXD3D通用厢板",
-  "block.kuayue.floor_hxd3d": "HXD3D地板"
+  "block.kuayue.floor_hxd3d": "HXD3D地板",
+  "block.kuayue.platform_door": "站台屏蔽门"
 }

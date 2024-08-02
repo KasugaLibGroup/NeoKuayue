@@ -2,19 +2,19 @@
  "variants": {
   "facing=east": {
    "model": "kuayue:block/carriage/carriage25gaozu_niucha/panel_25_marshalled_bottom_line",
-   "y": 270
+   "y": 90
   },
   "facing=north": {
    "model": "kuayue:block/carriage/carriage25gaozu_niucha/panel_25_marshalled_bottom_line",
-   "y": 180
+   "y": 0
   },
   "facing=south": {
    "model": "kuayue:block/carriage/carriage25gaozu_niucha/panel_25_marshalled_bottom_line",
-   "y": 0
+   "y": 180
   },
   "facing=west": {
    "model": "kuayue:block/carriage/carriage25gaozu_niucha/panel_25_marshalled_bottom_line",
-   "y": 90
+   "y": 270
   }
  }
 }

@@ -7,8 +7,8 @@
  "block.kuayue.clay_stairs": "Clay Stairs",
  "block.kuayue.green_fence": "Green Fence",
  "block.kuayue.green_fence_45": "Green Fence 45°",
- "block.kuayue.original_color_window_25": "25 Series Carriage Window",
- "block.kuayue.original_color_window_25_sealed": "25 Series Carriage Sealed Window",
+ "block.kuayue.window_oc_25": "25 Series Carriage Window",
+ "block.kuayue.window_oc_sealed_25": "25 Series Carriage Sealed Window",
  "block.kuayue.standard_track": "Standard Track",
  "block.kuayue.ballastless_track": "Ballastless Track",
  "block.kuayue.tieless_track": "Tieless Track",
@@ -45,7 +45,7 @@
  "block.kuayue.carport_ac_25z": "Original Color 25Z Air Conditioner",
  "block.kuayue.carport_side_ac_25z": "Original Color 25Z Air Conditioner (Side)",
  "block.kuayue.carport_center_25z": "Original Color 25Z Carport Center",
- "block.kuayue.sliding_door_25k": "Original Color 25K Sliding Door",
+ "block.kuayue.door_sliding_25k": "Original Color 25K Sliding Door",
  "block.kuayue.panel_bottommarshalled_25": "Marshalled 25Series Carriage Bottom Panel",
  "block.kuayue.panel_25k_marshalled_symbol": "Marshalled 25K Carriage symbol Panel",
  "block.kuayue.panel_25_marshalled_window": "Marshalled 25Series Carriage Window",
@@ -593,5 +593,6 @@
  "block.kuayue.head_hxd3d.tooltip": "§cIt's NOT a DATE!",
  "block.kuayue.panel_hexie_hxd3d": "HXD3D Panel \"和谐\"",
  "block.kuayue.panel_red_hxd3d": "HXD3D General Panel",
- "block.kuayue.floor_hxd3d": "HXD3D Floor"
+ "block.kuayue.floor_hxd3d": "HXD3D Floor",
+ "block.kuayue.platform_door": "Platform door"
 }
