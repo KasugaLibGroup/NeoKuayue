@@ -24,6 +24,8 @@ public class DoubleDoorRenderer implements BlockEntityRenderer<DoubleDoorEntity>
                        PoseStack pose,
                        MultiBufferSource pBufferSource,
                        int pPackedLight, int pPackedOverlay) {
+
+        pPackedLight *= 0.8;
         //获取方块实体状态
         BlockState blockState = pBlockEntity.getBlockState();
         //获取门是否开闭的布尔值
@@ -40,8 +42,8 @@ public class DoubleDoorRenderer implements BlockEntityRenderer<DoubleDoorEntity>
 
         float f = -blockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite().toYRot() - 90;
 
-        SuperByteBuffer leftBuffer = left == null ? null : CachedBufferer.partial(left, blockState);
-        SuperByteBuffer rightBuffer = right == null ? null : CachedBufferer.partial(right, blockState);
+        SuperByteBuffer leftBuffer = left == null ? null : CachedBufferer.partial(left, blockState).light(pPackedLight);
+        SuperByteBuffer rightBuffer = right == null ? null : CachedBufferer.partial(right, blockState).light(pPackedLight);
 
         pose.pushPose();
 
@@ -53,7 +55,7 @@ public class DoubleDoorRenderer implements BlockEntityRenderer<DoubleDoorEntity>
         if (frame != null) {
             //将门框抬高一格渲染
             pose.translate(-0.5f, 1f, -0.5f);
-            SuperByteBuffer frameBuffer = CachedBufferer.partial(frame, blockState);
+            SuperByteBuffer frameBuffer = CachedBufferer.partial(frame, blockState).light(pPackedLight);
             frameBuffer.renderInto(pose, pBufferSource.getBuffer(RenderType.cutout()));
             pose.translate(0.5f, -1f, 0.5f);
         }
@@ -72,8 +74,13 @@ public class DoubleDoorRenderer implements BlockEntityRenderer<DoubleDoorEntity>
         } else if (!isOpened && pBlockEntity.counter > 0.01f) {
             //没有关闭到位则一直累减counter，每次0.0125f
             pBlockEntity.counter -= STEP;
-        } else if (isOpened) pBlockEntity.counter = 1f;
-        else pBlockEntity.counter = 0f;
+        } else if (isOpened) {
+            //如果门开启到位
+            pBlockEntity.counter = 1f;
+        } else {
+            //如果门关闭到位
+            pBlockEntity.counter = 0f;
+        }
         /*如果将判断条件设置为counter > 0.0f，两侧门在关闭时均会超出行程并出现一小部分建模重叠的现象。*/
 
         float offset = ((float) Math.cos((pBlockEntity.counter + 1) * Math.PI) + 1f) * .4f;
@@ -92,6 +99,7 @@ public class DoubleDoorRenderer implements BlockEntityRenderer<DoubleDoorEntity>
         pose.popPose();
     }
 
+    // 即使不在当前屏幕范围内也需要渲染
     @Override
     public boolean shouldRenderOffScreen(DoubleDoorEntity pBlockEntity) {
         return true;

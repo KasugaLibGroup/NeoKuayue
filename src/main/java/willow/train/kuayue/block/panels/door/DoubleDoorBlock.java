@@ -40,7 +40,7 @@ public class DoubleDoorBlock extends TrainEndfaceBlock implements IBE<DoubleDoor
 
     @Override
     public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return TrainPanelShapes.getDoubleDoorShape(pState.getValue(FACING), pState.getValue(OPEN));
+        return TrainPanelShapes.getDoubleDoorShape(pState.getValue(FACING).getOpposite(), pState.getValue(OPEN));
     }
 
     @Override
