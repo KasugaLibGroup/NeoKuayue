@@ -1,10 +1,12 @@
 package willow.train.kuayue.initial.panel;
 
 import com.simibubi.create.foundation.utility.Couple;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.Vec2;
+import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.block.panels.*;
 import willow.train.kuayue.block.panels.door.CustomRenderedDoorBlock;
 import willow.train.kuayue.block.panels.slab.TrainLadderBlock;
@@ -102,15 +104,16 @@ public class C25BPanel {
             new PanelRegistration<CustomRenderedDoorBlock>("door_25b")
                     .block(p -> new CustomRenderedDoorBlock(p,
                             Couple.create(
-                                    AllElements.testRegistry.asResource("door/original_25b_door_bottom"),
-                                    AllElements.testRegistry.asResource("door/original_25b_door_top")
-                            ), Couple.create(
                                     AllElements.testRegistry.asResource("door/original_25b_door_bottom_hinge"),
                                     AllElements.testRegistry.asResource("door/original_25b_door_top_hinge")
+                            ), Couple.create(
+                                    AllElements.testRegistry.asResource("door/original_25b_door_bottom"),
+                                    AllElements.testRegistry.asResource("door/original_25b_door_top")
                             ), RenderShape.ENTITYBLOCK_ANIMATED, false
                     ))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
                     .noOcclusion()
+                    .tab(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
 
     public static final SlabRegistration<TrainSlabBlock> FLOOR_25B =
