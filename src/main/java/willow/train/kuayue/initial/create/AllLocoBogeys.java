@@ -47,7 +47,7 @@ public class AllLocoBogeys {
             .translationKey("loco_group")
             .submit(testRegistry);
 
-    public static final BogeyGroupReg meterLocoBogeyGroup = new BogeyGroupReg("meter_loco", "kuayue_bogey")
+    public static final BogeyGroupReg meterLocoBogeyGroup = new BogeyGroupReg("meter_loco", "kuayue_bogey_2")
             .bogey(df21.getSize(), DF21Renderer::new, testRegistry.asResource("df21_bogey"))
             .bogey(df21Backward.getSize(), DF21Renderer.Backward::new, testRegistry.asResource("df21_backward_bogey"))
             .translationKey("meter_loco_group")

@@ -53,7 +53,12 @@ public class CustomRenderedEndfaceEntity extends SmartBlockEntity implements ICo
     }
 
     public boolean isRotateDoor() {
-        return type == TrainPanelProperties.DoorType.ROTATE;
+        return type == TrainPanelProperties.DoorType.ROTATE ||
+                type == TrainPanelProperties.DoorType.ROTATE_SINGLE_SIDED;
+    }
+
+    public boolean isSingleSided() {
+        return type == TrainPanelProperties.DoorType.ROTATE_SINGLE_SIDED;
     }
 
     @Override

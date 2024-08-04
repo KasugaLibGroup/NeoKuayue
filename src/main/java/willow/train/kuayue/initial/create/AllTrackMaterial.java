@@ -15,6 +15,9 @@ public class AllTrackMaterial {
     public static final SimpleTrackBlock.Builder builder =
             new SimpleTrackBlock.Builder(() -> AllCarriageBogeys.carriageBlockBundle.getElement("pk209p_bogey").getEntry().get());
 
+    public static final SimpleTrackBlock.Builder meterBuilder =
+            new SimpleTrackBlock.Builder(() -> AllCarriageBogeys.meterCarriageBlockBundle.getElement("mkz_bogey").getEntry().get());
+
     public static final TrackMaterialReg standardMaterial = new TrackMaterialReg("standard")
             .lang("standard_track")
             .block(() -> AllTracks.standardTrack)
@@ -61,7 +64,7 @@ public class AllTrackMaterial {
             .lang("meter_track")
             .block(() -> AllTracks.meterTrack)
             .trackParticle(new ResourceLocation("minecraft", "block/palettes/stone_types/polished/andesite_cut_polished"))
-            .type(testRegistry.asResource("meter"), builder::build)
+            .type(testRegistry.asResource("meter"), meterBuilder::build)
             .customModel(
                     () -> new PartialModel(testRegistry.asResource("block/track/meter/tie")),
                     () -> new PartialModel(testRegistry.asResource("block/track/standard/segment_left")),

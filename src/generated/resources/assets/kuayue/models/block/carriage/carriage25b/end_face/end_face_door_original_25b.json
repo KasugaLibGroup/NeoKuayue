@@ -1,0 +1,69 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "kuayue:block/carriage_end_face/end_face_door_25g",
+		"particle": "kuayue:block/carriage_end_face/end_face_door_25g"
+	},
+	"elements": [
+		{
+			"from": [0, 0, -1],
+			"to": [16, 15, 1],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 19.25, 0]},
+			"faces": {
+				"north": {"uv": [6.125, 12.25, 2.625, 16], "texture": "#0"},
+				"east": {"uv": [5, 3.75, 4.5, 7.5], "texture": "#0"},
+				"south": {"uv": [9.875, 12.25, 6.375, 16], "texture": "#0"},
+				"west": {"uv": [4.5, 3.75, 4, 7.5], "texture": "#0"},
+				"up": {"uv": [5, 4.25, 8.5, 3.75], "texture": "#0"},
+				"down": {"uv": [5, 4.25, 8.5, 4.75], "texture": "#0"}
+			}
+		},
+		{
+			"from": [4, 30, -1],
+			"to": [12, 32, 1],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 19.25, 0]},
+			"faces": {
+				"north": {"uv": [7.5, 4.75, 5, 5.25], "texture": "#0"},
+				"east": {"uv": [6, 6.75, 5.5, 7.25], "texture": "#0"},
+				"south": {"uv": [7.5, 5.25, 5, 5.75], "texture": "#0"},
+				"west": {"uv": [5.5, 6.75, 5, 7.25], "texture": "#0"},
+				"up": {"uv": [5, 6.25, 7.5, 5.75], "texture": "#0"},
+				"down": {"uv": [5, 6.25, 7.5, 6.75], "texture": "#0"}
+			}
+		},
+		{
+			"from": [12, 15, -1],
+			"to": [16, 32, 1],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 19.25, 0]},
+			"faces": {
+				"north": {"uv": [0.75, 11.75, 0, 16], "texture": "#0"},
+				"east": {"uv": [2, 3.75, 1.5, 8], "texture": "#0"},
+				"south": {"uv": [2, 11.75, 1.25, 16], "texture": "#0"},
+				"west": {"uv": [1, 3.75, 0.5, 8], "texture": "#0"},
+				"up": {"uv": [6, 7.25, 6.5, 6.75], "texture": "#0"},
+				"down": {"uv": [6.5, 6.75, 7, 7.25], "texture": "#0"}
+			}
+		},
+		{
+			"from": [0, 15, -1],
+			"to": [4, 32, 1],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 19.25, 0]},
+			"faces": {
+				"north": {"uv": [0, 11.75, 0.75, 16], "texture": "#0"},
+				"east": {"uv": [0.5, 3.75, 1, 8], "texture": "#0"},
+				"south": {"uv": [1.25, 11.75, 2, 16], "texture": "#0"},
+				"west": {"uv": [1.5, 3.75, 2, 8], "texture": "#0"},
+				"up": {"uv": [6.5, 7.25, 6, 6.75], "texture": "#0"},
+				"down": {"uv": [7, 6.75, 6.5, 7.25], "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "door",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1, 2, 3]
+		}
+	]
+}

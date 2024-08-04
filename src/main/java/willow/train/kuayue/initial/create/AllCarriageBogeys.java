@@ -62,7 +62,7 @@ public class AllCarriageBogeys {
             .translationKey("carriage_group")
             .submit(testRegistry);
 
-    public static final BogeyGroupReg meterCarriageBogeyGroup = new BogeyGroupReg("meter_carriage", "kuayue_bogey")
+    public static final BogeyGroupReg meterCarriageBogeyGroup = new BogeyGroupReg("meter_carriage", "kuayue_bogey_2")
             .bogey(mkz.getSize(), MKZRenderer::new, testRegistry.asResource("mkz_bogey"))
             .translationKey("meter_carriage_group")
             .submit(testRegistry);

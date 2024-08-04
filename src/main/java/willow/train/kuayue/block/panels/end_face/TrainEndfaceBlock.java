@@ -69,7 +69,7 @@ public class TrainEndfaceBlock extends TrainPanelBlock {
                 state.getValue(BlockStateProperties.OPEN) : false;
         boolean leftHinge = !state.hasProperty(BlockStateProperties.DOOR_HINGE) || state.getValue(BlockStateProperties.DOOR_HINGE) == DoorHingeSide.LEFT;
         BlockUseFunction function = (l, p, parentState, myPos, myState, player, hand, hit) -> {
-            if (p.equals(myPos) || p.equals(myPos.above())) return InteractionResult.SUCCESS;
+            if (myPos.equals(p) || myPos.equals(p.above())) return InteractionResult.SUCCESS;
             BlockState state1 = generateCompanyState(direction, leftHinge ? DoorHingeSide.LEFT : DoorHingeSide.RIGHT, open);
             level.setBlock(myPos, state1, 10);
             CompanyTrainPanel.setParentBlock(myPos, level, state1, pos);

@@ -113,6 +113,9 @@ public class AllBlocks {
                     .withRenderer(() -> CustomRenderedEndFaceRenderer::new)
                     .addBlock(CR200JPanel.END_FACE_MARSHALLED_CR200J.block)
                     .addBlock(CR200JPanel.END_FACE_MARSHALLED_CR200J_2.block)
+                    .addBlock(C25BPanel.END_FACE_25B_1.block)
+                    .addBlock(C25BPanel.END_FACE_25B_2.block)
+                    .addBlock(C25BPanel.END_FACE_25B_3.block)
                     .submit(AllElements.testRegistry);
 
     public static final BlockEntityReg<DoubleDoorEntity> DOUBLE_DOOR_ENTITY =

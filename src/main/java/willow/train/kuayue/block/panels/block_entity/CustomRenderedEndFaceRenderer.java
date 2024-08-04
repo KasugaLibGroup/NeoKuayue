@@ -49,15 +49,30 @@ public class CustomRenderedEndFaceRenderer implements BlockEntityRenderer<Custom
         }
         pose.translate(0, 1, 0);
         pose.mulPose(Vector3f.YN.rotationDegrees(-90f));
-        if (leftBuffer != null)
-            leftBuffer.translate(-.6f, 0, .375f);
-        if (rightBuffer != null)
-            rightBuffer.translate(-.6f, 0, -.375f);
+        if (!pBlockEntity.isSingleSided()) {
+            if (leftBuffer != null)
+                leftBuffer.translate(-.6f, 0, .375f);
+            if (rightBuffer != null)
+                rightBuffer.translate(-.6f, 0, -.375f);
+        } else {
+            if (leftBuffer != null) {
+                leftBuffer.translate(-.6f, .13f, .5f);
+                leftBuffer.rotateY(90);
+            }
+            if (rightBuffer != null) {
+                rightBuffer.translate(-.6f, .13f, -.5f);
+                rightBuffer.rotateY(-90);
+            }
+        }
         float level1 = .4f;
         if(isOpened && pBlockEntity.counter < 1) {
             pBlockEntity.counter += STEP;
         } else if (!isOpened && pBlockEntity.counter > 0) {
             pBlockEntity.counter -= STEP;
+        } else if (isOpened) {
+            pBlockEntity.counter = 1f;
+        } else {
+            pBlockEntity.counter = 0f;
         }
         if(!is_rotate) {
             double distance_1 = .2;
@@ -76,10 +91,11 @@ public class CustomRenderedEndFaceRenderer implements BlockEntityRenderer<Custom
                     rightBuffer.translate(distance_1, 0, -ctk * level2);
             }
         } else {
+            float sgn = pBlockEntity.isSingleSided() ? -1 : 1;
             if (leftBuffer != null)
-                leftBuffer.rotateY(pBlockEntity.counter * 90);
+                leftBuffer.rotateY(pBlockEntity.counter * 90 * sgn);
             if (rightBuffer != null)
-                rightBuffer.rotateY(- pBlockEntity.counter * 90);
+                rightBuffer.rotateY(- pBlockEntity.counter * 90 * sgn);
         }
         if (leftBuffer != null)
             leftBuffer.renderInto(pose, pBufferSource.getBuffer(RenderType.cutout()));
