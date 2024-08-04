@@ -8,7 +8,9 @@ import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.Vec2;
 import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.block.panels.*;
+import willow.train.kuayue.block.panels.base.TrainPanelProperties;
 import willow.train.kuayue.block.panels.door.CustomRenderedDoorBlock;
+import willow.train.kuayue.block.panels.end_face.CustomRenderedEndfaceBlock;
 import willow.train.kuayue.block.panels.slab.TrainLadderBlock;
 import willow.train.kuayue.block.panels.slab.TrainSlabBlock;
 import willow.train.kuayue.block.panels.window.TrainOpenableWindowBlock;
@@ -32,6 +34,48 @@ public class C25GPanel {
                                     new ResourceLocation(Kuayue.MODID, "door/original_25g_door_top")
                             ), RenderShape.ENTITYBLOCK_ANIMATED, false))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)
+                    .tab(AllElements.neoKuayueMainTab)
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
+    public static final PanelRegistration<CustomRenderedEndfaceBlock> END_FACE_25G_1 =
+            new PanelRegistration<CustomRenderedEndfaceBlock>("end_face_25g_1")
+                    .block(properties ->
+                            new CustomRenderedEndfaceBlock(
+                                    properties, TrainPanelProperties.DoorType.ROTATE_SINGLE_SIDED,
+                                    "carriage/carriage25g/end_face/end_face_door_original_25g",
+                                    null,
+                                    "carriage/carriage25g/end_face/end_face_original_25g_1"
+                            )
+                    ).materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueMainTab)
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
+    public static final PanelRegistration<CustomRenderedEndfaceBlock> END_FACE_25G_2 =
+            new PanelRegistration<CustomRenderedEndfaceBlock>("end_face_25g_2")
+                    .block(properties ->
+                            new CustomRenderedEndfaceBlock(
+                                    properties, TrainPanelProperties.DoorType.ROTATE_SINGLE_SIDED,
+                                    "carriage/carriage25g/end_face/end_face_door_original_25g",
+                                    null,
+                                    "carriage/carriage25g/end_face/end_face_original_25g_2"
+                            )
+                    ).materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueMainTab)
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
+    public static final PanelRegistration<CustomRenderedEndfaceBlock> END_FACE_25G_3 =
+            new PanelRegistration<CustomRenderedEndfaceBlock>("end_face_25g_3")
+                    .block(properties ->
+                            new CustomRenderedEndfaceBlock(
+                                    properties, TrainPanelProperties.DoorType.ROTATE_SINGLE_SIDED,
+                                    "carriage/carriage25g/end_face/end_face_door_original_25g",
+                                    null,
+                                    "carriage/carriage25g/end_face/end_face_original_25g_3"
+                            )
+                    ).materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueMainTab)
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
