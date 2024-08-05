@@ -1,0 +1,5 @@
+{
+	"loader": "forge:obj",
+	"flip_v": true,
+	"model": "kuayue:models/block/carriage/carriage25k/end_face/end_face_original_25k_3.obj"
+}

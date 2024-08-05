@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import willow.train.kuayue.block.panels.base.TrainPanelProperties;
 import willow.train.kuayue.block.panels.block_entity.CustomRenderedEndfaceEntity;
 
 public class CustomRenderedEndFaceRenderer implements BlockEntityRenderer<CustomRenderedEndfaceEntity> {
@@ -49,7 +50,12 @@ public class CustomRenderedEndFaceRenderer implements BlockEntityRenderer<Custom
         }
         pose.translate(0, 1, 0);
         pose.mulPose(Vector3f.YN.rotationDegrees(-90f));
-        if (!pBlockEntity.isSingleSided()) {
+        if (pBlockEntity.type == TrainPanelProperties.DoorType.SLIDE_2) {
+            if (leftBuffer != null)
+                leftBuffer.translate(-.425f, .13f, .375f);
+            if (rightBuffer != null)
+                rightBuffer.translate(-.425f, .13f, -.375f);
+        } else if (!pBlockEntity.isSingleSided()) {
             if (leftBuffer != null)
                 leftBuffer.translate(-.6f, 0, .375f);
             if (rightBuffer != null)
@@ -75,27 +81,35 @@ public class CustomRenderedEndFaceRenderer implements BlockEntityRenderer<Custom
             pBlockEntity.counter = 0f;
         }
         if(!is_rotate) {
-            double distance_1 = .2;
-            if (pBlockEntity.counter < level1) {
-                double ctk = (pBlockEntity.counter)/level1;
+            double level2 = .4;
+            if (pBlockEntity.type == TrainPanelProperties.DoorType.SLIDE_2) {
                 if (leftBuffer != null)
-                    leftBuffer.translate(ctk * distance_1, 0, 0);
+                    leftBuffer.translate(0, 0, (Math.cos((pBlockEntity.counter + 1) * Math.PI) + 1) * level2 / 2);
                 if (rightBuffer != null)
-                    rightBuffer.translate(ctk * distance_1, 0, 0);
+                    rightBuffer.translate(0, 0, - (Math.cos((pBlockEntity.counter + 1) * Math.PI) + 1) * level2 / 2);
             } else {
-                double ctk = (pBlockEntity.counter - level1) / (1 - level1);
-                double level2 = .4;
-                if (leftBuffer != null)
-                    leftBuffer.translate(distance_1, 0, ctk * level2);
-                if (rightBuffer != null)
-                    rightBuffer.translate(distance_1, 0, -ctk * level2);
+                double distance_1 = .2;
+                if (pBlockEntity.counter < level1) {
+                    double ctk = (pBlockEntity.counter) / level1;
+                    if (leftBuffer != null)
+                        leftBuffer.translate(ctk * distance_1, 0, 0);
+                    if (rightBuffer != null)
+                        rightBuffer.translate(ctk * distance_1, 0, 0);
+                } else {
+                    double ctk = (pBlockEntity.counter - level1) / (1 - level1);
+                    if (leftBuffer != null)
+                        leftBuffer.translate(distance_1, 0, ctk * level2);
+                    if (rightBuffer != null)
+                        rightBuffer.translate(distance_1, 0, -ctk * level2);
+                }
             }
         } else {
             float sgn = pBlockEntity.isSingleSided() ? -1 : 1;
+            float rotation = (float) (Math.cos((pBlockEntity.counter + 1) * Math.PI) + 1) * 45;
             if (leftBuffer != null)
-                leftBuffer.rotateY(pBlockEntity.counter * 90 * sgn);
+                leftBuffer.rotateY(rotation * sgn);
             if (rightBuffer != null)
-                rightBuffer.rotateY(- pBlockEntity.counter * 90 * sgn);
+                rightBuffer.rotateY(- rotation * sgn);
         }
         if (leftBuffer != null)
             leftBuffer.renderInto(pose, pBufferSource.getBuffer(RenderType.cutout()));

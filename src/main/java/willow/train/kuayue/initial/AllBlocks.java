@@ -119,6 +119,14 @@ public class AllBlocks {
                     .addBlock(C25GPanel.END_FACE_25G_1.block)
                     .addBlock(C25GPanel.END_FACE_25G_2.block)
                     .addBlock(C25GPanel.END_FACE_25G_3.block)
+                    .addBlock(C25KPanel.END_FACE_25K_1.block)
+                    .addBlock(C25KPanel.END_FACE_25K_2.block)
+                    .addBlock(C25KPanel.END_FACE_25K_3.block)
+                    .addBlock(C25KPanel.END_FACE_25K_4.block)
+                    .addBlock(C25KPanel.END_FACE_SLIDING_25K_1.block)
+                    .addBlock(C25KPanel.END_FACE_SLIDING_25K_2.block)
+                    .addBlock(C25KPanel.END_FACE_SLIDING_25K_3.block)
+                    .addBlock(C25KPanel.END_FACE_SLIDING_25K_4.block)
                     .submit(AllElements.testRegistry);
 
     public static final BlockEntityReg<DoubleDoorEntity> DOUBLE_DOOR_ENTITY =
