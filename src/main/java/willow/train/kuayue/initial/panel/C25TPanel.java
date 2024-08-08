@@ -10,7 +10,9 @@ import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.block.panels.SkirtBlock;
 import willow.train.kuayue.block.panels.TrainHingePanelBlock;
 import willow.train.kuayue.block.panels.TrainPanelBlock;
+import willow.train.kuayue.block.panels.base.TrainPanelProperties;
 import willow.train.kuayue.block.panels.door.CustomRenderedDoorBlock;
+import willow.train.kuayue.block.panels.end_face.CustomRenderedEndfaceBlock;
 import willow.train.kuayue.block.panels.slab.TrainLadderBlock;
 import willow.train.kuayue.block.panels.slab.TrainSlabBlock;
 import willow.train.kuayue.block.panels.window.TrainOpenableWindowBlock;
@@ -50,6 +52,90 @@ public class C25TPanel {
                                     new ResourceLocation(Kuayue.MODID, "door/sliding_door_25t_upper_lh")
                     ), RenderShape.ENTITYBLOCK_ANIMATED, true))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)
+                    .tab(AllElements.neoKuayueMainTab)
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
+    public static final PanelRegistration<CustomRenderedEndfaceBlock> END_FACE_25T_1 =
+            new PanelRegistration<CustomRenderedEndfaceBlock>("end_face_25t_1")
+                    .block(properties ->
+                            new CustomRenderedEndfaceBlock(
+                                    properties, TrainPanelProperties.DoorType.ROTATE_SINGLE_SIDED,
+                                    "carriage/carriage25t/end_face/end_face_door_original_25t",
+                                    null,
+                                    "carriage/carriage25t/end_face/end_face_original_rubber_25t_1"
+                            )
+                    ).materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueMainTab)
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
+    public static final PanelRegistration<CustomRenderedEndfaceBlock> END_FACE_25T_2 =
+            new PanelRegistration<CustomRenderedEndfaceBlock>("end_face_25t_2")
+                    .block(properties ->
+                            new CustomRenderedEndfaceBlock(
+                                    properties, TrainPanelProperties.DoorType.ROTATE_SINGLE_SIDED,
+                                    "carriage/carriage25t/end_face/end_face_door_original_25t",
+                                    null,
+                                    "carriage/carriage25t/end_face/end_face_original_rubber_25t_2"
+                            )
+                    ).materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueMainTab)
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
+    public static final PanelRegistration<CustomRenderedEndfaceBlock> END_FACE_25T_3 =
+            new PanelRegistration<CustomRenderedEndfaceBlock>("end_face_25t_3")
+                    .block(properties ->
+                            new CustomRenderedEndfaceBlock(
+                                    properties, TrainPanelProperties.DoorType.ROTATE_SINGLE_SIDED,
+                                    "carriage/carriage25t/end_face/end_face_door_original_25t",
+                                    null,
+                                    "carriage/carriage25t/end_face/end_face_original_rubber_25t_3"
+                            )
+                    ).materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueMainTab)
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
+    public static final PanelRegistration<CustomRenderedEndfaceBlock> END_FACE_SLIDING_25T_1 =
+            new PanelRegistration<CustomRenderedEndfaceBlock>("end_face_sliding_25t_1")
+                    .block(properties ->
+                            new CustomRenderedEndfaceBlock(
+                                    properties, TrainPanelProperties.DoorType.SLIDE_2,
+                                    "carriage/carriage25t/end_face/end_face_door_sliding_original_25t_right",
+                                    "carriage/carriage25t/end_face/end_face_door_sliding_original_25t_left",
+                                    "carriage/carriage25t/end_face/end_face_original_25t_1"
+                            )
+                    ).materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueMainTab)
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
+    public static final PanelRegistration<CustomRenderedEndfaceBlock> END_FACE_SLIDING_25T_2 =
+            new PanelRegistration<CustomRenderedEndfaceBlock>("end_face_sliding_25t_2")
+                    .block(properties ->
+                            new CustomRenderedEndfaceBlock(
+                                    properties, TrainPanelProperties.DoorType.SLIDE_2,
+                                    "carriage/carriage25t/end_face/end_face_door_sliding_original_25t_right",
+                                    "carriage/carriage25t/end_face/end_face_door_sliding_original_25t_left",
+                                    "carriage/carriage25t/end_face/end_face_original_25t_2"
+                            )
+                    ).materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueMainTab)
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
+    public static final PanelRegistration<CustomRenderedEndfaceBlock> END_FACE_SLIDING_25T_3 =
+            new PanelRegistration<CustomRenderedEndfaceBlock>("end_face_sliding_25t_3")
+                    .block(properties ->
+                            new CustomRenderedEndfaceBlock(
+                                    properties, TrainPanelProperties.DoorType.SLIDE_2,
+                                    "carriage/carriage25t/end_face/end_face_door_sliding_original_25t_right",
+                                    "carriage/carriage25t/end_face/end_face_door_sliding_original_25t_left",
+                                    "carriage/carriage25t/end_face/end_face_original_25t_3"
+                            )
+                    ).materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueMainTab)
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
