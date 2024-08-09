@@ -1,0 +1,23 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"textures": {
+		"1": "kuayue:Desktop/a/11g/df11g_cab_door_temp_bottom",
+		"particle": "kuayue:Desktop/a/11g/df11g_cab_door_temp_bottom"
+	},
+	"elements": [
+		{
+			"from": [0.05, -0.7, -1.15],
+			"to": [10.5, 16, 0.1],
+			"rotation": {"angle": 0, "axis": "y", "origin": [12.25, 0, 0]},
+			"faces": {
+				"north": {"uv": [2.625, 0, 0, 4.125], "texture": "#1"},
+				"east": {"uv": [5.5, 4.25, 5.25, 8.375], "texture": "#1"},
+				"south": {"uv": [5.375, 0, 2.75, 4.125], "texture": "#1"},
+				"west": {"uv": [5.25, 4.25, 5, 8.375], "texture": "#1"},
+				"up": {"uv": [5.5, 0.25, 8.125, 0], "texture": "#1"},
+				"down": {"uv": [5.5, 0.25, 8.125, 0.5], "texture": "#1"}
+			}
+		}
+	]
+}
