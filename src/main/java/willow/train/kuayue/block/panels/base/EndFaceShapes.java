@@ -242,7 +242,11 @@ public class EndFaceShapes {
                     Block.box(15, -16, -16, 17, 21, 1));
 
     public static VoxelShape getEndFaceShape(Direction direction, TrainPanelProperties.DoorType type, boolean open) {
-        if (type != TrainPanelProperties.DoorType.SLIDE && type != TrainPanelProperties.DoorType.SLIDE_2) {
+        if (type == TrainPanelProperties.DoorType.NO_DOOR) {
+            open = true;
+            type = TrainPanelProperties.DoorType.SLIDE;
+        }
+        if (type.isSliding()) {
             if (open) {
                 return switch (direction) {
                     case NORTH -> BG_NORTH_AABB_OPEN;

@@ -21,6 +21,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 import willow.train.kuayue.block.panels.TrainPanelBlock;
+import willow.train.kuayue.block.panels.base.DF11GEndFaceShape;
 import willow.train.kuayue.block.panels.window.TrainSmallWindowBlock;
 import willow.train.kuayue.block.panels.base.CompanyTrainPanel;
 import willow.train.kuayue.block.panels.base.EndFaceShapes;

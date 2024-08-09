@@ -9,6 +9,8 @@ import net.minecraft.world.phys.Vec2;
 import willow.train.kuayue.block.panels.FullShapeDirectionalBlock;
 import willow.train.kuayue.block.panels.TrainHingePanelBlock;
 import willow.train.kuayue.block.panels.TrainPanelBlock;
+import willow.train.kuayue.block.panels.base.TrainPanelProperties;
+import willow.train.kuayue.block.panels.end_face.CustomRenderedEndfaceBlock;
 import willow.train.kuayue.block.panels.slab.HingeSlabBlock;
 import willow.train.kuayue.block.panels.slab.TrainSlabBlock;
 import willow.train.kuayue.block.panels.window.TrainUnOpenableSmallWindowBlock;
@@ -17,6 +19,20 @@ import willow.train.kuayue.initial.registration.PanelRegistration;
 import willow.train.kuayue.initial.registration.SlabRegistration;
 
 public class I11GPanel {
+
+    public static final PanelRegistration<CustomRenderedEndfaceBlock> END_FACE_DF11G =
+            new PanelRegistration<CustomRenderedEndfaceBlock>("end_face_df11g")
+                    .block(properties ->
+                            new CustomRenderedEndfaceBlock(
+                                    properties, TrainPanelProperties.DoorType.NO_DOOR,
+                                    null,
+                                    null,
+                                    "df11g/df11g_end_face"
+                            )
+                    ).materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueMainTab)
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
 
     public static final PanelRegistration<TrainPanelBlock> PANEL_CR_DF11G =
             new PanelRegistration<TrainPanelBlock>("panel_cr_df11g")

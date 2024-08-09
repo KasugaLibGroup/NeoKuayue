@@ -1,6 +1,7 @@
 {
   "values": [
     "#kuayue:panel/window",
-    "#kuayue:panel/ladder"
+    "#kuayue:panel/ladder",
+    "#kuayue:panel/end_face"
   ]
 }

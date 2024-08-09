@@ -52,5 +52,8 @@ public class AllTags {
     public static final BlockTagReg MULTI_SEAT_BLOCK = new BlockTagReg("multi_seat_block", "multi_seat_block")
             .submit(AllElements.testRegistry);
 
+    public static final BlockTagReg END_FACES = new BlockTagReg("end_face", "panel/end_face")
+            .submit(AllElements.testRegistry);
+
     public static void invoke() {}
 }

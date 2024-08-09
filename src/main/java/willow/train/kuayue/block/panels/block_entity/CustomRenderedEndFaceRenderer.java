@@ -28,6 +28,8 @@ public class CustomRenderedEndFaceRenderer implements BlockEntityRenderer<Custom
             MultiBufferSource pBufferSource,
             int pPackedLight,
             int pPackedOverlay) {
+        if (pBlockEntity == null || pBlockEntity.getBlockState() == null) return;
+        if (pBlockEntity.getLevel() == null) return;
         boolean is_rotate = pBlockEntity.isRotateDoor();
         BlockState blockState = pBlockEntity.getBlockState();
         boolean isOpened = pBlockEntity.isOpen();
@@ -48,9 +50,18 @@ public class CustomRenderedEndFaceRenderer implements BlockEntityRenderer<Custom
             frameBuffer.renderInto(pose, pBufferSource.getBuffer(RenderType.cutout()));
             pose.translate(.5, -2, .5);
         }
+        if (pBlockEntity.type == TrainPanelProperties.DoorType.NO_DOOR) {
+            pose.popPose();
+            return;
+        }
         pose.translate(0, 1, 0);
         pose.mulPose(Vector3f.YN.rotationDegrees(-90f));
-        if (pBlockEntity.type == TrainPanelProperties.DoorType.SLIDE_2) {
+        if (pBlockEntity.type == TrainPanelProperties.DoorType.SLIDE_3) {
+            if (leftBuffer != null)
+                leftBuffer.translate(-.6f, .13f, .375f);
+            if (rightBuffer != null)
+                rightBuffer.translate(-.6f, .13f, -.375f);
+        } else if (pBlockEntity.type == TrainPanelProperties.DoorType.SLIDE_2) {
             if (leftBuffer != null)
                 leftBuffer.translate(-.425f, .13f, .375f);
             if (rightBuffer != null)
@@ -105,7 +116,8 @@ public class CustomRenderedEndFaceRenderer implements BlockEntityRenderer<Custom
             }
         } else {
             float sgn = pBlockEntity.isSingleSided() ? -1 : 1;
-            float rotation = (float) (Math.cos((pBlockEntity.counter + 1) * Math.PI) + 1) * 45;
+            float rotation = (float) (Math.cos((pBlockEntity.counter + 1) * Math.PI) + 1) *
+                    (pBlockEntity.isSingleSided() ? 50f : 45f);
             if (leftBuffer != null)
                 leftBuffer.rotateY(rotation * sgn);
             if (rightBuffer != null)

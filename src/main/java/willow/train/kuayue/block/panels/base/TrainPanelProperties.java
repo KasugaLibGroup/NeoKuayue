@@ -14,14 +14,24 @@ public class TrainPanelProperties {
     public static final EnumProperty<ExternalHinge> EXTERNAL_HINGE = EnumProperty.create("hinge", ExternalHinge.class);
 
     public enum DoorType implements StringRepresentable {
-        FOLD, SLIDE, SLIDE_2, ROTATE, ROTATE_SINGLE_SIDED;
+        FOLD, SLIDE, SLIDE_2, SLIDE_3, ROTATE, ROTATE_SINGLE_SIDED, NO_DOOR;
+
+        public boolean isSliding() {
+            return (this == SLIDE || this == SLIDE_2 || this == SLIDE_3);
+        }
+
+        public boolean isRotating() {
+            return this == ROTATE || this == ROTATE_SINGLE_SIDED;
+        }
 
         @Override
         public @NotNull String getSerializedName() {
             return switch (this) {
                 case FOLD -> "fold";
                 case SLIDE_2 -> "slide_2";
+                case SLIDE_3 -> "slide_3";
                 case SLIDE -> "slide";
+                case NO_DOOR -> "no_door";
                 case ROTATE -> "rotate";
                 case ROTATE_SINGLE_SIDED -> "rotate_single_sided";
             };
@@ -32,6 +42,8 @@ public class TrainPanelProperties {
                 case "fold" -> FOLD;
                 case "slide" -> SLIDE;
                 case "slide_2" -> SLIDE_2;
+                case "slide_3" -> SLIDE_3;
+                case "no_door" -> NO_DOOR;
                 case "rotate_single_sided" -> ROTATE_SINGLE_SIDED;
                 default -> ROTATE;
             };
