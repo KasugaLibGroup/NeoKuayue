@@ -1,0 +1,5 @@
+{
+	"loader": "forge:obj",
+	"flip_v": true,
+	"model": "kuayue:models/block/df11g/door/frame_door_cabin_df11g_left.obj"
+}

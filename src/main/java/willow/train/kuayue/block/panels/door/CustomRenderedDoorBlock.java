@@ -15,6 +15,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoorHingeSide;
 import net.minecraft.world.level.pathfinder.PathComputationType;
+import net.minecraft.world.phys.Vec2;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import willow.train.kuayue.block.panels.TrainPanelBlock;
@@ -27,6 +29,7 @@ public class CustomRenderedDoorBlock extends TrainDoorBlock implements IBE<Custo
     boolean isSlideDoor;
     final Couple<PartialModel> leftDoorModels;
     final Couple<PartialModel> rightDoorModels;
+    final Vec3 offset;
     final RenderShape renderShape;
 
     public CustomRenderedDoorBlock(BlockBehaviour.Properties pProperties,
@@ -37,6 +40,7 @@ public class CustomRenderedDoorBlock extends TrainDoorBlock implements IBE<Custo
         this.leftDoorModels = Couple.create(block(leftDoorModels.get(true).getPath()), block(leftDoorModels.get(false).getPath()));
         this.rightDoorModels = Couple.create(block(rightDoorModels.get(true).getPath()), block(rightDoorModels.get(false).getPath()));
         this.renderShape = renderShape;
+        this.offset = Vec3.ZERO;
         this.isSlideDoor = isSlideDoor;
     }
 
@@ -47,6 +51,20 @@ public class CustomRenderedDoorBlock extends TrainDoorBlock implements IBE<Custo
         this.leftDoorModels = modelFrom.leftDoorModels;
         this.rightDoorModels = modelFrom.rightDoorModels;
         this.renderShape = renderShape;
+        this.offset = modelFrom.offset;
+        this.isSlideDoor = isSlideDoor;
+    }
+
+    public CustomRenderedDoorBlock(BlockBehaviour.Properties properties,
+                                   Couple<ResourceLocation> leftDoorModels,
+                                   Couple<ResourceLocation> rightDoorModels,
+                                   Vec3 offset,
+                                   RenderShape renderShape, boolean isSlideDoor) {
+        super(properties);
+        this.leftDoorModels = Couple.create(block(leftDoorModels.get(true).getPath()), block(leftDoorModels.get(false).getPath()));
+        this.rightDoorModels = Couple.create(block(rightDoorModels.get(true).getPath()), block(rightDoorModels.get(false).getPath()));
+        this.renderShape = renderShape;
+        this.offset = offset;
         this.isSlideDoor = isSlideDoor;
     }
 
@@ -63,6 +81,10 @@ public class CustomRenderedDoorBlock extends TrainDoorBlock implements IBE<Custo
 
     public Couple<PartialModel> getRightDoorModels() {
         return rightDoorModels;
+    }
+
+    public Vec3 getOffset() {
+        return offset;
     }
 
     private static PartialModel block(String path) {

@@ -14,6 +14,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.phys.Vec3;
 
 public class CustomRenderedDoorRenderer implements BlockEntityRenderer<CustomRenderedDoorEntity> {
 
@@ -44,6 +45,9 @@ public class CustomRenderedDoorRenderer implements BlockEntityRenderer<CustomRen
         pose.translate(.5, 0, .5);
         pose.mulPose(Vector3f.YP.rotationDegrees(f));
         pose.translate(leftSide ? .5 : -.5, 0, -.5);
+        Vec3 offset = entity.offset;
+        if (!offset.equals(Vec3.ZERO))
+            pose.translate((leftSide ? offset.x() : - offset.x()), offset.y(), offset.z());
         upper.translate(0, 1, 0);
 
         if(open && entity.animation_controller < 1) {

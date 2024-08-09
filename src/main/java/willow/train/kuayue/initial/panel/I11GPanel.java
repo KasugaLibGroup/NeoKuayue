@@ -1,15 +1,19 @@
 package willow.train.kuayue.initial.panel;
 
+import com.simibubi.create.foundation.utility.Couple;
 import kasuga.lib.registrations.common.BlockReg;
+import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.Vec2;
+import net.minecraft.world.phys.Vec3;
 import willow.train.kuayue.block.panels.FullShapeDirectionalBlock;
 import willow.train.kuayue.block.panels.TrainHingePanelBlock;
 import willow.train.kuayue.block.panels.TrainPanelBlock;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
+import willow.train.kuayue.block.panels.door.CustomRenderedDoorBlock;
 import willow.train.kuayue.block.panels.end_face.CustomRenderedEndfaceBlock;
 import willow.train.kuayue.block.panels.slab.HingeSlabBlock;
 import willow.train.kuayue.block.panels.slab.TrainSlabBlock;
@@ -19,6 +23,22 @@ import willow.train.kuayue.initial.registration.PanelRegistration;
 import willow.train.kuayue.initial.registration.SlabRegistration;
 
 public class I11GPanel {
+
+    public static final PanelRegistration<CustomRenderedDoorBlock> DOOR_CABIN_DF11G =
+            new PanelRegistration<CustomRenderedDoorBlock>("door_cabin_df11g")
+                    .block(p -> new CustomRenderedDoorBlock(p,
+                            Couple.create(
+                                    AllElements.testRegistry.asResource("df11g/door/door_cabin_bottom_df11g_right"),
+                                    AllElements.testRegistry.asResource("df11g/door/door_cabin_upper_df11g_right")
+                            ), Couple.create(
+                            AllElements.testRegistry.asResource("df11g/door/door_cabin_bottom_df11g_left"),
+                            AllElements.testRegistry.asResource("df11g/door/door_cabin_upper_df11g_left")
+                    ), new Vec3(-.25, 0, 0), RenderShape.MODEL, false
+                    ))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .noOcclusion()
+                    .tab(AllElements.neoKuayueMainTab)
+                    .submit(AllElements.testRegistry);
 
     public static final PanelRegistration<CustomRenderedEndfaceBlock> END_FACE_DF11G =
             new PanelRegistration<CustomRenderedEndfaceBlock>("end_face_df11g")
