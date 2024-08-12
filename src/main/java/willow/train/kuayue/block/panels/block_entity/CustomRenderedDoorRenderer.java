@@ -62,7 +62,7 @@ public class CustomRenderedDoorRenderer implements BlockEntityRenderer<CustomRen
 
         float counter = entity.animation_controller;
 
-        if(slide){
+        if(slide) {
             float level1 = .4f;
             if(counter > level1) {
             double d = (.2 + ((counter - level1)/(1 - level1)) * .7) * (leftSide ? 1 : -1);

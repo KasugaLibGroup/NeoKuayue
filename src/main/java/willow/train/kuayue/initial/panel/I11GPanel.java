@@ -40,6 +40,22 @@ public class I11GPanel {
                     .tab(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
 
+    public static final PanelRegistration<CustomRenderedDoorBlock> DOOR_EQUIP_ROOM_DF11G =
+            new PanelRegistration<CustomRenderedDoorBlock>("door_equip_room_df11g")
+                    .block(p -> new CustomRenderedDoorBlock(p,
+                            Couple.create(
+                                    AllElements.testRegistry.asResource("df11g/door/door_equip_room_bottom_df11g_right"),
+                                    AllElements.testRegistry.asResource("df11g/door/door_equip_room_upper_df11g_right")
+                            ), Couple.create(
+                            AllElements.testRegistry.asResource("df11g/door/door_equip_room_bottom_df11g_left"),
+                            AllElements.testRegistry.asResource("df11g/door/door_equip_room_upper_df11g_left")
+                    ), new Vec3(-.1875, 0, 0), RenderShape.MODEL, false
+                    ))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .noOcclusion()
+                    .tab(AllElements.neoKuayueMainTab)
+                    .submit(AllElements.testRegistry);
+
     public static final PanelRegistration<CustomRenderedEndfaceBlock> END_FACE_DF11G =
             new PanelRegistration<CustomRenderedEndfaceBlock>("end_face_df11g")
                     .block(properties ->

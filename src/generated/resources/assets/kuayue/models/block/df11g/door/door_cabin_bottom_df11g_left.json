@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"1": "kuayue:Desktop/a/11g/df11g_cab_door_temp_bottom",
-		"particle": "kuayue:Desktop/a/11g/df11g_cab_door_temp_bottom"
+		"1": "kuayue:block/df11g/door/df11g_cab_door_temp_bottom",
+		"particle": "kuayue:block/df11g/door/df11g_cab_door_temp_bottom"
 	},
 	"elements": [
 		{

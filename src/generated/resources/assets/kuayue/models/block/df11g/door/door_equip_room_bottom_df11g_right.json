@@ -1,0 +1,23 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "kuayue:block/df11g/door/df11g_equip_room_door_bottom",
+		"particle": "kuayue:block/df11g/door/df11g_equip_room_door_bottom"
+	},
+	"elements": [
+		{
+			"from": [-10, 0, -1],
+			"to": [0, 16, 0],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-3, 0, -1]},
+			"faces": {
+				"north": {"uv": [0, 0, 5, 8], "texture": "#0"},
+				"east": {"uv": [10, 0, 10.5, 8], "texture": "#0"},
+				"south": {"uv": [5, 0, 10, 8], "texture": "#0"},
+				"west": {"uv": [10, 8, 10.5, 16], "texture": "#0"},
+				"up": {"uv": [15.5, 0.5, 10.5, 0], "texture": "#0"},
+				"down": {"uv": [15.5, 0.5, 10.5, 1], "texture": "#0"}
+			}
+		}
+	]
+}
