@@ -38,7 +38,7 @@ public class CustomRenderedDoorRenderer implements BlockEntityRenderer<CustomRen
 
         SuperByteBuffer lower = CachedBufferer.partial(models.get(true), state);
         SuperByteBuffer upper = CachedBufferer.partial(models.get(false), state);
-        VertexConsumer consumer = buffer.getBuffer(RenderType.translucent());
+        VertexConsumer consumer = buffer.getBuffer(RenderType.tripwire());
 
         pose.pushPose();
         float f = -state.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite().toYRot();

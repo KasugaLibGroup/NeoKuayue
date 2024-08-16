@@ -249,11 +249,11 @@ public class EndFaceShapes {
         if (type.isSliding()) {
             if (open) {
                 return switch (direction) {
-                    case NORTH -> BG_NORTH_AABB_OPEN;
-                    case EAST -> BG_EAST_AABB_OPEN;
-                    case SOUTH -> BG_SOUTH_AABB_OPEN;
-                    case WEST -> BG_WEST_AABB_OPEN;
-                    default -> BG_EAST_AABB_OPEN;
+                    case NORTH -> KT_NORTH_AABB_OPEN;
+                    case WEST -> KT_WEST_AABB_OPEN;
+                    case SOUTH -> KT_SOUTH_AABB_OPEN;
+                    case EAST -> KT_EAST_AABB_OPEN;
+                    default -> KT_EAST_AABB_OPEN;
                 };
             }
             return switch (direction) {
@@ -266,11 +266,11 @@ public class EndFaceShapes {
         } else {
             if (open) {
                 return switch (direction) {
-                    case NORTH -> KT_NORTH_AABB_OPEN;
-                    case WEST -> KT_WEST_AABB_OPEN;
-                    case SOUTH -> KT_SOUTH_AABB_OPEN;
-                    case EAST -> KT_EAST_AABB_OPEN;
-                    default -> KT_EAST_AABB_OPEN;
+                    case NORTH -> BG_NORTH_AABB_OPEN;
+                    case EAST -> BG_EAST_AABB_OPEN;
+                    case SOUTH -> BG_SOUTH_AABB_OPEN;
+                    case WEST -> BG_WEST_AABB_OPEN;
+                    default -> BG_EAST_AABB_OPEN;
                 };
             }
             return switch (direction) {
