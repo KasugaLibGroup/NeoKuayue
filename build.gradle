@@ -197,7 +197,7 @@ dependencies {
     testAnnotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
 
     // implementation files('libs/Mixed-Arithmetic-Logic-Interpreter-1.0.0.jar')
-    implementation fg.deobf(files("libs/kasuga_lib-0.16-create-mdk.jar"))
+    implementation fg.deobf(files("libs/kasuga_lib-0.17.jar"))
     // testImplementation "edu.carole:Mixed-Arithmetic-Logic-Interpreter:1.0.0"
     // clientAnnotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
     // apiAnnotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
@@ -273,6 +273,6 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 mixin {
-    add sourceSets.main, 'mixins.kuayue.refmap.json'
+    add sourceSets.main, 'kuayue.refmap.json'
     config 'kuayue.mixins.json'
 }
