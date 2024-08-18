@@ -1,7 +1,7 @@
 package willow.train.kuayue.block.panels;
 
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
-import kasuga.lib.registrations.common.BlockReg;
+import kasuga.lib.core.base.UnModeledBlockProperty;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
@@ -13,10 +13,13 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DoorHingeSide;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
@@ -25,18 +28,24 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 import willow.train.kuayue.block.panels.base.CompanyTrainPanel;
+import willow.train.kuayue.block.panels.base.TrainPanelProperties;
 import willow.train.kuayue.block.panels.base.TrainPanelShapes;
+import willow.train.kuayue.block.panels.block_entity.EditablePanelEntity;
 import willow.train.kuayue.initial.AllBlocks;
+import willow.train.kuayue.initial.item.EditablePanelItem;
 import willow.train.kuayue.utils.DirectionUtil;
 
-public class TrainPanelBlock extends Block implements IWrenchable {
+public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
     public final Vec2 beginPos, endPos;
     public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static final UnModeledBlockProperty<TrainPanelProperties.EditType, EnumProperty<TrainPanelProperties.EditType>> EDIT_TYPE =
+            UnModeledBlockProperty.create(EnumProperty.create("edit_type", TrainPanelProperties.EditType.class));
     public TrainPanelBlock(Properties pProperties, Vec2 beginPos, Vec2 endPos) {
         super(pProperties);
         this.registerDefaultState(
                 this.getStateDefinition().any()
                         .setValue(FACING, Direction.EAST)
+                        .setValue(EDIT_TYPE, TrainPanelProperties.EditType.NONE)
         );
         this.beginPos = beginPos;
         this.endPos = endPos;
@@ -59,7 +68,32 @@ public class TrainPanelBlock extends Block implements IWrenchable {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         super.createBlockStateDefinition(pBuilder);
-        pBuilder.add(FACING);
+        pBuilder.add(FACING, EDIT_TYPE);
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
+        if (pState.getValue(EDIT_TYPE) != TrainPanelProperties.EditType.NONE)
+            return new EditablePanelEntity(pPos, pState);
+        return null;
+    }
+
+    @Override
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        if (pPlayer.getItemInHand(pHand).is(EditablePanelItem.COLORED_BRUSH.getItem())) {
+            pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.TYPE);
+            if (!pLevel.isClientSide) {
+                if (pLevel.getBlockEntity(pPos) == null)
+//                NetworkHooks.openScreen(
+//                        (ServerPlayer) pPlayer,
+//                        (CarriageTypeSignEntity) pLevel.getBlockEntity(pPos),
+//                        pPos);
+                return InteractionResult.PASS;
+            }
+            return InteractionResult.PASS;
+        }
+        return InteractionResult.PASS;
     }
 
     @Override

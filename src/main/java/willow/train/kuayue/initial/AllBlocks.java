@@ -14,6 +14,10 @@ import willow.train.kuayue.block.structure.platform.PlatformWallBlock;
 import willow.train.kuayue.initial.panel.*;
 import willow.train.kuayue.initial.registration.PanelRegistration;
 
+import static willow.train.kuayue.initial.panel.C25BPanel.*;
+import static willow.train.kuayue.initial.panel.C25GPanel.*;
+import static willow.train.kuayue.initial.panel.C25TPanel.*;
+
 public class AllBlocks {
 
     public static final BlockReg<CompanyTrainPanel> COMPANY_TRAIN_PANEL =
@@ -154,6 +158,18 @@ public class AllBlocks {
                     .blockEntityType(SeatBlockEntity::new)
                     .addBlock(AllDecoBlocks.YZ_SEAT_BLUE)
                     .addBlock(AllDecoBlocks.YZ_SEAT_2)
+                    .submit(AllElements.testRegistry);
+
+    public static final BlockEntityReg<EditablePanelEntity> EDITABLE_PANEL_ENTITY =
+            new BlockEntityReg<EditablePanelEntity>("editable_panel_entity")
+                    .blockEntityType(EditablePanelEntity::new)
+                    .addBlock(PANEL_BOTTOM_25B.block)
+                    .addBlock(PANEL_MIDDLE_25B.block)
+                    .addBlock(PANEL_BOTTOM_25G.block)
+                    .addBlock(PANEL_MIDDLE_25G.block)
+                    .addBlock(PANEL_BOTTOM_25T.block)
+                    .addBlock(PANEL_MIDDLE_25T.block)
+                    .addBlock(PANEL_MIDDLE_25T_2.block)
                     .submit(AllElements.testRegistry);
 
     public static void invoke() {

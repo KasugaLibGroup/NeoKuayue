@@ -116,4 +116,30 @@ public class TrainPanelProperties {
             };
         }
     }
+
+    public enum EditType implements StringRepresentable{
+        NONE, LAQUERED, TYPE, SPEED, NUM;
+
+        @Override
+        public @NotNull String getSerializedName() {
+            return switch (this) {
+                case NONE -> "none";
+                case LAQUERED -> "laquered";
+                case TYPE -> "type";
+                case SPEED -> "speed";
+                case NUM -> "num";
+            };
+        }
+
+        public static EditType fromString(String input) {
+            return switch (input) {
+                case "none" -> NONE;
+                case "laquered" -> LAQUERED;
+                case "type" -> TYPE;
+                case "speed" -> SPEED;
+                case "num" -> NUM;
+                default -> NONE;
+            };
+        }
+    }
 }

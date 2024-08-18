@@ -4,12 +4,15 @@ import com.jozufozu.flywheel.core.PartialModel;
 import com.simibubi.create.foundation.block.IBE;
 import com.simibubi.create.foundation.utility.Couple;
 import kasuga.lib.KasugaLib;
+import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec2;
+import org.jetbrains.annotations.Nullable;
 import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
 import willow.train.kuayue.block.panels.block_entity.CustomRenderedEndfaceEntity;
@@ -42,6 +45,11 @@ public class CustomRenderedEndfaceBlock extends TrainEndfaceBlock implements IBE
                 leftModel == null ? null : new PartialModel(new ResourceLocation(Kuayue.MODID,"block/" + leftModel)),
                 rightModel == null ? null : new PartialModel(new ResourceLocation(Kuayue.MODID,"block/" + rightModel)));
         this.frameModel = new PartialModel(new ResourceLocation(Kuayue.MODID, "block/" + frameModel));
+    }
+
+    @Override
+    public @Nullable BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
+        return getBlockEntityType().create(pPos, pState);
     }
 
     @Override
