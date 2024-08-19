@@ -27,6 +27,8 @@ public class EditablePanelEntity extends SmartBlockEntity
 
     public TrainPanelProperties.EditType editType = TrainPanelProperties.EditType.NONE;
 
+    CompoundTag nbt;
+
     public EditablePanelEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
     }
@@ -34,6 +36,17 @@ public class EditablePanelEntity extends SmartBlockEntity
     public EditablePanelEntity(BlockPos blockPos, BlockState state) {
         this(AllBlocks.EDITABLE_PANEL_ENTITY.getType(), blockPos, state);
         this.editType = state.getValue(EDIT_TYPE);
+        nbt = new CompoundTag();
+    }
+
+    @Override
+    protected void read(CompoundTag tag, boolean clientPacket) {
+        super.read(tag, clientPacket);
+    }
+
+    @Override
+    protected void write(CompoundTag tag, boolean clientPacket) {
+        super.write(tag, clientPacket);
     }
 
     @Override
@@ -53,7 +66,6 @@ public class EditablePanelEntity extends SmartBlockEntity
 
     @Override
     public void addBehaviours(List<BlockEntityBehaviour> behaviours) {
-
     }
 
     @Override

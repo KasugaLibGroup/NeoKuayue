@@ -4,6 +4,7 @@ import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import kasuga.lib.core.base.UnModeledBlockProperty;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -18,10 +19,7 @@ import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.DoorHingeSide;
-import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -32,14 +30,42 @@ import willow.train.kuayue.block.panels.base.TrainPanelProperties;
 import willow.train.kuayue.block.panels.base.TrainPanelShapes;
 import willow.train.kuayue.block.panels.block_entity.EditablePanelEntity;
 import willow.train.kuayue.initial.AllBlocks;
+import willow.train.kuayue.initial.AllTags;
 import willow.train.kuayue.initial.item.EditablePanelItem;
 import willow.train.kuayue.utils.DirectionUtil;
+
+import java.util.Objects;
 
 public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
     public final Vec2 beginPos, endPos;
     public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final UnModeledBlockProperty<TrainPanelProperties.EditType, EnumProperty<TrainPanelProperties.EditType>> EDIT_TYPE =
             UnModeledBlockProperty.create(EnumProperty.create("edit_type", TrainPanelProperties.EditType.class));
+    public static final int
+            YELLOW = 16776961,
+            YELLOW2 = 16776960,
+            RED = 15216648,
+            BLUE = 22220,
+            BLUE2 = 0x60A0B0,
+            BLUE3 = 468326,
+            BLACK = 789516;
+
+    public static int getSignColor(BlockState state) {
+
+        if (state.is(Objects.requireNonNull(AllTags.C25B.tag())))
+            return YELLOW2;
+        if (state.is(Objects.requireNonNull(AllTags.C25G.tag())))
+            return RED;
+        if (state.is(Objects.requireNonNull(AllTags.C25K.tag())))
+            return BLUE;
+        if (state.is(Objects.requireNonNull(AllTags.C25Z.tag())))
+            return BLUE2;
+        if (state.is(Objects.requireNonNull(AllTags.C25T.tag())))
+            return BLUE3;
+
+        return YELLOW;
+    }
+
     public TrainPanelBlock(Properties pProperties, Vec2 beginPos, Vec2 endPos) {
         super(pProperties);
         this.registerDefaultState(
@@ -82,6 +108,11 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (pPlayer.getItemInHand(pHand).is(EditablePanelItem.COLORED_BRUSH.getItem())) {
+
+            if (pState.is(Objects.requireNonNull(AllTags.BOTTOM_PANEL.tag()))) {
+                int signColor = getSignColor(pState);
+            }
+
             pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.TYPE);
             if (!pLevel.isClientSide) {
                 if (pLevel.getBlockEntity(pPos) == null)
