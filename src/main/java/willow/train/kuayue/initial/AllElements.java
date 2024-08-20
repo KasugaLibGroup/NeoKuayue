@@ -37,9 +37,9 @@ public class AllElements {
         if (Envs.isClient()) {
             ClientInit.invoke();
             MinecraftForge.EVENT_BUS.addListener(RenderArrowEvent::renderBlockBounds);
-            MinecraftForge.EVENT_BUS.addListener(SignRegisterEvent::signRegisterSub);
             // MinecraftForge.EVENT_BUS.addListener(RenderPrePosedBlockEvent::renderBlock);
         }
+        MinecraftForge.EVENT_BUS.addListener(SignRegisterEvent::signRegisterSub);
         testRegistry.submit();
     }
 }
