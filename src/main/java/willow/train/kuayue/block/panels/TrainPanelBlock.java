@@ -4,7 +4,6 @@ import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import kasuga.lib.core.base.UnModeledBlockProperty;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -32,6 +31,7 @@ import willow.train.kuayue.block.panels.block_entity.EditablePanelEntity;
 import willow.train.kuayue.initial.AllBlocks;
 import willow.train.kuayue.initial.AllTags;
 import willow.train.kuayue.initial.item.EditablePanelItem;
+import willow.train.kuayue.initial.registration.PanelColorType;
 import willow.train.kuayue.utils.DirectionUtil;
 
 import java.util.Objects;
@@ -85,11 +85,14 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (pPlayer.getItemInHand(pHand).is(EditablePanelItem.COLORED_BRUSH.getItem())) {
 
-            if (pState.is(Objects.requireNonNull(AllTags.BOTTOM_PANEL.tag()))) {
+            if (pState.is(Objects.requireNonNull(AllTags.BOTTOM_PANEL.tag())))
+                pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.TYPE);
 
-            }
+            if (pState.is(Objects.requireNonNull(AllTags.FLOOR.tag())))
+                pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.SPEED);
 
-            pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.TYPE);
+            int color = PanelColorType.getColorByTag(pState);
+
             if (!pLevel.isClientSide) {
                 if (pLevel.getBlockEntity(pPos) == null)
 //                NetworkHooks.openScreen(

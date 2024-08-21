@@ -1,6 +1,5 @@
 package willow.train.kuayue.initial;
 
-
 import com.simibubi.create.AllBlocks;
 import kasuga.lib.core.util.Envs;
 import kasuga.lib.registrations.common.CreativeTabReg;
@@ -8,10 +7,7 @@ import kasuga.lib.registrations.registry.CreateRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.event.client.RenderArrowEvent;
-import willow.train.kuayue.event.client.RenderPrePosedBlockEvent;
-import willow.train.kuayue.event.common.SignRegisterEvent;
 import willow.train.kuayue.initial.create.*;
-import willow.train.kuayue.initial.item.EditablePanelItem;
 import willow.train.kuayue.initial.material.AllMaterials;
 
 public class AllElements {
@@ -31,13 +27,12 @@ public class AllElements {
         AllBehaviours.invoke();
         AllPackets.invoke();
         AllMaterials.invoke();
-        EditablePanelItem.invoke();
+        AllEditableTypes.invoke();
         if (Envs.isClient()) {
             ClientInit.invoke();
             MinecraftForge.EVENT_BUS.addListener(RenderArrowEvent::renderBlockBounds);
             // MinecraftForge.EVENT_BUS.addListener(RenderPrePosedBlockEvent::renderBlock);
         }
-        MinecraftForge.EVENT_BUS.addListener(SignRegisterEvent::signRegisterSub);
         testRegistry.submit();
     }
 }
