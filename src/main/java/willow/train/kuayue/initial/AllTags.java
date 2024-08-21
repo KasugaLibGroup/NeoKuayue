@@ -1,6 +1,11 @@
 package willow.train.kuayue.initial;
 
+import com.mojang.blaze3d.vertex.PoseStack;
 import kasuga.lib.registrations.common.BlockTagReg;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class AllTags {
 
@@ -56,4 +61,10 @@ public class AllTags {
             .submit(AllElements.testRegistry);
 
     public static void invoke() {}
+
+    @FunctionalInterface
+    public interface RenderLambda<T extends BlockEntity> {
+        public void render(T be, BlockState state, CompoundTag nbt, PoseStack stack,
+                           MultiBufferSource buffer, int light, int overlay);
+    }
 }

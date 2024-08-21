@@ -30,6 +30,7 @@ public class CustomRenderedEndfaceEntity extends SmartBlockEntity implements ICo
         this(AllBlocks.CUSTOM_RENDERED_ENDFACE_ENTITY.getType(), pos, state);
     }
 
+    // 向磁盘写入数据
     @Override
     protected void write(CompoundTag tag, boolean clientPacket) {
         super.write(tag, clientPacket);
@@ -37,6 +38,7 @@ public class CustomRenderedEndfaceEntity extends SmartBlockEntity implements ICo
         tag.putString("type", type.getSerializedName());
     }
 
+    // 从磁盘读取数据
     @Override
     protected void read(CompoundTag tag, boolean clientPacket) {
         super.read(tag, clientPacket);
