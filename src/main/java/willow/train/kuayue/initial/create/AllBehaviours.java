@@ -9,7 +9,6 @@ import willow.train.kuayue.behaviour.SeatClickBehaviour;
 import willow.train.kuayue.block.panels.block_entity.IContraptionMovementBlockEntity;
 import willow.train.kuayue.block.seat.YZSeatBlock;
 import willow.train.kuayue.initial.AllBlocks;
-import willow.train.kuayue.initial.AllDecoBlocks;
 import willow.train.kuayue.initial.AllElements;
 import willow.train.kuayue.initial.AllTags;
 

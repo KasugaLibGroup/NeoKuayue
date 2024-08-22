@@ -1,10 +1,10 @@
-package willow.train.kuayue.catenary.tree;
+package willow.train.kuayue.systems.catenary.tree;
 
 import kasuga.lib.core.util.data_type.Pair;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
-import willow.train.kuayue.catenary.power_network.PowerGraph;
-import willow.train.kuayue.catenary.power_network.PowerNode;
+import willow.train.kuayue.systems.catenary.power_network.PowerGraph;
+import willow.train.kuayue.systems.catenary.power_network.PowerNode;
 
 import java.util.ArrayList;
 import java.util.Collection;

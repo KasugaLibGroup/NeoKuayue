@@ -1,9 +1,9 @@
-package willow.train.kuayue.catenary.types;
+package willow.train.kuayue.systems.catenary.types;
 
 import kasuga.lib.core.util.data_type.Pair;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
-import willow.train.kuayue.catenary.power_network.PowerPackage;
+import willow.train.kuayue.systems.catenary.power_network.PowerPackage;
 
 import java.util.function.Consumer;
 import java.util.function.Function;

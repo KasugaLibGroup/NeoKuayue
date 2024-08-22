@@ -1,10 +1,10 @@
-package willow.train.kuayue.catenary.constants;
+package willow.train.kuayue.systems.catenary.constants;
 
 import kasuga.lib.core.util.data_type.Pair;
 import net.minecraft.resources.ResourceLocation;
-import willow.train.kuayue.catenary.types.PowerIOType;
-import willow.train.kuayue.catenary.types.PowerNodeType;
-import willow.train.kuayue.catenary.power_network.PowerPackage;
+import willow.train.kuayue.systems.catenary.types.PowerIOType;
+import willow.train.kuayue.systems.catenary.types.PowerNodeType;
+import willow.train.kuayue.systems.catenary.power_network.PowerPackage;
 
 import java.util.HashMap;
 import java.util.function.Function;

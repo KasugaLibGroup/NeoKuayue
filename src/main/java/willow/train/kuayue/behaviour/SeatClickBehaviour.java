@@ -7,19 +7,15 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import willow.train.kuayue.block.seat.SeatBlockEntity;
 import willow.train.kuayue.block.seat.YZSeatBlock;
-import willow.train.kuayue.initial.AllPackets;
 import willow.train.kuayue.initial.AllTags;
-import willow.train.kuayue.network.ContraptionTagChangedPacket;
 
 import java.util.Collection;
-import java.util.Set;
 import java.util.UUID;
 
 public class SeatClickBehaviour extends MovingInteractionBehaviour {

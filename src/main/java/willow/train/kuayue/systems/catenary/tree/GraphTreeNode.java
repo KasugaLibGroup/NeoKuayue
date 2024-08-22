@@ -1,6 +1,6 @@
-package willow.train.kuayue.catenary.tree;
+package willow.train.kuayue.systems.catenary.tree;
 
-import willow.train.kuayue.catenary.power_network.PowerNode;
+import willow.train.kuayue.systems.catenary.power_network.PowerNode;
 
 import java.util.ArrayList;
 import java.util.Arrays;

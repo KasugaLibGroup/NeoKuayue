@@ -19,7 +19,7 @@ import willow.train.kuayue.initial.AllBlocks;
 
 import java.util.List;
 
-public class DoubleDoorEntity extends SmartBlockEntity implements IContraptionMovementBlockEntity{
+public class DoubleDoorEntity extends SmartBlockEntity implements IContraptionMovementBlockEntity {
 
     public boolean open = false;
 

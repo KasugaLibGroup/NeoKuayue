@@ -1,7 +1,7 @@
-package willow.train.kuayue.catenary.constants;
+package willow.train.kuayue.systems.catenary.constants;
 
 import net.minecraft.resources.ResourceLocation;
-import willow.train.kuayue.catenary.types.CatenaryLineType;
+import willow.train.kuayue.systems.catenary.types.CatenaryLineType;
 
 import java.util.HashMap;
 

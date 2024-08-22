@@ -1,14 +1,14 @@
-package willow.train.kuayue.catenary.power_network;
+package willow.train.kuayue.systems.catenary.power_network;
 
 import kasuga.lib.core.base.NbtSerializable;
 import kasuga.lib.core.util.data_type.Pair;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
-import willow.train.kuayue.catenary.constants.AllPowerNodeTypes;
-import willow.train.kuayue.catenary.constants.Utils;
-import willow.train.kuayue.catenary.types.CatenaryLineType;
-import willow.train.kuayue.catenary.types.PowerNodeType;
+import willow.train.kuayue.systems.catenary.constants.AllPowerNodeTypes;
+import willow.train.kuayue.systems.catenary.constants.Utils;
+import willow.train.kuayue.systems.catenary.types.CatenaryLineType;
+import willow.train.kuayue.systems.catenary.types.PowerNodeType;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package willow.train.kuayue.catenary.constants;
+package willow.train.kuayue.systems.catenary.constants;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;

@@ -1,4 +1,4 @@
-package willow.train.kuayue.catenary.block_interface;
+package willow.train.kuayue.systems.catenary.block_interface;
 
 import com.simibubi.create.content.kinetics.base.DirectionalKineticBlock;
 import com.simibubi.create.content.kinetics.base.KineticBlock;

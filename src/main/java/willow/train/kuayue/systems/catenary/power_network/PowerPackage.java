@@ -1,4 +1,4 @@
-package willow.train.kuayue.catenary.power_network;
+package willow.train.kuayue.systems.catenary.power_network;
 
 public class PowerPackage {
     private boolean overload;

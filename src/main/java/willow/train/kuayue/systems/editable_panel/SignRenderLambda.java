@@ -1,7 +1,8 @@
-package willow.train.kuayue.block.panels.block_entity;
+package willow.train.kuayue.systems.editable_panel;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
+import willow.train.kuayue.block.panels.block_entity.EditablePanelEntity;
 
 @FunctionalInterface
 public interface SignRenderLambda {

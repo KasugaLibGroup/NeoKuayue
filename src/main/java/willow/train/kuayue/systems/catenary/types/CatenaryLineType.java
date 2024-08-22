@@ -1,4 +1,4 @@
-package willow.train.kuayue.catenary.types;
+package willow.train.kuayue.systems.catenary.types;
 
 import net.minecraft.resources.ResourceLocation;
 
