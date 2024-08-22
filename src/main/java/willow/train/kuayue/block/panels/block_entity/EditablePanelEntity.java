@@ -15,17 +15,20 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 import willow.train.kuayue.block.panels.TrainPanelBlock;
+import willow.train.kuayue.block.panels.base.EditableTypeConstants;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
 import willow.train.kuayue.initial.AllBlocks;
 
 import java.util.List;
 
-import static willow.train.kuayue.block.panels.TrainPanelBlock.EDIT_TYPE;
+import static willow.train.kuayue.block.panels.TrainPanelBlock.*;
 
 public class EditablePanelEntity extends SmartBlockEntity
         implements MenuProvider, ClipboardCloneable {
 
     public TrainPanelProperties.EditType editType = TrainPanelProperties.EditType.NONE;
+
+    public Integer signColor = EditableTypeConstants.YELLOW;
 
     CompoundTag nbt;
 
@@ -36,6 +39,7 @@ public class EditablePanelEntity extends SmartBlockEntity
     public EditablePanelEntity(BlockPos blockPos, BlockState state) {
         this(AllBlocks.EDITABLE_PANEL_ENTITY.getType(), blockPos, state);
         this.editType = state.getValue(EDIT_TYPE);
+        this.signColor = state.getValue(SIGN_COLOR);
         nbt = new CompoundTag();
     }
 

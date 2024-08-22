@@ -25,6 +25,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 import willow.train.kuayue.block.panels.base.CompanyTrainPanel;
+import willow.train.kuayue.block.panels.base.EditableTypeConstants;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
 import willow.train.kuayue.block.panels.base.TrainPanelShapes;
 import willow.train.kuayue.block.panels.block_entity.EditablePanelEntity;
@@ -42,12 +43,16 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
     public static final UnModeledBlockProperty<TrainPanelProperties.EditType, EnumProperty<TrainPanelProperties.EditType>> EDIT_TYPE =
             UnModeledBlockProperty.create(EnumProperty.create("edit_type", TrainPanelProperties.EditType.class));
 
+    public static final UnModeledBlockProperty<Integer, IntegerProperty> SIGN_COLOR =
+            UnModeledBlockProperty.create(IntegerProperty.create("sign_color", 0, 16776961));
+
     public TrainPanelBlock(Properties pProperties, Vec2 beginPos, Vec2 endPos) {
         super(pProperties);
         this.registerDefaultState(
                 this.getStateDefinition().any()
                         .setValue(FACING, Direction.EAST)
                         .setValue(EDIT_TYPE, TrainPanelProperties.EditType.NONE)
+                        .setValue(SIGN_COLOR, EditableTypeConstants.YELLOW)
         );
         this.beginPos = beginPos;
         this.endPos = endPos;
@@ -70,7 +75,7 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         super.createBlockStateDefinition(pBuilder);
-        pBuilder.add(FACING, EDIT_TYPE);
+        pBuilder.add(FACING, EDIT_TYPE, SIGN_COLOR);
     }
 
     @Nullable
@@ -83,6 +88,8 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+
+        // 手持带颜色刷子
         if (pPlayer.getItemInHand(pHand).is(EditablePanelItem.COLORED_BRUSH.getItem())) {
 
             if (pState.is(Objects.requireNonNull(AllTags.BOTTOM_PANEL.tag())))
@@ -91,7 +98,9 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
             if (pState.is(Objects.requireNonNull(AllTags.FLOOR.tag())))
                 pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.SPEED);
 
-            int color = PanelColorType.getColorByTag(pState);
+            // 自定义标识颜色
+            int signColor = PanelColorType.getColorByTag(pState);
+            pState.setValue(SIGN_COLOR, signColor);
 
             if (!pLevel.isClientSide) {
                 if (pLevel.getBlockEntity(pPos) == null)
@@ -101,6 +110,18 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
 //                        pPos);
                 return InteractionResult.PASS;
             }
+            return InteractionResult.PASS;
+        }
+        // 手持水牌
+        if (pPlayer.getItemInHand(pHand).is(EditablePanelItem.LAQUERED_BOARD.getItem()) && pState.is(Objects.requireNonNull(AllTags.BOTTOM_PANEL.tag()))) {
+            pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.LAQUERED);
+
+            return InteractionResult.PASS;
+        }
+        // 手持贴纸
+        if (pPlayer.getItemInHand(pHand).is(EditablePanelItem.STICKER.getItem()) && pState.is(Objects.requireNonNull(AllTags.UPPER_PANEL.tag()))) {
+            pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.NUM);
+
             return InteractionResult.PASS;
         }
         return InteractionResult.PASS;
