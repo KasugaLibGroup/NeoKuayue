@@ -54,14 +54,14 @@ public class EditablePanelEntity extends SmartBlockEntity
         if (panelColorType == null)
             return;
         // 将标识颜色放入nbt
-        nbt.putFloat("color", panelColorType.signColor);
+        nbt.putInt("color", panelColorType.signColor);
         // 根据自定义类型获取到对应的SignType类对象，对象中包含了渲染方法的lambda，以及默认字段的lambda。
         SignType signType = EditableTypeConstants.getSignTypeByEditType(editType);
         if (signType == null)
             return;
-        // 通过signType获取到对应的默认字段lambda
+        // 通过signType设置nbt的默认字段与数据
         DefaultTextsLambda defaultTextsLambda = signType.getDefaultTexts().get();
-        CompoundTag nbts = defaultTextsLambda.defaultTextComponent(this, state, this.nbt);
+        defaultTextsLambda.defaultTextComponent(this, state, this.nbt);
     }
 
     @Override

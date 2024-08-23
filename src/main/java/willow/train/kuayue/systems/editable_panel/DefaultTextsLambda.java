@@ -8,5 +8,5 @@ import net.minecraft.world.level.block.state.BlockState;
 @FunctionalInterface
 public interface DefaultTextsLambda {
 
-    CompoundTag defaultTextComponent (BlockEntity blockEntity, BlockState blockState, CompoundTag nbt);
+    void defaultTextComponent (BlockEntity blockEntity, BlockState blockState, CompoundTag nbt);
 }

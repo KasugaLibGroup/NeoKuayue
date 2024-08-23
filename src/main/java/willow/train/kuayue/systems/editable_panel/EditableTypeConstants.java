@@ -47,7 +47,7 @@ public class EditableTypeConstants {
 
     public static final DefaultTextsLambda CARRIAGE_TYPE_SIGN_MESSAGES = new DefaultTextsLambda() {
         @Override
-        public CompoundTag defaultTextComponent(BlockEntity blockEntity, BlockState blockState, CompoundTag nbt) {
+        public void defaultTextComponent(BlockEntity blockEntity, BlockState blockState, CompoundTag nbt) {
             Component[] messages =
                 new Component[] {
                         Component.literal("XXX"),
@@ -56,21 +56,34 @@ public class EditableTypeConstants {
                         Component.literal("XXX"),
                         Component.literal("XXXXXX")
                 };
-            return new CompoundTag();
+            String[] name = new String[] {"a", "b", "c", "d", "e"};
+            for (int i = 0; i < 5; i++) {
+                nbt.putString(name[i], messages[i].getString());
+            }
         }
     };
 
     public static final DefaultTextsLambda CARRIAGE_NO_SIGN_MESSAGES = new DefaultTextsLambda() {
         @Override
-        public CompoundTag defaultTextComponent(BlockEntity blockEntity, BlockState blockState, CompoundTag nbt) {
+        public void defaultTextComponent(BlockEntity blockEntity, BlockState blockState, CompoundTag nbt) {
+            int color = EditableTypeConstants.RED;
+            boolean isLeftSide = true;
             Component message = Component.literal("0");
-            return new CompoundTag();
+
+            nbt.putInt("color", color);
+            nbt.putBoolean("left", isLeftSide);
+            nbt.putString("message", message.getString());
         }
     };
 
     public static final DefaultTextsLambda LAQUERED_BOARD_MESSAGES = new DefaultTextsLambda() {
         @Override
-        public CompoundTag defaultTextComponent(BlockEntity blockEntity, BlockState blockState, CompoundTag nbt) {
+        public void defaultTextComponent(BlockEntity blockEntity, BlockState blockState, CompoundTag nbt) {
+            int type = 0; // 当前处于的种类
+            int backGroundColor = 15216648;
+            int forGroundColor = 0x0;
+            int beltForGroundColor = 0xffffff; // 背景色和前景色
+            double x_offset = 0;
             Component[] messages =
                 new Component[] {
                         Component.empty(),
@@ -90,15 +103,30 @@ public class EditableTypeConstants {
                         Component.empty(),
                         Component.empty()
                 };
-            return new CompoundTag();
+
+            nbt.putInt("type", type);
+            for (int i = 0; i < messages.length; i++) {
+                nbt.putString("content " + i, messages[i].getString());
+            }
+            nbt.putInt("beltColor", backGroundColor);
+            nbt.putInt("textColor", forGroundColor);
+            nbt.putInt("pinyinColor", beltForGroundColor);
+            nbt.putDouble("x_offset", x_offset);
         }
     };
 
     public static final DefaultTextsLambda TRAIN_SPEED_SIGN_MESSAGES = new DefaultTextsLambda() {
         @Override
-        public CompoundTag defaultTextComponent(BlockEntity blockEntity, BlockState blockState, CompoundTag nbt) {
+        public void defaultTextComponent(BlockEntity blockEntity, BlockState blockState, CompoundTag nbt) {
             Component content = Component.literal("xx km/h");
-            return new CompoundTag();
+            float x_offset = 0, y_offset = 0;
+            boolean x_revert = false, y_revert = false;
+
+            nbt.putString("content", content.getString());
+            nbt.putFloat("x_offset", x_offset);
+            nbt.putFloat("y_offset", y_offset);
+            nbt.putBoolean("x_revert", x_revert);
+            nbt.putBoolean("y_revert", y_revert);
         }
     };
 
