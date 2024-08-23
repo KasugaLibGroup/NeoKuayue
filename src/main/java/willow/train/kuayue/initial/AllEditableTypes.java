@@ -25,23 +25,27 @@ public class AllEditableTypes {
 
     public static final SignType CARRIAGE_TYPE_SIGN = EditableTypeConstants
             .signLambdaRegister("carriage_type_sign",
-            TrainPanelProperties.EditType.TYPE,
-                    () -> () -> EditableTypeConstants.CARRIAGE_TYPE_RENDER);
+                    TrainPanelProperties.EditType.TYPE,
+                    () -> () -> EditableTypeConstants.CARRIAGE_TYPE_RENDER,
+                    () -> EditableTypeConstants.CARRIAGE_TYPE_SIGN_MESSAGES);
 
     public static final SignType CARRIAGE_NO_SIGN = EditableTypeConstants
             .signLambdaRegister("carriage_no_sign",
-            TrainPanelProperties.EditType.NUM,
-                    () -> () -> EditableTypeConstants.CARRIAGE_NO_SIGN);
+                    TrainPanelProperties.EditType.NUM,
+                    () -> () -> EditableTypeConstants.CARRIAGE_NO_SIGN,
+                    () -> EditableTypeConstants.CARRIAGE_NO_SIGN_MESSAGES);
 
     public static final SignType LAQUERED_BOARD_SIGN = EditableTypeConstants
             .signLambdaRegister("laquered_board",
-            TrainPanelProperties.EditType.LAQUERED,
-                    () -> () -> EditableTypeConstants.LAQUERED_BOARD_SIGN);
+                    TrainPanelProperties.EditType.LAQUERED,
+                    () -> () -> EditableTypeConstants.LAQUERED_BOARD_SIGN,
+                    () -> EditableTypeConstants.LAQUERED_BOARD_MESSAGES);
 
     public static final SignType TRAIN_SPEED_SIGN = EditableTypeConstants
             .signLambdaRegister("train_speed_sign",
-            TrainPanelProperties.EditType.SPEED,
-                    () -> () -> EditableTypeConstants.TRAIN_SPEED_SIGN);
+                    TrainPanelProperties.EditType.SPEED,
+                    () -> () -> EditableTypeConstants.TRAIN_SPEED_SIGN,
+                    () -> EditableTypeConstants.TRAIN_SPEED_SIGN_MESSAGES);
 
     public static void invoke() {
         EditablePanelItem.invoke();
