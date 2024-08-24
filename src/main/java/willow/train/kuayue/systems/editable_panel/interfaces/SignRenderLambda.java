@@ -1,4 +1,4 @@
-package willow.train.kuayue.systems.editable_panel;
+package willow.train.kuayue.systems.editable_panel.interfaces;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;

@@ -4,6 +4,7 @@ import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import kasuga.lib.core.base.UnModeledBlockProperty;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -23,6 +24,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 import willow.train.kuayue.block.panels.base.CompanyTrainPanel;
 import willow.train.kuayue.systems.editable_panel.EditableTypeConstants;
@@ -95,11 +97,12 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
                 pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.SPEED);
 
             if (!pLevel.isClientSide) {
-                if (pLevel.getBlockEntity(pPos) == null)
-//                NetworkHooks.openScreen(
-//                        (ServerPlayer) pPlayer,
-//                        (CarriageTypeSignEntity) pLevel.getBlockEntity(pPos),
-//                        pPos);
+                if (pLevel.getBlockEntity(pPos) == null) {
+                    NetworkHooks.openScreen(
+                            (ServerPlayer) pPlayer,
+                            (EditablePanelEntity) pLevel.getBlockEntity(pPos),
+                            pPos);
+                }
                 return InteractionResult.PASS;
             }
             return InteractionResult.PASS;

@@ -11,18 +11,20 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
-import willow.train.kuayue.systems.editable_panel.DefaultTextsLambda;
+import willow.train.kuayue.systems.editable_panel.EditablePanelEditMenu;
+import willow.train.kuayue.systems.editable_panel.interfaces.DefaultTextsLambda;
 import willow.train.kuayue.systems.editable_panel.EditableTypeConstants;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
 import willow.train.kuayue.initial.AllBlocks;
 import willow.train.kuayue.systems.editable_panel.PanelColorType;
 import willow.train.kuayue.systems.editable_panel.SignType;
+import willow.train.kuayue.systems.editable_panel.interfaces.IEditScreenMethods;
 
 import java.util.List;
-import java.util.function.Supplier;
 
 import static willow.train.kuayue.block.panels.TrainPanelBlock.*;
 
@@ -31,6 +33,7 @@ public class EditablePanelEntity extends SmartBlockEntity
 
     private TrainPanelProperties.EditType editType = TrainPanelProperties.EditType.NONE;
     private Integer signColor = EditableTypeConstants.YELLOW;
+    private EditablePanelEditMenu panelEditMenu;
     CompoundTag nbt;
 
     public EditablePanelEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
@@ -113,6 +116,9 @@ public class EditablePanelEntity extends SmartBlockEntity
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
-        return null;
+        this.panelEditMenu =
+                new EditablePanelEditMenu(pContainerId, pPlayerInventory, this, new SimpleContainerData(2));
+        this.panelEditMenu.setEditablePanelEntity(this);
+        return this.panelEditMenu;
     }
 }

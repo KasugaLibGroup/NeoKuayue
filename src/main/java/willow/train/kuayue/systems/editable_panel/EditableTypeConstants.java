@@ -1,5 +1,6 @@
 package willow.train.kuayue.systems.editable_panel;
 
+import com.mojang.blaze3d.vertex.PoseStack;
 import kasuga.lib.registrations.common.BlockTagReg;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -11,6 +12,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
 import willow.train.kuayue.initial.AllTags;
 import willow.train.kuayue.initial.item.EditablePanelItem;
+import willow.train.kuayue.systems.editable_panel.interfaces.DefaultTextsLambda;
+import willow.train.kuayue.systems.editable_panel.interfaces.IEditScreenMethods;
+import willow.train.kuayue.systems.editable_panel.interfaces.SignRenderLambda;
 
 import javax.annotation.Nullable;
 import java.util.HashMap;
@@ -130,6 +134,54 @@ public class EditableTypeConstants {
         }
     };
 
+    public static final IEditScreenMethods CARRIAGE_TYPE_SIGN_METHODS = new IEditScreenMethods() {
+        @Override
+        public void init(EditablePanelEditScreen screen) {
+            System.out.println("车厢类型");
+        }
+
+        @Override
+        public void renderLabels(PoseStack pPoseStack, int pMouseX, int pMouseY) {
+
+        }
+    };
+
+    public static final IEditScreenMethods CARRIAGE_NO_SIGN_METHODS = new IEditScreenMethods() {
+        @Override
+        public void init(EditablePanelEditScreen screen) {
+            System.out.println("车厢编号");
+        }
+
+        @Override
+        public void renderLabels(PoseStack pPoseStack, int pMouseX, int pMouseY) {
+
+        }
+    };
+
+    public static final IEditScreenMethods LAQUERED_BOARD_METHODS = new IEditScreenMethods() {
+        @Override
+        public void init(EditablePanelEditScreen screen) {
+            System.out.println("水牌");
+        }
+
+        @Override
+        public void renderLabels(PoseStack pPoseStack, int pMouseX, int pMouseY) {
+
+        }
+    };
+
+    public static final IEditScreenMethods TRAIN_SPEED_SIGN_METHODS = new IEditScreenMethods() {
+        @Override
+        public void init(EditablePanelEditScreen screen) {
+            System.out.println("车厢类型");
+        }
+
+        @Override
+        public void renderLabels(PoseStack pPoseStack, int pMouseX, int pMouseY) {
+
+        }
+    };
+
     private static final Map<ResourceLocation, PanelColorType> signColorMap = new HashMap<>();
     private static final Map<ResourceLocation, SignType> signTypeMap = new HashMap<>();
 
@@ -173,9 +225,10 @@ public class EditableTypeConstants {
     public static SignType signLambdaRegister(String locationKey,
                                               TrainPanelProperties.EditType editType,
                                               Supplier<Supplier<SignRenderLambda>> supplier,
-                                              Supplier<DefaultTextsLambda> defaultTextSupplier) {
+                                              Supplier<DefaultTextsLambda> defaultTextSupplier,
+                                              Supplier<IEditScreenMethods> screenMethodsSupplier) {
 
-        SignType signType = new SignType(locationKey, editType, supplier, defaultTextSupplier);
+        SignType signType = new SignType(locationKey, editType, supplier, defaultTextSupplier, screenMethodsSupplier);
 
         EditableTypeConstants.getSignTypeMap().put(new ResourceLocation(locationKey), signType);
 

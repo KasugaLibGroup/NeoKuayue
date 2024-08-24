@@ -1,7 +1,6 @@
-package willow.train.kuayue.systems.editable_panel;
+package willow.train.kuayue.systems.editable_panel.interfaces;
 
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
