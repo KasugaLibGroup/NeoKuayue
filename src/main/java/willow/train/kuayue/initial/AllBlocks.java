@@ -6,6 +6,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.Vec2;
+import willow.train.kuayue.block.panels.TrainPanelBlock;
 import willow.train.kuayue.block.panels.base.*;
 import willow.train.kuayue.block.panels.block_entity.*;
 import willow.train.kuayue.block.panels.door.DoubleDoorBlock;
@@ -13,10 +14,6 @@ import willow.train.kuayue.block.seat.SeatBlockEntity;
 import willow.train.kuayue.block.structure.platform.PlatformWallBlock;
 import willow.train.kuayue.initial.panel.*;
 import willow.train.kuayue.initial.registration.PanelRegistration;
-
-import static willow.train.kuayue.initial.panel.C25BPanel.*;
-import static willow.train.kuayue.initial.panel.C25GPanel.*;
-import static willow.train.kuayue.initial.panel.C25TPanel.*;
 
 public class AllBlocks {
 
@@ -163,14 +160,14 @@ public class AllBlocks {
     public static final BlockEntityReg<EditablePanelEntity> EDITABLE_PANEL_ENTITY =
             new BlockEntityReg<EditablePanelEntity>("editable_panel_entity")
                     .blockEntityType(EditablePanelEntity::new)
-                    .addBlock(PANEL_BOTTOM_25B.block)
-                    .addBlock(PANEL_MIDDLE_25B.block)
-                    .addBlock(PANEL_BOTTOM_25G.block)
-                    .addBlock(PANEL_MIDDLE_25G.block)
-                    .addBlock(PANEL_BOTTOM_25T.block)
-                    .addBlock(PANEL_MIDDLE_25T.block)
-                    .addBlock(PANEL_MIDDLE_25T_2.block)
+                    .withRenderer(() -> EditablePanelRenderer::new)
+                    .blockPredicates((location, block) -> block instanceof TrainPanelBlock)
                     .submit(AllElements.testRegistry);
+
+//    public static final MenuReg<EditablePanelEditMenu, EditablePanelEditScreen, EditablePanelEditScreen> EDITABLE_PANEL_EDIT_MENU =
+//            new MenuReg<EditablePanelEditMenu, EditablePanelEditScreen, EditablePanelEditScreen>("editable_panel_edit_menu")
+//                    .withMenuAndScreen(EditablePanelEditMenu::new, (component) -> new EditablePanelEditScreen())
+//                    .submit(AllElements.testRegistry);
 
     public static void invoke() {
         C25GPanel.invoke();

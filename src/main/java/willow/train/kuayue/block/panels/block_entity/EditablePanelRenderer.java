@@ -5,6 +5,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
+import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.util.FormattedCharSequence;
 import willow.train.kuayue.systems.editable_panel.EditableTypeConstants;
 import willow.train.kuayue.systems.editable_panel.SignType;
@@ -13,8 +14,8 @@ public class EditablePanelRenderer implements BlockEntityRenderer<EditablePanelE
 
     private final Font font;
 
-    public EditablePanelRenderer(Font font) {
-        this.font = font;
+    public EditablePanelRenderer(BlockEntityRendererProvider.Context context) {
+        this.font = context.getFont();
     }
 
     @Override

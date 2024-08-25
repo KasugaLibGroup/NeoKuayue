@@ -51,10 +51,6 @@ public class AllEditableTypes {
                     () -> EditableTypeConstants.TRAIN_SPEED_SIGN_MESSAGES,
                     () -> EditableTypeConstants.TRAIN_SPEED_SIGN_METHODS);
 
-    protected void registerMenus() {
-        MenuScreens.register(IForgeMenuType.create(EditablePanelEditMenu::new), EditablePanelEditScreen::new);
-    }
-
     public static void invoke() {
         EditablePanelItem.invoke();
     }

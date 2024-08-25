@@ -44,6 +44,7 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
     public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final UnModeledBlockProperty<TrainPanelProperties.EditType, EnumProperty<TrainPanelProperties.EditType>> EDIT_TYPE =
             UnModeledBlockProperty.create(EnumProperty.create("edit_type", TrainPanelProperties.EditType.class));
+    EditablePanelEntity editablePanelEntity;
 
     public TrainPanelBlock(Properties pProperties, Vec2 beginPos, Vec2 endPos) {
         super(pProperties);
@@ -79,8 +80,10 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        if (pState.getValue(EDIT_TYPE) != TrainPanelProperties.EditType.NONE)
-            return new EditablePanelEntity(pPos, pState);
+        if (pState.getValue(EDIT_TYPE) != TrainPanelProperties.EditType.NONE) {
+            editablePanelEntity = new EditablePanelEntity(pPos, pState);
+            return editablePanelEntity;
+        }
         return null;
     }
 
@@ -97,12 +100,10 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
                 pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.SPEED);
 
             if (!pLevel.isClientSide) {
-                if (pLevel.getBlockEntity(pPos) == null) {
-                    NetworkHooks.openScreen(
-                            (ServerPlayer) pPlayer,
-                            (EditablePanelEntity) pLevel.getBlockEntity(pPos),
-                            pPos);
-                }
+                NetworkHooks.openScreen(
+                        (ServerPlayer) pPlayer,
+                        (EditablePanelEntity) pLevel.getBlockEntity(pPos),
+                        pPos);
                 return InteractionResult.PASS;
             }
             return InteractionResult.PASS;
