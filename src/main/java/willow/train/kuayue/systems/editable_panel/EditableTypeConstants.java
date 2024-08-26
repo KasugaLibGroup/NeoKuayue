@@ -2,6 +2,10 @@ package willow.train.kuayue.systems.editable_panel;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import kasuga.lib.registrations.common.BlockTagReg;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.EditBox;
+import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -9,17 +13,19 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
+import willow.train.kuayue.block.panels.block_entity.EditablePanelEntity;
 import willow.train.kuayue.initial.AllTags;
+import willow.train.kuayue.initial.ImageInit;
 import willow.train.kuayue.initial.item.EditablePanelItem;
 import willow.train.kuayue.systems.editable_panel.interfaces.DefaultTextsLambda;
 import willow.train.kuayue.systems.editable_panel.interfaces.IEditScreenMethods;
 import willow.train.kuayue.systems.editable_panel.interfaces.SignRenderLambda;
+import willow.train.kuayue.utils.client.RenderablePicture;
 
 import javax.annotation.Nullable;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.function.Supplier;
 
 public class EditableTypeConstants {
@@ -33,6 +39,7 @@ public class EditableTypeConstants {
             BLUE3 = 468326,
             BLACK = 789516;
 
+//    TODO 各Renderer中的render方法lambda
     public static final SignRenderLambda CARRIAGE_TYPE_RENDER = (blockEntity, partialTick, poseStack, bufferSource, packedLight, packedOverlay) -> {
         System.out.println("车厢类型渲染方法");
     };
@@ -134,21 +141,11 @@ public class EditableTypeConstants {
         }
     };
 
-    public static final IEditScreenMethods CARRIAGE_TYPE_SIGN_METHODS = new IEditScreenMethods() {
-        @Override
-        public void init(EditablePanelEditScreen screen) {
-            System.out.println("车厢类型");
-        }
-
-        @Override
-        public void renderLabels(PoseStack pPoseStack, int pMouseX, int pMouseY) {
-
-        }
-    };
+//    TODO 各Screen类中方法实现类，CarriageTypeSign被挪到Screen类中。
 
     public static final IEditScreenMethods CARRIAGE_NO_SIGN_METHODS = new IEditScreenMethods() {
         @Override
-        public void init(EditablePanelEditScreen screen) {
+        public void init(EditablePanelEditScreen screen, EditablePanelEntity entity) {
             System.out.println("车厢编号");
         }
 
@@ -160,7 +157,7 @@ public class EditableTypeConstants {
 
     public static final IEditScreenMethods LAQUERED_BOARD_METHODS = new IEditScreenMethods() {
         @Override
-        public void init(EditablePanelEditScreen screen) {
+        public void init(EditablePanelEditScreen screen, EditablePanelEntity entity) {
             System.out.println("水牌");
         }
 
@@ -172,7 +169,7 @@ public class EditableTypeConstants {
 
     public static final IEditScreenMethods TRAIN_SPEED_SIGN_METHODS = new IEditScreenMethods() {
         @Override
-        public void init(EditablePanelEditScreen screen) {
+        public void init(EditablePanelEditScreen screen, EditablePanelEntity entity) {
             System.out.println("车厢类型");
         }
 

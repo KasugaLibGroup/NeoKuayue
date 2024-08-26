@@ -15,6 +15,9 @@ import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
+import willow.train.kuayue.Kuayue;
+import willow.train.kuayue.network.KuayueNetworkHandler;
+import willow.train.kuayue.network.c2s.signs.CarriageTypeSignUpdatePacket;
 import willow.train.kuayue.systems.editable_panel.EditablePanelEditMenu;
 import willow.train.kuayue.systems.editable_panel.interfaces.DefaultTextsLambda;
 import willow.train.kuayue.systems.editable_panel.EditableTypeConstants;
@@ -35,6 +38,7 @@ public class EditablePanelEntity extends SmartBlockEntity
     private Integer signColor = EditableTypeConstants.YELLOW;
     private EditablePanelEditMenu panelEditMenu;
     CompoundTag nbt;
+    private Component[] messages;
 
     public EditablePanelEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
@@ -111,6 +115,92 @@ public class EditablePanelEntity extends SmartBlockEntity
     @Override
     public Component getDisplayName() {
         return Component.translatable("kuayue:editable_panel");
+    }
+
+    public int getColor() {
+        return this.nbt.getInt("color");
+    }
+
+    public boolean setColor(int mark) {
+        if (mark != this.getColor()) {
+            this.nbt.putInt("color", mark);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+//    TODO 以下为原本在各自定义类型BlockEntity中的setter与getter，
+//         在各自的Screen类与UpdatePacket类中被调用。
+    public Component getTypeSignMessage(int pIndex, boolean pFiltered) {
+        return this.getTypeSignMessages(pFiltered)[pIndex];
+    }
+
+    private Component[] getTypeSignMessages(boolean pFiltered) {
+        // TODO 需赋值并返回车厢类型信息的数据结构
+
+        // this.messages = this.nbt.getCompound(...);
+        return this.messages;
+    }
+
+    public boolean setTypeSignMessages(String[] messages) {
+        if (messages.length != 5) {
+            return false;
+        }
+
+        this.messages[0] =
+                Component.literal(messages[0]);
+        this.messages[1] =
+                Component.literal(messages[1]);
+        this.messages[2] =
+                Component.literal(messages[2]);
+        this.messages[3] =
+                Component.literal(messages[3]);
+        this.messages[4] =
+                Component.literal(messages[4]);
+
+        return true;
+    }
+
+    public void setLaqueredMessages(String[] messages) {
+        int length =
+                (messages.length > this.messages.length) ? this.messages.length : messages.length;
+        for (int i = 0; i < length; i++) {
+            this.messages[i] = Component.literal(messages[i]);
+        }
+    }
+
+    public void setLaqueredColors(int... colors) {
+        if (colors.length != 3) {
+            // Kuayue.LOGGER.error("Incompatible color number!");
+            return;
+        }
+        this.nbt.putInt("backGroundColor", colors[0]);
+        this.nbt.putInt("forGroundColor", colors[1]);
+        this.nbt.putInt("beltForGroundColor", colors[2]);
+    }
+
+    public void setLaqueredXOffset(double offset) {
+        this.nbt.putDouble("x_offset", offset);
+    }
+
+    public void markUpdated(boolean isClientSide) {
+        this.setChanged();
+        if (isClientSide) {
+            KuayueNetworkHandler.sendToServer(
+                    new CarriageTypeSignUpdatePacket(
+                            this.getBlockPos(),
+                            this.messages[0].getString(),
+                            this.messages[1].getString(),
+                            this.messages[2].getString(),
+                            this.messages[3].getString(),
+                            this.messages[4].getString(),
+                            this.nbt.getInt("color")));
+        } else {
+            sendData();
+        }
+        this.level.sendBlockUpdated(
+                this.getBlockPos(), this.getBlockState(), this.getBlockState(), 3);
     }
 
     @Nullable

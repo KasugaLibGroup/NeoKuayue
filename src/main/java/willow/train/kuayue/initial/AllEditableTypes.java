@@ -28,7 +28,7 @@ public class AllEditableTypes {
                     TrainPanelProperties.EditType.TYPE,
                     () -> () -> EditableTypeConstants.CARRIAGE_TYPE_RENDER,
                     () -> EditableTypeConstants.CARRIAGE_TYPE_SIGN_MESSAGES,
-                    () -> EditableTypeConstants.CARRIAGE_TYPE_SIGN_METHODS);
+                    () -> EditablePanelEditScreen.CARRIAGE_TYPE_SIGN_METHODS);
 
     public static final SignType CARRIAGE_NO_SIGN = EditableTypeConstants
             .signLambdaRegister("carriage_no_sign",
