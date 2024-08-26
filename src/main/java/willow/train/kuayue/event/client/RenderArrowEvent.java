@@ -1,7 +1,10 @@
 package willow.train.kuayue.event.client;
 
+import com.mojang.math.Vector3f;
 import kasuga.lib.core.client.render.model.SimpleModel;
-import kasuga.lib.core.client.render.texture.SimpleTexture;
+import kasuga.lib.core.client.render.texture.ImageMask;
+import kasuga.lib.core.client.render.texture.Vec2f;
+import kasuga.lib.core.util.LazyRecomputable;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.LightTexture;
@@ -33,10 +36,53 @@ import willow.train.kuayue.item.PanelBlockItem;
 import willow.train.kuayue.item.SkirtBlockItem;
 import willow.train.kuayue.item.SlabBlockItem;
 
+import java.io.IOException;
 import java.util.Objects;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderArrowEvent {
+
+    public static final LazyRecomputable<ImageMask>
+            arrow_left, arrow_up, arrow_right, arrow_down;
+
+    static {
+            arrow_left = LazyRecomputable.of(
+                    () -> {
+                        try {
+                            return ClientInit.arrow.getImage().get().getMask().rectangleUV(0, 0, .5f, .5f);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+            );
+            arrow_right = LazyRecomputable.of(
+                    () -> {
+                        try {
+                            return ClientInit.arrow.getImage().get().getMask().rectangleUV(.5f, 0, 1, .5f);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+            );
+            arrow_up = LazyRecomputable.of(
+                    () -> {
+                        try {
+                            return ClientInit.arrow.getImage().get().getMask().rectangleUV(.5f, .5f, 1, 1);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+            );
+            arrow_down = LazyRecomputable.of(
+                    () -> {
+                        try {
+                            return ClientInit.arrow.getImage().get().getMask().rectangleUV(0, .5f, .5f, 1);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+            );
+    }
 
     @SubscribeEvent
     public static void renderBlockBounds(RenderGuiEvent event) {
@@ -93,13 +139,15 @@ public class RenderArrowEvent {
     public static void showArrow(RenderGuiEvent event, PanelBlockItem.Face face) {
         int width = event.getWindow().getGuiScaledWidth();
         int height = event.getWindow().getGuiScaledHeight();
-        SimpleTexture texture = switch (face) {
-            case UP -> ClientInit.arrow_up;
-            case LEFT -> ClientInit.arrow_left;
-            case RIGHT -> ClientInit.arrow_right;
-            case DOWN -> ClientInit.arrow_down;
+        ImageMask texture = switch (face) {
+            case UP -> arrow_up.get();
+            case LEFT -> arrow_left.get();
+            case RIGHT -> arrow_right.get();
+            case DOWN -> arrow_down.get();
         };
-        texture.renderCentered(width / 2, height / 2, 24, 24);
+        texture.rectangle(new Vector3f((float) width / 2f - 12f, (float) height / 2f - 12f, 0),
+                ImageMask.Axis.X, ImageMask.Axis.Y, true, true, 24, 24);
+        texture.renderToGui();
     }
 
 
