@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"1": "kuayue:block/carriage_end_face/end_face_door_25g",
-		"particle": "kuayue:block/carriage_end_face/end_face_door_25g"
+		"1": "kuayue:block/carriage_end_face/end_face_door_25t_single_leaf",
+		"particle": "kuayue:block/carriage_end_face/end_face_door_25t_single_leaf"
 	},
 	"elements": [
 		{
