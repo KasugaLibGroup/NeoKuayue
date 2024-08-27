@@ -1,6 +1,6 @@
 # Made in Blockbench 4.10.4
-newmtl m_cdbaf0c0-a95b-c89d-ca57-9d96b0b1f197
-map_Kd kuayue:block/carriage_end_face/end_face_25b
-newmtl m_dc681bfc-da23-de4e-dfa5-1dc6587e85c0
-map_Kd kuayue:block/carriage_end_face/end_face_25b_original_upper
+newmtl m_27df2edd-cec4-1abf-5901-3ac7968b5dab
+map_Kd kuayue:block/carriage_end_face/end_face_25b_original_rubber_ac_sup
+newmtl m_9a703a0b-c8dd-dd41-9daa-217d1fb6e95e
+map_Kd kuayue:block/carriage_end_face/end_face_25b_original_rubber_non_ac
 newmtl none
