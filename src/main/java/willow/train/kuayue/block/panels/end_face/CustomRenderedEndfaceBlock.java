@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec2;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
@@ -48,7 +49,7 @@ public class CustomRenderedEndfaceBlock extends TrainEndfaceBlock implements IBE
     }
 
     @Override
-    public @Nullable BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
+    public @Nullable BlockEntity newBlockEntity(@NotNull BlockPos pPos, BlockState pState) {
         return getBlockEntityType().create(pPos, pState);
     }
 

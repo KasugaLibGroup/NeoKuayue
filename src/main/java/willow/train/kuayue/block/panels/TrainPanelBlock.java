@@ -15,6 +15,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -25,6 +26,7 @@ import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.NetworkHooks;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import willow.train.kuayue.block.panels.base.CompanyTrainPanel;
 import willow.train.kuayue.systems.editable_panel.EditableTypeConstants;
@@ -79,10 +81,9 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
 
     @Nullable
     @Override
-    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
+    public BlockEntity newBlockEntity(@NotNull BlockPos pPos, BlockState pState) {
         if (pState.getValue(EDIT_TYPE) != TrainPanelProperties.EditType.NONE) {
-            editablePanelEntity = new EditablePanelEntity(pPos, pState);
-            return editablePanelEntity;
+            return new EditablePanelEntity(pPos, pState);
         }
         return null;
     }
@@ -94,11 +95,15 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
         if (pPlayer.getItemInHand(pHand).is(EditablePanelItem.COLORED_BRUSH.getItem())) {
 
             if (pState.is(Objects.requireNonNull(AllTags.BOTTOM_PANEL.tag())))
-                pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.TYPE);
+                pState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.TYPE);
 
             if (pState.is(Objects.requireNonNull(AllTags.FLOOR.tag())))
-                pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.SPEED);
+                pState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.SPEED);
 
+            BlockEntity blockEntity = newBlockEntity(pPos, pState);
+            if (blockEntity == null) return InteractionResult.PASS;
+            pLevel.setBlockEntity(blockEntity);
+            pLevel.setBlock(pPos, pState, 8);
             if (!pLevel.isClientSide) {
                 NetworkHooks.openScreen(
                         (ServerPlayer) pPlayer,
@@ -110,7 +115,7 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
         }
         // 手持水牌
         if (pPlayer.getItemInHand(pHand).is(EditablePanelItem.LAQUERED_BOARD.getItem()) && pState.is(Objects.requireNonNull(AllTags.BOTTOM_PANEL.tag()))) {
-            pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.LAQUERED);
+            pState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.LAQUERED);
 
             return InteractionResult.PASS;
         }

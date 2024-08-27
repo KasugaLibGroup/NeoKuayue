@@ -14,7 +14,6 @@ import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
 import willow.train.kuayue.block.panels.block_entity.EditablePanelEntity;
 import willow.train.kuayue.initial.ImageInit;
-import willow.train.kuayue.systems.editable_panel.interfaces.IEditScreenMethods;
 import willow.train.kuayue.systems.editable_panel.widget.ImageButton;
 import willow.train.kuayue.utils.client.RenderablePicture;
 
@@ -24,6 +23,7 @@ import java.util.Random;
 
 import static willow.train.kuayue.systems.editable_panel.EditableTypeConstants.*;
 
+/*
 public class EditablePanelEditScreen extends AbstractContainerScreen<EditablePanelEditMenu> {
 
     private EditablePanelEntity entity;
@@ -412,9 +412,12 @@ public class EditablePanelEditScreen extends AbstractContainerScreen<EditablePan
                                 });
             }
 
+
+ */
         /*
            这个位置是定义按钮逻辑的
         */
+/*
             for (int i = 0; i < 3; i++) {
                 buttons[i] =
                         screen.addRenderableWidget(
@@ -647,3 +650,6 @@ public class EditablePanelEditScreen extends AbstractContainerScreen<EditablePan
         }
     };
 }
+
+ */
+

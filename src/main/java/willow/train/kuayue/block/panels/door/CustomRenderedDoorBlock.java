@@ -20,6 +20,7 @@ import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import willow.train.kuayue.block.panels.TrainPanelBlock;
 import willow.train.kuayue.block.panels.base.TrainPanelShapes;
@@ -71,7 +72,7 @@ public class CustomRenderedDoorBlock extends TrainDoorBlock implements IBE<Custo
     }
 
     @Override
-    public @Nullable BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
+    public @Nullable BlockEntity newBlockEntity(@NotNull BlockPos pPos, BlockState pState) {
         return getBlockEntityType().create(pPos, pState);
     }
 

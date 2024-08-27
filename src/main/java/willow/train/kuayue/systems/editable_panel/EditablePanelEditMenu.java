@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.extensions.IForgeMenuType;
 import org.jetbrains.annotations.Nullable;
 import willow.train.kuayue.block.panels.block_entity.EditablePanelEntity;
+import willow.train.kuayue.initial.AllMenuScreens;
 
 public class EditablePanelEditMenu extends AbstractContainerMenu {
 
@@ -35,7 +36,7 @@ public class EditablePanelEditMenu extends AbstractContainerMenu {
     }
 
     public EditablePanelEditMenu(int containerId, Inventory inv, BlockEntity entity, ContainerData data) {
-        super(IForgeMenuType.create(EditablePanelEditMenu::new), containerId);
+        super(AllMenuScreens.EDITABLE_PANEL.getMenuType(), containerId);
         this.editablePanelEntity = (EditablePanelEntity) entity;
     }
 
@@ -50,11 +51,11 @@ public class EditablePanelEditMenu extends AbstractContainerMenu {
 
     @Override
     public ItemStack quickMoveStack(Player pPlayer, int pIndex) {
-        return null;
+        return ItemStack.EMPTY;
     }
 
     @Override
     public boolean stillValid(Player pPlayer) {
-        return false;
+        return true;
     }
 }

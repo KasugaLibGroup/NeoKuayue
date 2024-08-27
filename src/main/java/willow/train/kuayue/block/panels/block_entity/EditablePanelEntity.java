@@ -3,6 +3,7 @@ package willow.train.kuayue.block.panels.block_entity;
 import com.simibubi.create.content.equipment.clipboard.ClipboardCloneable;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
+import net.minecraft.client.gui.Font;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -25,7 +26,6 @@ import willow.train.kuayue.block.panels.base.TrainPanelProperties;
 import willow.train.kuayue.initial.AllBlocks;
 import willow.train.kuayue.systems.editable_panel.PanelColorType;
 import willow.train.kuayue.systems.editable_panel.SignType;
-import willow.train.kuayue.systems.editable_panel.interfaces.IEditScreenMethods;
 
 import java.util.List;
 
@@ -37,8 +37,7 @@ public class EditablePanelEntity extends SmartBlockEntity
     private TrainPanelProperties.EditType editType = TrainPanelProperties.EditType.NONE;
     private Integer signColor = EditableTypeConstants.YELLOW;
     private EditablePanelEditMenu panelEditMenu;
-    CompoundTag nbt;
-    private Component[] messages;
+    private CompoundTag nbt;
 
     public EditablePanelEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
@@ -130,77 +129,12 @@ public class EditablePanelEntity extends SmartBlockEntity
         }
     }
 
-//    TODO 以下为原本在各自定义类型BlockEntity中的setter与getter，
-//         在各自的Screen类与UpdatePacket类中被调用。
-    public Component getTypeSignMessage(int pIndex, boolean pFiltered) {
-        return this.getTypeSignMessages(pFiltered)[pIndex];
-    }
-
-    private Component[] getTypeSignMessages(boolean pFiltered) {
-        // TODO 需赋值并返回车厢类型信息的数据结构
-
-        // this.messages = this.nbt.getCompound(...);
-        return this.messages;
-    }
-
-    public boolean setTypeSignMessages(String[] messages) {
-        if (messages.length != 5) {
-            return false;
-        }
-
-        this.messages[0] =
-                Component.literal(messages[0]);
-        this.messages[1] =
-                Component.literal(messages[1]);
-        this.messages[2] =
-                Component.literal(messages[2]);
-        this.messages[3] =
-                Component.literal(messages[3]);
-        this.messages[4] =
-                Component.literal(messages[4]);
-
-        return true;
-    }
-
-    public void setLaqueredMessages(String[] messages) {
-        int length =
-                (messages.length > this.messages.length) ? this.messages.length : messages.length;
-        for (int i = 0; i < length; i++) {
-            this.messages[i] = Component.literal(messages[i]);
-        }
-    }
-
-    public void setLaqueredColors(int... colors) {
-        if (colors.length != 3) {
-            // Kuayue.LOGGER.error("Incompatible color number!");
-            return;
-        }
-        this.nbt.putInt("backGroundColor", colors[0]);
-        this.nbt.putInt("forGroundColor", colors[1]);
-        this.nbt.putInt("beltForGroundColor", colors[2]);
-    }
-
-    public void setLaqueredXOffset(double offset) {
-        this.nbt.putDouble("x_offset", offset);
+    public CompoundTag getNbt() {
+        return nbt;
     }
 
     public void markUpdated(boolean isClientSide) {
         this.setChanged();
-        if (isClientSide) {
-            KuayueNetworkHandler.sendToServer(
-                    new CarriageTypeSignUpdatePacket(
-                            this.getBlockPos(),
-                            this.messages[0].getString(),
-                            this.messages[1].getString(),
-                            this.messages[2].getString(),
-                            this.messages[3].getString(),
-                            this.messages[4].getString(),
-                            this.nbt.getInt("color")));
-        } else {
-            sendData();
-        }
-        this.level.sendBlockUpdated(
-                this.getBlockPos(), this.getBlockState(), this.getBlockState(), 3);
     }
 
     @Nullable

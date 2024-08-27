@@ -28,6 +28,7 @@ public class AllElements {
         AllPackets.invoke();
         AllMaterials.invoke();
         AllEditableTypes.invoke();
+        AllMenuScreens.invoke();
         if (Envs.isClient()) {
             ClientInit.invoke();
             MinecraftForge.EVENT_BUS.addListener(RenderArrowEvent::renderBlockBounds);

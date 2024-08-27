@@ -66,9 +66,9 @@ public class LaqueredBoardPacket implements KuayuePacket {
                         if (editablePanelEntity.getEditType() == TrainPanelProperties.EditType.LAQUERED) {
 //                           TODO BlockEntity中实现如下方法
 
-                            editablePanelEntity.setLaqueredMessages(this.contents);
-                            editablePanelEntity.setLaqueredColors(this.colors);
-                            editablePanelEntity.setLaqueredXOffset(this.x_offset);
+                            // editablePanelEntity.setLaqueredMessages(this.contents);
+                            // editablePanelEntity.setLaqueredColors(this.colors);
+                            // editablePanelEntity.setLaqueredXOffset(this.x_offset);
                             editablePanelEntity.setChanged();
                             editablePanelEntity.sendData();
                         }

@@ -197,7 +197,7 @@ dependencies {
     testAnnotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
 
     // implementation files('libs/Mixed-Arithmetic-Logic-Interpreter-1.0.0.jar')
-    implementation fg.deobf("libs:kasuga_lib:0.17-5")
+    implementation fg.deobf("libs:kasuga_lib:0.17-7")
     // testImplementation "edu.carole:Mixed-Arithmetic-Logic-Interpreter:1.0.0"
     // clientAnnotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
     // apiAnnotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"

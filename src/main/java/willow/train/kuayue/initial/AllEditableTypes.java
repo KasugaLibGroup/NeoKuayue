@@ -5,6 +5,7 @@ import net.minecraftforge.common.extensions.IForgeMenuType;
 import willow.train.kuayue.systems.editable_panel.*;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
 import willow.train.kuayue.initial.item.EditablePanelItem;
+import willow.train.kuayue.systems.editable_panel.screens.TypeScreen;
 
 public class AllEditableTypes {
 
@@ -28,8 +29,9 @@ public class AllEditableTypes {
                     TrainPanelProperties.EditType.TYPE,
                     () -> () -> EditableTypeConstants.CARRIAGE_TYPE_RENDER,
                     () -> EditableTypeConstants.CARRIAGE_TYPE_SIGN_MESSAGES,
-                    () -> EditablePanelEditScreen.CARRIAGE_TYPE_SIGN_METHODS);
+                    TypeScreen::new);
 
+    /*
     public static final SignType CARRIAGE_NO_SIGN = EditableTypeConstants
             .signLambdaRegister("carriage_no_sign",
                     TrainPanelProperties.EditType.NUM,
@@ -51,6 +53,8 @@ public class AllEditableTypes {
                     () -> EditableTypeConstants.TRAIN_SPEED_SIGN_MESSAGES,
                     () -> EditableTypeConstants.TRAIN_SPEED_SIGN_METHODS);
 
+
+     */
     public static void invoke() {
         EditablePanelItem.invoke();
     }
