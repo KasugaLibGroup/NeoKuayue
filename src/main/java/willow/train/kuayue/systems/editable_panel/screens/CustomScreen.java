@@ -6,6 +6,7 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.components.AbstractButton;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Widget;
+import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -22,6 +23,9 @@ public abstract class CustomScreen<T extends AbstractContainerMenu, K extends Bl
     private boolean dirty = false;
     private final ArrayList<Label> labels;
     private final ArrayList<Widget> widgets;
+    private boolean blockE = false;
+    private boolean blockEsc = false;
+
     public CustomScreen(AbstractContainerScreen<T> screen) {
         this.nbt = new CompoundTag();
         this.screen = screen;
@@ -100,14 +104,63 @@ public abstract class CustomScreen<T extends AbstractContainerMenu, K extends Bl
 
     public void onMouseClicked(double mouseX, double mouseY, int btn) {
         for(Widget w : widgets) {
-            if (w instanceof AbstractButton button) button.mouseClicked(mouseX, mouseY, btn);
+            if (w instanceof GuiEventListener) ((GuiEventListener) w).mouseClicked(mouseX, mouseY, btn);
         }
+    }
+
+    public void mouseReleased(double mouseX, double mouseY, int btn) {
+        for (Widget w : widgets)
+            if (w instanceof GuiEventListener listener) listener.mouseReleased(mouseX, mouseY, btn);
+    }
+
+    public void mouseDragged(double mouseX, double mouseY, int btn, double dragX, double dragY) {
+        for (Widget w : widgets)
+            if (w instanceof GuiEventListener listener) listener.mouseDragged(mouseX, mouseY, btn, dragX, dragY);
+    }
+
+    public void mouseScrolled(double mouseX, double mouseY, double delta) {
+        for (Widget w : widgets)
+            if (w instanceof GuiEventListener listener) listener.mouseScrolled(mouseX, mouseY, delta);
     }
 
     public void charTyped(char code, int modifier) {
         for (Widget w : widgets) {
-            if (w instanceof EditBox box) box.charTyped(code, modifier);
+            if (w instanceof GuiEventListener box) box.charTyped(code, modifier);
         }
+    }
+
+    public void keyPressed(int keyCode, int scanCode, int modifiers) {
+        for (Widget w : widgets) {
+            if (w instanceof GuiEventListener box) box.keyPressed(keyCode, scanCode, modifiers);
+        }
+    }
+
+    public void keyReleased(int pKeyCode, int pScanCode, int pModifiers) {
+        for (Widget w : widgets) {
+            if (w instanceof GuiEventListener box) box.keyReleased(pKeyCode, pScanCode, pModifiers);
+        }
+    }
+
+    public void changeFocus(boolean focus) {
+        for (Widget w : widgets) {
+            if (w instanceof GuiEventListener box) box.changeFocus(focus);
+        }
+    }
+
+    public boolean isKeyEBlocked() {
+        return blockE;
+    }
+
+    public boolean isKeyEscBlocked() {
+        return blockEsc;
+    }
+
+    public void setBlockKeyE(boolean block) {
+        blockE = block;
+    }
+
+    public void setBlockKeyEsc(boolean block) {
+        blockEsc = block;
     }
 
     public void onClosed() {}

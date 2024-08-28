@@ -1,5 +1,6 @@
 package willow.train.kuayue.systems.editable_panel;
 
+import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.MenuAccess;
@@ -48,8 +49,47 @@ public class EPScreen extends AbstractContainerScreen<EditablePanelEditMenu> {
     }
 
     @Override
+    public boolean mouseReleased(double pMouseX, double pMouseY, int pButton) {
+        this.subScreen.mouseReleased(pMouseX, pMouseY, pButton);
+        return true;
+    }
+
+    @Override
+    public boolean mouseDragged(double pMouseX, double pMouseY, int pButton, double pDragX, double pDragY) {
+        this.subScreen.mouseDragged(pMouseX, pMouseY, pButton, pDragX, pDragY);
+        return true;
+    }
+
+    @Override
+    public boolean mouseScrolled(double pMouseX, double pMouseY, double pDelta) {
+        this.subScreen.mouseScrolled(pMouseX, pMouseY, pDelta);
+        return true;
+    }
+
+    @Override
     public boolean charTyped(char pCodePoint, int pModifiers) {
         this.subScreen.charTyped(pCodePoint, pModifiers);
+        return true;
+    }
+
+    @Override
+    public boolean keyPressed(int pKeyCode, int pScanCode, int pModifiers) {
+        InputConstants.Key mouseKey = InputConstants.getKey(pKeyCode, pScanCode);
+        if (!subScreen.isKeyEscBlocked() && mouseKey.getValue() == InputConstants.KEY_ESCAPE)
+            onClose();
+        this.subScreen.keyPressed(pKeyCode, pScanCode, pModifiers);
+        return true;
+    }
+
+    @Override
+    public boolean keyReleased(int pKeyCode, int pScanCode, int pModifiers) {
+        this.subScreen.keyReleased(pKeyCode, pScanCode, pModifiers);
+        return true;
+    }
+
+    @Override
+    public boolean changeFocus(boolean pFocus) {
+        this.subScreen.changeFocus(pFocus);
         return true;
     }
 

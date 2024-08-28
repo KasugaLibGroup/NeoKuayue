@@ -7,7 +7,8 @@
     "MixinAbstractContraptionEntity"
   ],
   "client": [
-    "client.MixinCarriageContraptionEntityRenderer"
+    "client.MixinCarriageContraptionEntityRenderer",
+    "client.AccessorEditBox"
   ],
   "minVersion": "0.8"
 }
