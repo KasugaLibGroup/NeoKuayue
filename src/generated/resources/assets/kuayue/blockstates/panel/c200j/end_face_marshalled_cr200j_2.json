@@ -1,66 +1,34 @@
 {
  "variants": {
-  "facing=east,open=false,half=bottom": {
+  "facing=east,open=false": {
    "model": "kuayue:block/carriage/carriage_marshalled_cr200j/end_face/end_face_frame",
    "y": 270
   },
-  "facing=north,open=false,half=bottom": {
+  "facing=north,open=false": {
    "model": "kuayue:block/carriage/carriage_marshalled_cr200j/end_face/end_face_frame",
    "y": 180
   },
-  "facing=south,open=false,half=bottom": {
+  "facing=south,open=false": {
    "model": "kuayue:block/carriage/carriage_marshalled_cr200j/end_face/end_face_frame",
    "y": 0
   },
-  "facing=west,open=false,half=bottom": {
+  "facing=west,open=false": {
    "model": "kuayue:block/carriage/carriage_marshalled_cr200j/end_face/end_face_frame",
    "y": 90
   },
-  "facing=east,open=true,half=bottom": {
+  "facing=east,open=true": {
    "model": "kuayue:block/carriage/carriage_marshalled_cr200j/end_face/end_face_frame",
    "y": 270
   },
-  "facing=north,open=true,half=bottom": {
+  "facing=north,open=true": {
    "model": "kuayue:block/carriage/carriage_marshalled_cr200j/end_face/end_face_frame",
    "y": 180
   },
-  "facing=south,open=true,half=bottom": {
+  "facing=south,open=true": {
    "model": "kuayue:block/carriage/carriage_marshalled_cr200j/end_face/end_face_frame",
    "y": 0
   },
-  "facing=west,open=true,half=bottom": {
-   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/end_face/end_face_frame",
-   "y": 90
-  },
-  "facing=east,open=false,half=top": {
-   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/end_face/end_face_frame",
-   "y": 270
-  },
-  "facing=north,open=false,half=top": {
-   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/end_face/end_face_frame",
-   "y": 180
-  },
-  "facing=south,open=false,half=top": {
-   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/end_face/end_face_frame",
-   "y": 0
-  },
-  "facing=west,open=false,half=top": {
-   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/end_face/end_face_frame",
-   "y": 90
-  },
-  "facing=east,open=true,half=top": {
-   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/end_face/end_face_frame",
-   "y": 270
-  },
-  "facing=north,open=true,half=top": {
-   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/end_face/end_face_frame",
-   "y": 180
-  },
-  "facing=south,open=true,half=top": {
-   "model": "kuayue:block/carriage/carriage_marshalled_cr200j/end_face/end_face_frame",
-   "y": 0
-  },
-  "facing=west,open=true,half=top": {
+  "facing=west,open=true": {
    "model": "kuayue:block/carriage/carriage_marshalled_cr200j/end_face/end_face_frame",
    "y": 90
   }

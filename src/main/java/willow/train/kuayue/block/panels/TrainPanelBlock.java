@@ -29,14 +29,12 @@ import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import willow.train.kuayue.block.panels.base.CompanyTrainPanel;
-import willow.train.kuayue.systems.editable_panel.EditableTypeConstants;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
 import willow.train.kuayue.block.panels.base.TrainPanelShapes;
 import willow.train.kuayue.block.panels.block_entity.EditablePanelEntity;
 import willow.train.kuayue.initial.AllBlocks;
 import willow.train.kuayue.initial.AllTags;
 import willow.train.kuayue.initial.item.EditablePanelItem;
-import willow.train.kuayue.systems.editable_panel.PanelColorType;
 import willow.train.kuayue.utils.DirectionUtil;
 
 import java.util.Objects;
@@ -46,7 +44,6 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
     public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final UnModeledBlockProperty<TrainPanelProperties.EditType, EnumProperty<TrainPanelProperties.EditType>> EDIT_TYPE =
             UnModeledBlockProperty.create(EnumProperty.create("edit_type", TrainPanelProperties.EditType.class));
-    EditablePanelEntity editablePanelEntity;
 
     public TrainPanelBlock(Properties pProperties, Vec2 beginPos, Vec2 endPos) {
         super(pProperties);
