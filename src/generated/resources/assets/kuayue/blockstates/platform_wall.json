@@ -15,6 +15,12 @@
     "facing=west": {
       "model": "kuayue:block/platform_wall",
       "y": 90
+    },
+    "facing=down": {
+      "model": "kuayue:block/platform_wall"
+    },
+    "facing=up": {
+      "model": "kuayue:block/platform_wall"
     }
   }
 }

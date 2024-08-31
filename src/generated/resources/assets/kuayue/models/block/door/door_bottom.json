@@ -2,6 +2,9 @@
 	"credit": "Made by WillowKoishi",
 	"ambientocclusion": false,
 	"render_type": "translucent",
+	"textures": {
+		"1": "kuayue:block/original_25b_door_bottom"
+	},
 	"elements": [
 		{
 			"from": [0, 0, 0],

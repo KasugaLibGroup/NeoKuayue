@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "facing=east,open=false": {
+      "model": "kuayue:block/door/door_bottom"
+    },
+    "facing=east,open=true": {
+      "model": "kuayue:block/door/door_bottom"
+    },
+    "facing=north,open=false": {
+      "model": "kuayue:block/door/door_bottom"
+    },
+    "facing=north,open=true": {
+      "model": "kuayue:block/door/door_bottom"
+    },
+    "facing=south,open=false": {
+      "model": "kuayue:block/door/door_bottom"
+    },
+    "facing=south,open=true": {
+      "model": "kuayue:block/door/door_bottom"
+    },
+    "facing=west,open=false": {
+      "model": "kuayue:block/door/door_bottom"
+    },
+    "facing=west,open=true": {
+      "model": "kuayue:block/door/door_bottom"
+    }
+  }
+}
