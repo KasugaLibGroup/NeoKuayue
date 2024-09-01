@@ -4,6 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.components.AbstractButton;
+import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Widget;
 import net.minecraft.client.gui.components.events.GuiEventListener;
@@ -15,7 +16,7 @@ import willow.train.kuayue.systems.editable_panel.widget.Label;
 
 import java.util.ArrayList;
 
-public abstract class CustomScreen<T extends AbstractContainerMenu, K extends BlockEntity> {
+public abstract class CustomScreen<T extends AbstractContainerMenu, K extends BlockEntity> implements Widget {
     private K blockEntity = null;
     private final AbstractContainerScreen<T> screen;
     private final CompoundTag nbt;
@@ -111,6 +112,12 @@ public abstract class CustomScreen<T extends AbstractContainerMenu, K extends Bl
     public void mouseReleased(double mouseX, double mouseY, int btn) {
         for (Widget w : widgets)
             if (w instanceof GuiEventListener listener) listener.mouseReleased(mouseX, mouseY, btn);
+    }
+
+    public void mouseMoved(double mouseX, double mouseY) {
+        for (Widget w : widgets) {
+            if (w instanceof AbstractWidget widget) widget.mouseMoved(mouseX, mouseY);
+        }
     }
 
     public void mouseDragged(double mouseX, double mouseY, int btn, double dragX, double dragY) {
