@@ -9,14 +9,26 @@ import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.event.client.RenderArrowEvent;
 import willow.train.kuayue.initial.create.*;
 import willow.train.kuayue.initial.material.AllMaterials;
+import willow.train.kuayue.initial.panel.C25BPanel;
+import willow.train.kuayue.initial.panel.CR200JPanel;
+import willow.train.kuayue.initial.panel.I11GPanel;
 
 public class AllElements {
 
     public static final CreateRegistry testRegistry = new CreateRegistry(Kuayue.MODID, Kuayue.BUS);
 
     public static final CreativeTabReg neoKuayueMainTab = new CreativeTabReg("main")
-            .icon(() -> AllBlocks.TRACK.asStack(1))
+            .icon(() -> AllTracks.standardTrack.getTrackItem().getDefaultInstance())
             .submit(testRegistry);
+
+    public static final CreativeTabReg neoKuayueLocoTab = new CreativeTabReg("loco")
+            .icon(() -> I11GPanel.HEAD_DF11G_2.itemInstance().getDefaultInstance())
+            .submit(testRegistry);
+
+    public static final CreativeTabReg neoKuayueCarriageTab = new CreativeTabReg("carriage")
+            .icon(() -> CR200JPanel.END_FACE_MARSHALLED_CR200J.item.getItem().getDefaultInstance())
+            .submit(testRegistry);
+
     public static void invoke() {
         AllTags.invoke();
         willow.train.kuayue.initial.AllBlocks.invoke();

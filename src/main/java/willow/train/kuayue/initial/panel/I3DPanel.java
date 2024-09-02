@@ -32,35 +32,35 @@ public class I3DPanel {
                     ))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
                     .noOcclusion()
-                    .tab(AllElements.neoKuayueMainTab)
+                    .tab(AllElements.neoKuayueLocoTab )
                     .submit(AllElements.testRegistry);
 
     public static final SlabRegistration<TrainSlabBlock> CARPORT_GENERAL_HXD3D =
             new SlabRegistration<TrainSlabBlock>("carport_general_hxd3d")
                     .block(p -> new TrainSlabBlock(p, true))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_RED)
-                    .tab(AllElements.neoKuayueMainTab)
+                    .tab(AllElements.neoKuayueLocoTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
     public static final SlabRegistration<HeightSlabBlock> FLOOR_HXD3D =
             new SlabRegistration<HeightSlabBlock>("floor_hxd3d")
                     .block(p -> new HeightSlabBlock(p, false))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_RED)
-                    .tab(AllElements.neoKuayueMainTab)
+                    .tab(AllElements.neoKuayueLocoTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainPanelBlock> PANEL_HEXIE_HXD3D =
             new PanelRegistration<TrainPanelBlock>("panel_hexie_hxd3d")
                     .block(p -> new TrainPanelBlock(p, new Vec2(-1, 0), new Vec2(2, 2)))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_RED)
-                    .tab(AllElements.neoKuayueMainTab)
+                    .tab(AllElements.neoKuayueLocoTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainPanelBlock> PANEL_RED_HXD3D =
             new PanelRegistration<TrainPanelBlock>("panel_red_hxd3d")
                     .block(p -> new TrainPanelBlock(p, new Vec2(0, 0), new Vec2(1, 1)))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_RED)
-                    .tab(AllElements.neoKuayueMainTab)
+                    .tab(AllElements.neoKuayueLocoTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
 
@@ -70,7 +70,7 @@ public class I3DPanel {
                     .material(Material.METAL).materialColor(MaterialColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
                     .defaultBlockItem()
-                    .tabTo(AllElements.neoKuayueMainTab)
+                    .tabTo(AllElements.neoKuayueLocoTab )
                     .submit(AllElements.testRegistry);
 
 
