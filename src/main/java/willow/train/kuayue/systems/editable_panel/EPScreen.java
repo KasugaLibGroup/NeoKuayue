@@ -29,6 +29,7 @@ public class EPScreen extends AbstractContainerScreen<EditablePanelEditMenu> {
 
     @Override
     public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
+        renderBg(pPoseStack, pPartialTick, pMouseX, pMouseY);
         subScreen.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
     }
 
@@ -58,6 +59,11 @@ public class EPScreen extends AbstractContainerScreen<EditablePanelEditMenu> {
     public boolean mouseDragged(double pMouseX, double pMouseY, int pButton, double pDragX, double pDragY) {
         this.subScreen.mouseDragged(pMouseX, pMouseY, pButton, pDragX, pDragY);
         return true;
+    }
+
+    @Override
+    public void mouseMoved(double pMouseX, double pMouseY) {
+        this.subScreen.mouseMoved(pMouseX, pMouseY);
     }
 
     @Override
