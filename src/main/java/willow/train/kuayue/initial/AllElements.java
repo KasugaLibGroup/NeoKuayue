@@ -1,6 +1,5 @@
 package willow.train.kuayue.initial;
 
-import com.simibubi.create.AllBlocks;
 import kasuga.lib.core.util.Envs;
 import kasuga.lib.registrations.common.CreativeTabReg;
 import kasuga.lib.registrations.registry.CreateRegistry;
@@ -9,7 +8,6 @@ import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.event.client.RenderArrowEvent;
 import willow.train.kuayue.initial.create.*;
 import willow.train.kuayue.initial.material.AllMaterials;
-import willow.train.kuayue.initial.panel.C25BPanel;
 import willow.train.kuayue.initial.panel.CR200JPanel;
 import willow.train.kuayue.initial.panel.I11GPanel;
 
@@ -45,6 +43,7 @@ public class AllElements {
             ClientInit.invoke();
             MinecraftForge.EVENT_BUS.addListener(RenderArrowEvent::renderBlockBounds);
             // MinecraftForge.EVENT_BUS.addListener(RenderPrePosedBlockEvent::renderBlock);
+            // TODO 先注释上 不然打开列车物品栏会闪退 MinecraftForge.EVENT_BUS.register(new CarriageInventoryEvents());
         }
         testRegistry.submit();
     }

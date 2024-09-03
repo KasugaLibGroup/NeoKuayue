@@ -1,7 +1,6 @@
 package willow.train.kuayue.initial.registration;
 
 import kasuga.lib.registrations.BlockEntityRendererBuilder;
-import kasuga.lib.registrations.common.BlockEntityReg;
 import kasuga.lib.registrations.common.BlockReg;
 import kasuga.lib.registrations.common.CreativeTabReg;
 import kasuga.lib.registrations.common.ItemReg;
@@ -24,6 +23,7 @@ public class PanelRegistration<T extends TrainPanelBlock> {
     public PanelRegistration(String registrationKey) {
         block = new BlockReg<T>(registrationKey);
         item = new ItemReg<PanelBlockItem>(registrationKey);
+        // TODO PanelBlockItem cannot be cast to class ItemStack
         item.itemType(properties -> new PanelBlockItem(block.getBlock(), properties));
     }
 
