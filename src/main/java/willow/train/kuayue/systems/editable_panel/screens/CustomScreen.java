@@ -3,9 +3,7 @@ package willow.train.kuayue.systems.editable_panel.screens;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
-import net.minecraft.client.gui.components.AbstractButton;
 import net.minecraft.client.gui.components.AbstractWidget;
-import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Widget;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -103,7 +101,7 @@ public abstract class CustomScreen<T extends AbstractContainerMenu, K extends Bl
         this.widgets.clear();
     }
 
-    public void onMouseClicked(double mouseX, double mouseY, int btn) {
+    public void mouseClicked(double mouseX, double mouseY, int btn) {
         for(Widget w : widgets) {
             if (w instanceof GuiEventListener) ((GuiEventListener) w).mouseClicked(mouseX, mouseY, btn);
         }

@@ -1,5 +1,7 @@
 package willow.train.kuayue.event.client;
 
+import kasuga.lib.core.client.render.texture.ImageMask;
+import kasuga.lib.core.util.LazyRecomputable;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
@@ -12,6 +14,7 @@ import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.initial.AllElements;
+import willow.train.kuayue.initial.ClientInit;
 import willow.train.kuayue.initial.ImageInit;
 import willow.train.kuayue.initial.create.AllTracks;
 import willow.train.kuayue.initial.panel.*;
@@ -20,6 +23,7 @@ import willow.train.kuayue.systems.editable_panel.widget.ItemIconButton;
 import willow.train.kuayue.systems.train_carriage_package.*;
 import willow.train.kuayue.utils.client.RenderablePicture;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +41,22 @@ public class CarriageInventoryEvents {
     int guiLeft = 0, guiTop = 0;
     boolean onChanged = true;
     String playerName = "";
+
+    LazyRecomputable<ImageMask> upRegex = LazyRecomputable.of(() -> {
+        try {
+            return ClientInit.carriageEventRegexUp.getImage().get().getMask();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    });
+
+    LazyRecomputable<ImageMask> downRegex = LazyRecomputable.of(() -> {
+        try {
+            return ClientInit.carriageEventRegexDown.getImage().get().getMask();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    });
 
     @SubscribeEvent
     public void onPlayerLogout(ClientPlayerNetworkEvent.LoggingOut event) {
@@ -73,7 +93,7 @@ public class CarriageInventoryEvents {
         icons[6] = new ItemStack(C25BPanel.PANEL_SYMBOL_MARSHALLED_25B.block.getBlock());
         icons[7] = new ItemStack(CR200JPanel.PANEL_BOTTOM_MARSHALLED_CR200J.block.getBlock());
 
-        upAndDownBtn[0] = new ImageButton(new RenderablePicture(UP_REGEX), this.guiLeft - 22, this.guiTop - 8, 20, 20,
+        upAndDownBtn[0] = new ImageButton(upRegex, this.guiLeft - 22, this.guiTop - 8, 20, 20,
                 b -> {
                     if(btn_location > 0){
                         btn_location --;
@@ -82,7 +102,7 @@ public class CarriageInventoryEvents {
                         onUp();
                     }
                 });
-        upAndDownBtn[1] = new ImageButton(new RenderablePicture(DOWN_REGEX), this.guiLeft - 22, this.guiTop - 8 + (showBtnNumber + 1) * 22, 20, 20,
+        upAndDownBtn[1] = new ImageButton(downRegex, this.guiLeft - 22, this.guiTop - 8 + (showBtnNumber + 1) * 22, 20, 20,
                 b -> {
                     if(btn_location < imgBtn.length - showBtnNumber){
                         btn_location++;

@@ -18,14 +18,13 @@ import net.minecraft.network.chat.Component;
 import willow.train.kuayue.block.panels.block_entity.EditablePanelEntity;
 import willow.train.kuayue.initial.ClientInit;
 import willow.train.kuayue.systems.editable_panel.EditablePanelEditMenu;
-import willow.train.kuayue.systems.editable_panel.widget.ColorSelector;
 import willow.train.kuayue.systems.editable_panel.widget.TransparentEditBox;
 
 import java.io.IOException;
 
 public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePanelEntity> {
     private int color;
-    ColorSelector selector;
+    ColorScreen colorScreen;
     boolean revert;
     private final LazyRecomputable<NineSlicedImageMask> image = LazyRecomputable.of(() -> {
         try {
@@ -41,11 +40,12 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
     });
     public TypeScreen(AbstractContainerScreen<EditablePanelEditMenu> screen, CompoundTag nbt) {
         super(screen, nbt);
-        selector = new ColorSelector(32, 32, Component.empty());
+        colorScreen = new ColorScreen(32, 32, Component.empty());
     }
 
     @Override
     public void init() {
+        colorScreen.init();
         Font font = Minecraft.getInstance().font;
         CompoundTag nbt = getNbt();
         color = getScreen().getMenu().getEditablePanelEntity().getColor();
@@ -107,7 +107,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         addWidget(new TransparentEditBox(font, basicX, basicY,
                 font.width(values[4]), height, 0.26f * textScaleFactor, 0.3f * textScaleFactor,
                 Component.empty(), values[4], color));
-        addWidget(selector);
+        addWidget(colorScreen);
     }
 
     private void refresh() {
@@ -138,6 +138,12 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         }
     }
 
+    @Override
+    public void render(PoseStack pose, int mouseX, int mouseY, float partial) {
+        // super.render(pose, mouseX, mouseY, partial);
+        colorScreen.render(pose, mouseX, mouseY, partial);
+    }
+
     public void updateData() {
         CompoundTag nbt = getNbt();
         int i = 0;
@@ -158,7 +164,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         int sW = Minecraft.getInstance().screen.width;
         int sH = Minecraft.getInstance().screen.height;
         GuiComponent.fill(pose, 0, 0, sW, sH, 0x80000000);
-        image.get().renderToGui();
+        // image.get().renderToGui();
     }
 
     @Override

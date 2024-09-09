@@ -26,20 +26,24 @@ public class ClientInit {
 
     public static final StaticImageHolder arrow =
             new StaticImageHolder(AllElements.testRegistry.asResource("textures/overlay/arrows.png"));
-
     public static final StaticImageHolder editableBg =
             new StaticImageHolder(AllElements.testRegistry.asResource("textures/gui/editable/background.png"));
     public static final StaticImageHolder colorPlate =
             new StaticImageHolder(AllElements.testRegistry.asResource("textures/gui/editable/color_plate.png"));
-
     public static final StaticImageHolder colorPlateBg =
             new StaticImageHolder(AllElements.testRegistry.asResource("textures/gui/editable/color_plate_bg.png"));
-
     public static final StaticImageHolder colorPlateMiddleLayer =
             new StaticImageHolder(AllElements.testRegistry.asResource("textures/gui/editable/color_plate_middle_layer.png"));
-
     public static final StaticImageHolder buttons =
             new StaticImageHolder(AllElements.testRegistry.asResource("textures/gui/editable/buttons.png"));
+    public static final StaticImageHolder writeBoard =
+            new StaticImageHolder(AllElements.testRegistry.asResource("textures/gui/editable/write_board.png"));
+    public static final StaticImageHolder colorBg2 =
+            new StaticImageHolder(AllElements.testRegistry.asResource("textures/gui/editable/color_bg_2.png"));
+    public static final StaticImageHolder carriageEventRegexUp =
+            new StaticImageHolder(AllElements.testRegistry.asResource("textures/gui/up_button.png"));
+    public static final StaticImageHolder carriageEventRegexDown =
+            new StaticImageHolder(AllElements.testRegistry.asResource("textures/gui/down_button.png"));
 
 
     public static final ModelReg testModel =

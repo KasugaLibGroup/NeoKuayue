@@ -53,8 +53,8 @@ public class ColorSelector extends AbstractWidget {
         }
     });
 
-    public ColorSelector(int pX, int pY, Component pMessage) {
-        super(pX, pY, 140, 140, pMessage);
+    public ColorSelector(int pX, int pY) {
+        super(pX, pY, 140, 140, Component.empty());
         updatePosition();
         h = 60;
         s = 1;
@@ -67,13 +67,9 @@ public class ColorSelector extends AbstractWidget {
 
     public void updateColor() {
         h %= 360;
-        float[] rgbs = hsvToRgb(h, 1 - s, v);
-        float[] fullRgbs = hsvToRgb(h, 1, 1);
-        System.out.println("r=" + rgbs[0] + ", g=" + rgbs[1] + ", b=" + rgbs[2]);
-        Color rgb = new Color((int) rgbs[0], (int)rgbs[1], (int)rgbs[2]);
-        Color fullRgb = new Color((int) fullRgbs[0], (int) fullRgbs[1], (int) fullRgbs[2]);
-        fullColor = SimpleColor.fromRGBInt(fullRgb.getRGB());
-        color = SimpleColor.fromRGBInt(rgb.getRGB());
+        while (h < 0) h += 360;
+        fullColor = SimpleColor.fromHSV(h, 1, 1);
+        color = SimpleColor.fromHSV(h, 1 - s, v);
     }
 
     public void updatePosition() {
@@ -82,10 +78,10 @@ public class ColorSelector extends AbstractWidget {
                 new Vector3f(this.x, this.y, 0), ImageMask.Axis.X, ImageMask.Axis.Y,
                 true, true, 140, 140);
         plate.get().rectangleUV(0, 0, 1, 1);
-        plate.get().rectangle(new Vector3f(this.x + 6, this.x + 6, 0), ImageMask.Axis.X, ImageMask.Axis.Y,
+        plate.get().rectangle(new Vector3f(this.x + 6, this.y + 6, 0), ImageMask.Axis.X, ImageMask.Axis.Y,
                 true, true, 128, 128);
         middleLayer.get().rectangleUV(0, 0, 1, 1);
-        middleLayer.get().rectangle(new Vector3f(this.x + 6, this.x + 6, 0), ImageMask.Axis.X, ImageMask.Axis.Y,
+        middleLayer.get().rectangle(new Vector3f(this.x + 6, this.y + 6, 0), ImageMask.Axis.X, ImageMask.Axis.Y,
                 true, true, 128, 128);
     }
 
@@ -97,7 +93,6 @@ public class ColorSelector extends AbstractWidget {
     @Override
     public void renderButton(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
         plate.get().renderToGui();
-        // h += 1f;
         fill(pPoseStack, x + 54, y + 54, x + 86, y + 86, color.getRGB());
         bg.get().renderToGui();
         middleLayer.get().setColor(fullColor);
@@ -172,7 +167,7 @@ public class ColorSelector extends AbstractWidget {
             else if (v < 0) v += 1;
         }
         updateColor();
-        return super.mouseScrolled(mx, my, pDelta);
+        return true;
     }
 
     @Override
@@ -202,10 +197,11 @@ public class ColorSelector extends AbstractWidget {
     }
 
     private void dealWithRelease(float mx, float my) {
+        float scale = .8f, negScale = 2 - scale;
         float distToCenter = getWidgetCenter().distance(new Vec2f(mx, my));
-        if (((distToCenter < 50 || distToCenter >= 66) && hOn) ||
-                ((distToCenter < 39 || distToCenter >= 50) && sOn) ||
-                ((distToCenter < 26 || distToCenter >= 39 && iOn))) {
+        if (((distToCenter < 50 * scale || distToCenter >= 66 * negScale) && hOn) ||
+                ((distToCenter < 39 * scale || distToCenter >= 50 * negScale) && sOn) ||
+                ((distToCenter < 26 * scale || distToCenter >= 39 * negScale && iOn))) {
             hOn = false;
             sOn = false;
             iOn = false;
@@ -235,74 +231,107 @@ public class ColorSelector extends AbstractWidget {
         return super.charTyped(pCodePoint, pModifiers);
     }
 
-    /**
-     * convert color space from HSI to RGB
-     * @param h hue, [0, 360)
-     * @param s Saturation , [0, 1]
-     * @param i [0, 255]
-     * @return
-     */
-    public static float[] hsiToRgb(float h, float s, float i) {
-        while (h < 0) h += 360;
-        h %= 360;
-        float r, g, b;
-        if (h >= 0 && h < 120) {
-            b = i * (1 - s);
-            r = i * (float) (1 + (s * Math.cos(h)) / Math.cos(Math.PI / 3 - h));
-            g = 3 * i - (r + b);
-        } else if (h >= 120 && h < 240) {
-            h -= 120f;
-            r = i * (1 - s);
-            g = i * (float) (1 + (s * Math.cos(h)) / Math.cos(Math.PI / 3 - h));
-            b = 3 * i - (r + g);
-        } else {
-            h -= 240f;
-            g = i * (1 - s);
-            b = i * (float) (1 + (s * Math.cos(h)) / Math.cos(Math.PI / 3 - h));
-            r = 3 * i - (g + b);
-        }
-        return new float[]{r, g, b};
+    public float getH() {
+        return h;
     }
 
-    /**
-     * convert color space HSV to RGB
-     * @param h Hue, [0, 360)
-     * @param s Saturation, [0, 1]
-     * @param v Value, [0, 1]
-     * @return rgb values, all ranged as [0, 255]
-     */
-    public static float[] hsvToRgb(float h, float s, float v) {
+    public float getS() {
+        return 1 - s;
+    }
+
+    public float getV() {
+        return v;
+    }
+
+    public void setH(float h) {
         while (h < 0) h += 360;
         h %= 360;
-        float c = v * s;
-        float x = c * (1 - Math.abs((h / 60f) % 2 - 1));
-        float m = v - c;
-        float r1 = 0, g1 = 0, b1 = 0;
-        if (h >= 0 && h < 60) {
-            r1 = c;
-            g1 = x;
-            b1 = 0;
-        } else if (h >= 60 && h < 120) {
-            r1 = x;
-            g1 = c;
-            b1 = 0;
-        } else if (h >= 120 && h < 180) {
-            r1 = 0;
-            g1 = c;
-            b1 = x;
-        } else if (h >= 180 && h < 240) {
-            r1 = 0;
-            g1 = x;
-            b1 = c;
-        } else if (h >= 240 && h < 300) {
-            r1 = x;
-            g1 = 0;
-            b1 = c;
-        } else if (h >= 300 && h < 360) {
-            r1 = c;
-            g1 = 0;
-            b1 = x;
+        this.h = h;
+        updateColor();
+    }
+
+    public void setS(float s) {
+        this.s = 1 - s;
+        updateColor();
+    }
+
+    public void setV(float v) {
+        this.v = v;
+        updateColor();
+    }
+
+    public float getR() {
+        return color.getfR() * 255;
+    }
+
+    public float getG() {
+        // return SimpleColor.hsvToRgb(h, 1 - s, v)[1];
+        return color.getfG() * 255;
+    }
+
+    public float getB() {
+        return color.getfB() * 255;
+    }
+
+    public String getHex() {
+        return "#" + Integer.toHexString(color.getRGB()).toUpperCase().substring(2);
+    }
+
+    public void setHex(String hex) {
+        hex = hex.replace("#", "");
+        int col;
+        try {
+            col = Integer.valueOf(hex, 16);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
         }
-        return new float[]{(r1 + m) * 255, (g1 + m) * 255, (b1 + m) * 255};
+        col = Math.max(0, Math.min(col, 0xffffff));
+        int[] rgb = splitRGB(col);
+        setRGB(rgb[0], rgb[1], rgb[2]);
+    }
+
+
+    public void setR(float r) {
+        float g = getG(), b = getB();
+        float[] hsv = SimpleColor.rgbToHsv(r, g, b);
+        h = hsv[0]; s = hsv[1]; v = hsv[2];
+        updateColor();
+    }
+
+    public void setG(float g) {
+        float r = getR(), b = getB();
+        float[] hsv = SimpleColor.rgbToHsv(r, g, b);
+        h = hsv[0]; s = hsv[1]; v = hsv[2];
+        updateColor();
+    }
+
+    public void setB(float b) {
+        float g = getG(), r = getR();
+        float[] hsv = SimpleColor.rgbToHsv(r, g, b);
+        h = hsv[0]; s = hsv[1]; v = hsv[2];
+        updateColor();
+    }
+
+    public void setRGB(float r, float g, float b) {
+        float[] hsv = SimpleColor.rgbToHsv(r, g, b);
+        h = hsv[0]; s = 1 - hsv[1]; v = hsv[2];
+        updateColor();
+    }
+
+    public void setHSV(float h, float s, float v) {
+        this.h = h; this.s = 1 - s; this.v = v;
+        updateColor();
+    }
+
+    public void setRgb(int rgb) {
+
+    }
+
+    public static int[] splitRGB(int rgb) {
+        int r = rgb >> 16;
+        int g = (rgb >> 8) - (r << 8);
+        int b = rgb - (g << 8) - (r << 16);
+        return new int[]{r, g, b};
     }
 }

@@ -3,6 +3,7 @@
   "priority": 1300,
   "package": "willow.train.kuayue.mixins.mixin",
   "compatibilityLevel": "JAVA_17",
+  "refmap": "kuayue.refmap.json",
   "mixins": [
     "MixinAbstractContraptionEntity"
   ],

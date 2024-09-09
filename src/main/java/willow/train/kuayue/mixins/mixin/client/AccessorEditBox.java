@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 import java.util.function.BiFunction;
 
-@Mixin(EditBox.class)
+@Mixin(value = EditBox.class, remap = false)
 public interface AccessorEditBox {
 
     @Accessor

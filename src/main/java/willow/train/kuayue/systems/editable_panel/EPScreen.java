@@ -3,7 +3,6 @@ package willow.train.kuayue.systems.editable_panel;
 import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.gui.screens.inventory.MenuAccess;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
@@ -45,7 +44,7 @@ public class EPScreen extends AbstractContainerScreen<EditablePanelEditMenu> {
 
     @Override
     public boolean mouseClicked(double pMouseX, double pMouseY, int pButton) {
-        this.subScreen.onMouseClicked(pMouseX, pMouseY, pButton);
+        this.subScreen.mouseClicked(pMouseX, pMouseY, pButton);
         return true;
     }
 
