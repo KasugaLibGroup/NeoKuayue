@@ -621,5 +621,6 @@
   "block.kuayue.panel_hexie_hxd3d": "HXD3D车厢板\"和谐\"",
   "block.kuayue.panel_red_hxd3d": "HXD3D通用厢板",
   "block.kuayue.floor_hxd3d": "HXD3D地板",
-  "block.kuayue.platform_door": "站台屏蔽门"
+  "block.kuayue.platform_door": "站台屏蔽门",
+  "block.kuayue.platform_wall": "站台屏蔽墙"
 }

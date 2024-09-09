@@ -1,3 +1,6 @@
 {
-  "parent": "kuayue:block/carriage_end_face/end_face_25b"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "kuayue:block/carriage_end_face/end_face_25k_sliding_ac_item"
+  }
 }

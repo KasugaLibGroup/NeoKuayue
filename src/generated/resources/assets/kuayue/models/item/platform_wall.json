@@ -1,3 +1,6 @@
 {
-  "parent": "kuayue:block/platform_wall"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "kuayue:block/platform_wall_item"
+  }
 }

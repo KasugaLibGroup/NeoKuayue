@@ -1,3 +1,6 @@
 {
-  "parent": "kuayue:block/door/platform_door/platform_door_left"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "kuayue:block/platform_door_item"
+  }
 }
