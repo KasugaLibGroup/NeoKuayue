@@ -26,6 +26,7 @@ import willow.train.kuayue.block.panels.window.TrainSmallWindowBlock;
 import willow.train.kuayue.block.panels.base.CompanyTrainPanel;
 import willow.train.kuayue.block.panels.base.EndFaceShapes;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
+import willow.train.kuayue.initial.AllBlocks;
 import willow.train.kuayue.utils.DirectionUtil;
 
 public class TrainEndfaceBlock extends TrainPanelBlock {
@@ -51,7 +52,14 @@ public class TrainEndfaceBlock extends TrainPanelBlock {
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return EndFaceShapes.getEndFaceShape(pState.getValue(FACING).getOpposite(), DOOR_TYPE, pState.getValue(OPEN)).move(0, 1, 0);
+        VoxelShape shape = EndFaceShapes.getEndFaceShape(pState.getValue(FACING).getOpposite(), DOOR_TYPE, pState.getValue(OPEN)).move(0, 1, 0);
+        switch (pState.getValue(FACING)) {
+            case EAST -> shape = shape.move(1, 0, 0);
+            case WEST -> shape = shape.move(-1, 0, 0);
+            case SOUTH -> shape = shape.move(0, 0, 1);
+            case NORTH -> shape = shape.move(0, 0, -1);
+        }
+        return shape;
     }
 
     @Override
@@ -77,6 +85,12 @@ public class TrainEndfaceBlock extends TrainPanelBlock {
             return InteractionResult.SUCCESS;
         };
         walkAllValidPos(level, pos, state, null, null, null, function);
+    }
+
+    public BlockState generateCompanyState(Direction direction, DoorHingeSide hingeSide, boolean open) {
+        return AllBlocks.COMPANY_TRAIN_PANEL.instance().defaultBlockState()
+                .setValue(CompanyTrainPanel.FACING, direction.getOpposite())
+                .setValue(BlockStateProperties.DOOR_HINGE, hingeSide);
     }
 
     @Override

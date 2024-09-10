@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 
 import java.util.function.BiFunction;
 
-@Mixin(value = EditBox.class, remap = false)
+@Mixin(value = EditBox.class)
 public interface AccessorEditBox {
 
     @Accessor("canLoseFocus")

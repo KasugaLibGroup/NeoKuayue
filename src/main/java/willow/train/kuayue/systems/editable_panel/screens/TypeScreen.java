@@ -40,7 +40,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
     });
     public TypeScreen(AbstractContainerScreen<EditablePanelEditMenu> screen, CompoundTag nbt) {
         super(screen, nbt);
-        colorScreen = new ColorScreen(32, 32, Component.empty());
+        colorScreen = new ColorScreen(32, 32, Component.literal("Color Editor"));
     }
 
     @Override

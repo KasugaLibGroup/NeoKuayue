@@ -2,8 +2,13 @@ package willow.train.kuayue.block.panels.base;
 
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EndFaceShapes {
 
@@ -240,6 +245,12 @@ public class EndFaceShapes {
                     Block.box(15, -16, 15, 17, 21, 32),
                     Block.box(15, 18, 1, 17, 21, 15),
                     Block.box(15, -16, -16, 17, 21, 1));
+
+    public static VoxelShape moveByDirection(VoxelShape shape, Direction direction, double x, double y, double z) {
+        Vec3 vec3 = new Vec3(x, y, z);
+        vec3 = vec3.yRot(-direction.toYRot());
+        return shape.move(vec3.x(), vec3.y(), vec3.z());
+    }
 
     public static VoxelShape getEndFaceShape(Direction direction, TrainPanelProperties.DoorType type, boolean open) {
         if (type == TrainPanelProperties.DoorType.NO_DOOR) {

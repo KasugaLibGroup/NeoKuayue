@@ -44,6 +44,7 @@ public class CustomRenderedEndFaceRenderer implements BlockEntityRenderer<Custom
         pose.pushPose();
         pose.translate(0.5f, -1f, 0.5f);
         pose.mulPose(Vector3f.YP.rotationDegrees(f + 90f));
+        pose.translate(0, 0, -1);
         if (frame != null) {
             pose.translate(-.5, 2, -.5);
             SuperByteBuffer frameBuffer = CachedBufferer.partial(frame, blockState);

@@ -1,9 +1,9 @@
 package willow.train.kuayue.systems.editable_panel.screens;
 
-import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
 import kasuga.lib.core.client.render.texture.ImageMask;
+import kasuga.lib.core.client.render.texture.Vec2f;
 import kasuga.lib.core.util.LazyRecomputable;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -11,9 +11,7 @@ import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.Component;
 import willow.train.kuayue.initial.ClientInit;
-import willow.train.kuayue.systems.editable_panel.widget.ColorSelector;
-import willow.train.kuayue.systems.editable_panel.widget.TitledEditBox;
-import willow.train.kuayue.systems.editable_panel.widget.TransparentEditBox;
+import willow.train.kuayue.systems.editable_panel.widget.*;
 
 import java.io.IOException;
 
@@ -22,9 +20,11 @@ public class ColorScreen extends AbstractWidget {
     public TitledEditBox r, g, b;
     public TitledEditBox h, s, v;
     public TitledEditBox hex;
+    public ImageButton cancel, confirm, save, load, template;
     public float rCache, gCache, bCache, hCache, sCache, vCache;
     public String hexCache;
     private boolean visible;
+    private Label title;
 
     private final LazyRecomputable<ImageMask> backGround =
             LazyRecomputable.of(() -> {
@@ -34,6 +34,34 @@ public class ColorScreen extends AbstractWidget {
                     throw new RuntimeException(e);
                 }
             });
+    private final LazyRecomputable<ImageMask> btn =
+            LazyRecomputable.of(() -> {
+                try {
+                    return ClientInit.buttons.getImage().get().getMask();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+
+    private final LazyRecomputable<ImageMask> btn_cancel =
+            LazyRecomputable.of(() -> btn.get().copyWithOp((m) -> m.rectangleUV(0.5f, 0.125f, 0.625f, 0.25f)));
+
+    private final LazyRecomputable<ImageMask> btn_confirm =
+            LazyRecomputable.of(() -> btn.get().copyWithOp(m -> m.rectangleUV(0.375f, 0.125f, 0.5f, 0.25f)));
+
+    private final LazyRecomputable<ImageMask> btn_save =
+            LazyRecomputable.of(() -> btn.get().copyWithOp(m -> m.rectangleUV(0.625f, 0f, 0.75f, 0.125f)));
+
+    private final LazyRecomputable<ImageMask> btn_load =
+            LazyRecomputable.of(() -> btn.get().copyWithOp(m -> m.rectangleUV(0.75f, 0, 0.875f, 0.125f)));
+
+    private final LazyRecomputable<ImageMask> btn_temp =
+            LazyRecomputable.of(() -> btn.get().copyWithOp(m -> m.rectangleUV(0.875f, 0, 1f, 0.125f)));
+
+    private final LazyRecomputable<ImageMask> btn_bg =
+            LazyRecomputable.of(() -> btn.get().copyWithOp(m -> m.rectangleUV(0.25f, 0.125f, 0.375f, 0.25f)));
+    private final LazyRecomputable<ImageMask> title_bg =
+            LazyRecomputable.of(() -> btn.get().copyWithOp(m -> m.rectangleUV(0, 0.25f, 0.625f, 0.375f)));
 
     public ColorScreen(int x, int y, Component title) {
         super(x, y, 350, 200, title);
@@ -76,10 +104,44 @@ public class ColorScreen extends AbstractWidget {
         r.setTextColor(0xff0000);
         g.setTextColor(0xff00);
         b.setTextColor(0xff);
+
         ImageMask mask = backGround.get();
         mask.rectangle(new Vector3f(this.x + 3, this.y + this.height / 2f - 37, 0), ImageMask.Axis.X, ImageMask.Axis.Y,
                 true, true, 200, 75);
         mask.rectangleUV(0, 0, 1, 1);
+
+        ImageMask titleMask = title_bg.get();
+        titleMask.rectangle(new Vector3f(this.x + 3 + 60, this.y + this.height / 2f - 53, 0), ImageMask.Axis.X, ImageMask.Axis.Y,
+                true, true, 80, 16);
+
+        title = new Label(this.getMessage());
+        title.setPosition(new Vec2f(this.x + 3 + 100 - title.getWidth() / 2f, this.y + this.height / 2f - 49));
+
+        int baseY = this.y + this.height / 2 + 36;
+        int baseX = this.x + 40;
+        int labelSize = 20;
+        ImageButton.ImageAction baseAction = (img, btn) -> img.rectangle(new Vector3f(btn.getX(), btn.getY(), 0),
+                ImageMask.Axis.X, ImageMask.Axis.Y, true, true, btn.getWidth(), btn.getHeight());
+        save = new ImageButton(this.btn_save, LazyRecomputable.of(() -> this.btn_bg.get().copyWithOp(m -> m)),
+                baseX, baseY, labelSize, labelSize, (b) -> {});
+        this.save.controlImage(baseAction);
+        this.save.controlBg(baseAction);
+        load = new ImageButton(this.btn_load, LazyRecomputable.of(() -> this.btn_bg.get().copyWithOp(m -> m)),
+                baseX + 30, baseY, labelSize, labelSize, (b) -> {});
+        this.load.controlImage(baseAction);
+        this.load.controlBg(baseAction);
+        template = new ImageButton(this.btn_temp, LazyRecomputable.of(() -> this.btn_bg.get().copyWithOp(m -> m)),
+                baseX + 60, baseY, labelSize, labelSize, (b) -> {});
+        this.template.controlImage(baseAction);
+        this.template.controlBg(baseAction);
+        cancel = new ImageButton(this.btn_cancel, LazyRecomputable.of(() -> this.btn_bg.get().copyWithOp(m -> m)),
+                baseX + 90, baseY, labelSize, labelSize, (b) -> {});
+        this.cancel.controlImage(baseAction);
+        this.cancel.controlBg(baseAction);
+        confirm = new ImageButton(this.btn_confirm, LazyRecomputable.of(() -> this.btn_bg.get().copyWithOp(m -> m)),
+                baseX + 120, baseY, labelSize, labelSize, (b) -> {});
+        this.confirm.controlImage(baseAction);
+        this.confirm.controlBg(baseAction);
         updateBox();
     }
 
@@ -226,14 +288,25 @@ public class ColorScreen extends AbstractWidget {
 
     @Override
     public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
+        save.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        load.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        template.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        cancel.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        confirm.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+
+        title_bg.get().renderToGui();
+        title.renderToGui(pPoseStack, Minecraft.getInstance().font);
         backGround.get().renderToGui();
         selector.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+
         r.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
         g.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
         b.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+
         h.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
         s.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
         v.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+
         hex.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
     }
 
