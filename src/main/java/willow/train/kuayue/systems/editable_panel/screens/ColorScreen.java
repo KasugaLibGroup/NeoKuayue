@@ -25,6 +25,7 @@ public class ColorScreen extends AbstractWidget {
     public String hexCache;
     private boolean visible;
     private Label title;
+    private TooltipLabel enterKeyTooltip;
 
     private final LazyRecomputable<ImageMask> backGround =
             LazyRecomputable.of(() -> {
@@ -111,37 +112,45 @@ public class ColorScreen extends AbstractWidget {
         mask.rectangleUV(0, 0, 1, 1);
 
         ImageMask titleMask = title_bg.get();
-        titleMask.rectangle(new Vector3f(this.x + 3 + 60, this.y + this.height / 2f - 53, 0), ImageMask.Axis.X, ImageMask.Axis.Y,
+        titleMask.rectangle(new Vector3f(this.x + 125, this.y + this.height / 2f - 53, 0), ImageMask.Axis.X, ImageMask.Axis.Y,
                 true, true, 80, 16);
 
         title = new Label(this.getMessage());
-        title.setPosition(new Vec2f(this.x + 3 + 100 - title.getWidth() / 2f, this.y + this.height / 2f - 49));
+        title.setPosition(new Vec2f(this.x + 165 - title.getWidth() / 2f, this.y + this.height / 2f - 49));
 
         int baseY = this.y + this.height / 2 + 36;
-        int baseX = this.x + 40;
+        int baseX = this.x + 50;
         int labelSize = 20;
         ImageButton.ImageAction baseAction = (img, btn) -> img.rectangle(new Vector3f(btn.getX(), btn.getY(), 0),
                 ImageMask.Axis.X, ImageMask.Axis.Y, true, true, btn.getWidth(), btn.getHeight());
         save = new ImageButton(this.btn_save, LazyRecomputable.of(() -> this.btn_bg.get().copyWithOp(m -> m)),
-                baseX, baseY, labelSize, labelSize, (b) -> {});
+                baseX, baseY, labelSize, labelSize, Component.translatable("tooltip.kuayue.color_screen.save"), (b) -> {});
         this.save.controlImage(baseAction);
         this.save.controlBg(baseAction);
         load = new ImageButton(this.btn_load, LazyRecomputable.of(() -> this.btn_bg.get().copyWithOp(m -> m)),
-                baseX + 30, baseY, labelSize, labelSize, (b) -> {});
+                baseX + 30, baseY, labelSize, labelSize, Component.translatable("tooltip.kuayue.color_screen.load"), (b) -> {});
         this.load.controlImage(baseAction);
         this.load.controlBg(baseAction);
         template = new ImageButton(this.btn_temp, LazyRecomputable.of(() -> this.btn_bg.get().copyWithOp(m -> m)),
-                baseX + 60, baseY, labelSize, labelSize, (b) -> {});
+                baseX + 60, baseY, labelSize, labelSize, Component.translatable("tooltip.kuayue.color_screen.temp"), (b) -> {});
         this.template.controlImage(baseAction);
         this.template.controlBg(baseAction);
         cancel = new ImageButton(this.btn_cancel, LazyRecomputable.of(() -> this.btn_bg.get().copyWithOp(m -> m)),
-                baseX + 90, baseY, labelSize, labelSize, (b) -> {});
+                baseX + 90, baseY, labelSize, labelSize, Component.translatable("tooltip.kuayue.color_screen.cancel"), (b) -> {});
         this.cancel.controlImage(baseAction);
         this.cancel.controlBg(baseAction);
         confirm = new ImageButton(this.btn_confirm, LazyRecomputable.of(() -> this.btn_bg.get().copyWithOp(m -> m)),
-                baseX + 120, baseY, labelSize, labelSize, (b) -> {});
+                baseX + 120, baseY, labelSize, labelSize, Component.translatable("tooltip.kuayue.color_screen.confirm"), (b) -> {});
         this.confirm.controlImage(baseAction);
         this.confirm.controlBg(baseAction);
+        save.setTooltipLabelWidth(font.width(save.getTooltipLabel().getText().getString()) + 4);
+        load.setTooltipLabelWidth(font.width(load.getTooltipLabel().getText().getString()) + 4);
+        confirm.setTooltipLabelWidth(font.width(confirm.getTooltipLabel().getText().getString()) + 4);
+        template.setTooltipLabelWidth(font.width(template.getTooltipLabel().getText().getString()) + 4);
+        cancel.setTooltipLabelWidth(font.width(cancel.getTooltipLabel().getText().getString()) + 4);
+
+        enterKeyTooltip = new TooltipLabel(new Vec2f(this.x + 5, this.y + this.height / 2f - 50), Component.translatable("tooltip.kuayue.color_screen.key_enter"));
+        enterKeyTooltip.setWidth(font.width(enterKeyTooltip.getText().getString()) + 4);
         updateBox();
     }
 
@@ -157,6 +166,18 @@ public class ColorScreen extends AbstractWidget {
         } else if (selector.getB() != front3(bCache)) {
             bCache = selector.getB();
             updateHsvFromSelector();
+            hexCache = selector.getHex();
+        } else if (selector.getH() != front3(hCache)) {
+            hCache = selector.getH();
+            updateRgbFromSelector();
+            hexCache = selector.getHex();
+        } else if (selector.getS() != front3(sCache)) {
+            sCache = selector.getS();
+            updateRgbFromSelector();
+            hexCache = selector.getHex();
+        } else if (selector.getV() != front3(vCache)) {
+            vCache = selector.getV();
+            updateRgbFromSelector();
             hexCache = selector.getHex();
         }
         updateBox();
@@ -308,6 +329,11 @@ public class ColorScreen extends AbstractWidget {
         v.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
 
         hex.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+
+        if (r.isHoveredOrFocused() || g.isHoveredOrFocused() || b.isHoveredOrFocused() ||
+        h.isHoveredOrFocused() || s.isHoveredOrFocused() || v.isHoveredOrFocused() ||
+        hex.isHoveredOrFocused())
+            enterKeyTooltip.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
     }
 
     @Override

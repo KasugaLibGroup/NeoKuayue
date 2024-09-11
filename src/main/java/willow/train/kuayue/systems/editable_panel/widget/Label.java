@@ -48,6 +48,8 @@ public class Label extends AbstractWidget {
 
     public void setPosition(Vec2f position) {
         this.position = position;
+        this.x = (int) position.x();
+        this.y = (int) position.y();
     }
 
     public SimpleColor getColor() {
@@ -87,6 +89,10 @@ public class Label extends AbstractWidget {
 
     public String getPlainText() {
         return text.getString();
+    }
+
+    public Vec2f getScale() {
+        return scale;
     }
 
     public void setScale(float x, float y) {

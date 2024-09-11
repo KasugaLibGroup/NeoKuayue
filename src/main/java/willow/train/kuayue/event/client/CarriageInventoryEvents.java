@@ -93,7 +93,7 @@ public class CarriageInventoryEvents {
         icons[6] = new ItemStack(C25BPanel.PANEL_SYMBOL_MARSHALLED_25B.block.getBlock());
         icons[7] = new ItemStack(CR200JPanel.PANEL_BOTTOM_MARSHALLED_CR200J.block.getBlock());
 
-        upAndDownBtn[0] = new ImageButton(upRegex, this.guiLeft - 22, this.guiTop - 8, 20, 20,
+        upAndDownBtn[0] = new ImageButton(upRegex, this.guiLeft - 22, this.guiTop - 8, 20, 20, Component.empty(),
                 b -> {
                     if(btn_location > 0){
                         btn_location --;
@@ -102,7 +102,7 @@ public class CarriageInventoryEvents {
                         onUp();
                     }
                 });
-        upAndDownBtn[1] = new ImageButton(downRegex, this.guiLeft - 22, this.guiTop - 8 + (showBtnNumber + 1) * 22, 20, 20,
+        upAndDownBtn[1] = new ImageButton(downRegex, this.guiLeft - 22, this.guiTop - 8 + (showBtnNumber + 1) * 22, 20, 20, Component.empty(),
                 b -> {
                     if(btn_location < imgBtn.length - showBtnNumber){
                         btn_location++;

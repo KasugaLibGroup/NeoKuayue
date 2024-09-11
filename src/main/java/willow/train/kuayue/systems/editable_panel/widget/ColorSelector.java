@@ -19,6 +19,8 @@ public class ColorSelector extends AbstractWidget {
     private SimpleColor fullColor;
     private float h, s, v;
     private boolean hOn, sOn, iOn;
+    private TooltipLabel tooltip;
+    float showTooltip = 0;
     LazyRecomputable<ImageMask> bg = LazyRecomputable.of(() -> {
         try {
             return ClientInit.colorPlateBg.getImage().get().getMask();
@@ -55,6 +57,7 @@ public class ColorSelector extends AbstractWidget {
 
     public ColorSelector(int pX, int pY) {
         super(pX, pY, 140, 140, Component.empty());
+        tooltip = new TooltipLabel(Component.translatable("tooltip.kuayue.color_selector"));
         updatePosition();
         h = 60;
         s = 1;
@@ -63,6 +66,8 @@ public class ColorSelector extends AbstractWidget {
         sOn = false;
         iOn = false;
         updateColor();
+        tooltip.setWidth(100);
+        tooltip.setPosition(new Vec2f(this.x + 20, this.y - tooltip.getHeight() - 4));
     }
 
     public void updateColor() {
@@ -107,6 +112,15 @@ public class ColorSelector extends AbstractWidget {
         button.get().rectangle(new Vector3f(this.x + 96, this.y + 61, 0), ImageMask.Axis.X, ImageMask.Axis.Y, true, true, 16, 16);
         button.get().rotateByPivot(new Vector3f(0, 0, (float) Math.toRadians(-90 + this.v * 360)));
         button.get().renderToGui();
+        if (isHovered) {
+            if (showTooltip > 40) {
+                tooltip.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+            } else {
+                showTooltip ++;
+            }
+        } else if (showTooltip > 0) {
+            showTooltip --;
+        }
         dealWithRelease((float) pMouseX, (float) pMouseY);
     }
 

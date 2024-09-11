@@ -594,5 +594,14 @@
  "block.kuayue.panel_hexie_hxd3d": "HXD3D Panel \"和谐\"",
  "block.kuayue.panel_red_hxd3d": "HXD3D General Panel",
  "block.kuayue.floor_hxd3d": "HXD3D Floor",
- "block.kuayue.platform_door": "Platform door"
+ "block.kuayue.platform_door": "Platform door",
+
+ "tooltip.kuayue.color_selector": "Left click and drag your mouse or Scroll your mouse wheel.",
+ "tooltip.kuayue.color_screen.title": "Color Editor",
+ "tooltip.kuayue.color_screen.save": "save to template",
+ "tooltip.kuayue.color_screen.load": "load from template",
+ "tooltip.kuayue.color_screen.temp": "open template screen",
+ "tooltip.kuayue.color_screen.cancel": "cancel",
+ "tooltip.kuayue.color_screen.confirm": "confirm",
+ "tooltip.kuayue.color_screen.key_enter": "Press \"ENTER\" to apply your change"
 }
