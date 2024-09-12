@@ -622,5 +622,14 @@
   "block.kuayue.panel_red_hxd3d": "HXD3D通用厢板",
   "block.kuayue.floor_hxd3d": "HXD3D地板",
   "block.kuayue.platform_door": "站台屏蔽门",
-  "block.kuayue.platform_wall": "站台屏蔽墙"
+  "block.kuayue.platform_wall": "站台屏蔽墙",
+
+  "tooltip.kuayue.color_selector": "鼠标左键+拖动/滚动鼠标滚轮",
+  "tooltip.kuayue.color_screen.title": "颜色编辑器",
+  "tooltip.kuayue.color_screen.save": "保存为模板",
+  "tooltip.kuayue.color_screen.load": "从模板读取",
+  "tooltip.kuayue.color_screen.temp": "打开模板",
+  "tooltip.kuayue.color_screen.cancel": "取消",
+  "tooltip.kuayue.color_screen.confirm": "应用",
+  "tooltip.kuayue.color_screen.key_enter": "按下\"ENTER\"键以应用更改"
 }

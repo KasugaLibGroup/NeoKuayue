@@ -34,7 +34,7 @@ public class TrainEndfaceBlock extends TrainPanelBlock {
 
     public static final BooleanProperty OPEN = BlockStateProperties.OPEN;
     public TrainEndfaceBlock(Properties pProperties, TrainPanelProperties.DoorType doorType) {
-        super(pProperties, new Vec2(-1, 0), new Vec2(2, 3));
+        super(pProperties, new Vec2(0, 0), new Vec2(1, 1));
         this.registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.EAST).setValue(OPEN, false));
         this.DOOR_TYPE = doorType;
     }
@@ -53,12 +53,14 @@ public class TrainEndfaceBlock extends TrainPanelBlock {
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         VoxelShape shape = EndFaceShapes.getEndFaceShape(pState.getValue(FACING).getOpposite(), DOOR_TYPE, pState.getValue(OPEN)).move(0, 1, 0);
+        /*
         switch (pState.getValue(FACING)) {
             case EAST -> shape = shape.move(1, 0, 0);
             case WEST -> shape = shape.move(-1, 0, 0);
             case SOUTH -> shape = shape.move(0, 0, 1);
             case NORTH -> shape = shape.move(0, 0, -1);
         }
+         */
         return shape;
     }
 

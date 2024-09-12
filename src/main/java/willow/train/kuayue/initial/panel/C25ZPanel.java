@@ -192,9 +192,9 @@ public class C25ZPanel {
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
 
-    public static final SlabRegistration<TrainSlabBlock> CARPORT_AC_25Z =
-            new SlabRegistration<TrainSlabBlock>("carport_ac_25z")
-                    .block(p -> new TrainSlabBlock(p, true))
+    public static final SlabRegistration<HingeSlabBlock> CARPORT_AC_25Z =
+            new SlabRegistration<HingeSlabBlock>("carport_ac_25z")
+                    .block(p -> new HingeSlabBlock(p, true))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab )
                     .noOcclusion()
