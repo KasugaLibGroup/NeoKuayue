@@ -22,6 +22,7 @@ import org.jetbrains.annotations.Nullable;
 import willow.train.kuayue.block.panels.TrainPanelBlock;
 import willow.train.kuayue.block.panels.base.CompanyTrainDoor;
 import willow.train.kuayue.block.panels.base.TrainPanelShapes;
+import willow.train.kuayue.block.panels.window.TrainOpenableWindowBlock;
 import willow.train.kuayue.initial.AllBlocks;
 import willow.train.kuayue.utils.DirectionUtil;
 
@@ -47,7 +48,7 @@ public class TrainDoorBlock extends TrainPanelBlock {
     public @Nullable BlockState getStateForPlacement(BlockPlaceContext pContext) {
         return super.getStateForPlacement(pContext)
                 .setValue(FACING, pContext.getHorizontalDirection().getOpposite())
-                .setValue(HINGE, getHinge(pContext, this))
+                .setValue(HINGE, TrainOpenableWindowBlock.getHinge(pContext))
                 .setValue(OPEN, false);
     }
 
@@ -108,7 +109,8 @@ public class TrainDoorBlock extends TrainPanelBlock {
         BlockPos pos = pContext.getClickedPos();
         Direction direction = pContext.getHorizontalDirection().getOpposite();
         BlockState leftState = blockGetter.getBlockState(DirectionUtil.left(pos, direction, 1));
-        if (leftState.is(block) && leftState.getValue(FACING) == direction && leftState.getValue(HINGE) == DoorHingeSide.LEFT) return DoorHingeSide.RIGHT;
+        if (leftState.is(block) && leftState.getValue(FACING) == direction && leftState.getValue(HINGE) == DoorHingeSide.LEFT)
+            return DoorHingeSide.RIGHT;
         return DoorHingeSide.LEFT;
     }
 
