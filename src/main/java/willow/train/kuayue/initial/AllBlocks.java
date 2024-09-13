@@ -176,6 +176,7 @@ public class AllBlocks {
         C25Panel.invoke();
         I11GPanel.invoke();
         I3DPanel.invoke();
+        I21Panel.invoke();
         AllDecoBlocks.invoke();
         CR200JPanel.invoke();
     }
