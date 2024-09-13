@@ -10,18 +10,21 @@ import net.minecraft.network.chat.Component;
 import java.util.ArrayList;
 
 public class TooltipLabel extends Label {
-    private final ArrayList<String> texts;
-    private int borderWidth;
+    protected final ArrayList<String> texts;
+    protected int borderWidth;
+    protected boolean forceLeftBegin;
     public TooltipLabel(Vec2f position, Component component, SimpleColor color) {
         super(position, component, color);
         texts = new ArrayList<>();
         borderWidth = 1;
+        forceLeftBegin = false;
     }
 
     public TooltipLabel(Vec2f position, Component component) {
         super(position, component);
         texts = new ArrayList<>();
         borderWidth = 1;
+        forceLeftBegin = false;
     }
 
     public TooltipLabel(Component component) {
@@ -30,7 +33,7 @@ public class TooltipLabel extends Label {
         borderWidth = 1;
     }
 
-    private void updateStrings() {
+    protected void updateStrings() {
         texts.clear();
         if (getText().getString().equals("")) return;
         Font font = Minecraft.getInstance().font;
@@ -46,6 +49,14 @@ public class TooltipLabel extends Label {
     public void setBorderWidth(int borderWidth) {
         this.borderWidth = borderWidth;
         updateStrings();
+    }
+
+    public void setForceLeftBegin(boolean forceLeftBegin) {
+        this.forceLeftBegin = forceLeftBegin;
+    }
+
+    public boolean isForceLeftBegin() {
+        return forceLeftBegin;
     }
 
     public int getBorderWidth() {
@@ -81,26 +92,21 @@ public class TooltipLabel extends Label {
                 poseStack.translate(0, 8, 0);
             }
             poseStack.translate(- (float) borderWidth - 1, - i * 8 - borderWidth - 1, 0);
-        } else {
+        } else if (!isForceLeftBegin()) {
             String str = texts.get(0);
             float strWidth = font.width(str);
             float offset = (this.width - strWidth) / 2;
             poseStack.translate(offset, borderWidth + 1, 0);
             font.draw(poseStack, str, 0, 0, getRGB());
             poseStack.translate(- offset, - borderWidth - 1, 0);
+        } else {
+            font.draw(poseStack, texts.get(0), 0, 0, getRGB());
         }
         poseStack.scale(1 / this.getScale().x(), 1 / this.getScale().y(), 1f);
         poseStack.translate(- x, - y, 0);
     }
 
     public void renderGuiBg(PoseStack poseStack, int minX, int minY, int maxX, int maxY, int bgColor, int borderColor) {
-        // border
-        fill(poseStack, minX, minY, maxX, minY + borderWidth, borderColor);
-        fill(poseStack, minX, maxY - borderWidth, maxX, maxY, borderColor);
-        fill(poseStack, minX, minY, minX + borderWidth, maxY, borderColor);
-        fill(poseStack, maxX - borderWidth, minY, maxX, maxY, borderColor);
-
-        // bg
-        fill(poseStack, minX + borderWidth, minY + borderWidth, maxX - borderWidth, maxY - borderWidth, bgColor);
+        ColorTemplatesBox.renderGuiBg(poseStack, minX, minY, maxX, maxY, borderWidth, bgColor, borderColor);
     }
 }

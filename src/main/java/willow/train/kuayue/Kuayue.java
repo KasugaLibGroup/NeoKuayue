@@ -11,8 +11,9 @@ import willow.train.kuayue.initial.AllElements;
 @Mod(Kuayue.MODID)
 public class Kuayue {
     public static final String MODID = "kuayue";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
     public static IEventBus BUS = FMLJavaModLoadingContext.get().getModEventBus();
+    public static LocalFileEnv LOCAL_FILE = new LocalFileEnv("./kuayue");
     public Kuayue() {
         BUS.register(this);
         AllElements.invoke();
