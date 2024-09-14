@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "kuayue:block/df21/df21_dynamic_carport_item"
+  }
+}

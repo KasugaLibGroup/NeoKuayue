@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayue:block/df21/df21_exhaust_fan",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "kuayue:block/df21/df21_exhaust_fan",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "kuayue:block/df21/df21_exhaust_fan",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "kuayue:block/df21/df21_exhaust_fan",
+      "y": 90
+    }
+  }
+}
