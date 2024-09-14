@@ -25,6 +25,7 @@ import java.io.IOException;
 public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePanelEntity> {
     private int color;
     ColorScreen colorScreen;
+    ColorTemplateScreen cts;
     boolean revert;
     private final LazyRecomputable<NineSlicedImageMask> image = LazyRecomputable.of(() -> {
         try {
@@ -108,6 +109,9 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
                 font.width(values[4]), height, 0.26f * textScaleFactor, 0.3f * textScaleFactor,
                 Component.empty(), values[4], color));
         addWidget(colorScreen);
+        cts = new ColorTemplateScreen(0, 0, sW, sH, Component.literal("Color Templates"));
+        cts.init();
+        addWidget(cts);
     }
 
     private void refresh() {
@@ -141,7 +145,8 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
     @Override
     public void render(PoseStack pose, int mouseX, int mouseY, float partial) {
         // super.render(pose, mouseX, mouseY, partial);
-        colorScreen.render(pose, mouseX, mouseY, partial);
+        // colorScreen.render(pose, mouseX, mouseY, partial);
+        cts.render(pose, mouseX, mouseY, partial);
     }
 
     public void updateData() {

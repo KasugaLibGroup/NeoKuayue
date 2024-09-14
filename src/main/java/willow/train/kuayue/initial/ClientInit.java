@@ -1,15 +1,13 @@
 package willow.train.kuayue.initial;
 
-import kasuga.lib.core.client.render.model.SimpleModel;
-import kasuga.lib.core.client.render.texture.StaticImage;
 import kasuga.lib.core.client.render.texture.StaticImageHolder;
 import kasuga.lib.registrations.client.ModelReg;
-import net.minecraft.resources.ResourceLocation;
-
-import java.io.IOException;
-import java.util.function.Supplier;
+import willow.train.kuayue.Kuayue;
+import willow.train.kuayue.systems.editable_panel.AllColorTemplates;
 
 public class ClientInit {
+    public static final AllColorTemplates COLOR_TEMPLATES =
+            new AllColorTemplates(Kuayue.LOCAL_FILE.getPath("color_templates.nbt"));
     /*
     public static final SimpleTexture
 
@@ -50,5 +48,7 @@ public class ClientInit {
             new ModelReg("test_model", AllElements.testRegistry.asResource("block/test_block"))
                     .submit(AllElements.testRegistry);
 
-    public static void invoke() {}
+    public static void invoke() {
+
+    }
 }
