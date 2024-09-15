@@ -62,21 +62,21 @@ public class I21Panel {
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
 
-/*    public static final PanelRegistration<CustomRenderedDoorBlock> DOOR_CABIN_DF21 =
+    public static final PanelRegistration<CustomRenderedDoorBlock> DOOR_CABIN_DF21 =
             new PanelRegistration<CustomRenderedDoorBlock>("door_cabin_df21")
                     .block(p -> new CustomRenderedDoorBlock(p,
                             Couple.create(
-                                    AllElements.testRegistry.asResource("df21/door/df21_cabin_door_upper_right"),
-                                    AllElements.testRegistry.asResource("df21/door/df21_cabin_door_upper_right")
+                                    AllElements.testRegistry.asResource("df21/door/df21_cabin_door_bottom_left"),
+                                    AllElements.testRegistry.asResource("df21/door/df21_cabin_door_upper_left")
                             ), Couple.create(
-                            AllElements.testRegistry.asResource("df21/door/df21_cabin_door_upper_right"),
+                            AllElements.testRegistry.asResource("df21/door/df21_cabin_door_bottom_right"),
                             AllElements.testRegistry.asResource("df21/door/df21_cabin_door_upper_right")
-                    ), new Vec3(-.25, 0, 0), RenderShape.ENTITYBLOCK_ANIMATED, false
+                    ), new Vec3(0, 0, 0), RenderShape.ENTITYBLOCK_ANIMATED, false
                     ))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
                     .noOcclusion()
                     .tab(AllElements.neoKuayueLocoTab)
-                    .submit(AllElements.testRegistry);*/
+                    .submit(AllElements.testRegistry);
 
     public static void invoke(){}
 }
