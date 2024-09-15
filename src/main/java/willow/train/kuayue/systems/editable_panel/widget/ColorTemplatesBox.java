@@ -34,14 +34,14 @@ public class ColorTemplatesBox extends AbstractWidget {
 
     private DescriptionLabel title, description, owner;
     public ColorTemplatesBox(int pX, int pY, ColorTemplate template, Component pMessage) {
-        super(pX, pY, 130, 40, pMessage);
+        super(pX, pY, 120, 40, pMessage);
         this.template = template;
     }
 
     public void init() {
         int baseY = this.y + this.height / 2 - 16;
-        colorCube.get().rectangle(new Vector3f(this.x + 3, baseY, 0),
-                ImageMask.Axis.X, ImageMask.Axis.Y, true, true, 32, 32);
+        colorCube.get().rectangle(new Vector3f(this.x + 3, baseY + 4, 0),
+                ImageMask.Axis.X, ImageMask.Axis.Y, true, true, 24, 24);
         colorCube.get().setColor(SimpleColor.fromRGBInt(template.getColor()));
         title = new DescriptionLabel(new Vec2f(this.x + 38, baseY), 64, 8,
                 Component.literal(template.getName()), basicColor);
@@ -61,7 +61,12 @@ public class ColorTemplatesBox extends AbstractWidget {
     @Override
     public void renderButton(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
         // super.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        renderLines(pPoseStack, this.x, this.y, this.x + width, this.y + height, 1, 0, 0xff555555);
+        if (isHovered) {
+            renderLines(pPoseStack, this.x, this.y, this.x + width, this.y + height,
+                    2, 0x22000000 + this.template.getColor(), 0xff555555);
+        } else
+            renderLines(pPoseStack, this.x, this.y, this.x + width, this.y + height,
+                    2, 0, 0xff555555);
         colorCube.get().renderToGui();
         title.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
         description.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
@@ -113,6 +118,6 @@ public class ColorTemplatesBox extends AbstractWidget {
         fill(poseStack, minX, minY, maxX, minY + borderWidth, borderColor);
         fill(poseStack, minX, maxY - borderWidth, maxX, maxY, borderColor);
 
-        fill(poseStack, minX + borderWidth, minY + borderWidth, maxX - borderWidth, maxY - borderWidth, bgColor);
+        fill(poseStack, minX, minY + borderWidth, maxX, maxY - borderWidth, bgColor);
     }
 }
