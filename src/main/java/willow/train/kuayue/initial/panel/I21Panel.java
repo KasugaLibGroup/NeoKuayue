@@ -54,6 +54,22 @@ public class I21Panel {
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
 
+    public static final SlabRegistration<CarportHingeSlabBlock> DYNAMIC_RADIATOR_DF21 =
+            new SlabRegistration<CarportHingeSlabBlock>("dynamic_radiator_df21")
+                    .block(p -> new CarportHingeSlabBlock(p, true))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
+    public static final SlabRegistration<CarportHingeSlabBlock> GENERAL_CARPORT_DF21 =
+            new SlabRegistration<CarportHingeSlabBlock>("general_carport_df21")
+                    .block(p -> new CarportHingeSlabBlock(p, true))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_RED)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
     public static final SlabRegistration<TrainSlabBlock> GENERAL_SLAB_DF21 =
             new SlabRegistration<TrainSlabBlock>("general_slab_df21")
                     .block(p -> new TrainSlabBlock(p, false))
