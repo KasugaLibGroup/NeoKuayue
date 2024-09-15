@@ -109,6 +109,7 @@ public class AllBlocks {
                     .addBlock(I11GPanel.DOOR_CABIN_DF11G.block)
                     .addBlock(I11GPanel.DOOR_EQUIP_ROOM_DF11G.block)
                     .addBlock(I3DPanel.DOOR_CABIN_HXD3D.block)
+                    .addBlock(I21Panel.DOOR_CABIN_DF21.block)
                     .submit(AllElements.testRegistry);
 
     public static final BlockEntityReg<CustomRenderedEndfaceEntity> CUSTOM_RENDERED_ENDFACE_ENTITY =

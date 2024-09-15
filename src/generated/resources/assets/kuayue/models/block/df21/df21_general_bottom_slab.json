@@ -1,0 +1,6 @@
+{
+  "loader": "forge:obj",
+  "model": "kuayue:models/block/df21/df21_general_bottom_slab.obj",
+  "render_type": "cutout_mipped",
+  "flip_v": true
+}
