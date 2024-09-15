@@ -15,11 +15,14 @@ import willow.train.kuayue.systems.editable_panel.ColorTemplate;
 import willow.train.kuayue.systems.editable_panel.widget.ColorTemplatesBox;
 import willow.train.kuayue.systems.editable_panel.widget.Label;
 
+import java.util.ArrayList;
+
 public class ColorTemplateScreen extends AbstractWidget {
     public AllColorTemplates data;
     public ColorTemplatesBox[] temps;
     private Label title;
     private float px, py;
+    private int cursor;
     private final LazyRecomputable<ImageMask> board = LazyRecomputable.of(
             () -> {
                 try {
@@ -35,6 +38,7 @@ public class ColorTemplateScreen extends AbstractWidget {
         super(pX, pY, pWidth, pHeight, title);
         this.data = ClientInit.COLOR_TEMPLATES;
         this.title = new Label(title);
+        cursor = 0;
     }
 
     public void init() {
@@ -46,7 +50,13 @@ public class ColorTemplateScreen extends AbstractWidget {
         title.setPosition(new Vec2f(px + 60, py + 20));
         title.setColor(0xff222222);
         title.setScale(2f, 2f);
-        temps = new ColorTemplatesBox[data.templates.size()];
+    }
+
+    public void updateBoxes() {
+        ArrayList<ColorTemplate> templates = data.templates;
+        int maxSize = 4;
+        cursor = Math.max(0, Math.min(cursor, Math.max(templates.size() - maxSize, 0)));
+        temps = new ColorTemplatesBox[templates.size()];
         int h = 50, count = 0;
         for (ColorTemplate t : data.templates) {
             ColorTemplatesBox box = new ColorTemplatesBox((int) px + 60, (int) py + h, t, Component.empty());

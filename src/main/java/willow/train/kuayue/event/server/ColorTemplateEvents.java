@@ -9,21 +9,21 @@ public class ColorTemplateEvents {
 
     @SubscribeEvent
     public static void saveEvent(LevelEvent.Save event) {
-        if (Envs.isClient())
-            ClientInit.COLOR_TEMPLATES.writeToFile();
+        // if (Envs.isClient())
+            // ClientInit.COLOR_TEMPLATES.writeToFile();
     }
 
     @SubscribeEvent
     public static void loadEvent(LevelEvent.Load event) {
-        if (Envs.isClient())
-            ClientInit.COLOR_TEMPLATES.readFromFile();
+        // if (Envs.isClient())
+            // ClientInit.COLOR_TEMPLATES.readFromFile();
     }
 
     @SubscribeEvent
     public static void unloadEvent(LevelEvent.Unload event) {
         if (Envs.isClient()) {
-            ClientInit.COLOR_TEMPLATES.writeToFile();
-            ClientInit.COLOR_TEMPLATES.clear();
+            // ClientInit.COLOR_TEMPLATES.writeToFile();
+            // ClientInit.COLOR_TEMPLATES.clear();
         }
     }
 }
