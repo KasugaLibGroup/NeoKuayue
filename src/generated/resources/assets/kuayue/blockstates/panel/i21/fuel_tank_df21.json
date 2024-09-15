@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayue:block/df21/df21_fuel_tank",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "kuayue:block/df21/df21_fuel_tank",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "kuayue:block/df21/df21_fuel_tank",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "kuayue:block/df21/df21_fuel_tank",
+      "y": 90
+    }
+  }
+}
