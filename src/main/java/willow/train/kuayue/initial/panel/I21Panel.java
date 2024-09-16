@@ -29,6 +29,15 @@ public class I21Panel {
                     .tabTo(AllElements.neoKuayueLocoTab)
                     .submit(AllElements.testRegistry);
 
+    public static final BlockReg<FullShapeDirectionalBlock> HEAD_EARLY_DF21 =
+            new BlockReg<FullShapeDirectionalBlock>("head_early_df21")
+                    .blockType(FullShapeDirectionalBlock::new)
+                    .material(Material.METAL).materialColor(MaterialColor.COLOR_BLACK)
+                    .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .defaultBlockItem()
+                    .tabTo(AllElements.neoKuayueLocoTab)
+                    .submit(AllElements.testRegistry);
+
     public static final SlabRegistration<CarportHingeSlabBlock> EXHAUST_FAN_DF21 =
             new SlabRegistration<CarportHingeSlabBlock>("exhaust_fan_df21")
                     .block(p -> new CarportHingeSlabBlock(p, true))
