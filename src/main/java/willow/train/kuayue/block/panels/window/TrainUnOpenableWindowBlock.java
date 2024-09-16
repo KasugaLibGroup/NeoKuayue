@@ -28,6 +28,22 @@ public class TrainUnOpenableWindowBlock extends TrainPanelBlock {
         );
     }
 
+    public TrainUnOpenableWindowBlock(Properties pProperties, int beginPosX, int endPosX) {
+        super(pProperties, new Vec2(beginPosX, 0), new Vec2(endPosX, 1));
+        this.registerDefaultState(this.getStateDefinition().any()
+                .setValue(TrainPanelBlock.FACING, Direction.EAST)
+                .setValue(HINGE, DoorHingeSide.LEFT)
+        );
+    }
+
+    public TrainUnOpenableWindowBlock(Properties pProperties, int wide, int beginPosY, int endPosY) {
+        super(pProperties, new Vec2(-wide + 1, beginPosY), new Vec2(1, endPosY));
+        this.registerDefaultState(this.getStateDefinition().any()
+                .setValue(TrainPanelBlock.FACING, Direction.EAST)
+                .setValue(HINGE, DoorHingeSide.LEFT)
+        );
+    }
+
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         super.createBlockStateDefinition(pBuilder.add(HINGE));

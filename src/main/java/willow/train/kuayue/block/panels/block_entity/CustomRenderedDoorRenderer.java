@@ -27,6 +27,8 @@ public class CustomRenderedDoorRenderer implements BlockEntityRenderer<CustomRen
             MultiBufferSource buffer,
             int light,
             int overlay) {
+
+        light *= 0.8;
         BlockState state = entity.getBlockState();
 
         Couple<PartialModel> models = entity.getModels(state);
@@ -35,8 +37,8 @@ public class CustomRenderedDoorRenderer implements BlockEntityRenderer<CustomRen
         boolean slide = entity.isSlideDoor();
         boolean leftSide = entity.isLeftSide(state);
 
-        SuperByteBuffer lower = CachedBufferer.partial(models.get(true), state);
-        SuperByteBuffer upper = CachedBufferer.partial(models.get(false), state);
+        SuperByteBuffer lower = CachedBufferer.partial(models.get(true), state).light(light);
+        SuperByteBuffer upper = CachedBufferer.partial(models.get(false), state).light(light);
         VertexConsumer consumer = buffer.getBuffer(RenderType.tripwire());
 
         pose.pushPose();

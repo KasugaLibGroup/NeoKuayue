@@ -1,0 +1,26 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"render_type": "cutout_mipped",
+	"flip_v": true,
+	"textures": {
+		"26": "kuayue:block/df21/df21_equip_middle_early",
+		"particle": "kuayue:block/df21/df21_equip_middle_early"
+	},
+	"elements": [
+		{
+			"name": "001-002sheibeijian",
+			"from": [0, 0, -0.9],
+			"to": [16, 32, 0.1],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 16, -0.4]},
+			"faces": {
+				"north": {"uv": [4, 0, 8, 8], "texture": "#26"},
+				"east": {"uv": [0, 8, 0.5, 16], "texture": "#26"},
+				"south": {"uv": [0, 0, 4, 8], "texture": "#26"},
+				"west": {"uv": [8, 0, 8.5, 8], "texture": "#26"},
+				"up": {"uv": [1, 12, 0.5, 8], "rotation": 90, "texture": "#26"},
+				"down": {"uv": [1.5, 8, 1, 12], "rotation": 270, "texture": "#26"}
+			}
+		}
+	]
+}

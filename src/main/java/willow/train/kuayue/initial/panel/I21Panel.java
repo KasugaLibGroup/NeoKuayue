@@ -115,7 +115,15 @@ public class I21Panel {
 
     public static final PanelRegistration<TrainUnOpenableWindowBlock> WINDOW_EQUIP_DF21 =
             new PanelRegistration<TrainUnOpenableWindowBlock>("window_equip_df21")
-                    .block(p -> new TrainUnOpenableWindowBlock(p, 3))
+                    .block(p -> new TrainUnOpenableWindowBlock(p, -1, 2))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
+    public static final PanelRegistration<TrainUnOpenableWindowBlock> EQUIP_MIDDLE_EARLY_DF21 =
+            new PanelRegistration<TrainUnOpenableWindowBlock>("equip_middle_early_df21")
+                    .block(p -> new TrainUnOpenableWindowBlock(p, 1, 0, 2))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueLocoTab)
                     .noOcclusion()
