@@ -2,9 +2,7 @@ package willow.train.kuayue.initial.panel;
 
 import com.simibubi.create.foundation.utility.Couple;
 import kasuga.lib.registrations.common.BlockReg;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
-import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
@@ -14,8 +12,6 @@ import willow.train.kuayue.block.panels.FullShapeDirectionalBlock;
 import willow.train.kuayue.block.panels.TrainHingePanelBlock;
 import willow.train.kuayue.block.panels.door.CustomRenderedDoorBlock;
 import willow.train.kuayue.block.panels.slab.CarportHingeSlabBlock;
-import willow.train.kuayue.block.panels.slab.HeightSlabBlock;
-import willow.train.kuayue.block.panels.slab.HingeSlabBlock;
 import willow.train.kuayue.block.panels.slab.TrainSlabBlock;
 import willow.train.kuayue.block.panels.window.TrainUnOpenableWindowBlock;
 import willow.train.kuayue.initial.AllElements;
