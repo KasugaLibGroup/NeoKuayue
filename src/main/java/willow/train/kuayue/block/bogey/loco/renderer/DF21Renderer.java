@@ -147,7 +147,7 @@ public class DF21Renderer extends BogeyRenderer {
                     if (!inInstancedContraption) ms.pushPose();
                     BogeyModelData wheel = wheels[side + 1];
                     wheel.translate(0, 0.88, ((double) side) * 1.805d)
-                            .rotateX(wheelAngle)
+                            .rotateX(-wheelAngle)
                             .render(ms, light, vb);
                     if (!inInstancedContraption) ms.popPose();
                 }
