@@ -1,8 +1,8 @@
 # Made in Blockbench 4.10.4
+newmtl m_40acaa77-5b4e-987e-18c1-ced0d52dc1ea
+map_Kd kuayue:block/df21/df21_cowcatcher
 newmtl m_52f81685-6525-a1ae-b848-fb15bd897b90
 map_Kd kuayue:block/df21/df21_head
 newmtl m_b596a257-4dbb-dc61-4756-be79f11f726d
 map_Kd kuayue:block/df21/df21_front_board
-newmtl m_40acaa77-5b4e-987e-18c1-ced0d52dc1ea
-map_Kd kuayue:block/df21/df21_cowcatcher
 newmtl none

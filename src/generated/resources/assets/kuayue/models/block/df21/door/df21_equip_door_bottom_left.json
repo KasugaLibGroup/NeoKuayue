@@ -1,0 +1,6 @@
+{
+  "loader": "forge:obj",
+  "model": "kuayue:models/block/df21/door/df21_equip_door_bottom_left.obj",
+  "render_type": "cutout_mipped",
+  "flip_v": true
+}

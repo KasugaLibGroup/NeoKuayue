@@ -97,6 +97,22 @@ public class I21Panel {
                     .tab(AllElements.neoKuayueLocoTab)
                     .submit(AllElements.testRegistry);
 
+    public static final PanelRegistration<CustomRenderedDoorBlock> DOOR_EQUIP_DF21 =
+            new PanelRegistration<CustomRenderedDoorBlock>("door_equip_df21")
+                    .block(p -> new CustomRenderedDoorBlock(p,
+                            Couple.create(
+                                    AllElements.testRegistry.asResource("df21/door/df21_equip_door_bottom_left"),
+                                    AllElements.testRegistry.asResource("df21/door/df21_equip_door_upper_left")
+                            ), Couple.create(
+                            AllElements.testRegistry.asResource("df21/door/df21_equip_door_bottom_right"),
+                            AllElements.testRegistry.asResource("df21/door/df21_equip_door_upper_right")
+                    ), new Vec3(0, 0, 0), RenderShape.MODEL, false
+                    ))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .noOcclusion()
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .submit(AllElements.testRegistry);
+
     public static final PanelRegistration<TrainUnOpenableWindowBlock> WINDOW_EQUIP_DF21 =
             new PanelRegistration<TrainUnOpenableWindowBlock>("window_equip_df21")
                     .block(p -> new TrainUnOpenableWindowBlock(p, 3))
