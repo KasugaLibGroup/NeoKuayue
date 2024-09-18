@@ -18,11 +18,14 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import willow.train.kuayue.initial.create.AllCarriageBogeys;
 import willow.train.kuayue.initial.create.AllTrackMaterial;
 
@@ -36,9 +39,32 @@ public class MeterCarriageBogeyBlock extends AbstractBogeyBlock<MeterCarriageBog
         implements IBE<MeterCarriageBogeyEntity>,
         ProperWaterloggedBlock,
         ISpecialBlockItemRequirement {
+
+    public static VoxelShape HALF_HEIGHT_TOP_AABB = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
+
+    private boolean halfHeightTop = false;
+
     public MeterCarriageBogeyBlock(Properties pProperties, BogeySizes.BogeySize size) {
         super(pProperties, size);
         registerDefaultState(defaultBlockState().setValue(WATERLOGGED, false));
+    }
+
+    public MeterCarriageBogeyBlock(Properties pProperties, BogeySizes.BogeySize size, boolean halfHeightTop) {
+        super(pProperties, size);
+        registerDefaultState(defaultBlockState().setValue(WATERLOGGED, false));
+        this.halfHeightTop = halfHeightTop;
+    }
+
+    @Override
+    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        if (!this.halfHeightTop)
+            return super.getShape(pState, pLevel, pPos, pContext);
+        return HALF_HEIGHT_TOP_AABB;
+    }
+
+    @Override
+    public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        return this.getShape(pState, pLevel, pPos, pContext);
     }
 
     @Override
