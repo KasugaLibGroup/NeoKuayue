@@ -108,15 +108,19 @@ public class AllCarriageBogeys {
             .element("mkz_bogey")
             .submit(testRegistry);
 
-    public static final BogeyBlockReg<MeterCarriageBogeyBlock> TKZ2_BOGEY =
-            new BogeyBlockReg<MeterCarriageBogeyBlock>("tkz2_bogey")
-                    .block((properties, bogeySize) -> new MeterCarriageBogeyBlock(properties, bogeySize, true))
-                    .material(Material.METAL)
-                    .materialColor(MaterialColor.PODZOL)
-                    .noOcclusion()
-                    .size(tkz2)
-                    .translationKey("tkz2_bogey")
-                    .submit(testRegistry);
+    public static final BundledReg<BogeyBlockReg<MeterCarriageBogeyBlock>> meterCarriageHalfHeightTopBlockBundle =
+            new BundledReg<BogeyBlockReg<MeterCarriageBogeyBlock>>("meter_carriage_half_height_top_bundle")
+            .factory(BogeyBlockReg::new)
+            .action(reg -> reg.block((properties, bogeySize) -> new MeterCarriageBogeyBlock(properties, bogeySize, true)))
+            .action(reg -> reg.material(Material.METAL))
+            .action(reg -> reg.materialColor(MaterialColor.PODZOL))
+            .action(BogeyBlockReg::noOcclusion)
+            .drive((key, reg) -> switch (key) {
+                case "tkz2_bogey" -> reg.size(tkz2).translationKey("tkz2_bogey");
+                default -> reg.size(tkz2).translationKey("tkz2_bogey");
+            })
+            .element("tkz2_bogey")
+            .submit(testRegistry);
 
     public static final BlockEntityReg<CarriageBogeyEntity> carriageBogeyEntity =
             new BlockEntityReg<CarriageBogeyEntity>("carriage_bogey_entity")
@@ -135,7 +139,7 @@ public class AllCarriageBogeys {
             new BlockEntityReg<MeterCarriageBogeyEntity>("meter_carriage_bogey_entity")
                     .blockEntityType(MeterCarriageBogeyEntity::new)
                     .addBlock(() -> meterCarriageBlockBundle.getElement("mkz_bogey").getEntry().get())
-                    .addBlock(() -> TKZ2_BOGEY.getEntry().get())
+                    .addBlock(() -> meterCarriageHalfHeightTopBlockBundle.getElement("tkz2_bogey").getEntry().get())
                     .withRenderer(() -> BogeyBlockEntityRenderer::new)
                     .submit(testRegistry);
 
