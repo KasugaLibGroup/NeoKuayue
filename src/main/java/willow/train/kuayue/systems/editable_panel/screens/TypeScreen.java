@@ -145,8 +145,8 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
     @Override
     public void render(PoseStack pose, int mouseX, int mouseY, float partial) {
         // super.render(pose, mouseX, mouseY, partial);
-        colorScreen.render(pose, mouseX, mouseY, partial);
-        // cts.render(pose, mouseX, mouseY, partial);
+        // colorScreen.render(pose, mouseX, mouseY, partial);
+        cts.render(pose, mouseX, mouseY, partial);
     }
 
     public void updateData() {

@@ -23,9 +23,19 @@ public class DescriptionLabel extends TooltipLabel {
         super(component);
     }
 
+    public DescriptionLabel(String str) {
+        super(str);
+    }
+
     @Override
     public void setHeight(int value) {
         super.setHeight(value);
+        updateStrings();
+    }
+
+    public void setWidthAndHeight(int width, int height) {
+        this.width = width;
+        this.height = height;
         updateStrings();
     }
 

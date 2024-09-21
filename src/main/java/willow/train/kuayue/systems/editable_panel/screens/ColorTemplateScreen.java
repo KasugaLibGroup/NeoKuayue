@@ -14,6 +14,7 @@ import willow.train.kuayue.initial.ClientInit;
 import willow.train.kuayue.systems.editable_panel.AllColorTemplates;
 import willow.train.kuayue.systems.editable_panel.ColorTemplate;
 import willow.train.kuayue.systems.editable_panel.widget.ColorTemplatesBox;
+import willow.train.kuayue.systems.editable_panel.widget.DescriptionLabel;
 import willow.train.kuayue.systems.editable_panel.widget.ImageButton;
 import willow.train.kuayue.systems.editable_panel.widget.Label;
 
@@ -144,14 +145,31 @@ public class ColorTemplateScreen extends AbstractWidget {
             if (temp == null) continue;
             temp.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
         }
-        fill(pPoseStack, (int) px + 182, this.title.y + title.getHeight() + 10,
-                (int) px + 184, (this.title.y + title.getHeight() + 8 + 165), 0xff555555);
+
+        int bY = this.title.y + title.getHeight() + 10;
+        fill(pPoseStack, (int) px + 182, bY, (int) px + 184,
+                (this.title.y + title.getHeight() + 8 + 165), 0xff555555);
         if (edit == null || cancel == null || confirm == null || delete == null || share == null) return;
         edit.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTick);
         confirm.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTick);
         cancel.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTick);
         share.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTick);
         delete.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTick);
+
+        // render main box
+        ColorTemplatesBox chosen = getChosenBox();
+        ColorTemplate template = chosen.getTemplate();
+
+        // title
+        DescriptionLabel label = new DescriptionLabel(template.getName());
+        label.setHeight(8);
+        label.setPosition(px + 188, bY + 2);
+        label.setScale(2f, 2f);
+        label.setColor(0xff000000);
+        label.setForceLeftBegin(true);
+        label.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        fill(pPoseStack, label.x, bY + label.getHeight(), label.x + (label.getWidth() + 4),
+                bY + label.getHeight() + 2, 0xff555555);
     }
 
     @Override

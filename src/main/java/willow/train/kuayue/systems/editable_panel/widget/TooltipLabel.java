@@ -20,6 +20,10 @@ public class TooltipLabel extends Label {
         forceLeftBegin = false;
     }
 
+    public TooltipLabel(Vec2f position, String str, SimpleColor color) {
+        this(position, Component.literal(str), color);
+    }
+
     public TooltipLabel(Vec2f position, Component component) {
         super(position, component);
         texts = new ArrayList<>();
@@ -27,10 +31,18 @@ public class TooltipLabel extends Label {
         forceLeftBegin = false;
     }
 
+    public TooltipLabel(Vec2f position, String str) {
+        this(position, Component.literal(str));
+    }
+
     public TooltipLabel(Component component) {
         super(component);
         texts = new ArrayList<>();
         borderWidth = 1;
+    }
+
+    public TooltipLabel(String str) {
+        this(Component.literal(str));
     }
 
     protected void updateStrings() {
