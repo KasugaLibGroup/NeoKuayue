@@ -50,9 +50,9 @@ public class TagsUtil {
      */
     public static Set<Item> getBlockItemsByTag(TagKey<Block> tag) {
         Set<Item> result = new HashSet<>();
-        ForgeRegistries.BLOCKS.getEntries().forEach(entry -> {
-            if (entry.getValue().defaultBlockState().is(tag)) {
-                result.add(entry.getValue().asItem());
+        Item.BY_BLOCK.forEach((key, value) -> {
+            if (key.defaultBlockState().is(tag)) {
+                result.add(value.asItem());
             }
         });
         return result;
@@ -79,18 +79,9 @@ public class TagsUtil {
      */
     public static Set<Block> getItemBlocksByTag(TagKey<Item> tag) {
         Set<Block> result = new HashSet<>();
-        ForgeRegistries.ITEMS.getEntries().forEach(entry -> {
-            if (entry.getValue().getDefaultInstance().is(tag)) {
-                Block b = null;
-                for (Block block : Item.BY_BLOCK.keySet()) {
-                    if (block.asItem().equals(entry.getValue())) {
-                        b = block;
-                        break;
-                    }
-                }
-                if (b != null)
-                    result.add(b);
-            }
+        Item.BY_BLOCK.forEach((key, value) -> {
+            if (value.getDefaultInstance().is(tag))
+                result.add(key);
         });
         return result;
     }
