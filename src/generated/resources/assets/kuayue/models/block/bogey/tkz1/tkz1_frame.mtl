@@ -1,0 +1,10 @@
+# Made in Blockbench 4.10.4
+newmtl m_ec9890ed-72b7-fd9b-9967-5744d26436c1
+map_Kd kuayue:block/bogey/tkz1/tkz1_frame
+newmtl m_85131fdf-a36c-9f43-8451-2a1d53cbf22d
+map_Kd kuayue:block/bogey/tkz1/tkz1_brake
+newmtl m_223056a5-7280-f682-ce97-b3a1ac83c87e
+map_Kd kuayue:block/bogey/tkz1/tkz1_hang
+newmtl m_d11d1a9c-1541-74cb-0136-18e858e29a39
+map_Kd kuayue:block/bogey/tkz1/tkz1_rod
+newmtl none

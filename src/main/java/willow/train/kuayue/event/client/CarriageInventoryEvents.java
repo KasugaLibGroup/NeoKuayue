@@ -6,7 +6,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
@@ -14,18 +16,20 @@ import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.initial.AllElements;
+import willow.train.kuayue.initial.AllTags;
 import willow.train.kuayue.initial.ClientInit;
 import willow.train.kuayue.initial.ImageInit;
 import willow.train.kuayue.initial.create.AllTracks;
 import willow.train.kuayue.initial.panel.*;
 import willow.train.kuayue.systems.editable_panel.widget.ImageButton;
 import willow.train.kuayue.systems.editable_panel.widget.ItemIconButton;
-import willow.train.kuayue.systems.train_carriage_package.*;
-import willow.train.kuayue.utils.client.RenderablePicture;
+import willow.train.kuayue.utils.TagsUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @OnlyIn(Dist.CLIENT)
 public class CarriageInventoryEvents {
@@ -290,22 +294,31 @@ public class CarriageInventoryEvents {
         itemList =
                 new ArrayList<>() {
                     {
-                        add(Carriage25B.getList());  // 25B 0
-                        add(Carriage25G.getList());  // 25G 1
-                        add(Carriage25K.getList());  // 25K 2
-                        add(Carriage25Z.getList());  // 25Z 3
-                        add(Carriage25T.getList());  // 25T 4
-                        add(Marshalled25Series.getList());  // 25 Marshalled Series 5
-                        add(CarriageCR200j.getList()); // cr200j 6
+                        add(getListByTag(AllTags.C25B.tag()));  // 25B 0
+                        add(getListByTag(AllTags.C25G.tag()));  // 25G 1
+                        add(getListByTag(AllTags.C25K.tag()));  // 25K 2
+                        add(getListByTag(AllTags.C25Z.tag()));  // 25Z 3
+                        add(getListByTag(AllTags.C25T.tag()));  // 25T 4
+                        add(getListByTag(AllTags.C25B.tag()));  // 25 Marshalled Series 5
+                        add(getListByTag(AllTags.C200J.tag())); // cr200j 6
                         add(
                                 List.of(
                                         // BlockInit.ORIGINAL_COLOR_WINDOW_25.get().asItem().getDefaultInstance(),
                                         // BlockInit.ORIGINAL_COLOR_WINDOW_25_SEALED.get().asItem().getDefaultInstance()
                                         )); // 通用 7
 
-                        add(Carriage25BGZK.getList()); // BGZK 8
+                        add(getListByTag(AllTags.C25B.tag())); // BGZK 8
                     }
                 };
+    }
+
+    public List<ItemStack> getListByTag(TagKey<Block> tag) {
+        Set<Block> blockSetByTag = TagsUtil.getBlocksByTag(tag);
+        List<ItemStack> itemStackList = new ArrayList<>();
+        for (Block block : blockSetByTag) {
+            itemStackList.add(block.asItem().getDefaultInstance());
+        }
+        return itemStackList;
     }
 
     public void addSchematicToTab(CreativeModeInventoryScreen.ItemPickerMenu menu) {

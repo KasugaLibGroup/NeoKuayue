@@ -55,6 +55,18 @@ public class AllCarriageBogeys {
             .size(0.915F/2F)
             .submit(testRegistry);
 
+    public static final BogeySizeReg tkz2Motor = new BogeySizeReg("tkz2_motor")
+            .size(0.915F/2F)
+            .submit(testRegistry);
+
+    public static final BogeySizeReg tkz2MotorBackward = new BogeySizeReg("tkz2_motor_backward")
+            .size(0.915F/2F)
+            .submit(testRegistry);
+
+    public static final BogeySizeReg tkz1 = new BogeySizeReg("tkz1")
+            .size(0.915F/2F)
+            .submit(testRegistry);
+
     public static final BogeyGroupReg carriageBogeyGroup = new BogeyGroupReg("carriage", "kuayue_bogey")
             .bogey(pk209p.getSize(), PK209PRenderer::new, testRegistry.asResource("pk209p_bogey"))
             .bogey(pk209pNoMotor.getSize(), PK209PRenderer.NoMotor::new, testRegistry.asResource("pk209p_no_motor_bogey"))
@@ -69,6 +81,9 @@ public class AllCarriageBogeys {
     public static final BogeyGroupReg meterCarriageBogeyGroup = new BogeyGroupReg("meter_carriage", "kuayue_bogey_2")
             .bogey(mkz.getSize(), MKZRenderer::new, testRegistry.asResource("mkz_bogey"))
             .bogey(tkz2.getSize(), TKZ2Renderer::new, testRegistry.asResource("tkz2_bogey"))
+            .bogey(tkz1.getSize(), TKZ1Renderer::new, testRegistry.asResource("tkz1_bogey"))
+            .bogey(tkz2Motor.getSize(), TKZ2Renderer.Motor::new, testRegistry.asResource("tkz2_motor_bogey"))
+            .bogey(tkz2MotorBackward.getSize(), TKZ2Renderer.MotorBackward::new, testRegistry.asResource("tkz2_motor_backward_bogey"))
             .translationKey("meter_carriage_group")
             .submit(testRegistry);
 
@@ -117,9 +132,13 @@ public class AllCarriageBogeys {
             .action(BogeyBlockReg::noOcclusion)
             .drive((key, reg) -> switch (key) {
                 case "tkz2_bogey" -> reg.size(tkz2).translationKey("tkz2_bogey");
+                case "tkz1_bogey" -> reg.size(tkz1).translationKey("tkz1_bogey");
+                case "tkz2_motor_bogey" -> reg.size(tkz2Motor).translationKey("tkz2_motor_bogey");
+                case "tkz2_motor_backward_bogey" -> reg.size(tkz2MotorBackward).translationKey("tkz2_motor_backward_bogey");
                 default -> reg.size(tkz2).translationKey("tkz2_bogey");
             })
-            .element("tkz2_bogey")
+            .element("tkz2_bogey").element("tkz1_bogey").element("tkz2_motor_bogey")
+            .element("tkz2_motor_backward_bogey")
             .submit(testRegistry);
 
     public static final BlockEntityReg<CarriageBogeyEntity> carriageBogeyEntity =
@@ -140,6 +159,9 @@ public class AllCarriageBogeys {
                     .blockEntityType(MeterCarriageBogeyEntity::new)
                     .addBlock(() -> meterCarriageBlockBundle.getElement("mkz_bogey").getEntry().get())
                     .addBlock(() -> meterCarriageHalfHeightTopBlockBundle.getElement("tkz2_bogey").getEntry().get())
+                    .addBlock(() -> meterCarriageHalfHeightTopBlockBundle.getElement("tkz1_bogey").getEntry().get())
+                    .addBlock(() -> meterCarriageHalfHeightTopBlockBundle.getElement("tkz2_motor_bogey").getEntry().get())
+                    .addBlock(() -> meterCarriageHalfHeightTopBlockBundle.getElement("tkz2_motor_backward_bogey").getEntry().get())
                     .withRenderer(() -> BogeyBlockEntityRenderer::new)
                     .submit(testRegistry);
 
