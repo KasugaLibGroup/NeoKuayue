@@ -13,15 +13,18 @@ public class LocalFileEnv {
     public LocalFileEnv(String dir) {
         this.dir = dir;
         try{
-            createDir();
+            if (!createDir()) throw new RuntimeException("Find an unknown error!");
         } catch (IOException e) {
             Minecraft.crash(new CrashReport("Failed to gen kuayue dir.", e));
         }
     }
 
-    private void createDir() throws IOException {
+    private boolean createDir() throws IOException {
         File file = new File(dir);
-        if (!file.exists() || !file.isDirectory()) file.mkdirs();
+        if (file.exists() && file.isDirectory()) return true;
+        if (!file.exists() || !file.isDirectory())
+            return file.mkdirs();
+        return false;
     }
 
     public String getPath(String fileName) {

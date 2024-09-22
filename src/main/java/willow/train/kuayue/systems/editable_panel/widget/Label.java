@@ -26,6 +26,10 @@ public class Label extends AbstractWidget {
         this.text = component;
     }
 
+    public Label(Vec2f position, String str, SimpleColor color) {
+        this(position, Component.literal(str), color);
+    }
+
     public Label(Vec2f position, Component component) {
         super((int) position.x(), (int) position.y(),
                 Minecraft.getInstance().font.width(component.getString()),
@@ -34,6 +38,10 @@ public class Label extends AbstractWidget {
         this.scale = new Vec2f(1f, 1f);
         this.position = position;
         color = SimpleColor.fromRGBInt(0xffffff);
+    }
+
+    public Label(Vec2f position, String str) {
+        this(position, Component.literal(str));
     }
 
     public Label(Component component) {
@@ -46,10 +54,20 @@ public class Label extends AbstractWidget {
         color = SimpleColor.fromRGBInt(0xffffff);
     }
 
+    public Label(String str) {
+        this(Component.literal(str));
+    }
+
     public void setPosition(Vec2f position) {
         this.position = position;
         this.x = (int) position.x();
         this.y = (int) position.y();
+    }
+
+    public void setPosition(float x, float y) {
+        this.position = new Vec2f(x, y);
+        this.x = (int) x;
+        this.y = (int) y;
     }
 
     public SimpleColor getColor() {
