@@ -48,8 +48,7 @@ public class AllElements {
             MinecraftForge.EVENT_BUS.addListener(ColorTemplateEvents::saveEvent);
             MinecraftForge.EVENT_BUS.addListener(ColorTemplateEvents::loadEvent);
             // MinecraftForge.EVENT_BUS.addListener(RenderPrePosedBlockEvent::renderBlock);
-            // TODO 先注释上 不然打开列车物品栏会闪退
-            // MinecraftForge.EVENT_BUS.register(new CarriageInventoryEvents());
+            MinecraftForge.EVENT_BUS.register(new CarriageInventoryEvents());
         }
         testRegistry.submit();
     }

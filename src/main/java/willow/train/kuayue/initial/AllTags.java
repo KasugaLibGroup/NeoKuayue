@@ -48,6 +48,10 @@ public class AllTags {
             .submit(AllElements.testRegistry);
     public static final BlockTagReg C200J = new BlockTagReg("c200j", "panel/c200j")
             .submit(AllElements.testRegistry);
+    public static final BlockTagReg C25BGKZT = new BlockTagReg("c25bgkzt", "panel/c25bgkzt")
+            .submit(AllElements.testRegistry);
+    public static final BlockTagReg MARSHALLED = new BlockTagReg("marshalled", "panel/marshalled")
+            .submit(AllElements.testRegistry);
 
     public static final BlockTagReg I3D = new BlockTagReg("i3d", "panel/i3d")
             .submit(AllElements.testRegistry);

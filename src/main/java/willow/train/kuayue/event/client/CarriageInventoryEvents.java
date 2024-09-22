@@ -284,9 +284,9 @@ public class CarriageInventoryEvents {
                 menu.items.addAll(itemList.get(3)); // Z
                 menu.items.addAll(itemList.get(4)); // T
                 menu.items.addAll(itemList.get(5)); // M
-                menu.items.addAll(itemList.get(6));  // cr200j
+                menu.items.addAll(itemList.get(6)); // cr200j
                 menu.items.addAll(itemList.get(7)); // general
-                menu.items.addAll(itemList.get(8)); // bgzk
+                menu.items.addAll(itemList.get(8)); // bgkzt
         }
     }
 
@@ -299,7 +299,7 @@ public class CarriageInventoryEvents {
                         add(getListByTag(AllTags.C25K.tag()));  // 25K 2
                         add(getListByTag(AllTags.C25Z.tag()));  // 25Z 3
                         add(getListByTag(AllTags.C25T.tag()));  // 25T 4
-                        add(getListByTag(AllTags.C25B.tag()));  // 25 Marshalled Series 5
+                        add(getListByTag(AllTags.MARSHALLED.tag()));  // 25 Marshalled Series 5
                         add(getListByTag(AllTags.C200J.tag())); // cr200j 6
                         add(
                                 List.of(
@@ -307,7 +307,7 @@ public class CarriageInventoryEvents {
                                         // BlockInit.ORIGINAL_COLOR_WINDOW_25_SEALED.get().asItem().getDefaultInstance()
                                         )); // 通用 7
 
-                        add(getListByTag(AllTags.C25B.tag())); // BGZK 8
+                        add(getListByTag(AllTags.C25BGKZT.tag())); // BGKZT 8
                     }
                 };
     }

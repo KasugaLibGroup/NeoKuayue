@@ -1,24 +1,26 @@
 {
   "values": [
-    "kuayue:carport_25z",
-    "kuayue:carport_ac_25z",
-    "kuayue:carport_center_25z",
-    "kuayue:carport_side_ac_25z",
     "kuayue:door_25z",
-    "kuayue:floor_25z",
-    "kuayue:floor_carpet_25z",
-    "kuayue:ladder_25z",
+    "kuayue:end_face_25z_1",
+    "kuayue:end_face_25z_2",
+    "kuayue:end_face_25z_3",
     "kuayue:panel_bottom_line_25z",
     "kuayue:panel_bottom_side_25z",
     "kuayue:panel_bottom_symbol_25z",
     "kuayue:panel_middle_25z",
     "kuayue:panel_middle_side_25z",
     "kuayue:panel_top_25z",
-    "kuayue:toilet_dd_25z",
     "kuayue:window_oc_25z",
     "kuayue:window_oc_level_25z",
     "kuayue:window_oc_small_25z_2",
     "kuayue:window_oc_toilet_25z",
-    "kuayue:window_oc_wide_25z"
+    "kuayue:window_oc_wide_25z",
+    "kuayue:floor_25z",
+    "kuayue:toilet_dd_25z",
+    "kuayue:ladder_25z",
+    "kuayue:carport_25z",
+    "kuayue:carport_ac_25z",
+    "kuayue:carport_center_25z",
+    "kuayue:carport_side_ac_25z"
   ]
 }

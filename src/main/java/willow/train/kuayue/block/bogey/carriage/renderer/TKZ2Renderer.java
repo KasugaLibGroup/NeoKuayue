@@ -84,23 +84,23 @@ public class TKZ2Renderer extends BogeyRenderer {
 
             if (!inContraption) {
                 frame.translate(0, 0.125, 0).render(ms, light, vb);
-                wheel.translate(0, 0.695, 0.97).rotateX(wheelAngle * 1.2).render(ms, light, vb);
-                motorWheel.translate(0, 0.695, -0.97).rotateX(wheelAngle * 1.2).render(ms, light, vb);
+                wheel.translate(0, 0.695, 0.976).rotateX(wheelAngle * 1.2).render(ms, light, vb);
+                motorWheel.translate(0, 0.695, -0.976).rotateX(wheelAngle * 1.2).render(ms, light, vb);
                 motorPonyWheel.translate(0, 0.721, -1.94).rotateX(wheelAngle * 3.256).render(ms, light, vb);
                 return;
             }
 
             if (direction == Direction.NORTH || direction == Direction.WEST) {
                 frame.translate(0, 0.125, 0).render(ms, light, vb);
-                wheel.translate(0, 0.695, 0.97).rotateX(wheelAngle * 1.2).render(ms, light, vb);
-                motorWheel.translate(0, 0.695, -0.97).rotateX(wheelAngle * 1.2).render(ms, light, vb);
+                wheel.translate(0, 0.695, 0.976).rotateX(wheelAngle * 1.2).render(ms, light, vb);
+                motorWheel.translate(0, 0.695, -0.976).rotateX(wheelAngle * 1.2).render(ms, light, vb);
                 motorPonyWheel.translate(0, 0.721, -1.94).rotateX(wheelAngle * 3.256).render(ms, light, vb);
                 return;
             }
 
             frame.rotateY(180).translate(0, 0.125, 0).render(ms, light, vb);
-            wheel.rotateY(180).translate(0, 0.695, 0.97).rotateX(-wheelAngle * 1.2).render(ms, light, vb);
-            motorWheel.rotateY(180).translate(0, 0.695, -0.97).rotateX(-wheelAngle * 1.2).render(ms, light, vb);
+            wheel.rotateY(180).translate(0, 0.695, 0.976).rotateX(-wheelAngle * 1.2).render(ms, light, vb);
+            motorWheel.rotateY(180).translate(0, 0.695, -0.976).rotateX(-wheelAngle * 1.2).render(ms, light, vb);
             motorPonyWheel.rotateY(180).translate(0, 0.721, -1.94).rotateX(-wheelAngle * 3.256).render(ms, light, vb);
         }
 
@@ -139,23 +139,23 @@ public class TKZ2Renderer extends BogeyRenderer {
 
             if (!inContraption) {
                 frame.rotateY(180).translate(0, 0.125, 0).render(ms, light, vb);
-                wheel.rotateY(180).translate(0, 0.695, 0.97).rotateX(wheelAngle * 1.2).render(ms, light, vb);
-                motorWheel.rotateY(180).translate(0, 0.695, -0.97).rotateX(wheelAngle * 1.2).render(ms, light, vb);
+                wheel.rotateY(180).translate(0, 0.695, 0.976).rotateX(wheelAngle * 1.2).render(ms, light, vb);
+                motorWheel.rotateY(180).translate(0, 0.695, -0.976).rotateX(wheelAngle * 1.2).render(ms, light, vb);
                 motorPonyWheel.rotateY(180).translate(0, 0.721, -1.94).rotateX(wheelAngle * 3.256).render(ms, light, vb);
                 return;
             }
 
             if (direction == Direction.NORTH || direction == Direction.WEST) {
                 frame.rotateY(180).translate(0, 0.125, 0).render(ms, light, vb);
-                wheel.rotateY(180).translate(0, 0.695, 0.97).rotateX(-wheelAngle * 1.2).render(ms, light, vb);
-                motorWheel.rotateY(180).translate(0, 0.695, -0.97).rotateX(-wheelAngle * 1.2).render(ms, light, vb);
+                wheel.rotateY(180).translate(0, 0.695, 0.976).rotateX(-wheelAngle * 1.2).render(ms, light, vb);
+                motorWheel.rotateY(180).translate(0, 0.695, -0.976).rotateX(-wheelAngle * 1.2).render(ms, light, vb);
                 motorPonyWheel.rotateY(180).translate(0, 0.721, -1.94).rotateX(-wheelAngle * 3.256).render(ms, light, vb);
                 return;
             }
 
             frame.translate(0, 0.125, 0).render(ms, light, vb);
-            wheel.translate(0, 0.695, 0.97).rotateX(wheelAngle * 1.2).render(ms, light, vb);
-            motorWheel.translate(0, 0.695, -0.97).rotateX(wheelAngle * 1.2).render(ms, light, vb);
+            wheel.translate(0, 0.695, 0.976).rotateX(wheelAngle * 1.2).render(ms, light, vb);
+            motorWheel.translate(0, 0.695, -0.976).rotateX(wheelAngle * 1.2).render(ms, light, vb);
             motorPonyWheel.translate(0, 0.721, -1.94).rotateX(wheelAngle * 3.256).render(ms, light, vb);
         }
 

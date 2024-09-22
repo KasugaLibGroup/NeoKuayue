@@ -1,19 +1,21 @@
 {
   "values": [
     "kuayue:door_25g",
-    "kuayue:floor_25g",
-    "kuayue:ladder_25g",
     "kuayue:panel_bottom_25g",
     "kuayue:panel_middle_25g",
     "kuayue:panel_symbol_marshalled_25g",
     "kuayue:panel_top_25g",
-    "kuayue:toilet_dd_25g",
-    "kuayue:window_25g",
     "kuayue:window_oc_sealed_small_25g",
     "kuayue:window_oc_sealed_wide_25g",
     "kuayue:window_oc_small_25g",
     "kuayue:window_oc_small_25g_2",
     "kuayue:window_oc_toilet_25g",
-    "kuayue:window_oc_wide_25g"
+    "kuayue:window_oc_wide_25g",
+    "kuayue:floor_25g",
+    "kuayue:toilet_dd_25g",
+    "kuayue:ladder_25g",
+    "kuayue:end_face_25g_1",
+    "kuayue:end_face_25g_2",
+    "kuayue:end_face_25g_3"
   ]
 }
