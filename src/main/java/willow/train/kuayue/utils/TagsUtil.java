@@ -7,8 +7,10 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.ForgeRegistries;
 import willow.train.kuayue.initial.AllTags;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class TagsUtil {
 
@@ -35,7 +37,12 @@ public class TagsUtil {
      * @return 方块集合
      */
     public static Set<Block> getBlocksByTag(TagKey<Block> tag) {
-        Set<Block> result = new HashSet<>();
+        Set<Block> result = new TreeSet<>(new Comparator<Block>() {
+            @Override
+            public int compare(Block o1, Block o2) {
+                return o1.getDescriptionId().compareTo(o2.getDescriptionId());
+            }
+        });
         ForgeRegistries.BLOCKS.getEntries().forEach(entry -> {
             if (entry.getValue().defaultBlockState().is(tag))
                 result.add(entry.getValue());

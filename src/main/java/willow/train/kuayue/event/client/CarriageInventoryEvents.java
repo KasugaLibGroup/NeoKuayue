@@ -18,7 +18,6 @@ import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.initial.AllElements;
 import willow.train.kuayue.initial.AllTags;
 import willow.train.kuayue.initial.ClientInit;
-import willow.train.kuayue.initial.ImageInit;
 import willow.train.kuayue.initial.create.AllTracks;
 import willow.train.kuayue.initial.panel.*;
 import willow.train.kuayue.systems.editable_panel.widget.ImageButton;
@@ -29,12 +28,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @OnlyIn(Dist.CLIENT)
 public class CarriageInventoryEvents {
-    public static final ImageInit.ImageRegex UP_REGEX = ImageInit.register("textures/gui/up_button.png", 0);
-    public static final ImageInit.ImageRegex DOWN_REGEX = ImageInit.register("textures/gui/down_button.png", 0);
     private static int carriageType = 0;
     ItemIconButton[] imgBtn = new ItemIconButton[8];
     ImageButton[] upAndDownBtn = new ImageButton[2];
@@ -44,8 +40,11 @@ public class CarriageInventoryEvents {
     int showBtnNumber = 5;
     int guiLeft = 0, guiTop = 0;
     boolean onChanged = true;
-    String playerName = "";
+    int bx = 0;
 
+    // String playerName = "";
+
+    // 懒加载向上箭头动态图标
     LazyRecomputable<ImageMask> upRegex = LazyRecomputable.of(() -> {
         try {
             return ClientInit.carriageEventRegexUp.getImage().get().getMask();
@@ -54,6 +53,7 @@ public class CarriageInventoryEvents {
         }
     });
 
+    // 懒加载向下箭头动态图标
     LazyRecomputable<ImageMask> downRegex = LazyRecomputable.of(() -> {
         try {
             return ClientInit.carriageEventRegexDown.getImage().get().getMask();
@@ -64,29 +64,37 @@ public class CarriageInventoryEvents {
 
     @SubscribeEvent
     public void onPlayerLogout(ClientPlayerNetworkEvent.LoggingOut event) {
+        // 玩家登出时将列车类型置为0
         carriageType = 0;
+        this.bx = 0;
     }
 
     @SubscribeEvent
     public void onPlayerLogin(ClientPlayerNetworkEvent.LoggingIn event) {
-        playerName = event.getPlayer().getDisplayName().getString();
-        generateSchematicTab();
+        // playerName = event.getPlayer().getDisplayName().getString();
+        // generateSchematicTab();
     }
 
     @SubscribeEvent
     @SuppressWarnings({"resource"})
     public void onScreenInit(ScreenEvent.Init.Post event) {
+        // 若当前screen不是创造模式物品栏，则直接返回。
         if (!(event.getScreen() instanceof CreativeModeInventoryScreen)) return;
+        // 获取当前gui的左侧起始位置坐标
         this.guiLeft = ((CreativeModeInventoryScreen) event.getScreen()).getGuiLeft();
+        // 获取当前gui的顶部起始位置坐标
         this.guiTop = ((CreativeModeInventoryScreen) event.getScreen()).getGuiTop();
+        // 获取当前物品栏菜单对象
         CreativeModeInventoryScreen.ItemPickerMenu menu =
                 ((CreativeModeInventoryScreen) event.getScreen()).getMenu();
+        // 获取当前物品栏标签对象
         int tab = ((CreativeModeInventoryScreen) event.getScreen()).getSelectedTab();
 
         if (tab == AllElements.neoKuayueMainTab.getTab().getId()) {
             addSchematicToTab(menu);
         }
 
+        // 定义列车车厢板按钮图标的数据结构
         ItemStack[] icons = new ItemStack[8];
         icons[0] = new ItemStack(AllTracks.standardTrack.getBlock());
         icons[1] = new ItemStack(C25BPanel.PANEL_BOTTOM_25B.block.getBlock());
@@ -97,8 +105,10 @@ public class CarriageInventoryEvents {
         icons[6] = new ItemStack(C25BPanel.PANEL_SYMBOL_MARSHALLED_25B.block.getBlock());
         icons[7] = new ItemStack(CR200JPanel.PANEL_BOTTOM_MARSHALLED_CR200J.block.getBlock());
 
+        // 定义左侧向上箭头按钮
         upAndDownBtn[0] = new ImageButton(upRegex, this.guiLeft - 22, this.guiTop - 8, 20, 20, Component.empty(),
                 b -> {
+                    // 按下按钮后触发事件
                     if(btn_location > 0){
                         btn_location --;
                         btn_location = Math.max(btn_location, 0);
@@ -106,6 +116,7 @@ public class CarriageInventoryEvents {
                         onUp();
                     }
                 });
+        // 定义左侧向下箭头按钮
         upAndDownBtn[1] = new ImageButton(downRegex, this.guiLeft - 22, this.guiTop - 8 + (showBtnNumber + 1) * 22, 20, 20, Component.empty(),
                 b -> {
                     if(btn_location < imgBtn.length - showBtnNumber){
@@ -116,8 +127,10 @@ public class CarriageInventoryEvents {
                     }
                 });
 
+        // 初始化各车厢板类型的映射
         initMapping();
 
+        // 定义列车车厢板类型信息的数据结构
         Component[] components = new Component[8];
         components[0] =
                 Component.translatable("container." + Kuayue.MODID + ".inventory.button.all");
@@ -137,6 +150,7 @@ public class CarriageInventoryEvents {
         components[7] =
                 Component.translatable("container." + Kuayue.MODID + ".inventory.button.cr200j");
 
+        // 定义所有列车车厢板类型按钮
         for (int i = 0; i < imgBtn.length; i++) {
             imgBtn[i] =
                     new ItemIconButton(
@@ -149,6 +163,7 @@ public class CarriageInventoryEvents {
                                     if (b.equals(imgBtn[bx])) {
                                         carriageType = bx;
                                         ((ItemIconButton) b).toggle();
+                                        this.bx = bx;
                                         onChanged = true;
                                         menu.scrollTo(0.0f);
                                     } else {
@@ -159,20 +174,31 @@ public class CarriageInventoryEvents {
                             i == 0 ? -2 : 1,
                             i == 0 ? 0 : 2);
         }
+
         for (ItemIconButton b : imgBtn) {
+            // 给列车车厢板类型按钮添加监听器
             event.addListener(b);
         }
+        // 刷新列车车厢板类型按钮显示状态
         refreshBtn(tab);
         for(ImageButton b : upAndDownBtn) {
+            // 给两个箭头按钮添加监听器
             event.addListener(b);
+            // 当前标签为跨越列车物品栏时显示上下箭头按钮，反之隐藏。
             b.visible = tab == AllElements.neoKuayueCarriageTab.getTab().getId();
         }
 
+        // 默认显示所有的车厢板类型
         imgBtn[0].toggle();
+        // imgBtn[bx].toggle();
+
+        // 更新列车车厢板类型按钮状态与物品栏中物品
         updateButtons();
+        // 菜单滚动到顶部
         menu.scrollTo(0);
     }
 
+    // 刷新列车车厢板类型按钮的显示状态
     private void refreshBtn(int tab) {
         int right_edge = btn_location + showBtnNumber - 1;
         for(int i = 0; i < imgBtn.length; i++) {
@@ -184,13 +210,17 @@ public class CarriageInventoryEvents {
         }
     }
 
+    // 点击向上箭头按钮触发
     private void onUp() {
+        // 列车车厢板类型按钮整体向上滚动
         for(ItemIconButton b : imgBtn) {
             b.y += 22;
         }
     }
 
+    // 点击向下箭头按钮触发
     private void onDown() {
+        // 列车车厢板类型按钮整体向下滚动
         for(ItemIconButton b : imgBtn) {
             b.y -= 22;
         }
@@ -198,33 +228,52 @@ public class CarriageInventoryEvents {
 
     @SubscribeEvent
     public void onRender(ScreenEvent.Render.Pre event) {
+        // 捕获screen渲染事件
+
+        // 获取当前事件的screen
         Screen screen = event.getScreen();
+        // 若当前screen为创造模式物品栏
         if (screen instanceof CreativeModeInventoryScreen) {
+            // 更新列车车厢板类型按钮状态与物品栏中物品
             updateButtons();
+            // 获取当前选择的物品栏标签
             int tab = ((CreativeModeInventoryScreen) screen).getSelectedTab();
+            // 当选择跨越列车物品栏时显示左侧上下箭头按钮
             for(ImageButton b : upAndDownBtn) {
                 b.visible = tab == AllElements.neoKuayueCarriageTab.getTab().getId();
             }
+            // 刷新列车车厢板类型按钮显示状态
             refreshBtn(tab);
+            // 若当前物品栏标签为跨越主标签
             if (tab == AllElements.neoKuayueMainTab.getTab().getId()) {
+                // 向当前标签的菜单中添加物品列表schematicItemList
                 addSchematicToTab(((CreativeModeInventoryScreen) screen).getMenu());
             }
         }
     }
 
+    // 更新列车车厢板类型按钮状态与物品栏中物品
     public void updateButtons() {
+        // 当前screen
         Screen screen = Minecraft.getInstance().screen;
+        // 当前物品栏标签
         int tab = ((CreativeModeInventoryScreen) screen).getSelectedTab();
+        // 物品选择菜单
         CreativeModeInventoryScreen.ItemPickerMenu menu =
                 ((CreativeModeInventoryScreen) screen).getMenu();
+        // 是否为创造模式物品栏的screen
         if (screen instanceof CreativeModeInventoryScreen) {
+            // 是否为跨越列车物品栏
             boolean vis = tab == AllElements.neoKuayueCarriageTab.getTab().getId();
+            // 根据vis的值显示或隐藏列车车厢板类型按钮
             for (ItemIconButton b : imgBtn) {
                 b.visible = vis;
             }
+            // 如果vis为True，更新物品栏中物品，并重置滚动条。
             if (vis) {
                 if (onChanged) {
                     menu.scrollTo(0.0f);
+                    // 更新物品列表
                     updateMenuItem(menu);
                     menu.scrollTo(0.0f);
                     onChanged = false;
@@ -276,7 +325,7 @@ public class CarriageInventoryEvents {
                 menu.items.addAll(itemList.get(6));
                 menu.items.addAll(itemList.get(7));
                 break;
-            default:
+            default: // carriageType为0时添加所有类型
                 menu.items.clear();
                 menu.items.addAll(itemList.get(0)); // B
                 menu.items.addAll(itemList.get(1)); // G
@@ -301,17 +350,13 @@ public class CarriageInventoryEvents {
                         add(getListByTag(AllTags.C25T.tag()));  // 25T 4
                         add(getListByTag(AllTags.MARSHALLED.tag()));  // 25 Marshalled Series 5
                         add(getListByTag(AllTags.C200J.tag())); // cr200j 6
-                        add(
-                                List.of(
-                                        // BlockInit.ORIGINAL_COLOR_WINDOW_25.get().asItem().getDefaultInstance(),
-                                        // BlockInit.ORIGINAL_COLOR_WINDOW_25_SEALED.get().asItem().getDefaultInstance()
-                                        )); // 通用 7
-
+                        add(List.of()); // 通用 7
                         add(getListByTag(AllTags.C25BGKZT.tag())); // BGKZT 8
                     }
                 };
     }
 
+    // 根据给定的tag获取带有该tag的方块的物品栈列表
     public List<ItemStack> getListByTag(TagKey<Block> tag) {
         Set<Block> blockSetByTag = TagsUtil.getBlocksByTag(tag);
         List<ItemStack> itemStackList = new ArrayList<>();
