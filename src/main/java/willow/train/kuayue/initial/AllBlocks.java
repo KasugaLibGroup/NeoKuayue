@@ -2,6 +2,8 @@ package willow.train.kuayue.initial;
 
 import kasuga.lib.registrations.common.BlockEntityReg;
 import kasuga.lib.registrations.common.BlockReg;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
@@ -16,6 +18,18 @@ import willow.train.kuayue.initial.panel.*;
 import willow.train.kuayue.initial.registration.PanelRegistration;
 
 public class AllBlocks {
+
+    public static final BlockReg<Block> CR_LOGO =
+            new BlockReg<Block>("cr_logo")
+                    .blockType(Block::new)
+                    .material(Material.METAL)
+                    .materialColor(MaterialColor.PLANT)
+                    .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(properties -> properties.sound(SoundType.POLISHED_DEEPSLATE))
+                    .addProperty(properties -> properties.strength(1.5f, 3.0f))
+                    .defaultBlockItem()
+                    // .tabTo(AllElements.neoKuayueMainTab)
+                    .submit(AllElements.testRegistry);
 
     public static final BlockReg<CompanyTrainPanel> COMPANY_TRAIN_PANEL =
             new BlockReg<CompanyTrainPanel>("company_panel_block")

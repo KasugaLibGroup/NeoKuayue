@@ -2,7 +2,9 @@ package willow.train.kuayue.initial;
 
 import kasuga.lib.core.util.Envs;
 import kasuga.lib.registrations.common.CreativeTabReg;
+import kasuga.lib.registrations.common.ItemReg;
 import kasuga.lib.registrations.registry.CreateRegistry;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.event.client.CarriageInventoryEvents;
@@ -17,16 +19,31 @@ public class AllElements {
 
     public static final CreateRegistry testRegistry = new CreateRegistry(Kuayue.MODID, Kuayue.BUS);
 
+    public static final ItemReg<Item> SERIES_25_LOGOS =
+            new ItemReg<Item>("series25_logos")
+                    .itemType(Item::new)
+                    .submit(testRegistry);
+
+    public static final ItemReg<Item> LOCO_LOGOS =
+            new ItemReg<Item>("loco_logos")
+                    .itemType(Item::new)
+                    .submit(testRegistry);
+
+    public static final ItemReg<Item> LOGO_A25T =
+            new ItemReg<Item>("logo_a25t")
+                    .itemType(Item::new)
+                    .submit(testRegistry);
+
     public static final CreativeTabReg neoKuayueMainTab = new CreativeTabReg("main")
-            .icon(() -> AllTracks.standardTrack.getTrackItem().getDefaultInstance())
+            .icon(() -> AllBlocks.CR_LOGO.itemInstance().getDefaultInstance())
             .submit(testRegistry);
 
     public static final CreativeTabReg neoKuayueLocoTab = new CreativeTabReg("loco")
-            .icon(() -> I11GPanel.HEAD_DF11G_2.itemInstance().getDefaultInstance())
+            .icon(() -> LOCO_LOGOS.getItem().getDefaultInstance())
             .submit(testRegistry);
 
     public static final CreativeTabReg neoKuayueCarriageTab = new CreativeTabReg("carriage")
-            .icon(() -> CR200JPanel.END_FACE_MARSHALLED_CR200J.item.getItem().getDefaultInstance())
+            .icon(() -> SERIES_25_LOGOS.getItem().getDefaultInstance())
             .submit(testRegistry);
 
     public static void invoke() {
