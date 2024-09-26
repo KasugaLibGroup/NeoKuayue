@@ -81,4 +81,9 @@ public class CustomRenderedDoorRenderer implements BlockEntityRenderer<CustomRen
         upper.renderInto(pose, consumer);
         pose.popPose();
     }
+
+    @Override
+    public boolean shouldRenderOffScreen(CustomRenderedDoorEntity pBlockEntity) {
+        return true;
+    }
 }

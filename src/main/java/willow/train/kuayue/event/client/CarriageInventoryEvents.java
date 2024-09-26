@@ -15,11 +15,7 @@ import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
 import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import willow.train.kuayue.Kuayue;
-import willow.train.kuayue.initial.AllBlocks;
-import willow.train.kuayue.initial.AllElements;
-import willow.train.kuayue.initial.AllTags;
-import willow.train.kuayue.initial.ClientInit;
-import willow.train.kuayue.initial.create.AllTracks;
+import willow.train.kuayue.initial.*;
 import willow.train.kuayue.initial.panel.*;
 import willow.train.kuayue.systems.editable_panel.widget.ImageButton;
 import willow.train.kuayue.systems.editable_panel.widget.ItemIconButton;
@@ -102,7 +98,7 @@ public class CarriageInventoryEvents {
         icons[2] = new ItemStack(C25GPanel.PANEL_BOTTOM_25G.block.getBlock());
         icons[3] = new ItemStack(C25KPanel.PANEL_BOTTOM_25K.block.getBlock());
         icons[4] = new ItemStack(C25ZPanel.PANEL_BOTTOM_LINE_25Z.block.getBlock());
-        icons[5] = new ItemStack(AllElements.LOGO_A25T.getItem());
+        icons[5] = new ItemStack(AllItems.LOGO_A25T.getItem());
         icons[6] = new ItemStack(C25BPanel.PANEL_SYMBOL_MARSHALLED_25B.block.getBlock());
         icons[7] = new ItemStack(CR200JPanel.PANEL_BOTTOM_MARSHALLED_CR200J.block.getBlock());
 

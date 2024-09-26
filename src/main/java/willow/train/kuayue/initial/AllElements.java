@@ -19,31 +19,16 @@ public class AllElements {
 
     public static final CreateRegistry testRegistry = new CreateRegistry(Kuayue.MODID, Kuayue.BUS);
 
-    public static final ItemReg<Item> SERIES_25_LOGOS =
-            new ItemReg<Item>("series25_logos")
-                    .itemType(Item::new)
-                    .submit(testRegistry);
-
-    public static final ItemReg<Item> LOCO_LOGOS =
-            new ItemReg<Item>("loco_logos")
-                    .itemType(Item::new)
-                    .submit(testRegistry);
-
-    public static final ItemReg<Item> LOGO_A25T =
-            new ItemReg<Item>("logo_a25t")
-                    .itemType(Item::new)
-                    .submit(testRegistry);
-
     public static final CreativeTabReg neoKuayueMainTab = new CreativeTabReg("main")
             .icon(() -> AllBlocks.CR_LOGO.itemInstance().getDefaultInstance())
             .submit(testRegistry);
 
     public static final CreativeTabReg neoKuayueLocoTab = new CreativeTabReg("loco")
-            .icon(() -> LOCO_LOGOS.getItem().getDefaultInstance())
+            .icon(() -> AllItems.LOCO_LOGOS.getItem().getDefaultInstance())
             .submit(testRegistry);
 
     public static final CreativeTabReg neoKuayueCarriageTab = new CreativeTabReg("carriage")
-            .icon(() -> SERIES_25_LOGOS.getItem().getDefaultInstance())
+            .icon(() -> AllItems.SERIES_25_LOGOS.getItem().getDefaultInstance())
             .submit(testRegistry);
 
     public static void invoke() {
@@ -58,6 +43,7 @@ public class AllElements {
         AllMaterials.invoke();
         AllEditableTypes.invoke();
         AllMenuScreens.invoke();
+        AllItems.invoke();
         if (Envs.isClient()) {
             ClientInit.invoke();
             MinecraftForge.EVENT_BUS.addListener(RenderArrowEvent::renderBlockBounds);
