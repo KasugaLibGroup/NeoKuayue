@@ -1,6 +1,8 @@
 {
   "values": [
     "kuayue:floor_m1",
-    "kuayue:bottom_slab_m1"
+    "kuayue:bottom_slab_m1",
+    "kuayue:window_large_m1",
+    "kuayue:window_large_between_m1"
   ]
 }
