@@ -52,6 +52,8 @@ public class AllTags {
             .submit(AllElements.testRegistry);
     public static final BlockTagReg MARSHALLED = new BlockTagReg("marshalled", "panel/marshalled")
             .submit(AllElements.testRegistry);
+    public static final BlockTagReg CM1 = new BlockTagReg("cm1", "panel/cm1")
+            .submit(AllElements.testRegistry);
 
     public static final BlockTagReg I3D = new BlockTagReg("i3d", "panel/i3d")
             .submit(AllElements.testRegistry);

@@ -28,8 +28,10 @@ import java.util.Set;
 
 @OnlyIn(Dist.CLIENT)
 public class CarriageInventoryEvents {
+
+    private static final int CARRIAGE_TYPE_COUNTS = 9;
     private static int carriageType = 0;
-    ItemIconButton[] imgBtn = new ItemIconButton[8];
+    ItemIconButton[] imgBtn = new ItemIconButton[CARRIAGE_TYPE_COUNTS];
     ImageButton[] upAndDownBtn = new ImageButton[2];
     ArrayList<List<ItemStack>> itemList = new ArrayList<>();
     List<ItemStack> schematicItemList = new ArrayList<>();
@@ -92,7 +94,7 @@ public class CarriageInventoryEvents {
         }
 
         // 定义列车车厢板按钮图标的数据结构
-        ItemStack[] icons = new ItemStack[8];
+        ItemStack[] icons = new ItemStack[CARRIAGE_TYPE_COUNTS];
         icons[0] = new ItemStack(AllBlocks.CR_LOGO.getBlock());
         icons[1] = new ItemStack(C25BPanel.PANEL_BOTTOM_25B.block.getBlock());
         icons[2] = new ItemStack(C25GPanel.PANEL_BOTTOM_25G.block.getBlock());
@@ -101,6 +103,7 @@ public class CarriageInventoryEvents {
         icons[5] = new ItemStack(AllItems.LOGO_A25T.getItem());
         icons[6] = new ItemStack(C25BPanel.PANEL_SYMBOL_MARSHALLED_25B.block.getBlock());
         icons[7] = new ItemStack(CR200JPanel.PANEL_BOTTOM_MARSHALLED_CR200J.block.getBlock());
+        icons[8] = new ItemStack(CM1Panel.BOTTOM_SLAB_M1.block.getBlock());
 
         // 定义左侧向上箭头按钮
         upAndDownBtn[0] = new ImageButton(upRegex, this.guiLeft - 22, this.guiTop - 8, 20, 20, Component.empty(),
@@ -128,7 +131,7 @@ public class CarriageInventoryEvents {
         initMapping();
 
         // 定义列车车厢板类型信息的数据结构
-        Component[] components = new Component[8];
+        Component[] components = new Component[CARRIAGE_TYPE_COUNTS];
         components[0] =
                 Component.translatable("container." + Kuayue.MODID + ".inventory.button.all");
         components[1] =
@@ -146,6 +149,8 @@ public class CarriageInventoryEvents {
                         "container." + Kuayue.MODID + ".inventory.button.marshalled_25_series");
         components[7] =
                 Component.translatable("container." + Kuayue.MODID + ".inventory.button.cr200j");
+        components[8] =
+                Component.translatable("container." + Kuayue.MODID + ".inventory.button.m1");
 
         // 定义所有列车车厢板类型按钮
         for (int i = 0; i < imgBtn.length; i++) {
@@ -322,6 +327,10 @@ public class CarriageInventoryEvents {
                 menu.items.addAll(itemList.get(6));
                 menu.items.addAll(itemList.get(7));
                 break;
+            case 8: // M1
+                menu.items.clear();
+                menu.items.addAll(itemList.get(9));
+                break;
             default: // carriageType为0时添加所有类型
                 menu.items.clear();
                 menu.items.addAll(itemList.get(0)); // B
@@ -333,6 +342,7 @@ public class CarriageInventoryEvents {
                 menu.items.addAll(itemList.get(6)); // cr200j
                 menu.items.addAll(itemList.get(7)); // general
                 menu.items.addAll(itemList.get(8)); // bgkzt
+                menu.items.addAll(itemList.get(9)); // M1
         }
     }
 
@@ -349,6 +359,7 @@ public class CarriageInventoryEvents {
                         add(getListByTag(AllTags.C200J.tag())); // cr200j 6
                         add(List.of()); // 通用 7
                         add(getListByTag(AllTags.C25BGKZT.tag())); // BGKZT 8
+                        add(getListByTag(AllTags.CM1.tag()));   // M1 9
                     }
                 };
     }

@@ -190,6 +190,7 @@ public class AllBlocks {
         C25TPanel.invoke();
         C25ZPanel.invoke();
         C25Panel.invoke();
+        CM1Panel.invoke();
         I11GPanel.invoke();
         I3DPanel.invoke();
         I21Panel.invoke();
