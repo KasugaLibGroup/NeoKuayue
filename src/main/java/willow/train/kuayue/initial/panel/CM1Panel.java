@@ -45,5 +45,21 @@ public class CM1Panel {
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
 
+    public static final PanelRegistration<TrainOpenableWindowBlock> WINDOW_SMALL_M1 =
+            new PanelRegistration<TrainOpenableWindowBlock>("window_small_m1")
+                    .block(p -> new TrainOpenableWindowBlock(p, -1, 1, 2))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueCarriageTab)
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
+    public static final PanelRegistration<TrainOpenableWindowBlock> WINDOW_DOUBLE_SMALL_M1 =
+            new PanelRegistration<TrainOpenableWindowBlock>("window_double_small_m1")
+                    .block(p -> new TrainOpenableWindowBlock(p, -1, 1, 2))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueCarriageTab)
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
     public static void invoke(){}
 }

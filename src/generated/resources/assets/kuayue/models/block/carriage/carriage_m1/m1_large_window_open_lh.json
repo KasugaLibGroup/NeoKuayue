@@ -1,6 +1,7 @@
 {
 	"credit": "Made with Blockbench",
 	"texture_size": [128, 128],
+	"render_type": "cutout_mipped",
 	"flip_v": true,
 	"textures": {
 		"0": "kuayue:block/carriage/carriage_m1/m1_large_window",
