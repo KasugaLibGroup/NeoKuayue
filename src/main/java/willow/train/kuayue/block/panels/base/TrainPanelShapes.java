@@ -130,6 +130,35 @@ public class TrainPanelShapes {
                     Block.box(12, 7.25, 15.25, 13.25, 9.5, 16),
                     Block.box(12, 9.5, 15.25, 14.25, 11.25, 16));
 
+    public static final VoxelShape METER_LADDER_SOUTH_AABB =
+            Shapes.or(
+                    Block.box(1, 0, 15, 15, 8, 16),
+                    Block.box(0, 0, 0, 1, 8, 16),
+                    Block.box(15, 0, 0, 16, 8, 16),
+                    Block.box(0, 0, 1, 15, 1, 15));
+
+    public static final VoxelShape METER_LADDER_WEST_AABB =
+            Shapes.or(
+                    Block.box(0, 0, 1, 1, 8, 15),
+                    Block.box(0, 0, 0, 16, 8, 1),
+                    Block.box(0, 0, 15, 16, 8, 16),
+                    Block.box(0, 0, 1, 15, 1, 15));
+
+    public static final VoxelShape METER_LADDER_NORTH_AABB =
+            Shapes.or(
+                    Block.box(1, 0, 0, 15, 8, 1),
+                    Block.box(0, 0, 0, 1, 8, 16),
+                    Block.box(15, 0, 0, 16, 8, 16),
+                    Block.box(1, 0, 0, 15, 1, 15));
+
+    public static final VoxelShape METER_LADDER_EAST_AABB =
+            Shapes.or(
+                    Block.box(15, 0, 1, 16, 8, 15),
+                    Block.box(0, 0, 0, 16, 8, 1),
+                    Block.box(0, 0, 15, 16, 8, 16),
+                    Block.box(1, 0, 0, 15, 1, 15));
+
+    public static VoxelShape HALF_HEIGHT_TOP_AABB = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
 
     public static VoxelShape getShape(Direction direction) {
         return switch (direction) {
@@ -208,6 +237,20 @@ public class TrainPanelShapes {
             case SOUTH -> LADDER_SOUTH_AABB;
             case NORTH -> LADDER_NORTH_AABB;
             default -> LADDER_EAST_AABB;
+        };
+    }
+
+    public static VoxelShape getMeterLadderShape(BlockState state) {
+        boolean open = state.getValue(BlockStateProperties.OPEN);
+        Direction direction = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
+        if (!open)
+            return HALF_HEIGHT_TOP_AABB;
+        return switch (direction) {
+            case EAST -> METER_LADDER_EAST_AABB;
+            case WEST -> METER_LADDER_WEST_AABB;
+            case SOUTH -> METER_LADDER_SOUTH_AABB;
+            case NORTH -> METER_LADDER_NORTH_AABB;
+            default -> METER_LADDER_EAST_AABB;
         };
     }
 }

@@ -1,0 +1,46 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"render_type": "cutout_mipped",
+	"flip_v": true,
+	"textures": {
+		"1": "kuayue:block/carriage/carriage_m1/m1_door",
+		"particle": "kuayue:block/carriage/carriage_m1/m1_door"
+	},
+	"elements": [
+		{
+			"from": [1, -8, 0],
+			"to": [2, 32, 1.95],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.25, 13, 0.75]},
+			"faces": {
+				"north": {"uv": [0.25, 5.5, 0, 15.5], "texture": "#1"},
+				"east": {"uv": [4.5, 4, 4, 14], "texture": "#1"},
+				"south": {"uv": [0.5, 5.5, 0.25, 15.5], "texture": "#1"},
+				"west": {"uv": [4, 4, 3.5, 14], "texture": "#1"},
+				"up": {"uv": [10, 8.75, 9.75, 9.25], "rotation": 180, "texture": "#1"},
+				"down": {"uv": [10, 9.75, 9.75, 9.25], "rotation": 180, "texture": "#1"}
+			}
+		},
+		{
+			"from": [2, 28, -0.05],
+			"to": [16, 32, 0.95],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.25, 13, 0.75]},
+			"faces": {
+				"north": {"uv": [10.5, 2.5, 7, 3.5], "texture": "#1"},
+				"east": {"uv": [10.25, 8, 9.75, 8.5], "texture": "#1"},
+				"south": {"uv": [8.5, 12.5, 5, 13], "texture": "#1"},
+				"west": {"uv": [10.25, 6.25, 9.75, 6.75], "texture": "#1"},
+				"up": {"uv": [10.5, 3.5, 7, 4], "rotation": 180, "texture": "#1"},
+				"down": {"uv": [8, 7.5, 4.5, 7], "rotation": 180, "texture": "#1"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "bone4",
+			"origin": [-56, -63, 40],
+			"color": 0,
+			"children": [0, 1]
+		}
+	]
+}

@@ -26,6 +26,7 @@ import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import willow.train.kuayue.block.panels.base.TrainPanelShapes;
 import willow.train.kuayue.initial.create.AllCarriageBogeys;
 import willow.train.kuayue.initial.create.AllTrackMaterial;
 
@@ -39,8 +40,6 @@ public class MeterCarriageBogeyBlock extends AbstractBogeyBlock<MeterCarriageBog
         implements IBE<MeterCarriageBogeyEntity>,
         ProperWaterloggedBlock,
         ISpecialBlockItemRequirement {
-
-    public static VoxelShape HALF_HEIGHT_TOP_AABB = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
 
     private boolean halfHeightTop = false;
 
@@ -59,7 +58,7 @@ public class MeterCarriageBogeyBlock extends AbstractBogeyBlock<MeterCarriageBog
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         if (!this.halfHeightTop)
             return super.getShape(pState, pLevel, pPos, pContext);
-        return HALF_HEIGHT_TOP_AABB;
+        return TrainPanelShapes.HALF_HEIGHT_TOP_AABB;
     }
 
     @Override

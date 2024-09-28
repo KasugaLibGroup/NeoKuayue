@@ -25,6 +25,7 @@ import willow.train.kuayue.block.panels.base.TrainPanelShapes;
 import willow.train.kuayue.item.SlabBlockItem;
 
 public class TrainLadderBlock extends TrainSlabBlock {
+    private boolean isMeter = false;
     public static final EnumProperty<DoorHingeSide> HINGE = BlockStateProperties.DOOR_HINGE;
     public static final BooleanProperty OPEN = BlockStateProperties.OPEN;
 
@@ -37,6 +38,16 @@ public class TrainLadderBlock extends TrainSlabBlock {
         );
     }
 
+    public TrainLadderBlock(Properties properties, boolean isMeter) {
+        super(properties, false);
+        registerDefaultState(this.getStateDefinition().any()
+                .setValue(FACING, Direction.EAST)
+                .setValue(HINGE, DoorHingeSide.LEFT)
+                .setValue(OPEN, false)
+        );
+        this.isMeter = isMeter;
+    }
+
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         super.createBlockStateDefinition(pBuilder.add(HINGE, OPEN));
@@ -44,7 +55,9 @@ public class TrainLadderBlock extends TrainSlabBlock {
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return TrainPanelShapes.getLadderShape(pState);
+        if(!isMeter)
+            return TrainPanelShapes.getLadderShape(pState);
+        return TrainPanelShapes.getMeterLadderShape(pState);
     }
 
     @Override
