@@ -10,7 +10,6 @@ import willow.train.kuayue.block.panels.TrainPanelBlock;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
 import willow.train.kuayue.block.panels.door.CustomRenderedDoorBlock;
 import willow.train.kuayue.block.panels.end_face.MeterCarriageEndFaceBlock;
-import willow.train.kuayue.block.panels.end_face.TrainEndfaceBlock;
 import willow.train.kuayue.block.panels.slab.TrainLadderBlock;
 import willow.train.kuayue.block.panels.slab.TrainSlabBlock;
 import willow.train.kuayue.block.panels.window.TrainOpenableWindowBlock;
@@ -98,6 +97,22 @@ public class CM1Panel {
                     .block(properties ->
                             new MeterCarriageEndFaceBlock(
                                     properties, TrainPanelProperties.DoorType.NO_DOOR))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueCarriageTab)
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
+    public static final SlabRegistration<TrainSlabBlock> GENERAL_CARPORT_M1 =
+            new SlabRegistration<TrainSlabBlock>("general_carport_m1")
+                    .block(p -> new TrainSlabBlock(p, true))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueCarriageTab)
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
+    public static final SlabRegistration<TrainSlabBlock> MIDDLE_CARPORT_M1 =
+            new SlabRegistration<TrainSlabBlock>("middle_carport_m1")
+                    .block(p -> new TrainSlabBlock(p, true))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab)
                     .noOcclusion()
