@@ -1,15 +1,16 @@
 package willow.train.kuayue.initial.panel;
 
 import com.simibubi.create.foundation.utility.Couple;
-import kasuga.lib.registrations.common.BlockReg;
 import net.minecraft.world.level.block.RenderShape;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
 import willow.train.kuayue.block.panels.TrainPanelBlock;
+import willow.train.kuayue.block.panels.base.TrainPanelProperties;
 import willow.train.kuayue.block.panels.door.CustomRenderedDoorBlock;
+import willow.train.kuayue.block.panels.end_face.MeterCarriageEndFaceBlock;
+import willow.train.kuayue.block.panels.end_face.TrainEndfaceBlock;
 import willow.train.kuayue.block.panels.slab.TrainLadderBlock;
 import willow.train.kuayue.block.panels.slab.TrainSlabBlock;
 import willow.train.kuayue.block.panels.window.TrainOpenableWindowBlock;
@@ -88,6 +89,16 @@ public class CM1Panel {
             new SlabRegistration<TrainLadderBlock>("ladder_m1")
                     .block((properties) -> new TrainLadderBlock(properties, true))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)
+                    .tab(AllElements.neoKuayueCarriageTab)
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
+    public static final PanelRegistration<MeterCarriageEndFaceBlock> END_FACE_M1 =
+            new PanelRegistration<MeterCarriageEndFaceBlock>("end_face_m1")
+                    .block(properties ->
+                            new MeterCarriageEndFaceBlock(
+                                    properties, TrainPanelProperties.DoorType.NO_DOOR))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab)
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
