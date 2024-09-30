@@ -2,9 +2,8 @@ package willow.train.kuayue.systems.editable_panel;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtIo;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.initial.AllPackets;
 import willow.train.kuayue.network.ColorTemplateC2SPacket;
@@ -19,15 +18,43 @@ import java.util.UUID;
 public class AllColorTemplates {
     public final ArrayList<ColorTemplate> templates;
     private final String path;
-    public static final ColorTemplate testTemp = new ColorTemplate("test", 0x114514, "kasuga");
+    private static final Component ownerTag = Component.translatable("tooltip.kuayue.color_template_screen.default_element_25.owner");
+    public static final ColorTemplate color25G = new ColorTemplate(
+            Component.translatable("tooltip.kuayue.color_template_screen.default_element_25g.name"),
+            15216648, ownerTag, false, false, false);
+    public static final ColorTemplate color25B = new ColorTemplate(
+            Component.translatable("tooltip.kuayue.color_template_screen.default_element_25b.name")
+            , 16776960, ownerTag, false, false, false);
+    public static final ColorTemplate color25Z = new ColorTemplate(
+            Component.translatable("tooltip.kuayue.color_template_screen.default_element_25z.name"),
+            0x60A0B0, ownerTag, false, false, false);
+    public static final ColorTemplate color25T = new ColorTemplate(
+            Component.translatable("tooltip.kuayue.color_template_screen.default_element_25t.name")
+            , 468326, ownerTag, false, false, false);
+    public static final ColorTemplate color25K = new ColorTemplate(
+            Component.translatable("tooltip.kuayue.color_template_screen.default_element_25k.name")
+            , 22220, ownerTag, false, false, false);
+    public static final ColorTemplate color25Default = new ColorTemplate(
+            Component.translatable("tooltip.kuayue.color_template_screen.default_element_25.name")
+            , 16776961, ownerTag, false, false, false);
 
     static {
-        testTemp.setDocument("This is a test template");
+        color25G.setDocument(Component.translatable("tooltip.kuayue.color_template_screen.default_element_25g.doc"));
+        color25B.setDocument(Component.translatable("tooltip.kuayue.color_template_screen.default_element_25b.doc"));
+        color25Z.setDocument(Component.translatable("tooltip.kuayue.color_template_screen.default_element_25z.doc"));
+        color25T.setDocument(Component.translatable("tooltip.kuayue.color_template_screen.default_element_25t.doc"));
+        color25K.setDocument(Component.translatable("tooltip.kuayue.color_template_screen.default_element_25k.doc"));
+        color25Default.setDocument(Component.translatable("tooltip.kuayue.color_template_screen.default_element_25.doc"));
     }
     public AllColorTemplates(String path) {
         templates = new ArrayList<>();
         this.path = path;
-        templates.add(testTemp);
+        templates.add(color25G);
+        templates.add(color25B);
+        templates.add(color25Z);
+        templates.add(color25T);
+        templates.add(color25K);
+        templates.add(color25Default);
     }
 
     public void readFromFile() {
@@ -42,7 +69,12 @@ public class AllColorTemplates {
                 CompoundTag tempTag = nbt.getCompound(name);
                 templates.add(new ColorTemplate(tempTag));
             }
-            templates.add(testTemp);
+            templates.add(color25G);
+            templates.add(color25B);
+            templates.add(color25Z);
+            templates.add(color25T);
+            templates.add(color25K);
+            templates.add(color25Default);
         } catch (IOException e) {
             Kuayue.LOGGER.error("Fail to read color templates from disk.", e);
         }

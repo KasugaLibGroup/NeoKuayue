@@ -17,5 +17,6 @@ public class Kuayue {
     public Kuayue() {
         BUS.register(this);
         AllElements.invoke();
+        KuayueConfig.invoke();
     }
 }

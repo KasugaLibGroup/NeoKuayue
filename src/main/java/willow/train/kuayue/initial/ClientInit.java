@@ -2,8 +2,12 @@ package willow.train.kuayue.initial;
 
 import kasuga.lib.core.client.render.texture.StaticImageHolder;
 import kasuga.lib.registrations.client.ModelReg;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.systems.editable_panel.AllColorTemplates;
+import willow.train.kuayue.systems.editable_panel.overlay.GetShareOverlay;
 
 public class ClientInit {
     public static final AllColorTemplates COLOR_TEMPLATES =
@@ -42,13 +46,21 @@ public class ClientInit {
             new StaticImageHolder(AllElements.testRegistry.asResource("textures/gui/up_button.png"));
     public static final StaticImageHolder carriageEventRegexDown =
             new StaticImageHolder(AllElements.testRegistry.asResource("textures/gui/down_button.png"));
+    public static final StaticImageHolder toast =
+            new StaticImageHolder(new ResourceLocation("minecraft", "textures/gui/toasts.png"));
 
-
+    public static final StaticImageHolder recipeBook =
+            new StaticImageHolder(new ResourceLocation("minecraft", "textures/gui/recipe_book.png"));
     public static final ModelReg testModel =
             new ModelReg("test_model", AllElements.testRegistry.asResource("block/test_block"))
                     .submit(AllElements.testRegistry);
 
-    public static void invoke() {
+    @SubscribeEvent
+    public static void registerHUDOverlays(RegisterGuiOverlaysEvent event) {
+        event.registerAboveAll("get_template_share_overlay", new GetShareOverlay());
+    }
 
+    public static void invoke() {
+        AllKeys.invoke();
     }
 }

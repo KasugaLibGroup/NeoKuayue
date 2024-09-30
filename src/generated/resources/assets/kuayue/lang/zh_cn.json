@@ -645,5 +645,25 @@
   "tooltip.kuayue.color_screen.temp": "打开模板",
   "tooltip.kuayue.color_screen.cancel": "取消",
   "tooltip.kuayue.color_screen.confirm": "应用",
-  "tooltip.kuayue.color_screen.key_enter": "按下\"ENTER\"键以应用更改"
+  "tooltip.kuayue.color_screen.key_enter": "按下\"ENTER\"键以应用更改",
+
+  "tooltip.kuayue.color_template_screen.title": "颜色模板",
+
+  "tooltip.kuayue.color_template_screen.default_element_25g.name": "25G 红色",
+  "tooltip.kuayue.color_template_screen.default_element_25b.name": "25B 黄色",
+  "tooltip.kuayue.color_template_screen.default_element_25z.name": "25Z 蓝色",
+  "tooltip.kuayue.color_template_screen.default_element_25t.name": "25T 蓝色",
+  "tooltip.kuayue.color_template_screen.default_element_25k.name": "25K 蓝色",
+  "tooltip.kuayue.color_template_screen.default_element_25.name": "25 系列默认色",
+
+  "tooltip.kuayue.color_template_screen.default_element_25g.doc": "本色适用于25g车厢板类型下厢板",
+  "tooltip.kuayue.color_template_screen.default_element_25b.doc": "本色适用于25b车厢板类型下厢板",
+  "tooltip.kuayue.color_template_screen.default_element_25z.doc": "本色适用于25z车厢板类型下厢板",
+  "tooltip.kuayue.color_template_screen.default_element_25t.doc": "本色适用于25t车厢板类型下厢板",
+  "tooltip.kuayue.color_template_screen.default_element_25k.doc": "本色适用于25k车厢板类型下厢板",
+  "tooltip.kuayue.color_template_screen.default_element_25.doc": "默认颜色(黄色)",
+
+  "tooltip.kuayue.color_template_screen.default_element_25.owner": "跨越开发组",
+  "tooltip.kuayue.get_share_overlay_toast.title": "收到新颜色模板",
+  "tooltip.kuayue.get_share_overlay_toast.content": "按下 \" %s \" 以保存"
 }
