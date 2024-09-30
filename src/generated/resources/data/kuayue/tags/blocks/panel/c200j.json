@@ -1,16 +1,13 @@
 {
   "values": [
-    "kuayue:carport_center_marshalled_cr200j",
-    "kuayue:carport_marshalled_cr200j",
-    "kuayue:door_cabin_marshalled_cr200j",
     "kuayue:door_marshalled_cr200j",
     "kuayue:door_marshalled_cr200j_2",
+    "kuayue:door_cabin_marshalled_cr200j",
     "kuayue:end_face_marshalled_cr200j",
     "kuayue:end_face_marshalled_cr200j_2",
-    "kuayue:floor_marshalled_cr200j",
-    "kuayue:ladder_marshalled_cr200j",
     "kuayue:panel_bottom_marshalled_cr200j",
     "kuayue:panel_middle_logo_cr_marshalled_cr200j",
+    "kuayue:window_sealed_marshalled_cr200j",
     "kuayue:panel_middle_marshalled_cr200j",
     "kuayue:panel_top_marshalled_cr200j",
     "kuayue:panel_top_marshalled_cr200j_2",
@@ -18,12 +15,14 @@
     "kuayue:panel_wide_fu_xing_marshalled_cr200j",
     "kuayue:panel_wide_logo_cr_marshalled_cr200j",
     "kuayue:panel_wide_marshalled_cr200j",
-    "kuayue:skirt_marshalled_cr200j",
-    "kuayue:skirt_side_marshalled_cr200j",
-    "kuayue:toilet_dd_marshalled_cr200j",
-    "kuayue:window_sealed_marshalled_cr200j",
     "kuayue:window_toilet_marshalled_cr200j",
     "kuayue:window_wide_marshalled_cr200j",
-    "kuayue:window_wide_sealed_marshalled_cr200j"
+    "kuayue:window_wide_sealed_marshalled_cr200j",
+    "kuayue:skirt_marshalled_cr200j",
+    "kuayue:ladder_marshalled_cr200j",
+    "kuayue:floor_marshalled_cr200j",
+    "kuayue:toilet_dd_marshalled_cr200j",
+    "kuayue:carport_center_marshalled_cr200j",
+    "kuayue:carport_marshalled_cr200j"
   ]
 }

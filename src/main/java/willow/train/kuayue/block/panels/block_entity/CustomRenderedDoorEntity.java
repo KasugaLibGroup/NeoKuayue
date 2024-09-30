@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoorHingeSide;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -80,5 +81,10 @@ public class CustomRenderedDoorEntity extends SmartBlockEntity implements IContr
     public void doMovement(Contraption contraption, BlockPos blockPos, BlockState blockState, BlockEntity blockEntity) {
         ((CustomRenderedDoorEntity) blockEntity).setOpen(contraption.getBlocks().get(blockPos).state.getValue(DoorBlock.OPEN));
         contraption.presentBlockEntities.put(blockPos, blockEntity);
+    }
+
+    @Override
+    protected AABB createRenderBoundingBox() {
+        return AABB.ofSize(Vec3.atCenterOf(this.getBlockPos()), 5, 5, 5);
     }
 }

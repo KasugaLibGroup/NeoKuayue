@@ -34,6 +34,11 @@ public class TrainSmallWindowBlock extends TrainPanelBlock {
         registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.EAST).setValue(OPEN, false));
     }
 
+    public TrainSmallWindowBlock(Properties properties, int height) {
+        super(properties, new Vec2(0, 0), new Vec2(1, height));
+        registerDefaultState(this.getStateDefinition().any().setValue(FACING, Direction.EAST).setValue(OPEN, false));
+    }
+
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         super.createBlockStateDefinition(pBuilder.add(OPEN));

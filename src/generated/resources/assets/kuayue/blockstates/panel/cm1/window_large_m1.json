@@ -1,0 +1,68 @@
+{
+  "variants": {
+    "facing=east,open=false,hinge=right": {
+      "model": "kuayue:block/carriage/carriage_m1/m1_large_window",
+      "y": 90
+    },
+    "facing=north,open=false,hinge=right": {
+      "model": "kuayue:block/carriage/carriage_m1/m1_large_window",
+      "y": 0
+    },
+    "facing=south,open=false,hinge=right": {
+      "model": "kuayue:block/carriage/carriage_m1/m1_large_window",
+      "y": 180
+    },
+    "facing=west,open=false,hinge=right": {
+      "model": "kuayue:block/carriage/carriage_m1/m1_large_window",
+      "y": 270
+    },
+    "facing=east,open=true,hinge=right": {
+      "model": "kuayue:block/carriage/carriage_m1/m1_large_window_open",
+      "y": 90
+    },
+    "facing=north,open=true,hinge=right": {
+      "model": "kuayue:block/carriage/carriage_m1/m1_large_window_open",
+      "y": 0
+    },
+    "facing=south,open=true,hinge=right": {
+      "model": "kuayue:block/carriage/carriage_m1/m1_large_window_open",
+      "y": 180
+    },
+    "facing=west,open=true,hinge=right": {
+      "model": "kuayue:block/carriage/carriage_m1/m1_large_window_open",
+      "y": 270
+    },
+    "facing=east,open=false,hinge=left": {
+      "model": "kuayue:block/carriage/carriage_m1/m1_large_window_lh",
+      "y": 90
+    },
+    "facing=north,open=false,hinge=left": {
+      "model": "kuayue:block/carriage/carriage_m1/m1_large_window_lh",
+      "y": 0
+    },
+    "facing=south,open=false,hinge=left": {
+      "model": "kuayue:block/carriage/carriage_m1/m1_large_window_lh",
+      "y": 180
+    },
+    "facing=west,open=false,hinge=left": {
+      "model": "kuayue:block/carriage/carriage_m1/m1_large_window_lh",
+      "y": 270
+    },
+    "facing=east,open=true,hinge=left": {
+      "model": "kuayue:block/carriage/carriage_m1/m1_large_window_open_lh",
+      "y": 90
+    },
+    "facing=north,open=true,hinge=left": {
+      "model": "kuayue:block/carriage/carriage_m1/m1_large_window_open_lh",
+      "y": 0
+    },
+    "facing=south,open=true,hinge=left": {
+      "model": "kuayue:block/carriage/carriage_m1/m1_large_window_open_lh",
+      "y": 180
+    },
+    "facing=west,open=true,hinge=left": {
+      "model": "kuayue:block/carriage/carriage_m1/m1_large_window_open_lh",
+      "y": 270
+    }
+  }
+}

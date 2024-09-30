@@ -1,13 +1,13 @@
 {
   "values": [
-    "kuayue:air_condition_bsp25t",
-    "kuayue:carport_25t",
-    "kuayue:carport_center_bsp25t",
-    "kuayue:carport_toilet_25t",
     "kuayue:door_25t",
     "kuayue:door_sliding_25t",
-    "kuayue:floor_25t",
-    "kuayue:ladder_sliding_25t",
+    "kuayue:end_face_25t_1",
+    "kuayue:end_face_25t_2",
+    "kuayue:end_face_25t_3",
+    "kuayue:end_face_sliding_25t_1",
+    "kuayue:end_face_sliding_25t_2",
+    "kuayue:end_face_sliding_25t_3",
     "kuayue:panel_bottom_25t",
     "kuayue:panel_bottom_25t_2",
     "kuayue:panel_middle_25t",
@@ -15,11 +15,6 @@
     "kuayue:panel_top_25t",
     "kuayue:panel_top_25t_2",
     "kuayue:panel_top_xl25t",
-    "kuayue:panel_wide_middle_bsp25t",
-    "kuayue:skirt_25t",
-    "kuayue:skirt_marshalled_25t",
-    "kuayue:toilet_dd_25t",
-    "kuayue:window_25t",
     "kuayue:window_oc_blue_25t",
     "kuayue:window_oc_sealed_blue_25t",
     "kuayue:window_oc_sealed_small_25t",
@@ -36,6 +31,15 @@
     "kuayue:window_oc_wide_blue_25t",
     "kuayue:window_oc_wide_blue_bsp25t",
     "kuayue:window_oc_wide_sealed_25t",
-    "kuayue:window_oc_wide_sealed_blue_25t"
+    "kuayue:window_oc_wide_sealed_blue_25t",
+    "kuayue:skirt_25t",
+    "kuayue:skirt_marshalled_25t",
+    "kuayue:ladder_sliding_25t",
+    "kuayue:floor_25t",
+    "kuayue:toilet_dd_25t",
+    "kuayue:carport_25t",
+    "kuayue:carport_center_bsp25t",
+    "kuayue:carport_toilet_25t",
+    "kuayue:air_condition_bsp25t"
   ]
 }
