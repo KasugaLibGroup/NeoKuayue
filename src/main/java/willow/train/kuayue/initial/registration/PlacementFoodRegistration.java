@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 import willow.train.kuayue.block.food.PlacementFoodBlock;
 import willow.train.kuayue.block.food.PlacementFoodBlockItem;
 
@@ -34,8 +35,9 @@ public class PlacementFoodRegistration<T extends PlacementFoodBlock> {
         return this;
     }
 
-    public PlacementFoodRegistration<T> material(Material material) {
+    public PlacementFoodRegistration<T> material(Material material, MaterialColor color) {
         block.material(material);
+        block.materialColor(color);
         return this;
     }
 

@@ -5,6 +5,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 import willow.train.kuayue.block.food.PlacementFoodBlock;
 import willow.train.kuayue.initial.registration.PlacementFoodRegistration;
 
@@ -25,7 +26,7 @@ public class AllFoods {
     public static final PlacementFoodRegistration<PlacementFoodBlock> TRAIN_DIET_1 =
             new PlacementFoodRegistration<PlacementFoodBlock>("train_diet_1")
                     .block(properties -> new PlacementFoodBlock(properties, PlacementFoodBlock.FoodType.BOX))
-                    .material(Material.CAKE)
+                    .material(Material.CAKE, MaterialColor.COLOR_GRAY)
                     .soundType(SoundType.WOOL)
                     .strength(0.5F)
                     .noOcclusion()
