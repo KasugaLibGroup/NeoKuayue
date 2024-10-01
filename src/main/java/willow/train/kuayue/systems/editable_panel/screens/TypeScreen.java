@@ -109,7 +109,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
                 font.width(values[4]), height, 0.26f * textScaleFactor, 0.3f * textScaleFactor,
                 Component.empty(), values[4], color));
         addWidget(colorScreen);
-        cts = new ColorTemplateScreen(0, 0, sW, sH, Component.literal("Color Templates"));
+        cts = new ColorTemplateScreen(0, 0, sW, sH, Component.translatable("tooltip.kuayue.color_template_screen.title"));
         cts.init();
         addWidget(cts);
     }

@@ -47,6 +47,7 @@ public class AllElements {
         AllFoods.invoke();
         if (Envs.isClient()) {
             ClientInit.invoke();
+            Kuayue.BUS.addListener(ClientInit::registerHUDOverlays);
             MinecraftForge.EVENT_BUS.addListener(RenderArrowEvent::renderBlockBounds);
             MinecraftForge.EVENT_BUS.addListener(ColorTemplateEvents::unloadEvent);
             MinecraftForge.EVENT_BUS.addListener(ColorTemplateEvents::saveEvent);

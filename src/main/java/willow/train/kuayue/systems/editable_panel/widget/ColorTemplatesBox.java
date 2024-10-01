@@ -30,12 +30,14 @@ public class ColorTemplatesBox extends AbstractWidget {
                 }
             }
     );
+    private final OnClick onClick;
     private static final SimpleColor basicColor = SimpleColor.fromRGBInt(0xff333333);
 
     private DescriptionLabel title, description, owner;
-    public ColorTemplatesBox(int pX, int pY, ColorTemplate template, Component pMessage) {
+    public ColorTemplatesBox(int pX, int pY, ColorTemplate template, Component pMessage, OnClick onClick) {
         super(pX, pY, 120, 40, pMessage);
         this.template = template;
+        this.onClick = onClick;
     }
 
     public void init() {
@@ -43,7 +45,7 @@ public class ColorTemplatesBox extends AbstractWidget {
         colorCube.get().rectangle(new Vector3f(this.x + 3, baseY + 4, 0),
                 ImageMask.Axis.X, ImageMask.Axis.Y, true, true, 24, 24);
         colorCube.get().setColor(SimpleColor.fromRGBInt(template.getColor()));
-        title = new DescriptionLabel(new Vec2f(this.x + 38, baseY), 64, 8,
+        title = new DescriptionLabel(new Vec2f(this.x + 38, baseY), 80, 8,
                 Component.literal(template.getName()), basicColor);
         description = new DescriptionLabel(new Vec2f(this.x + 38, baseY + 10), 40, 8,
                 Component.literal(template.getDocument()), basicColor);
@@ -119,5 +121,15 @@ public class ColorTemplatesBox extends AbstractWidget {
         fill(poseStack, minX, maxY - borderWidth, maxX, maxY, borderColor);
 
         fill(poseStack, minX, minY + borderWidth, maxX, maxY - borderWidth, bgColor);
+    }
+
+    @Override
+    public void onClick(double pMouseX, double pMouseY) {
+        super.onClick(pMouseX, pMouseY);
+        this.onClick.action(this);
+    }
+
+    public interface OnClick {
+        void action(ColorTemplatesBox box);
     }
 }
