@@ -23,7 +23,6 @@ public class PanelRegistration<T extends TrainPanelBlock> {
     public PanelRegistration(String registrationKey) {
         block = new BlockReg<T>(registrationKey);
         item = new ItemReg<PanelBlockItem>(registrationKey);
-        // TODO PanelBlockItem cannot be cast to class ItemStack
         item.itemType(properties -> new PanelBlockItem(block.getBlock(), properties));
     }
 

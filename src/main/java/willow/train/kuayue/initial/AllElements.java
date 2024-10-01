@@ -44,6 +44,7 @@ public class AllElements {
         AllEditableTypes.invoke();
         AllMenuScreens.invoke();
         AllItems.invoke();
+        AllFoods.invoke();
         if (Envs.isClient()) {
             ClientInit.invoke();
             MinecraftForge.EVENT_BUS.addListener(RenderArrowEvent::renderBlockBounds);
