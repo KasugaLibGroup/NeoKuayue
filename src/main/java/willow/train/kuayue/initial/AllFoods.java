@@ -27,7 +27,7 @@ public class AllFoods {
                     .noOcclusion()
                     .foodProperties(TRAIN_DIET_A)
                     .stackSize(16)
-                    .tab(AllElements.neoKuayueMainTab)
+                    .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
 
     public static void invoke() {}

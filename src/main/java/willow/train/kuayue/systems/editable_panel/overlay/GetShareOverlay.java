@@ -72,7 +72,7 @@ public class GetShareOverlay implements IGuiOverlay {
         GuiComponent.drawCenteredString(pose, minecraft.font, Component.translatable("tooltip.kuayue.get_share_overlay_toast.title"),
                 (int) toastPos.x() + 80, (int) toastPos.y() + 7, 0xffffffff);
         GuiComponent.drawCenteredString(pose, minecraft.font, Component.translatable("tooltip.kuayue.get_share_overlay_toast.content",
-                        AllKeys.getShareTemplateKey.mapping.getTranslatedKeyMessage()),
+                        AllKeys.getShareTemplateKey.getMapping().getTranslatedKeyMessage()),
                 (int) toastPos.x() + 80, (int) toastPos.y() + 18, 0xffffffff);
 
         tick(gui.getGuiTicks());

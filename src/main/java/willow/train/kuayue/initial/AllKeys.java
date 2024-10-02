@@ -8,7 +8,9 @@ import willow.train.kuayue.systems.editable_panel.GetShareKeyHandler;
 public class AllKeys {
 
     public static final KeyBindingReg getShareTemplateKey = new KeyBindingReg("get_share_template_key",
-            "kuayue_key", InputConstants.Type.KEYSYM, InputConstants.KEY_I, KeyModifier.NONE)
+            "kuayue_key")
+            .setKeycode(InputConstants.KEY_I, InputConstants.Type.KEYSYM)
+            .setModifier(KeyModifier.NONE)
             .setClientHandler(GetShareKeyHandler.clientHandler)
             .setServerHandler(p -> {})
             .submit(AllElements.testRegistry);

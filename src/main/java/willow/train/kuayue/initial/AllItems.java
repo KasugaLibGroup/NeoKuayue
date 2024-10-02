@@ -23,6 +23,11 @@ public class AllItems {
                     .itemType(Item::new)
                     .submit(AllElements.testRegistry);
 
+    public static final ItemReg<Item> CA_25T =
+            new ItemReg<Item>("ca_25t")
+                    .itemType(Item::new)
+                    .submit(AllElements.testRegistry);
+
     public static final ItemReg<Item> WEATHERING_RESISTANT_STEEL_INGOT =
             new ItemReg<Item>("weathering_resistant_steel_ingot")
                     .itemType(Item::new)

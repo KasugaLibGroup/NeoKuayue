@@ -6,13 +6,11 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
@@ -22,17 +20,18 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 import willow.train.kuayue.block.panels.base.TrainPanelShapes;
 
-import static willow.train.kuayue.initial.AllFoods.TRAIN_DIET_EFFECT;
-
 public class PlacementFoodBlock extends Block {
 
-    public final FoodType FOOD_TYPE;
-
+    private final FoodType FOOD_TYPE;
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static VoxelShape BOX_SHAPE = Block.box(2, 0, 2, 14, 2, 14);
+    public static VoxelShape CUP_SHAPE = Block.box(4, 0, 4, 12, 4, 12);
+    public static VoxelShape BOTTLE_SHAPE = Block.box(6, 0, 6, 10, 6, 10);
 
     public PlacementFoodBlock(Properties pProperties, FoodType foodType) {
         super(pProperties);
@@ -44,7 +43,7 @@ public class PlacementFoodBlock extends Block {
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return TrainPanelShapes.HALF_HEIGHT_TOP_AABB;
+        return getFoodShape(pState);
     }
 
     @Override
@@ -92,17 +91,35 @@ public class PlacementFoodBlock extends Block {
         if (!pPlayer.canEat(false)) {
             return InteractionResult.PASS;
         } else {
+            // 获取食物方块对应的物品栈
             ItemStack stack = pState.getBlock().asItem().getDefaultInstance();
+            // 执行玩家吃下物品的方法
             pPlayer.eat(pLevel, stack);
             pLevel.gameEvent(pPlayer, GameEvent.EAT, pPos);
-            pLevel.playSound(null, pPos, SoundEvents.GENERIC_EAT, SoundSource.BLOCKS, 1.0F, 1.0F);
+            pLevel.playSound(null, pPos,
+                    ((PlacementFoodBlock) pState.getBlock()).FOOD_TYPE
+                            == FoodType.BOX ? SoundEvents.GENERIC_EAT : SoundEvents.GENERIC_DRINK,
+                    SoundSource.BLOCKS, 1.0F, 1.0F);
             pLevel.removeBlock(pPos, false);
             pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);
             return InteractionResult.SUCCESS;
         }
     }
 
+    public FoodType getFoodType() {
+        return FOOD_TYPE;
+    }
+
+    public VoxelShape getFoodShape(BlockState pState) {
+        return switch (((PlacementFoodBlock) pState.getBlock()).FOOD_TYPE) {
+            case BOX -> BOX_SHAPE;
+            case CUP -> CUP_SHAPE;
+            case BOTTLE -> BOTTLE_SHAPE;
+            default -> BOX_SHAPE;
+        };
+    }
+
     public enum FoodType {
-        BOX, CUP;
+        BOX, CUP, BOTTLE;
     }
 }

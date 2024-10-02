@@ -31,6 +31,10 @@ public class AllElements {
             .icon(() -> AllItems.SERIES_25_LOGOS.getItem().getDefaultInstance())
             .submit(testRegistry);
 
+    public static final CreativeTabReg neoKuayueDietTab = new CreativeTabReg("diet")
+            .icon(() -> AllItems.CA_25T.getItem().getDefaultInstance())
+            .submit(testRegistry);
+
     public static void invoke() {
         AllTags.invoke();
         willow.train.kuayue.initial.AllBlocks.invoke();
