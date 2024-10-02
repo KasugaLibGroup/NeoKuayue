@@ -38,16 +38,25 @@ public class PanelBlockItem extends BlockItem {
     }
 
     public BlockPos getPlacePos(BlockPlaceContext context, Vec2 first, Vec2 last, float radius) {
+        // 若玩家对象为空或玩家按下shift键直接则直接返回点击位置
         if (context.getPlayer() == null || context.getPlayer().isShiftKeyDown()) {
             return context.getClickedPos();
         }
+        // 获取要放置的方块位置
         BlockPos pos = context.getClickedPos();
+        // 获取世界对象
         Level level = context.getLevel();
+        // 获取点击到的是方块的哪一面（东、西、南、北、上、下表面...）
         Direction direction = context.getClickedFace();
+        // 获取右键点击到的方块位置
         BlockPos parentPos = pos.relative(direction.getOpposite());
+        // 获取到右键点击到的方块对象
         BlockState clickedBlock = level.getBlockState(parentPos);
+        // 若点击到的方块没有FACING属性，则直接返回放置位置。
         if (!clickedBlock.hasProperty(BlockStateProperties.HORIZONTAL_FACING)) return pos;
+        // 若点击到的方块不带有SIDE_PLACEMENT标签，则直接返回放置位置。
         if (!clickedBlock.is(Objects.requireNonNull(AllTags.SIDE_PLACEMENT.tag()))) return pos;
+        // 获取右键点击到的方块的朝向
         Direction clickedDirection = clickedBlock.getValue(BlockStateProperties.HORIZONTAL_FACING);
         if (direction == Direction.UP) return pos.relative(Direction.UP, (int) - first.y);
         if (direction == Direction.DOWN) return pos.relative(Direction.DOWN, (int) (last.y - 1));
