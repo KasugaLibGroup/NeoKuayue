@@ -16,7 +16,7 @@ public class GetShareTemplateScreen extends Screen {
             new LazyRecomputable<>(() -> {
                 try {
                     ImageMask mask = ClientInit.recipeBook.getImage().get().getMask();
-                    mask.rectangleUV(1 / 256f, 1/256f, 147f/256f, 166f/256f);
+                    mask.rectangleUV(1 / 256f, 1/256f, 148f/256f, 167f/256f);
                     return mask;
                 } catch (IOException e) {
                     throw new RuntimeException(e);
@@ -40,8 +40,8 @@ public class GetShareTemplateScreen extends Screen {
         if (screen == null) return;
         int width = screen.width;
         int height = screen.height;
-        Vector3f pos = new Vector3f((width - 146f) / 2, (height - 165f) / 2, 0);
-        mask.rectangle(pos, ImageMask.Axis.X, ImageMask.Axis.Y, true, true, 146, 165);
+        Vector3f pos = new Vector3f((width - 147f) / 2, (height - 166f) / 2, 0);
+        mask.rectangle(pos, ImageMask.Axis.X, ImageMask.Axis.Y, true, true, 147, 166);
         mask.renderToGui();
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
     }
