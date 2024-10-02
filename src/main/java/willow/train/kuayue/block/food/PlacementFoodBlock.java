@@ -76,27 +76,24 @@ public class PlacementFoodBlock extends Block {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
 
         // 客户端侧
-        if (pLevel.isClientSide) {
-            // 成功吃掉食物
-            if (eat(pLevel, pPos, pState, pPlayer).consumesAction()) {
-                return InteractionResult.SUCCESS;
-            }
-            // 没有成功吃掉食物，且手中物品栈为空。
-            if (itemstack.isEmpty()) {
-                return InteractionResult.CONSUME;
-            }
+        // 成功吃掉食物
+        if (eat(pLevel, pPos, pState, pPlayer).consumesAction()) {
+            return InteractionResult.SUCCESS;
         }
-        // 吃掉食物
-        return eat(pLevel, pPos, pState, pPlayer);
+        // 没有成功吃掉食物，且手中物品栈为空。
+        if (itemstack.isEmpty()) {
+            return InteractionResult.CONSUME;
+        }
+        return InteractionResult.FAIL;
     }
 
-    protected static InteractionResult eat(LevelAccessor pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
+    protected static InteractionResult eat(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
         // 如果玩家不可以进食，则直接PASS。
         if (!pPlayer.canEat(false)) {
             return InteractionResult.PASS;
         } else {
-            pPlayer.getFoodData().eat(6, 0.6F);
-            pPlayer.addEffect(TRAIN_DIET_EFFECT);
+            ItemStack stack = pState.getBlock().asItem().getDefaultInstance();
+            pPlayer.eat(pLevel, stack);
             pLevel.gameEvent(pPlayer, GameEvent.EAT, pPos);
             pLevel.playSound(null, pPos, SoundEvents.GENERIC_EAT, SoundSource.BLOCKS, 1.0F, 1.0F);
             pLevel.removeBlock(pPos, false);

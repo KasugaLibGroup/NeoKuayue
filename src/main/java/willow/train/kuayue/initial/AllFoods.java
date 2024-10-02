@@ -16,8 +16,7 @@ public class AllFoods {
 
     public static final FoodProperties TRAIN_DIET_A = (new FoodProperties.Builder())
             .nutrition(6).saturationMod(0.6f)
-            .effect(TRAIN_DIET_EFFECT, 1.0F).build();
-            //.effect(() -> TRAIN_DIET_EFFECT, 1.0F).build();
+            .effect(() -> TRAIN_DIET_EFFECT, 1.0F).build();
 
     public static final PlacementFoodRegistration<PlacementFoodBlock> TRAIN_DIET_1 =
             new PlacementFoodRegistration<PlacementFoodBlock>("train_diet_1")
