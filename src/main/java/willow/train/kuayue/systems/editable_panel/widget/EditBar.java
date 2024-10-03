@@ -92,19 +92,18 @@ public class EditBar extends AbstractWidget {
         } else if (accept.isMouseOver(pMouseX, pMouseY)) {
             accept.onClick(pMouseX, pMouseY);
         }
+        super.onClick(pMouseX, pMouseY);
     }
 
     @Override
     public boolean mouseClicked(double pMouseX, double pMouseY, int pButton) {
-        if (editBox.isMouseOver(pMouseX, pMouseY))
-            editBox.mouseClicked(pMouseX, pMouseY, pButton);
+        editBox.mouseClicked(pMouseX, pMouseY, pButton);
         return super.mouseClicked(pMouseX, pMouseY, pButton);
     }
 
     @Override
     public boolean mouseReleased(double pMouseX, double pMouseY, int pButton) {
-        if (editBox.isMouseOver(pMouseX, pMouseY))
-            editBox.mouseReleased(pMouseX, pMouseY, pButton);
+        editBox.mouseReleased(pMouseX, pMouseY, pButton);
         return super.mouseReleased(pMouseX, pMouseY, pButton);
     }
 

@@ -19,6 +19,7 @@ import willow.train.kuayue.block.panels.block_entity.EditablePanelEntity;
 import willow.train.kuayue.initial.ClientInit;
 import willow.train.kuayue.systems.editable_panel.AllColorTemplates;
 import willow.train.kuayue.systems.editable_panel.EditablePanelEditMenu;
+import willow.train.kuayue.systems.editable_panel.widget.Label;
 import willow.train.kuayue.systems.editable_panel.widget.TransparentEditBox;
 
 import java.io.IOException;
@@ -29,18 +30,8 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
     ColorTemplateScreen cts;
     boolean revert;
     GetShareTemplateScreen gsts;
-    private final LazyRecomputable<NineSlicedImageMask> image = LazyRecomputable.of(() -> {
-        try {
-            NineSlicedImageMask mask = ClientInit.editableBg.getImage().get().getNineSlicedMask();
-            mask.rectangleUV(new Vec2f(8f/128f, 12f/128f), new Vec2f(119f/128f, 119f/128f));
-            mask.setBorders(25, 16, 0, 0);
-            mask.setBordersDirectly(25f / 128f, 103f / 128f, 0f, 1f);
-            mask.setScalingFactor(2f);
-            return mask;
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    });
+    Label label;
+
     public TypeScreen(AbstractContainerScreen<EditablePanelEditMenu> screen, CompoundTag nbt) {
         super(screen, nbt);
         colorScreen = new ColorScreen(32, 32, Component.translatable("tooltip.kuayue.color_screen.title"));
@@ -49,6 +40,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
     @Override
     public void init() {
         colorScreen.init();
+        label = new Label(Component.translatable("tooltip.kuayue.type_screen.title"));
         Font font = Minecraft.getInstance().font;
         CompoundTag nbt = getNbt();
         color = getScreen().getMenu().getEditablePanelEntity().getColor();
@@ -60,7 +52,8 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         innerInit(values, color, font, revert);
 
         gsts = new GetShareTemplateScreen(Component.empty(), AllColorTemplates.color25B);
-        addWidget(gsts);
+        gsts.init();
+        // addWidget(gsts);
     }
 
     private void innerInit(String[] values, int color, Font font, boolean revert) {
@@ -77,12 +70,10 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         int height = font.lineHeight;
         int labelW = (int) (size1 * 1.05f + size2 + size3 * 1.4f + size4);
         int labelH = (int) (height * 0.18f * textScaleFactor - 23 + textScaleFactor * height * 0.13f);
-        image.get().rectangle(
-                new Vector3f((sW - (float) labelW * 1.1f) / 2, (sH - 108f) / 2, 0),
-                ImageMask.Axis.X, ImageMask.Axis.Y, true, true, labelW * 1.1f, 108f
-        );
-        image.get().updateMatrix();
         int basicX = (sW - labelW) / 2 + 20, basicY = (sH - labelH) / 2 - 10;
+        label.setWidth(font.width(label.getPlainText()));
+        label.setPosition((sW - label.getWidth()) / 2, basicY - 20);
+        addWidget(label);
 
         addWidget(new TransparentEditBox(font, basicX, basicY,
                 font.width(values[0]), height, 0.13f * textScaleFactor, 0.18f * textScaleFactor,
@@ -113,10 +104,10 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         addWidget(new TransparentEditBox(font, basicX, basicY,
                 font.width(values[4]), height, 0.26f * textScaleFactor, 0.3f * textScaleFactor,
                 Component.empty(), values[4], color));
-        addWidget(colorScreen);
-        cts = new ColorTemplateScreen(0, 0, sW, sH, Component.translatable("tooltip.kuayue.color_template_screen.title"));
-        cts.init();
-        addWidget(cts);
+        // addWidget(colorScreen);
+        // cts = new ColorTemplateScreen(0, 0, sW, sH, Component.translatable("tooltip.kuayue.color_template_screen.title"));
+        // cts.init();
+        // addWidget(cts);
     }
 
     private void refresh() {
@@ -149,10 +140,10 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
 
     @Override
     public void render(PoseStack pose, int mouseX, int mouseY, float partial) {
-        // super.render(pose, mouseX, mouseY, partial);
+        super.render(pose, mouseX, mouseY, partial);
         // colorScreen.render(pose, mouseX, mouseY, partial);
         // cts.render(pose, mouseX, mouseY, partial);
-        gsts.render(pose, mouseX, mouseY, partial);
+        // gsts.render(pose, mouseX, mouseY, partial);
     }
 
     public void updateData() {
@@ -175,7 +166,6 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         int sW = Minecraft.getInstance().screen.width;
         int sH = Minecraft.getInstance().screen.height;
         GuiComponent.fill(pose, 0, 0, sW, sH, 0x80000000);
-        // image.get().renderToGui();
     }
 
     @Override

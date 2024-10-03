@@ -624,5 +624,6 @@
 
  "tooltip.kuayue.color_template_screen.default_element_25.owner": "Kuayue Group.",
  "tooltip.kuayue.get_share_overlay_toast.title": "New Color Template.",
- "tooltip.kuayue.get_share_overlay_toast.content": "Press \" %s \" to save."
+ "tooltip.kuayue.get_share_overlay_toast.content": "Press \" %s \" to save.",
+ "tooltip.kuayue.type_screen.title": "Edit type panel."
 }

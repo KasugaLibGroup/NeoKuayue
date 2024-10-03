@@ -40,10 +40,10 @@ public class GetShareTemplateScreen extends Screen {
 
     private ColorScreen selector;
 
-    public static final LazyRecomputable<ImageMask> acceptImage =
+    public static final LazyRecomputable<ImageMask> cancelImage =
             new LazyRecomputable<>(() -> ColorTemplateScreen.buttons.get().copyWithOp((m) -> m.rectangleUV(0.5f, 0.125f, 0.625f, 0.25f)));
 
-    public static final LazyRecomputable<ImageMask> cancelImage =
+    public static final LazyRecomputable<ImageMask> acceptImage =
             new LazyRecomputable<>(() -> ColorTemplateScreen.buttons.get().copyWithOp(m -> m.rectangleUV(0.375f, 0.125f, 0.5f, 0.25f)));
 
     public GetShareTemplateScreen(Component pTitle, ColorTemplate template) {
