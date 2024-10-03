@@ -48,9 +48,10 @@ public class ClientInit {
             new StaticImageHolder(AllElements.testRegistry.asResource("textures/gui/down_button.png"));
     public static final StaticImageHolder toast =
             new StaticImageHolder(new ResourceLocation("minecraft", "textures/gui/toasts.png"));
-
     public static final StaticImageHolder recipeBook =
             new StaticImageHolder(new ResourceLocation("minecraft", "textures/gui/recipe_book.png"));
+    public static final StaticImageHolder advancementWidgets =
+            new StaticImageHolder(new ResourceLocation("minecraft", "textures/gui/advancements/widgets.png"));
     public static final ModelReg testModel =
             new ModelReg("test_model", AllElements.testRegistry.asResource("block/test_block"))
                     .submit(AllElements.testRegistry);

@@ -17,6 +17,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import willow.train.kuayue.block.panels.block_entity.EditablePanelEntity;
 import willow.train.kuayue.initial.ClientInit;
+import willow.train.kuayue.systems.editable_panel.AllColorTemplates;
 import willow.train.kuayue.systems.editable_panel.EditablePanelEditMenu;
 import willow.train.kuayue.systems.editable_panel.widget.TransparentEditBox;
 
@@ -27,6 +28,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
     ColorScreen colorScreen;
     ColorTemplateScreen cts;
     boolean revert;
+    GetShareTemplateScreen gsts;
     private final LazyRecomputable<NineSlicedImageMask> image = LazyRecomputable.of(() -> {
         try {
             NineSlicedImageMask mask = ClientInit.editableBg.getImage().get().getNineSlicedMask();
@@ -56,6 +58,9 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         }
         revert = nbt.getBoolean("revert");
         innerInit(values, color, font, revert);
+
+        gsts = new GetShareTemplateScreen(Component.empty(), AllColorTemplates.color25B);
+        addWidget(gsts);
     }
 
     private void innerInit(String[] values, int color, Font font, boolean revert) {
@@ -146,7 +151,8 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
     public void render(PoseStack pose, int mouseX, int mouseY, float partial) {
         // super.render(pose, mouseX, mouseY, partial);
         // colorScreen.render(pose, mouseX, mouseY, partial);
-        cts.render(pose, mouseX, mouseY, partial);
+        // cts.render(pose, mouseX, mouseY, partial);
+        gsts.render(pose, mouseX, mouseY, partial);
     }
 
     public void updateData() {

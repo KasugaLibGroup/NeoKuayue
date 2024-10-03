@@ -2,6 +2,7 @@ package willow.train.kuayue.systems.editable_panel.screens;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
+import kasuga.lib.core.client.render.SimpleColor;
 import kasuga.lib.core.client.render.texture.ImageMask;
 import kasuga.lib.core.client.render.texture.Vec2f;
 import kasuga.lib.core.util.LazyRecomputable;
@@ -297,6 +298,8 @@ public class ColorScreen extends AbstractWidget {
 
     @Override
     public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
+        if (!visible) return;
+
         save.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
         load.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
         template.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
@@ -327,6 +330,17 @@ public class ColorScreen extends AbstractWidget {
     @Override
     public void renderButton(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
         super.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTick);
+    }
+
+    public void setHex(String hex) {
+        hexCache = hex;
+        selector.setHex(hexCache);
+        updateRgbFromSelector();
+        updateHsvFromSelector();
+    }
+
+    public SimpleColor getColor() {
+        return selector.getColor();
     }
 
     @Override
@@ -373,6 +387,15 @@ public class ColorScreen extends AbstractWidget {
         hex.mouseClicked(pMouseX, pMouseY, pButton);
         return super.mouseClicked(pMouseX, pMouseY, pButton) &
                 selector.mouseClicked(pMouseX, pMouseY, pButton);
+    }
+
+    @Override
+    public void onClick(double pMouseX, double pMouseY) {
+        if (this.template.visible && template.isMouseOver(pMouseX, pMouseY)) this.template.onClick(pMouseX, pMouseY);
+        else if (this.load.visible && load.isMouseOver(pMouseX, pMouseY)) this.load.onClick(pMouseX, pMouseY);
+        else if (this.save.visible && save.isMouseOver(pMouseX, pMouseY)) this.save.onClick(pMouseX, pMouseY);
+        else if (this.cancel.visible && cancel.isMouseOver(pMouseX, pMouseY)) this.cancel.onClick(pMouseX, pMouseY);
+        else if (this.confirm.visible && confirm.isMouseOver(pMouseX, pMouseY)) this.confirm.onClick(pMouseX, pMouseY);
     }
 
     @Override
@@ -427,6 +450,46 @@ public class ColorScreen extends AbstractWidget {
         hex.charTyped(pCodePoint, pModifiers);
         return super.charTyped(pCodePoint, pModifiers) &
                 selector.charTyped(pCodePoint, pModifiers);
+    }
+
+    public void onConfirmClick(OnClick<ImageButton> clk) {
+        this.confirm.setOnClick(clk);
+    }
+
+    public void onCancelClick(OnClick<ImageButton> clk) {
+        this.cancel.setOnClick(clk);
+    }
+
+    public void onSaveClick(OnClick<ImageButton> clk) {
+        this.save.setOnClick(clk);
+    }
+
+    public void onLoadClick(OnClick<ImageButton> clk) {
+        this.load.setOnClick(clk);
+    }
+
+    public void onTemplateClick(OnClick<ImageButton> clk) {
+        this.template.setOnClick(clk);
+    }
+
+    public void setConfirmVisible(boolean visible) {
+        confirm.visible = visible;
+    }
+
+    public void setCancelVisible(boolean visible) {
+        cancel.visible = visible;
+    }
+
+    public void setSaveVisible(boolean visible) {
+        save.visible = visible;
+    }
+
+    public void setLoadVisible(boolean visible) {
+        load.visible = visible;
+    }
+
+    public void setTemplateVisible(boolean visible) {
+        template.visible = visible;
     }
 
     @Override

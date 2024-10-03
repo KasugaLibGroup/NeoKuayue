@@ -18,6 +18,7 @@ public class ImageButton extends Button {
     private final LazyRecomputable<ImageMask> mask, bg;
     private TooltipLabel tooltip;
     private int showTooltip = 0;
+    private OnClick<ImageButton> clk;
     public static final ImageButton.ImageAction baseAction = (img, btn) -> img.rectangle(new Vector3f(btn.getX(), btn.getY(), 0),
             ImageMask.Axis.X, ImageMask.Axis.Y, true, true, btn.getWidth(), btn.getHeight());
 
@@ -33,6 +34,7 @@ public class ImageButton extends Button {
         this.tooltip = new TooltipLabel(new Vec2f(this.x, this.y + this.height + 2), tooltip);
         controlImage(baseAction);
         controlBg(baseAction);
+        this.clk = (a, b, c) -> {};
     }
 
     public ImageButton(LazyRecomputable<ImageMask> mask, int x, int y, int width, int height, Component tooltip, OnPress press) {
@@ -45,6 +47,45 @@ public class ImageButton extends Button {
         this.y = y;
         this.tooltip = new TooltipLabel(new Vec2f(this.x, this.y + this.height + 2), tooltip);
         controlImage(baseAction);
+    }
+
+    public void setX(int x) {
+        this.x = x;
+        if (mask != null){
+            int leftTopX1 = (int) mask.get().getLeftTop().x();
+            mask.get().offset(x - leftTopX1, 0, 0);
+        }
+        if (bg != null) {
+            int leftTopX2 = (int) bg.get().getLeftTop().x();
+            bg.get().offset(x - leftTopX2, 0, 0);
+        }
+    }
+
+    public void setY(int y) {
+        this.y = y;
+        if (mask != null){
+            int leftTopY1 = (int) mask.get().getLeftTop().y();
+            mask.get().offset(0, y - leftTopY1, 0);
+        }
+        if (bg != null) {
+            int leftTopY2 = (int) bg.get().getLeftTop().y();
+            bg.get().offset(0, y - leftTopY2, 0);
+        }
+    }
+
+    public void setPos(int x, int y) {
+        this.x = x;
+        this.y = y;
+        if (mask != null){
+            int leftTopX1 = (int) mask.get().getLeftTop().x();
+            int leftTopY1 = (int) mask.get().getLeftTop().y();
+            mask.get().offset(x - leftTopX1, y - leftTopY1, 0);
+        }
+        if (bg != null) {
+            int leftTopX2 = (int) bg.get().getLeftTop().x();
+            int leftTopY2 = (int) bg.get().getLeftTop().y();
+            bg.get().offset(x - leftTopX2, y - leftTopY2, 0);
+        }
     }
 
     public int getX() {
@@ -91,6 +132,16 @@ public class ImageButton extends Button {
             else showTooltip ++;
         } else if (showTooltip > 0) showTooltip --;
         this.mask.get().renderToGui();
+    }
+
+    public void setOnClick(OnClick<ImageButton> clk) {
+        this.clk = clk;
+    }
+
+    @Override
+    public void onClick(double pMouseX, double pMouseY) {
+        if (this.clk == null) return;
+        this.clk.click(this, pMouseX, pMouseY);
     }
 
     public interface ImageAction {

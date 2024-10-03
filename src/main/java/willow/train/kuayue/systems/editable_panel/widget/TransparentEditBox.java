@@ -48,17 +48,16 @@ public class TransparentEditBox extends EditBox {
 
     @Override
     public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
-        if (this.visible) {
-            float x = this.x - scaleX * this.x;
-            float y = this.y - scaleY * this.y;
-            pPoseStack.translate(x, y, 0);
-            pPoseStack.scale(scaleX, scaleY, 1f);
-            this.isHovered = pMouseX >= this.x && pMouseY >= this.y &&
-                    pMouseX < this.x + this.width * scaleX && pMouseY < this.y + this.height * scaleY;
-            this.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTick);
-            pPoseStack.scale(1 / scaleX, 1 / scaleY, 1f);
-            pPoseStack.translate(- x, - y, 0);
-        }
+        if (!this.visible) return;
+        float x = this.x - scaleX * this.x;
+        float y = this.y - scaleY * this.y;
+        pPoseStack.translate(x, y, 0);
+        pPoseStack.scale(scaleX, scaleY, 1f);
+        this.isHovered = pMouseX >= this.x && pMouseY >= this.y &&
+                pMouseX < this.x + this.width * scaleX && pMouseY < this.y + this.height * scaleY;
+        this.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        pPoseStack.scale(1 / scaleX, 1 / scaleY, 1f);
+        pPoseStack.translate(- x, - y, 0);
     }
 
     public void renderButton(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
@@ -180,5 +179,9 @@ public class TransparentEditBox extends EditBox {
                 return false;
             }
         }
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 }

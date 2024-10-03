@@ -348,4 +348,8 @@ public class ColorSelector extends AbstractWidget {
         int b = rgb - (g << 8) - (r << 16);
         return new int[]{r, g, b};
     }
+
+    public SimpleColor getColor() {
+        return color;
+    }
 }

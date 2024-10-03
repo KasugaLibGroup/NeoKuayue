@@ -15,6 +15,7 @@ public class Label extends AbstractWidget {
     private Vec2f position, scale;
     private Component text;
     private SimpleColor color;
+    private OnClick<Label> clk;
 
     public Label(Vec2f position, Component component, SimpleColor color) {
         super((int) position.x(), (int) position.y(),
@@ -24,6 +25,7 @@ public class Label extends AbstractWidget {
         this.scale = new Vec2f(1f, 1f);
         this.color = color;
         this.text = component;
+        clk = (a, b, c) -> {};
     }
 
     public Label(Vec2f position, String str, SimpleColor color) {
@@ -171,5 +173,15 @@ public class Label extends AbstractWidget {
     @Override
     public void updateNarration(NarrationElementOutput pNarrationElementOutput) {
         pNarrationElementOutput.add(NarratedElementType.TITLE, this.text.getString());
+    }
+
+    public void setOnCLick(OnClick<Label> clk) {
+        this.clk = clk;
+    }
+
+    @Override
+    public void onClick(double pMouseX, double pMouseY) {
+        if (this.clk == null) return;
+        this.clk.click(this, pMouseX, pMouseY);
     }
 }

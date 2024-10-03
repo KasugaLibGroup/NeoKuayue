@@ -21,7 +21,7 @@ public class GetShareKeyHandler {
         if (screen == null) return;
         ColorTemplate template = screen.getTemplate();
         if (template == null) return;
-        GetShareTemplateScreen gsts = new GetShareTemplateScreen(Component.empty());
+        GetShareTemplateScreen gsts = new GetShareTemplateScreen(Component.empty(), screen.getTemplate());
         Minecraft minecraft = Minecraft.getInstance();
         minecraft.setScreen(gsts);
     };

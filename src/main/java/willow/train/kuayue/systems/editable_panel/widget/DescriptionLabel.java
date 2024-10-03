@@ -8,11 +8,14 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.network.chat.Component;
 
 public class DescriptionLabel extends TooltipLabel {
+
+    private OnClick<DescriptionLabel> clk;
     public DescriptionLabel(Vec2f position, int width, int height, Component component, SimpleColor color) {
         super(position, component, color);
         this.width = width;
         this.height = height;
         updateStrings();
+        this.clk = (a, b, c) -> {};
     }
 
     public DescriptionLabel(Vec2f position, Component component) {
@@ -62,4 +65,22 @@ public class DescriptionLabel extends TooltipLabel {
 
     @Override
     public void renderGuiBg(PoseStack poseStack, int minX, int minY, int maxX, int maxY, int bgColor, int borderColor) {}
+
+    /**
+     * Don't use. Use {@link DescriptionLabel#setDescriptionOnClick(OnClick)} instead.
+     * @param clk Don't use.
+     */
+    @Deprecated
+    @Override
+    public void setOnClick(OnClick<TooltipLabel> clk) {}
+
+    public void setDescriptionOnClick(OnClick<DescriptionLabel> clk) {
+        this.clk = clk;
+    }
+
+    @Override
+    public void onClick(double pMouseX, double pMouseY) {
+        if (this.clk == null) return;
+        this.clk.click(this, pMouseX, pMouseY);
+    }
 }

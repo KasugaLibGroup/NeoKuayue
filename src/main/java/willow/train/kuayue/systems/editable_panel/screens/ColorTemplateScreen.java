@@ -32,9 +32,7 @@ public class ColorTemplateScreen extends AbstractWidget {
     private ImageButton edit, delete, confirm, cancel, share;
     private ColorTemplatesBox chosen;
 
-    private GetShareTemplateScreen gsts;
-
-    private final LazyRecomputable<ImageMask> board = LazyRecomputable.of(
+    private static final LazyRecomputable<ImageMask> board = LazyRecomputable.of(
             () -> {
                 try {
                     ImageMask mask = ClientInit.writeBoard.getImage().get().getMask();
@@ -46,7 +44,7 @@ public class ColorTemplateScreen extends AbstractWidget {
             }
     );
 
-    private final LazyRecomputable<ImageMask> buttons = LazyRecomputable.of(
+    public static final LazyRecomputable<ImageMask> buttons = LazyRecomputable.of(
             () -> {
                 try {
                     return ClientInit.buttons.getImage().get().getMask();
@@ -56,23 +54,23 @@ public class ColorTemplateScreen extends AbstractWidget {
             }
     );
 
-    private final LazyRecomputable<ImageMask> editBg = LazyRecomputable.of(
+    public final LazyRecomputable<ImageMask> editBg = LazyRecomputable.of(
             () -> buttons.get().copyWithOp(mask -> mask.rectangleUV(0.625f, 0.25f, .75f, .375f))
     );
 
-    private final LazyRecomputable<ImageMask> deleteBg = LazyRecomputable.of(
+    public final LazyRecomputable<ImageMask> deleteBg = LazyRecomputable.of(
             () -> buttons.get().copyWithOp(mask -> mask.rectangleUV(.75f, .125f, .875f, .25f))
     );
 
-    private final LazyRecomputable<ImageMask> shareBg = LazyRecomputable.of(
+    public final LazyRecomputable<ImageMask> shareBg = LazyRecomputable.of(
             () -> buttons.get().copyWithOp(mask -> mask.rectangleUV(.875f, .125f, 1f, .25f))
     );
 
-    private final LazyRecomputable<ImageMask> cancelBg = LazyRecomputable.of(
+    public final LazyRecomputable<ImageMask> cancelBg = LazyRecomputable.of(
                     () ->  buttons.get().copyWithOp((m) -> m.rectangleUV(0.5f, 0.125f, 0.625f, 0.25f))
     );
 
-    private final LazyRecomputable<ImageMask> confirmBg = LazyRecomputable.of(
+    public final LazyRecomputable<ImageMask> confirmBg = LazyRecomputable.of(
                     () -> buttons.get().copyWithOp(m -> m.rectangleUV(0.375f, 0.125f, 0.5f, 0.25f))
     );
 
@@ -86,7 +84,6 @@ public class ColorTemplateScreen extends AbstractWidget {
         this.title = new Label(title);
         cursor = 0;
         chosen = null;
-        gsts = new GetShareTemplateScreen(Component.empty());
     }
 
     public void init() {
@@ -224,8 +221,6 @@ public class ColorTemplateScreen extends AbstractWidget {
         ownerLabel.setColor(0xff555555);
         ownerLabel.setForceLeftBegin(true);
         ownerLabel.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-
-        gsts.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
     }
 
     @Override
@@ -263,6 +258,26 @@ public class ColorTemplateScreen extends AbstractWidget {
         result = result || cancel.mouseReleased(pMouseX, pMouseY, pButton);
         result = result || share.mouseReleased(pMouseX, pMouseY, pButton);
         return super.mouseReleased(pMouseX, pMouseY, pButton) || result;
+    }
+
+    @Override
+    public boolean charTyped(char pCodePoint, int pModifiers) {
+        return super.charTyped(pCodePoint, pModifiers);
+    }
+
+    @Override
+    public boolean mouseDragged(double pMouseX, double pMouseY, int pButton, double pDragX, double pDragY) {
+        return super.mouseDragged(pMouseX, pMouseY, pButton, pDragX, pDragY);
+    }
+
+    @Override
+    public boolean keyPressed(int pKeyCode, int pScanCode, int pModifiers) {
+        return super.keyPressed(pKeyCode, pScanCode, pModifiers);
+    }
+
+    @Override
+    public boolean keyReleased(int pKeyCode, int pScanCode, int pModifiers) {
+        return super.keyReleased(pKeyCode, pScanCode, pModifiers);
     }
 
     public void share() {

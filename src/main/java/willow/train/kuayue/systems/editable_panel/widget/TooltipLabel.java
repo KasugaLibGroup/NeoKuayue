@@ -13,11 +13,13 @@ public class TooltipLabel extends Label {
     protected final ArrayList<String> texts;
     protected int borderWidth;
     protected boolean forceLeftBegin;
+    private OnClick<TooltipLabel> clk;
     public TooltipLabel(Vec2f position, Component component, SimpleColor color) {
         super(position, component, color);
         texts = new ArrayList<>();
         borderWidth = 1;
         forceLeftBegin = false;
+        this.clk = (a, b, c) -> {};
     }
 
     public TooltipLabel(Vec2f position, String str, SimpleColor color) {
@@ -120,5 +122,15 @@ public class TooltipLabel extends Label {
 
     public void renderGuiBg(PoseStack poseStack, int minX, int minY, int maxX, int maxY, int bgColor, int borderColor) {
         ColorTemplatesBox.renderGuiBg(poseStack, minX, minY, maxX, maxY, borderWidth, bgColor, borderColor);
+    }
+
+    public void setOnClick(OnClick<TooltipLabel> clk) {
+        this.clk = clk;
+    }
+
+    @Override
+    public void onClick(double pMouseX, double pMouseY) {
+        if (this.clk == null) return;
+        this.clk.click(this, pMouseX, pMouseY);
     }
 }

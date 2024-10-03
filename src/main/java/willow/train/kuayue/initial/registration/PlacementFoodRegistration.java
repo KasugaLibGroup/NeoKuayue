@@ -1,5 +1,6 @@
 package willow.train.kuayue.initial.registration;
 
+import kasuga.lib.core.base.item_helper.ExternalProperties;
 import kasuga.lib.registrations.common.BlockReg;
 import kasuga.lib.registrations.common.CreativeTabReg;
 import kasuga.lib.registrations.common.ItemReg;
@@ -13,7 +14,6 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import willow.train.kuayue.block.food.PlacementFoodBlock;
 import willow.train.kuayue.block.food.PlacementFoodBlockItem;
-
 import java.util.function.Supplier;
 
 public class PlacementFoodRegistration<T extends PlacementFoodBlock> {
@@ -60,7 +60,7 @@ public class PlacementFoodRegistration<T extends PlacementFoodBlock> {
     }
 
     public PlacementFoodRegistration<T> craftReminder(Supplier<Item> itemSupplier) {
-        this.item.withProperty(properties -> properties.craftRemainder(itemSupplier.get()));
+        this.item.withProperty(properties -> ((ExternalProperties) properties).craftRemainder(itemSupplier));
         return this;
     }
 

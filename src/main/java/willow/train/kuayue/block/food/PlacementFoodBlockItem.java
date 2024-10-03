@@ -1,5 +1,6 @@
 package willow.train.kuayue.block.food;
 
+import kasuga.lib.core.base.item_helper.ExternalRemainderBlockItem;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -9,7 +10,7 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class PlacementFoodBlockItem extends BlockItem {
+public class PlacementFoodBlockItem extends ExternalRemainderBlockItem {
 
     public PlacementFoodBlockItem(PlacementFoodBlock pBlock, Properties pProperties) {
         super(pBlock, pProperties);
