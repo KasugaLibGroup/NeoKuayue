@@ -32,7 +32,7 @@ public class PlacementFoodBlock extends Block {
     private final FoodType FOOD_TYPE;
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static VoxelShape BOX_SHAPE = Block.box(2, 0, 2, 14, 2, 14);
-    public static VoxelShape CUP_SHAPE = Block.box(4, 0, 4, 12, 4, 12);
+    public static VoxelShape BOWL_SHAPE = Block.box(4, 0, 4, 12, 4, 12);
     public static VoxelShape BOTTLE_SHAPE = Block.box(6, 0, 6, 10, 6, 10);
 
     public PlacementFoodBlock(Properties pProperties, FoodType foodType) {
@@ -93,14 +93,15 @@ public class PlacementFoodBlock extends Block {
         } else {
             // 获取食物方块对应的物品栈
             ItemStack stack = pState.getBlock().asItem().getDefaultInstance();
+            // 获取食物的枚举类型
+            FoodType foodType = ((PlacementFoodBlock) pState.getBlock()).FOOD_TYPE;
             // 生存模式下调用eat方法会清空物品栈变为0 air，因此必须将finishEating方法放到前面。
             finishEating(stack, pPlayer);
             // 执行玩家吃下物品的方法
             pPlayer.eat(pLevel, stack);
             pLevel.gameEvent(pPlayer, GameEvent.EAT, pPos);
             pLevel.playSound(null, pPos,
-                    ((PlacementFoodBlock) pState.getBlock()).FOOD_TYPE
-                            == FoodType.BOX ? SoundEvents.GENERIC_EAT : SoundEvents.GENERIC_DRINK,
+                    foodType == FoodType.BOX ? SoundEvents.GENERIC_EAT : SoundEvents.GENERIC_DRINK,
                     SoundSource.BLOCKS, 1.0F, 1.0F);
             pLevel.removeBlock(pPos, false);
             pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);
@@ -110,10 +111,11 @@ public class PlacementFoodBlock extends Block {
 
     protected static void finishEating(ItemStack stack, Player pPlayer) {
         // 获取食用后所剩物品的物品栈
-        ItemStack craftingRemainingItem = stack.getCraftingRemainingItem();
+        ItemStack craftingRemainingItem = stack.getItem().getCraftingRemainingItem(stack);
 
-        if (!pPlayer.getInventory().add(craftingRemainingItem)) {
-            pPlayer.drop(craftingRemainingItem, false);
+        ItemStack itemStack = new ItemStack(craftingRemainingItem.getItem());
+        if (!(pPlayer.getInventory().add(itemStack))) {
+            pPlayer.drop(itemStack, false);
         }
     }
 
@@ -124,13 +126,13 @@ public class PlacementFoodBlock extends Block {
     public VoxelShape getFoodShape(BlockState pState) {
         return switch (((PlacementFoodBlock) pState.getBlock()).FOOD_TYPE) {
             case BOX -> BOX_SHAPE;
-            case CUP -> CUP_SHAPE;
+            case BOWL -> BOWL_SHAPE;
             case BOTTLE -> BOTTLE_SHAPE;
             default -> BOX_SHAPE;
         };
     }
 
     public enum FoodType {
-        BOX, CUP, BOTTLE;
+        BOX, BOWL, BOTTLE;
     }
 }
