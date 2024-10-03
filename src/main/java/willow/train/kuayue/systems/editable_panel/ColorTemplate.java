@@ -11,6 +11,16 @@ public class ColorTemplate implements NbtSerializable {
     private int color;
     private boolean temporary, deleteAble, editable;
 
+    public static ColorTemplate defaultTemplate(int color, String owner) {
+        return new ColorTemplate(
+                Component.translatable("tooltip.kuayue.color_template.default_name"),
+                color,
+                Component.literal(owner),
+                false,
+                true,
+                true
+        );
+    }
     public ColorTemplate(Component name, int color, Component owner, boolean temporary, boolean deleteAble, boolean editable) {
         this(name, color, owner);
         this.deleteAble = deleteAble;

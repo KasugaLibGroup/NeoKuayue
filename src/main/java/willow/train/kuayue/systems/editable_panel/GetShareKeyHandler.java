@@ -6,8 +6,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraftforge.client.gui.overlay.GuiOverlayManager;
 import net.minecraftforge.client.gui.overlay.NamedGuiOverlay;
 import willow.train.kuayue.initial.AllElements;
-import willow.train.kuayue.initial.AllPackets;
-import willow.train.kuayue.network.ColorTemplateC2SPacket;
+import willow.train.kuayue.initial.ClientInit;
 import willow.train.kuayue.systems.editable_panel.overlay.GetShareOverlay;
 import willow.train.kuayue.systems.editable_panel.screens.GetShareTemplateScreen;
 
@@ -23,6 +22,13 @@ public class GetShareKeyHandler {
         if (template == null) return;
         GetShareTemplateScreen gsts = new GetShareTemplateScreen(Component.empty(), screen.getTemplate());
         Minecraft minecraft = Minecraft.getInstance();
+        gsts.onCancelClick((w, x, y) -> {
+            minecraft.setScreen(null);
+        });
+        gsts.onAcceptClick((w, x, y) -> {
+            ClientInit.COLOR_TEMPLATES.addTemplate(template);
+            minecraft.setScreen(null);
+        });
         minecraft.setScreen(gsts);
     };
 }

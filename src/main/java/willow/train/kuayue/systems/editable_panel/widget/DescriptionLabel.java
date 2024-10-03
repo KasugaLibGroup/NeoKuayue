@@ -43,6 +43,12 @@ public class DescriptionLabel extends TooltipLabel {
     }
 
     @Override
+    public void setText(Component text) {
+        this.text = text;
+        updateStrings();
+    }
+
+    @Override
     protected void updateStrings() {
         texts.clear();
         if (getText().getString().equals("")) return;

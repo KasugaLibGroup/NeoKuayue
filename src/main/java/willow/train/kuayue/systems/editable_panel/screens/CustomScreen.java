@@ -169,4 +169,8 @@ public abstract class CustomScreen<T extends AbstractContainerMenu, K extends Bl
     }
 
     public void onClosed() {}
+
+    public void close() {
+        screen.onClose();
+    }
 }

@@ -11,6 +11,7 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.Component;
+import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.initial.ClientInit;
 import willow.train.kuayue.systems.editable_panel.widget.*;
 
@@ -339,6 +340,15 @@ public class ColorScreen extends AbstractWidget {
         updateHsvFromSelector();
     }
 
+    public void setRgb(int rgb) {
+        this.selector.setRgb(rgb);
+        try {
+            updateFromSelectorToBox();
+        } catch (Exception e) {
+            Kuayue.LOGGER.error("Unexpected Error.", e);
+        }
+    }
+
     public SimpleColor getColor() {
         return selector.getColor();
     }
@@ -350,6 +360,7 @@ public class ColorScreen extends AbstractWidget {
 
     @Override
     public boolean mouseDragged(double pMouseX, double pMouseY, int pButton, double pDragX, double pDragY) {
+        if (!visible) return false;
         r.mouseDragged(pMouseX, pMouseY, pButton, pDragX, pDragY);
         g.mouseDragged(pMouseX, pMouseY, pButton, pDragX, pDragY);
         b.mouseDragged(pMouseX, pMouseY, pButton, pDragX, pDragY);
@@ -364,6 +375,7 @@ public class ColorScreen extends AbstractWidget {
 
     @Override
     public boolean mouseReleased(double pMouseX, double pMouseY, int pButton) {
+        if (!visible) return false;
         r.mouseReleased(pMouseX, pMouseY, pButton);
         g.mouseReleased(pMouseX, pMouseY, pButton);
         b.mouseReleased(pMouseX, pMouseY, pButton);
@@ -378,6 +390,7 @@ public class ColorScreen extends AbstractWidget {
 
     @Override
     public boolean mouseClicked(double pMouseX, double pMouseY, int pButton) {
+        if (!visible) return false;
         r.mouseClicked(pMouseX, pMouseY, pButton);
         g.mouseClicked(pMouseX, pMouseY, pButton);
         b.mouseClicked(pMouseX, pMouseY, pButton);
@@ -391,6 +404,7 @@ public class ColorScreen extends AbstractWidget {
 
     @Override
     public void onClick(double pMouseX, double pMouseY) {
+        if (!visible) return;
         if (this.template.visible && template.isMouseOver(pMouseX, pMouseY)) this.template.onClick(pMouseX, pMouseY);
         else if (this.load.visible && load.isMouseOver(pMouseX, pMouseY)) this.load.onClick(pMouseX, pMouseY);
         else if (this.save.visible && save.isMouseOver(pMouseX, pMouseY)) this.save.onClick(pMouseX, pMouseY);
@@ -400,6 +414,7 @@ public class ColorScreen extends AbstractWidget {
 
     @Override
     public boolean mouseScrolled(double pMouseX, double pMouseY, double pDelta) {
+        if (!visible) return false;
         boolean flag = selector.mouseScrolled(pMouseX, pMouseY, pDelta);
         if (flag) updateFromSelectorToBox();
         return super.mouseScrolled(pMouseX, pMouseY, pDelta) & flag;
@@ -407,6 +422,7 @@ public class ColorScreen extends AbstractWidget {
 
     @Override
     public boolean keyPressed(int pKeyCode, int pScanCode, int pModifiers) {
+        if (!visible) return false;
         r.keyPressed(pKeyCode, pScanCode, pModifiers);
         g.keyPressed(pKeyCode, pScanCode, pModifiers);
         b.keyPressed(pKeyCode, pScanCode, pModifiers);
@@ -420,6 +436,7 @@ public class ColorScreen extends AbstractWidget {
 
     @Override
     public boolean keyReleased(int pKeyCode, int pScanCode, int pModifiers) {
+        if (!visible) return false;
         r.keyReleased(pKeyCode, pScanCode, pModifiers);
         g.keyReleased(pKeyCode, pScanCode, pModifiers);
         b.keyReleased(pKeyCode, pScanCode, pModifiers);
@@ -441,6 +458,7 @@ public class ColorScreen extends AbstractWidget {
 
     @Override
     public boolean charTyped(char pCodePoint, int pModifiers) {
+        if (!visible) return false;
         r.charTyped(pCodePoint, pModifiers);
         g.charTyped(pCodePoint, pModifiers);
         b.charTyped(pCodePoint, pModifiers);

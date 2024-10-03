@@ -1,4 +1,4 @@
-package willow.train.kuayue.network;
+package willow.train.kuayue.network.s2c;
 
 import com.simibubi.create.content.contraptions.AbstractContraptionEntity;
 import com.simibubi.create.content.contraptions.Contraption;

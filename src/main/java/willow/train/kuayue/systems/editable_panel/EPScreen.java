@@ -98,6 +98,10 @@ public class EPScreen extends AbstractContainerScreen<EditablePanelEditMenu> {
         return true;
     }
 
+    public void close() {
+        this.onClose();
+    }
+
     @Override
     public void onClose() {
         subScreen.onClosed();

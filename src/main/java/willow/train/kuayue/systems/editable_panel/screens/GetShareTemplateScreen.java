@@ -21,12 +21,13 @@ public class GetShareTemplateScreen extends Screen {
     private int x, y;
     private final int bgWidth, bgHeight;
     private Vector3f bgPos;
-    private final ColorTemplate template;
+    private ColorTemplate template;
     private DescriptionLabel title, rgb, document, owner;
     private ImageButton accept, cancel;
     private boolean editMode;
     private AbstractWidget chosen;
     private EditBar bar;
+    private boolean visible = true;
     public static final LazyRecomputable<ImageMask> getShareBg =
             new LazyRecomputable<>(() -> {
                 try {
@@ -46,6 +47,7 @@ public class GetShareTemplateScreen extends Screen {
     public static final LazyRecomputable<ImageMask> acceptImage =
             new LazyRecomputable<>(() -> ColorTemplateScreen.buttons.get().copyWithOp(m -> m.rectangleUV(0.375f, 0.125f, 0.5f, 0.25f)));
 
+
     public GetShareTemplateScreen(Component pTitle, ColorTemplate template) {
         super(pTitle);
         this.template = template;
@@ -60,6 +62,7 @@ public class GetShareTemplateScreen extends Screen {
     protected void init() {
         super.init();
         if (template == null) return;
+        this.clearWidgets();
         this.minecraft = Minecraft.getInstance();
         Screen screen = Minecraft.getInstance().screen;
         if (screen == null) return;
@@ -70,7 +73,7 @@ public class GetShareTemplateScreen extends Screen {
         this.y = (int) bgPos.y();
 
         SimpleColor textColor = SimpleColor.fromRGBInt(0xffffff);
-        title = new DescriptionLabel(new Vec2f(this.x + 25, this.y + 15), 80, 8,
+        title = new DescriptionLabel(new Vec2f(this.x + 25, this.y + 15), 120, 8,
                 Component.literal(template.getName()), textColor);
         title.setForceLeftBegin(true);
 
@@ -103,13 +106,16 @@ public class GetShareTemplateScreen extends Screen {
         addRenderableWidget(cancel);
         addRenderableWidget(accept);
         addRenderableWidget(bar);
+        addRenderableWidget(selector);
+
         selector.init();
-        setEditMode(true);
+        selector.setVisible(false);
         bar.visible = false;
     }
 
     @Override
     public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
+        if (!visible) return;
         if (!editMode || (editMode && chosen != rgb)) {
             ImageMask mask = getShareBg.get();
             mask.rectangle(bgPos, ImageMask.Axis.X, ImageMask.Axis.Y, true, true, bgWidth, bgHeight);
@@ -120,10 +126,12 @@ public class GetShareTemplateScreen extends Screen {
     }
 
     public void onCancelClick(OnClick<ImageButton> clk) {
+        if (cancel == null) return;
         cancel.setOnClick(clk);
     }
 
     public void onAcceptClick(OnClick<ImageButton> clk) {
+        if (accept == null) return;
         accept.setOnClick(clk);
     }
 
@@ -132,7 +140,37 @@ public class GetShareTemplateScreen extends Screen {
         return false;
     }
 
+    public void setTemplate(ColorTemplate template) {
+        this.template = template;
+        init();
+    }
+
+    @Override
+    public boolean mouseReleased(double pMouseX, double pMouseY, int pButton) {
+        if (!visible && (selector == null || !selector.getVisible())) return false;
+        return super.mouseReleased(pMouseX, pMouseY, pButton);
+    }
+
+    @Override
+    public boolean mouseClicked(double pMouseX, double pMouseY, int pButton) {
+        if (!visible && (selector == null || !selector.getVisible())) return false;
+        return super.mouseClicked(pMouseX, pMouseY, pButton);
+    }
+
+    @Override
+    public boolean mouseDragged(double pMouseX, double pMouseY, int pButton, double pDragX, double pDragY) {
+        if (!visible && (selector == null || !selector.getVisible())) return false;
+        return super.mouseDragged(pMouseX, pMouseY, pButton, pDragX, pDragY);
+    }
+
+    @Override
+    public boolean mouseScrolled(double pMouseX, double pMouseY, double pDelta) {
+        if (!visible && (selector == null || !selector.getVisible())) return false;
+        return super.mouseScrolled(pMouseX, pMouseY, pDelta);
+    }
+
     public void setEditMode(boolean editMode) {
+        if (template == null) return;
         this.editMode = editMode;
         if (editMode) {
             OnClick<?> clk = (a, b, c) -> {
@@ -146,20 +184,26 @@ public class GetShareTemplateScreen extends Screen {
             };
             this.title.setDescriptionOnClick((OnClick<DescriptionLabel>) clk);
             Consumer<Object> onClose = obj -> {
-                addRenderableWidget(title);
-                addRenderableWidget(rgb);
-                addRenderableWidget(document);
-                addRenderableWidget(owner);
-                removeWidget(selector);
+                title.visible = true;
+                rgb.visible = true;
+                document.visible = true;
+                owner.visible = true;
+                accept.visible = true;
+                cancel.visible = true;
+                selector.setVisible(false);
                 this.chosen = null;
             };
             this.rgb.setDescriptionOnClick((a, b, c) -> {
                 if (bar.visible) return;
                 chosen = a;
-                removeWidget(title);
-                removeWidget(rgb);
-                removeWidget(document);
-                removeWidget(owner);
+
+                title.visible = false;
+                rgb.visible = false;
+                document.visible = false;
+                owner.visible = false;
+                accept.visible = false;
+                cancel.visible = false;
+
                 selector.setHex(this.rgb.getText().getString().replace("RGB: ", ""));
                 selector.setSaveVisible(false);
                 selector.setTemplateVisible(false);
@@ -173,7 +217,7 @@ public class GetShareTemplateScreen extends Screen {
                 selector.onCancelClick(((widget, mx, my) -> {
                     onClose.accept(null);
                 }));
-                addRenderableWidget(selector);
+                selector.setVisible(true);
             });
             this.document.setDescriptionOnClick((OnClick<DescriptionLabel>) clk);
             bar.onCancelClick(((widget, mouseX, mouseY) -> {
@@ -181,7 +225,7 @@ public class GetShareTemplateScreen extends Screen {
                 chosen = null;
             }));
             bar.onAcceptClick((widget, mouseX, mouseY) -> {
-                if (!(chosen instanceof Label label)) return;
+                if (!(chosen instanceof DescriptionLabel label)) return;
                 label.setText(Component.literal(bar.getText()));
                 bar.visible = false;
                 chosen = null;
@@ -197,16 +241,44 @@ public class GetShareTemplateScreen extends Screen {
 
     @Override
     public boolean charTyped(char pCodePoint, int pModifiers) {
+        if (!visible && (selector == null || !selector.getVisible())) return false;
         if (bar.visible)
-            bar.charTyped(pCodePoint, pModifiers);
+            return bar.charTyped(pCodePoint, pModifiers);
         return super.charTyped(pCodePoint, pModifiers);
     }
 
     @Override
     public boolean keyPressed(int pKeyCode, int pScanCode, int pModifiers) {
+        if (!visible && (selector == null || !selector.getVisible())) return false;
         if (bar.visible)
             return bar.keyPressed(pKeyCode, pScanCode, pModifiers);
         return super.keyPressed(pKeyCode, pScanCode, pModifiers);
+    }
+
+    @Override
+    public boolean keyReleased(int pKeyCode, int pScanCode, int pModifiers) {
+        if (!visible && (selector == null || !selector.getVisible())) return false;
+        if (bar.visible)
+            return bar.keyReleased(pKeyCode, pScanCode, pModifiers);
+        return super.keyReleased(pKeyCode, pScanCode, pModifiers);
+    }
+
+    public void fillDataToTemplate() {
+        template.setDocument(this.document.getPlainText());
+        template.setName(this.title.getPlainText());
+        template.setColor(this.rgb.getColor().getRGB() - 0xff000000);
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public ColorTemplate getTemplate() {
+        return template;
     }
 
     public boolean isEditMode() {

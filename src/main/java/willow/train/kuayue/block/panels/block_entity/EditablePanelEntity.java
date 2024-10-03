@@ -8,6 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -73,13 +74,14 @@ public class EditablePanelEntity extends SmartBlockEntity
     @Override
     protected void read(CompoundTag tag, boolean clientPacket) {
         super.read(tag, clientPacket);
-        tag.put("data", nbt);
+        this.nbt = tag.getCompound("data");
+        signColor = nbt.getInt("color");
     }
 
     @Override
     protected void write(CompoundTag tag, boolean clientPacket) {
         super.write(tag, clientPacket);
-        this.nbt = tag.getCompound("data");
+        tag.put("data", nbt);
     }
 
     public TrainPanelProperties.EditType getEditType() {
@@ -135,6 +137,13 @@ public class EditablePanelEntity extends SmartBlockEntity
 
     public void markUpdated(boolean isClientSide) {
         this.setChanged();
+    }
+
+    @Override
+    public CompoundTag getUpdateTag() {
+        CompoundTag tag = new CompoundTag();
+        write(tag, false);
+        return tag;
     }
 
     @Nullable

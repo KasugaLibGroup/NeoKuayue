@@ -7,18 +7,14 @@ import kasuga.lib.core.client.render.texture.ImageMask;
 import kasuga.lib.core.client.render.texture.Vec2f;
 import kasuga.lib.core.util.LazyRecomputable;
 import net.minecraft.client.gui.components.AbstractWidget;
-import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.Component;
 import willow.train.kuayue.initial.AllPackets;
 import willow.train.kuayue.initial.ClientInit;
-import willow.train.kuayue.network.ColorTemplateC2SPacket;
+import willow.train.kuayue.network.c2s.ColorTemplateC2SPacket;
 import willow.train.kuayue.systems.editable_panel.AllColorTemplates;
 import willow.train.kuayue.systems.editable_panel.ColorTemplate;
-import willow.train.kuayue.systems.editable_panel.widget.ColorTemplatesBox;
-import willow.train.kuayue.systems.editable_panel.widget.DescriptionLabel;
-import willow.train.kuayue.systems.editable_panel.widget.ImageButton;
-import willow.train.kuayue.systems.editable_panel.widget.Label;
+import willow.train.kuayue.systems.editable_panel.widget.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,6 +27,7 @@ public class ColorTemplateScreen extends AbstractWidget {
     private int cursor;
     private ImageButton edit, delete, confirm, cancel, share;
     private ColorTemplatesBox chosen;
+    protected GetShareTemplateScreen editScreen;
 
     private static final LazyRecomputable<ImageMask> board = LazyRecomputable.of(
             () -> {
@@ -84,10 +81,12 @@ public class ColorTemplateScreen extends AbstractWidget {
         this.title = new Label(title);
         cursor = 0;
         chosen = null;
+        editScreen = new GetShareTemplateScreen(Component.empty(), null);
     }
 
     public void init() {
         ImageMask mask = board.get();
+        editScreen.init();
         px = this.x + this.width / 2f - 192;
         py = this.y + this.height / 2f - 120;
         mask.rectangle(new Vector3f(px, py, 0),
@@ -121,6 +120,9 @@ public class ColorTemplateScreen extends AbstractWidget {
         delete.dynamicTooltipLabelWidth();
         share.dynamicTooltipLabelWidth();
         if (temps.length > 0) chosen = temps[0];
+
+        editScreen.setVisible(false);
+        editActions();
     }
 
     public void updateBoxes() {
@@ -149,6 +151,12 @@ public class ColorTemplateScreen extends AbstractWidget {
 
     public ColorTemplatesBox getChosenBox() {
         return chosen;
+    }
+
+    @Override
+    public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
+        editScreen.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
     }
 
     @Override
@@ -225,6 +233,9 @@ public class ColorTemplateScreen extends AbstractWidget {
 
     @Override
     public boolean mouseScrolled(double pMouseX, double pMouseY, double pDelta) {
+        if (editScreen.isVisible())
+            return editScreen.mouseScrolled(pMouseX, pMouseY, pDelta);
+        if (!visible) return false;
         cursor -= ((int) pDelta);
         updateBoxes();
         return super.mouseScrolled(pMouseX, pMouseY, pDelta);
@@ -232,6 +243,9 @@ public class ColorTemplateScreen extends AbstractWidget {
 
     @Override
     public boolean mouseClicked(double pMouseX, double pMouseY, int pButton) {
+        if (editScreen.isVisible())
+            return editScreen.mouseClicked(pMouseX, pMouseY, pButton);
+        if (!visible) return false;
         boolean result = false;
         for (ColorTemplatesBox box : temps) {
             if (box == null) continue;
@@ -247,6 +261,9 @@ public class ColorTemplateScreen extends AbstractWidget {
 
     @Override
     public boolean mouseReleased(double pMouseX, double pMouseY, int pButton) {
+        if (editScreen.isVisible())
+            return editScreen.mouseReleased(pMouseX, pMouseY, pButton);
+        if (!visible) return false;
         boolean result = false;
         for (ColorTemplatesBox box : temps) {
             if (box == null) continue;
@@ -262,21 +279,29 @@ public class ColorTemplateScreen extends AbstractWidget {
 
     @Override
     public boolean charTyped(char pCodePoint, int pModifiers) {
+        if (editScreen.isVisible())
+            return editScreen.charTyped(pCodePoint, pModifiers);
         return super.charTyped(pCodePoint, pModifiers);
     }
 
     @Override
     public boolean mouseDragged(double pMouseX, double pMouseY, int pButton, double pDragX, double pDragY) {
+        if (editScreen.isVisible())
+            return editScreen.mouseDragged(pMouseX, pMouseY, pButton, pDragX, pDragY);
         return super.mouseDragged(pMouseX, pMouseY, pButton, pDragX, pDragY);
     }
 
     @Override
     public boolean keyPressed(int pKeyCode, int pScanCode, int pModifiers) {
+        if (editScreen.isVisible())
+            return editScreen.keyPressed(pKeyCode, pScanCode, pModifiers);
         return super.keyPressed(pKeyCode, pScanCode, pModifiers);
     }
 
     @Override
     public boolean keyReleased(int pKeyCode, int pScanCode, int pModifiers) {
+        if (editScreen.isVisible())
+            return editScreen.keyReleased(pKeyCode, pScanCode, pModifiers);
         return super.keyReleased(pKeyCode, pScanCode, pModifiers);
     }
 
@@ -288,5 +313,56 @@ public class ColorTemplateScreen extends AbstractWidget {
     @Override
     public void updateNarration(NarrationElementOutput pNarrationElementOutput) {
 
+    }
+
+    public void onCancelClick(OnClick<ImageButton> clk) {
+        this.cancel.setOnClick(clk);
+    }
+
+    public void onConfirmClick(OnClick<ImageButton> clk) {
+        this.confirm.setOnClick(clk);
+    }
+
+    public void onEditClick(OnClick<ImageButton> clk) {
+        this.edit.setOnClick(clk);
+    }
+
+    public void setConfirmVisible(boolean visible) {
+        confirm.visible = visible;
+    }
+
+    public void setDeleteVisible(boolean visible) {
+        delete.visible = visible;
+    }
+
+    public void setEditVisible(boolean visible) {
+        edit.visible = visible;
+    }
+
+    public void setShareVisible(boolean visible) {
+        share.visible = visible;
+    }
+
+    public void setCancelVisible(boolean visible) {
+        cancel.visible = visible;
+    }
+
+    public void editActions() {
+        edit.setOnClick((w, x, y) -> {
+            if (!chosen.getTemplate().isEditable()) return;
+            this.visible = false;
+            editScreen.setTemplate(chosen.getTemplate());
+            editScreen.setEditMode(true);
+            editScreen.onAcceptClick((q, a, b) -> {
+                editScreen.setVisible(false);
+                editScreen.fillDataToTemplate();
+                this.visible = true;
+            });
+            editScreen.onCancelClick((q, a, b) -> {
+                editScreen.setVisible(false);
+                this.visible = true;
+            });
+            editScreen.setVisible(true);
+        });
     }
 }

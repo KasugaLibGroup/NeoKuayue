@@ -140,6 +140,7 @@ public class ColorSelector extends AbstractWidget {
 
     @Override
     public boolean mouseDragged(double pMouseX, double pMouseY, int pButton, double pDragX, double pDragY) {
+        if (!visible) return false;
         float angle = getAngle((float) pMouseX, (float) pMouseY);
         if (hOn) {
             this.h = angle - 135f;
@@ -165,6 +166,7 @@ public class ColorSelector extends AbstractWidget {
 
     @Override
     public boolean mouseScrolled(double mx, double my, double pDelta) {
+        if (!visible) return false;
         if (iOn || hOn || sOn) return false;
         float distToCenter = getWidgetCenter().distance(new Vec2f((float) mx, (float) my));
         if (distToCenter >= 50 && distToCenter < 66) {
@@ -186,6 +188,7 @@ public class ColorSelector extends AbstractWidget {
 
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if (!visible) return false;
         if (button != 0) return false;
         super.mouseClicked(mouseX, mouseY, button);
         float mx = (float) mouseX, my = (float) mouseY;
@@ -224,6 +227,7 @@ public class ColorSelector extends AbstractWidget {
 
     @Override
     public boolean mouseReleased(double pMouseX, double pMouseY, int pButton) {
+        if (!visible) return false;
         hOn = false;
         sOn = false;
         iOn = false;
@@ -339,7 +343,8 @@ public class ColorSelector extends AbstractWidget {
     }
 
     public void setRgb(int rgb) {
-
+        String hex = "#" + Integer.toHexString(rgb);
+        setHex(hex);
     }
 
     public static int[] splitRGB(int rgb) {

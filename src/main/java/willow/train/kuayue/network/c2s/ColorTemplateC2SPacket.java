@@ -1,4 +1,4 @@
-package willow.train.kuayue.network;
+package willow.train.kuayue.network.c2s;
 
 import kasuga.lib.core.network.C2SPacket;
 import net.minecraft.nbt.CompoundTag;
@@ -7,6 +7,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkEvent;
 import willow.train.kuayue.initial.AllPackets;
+import willow.train.kuayue.network.s2c.ColorTemplateS2CPacket;
 import willow.train.kuayue.systems.editable_panel.ColorTemplate;
 
 public class ColorTemplateC2SPacket extends C2SPacket {
@@ -21,14 +22,12 @@ public class ColorTemplateC2SPacket extends C2SPacket {
     }
     @Override
     public void handle(NetworkEvent.Context context) {
-        context.enqueueWork(() -> {
-            ServerPlayer player = context.getSender();
-            if (player == null) return;
-            ServerLevel level = player.getLevel();
-            // Broadcast to all clients;
-            // AllPackets.TEMPLATE.sendToClient(new ColorTemplateS2CPacket(this.nbt), player);
-            AllPackets.TEMPLATE.boardcastToClients(new ColorTemplateS2CPacket(this.nbt), level, player.getOnPos());
-        });
+        ServerPlayer player = context.getSender();
+        if (player == null) return;
+        ServerLevel level = player.getLevel();
+        // Broadcast to all clients;
+        // AllPackets.TEMPLATE.sendToClient(new ColorTemplateS2CPacket(this.nbt), player);
+        AllPackets.TEMPLATE.boardcastToClients(new ColorTemplateS2CPacket(this.nbt), level, player.getOnPos());
     }
 
     @Override

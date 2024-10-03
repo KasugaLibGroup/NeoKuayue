@@ -13,7 +13,7 @@ import net.minecraft.network.chat.Component;
 
 public class Label extends AbstractWidget {
     private Vec2f position, scale;
-    private Component text;
+    public Component text;
     private SimpleColor color;
     private OnClick<Label> clk;
 
@@ -88,7 +88,7 @@ public class Label extends AbstractWidget {
 
     public void setText(Component text) {
         this.text = text;
-        this.setWidth(Minecraft.getInstance().font.width(text));
+        this.setWidth(Minecraft.getInstance().font.width(text) + 4);
     }
 
     public void move(float x, float y) {
@@ -126,6 +126,7 @@ public class Label extends AbstractWidget {
 
     @Override
     public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
+        if (!visible) return;
         renderToGui(pPoseStack, Minecraft.getInstance().font);
     }
 
@@ -140,6 +141,7 @@ public class Label extends AbstractWidget {
     public void renderToWorld(PoseStack poseStack, Font font, MultiBufferSource buffer,
                               boolean shadow, boolean transparent, SimpleColor backGroundColor,
                               int light) {
+        if (!visible) return;
         poseStack.translate(position.x(), position.y(), 0);
         poseStack.scale(scale.x(), scale.y(), 1f);
         font.drawInBatch(text, 0, 0, color.getRGB(),
@@ -151,6 +153,7 @@ public class Label extends AbstractWidget {
 
     public void renderToWorld(PoseStack poseStack, Font font, MultiBufferSource buffer,
                               boolean shadow, int light) {
+        if (!visible) return;
         poseStack.translate(position.x(), position.y(), 0);
         poseStack.scale(scale.x(), scale.y(), 1f);
         font.drawInBatch(text, 0, 0, color.getRGB(), shadow, poseStack.last().pose(), buffer,

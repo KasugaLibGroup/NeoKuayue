@@ -6,7 +6,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.initial.AllPackets;
-import willow.train.kuayue.network.ColorTemplateC2SPacket;
+import willow.train.kuayue.network.c2s.ColorTemplateC2SPacket;
 
 import java.io.File;
 import java.io.IOException;

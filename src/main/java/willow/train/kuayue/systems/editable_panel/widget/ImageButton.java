@@ -140,6 +140,7 @@ public class ImageButton extends Button {
 
     @Override
     public void onClick(double pMouseX, double pMouseY) {
+        onPress();
         if (this.clk == null) return;
         this.clk.click(this, pMouseX, pMouseY);
     }

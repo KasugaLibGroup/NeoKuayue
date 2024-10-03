@@ -667,5 +667,6 @@
   "tooltip.kuayue.color_template_screen.default_element_25.owner": "跨越开发组",
   "tooltip.kuayue.get_share_overlay_toast.title": "收到新颜色模板",
   "tooltip.kuayue.get_share_overlay_toast.content": "按下 \" %s \" 以保存",
-  "tooltip.kuayue.type_screen.title": "编辑车厢类型"
+  "tooltip.kuayue.type_screen.title": "编辑车厢类型",
+  "tooltip.kuayue.color_template.default_name": "新颜色模板"
 }
