@@ -3,6 +3,7 @@ package willow.train.kuayue.initial;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
@@ -26,6 +27,7 @@ public class AllFoods {
                     .strength(0.5F)
                     .noOcclusion()
                     .foodProperties(TRAIN_DIET_A)
+                    .craftReminder(AllItems.LUNCH_BOX::getItem)
                     .stackSize(16)
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);

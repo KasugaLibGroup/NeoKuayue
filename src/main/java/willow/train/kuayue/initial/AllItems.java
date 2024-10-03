@@ -47,5 +47,11 @@ public class AllItems {
                     .tab(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
 
+    public static final ItemReg<Item> LUNCH_BOX =
+            new ItemReg<Item>("lunch_box")
+                    .itemType(Item::new)
+                    .tab(AllElements.neoKuayueDietTab)
+                    .submit(AllElements.testRegistry);
+
     public static void invoke() {}
 }

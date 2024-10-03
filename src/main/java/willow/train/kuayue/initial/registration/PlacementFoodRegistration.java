@@ -5,6 +5,7 @@ import kasuga.lib.registrations.common.CreativeTabReg;
 import kasuga.lib.registrations.common.ItemReg;
 import kasuga.lib.registrations.registry.SimpleRegistry;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -12,6 +13,8 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import willow.train.kuayue.block.food.PlacementFoodBlock;
 import willow.train.kuayue.block.food.PlacementFoodBlockItem;
+
+import java.util.function.Supplier;
 
 public class PlacementFoodRegistration<T extends PlacementFoodBlock> {
 
@@ -53,6 +56,11 @@ public class PlacementFoodRegistration<T extends PlacementFoodBlock> {
 
     public PlacementFoodRegistration<T> foodProperties(FoodProperties foodProperties) {
         this.item.withProperty(properties -> properties.food(foodProperties));
+        return this;
+    }
+
+    public PlacementFoodRegistration<T> craftReminder(Supplier<Item> itemSupplier) {
+        this.item.withProperty(properties -> properties.craftRemainder(itemSupplier.get()));
         return this;
     }
 

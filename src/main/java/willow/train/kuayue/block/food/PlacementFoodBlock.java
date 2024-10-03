@@ -1,12 +1,16 @@
 package willow.train.kuayue.block.food;
 
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -20,10 +24,8 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
-import willow.train.kuayue.block.panels.base.TrainPanelShapes;
 
 public class PlacementFoodBlock extends Block {
 
@@ -73,8 +75,6 @@ public class PlacementFoodBlock extends Block {
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         // 获取手中物品栈
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
-
-        // 客户端侧
         // 成功吃掉食物
         if (eat(pLevel, pPos, pState, pPlayer).consumesAction()) {
             return InteractionResult.SUCCESS;
@@ -93,6 +93,8 @@ public class PlacementFoodBlock extends Block {
         } else {
             // 获取食物方块对应的物品栈
             ItemStack stack = pState.getBlock().asItem().getDefaultInstance();
+            // 生存模式下调用eat方法会清空物品栈变为0 air，因此必须将finishEating方法放到前面。
+            finishEating(stack, pPlayer);
             // 执行玩家吃下物品的方法
             pPlayer.eat(pLevel, stack);
             pLevel.gameEvent(pPlayer, GameEvent.EAT, pPos);
@@ -103,6 +105,15 @@ public class PlacementFoodBlock extends Block {
             pLevel.removeBlock(pPos, false);
             pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);
             return InteractionResult.SUCCESS;
+        }
+    }
+
+    protected static void finishEating(ItemStack stack, Player pPlayer) {
+        // 获取食用后所剩物品的物品栈
+        ItemStack craftingRemainingItem = stack.getCraftingRemainingItem();
+
+        if (!pPlayer.getInventory().add(craftingRemainingItem)) {
+            pPlayer.drop(craftingRemainingItem, false);
         }
     }
 
