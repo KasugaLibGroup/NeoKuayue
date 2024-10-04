@@ -1,13 +1,16 @@
 package willow.train.kuayue.block.panels;
 
+import com.simibubi.create.content.equipment.clipboard.ClipboardBlockItem;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import kasuga.lib.core.base.UnModeledBlockProperty;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
@@ -88,40 +91,57 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
 
-        // 手持带颜色刷子
-        if (pPlayer.getItemInHand(pHand).is(EditablePanelItem.COLORED_BRUSH.getItem())) {
-
+        BlockState neoState = pState;
+        ItemStack item = pPlayer.getItemInHand(pHand);
+        // 手持剪贴板
+        if (item.is(com.simibubi.create.AllBlocks.CLIPBOARD.get().asItem())) {
+            if (pLevel.getBlockEntity(pPos) != null) return InteractionResult.PASS;
+            CompoundTag nbt = ClipboardBlockItem.getBlockEntityData(item);
+            if (nbt == null) return InteractionResult.PASS;
+            String tpe = nbt.getString("edit_type");
+            if (pState.getValue(EDIT_TYPE) == TrainPanelProperties.EditType.NONE &&
+                    !tpe.equals("") && !tpe.equals("none")) {
+                TrainPanelProperties.EditType editType = TrainPanelProperties.EditType.fromString(tpe);
+                if (editType == null || editType == TrainPanelProperties.EditType.NONE) return InteractionResult.PASS;
+                neoState = pState.setValue(EDIT_TYPE, editType);
+                BlockEntity be = newBlockEntity(pPos, neoState);
+                if (be == null) return InteractionResult.PASS;
+                pLevel.setBlockEntity(be);
+                pLevel.setBlock(pPos, neoState, 10);
+                return InteractionResult.SUCCESS;
+            }
+            return InteractionResult.PASS;
+        } else if (item.is(EditablePanelItem.COLORED_BRUSH.getItem())) {
+            // 手持带颜色刷子
             if (pState.is(Objects.requireNonNull(AllTags.BOTTOM_PANEL.tag())))
-                pState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.TYPE);
+                neoState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.TYPE);
 
             if (pState.is(Objects.requireNonNull(AllTags.FLOOR.tag())))
-                pState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.SPEED);
+                neoState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.SPEED);
 
-            BlockEntity blockEntity = newBlockEntity(pPos, pState);
+            BlockEntity blockEntity = newBlockEntity(pPos, neoState);
             if (blockEntity == null) return InteractionResult.PASS;
             pLevel.setBlockEntity(blockEntity);
-            pLevel.setBlock(pPos, pState, 8);
+            pLevel.setBlock(pPos, neoState, 10);
             if (!pLevel.isClientSide) {
                 NetworkHooks.openScreen(
                         (ServerPlayer) pPlayer,
                         (EditablePanelEntity) pLevel.getBlockEntity(pPos),
                         pPos);
-                return InteractionResult.PASS;
             }
-            return InteractionResult.PASS;
+            return InteractionResult.SUCCESS;
         }
         // 手持水牌
-        if (pPlayer.getItemInHand(pHand).is(EditablePanelItem.LAQUERED_BOARD.getItem()) && pState.is(Objects.requireNonNull(AllTags.BOTTOM_PANEL.tag()))) {
-            pState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.LAQUERED);
+        if (item.is(EditablePanelItem.LAQUERED_BOARD.getItem()) && pState.is(Objects.requireNonNull(AllTags.BOTTOM_PANEL.tag()))) {
+             neoState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.LAQUERED);
 
             return InteractionResult.PASS;
         }
         // 手持贴纸
-        if (pPlayer.getItemInHand(pHand).is(EditablePanelItem.STICKER.getItem()) && pState.is(Objects.requireNonNull(AllTags.UPPER_PANEL.tag()))) {
-            pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.NUM);
-
-            return InteractionResult.PASS;
+        if (item.is(EditablePanelItem.STICKER.getItem()) && pState.is(Objects.requireNonNull(AllTags.UPPER_PANEL.tag()))) {
+            neoState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.NUM);
         }
+
         return InteractionResult.PASS;
     }
 

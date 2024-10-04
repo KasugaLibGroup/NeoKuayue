@@ -142,4 +142,8 @@ public class EditBar extends AbstractWidget {
     public void updateNarration(NarrationElementOutput pNarrationElementOutput) {
 
     }
+    public void setFocused(boolean focused) {
+        super.setFocused(focused);
+        editBox.changeFocus(focused);
+    }
 }
