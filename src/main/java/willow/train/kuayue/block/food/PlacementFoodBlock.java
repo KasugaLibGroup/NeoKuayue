@@ -1,16 +1,12 @@
 package willow.train.kuayue.block.food;
 
-import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -26,14 +22,12 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
-import willow.train.kuayue.initial.AllFoods;
-import willow.train.kuayue.initial.AllItems;
 
 public class PlacementFoodBlock extends Block {
 
     protected final FoodType FOOD_TYPE;
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
-    public static VoxelShape BOX_SHAPE = Block.box(2, 0, 2, 14, 2, 14);
+    public static VoxelShape BOX_SHAPE = Block.box(1, 0, 1, 15, 2, 15);
     public static VoxelShape BOWL_SHAPE = Block.box(4, 0, 4, 12, 4, 12);
     public static VoxelShape BOTTLE_SHAPE = Block.box(6, 0, 6, 10, 6, 10);
 
