@@ -1,0 +1,33 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"render_type": "cutout_mipped",
+	"flip_v": true,
+	"textures": {
+		"0": "kuayue:block/food/train_diet_1_empty",
+		"particle": "kuayue:block/food/train_diet_1_empty"
+	},
+	"elements": [
+		{
+			"from": [2, 0, 3],
+			"to": [14, 2, 13],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 0, 7]},
+			"faces": {
+				"north": {"uv": [6, 0, 12, 1], "texture": "#0"},
+				"east": {"uv": [6, 2, 11, 3], "texture": "#0"},
+				"south": {"uv": [6, 1, 12, 2], "texture": "#0"},
+				"west": {"uv": [6, 3, 11, 4], "texture": "#0"},
+				"up": {"uv": [6, 5, 0, 0], "texture": "#0"},
+				"down": {"uv": [6, 5, 0, 10], "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "group",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0]
+		}
+	]
+}

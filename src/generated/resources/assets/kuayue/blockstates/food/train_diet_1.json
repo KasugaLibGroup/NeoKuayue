@@ -1,19 +1,35 @@
 {
   "variants": {
-    "facing=east": {
+    "facing=east,empty=false": {
       "model": "kuayue:block/food/train_diet_1",
       "y": 90
     },
-    "facing=north": {
+    "facing=north,empty=false": {
       "model": "kuayue:block/food/train_diet_1",
       "y": 0
     },
-    "facing=south": {
+    "facing=south,empty=false": {
       "model": "kuayue:block/food/train_diet_1",
       "y": 180
     },
-    "facing=west": {
+    "facing=west,empty=false": {
       "model": "kuayue:block/food/train_diet_1",
+      "y": 270
+    },
+    "facing=east,empty=true": {
+      "model": "kuayue:block/food/train_diet_1_empty",
+      "y": 90
+    },
+    "facing=north,empty=true": {
+      "model": "kuayue:block/food/train_diet_1_empty",
+      "y": 0
+    },
+    "facing=south,empty=true": {
+      "model": "kuayue:block/food/train_diet_1_empty",
+      "y": 180
+    },
+    "facing=west,empty=true": {
+      "model": "kuayue:block/food/train_diet_1_empty",
       "y": 270
     }
   }
