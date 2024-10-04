@@ -1,16 +1,12 @@
 package willow.train.kuayue.block.food;
 
-import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -29,9 +25,9 @@ import org.jetbrains.annotations.Nullable;
 
 public class PlacementFoodBlock extends Block {
 
-    private final FoodType FOOD_TYPE;
+    protected final FoodType FOOD_TYPE;
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
-    public static VoxelShape BOX_SHAPE = Block.box(2, 0, 2, 14, 2, 14);
+    public static VoxelShape BOX_SHAPE = Block.box(1, 0, 1, 15, 2, 15);
     public static VoxelShape BOWL_SHAPE = Block.box(4, 0, 4, 12, 4, 12);
     public static VoxelShape BOTTLE_SHAPE = Block.box(6, 0, 6, 10, 6, 10);
 
@@ -86,7 +82,7 @@ public class PlacementFoodBlock extends Block {
         return InteractionResult.FAIL;
     }
 
-    protected static InteractionResult eat(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
+    protected InteractionResult eat(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
         // 如果玩家不可以进食，则直接PASS。
         if (!pPlayer.canEat(false)) {
             return InteractionResult.PASS;
@@ -95,23 +91,22 @@ public class PlacementFoodBlock extends Block {
             ItemStack stack = pState.getBlock().asItem().getDefaultInstance();
             // 获取食物的枚举类型
             FoodType foodType = ((PlacementFoodBlock) pState.getBlock()).FOOD_TYPE;
-            // 生存模式下调用eat方法会清空物品栈变为0 air，因此必须将finishEating方法放到前面。
-            finishEating(stack, pPlayer);
+            // 获取食用后剩余物品栈
+            ItemStack craftingRemainingItem =
+                    new ItemStack(stack.getItem().getCraftingRemainingItem(stack).getItem());
             // 执行玩家吃下物品的方法
             pPlayer.eat(pLevel, stack);
             pLevel.gameEvent(pPlayer, GameEvent.EAT, pPos);
-            pLevel.playSound(null, pPos,
-                    foodType == FoodType.BOX ? SoundEvents.GENERIC_EAT : SoundEvents.GENERIC_DRINK,
-                    SoundSource.BLOCKS, 1.0F, 1.0F);
+
             pLevel.removeBlock(pPos, false);
             pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);
+            // 食用后返还物品
+            finishEating(craftingRemainingItem, pPlayer);
             return InteractionResult.SUCCESS;
         }
     }
 
-    protected static void finishEating(ItemStack stack, Player pPlayer) {
-        // 获取食用后所剩物品的物品栈
-        ItemStack craftingRemainingItem = stack.getItem().getCraftingRemainingItem(stack);
+    protected void finishEating(ItemStack craftingRemainingItem, Player pPlayer) {
 
         ItemStack itemStack = new ItemStack(craftingRemainingItem.getItem());
         if (!(pPlayer.getInventory().add(itemStack))) {
