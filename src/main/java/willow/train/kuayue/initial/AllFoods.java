@@ -25,7 +25,7 @@ public class AllFoods {
             .effect(() -> TRAIN_DIET_EFFECT, 1.0F).build();
 
     public static final PlacementFoodRegistration<TrainDietBoxBlock> TRAIN_DIET_1 =
-            new PlacementFoodRegistration<TrainDietBoxBlock>("train_diet_1")
+            new PlacementFoodRegistration<TrainDietBoxBlock>("train_diet_1", false)
                     .block(properties -> new TrainDietBoxBlock(properties, PlacementFoodBlock.FoodType.BOX))
                     .material(Material.CAKE, MaterialColor.COLOR_GRAY)
                     .soundType(SoundType.WOOL)
@@ -38,7 +38,7 @@ public class AllFoods {
                     .submit(AllElements.testRegistry);
 
     public static final PlacementFoodRegistration<PlacementFoodBlock> KUA_COLA =
-            new PlacementFoodRegistration<PlacementFoodBlock>("kua_cola")
+            new PlacementFoodRegistration<PlacementFoodBlock>("kua_cola", true)
                     .block(properties -> new PlacementFoodBlock(properties, PlacementFoodBlock.FoodType.BOTTLE))
                     .material(Material.METAL, MaterialColor.COLOR_BLACK)
                     .soundType(SoundType.METAL)

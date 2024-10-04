@@ -4,8 +4,8 @@
 	"render_type": "cutout_mipped",
 	"flip_v": true,
 	"textures": {
-		"1": "kuayue:block/food/kua_cola",
-		"particle": "kuayue:block/food/kua_cola"
+		"1": "kuayue:block/food/train_diet_1_empty",
+		"particle": "kuayue:block/food/train_diet_1_empty"
 	},
 	"elements": [
 		{

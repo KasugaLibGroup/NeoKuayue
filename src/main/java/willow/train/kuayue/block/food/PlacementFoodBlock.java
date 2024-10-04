@@ -97,9 +97,7 @@ public class PlacementFoodBlock extends Block {
             // 执行玩家吃下物品的方法
             pPlayer.eat(pLevel, stack);
             pLevel.gameEvent(pPlayer, GameEvent.EAT, pPos);
-            pLevel.playSound(null, pPos,
-                    foodType == FoodType.BOX ? SoundEvents.GENERIC_EAT : SoundEvents.GENERIC_DRINK,
-                    SoundSource.BLOCKS, 1.0F, 1.0F);
+
             pLevel.removeBlock(pPos, false);
             pLevel.gameEvent(pPlayer, GameEvent.BLOCK_DESTROY, pPos);
             // 食用后返还物品

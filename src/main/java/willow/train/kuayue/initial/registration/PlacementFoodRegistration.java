@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
+import willow.train.kuayue.block.food.PlacementDrinkBlockItem;
 import willow.train.kuayue.block.food.PlacementFoodBlock;
 import willow.train.kuayue.block.food.PlacementFoodBlockItem;
 import java.util.function.Supplier;
@@ -22,10 +23,15 @@ public class PlacementFoodRegistration<T extends PlacementFoodBlock> {
 
     public ItemReg item;
 
-    public PlacementFoodRegistration(String registrationKey) {
+    public PlacementFoodRegistration(String registrationKey, boolean isDrink) {
         this.block = new BlockReg<T>(registrationKey);
-        this.item = new ItemReg<PlacementFoodBlockItem>(registrationKey);
-        item.itemType(properties -> new PlacementFoodBlockItem(this.block.getBlock(), properties));
+        if (!isDrink) {
+            this.item = new ItemReg<PlacementFoodBlockItem>(registrationKey);
+            item.itemType(properties -> new PlacementFoodBlockItem(this.block.getBlock(), properties));
+        } else {
+            this.item = new ItemReg<PlacementDrinkBlockItem>(registrationKey);
+            item.itemType(properties -> new PlacementDrinkBlockItem(this.block.getBlock(), properties));
+        }
     }
 
     public PlacementFoodRegistration<T> block(BlockReg.BlockBuilder<T> builder) {
