@@ -626,5 +626,10 @@
  "tooltip.kuayue.get_share_overlay_toast.title": "New Color Template.",
  "tooltip.kuayue.get_share_overlay_toast.content": "Press \" %s \" to save.",
  "tooltip.kuayue.type_screen.title": "Edit type panel.",
- "tooltip.kuayue.color_template.default_name": "New Color Template."
+ "tooltip.kuayue.color_template.default_name": "New Color Template.",
+
+ "clip_board.laquered": "Laquered Board",
+ "clip_board.type": "Carriage Type Sign",
+ "clip_board.speed": "Carriage Speed Sign",
+ "clip_board.num": "Carriage No Sign"
 }

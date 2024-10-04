@@ -10,8 +10,10 @@ import kasuga.lib.core.util.LazyRecomputable;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiComponent;
+import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Widget;
+import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -24,6 +26,7 @@ import willow.train.kuayue.network.c2s.NbtC2SPacket;
 import willow.train.kuayue.systems.editable_panel.AllColorTemplates;
 import willow.train.kuayue.systems.editable_panel.ColorTemplate;
 import willow.train.kuayue.systems.editable_panel.EditablePanelEditMenu;
+import willow.train.kuayue.systems.editable_panel.widget.EditBar;
 import willow.train.kuayue.systems.editable_panel.widget.ImageButton;
 import willow.train.kuayue.systems.editable_panel.widget.Label;
 import willow.train.kuayue.systems.editable_panel.widget.TransparentEditBox;
@@ -38,6 +41,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
     GetShareTemplateScreen gsts;
     Label label;
     ImageButton colorBtn, templateBtn, cancelBtn, confirmBtn;
+    EditBar editBar;
 
     public static final LazyRecomputable<ImageMask> colorBtnImage =
             new LazyRecomputable<>(() -> ColorTemplateScreen.buttons.get().copyWithOp(p -> p.rectangleUV(.125f, .125f, .25f, .25f)));
@@ -56,6 +60,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         colorScreen = new ColorScreen(64, 32, Component.translatable("tooltip.kuayue.color_screen.title"));
         cts = new ColorTemplateScreen(0, 0, 0, 0, Component.translatable("tooltip.kuayue.color_template_screen.title"));
         gsts = new GetShareTemplateScreen(Component.empty(), null);
+        editBar = new EditBar(0, 0, Component.empty(), "");
     }
 
     @Override
@@ -84,6 +89,9 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         cancelBtn = new ImageButton(cancelBtnImage, 0, 0, 16, 16, Component.empty(), b -> {});
         confirmBtn = new ImageButton(acceptBtnImage, 0, 0, 16, 16, Component.empty(), b -> {});
 
+        editBar.onCancelClick((w, x, y) -> editBar.visible = false);
+        editBar.visible = false;
+
         addWidget(colorBtn);
         addWidget(templateBtn);
         addWidget(cancelBtn);
@@ -91,6 +99,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         addWidget(colorScreen);
         addWidget(gsts);
         addWidget(cts);
+        addWidget(editBar);
 
         gsts.setVisible(false);
         colorScreen.setVisible(false);
@@ -180,8 +189,16 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
             BlockPos pos = entity.getBlockPos();
             nbt.putInt("color", this.color);
             nbt.putBoolean("revert", this.revert);
+            TransparentEditBox[] boxes = new TransparentEditBox[5];
+            int counter = 0;
+            for (Widget widget : getWidgets()) {
+                if (widget instanceof TransparentEditBox box) {
+                    boxes[counter] = box;
+                    counter++;
+                }
+            }
             for (int i = 0; i < 5; i++) {
-                nbt.putString("data" + i, values[i]);
+                nbt.putString("data" + i, boxes[i].getValue());
             }
             CompoundTag tag = new CompoundTag();
             tag.put("data", nbt);
@@ -299,6 +316,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         addWidget(label);
         addWidget(cts);
         addWidget(gsts);
+        addWidget(editBar);
 
         clearLabels();
         Font font = Minecraft.getInstance().font;
@@ -336,6 +354,35 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
     }
 
     @Override
+    public void mouseClicked(double mouseX, double mouseY, int btn) {
+        for (Widget widget : getWidgets()) {
+            if (!(widget instanceof GuiEventListener listener)) continue;
+            if (!listener.isMouseOver(mouseX, mouseY)) continue;
+            if (listener instanceof AbstractWidget widget1 && !widget1.visible) continue;
+            if (listener instanceof ColorScreen cs && !cs.getVisible()) continue;
+            if (listener instanceof GetShareTemplateScreen screen && !screen.isVisible()) continue;
+            if (widget instanceof TransparentEditBox box) {
+                editBar.setPosition(box.x + ((int) ((float) box.getWidth() * box.getScaleX()) - 200) / 2,
+                        box.y + (int) ((float) box.getHeight() * box.getScaleY()) + 2);
+                editBar.setText(box.getValue());
+                editBar.onAcceptClick(
+                        (w, x, y) -> {
+                            box.setValue(editBar.getText());
+                            editBar.visible = false;
+                            refresh();
+                        }
+                );
+                editBar.visible = true;
+                editBar.setFocused(true);
+                return;
+            }
+            listener.mouseClicked(mouseX, mouseY, btn);
+            return;
+        }
+
+    }
+
+    @Override
     public void renderBackGround(PoseStack pose, int mouseX, int mouseY, float partialTick) {
         if (Minecraft.getInstance().screen == null) return;
         int sW = Minecraft.getInstance().screen.width;
@@ -351,17 +398,17 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
     @Override
     public void charTyped(char code, int modifier) {
         super.charTyped(code, modifier);
-        if (label.visible)
-            refresh();
+        // if (label.visible)
+            // refresh();
     }
 
     @Override
     public void keyReleased(int pKeyCode, int pScanCode, int pModifiers) {
         super.keyReleased(pKeyCode, pScanCode, pModifiers);
         InputConstants.Key mouseKey = InputConstants.getKey(pKeyCode, pScanCode);
-        if ((mouseKey.getValue() == InputConstants.KEY_DELETE ||
-                mouseKey.getValue() == InputConstants.KEY_BACKSPACE) && label.visible)
-            refresh();
+        // if ((mouseKey.getValue() == InputConstants.KEY_DELETE ||
+                // mouseKey.getValue() == InputConstants.KEY_BACKSPACE) && label.visible)
+            // refresh();
     }
 
     public void setButtonsVisible(boolean visible) {
@@ -370,6 +417,8 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         this.cancelBtn.visible = visible;
         this.confirmBtn.visible = visible;
         this.label.visible = visible;
+        editBar.visible = false;
+        editBar.setFocused(false);
     }
 
     public void setBoardWidgetVisible(boolean visible) {

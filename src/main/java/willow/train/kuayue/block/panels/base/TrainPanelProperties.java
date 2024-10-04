@@ -117,7 +117,7 @@ public class TrainPanelProperties {
         }
     }
 
-    public enum EditType implements StringRepresentable{
+    public enum EditType implements StringRepresentable {
         NONE, LAQUERED, TYPE, SPEED, NUM;
 
         @Override

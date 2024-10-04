@@ -75,6 +75,7 @@ public class EditablePanelEntity extends SmartBlockEntity
     protected void read(CompoundTag tag, boolean clientPacket) {
         super.read(tag, clientPacket);
         this.nbt = tag.getCompound("data");
+        // editType =
         signColor = nbt.getInt("color");
     }
 
@@ -100,13 +101,19 @@ public class EditablePanelEntity extends SmartBlockEntity
     // 这个方法向机械动力剪贴板中写入nbt
     @Override
     public boolean writeToClipboard(CompoundTag tag, Direction side) {
-        return false;
+        if (editType == TrainPanelProperties.EditType.NONE) return false;
+        tag.putString("edit_type", editType.name());
+        tag.put("data", this.nbt);
+        return true;
     }
 
     // 这个方法从机械动力剪贴板中读取nbt
     @Override
     public boolean readFromClipboard(CompoundTag tag, Player player, Direction side, boolean simulate) {
-        return false;
+        String type = tag.getString("edit_type");
+        if (!type.equals(this.editType.name())) return false;
+        this.nbt = tag.getCompound("data");
+        return true;
     }
 
     @Override
@@ -115,7 +122,7 @@ public class EditablePanelEntity extends SmartBlockEntity
 
     @Override
     public Component getDisplayName() {
-        return Component.translatable("kuayue:editable_panel");
+        return Component.translatable("kuayue:clip_board." + editType.name());
     }
 
     public int getColor() {

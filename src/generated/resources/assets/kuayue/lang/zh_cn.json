@@ -668,5 +668,10 @@
   "tooltip.kuayue.get_share_overlay_toast.title": "收到新颜色模板",
   "tooltip.kuayue.get_share_overlay_toast.content": "按下 \" %s \" 以保存",
   "tooltip.kuayue.type_screen.title": "编辑车厢类型",
-  "tooltip.kuayue.color_template.default_name": "新颜色模板"
+  "tooltip.kuayue.color_template.default_name": "新颜色模板",
+
+  "clip_board.laquered": "列车运行区段指示牌",
+  "clip_board.type": "车厢类型标志",
+  "clip_board.speed": "车厢速度等级标志",
+  "clip_board.num": "车厢号标志"
 }

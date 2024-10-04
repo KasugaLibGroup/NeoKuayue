@@ -181,6 +181,13 @@ public class TransparentEditBox extends EditBox {
         }
     }
 
+    @Override
+    public boolean isMouseOver(double pMouseX, double pMouseY) {
+        return pMouseX >= this.x && pMouseY >= this.y &&
+                pMouseX < this.x + this.width * scaleX &&
+                pMouseY < this.y + this.height * scaleY;
+    }
+
     public void setY(int y) {
         this.y = y;
     }

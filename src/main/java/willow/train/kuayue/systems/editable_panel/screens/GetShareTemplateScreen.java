@@ -59,7 +59,7 @@ public class GetShareTemplateScreen extends Screen {
     }
 
     @Override
-    protected void init() {
+    public void init() {
         super.init();
         if (template == null) return;
         this.clearWidgets();
@@ -180,6 +180,7 @@ public class GetShareTemplateScreen extends Screen {
                         bar.setText(label.getText().getString());
                     bar.setPosition(a.x + (a.getWidth() - bar.getWidth())/2, a.y + a.getHeight() + 2);
                     bar.visible = true;
+                    bar.setFocused(true);
                 }
             };
             this.title.setDescriptionOnClick((OnClick<DescriptionLabel>) clk);
