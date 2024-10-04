@@ -51,14 +51,9 @@ public class TrainDietBoxBlock extends PlacementFoodBlock {
 
         // 当盒饭没有食用
         if (!pState.getValue(EMPTY)) {
-            // 获取食物的枚举类型
-            FoodType foodType = ((PlacementFoodBlock) pState.getBlock()).FOOD_TYPE;
             // 执行玩家吃下物品的方法
             pPlayer.eat(pLevel, stack);
             pLevel.gameEvent(pPlayer, GameEvent.EAT, pPos);
-            pLevel.playSound(null, pPos,
-                    foodType == FoodType.BOX ? SoundEvents.GENERIC_EAT : SoundEvents.GENERIC_DRINK,
-                    SoundSource.BLOCKS, 1.0F, 1.0F);
             // 更新Property
             BlockState changeBlockState = pState.setValue(EMPTY, true);
             pLevel.setBlock(pPos, changeBlockState, 11);

@@ -7,6 +7,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
+import willow.train.kuayue.block.food.ParticlesDrinkBlock;
 import willow.train.kuayue.block.food.PlacementFoodBlock;
 import willow.train.kuayue.block.food.TrainDietBoxBlock;
 import willow.train.kuayue.initial.registration.PlacementFoodRegistration;
@@ -37,9 +38,9 @@ public class AllFoods {
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
 
-    public static final PlacementFoodRegistration<PlacementFoodBlock> KUA_COLA =
-            new PlacementFoodRegistration<PlacementFoodBlock>("kua_cola", true)
-                    .block(properties -> new PlacementFoodBlock(properties, PlacementFoodBlock.FoodType.BOTTLE))
+    public static final PlacementFoodRegistration<ParticlesDrinkBlock> KUA_COLA =
+            new PlacementFoodRegistration<ParticlesDrinkBlock>("kua_cola", true)
+                    .block(properties -> new ParticlesDrinkBlock(properties, PlacementFoodBlock.FoodType.BOTTLE))
                     .material(Material.METAL, MaterialColor.COLOR_BLACK)
                     .soundType(SoundType.METAL)
                     .strength(0.5F)

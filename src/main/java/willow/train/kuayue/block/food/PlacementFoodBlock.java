@@ -2,8 +2,6 @@ package willow.train.kuayue.block.food;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -84,13 +82,11 @@ public class PlacementFoodBlock extends Block {
 
     protected InteractionResult eat(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
         // 如果玩家不可以进食，则直接PASS。
-        if (!pPlayer.canEat(false)) {
+        if (!pPlayer.canEat(true)) {
             return InteractionResult.PASS;
         } else {
             // 获取食物方块对应的物品栈
             ItemStack stack = pState.getBlock().asItem().getDefaultInstance();
-            // 获取食物的枚举类型
-            FoodType foodType = ((PlacementFoodBlock) pState.getBlock()).FOOD_TYPE;
             // 获取食用后剩余物品栈
             ItemStack craftingRemainingItem =
                     new ItemStack(stack.getItem().getCraftingRemainingItem(stack).getItem());
