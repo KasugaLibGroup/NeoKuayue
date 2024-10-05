@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
+import willow.train.kuayue.block.panels.deco.DirectionalCarpetBlock;
 import willow.train.kuayue.block.panels.quartz.QuartzAngleBlock22;
 import willow.train.kuayue.block.panels.quartz.QuartzPanelBlock2;
 import willow.train.kuayue.block.panels.quartz.QuartzPanelBlock4;
@@ -190,6 +191,18 @@ public class AllMaterials {
                         }
                     })
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .defaultBlockItem()
+                    .tabTo(AllElements.neoKuayueMainTab)
+                    .submit(AllElements.testRegistry);
+
+    // 原色25z地毯
+    public static final BlockReg<DirectionalCarpetBlock> ORIGINAL_25Z_FLOOR_CARPET =
+            new BlockReg<DirectionalCarpetBlock>("original_25z_floor_carpet")
+                    .blockType(DirectionalCarpetBlock::new)
+                    .material(Material.WOOL)
+                    .materialColor(MaterialColor.NONE)
+                    .addProperty(properties -> properties.strength(.1f, .1f))
+                    .addProperty(properties -> properties.sound(SoundType.WOOL))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
