@@ -14,10 +14,10 @@ import willow.train.kuayue.block.panels.TrainPanelBlock;
 
 public class YZTableBlock extends TrainPanelBlock {
 
-    VoxelShape N_AABB = Block.box(3, 14, 0, 13, 15, 8);
-    VoxelShape S_AABB = Block.box(3, 14, 8, 13, 15, 16);
-    VoxelShape E_AABB = Block.box(8, 14, 3, 16, 15, 13);
-    VoxelShape W_AABB = Block.box(0, 14, 3, 8, 15, 13);
+    VoxelShape N_AABB = Block.box(4, 15, 0, 12, 16, 11);
+    VoxelShape S_AABB = Block.box(4, 15, 5, 12, 16, 16);
+    VoxelShape E_AABB = Block.box(5, 15, 4, 16, 16, 12);
+    VoxelShape W_AABB = Block.box(0, 15, 4, 11, 16, 12);
 
     public YZTableBlock(BlockBehaviour.Properties properties) {
         super(properties);

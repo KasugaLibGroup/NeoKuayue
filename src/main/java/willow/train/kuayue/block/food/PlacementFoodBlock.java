@@ -26,8 +26,8 @@ public class PlacementFoodBlock extends Block {
     protected final FoodType FOOD_TYPE;
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static VoxelShape BOX_SHAPE = Block.box(1, 0, 1, 15, 2, 15);
-    public static VoxelShape BOWL_SHAPE = Block.box(4, 0, 4, 12, 4, 12);
-    public static VoxelShape BOTTLE_SHAPE = Block.box(6, 0, 6, 10, 6, 10);
+    public static VoxelShape BOWL_SHAPE = Block.box(4, 0, 4, 12, 5, 12);
+    public static VoxelShape BOTTLE_SHAPE = Block.box(5, 0, 5, 11, 7, 11);
 
     public PlacementFoodBlock(Properties pProperties, FoodType foodType) {
         super(pProperties);
