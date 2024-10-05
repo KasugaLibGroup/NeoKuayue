@@ -2,10 +2,7 @@ package willow.train.kuayue.systems.editable_panel.screens;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
 import kasuga.lib.core.client.render.texture.ImageMask;
-import kasuga.lib.core.client.render.texture.NineSlicedImageMask;
-import kasuga.lib.core.client.render.texture.Vec2f;
 import kasuga.lib.core.util.LazyRecomputable;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -18,36 +15,22 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.player.Player;
 import willow.train.kuayue.block.panels.block_entity.EditablePanelEntity;
 import willow.train.kuayue.initial.AllPackets;
-import willow.train.kuayue.initial.ClientInit;
 import willow.train.kuayue.network.c2s.NbtC2SPacket;
-import willow.train.kuayue.systems.editable_panel.AllColorTemplates;
-import willow.train.kuayue.systems.editable_panel.ColorTemplate;
 import willow.train.kuayue.systems.editable_panel.EditablePanelEditMenu;
 import willow.train.kuayue.systems.editable_panel.widget.EditBar;
 import willow.train.kuayue.systems.editable_panel.widget.ImageButton;
 import willow.train.kuayue.systems.editable_panel.widget.Label;
 import willow.train.kuayue.systems.editable_panel.widget.TransparentEditBox;
 
-import java.io.IOException;
-
 public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePanelEntity> {
     private int color;
-    ColorScreen colorScreen;
-    ColorTemplateScreen cts;
-    boolean revert;
-    GetShareTemplateScreen gsts;
-    Label label;
-    ImageButton colorBtn, templateBtn, cancelBtn, confirmBtn;
-    EditBar editBar;
-
-    public static final LazyRecomputable<ImageMask> colorBtnImage =
-            new LazyRecomputable<>(() -> ColorTemplateScreen.buttons.get().copyWithOp(p -> p.rectangleUV(.125f, .125f, .25f, .25f)));
-
-    public static final LazyRecomputable<ImageMask> templateBtnImage =
-            new LazyRecomputable<>(() -> ColorTemplateScreen.buttons.get().copyWithOp(p -> p.rectangleUV(.875f, 0, 1, .125f)));
+    public boolean revert;
+    public Label titleLabel;
+    public ImageButton mirrorBtn, cancelBtn, confirmBtn;
+    public EditBar editBar;
+    public ColorScreenBundles colorEditor;
 
     public static final LazyRecomputable<ImageMask> cancelBtnImage =
             new LazyRecomputable<>(() -> GetShareTemplateScreen.cancelImage.get().copyWithOp(p -> p));
@@ -55,120 +38,19 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
     public static final LazyRecomputable<ImageMask> acceptBtnImage =
             new LazyRecomputable<>(() -> GetShareTemplateScreen.acceptImage.get().copyWithOp(p -> p));
 
+    public static final LazyRecomputable<ImageMask> mirrotBtnImage =
+            new LazyRecomputable<>(() -> ColorTemplateScreen.buttons.get().copyWithOp(p -> p.rectangleUV(.125f, .375f, .25f, .5f)));
+
     public TypeScreen(AbstractContainerScreen<EditablePanelEditMenu> screen, CompoundTag nbt) {
         super(screen, nbt);
-        colorScreen = new ColorScreen(64, 32, Component.translatable("tooltip.kuayue.color_screen.title"));
-        cts = new ColorTemplateScreen(0, 0, 0, 0, Component.translatable("tooltip.kuayue.color_template_screen.title"));
-        gsts = new GetShareTemplateScreen(Component.empty(), null);
         editBar = new EditBar(0, 0, Component.empty(), "");
     }
 
     @Override
     public void init() {
         if (Minecraft.getInstance().screen == null) return;
-        int sW = Minecraft.getInstance().screen.width;
-        int sH = Minecraft.getInstance().screen.height;
-        cts.setWidth(sW);
-        cts.setHeight(sH);
-        cts.init();
-        gsts.init();
-        cts.visible = false;
-        colorScreen.init();
-        label = new Label(Component.translatable("tooltip.kuayue.type_screen.title"));
-        addWidget(label);
-        colorBtn = new ImageButton(colorBtnImage, 0, 0, 16, 16, Component.empty(), b -> {
-            colorScreen.setVisible(true);
-            setBoardWidgetVisible(false);
-            colorScreen.setRgb(this.color);
-        });
-
-        templateBtn = new ImageButton(templateBtnImage, 0, 0, 16, 16, Component.empty(), b -> {
-            defTemplateBtn();
-        });
-
-        cancelBtn = new ImageButton(cancelBtnImage, 0, 0, 16, 16, Component.empty(), b -> {});
-        confirmBtn = new ImageButton(acceptBtnImage, 0, 0, 16, 16, Component.empty(), b -> {});
-
-        editBar.onCancelClick((w, x, y) -> editBar.visible = false);
-        editBar.visible = false;
-
-        addWidget(colorBtn);
-        addWidget(templateBtn);
-        addWidget(cancelBtn);
-        addWidget(confirmBtn);
-        addWidget(colorScreen);
-        addWidget(gsts);
-        addWidget(cts);
-        addWidget(editBar);
-
-        gsts.setVisible(false);
-        colorScreen.setVisible(false);
-        colorScreen.onCancelClick((btn, x, y) -> {
-            colorScreen.setVisible(false);
-            setBoardWidgetVisible(true);
-        });
-
-        colorScreen.onConfirmClick((btn, x, y) -> {
-            this.color = colorScreen.getColor().getRGB();
-            colorScreen.setVisible(false);
-            setBoardWidgetVisible(true);
-            setTextColor(color);
-        });
-
-        colorScreen.onTemplateClick((c, px, py) -> {
-            colorScreen.setVisible(false);
-            defTemplateBtn();
-            cts.onCancelClick((w, x, y) -> {
-                cts.visible = false;
-                colorScreen.setVisible(true);
-            });
-        });
-
-        colorScreen.onLoadClick((c, px, py) -> {
-            colorScreen.setVisible(false);
-            cts.visible = true;
-            cts.setEditVisible(false);
-            cts.setShareVisible(false);
-            cts.setDeleteVisible(false);
-
-            cts.onConfirmClick((w, x, y) -> {
-                colorScreen.setRgb(cts.getChosenBox().getTemplate().getColor());
-                cts.visible = false;
-                colorScreen.setVisible(true);
-                cts.setEditVisible(true);
-                cts.setShareVisible(true);
-                cts.setDeleteVisible(true);
-            });
-
-            cts.onCancelClick((w, x, y) -> {
-                cts.visible = false;
-                colorScreen.setVisible(true);
-                cts.setEditVisible(true);
-                cts.setShareVisible(true);
-                cts.setDeleteVisible(true);
-            });
-        });
-
-        colorScreen.onSaveClick((c, px, py) -> {
-            Minecraft minecraft = Minecraft.getInstance();
-            Player player = minecraft.player;
-            if (player == null) return;
-            colorScreen.setVisible(false);
-            gsts.setTemplate(ColorTemplate.defaultTemplate(colorScreen.getColor().getRGB() - 0xff000000, player.getName().getString()));
-            gsts.setEditMode(true);
-            gsts.onAcceptClick((w, x, y) -> {
-                gsts.setVisible(false);
-                gsts.fillDataToTemplate();
-                ClientInit.COLOR_TEMPLATES.addTemplate(gsts.getTemplate());
-                cts.visible = true;
-                defTemplateBtn();
-            });
-            gsts.onCancelClick((w, x ,y) -> {
-                gsts.setVisible(false);
-                colorScreen.setVisible(true);
-            });
-            gsts.setVisible(true);
-        });
+        colorEditorInit();
+        buttonsInit();
 
         Font font = Minecraft.getInstance().font;
         CompoundTag nbt = getNbt();
@@ -202,39 +84,76 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
             }
             CompoundTag tag = new CompoundTag();
             tag.put("data", nbt);
+            entity.load(tag);
+            entity.setChanged();
             AllPackets.CHANNEL.sendToServer(new NbtC2SPacket(pos, tag));
             this.close();
         });
     }
 
-    public void defTemplateBtn() {
-        cts.visible = true;
-        setBoardWidgetVisible(false);
-        cts.onConfirmClick((w, x, y) -> {
-            this.color = cts.getChosenBox().getTemplate().getColor();
-            cts.visible = false;
+    public void buttonsInit() {
+        titleLabel = new Label(Component.translatable("tooltip.kuayue.type_screen.title"));
+        addWidget(titleLabel);
+
+        mirrorBtn = new ImageButton(mirrotBtnImage, 0, 0, 16, 16, Component.empty(), b -> {
+            revert = !revert;
+            refresh();
+        });
+
+        cancelBtn = new ImageButton(cancelBtnImage, 0, 0, 16, 16, Component.empty(), b -> {});
+        confirmBtn = new ImageButton(acceptBtnImage, 0, 0, 16, 16, Component.empty(), b -> {});
+
+        editBar.onCancelClick((w, x, y) -> editBar.visible = false);
+        editBar.visible = false;
+
+        addWidget(cancelBtn);
+        addWidget(confirmBtn);
+        addWidget(editBar);
+        addWidget(mirrorBtn);
+        addWidget(colorEditor.getColorBtn());
+        addWidget(colorEditor.getTemplateBtn());
+    }
+
+    public void colorEditorInit() {
+        colorEditor = new ColorScreenBundles();
+        colorEditor.init();
+        colorEditor.setOpen((selector, template, now) -> {
+            selector.setRgb(this.color);
+            setBoardWidgetVisible(false);
+        });
+        colorEditor.setCancel((selector, template, now) -> {
             setBoardWidgetVisible(true);
-            setTextColor(color);
         });
-        cts.onCancelClick((w, x, y) -> {
-            cts.visible = false;
-            setBoardWidgetVisible(true);
+        colorEditor.setSuccess((selector, template, now) -> {
+            if (now == template) {
+                this.color = template.getChosenBox().getTemplate().getColor();
+                this.setTextColor(color);
+                setBoardWidgetVisible(true);
+            } else {
+                this.color = selector.getColor().getRGB();
+                setTextColor(color);
+                setBoardWidgetVisible(true);
+            }
         });
-        cts.onEditClick((w, x, y) -> {
-            cts.editScreen.setTemplate(cts.getChosenBox().getTemplate());
-            cts.editScreen.setEditMode(true);
-            cts.editScreen.onAcceptClick((a, b, c) -> {
-                cts.editScreen.setVisible(false);
-                cts.editScreen.fillDataToTemplate();
-                cts.visible = true;
-            });
-            cts.editScreen.onCancelClick((a, b, c) -> {
-                cts.editScreen.setVisible(false);
-                cts.visible = true;
-            });
-            cts.visible = false;
-            cts.editScreen.setVisible(true);
-        });
+        colorEditor.visible = false;
+        addWidget(colorEditor);
+    }
+
+    public void buttonsInnerInit(Font font, float textScaleFactor, float size0,
+                                 float size1, float size2, float size3, float size4, int sW, int sH) {
+        int height = font.lineHeight;
+        int labelW = (int) (size1 * 1.05f + size2 + size3 * 1.4f + size4);
+        int labelH = (int) (height * 0.18f * textScaleFactor - 23 + textScaleFactor * height * 0.13f);
+        int basicX = (sW - labelW) / 2 + 20, basicY = (sH - labelH) / 2 - 10;
+        titleLabel.setWidth(font.width(titleLabel.getPlainText()));
+        titleLabel.setPosition((float) (sW - titleLabel.getWidth()) / 2, basicY - 20);
+
+        int btnY = basicY + labelH + 20;
+        colorEditor.getColorBtn().setPos(basicX, btnY);
+        colorEditor.getTemplateBtn().setPos(basicX + 20, btnY);
+        cancelBtn.setPos(basicX + labelW - 60, btnY);
+        confirmBtn.setPos(basicX + labelW - 80, btnY);
+        mirrorBtn.setPos(basicX + 40, btnY);
     }
 
     private void innerInit(String[] values, int color, Font font, boolean revert) {
@@ -252,14 +171,10 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         int labelW = (int) (size1 * 1.05f + size2 + size3 * 1.4f + size4);
         int labelH = (int) (height * 0.18f * textScaleFactor - 23 + textScaleFactor * height * 0.13f);
         int basicX = (sW - labelW) / 2 + 20, basicY = (sH - labelH) / 2 - 10;
-        label.setWidth(font.width(label.getPlainText()));
-        label.setPosition((float) (sW - label.getWidth()) / 2, basicY - 20);
 
-        int btnY = basicY + labelH + 20;
-        colorBtn.setPos(basicX, btnY);
-        templateBtn.setPos(basicX + 20, btnY);
-        cancelBtn.setPos(basicX + labelW - 60, btnY);
-        confirmBtn.setPos(basicX + labelW - 80, btnY);
+        buttonsInnerInit(font, textScaleFactor, size0, size1, size2, size3, size4, sW, sH);
+
+        basicX += revert ? (labelW - size1) *.9f : 0;
 
         addWidget(new TransparentEditBox(font, basicX, basicY,
                 font.width(values[0]), height, 0.13f * textScaleFactor, 0.18f * textScaleFactor,
@@ -272,7 +187,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
                 font.width(values[1]), height, 0.08f * textScaleFactor, 0.08f * textScaleFactor,
                 Component.empty(), values[1], color));
 
-        basicX += revert ? - (size2 + size3 + size1 * 0.05) : size1 * 1.05;
+        basicX += revert ? (- (size2 + size3 + size1 * 0.05) - (size4 + size3 * 0.4 + 20) + 20) : size1 * 1.05;
         basicY -= 23;
 
         addWidget(new TransparentEditBox(font, basicX, basicY,
@@ -285,7 +200,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
                 font.width(values[3]), height, 0.12f * textScaleFactor, 0.12f * textScaleFactor,
                 Component.empty(), values[3], color));
 
-        basicX += revert ? - (size4 + size3 * 0.4) : size3 * 1.4;
+        basicX += size3 * 1.4;
         basicY -= textScaleFactor * height * 0.13f;
         addWidget(new TransparentEditBox(font, basicX, basicY,
                 font.width(values[4]), height, 0.26f * textScaleFactor, 0.3f * textScaleFactor,
@@ -308,21 +223,20 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         }
         clearWidgets();
 
-        addWidget(colorBtn);
-        addWidget(templateBtn);
         addWidget(cancelBtn);
         addWidget(confirmBtn);
-        addWidget(colorScreen);
-        addWidget(label);
-        addWidget(cts);
-        addWidget(gsts);
+        addWidget(titleLabel);
         addWidget(editBar);
+        addWidget(mirrorBtn);
+        addWidget(colorEditor);
+        addWidget(colorEditor.getColorBtn());
+        addWidget(colorEditor.getTemplateBtn());
 
         clearLabels();
         Font font = Minecraft.getInstance().font;
         CompoundTag nbt = getNbt();
         int color = getScreen().getMenu().getEditablePanelEntity().getColor();
-        innerInit(values, color, font, nbt.getBoolean("revert"));
+        innerInit(values, color, font, revert);
         if (focus > -1 && focusIndex > -1) {
             Widget w = getWidgets().get(focus);
             if (!(w instanceof TransparentEditBox box)) return;
@@ -334,23 +248,6 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
     @Override
     public void render(PoseStack pose, int mouseX, int mouseY, float partial) {
         super.render(pose, mouseX, mouseY, partial);
-        // colorScreen.render(pose, mouseX, mouseY, partial);
-        // cts.render(pose, mouseX, mouseY, partial);
-        // gsts.render(pose, mouseX, mouseY, partial);
-    }
-
-    public void updateData() {
-        CompoundTag nbt = getNbt();
-        int i = 0;
-        for (Widget widget : getWidgets()) {
-            if (widget instanceof EditBox box) {
-                nbt.putString("data" + i, box.getValue());
-                i++;
-            }
-        }
-        nbt.putInt("color", color);
-        nbt.putBoolean("revert", revert);
-        getBlockEntity().setChanged();
     }
 
     @Override
@@ -398,25 +295,20 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
     @Override
     public void charTyped(char code, int modifier) {
         super.charTyped(code, modifier);
-        // if (label.visible)
-            // refresh();
     }
 
     @Override
     public void keyReleased(int pKeyCode, int pScanCode, int pModifiers) {
         super.keyReleased(pKeyCode, pScanCode, pModifiers);
-        InputConstants.Key mouseKey = InputConstants.getKey(pKeyCode, pScanCode);
-        // if ((mouseKey.getValue() == InputConstants.KEY_DELETE ||
-                // mouseKey.getValue() == InputConstants.KEY_BACKSPACE) && label.visible)
-            // refresh();
     }
 
     public void setButtonsVisible(boolean visible) {
-        this.colorBtn.visible = visible;
-        this.templateBtn.visible = visible;
+        colorEditor.getTemplateBtn().visible = visible;
+        colorEditor.getColorBtn().visible = visible;
         this.cancelBtn.visible = visible;
         this.confirmBtn.visible = visible;
-        this.label.visible = visible;
+        this.titleLabel.visible = visible;
+        this.mirrorBtn.visible = visible;
         editBar.visible = false;
         editBar.setFocused(false);
     }

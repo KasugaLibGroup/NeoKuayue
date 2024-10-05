@@ -12,16 +12,12 @@ import java.util.LinkedList;
 public class AllPackets {
     public static final String KUAYUE_NETWORK_VERSION = "v0.4.0";
 
-    public static final ChannelReg CHANNEL = new ChannelReg("kuayue_channel")
+    public static final ChannelReg CHANNEL = new ChannelReg("kuayue_main_channel")
             .brand(KUAYUE_NETWORK_VERSION)
             .loadPacket(ContraptionTagChangedPacket.class, ContraptionTagChangedPacket::new)
-            .loadPacket(NbtC2SPacket.class, NbtC2SPacket::new)
-            .submit(AllElements.testRegistry);
-
-    public static final ChannelReg TEMPLATE = new ChannelReg("kuayue_template_channel")
-            .brand(KUAYUE_NETWORK_VERSION)
             .loadPacket(ColorTemplateS2CPacket.class, ColorTemplateS2CPacket::new)
             .loadPacket(ColorTemplateC2SPacket.class, ColorTemplateC2SPacket::new)
+            .loadPacket(NbtC2SPacket.class, NbtC2SPacket::new)
             .submit(AllElements.testRegistry);
 
     public static void invoke() {}

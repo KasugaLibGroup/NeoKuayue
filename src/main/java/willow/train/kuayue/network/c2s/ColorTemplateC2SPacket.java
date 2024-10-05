@@ -27,7 +27,7 @@ public class ColorTemplateC2SPacket extends C2SPacket {
         ServerLevel level = player.getLevel();
         // Broadcast to all clients;
         // AllPackets.TEMPLATE.sendToClient(new ColorTemplateS2CPacket(this.nbt), player);
-        AllPackets.TEMPLATE.boardcastToClients(new ColorTemplateS2CPacket(this.nbt), level, player.getOnPos());
+        AllPackets.CHANNEL.boardcastToClients(new ColorTemplateS2CPacket(this.nbt), level, player.getOnPos());
     }
 
     @Override

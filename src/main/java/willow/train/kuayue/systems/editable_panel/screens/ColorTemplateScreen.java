@@ -307,7 +307,7 @@ public class ColorTemplateScreen extends AbstractWidget {
 
     public void share() {
         if (this.chosen == null) return;
-        AllPackets.TEMPLATE.sendToServer(new ColorTemplateC2SPacket(chosen.getTemplate()));
+        AllPackets.CHANNEL.sendToServer(new ColorTemplateC2SPacket(chosen.getTemplate()));
     }
 
     @Override

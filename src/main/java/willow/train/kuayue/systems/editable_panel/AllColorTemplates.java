@@ -138,6 +138,6 @@ public class AllColorTemplates {
     }
 
     public void shareTemplate(ColorTemplate template) {
-        AllPackets.TEMPLATE.sendToServer(new ColorTemplateC2SPacket(template));
+        AllPackets.CHANNEL.sendToServer(new ColorTemplateC2SPacket(template));
     }
 }

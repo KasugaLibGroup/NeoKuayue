@@ -159,15 +159,12 @@ public class EditableTypeConstants {
     public static final DefaultTextsLambda TRAIN_SPEED_SIGN_MESSAGES = new DefaultTextsLambda() {
         @Override
         public void defaultTextComponent(BlockEntity blockEntity, BlockState blockState, CompoundTag nbt) {
-            Component content = Component.literal("xx km/h");
+            Component content = Component.literal("120 km/h");
             float x_offset = 0, y_offset = 0;
-            boolean x_revert = false, y_revert = false;
 
             nbt.putString("content", content.getString());
             nbt.putFloat("x_offset", x_offset);
             nbt.putFloat("y_offset", y_offset);
-            nbt.putBoolean("x_revert", x_revert);
-            nbt.putBoolean("y_revert", y_revert);
         }
     };
 

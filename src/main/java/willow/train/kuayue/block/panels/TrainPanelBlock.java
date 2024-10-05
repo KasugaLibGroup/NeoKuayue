@@ -94,27 +94,20 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
         BlockState neoState = pState;
         ItemStack item = pPlayer.getItemInHand(pHand);
         // 手持剪贴板
-        if (item.is(com.simibubi.create.AllBlocks.CLIPBOARD.get().asItem())) {
-            if (pLevel.getBlockEntity(pPos) != null) return InteractionResult.PASS;
-            CompoundTag nbt = ClipboardBlockItem.getBlockEntityData(item);
-            if (nbt == null) return InteractionResult.PASS;
-            String tpe = nbt.getString("edit_type");
-            if (pState.getValue(EDIT_TYPE) == TrainPanelProperties.EditType.NONE &&
-                    !tpe.equals("") && !tpe.equals("none")) {
-                TrainPanelProperties.EditType editType = TrainPanelProperties.EditType.fromString(tpe);
-                if (editType == null || editType == TrainPanelProperties.EditType.NONE) return InteractionResult.PASS;
-                neoState = pState.setValue(EDIT_TYPE, editType);
-                BlockEntity be = newBlockEntity(pPos, neoState);
-                if (be == null) return InteractionResult.PASS;
-                pLevel.setBlockEntity(be);
-                pLevel.setBlock(pPos, neoState, 10);
-                return InteractionResult.SUCCESS;
-            }
-            return InteractionResult.PASS;
-        } else if (item.is(EditablePanelItem.COLORED_BRUSH.getItem())) {
+        if (item.is(EditablePanelItem.COLORED_BRUSH.getItem())) {
             // 手持带颜色刷子
-            if (pState.is(Objects.requireNonNull(AllTags.BOTTOM_PANEL.tag())))
+            if (pState.is(Objects.requireNonNull(AllTags.BOTTOM_PANEL.tag()))) {
+                if (pState.getValue(EDIT_TYPE) != TrainPanelProperties.EditType.NONE) {
+                    if (!pLevel.isClientSide) {
+                        NetworkHooks.openScreen(
+                                (ServerPlayer) pPlayer,
+                                (EditablePanelEntity) pLevel.getBlockEntity(pPos),
+                                pPos);
+                    }
+                    return InteractionResult.SUCCESS;
+                }
                 neoState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.TYPE);
+            }
 
             if (pState.is(Objects.requireNonNull(AllTags.FLOOR.tag())))
                 neoState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.SPEED);
