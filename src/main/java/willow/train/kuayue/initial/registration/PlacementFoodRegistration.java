@@ -102,6 +102,6 @@ public class PlacementFoodRegistration<T extends PlacementFoodBlock> {
     }
 
     public enum PlacementFoodType {
-        EATING, DRINKING, DRIED_INSTANT_NOODLES, SOAKED_INSTANT_NOODLES;
+        EATING, DRINKING, DRIED_INSTANT_NOODLES;
     }
 }

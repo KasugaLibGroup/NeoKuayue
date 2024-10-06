@@ -10,6 +10,7 @@ import net.minecraft.world.level.material.MaterialColor;
 import willow.train.kuayue.block.food.ParticlesDrinkBlock;
 import willow.train.kuayue.block.food.PlacementFoodBlock;
 import willow.train.kuayue.block.food.TrainDietBoxBlock;
+import willow.train.kuayue.block.food.instant_noodles.SoakedInstantNoodlesBlock;
 import willow.train.kuayue.initial.registration.PlacementFoodRegistration;
 
 public class AllFoods {
@@ -62,6 +63,19 @@ public class AllFoods {
                     .noOcclusion()
                     .foodProperties(DRINK_COLA)
                     .stackSize(16)
+                    .tab(AllElements.neoKuayueDietTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final PlacementFoodRegistration<SoakedInstantNoodlesBlock> SOAKED_INSTANT_NOODLES =
+            new PlacementFoodRegistration<SoakedInstantNoodlesBlock>("soaked_instant_noodles",
+                    PlacementFoodRegistration.PlacementFoodType.DRINKING)
+                    .block(properties -> new SoakedInstantNoodlesBlock(properties, PlacementFoodBlock.FoodType.BOWL))
+                    .material(Material.WOOL, MaterialColor.COLOR_BLACK)
+                    .soundType(SoundType.WOOL)
+                    .strength(0.5F)
+                    .noOcclusion()
+                    .foodProperties(TRAIN_DIET_A)
+                    .stackSize(8)
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
 

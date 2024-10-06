@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "facing=east,noodles_state=with_fork": {
+      "model": "kuayue:block/food/soaked_instant_noodles/soaked_instant_noodles_with_fork",
+      "y": 90
+    },
+    "facing=north,noodles_state=with_fork": {
+      "model": "kuayue:block/food/soaked_instant_noodles/soaked_instant_noodles_with_fork",
+      "y": 0
+    },
+    "facing=south,noodles_state=with_fork": {
+      "model": "kuayue:block/food/soaked_instant_noodles/soaked_instant_noodles_with_fork",
+      "y": 180
+    },
+    "facing=west,noodles_state=with_fork": {
+      "model": "kuayue:block/food/soaked_instant_noodles/soaked_instant_noodles_with_fork",
+      "y": 270
+    },
+    "facing=east,noodles_state=opening": {
+      "model": "kuayue:block/food/soaked_instant_noodles/soaked_instant_noodles_opening",
+      "y": 90
+    },
+    "facing=north,noodles_state=opening": {
+      "model": "kuayue:block/food/soaked_instant_noodles/soaked_instant_noodles_opening",
+      "y": 0
+    },
+    "facing=south,noodles_state=opening": {
+      "model": "kuayue:block/food/soaked_instant_noodles/soaked_instant_noodles_opening",
+      "y": 180
+    },
+    "facing=west,noodles_state=opening": {
+      "model": "kuayue:block/food/soaked_instant_noodles/soaked_instant_noodles_opening",
+      "y": 270
+    },
+    "facing=east,noodles_state=finish_eating": {
+      "model": "kuayue:block/food/soaked_instant_noodles/soaked_instant_noodles_finish_eating",
+      "y": 90
+    },
+    "facing=north,noodles_state=finish_eating": {
+      "model": "kuayue:block/food/soaked_instant_noodles/soaked_instant_noodles_finish_eating",
+      "y": 0
+    },
+    "facing=south,noodles_state=finish_eating": {
+      "model": "kuayue:block/food/soaked_instant_noodles/soaked_instant_noodles_finish_eating",
+      "y": 180
+    },
+    "facing=west,noodles_state=finish_eating": {
+      "model": "kuayue:block/food/soaked_instant_noodles/soaked_instant_noodles_finish_eating",
+      "y": 270
+    }
+  }
+}

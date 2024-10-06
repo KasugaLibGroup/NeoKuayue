@@ -37,10 +37,10 @@ public class DriedInstantNoodlesBlockItem extends PlacementFoodBlockItem {
             assert player != null;
             ItemStack itemstack = player.getItemInHand(hand);
             level.playSound(player, player.getX(), player.getY(), player.getZ(),
-                    SoundEvents.BOTTLE_FILL, SoundSource.NEUTRAL, 1.0F, 1.0F);
+                    SoundEvents.GENERIC_DRINK, SoundSource.NEUTRAL, 1.0F, 1.0F);
             // 替换玩家手中物品栈为已冲泡的方便面
             player.setItemInHand(hand, ItemUtils.createFilledResult(itemstack, player,
-                    new ItemStack(AllFoods.KUA_COLA.item.getItem()), false));
+                    new ItemStack(AllFoods.SOAKED_INSTANT_NOODLES.item.getItem()), false));
 
             return InteractionResult.sidedSuccess(level.isClientSide);
         }

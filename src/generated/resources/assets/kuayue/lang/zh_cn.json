@@ -200,6 +200,8 @@
   "block.kuayue.fuel_tank_df21": "DF21油箱",
   "block.kuayue.train_diet_1": "火车盒饭",
   "block.kuayue.kua_cola": "跨可乐",
+  "block.kuayue.dried_instant_noodles": "未冲泡的方便面",
+  "block.kuayue.soaked_instant_noodles": "已冲泡的方便面",
   "tips.item": "--------------------------------以下是物品-------------------------------------------",
   "item.kuayue.train_diet_1": "火车餐A",
   "item.kuayue.lunch_box": "餐盒",

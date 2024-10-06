@@ -23,7 +23,7 @@ public class OffsetEditor extends AbstractWidget {
 
     public static final LazyRecomputable<ImageMask> largeBg =
             new LazyRecomputable<>(() -> {
-                return editor.get().copyWithOp();
+                return editor.get().copyWithOp(imageMask -> imageMask);
             });
     public OffsetEditor(int x, int y, int a, Component pMessage) {
         super(x, y, a + 40, a, pMessage);
