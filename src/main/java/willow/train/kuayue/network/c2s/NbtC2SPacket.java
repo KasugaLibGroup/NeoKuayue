@@ -38,7 +38,6 @@ public class NbtC2SPacket extends C2SPacket {
         if (entity != null) {
             entity.load(nbt);
             entity.setChanged();
-            level.getChunkSource().blockChanged(pos);
         }
     }
 

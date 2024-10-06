@@ -75,7 +75,6 @@ public class EditablePanelEntity extends SmartBlockEntity
     protected void read(CompoundTag tag, boolean clientPacket) {
         super.read(tag, clientPacket);
         this.nbt = tag.getCompound("data");
-        // editType =
         signColor = nbt.getInt("color");
     }
 
@@ -110,6 +109,7 @@ public class EditablePanelEntity extends SmartBlockEntity
     // 这个方法从机械动力剪贴板中读取nbt
     @Override
     public boolean readFromClipboard(CompoundTag tag, Player player, Direction side, boolean simulate) {
+        if (simulate) return true;
         String type = tag.getString("edit_type");
         if (!type.equals(this.editType.name())) return false;
         this.nbt = tag.getCompound("data");
@@ -144,13 +144,8 @@ public class EditablePanelEntity extends SmartBlockEntity
 
     public void markUpdated(boolean isClientSide) {
         this.setChanged();
-    }
-
-    @Override
-    public CompoundTag getUpdateTag() {
-        CompoundTag tag = new CompoundTag();
-        write(tag, false);
-        return tag;
+        this.sendData();
+        this.level.sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 3);
     }
 
     @Nullable
@@ -158,7 +153,6 @@ public class EditablePanelEntity extends SmartBlockEntity
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
         this.panelEditMenu =
                 new EditablePanelEditMenu(pContainerId, pPlayerInventory, this, new SimpleContainerData(2));
-        this.panelEditMenu.setEditablePanelEntity(this);
         return this.panelEditMenu;
     }
 }

@@ -1,5 +1,6 @@
 package willow.train.kuayue.systems.editable_panel.screens;
 
+import com.mojang.blaze3d.platform.Window;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
 import kasuga.lib.core.client.render.SimpleColor;
@@ -64,10 +65,9 @@ public class GetShareTemplateScreen extends Screen {
         if (template == null) return;
         this.clearWidgets();
         this.minecraft = Minecraft.getInstance();
-        Screen screen = Minecraft.getInstance().screen;
-        if (screen == null) return;
-        int width = screen.width;
-        int height = screen.height;
+        Window window = Minecraft.getInstance().getWindow();
+        int width = window.getGuiScaledWidth();
+        int height = window.getGuiScaledHeight();
         bgPos = new Vector3f((width - 147f) / 2, (height - 166f) / 2, 0);
         this.x = (int) bgPos.x();
         this.y = (int) bgPos.y();
@@ -92,8 +92,12 @@ public class GetShareTemplateScreen extends Screen {
                 Component.literal(template.getOwner()), textColor);
         owner.setForceLeftBegin(true);
 
-        cancel = new ImageButton(cancelImage, this.x + bgWidth - 35, this.y + 113, 20, 20, Component.literal("cancel"), b -> {});
-        accept = new ImageButton(acceptImage, this.x + bgWidth - 35, this.y + 135, 20, 20, Component.literal("accept"), b -> {});
+        if (cancel == null || accept == null) {
+            cancel = new ImageButton(cancelImage, this.x + bgWidth - 35, this.y + 113, 20, 20, Component.literal("cancel"), b -> {
+            });
+            accept = new ImageButton(acceptImage, this.x + bgWidth - 35, this.y + 135, 20, 20, Component.literal("accept"), b -> {
+            });
+        }
 
         bar = new EditBar(0, 0, Component.empty(), "test");
         selector = new ColorScreen(32, 32, Component.translatable("tooltip.kuayue.color_screen.title"));

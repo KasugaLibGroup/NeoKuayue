@@ -52,6 +52,8 @@ public class ClientInit {
             new StaticImageHolder(new ResourceLocation("minecraft", "textures/gui/recipe_book.png"));
     public static final StaticImageHolder advancementWidgets =
             new StaticImageHolder(new ResourceLocation("minecraft", "textures/gui/advancements/widgets.png"));
+    public static final StaticImageHolder offsetEditor =
+            new StaticImageHolder(AllElements.testRegistry.asResource("textures/gui/offset_editor.png"));
     public static final ModelReg testModel =
             new ModelReg("test_model", AllElements.testRegistry.asResource("block/test_block"))
                     .submit(AllElements.testRegistry);
