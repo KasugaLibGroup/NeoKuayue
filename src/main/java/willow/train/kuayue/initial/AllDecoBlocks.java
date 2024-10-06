@@ -9,6 +9,7 @@ import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
 import willow.train.kuayue.block.panels.TrainPanelBlock;
+import willow.train.kuayue.block.panels.deco.TeaBoilerBlock;
 import willow.train.kuayue.block.panels.deco.YZTableBlock;
 import willow.train.kuayue.block.panels.slab.CeilinShelfBlock;
 import willow.train.kuayue.block.panels.slab.TrainSlabBlock;
@@ -36,9 +37,9 @@ public class AllDecoBlocks {
                 };
             });
 
-    public static final BlockReg<TrainPanelBlock> BOILING_WATER_PLACE =
-            new BlockReg<TrainPanelBlock>("boiling_water_place")
-                    .blockType(p -> new TrainPanelBlock(p, new Vec2(0, 0), new Vec2(1, 2)))
+    public static final BlockReg<TeaBoilerBlock> BOILING_WATER_PLACE =
+            new BlockReg<TeaBoilerBlock>("boiling_water_place")
+                    .blockType(p -> new TeaBoilerBlock(p, new Vec2(0, 0), new Vec2(1, 2)))
                     .material(Material.METAL)
                     .materialColor(MaterialColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)

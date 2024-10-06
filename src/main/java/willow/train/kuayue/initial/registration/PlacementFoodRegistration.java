@@ -15,6 +15,8 @@ import net.minecraft.world.level.material.MaterialColor;
 import willow.train.kuayue.block.food.PlacementDrinkBlockItem;
 import willow.train.kuayue.block.food.PlacementFoodBlock;
 import willow.train.kuayue.block.food.PlacementFoodBlockItem;
+import willow.train.kuayue.block.food.instant_noodles.DriedInstantNoodlesBlockItem;
+
 import java.util.function.Supplier;
 
 public class PlacementFoodRegistration<T extends PlacementFoodBlock> {
@@ -23,15 +25,9 @@ public class PlacementFoodRegistration<T extends PlacementFoodBlock> {
 
     public ItemReg item;
 
-    public PlacementFoodRegistration(String registrationKey, boolean isDrink) {
+    public PlacementFoodRegistration(String registrationKey, PlacementFoodType placementFoodType) {
         this.block = new BlockReg<T>(registrationKey);
-        if (!isDrink) {
-            this.item = new ItemReg<PlacementFoodBlockItem>(registrationKey);
-            item.itemType(properties -> new PlacementFoodBlockItem(this.block.getBlock(), properties));
-        } else {
-            this.item = new ItemReg<PlacementDrinkBlockItem>(registrationKey);
-            item.itemType(properties -> new PlacementDrinkBlockItem(this.block.getBlock(), properties));
-        }
+        itemRegistry(registrationKey, placementFoodType);
     }
 
     public PlacementFoodRegistration<T> block(BlockReg.BlockBuilder<T> builder) {
@@ -84,5 +80,28 @@ public class PlacementFoodRegistration<T extends PlacementFoodBlock> {
         this.block.submit(registry);
         this.item.submit(registry);
         return this;
+    }
+
+    public void itemRegistry(String registrationKey, PlacementFoodType placementFoodType) {
+        switch (placementFoodType) {
+            case EATING -> {
+                this.item = new ItemReg<PlacementFoodBlockItem>(registrationKey);
+                item.itemType(properties -> new PlacementFoodBlockItem(this.block.getBlock(), properties));}
+            case DRINKING -> {
+                this.item = new ItemReg<PlacementDrinkBlockItem>(registrationKey);
+                item.itemType(properties -> new PlacementDrinkBlockItem(this.block.getBlock(), properties));
+            }
+            case DRIED_INSTANT_NOODLES -> {
+                this.item = new ItemReg<DriedInstantNoodlesBlockItem>(registrationKey);
+                item.itemType(properties -> new DriedInstantNoodlesBlockItem(this.block.getBlock(), properties));
+            }
+            default -> {
+                this.item = new ItemReg<PlacementFoodBlockItem>(registrationKey);
+                item.itemType(properties -> new PlacementFoodBlockItem(this.block.getBlock(), properties));}
+        };
+    }
+
+    public enum PlacementFoodType {
+        EATING, DRINKING, DRIED_INSTANT_NOODLES, SOAKED_INSTANT_NOODLES;
     }
 }

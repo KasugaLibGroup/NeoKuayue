@@ -26,7 +26,8 @@ public class AllFoods {
             .effect(() -> TRAIN_DIET_EFFECT, 1.0F).build();
 
     public static final PlacementFoodRegistration<TrainDietBoxBlock> TRAIN_DIET_1 =
-            new PlacementFoodRegistration<TrainDietBoxBlock>("train_diet_1", false)
+            new PlacementFoodRegistration<TrainDietBoxBlock>("train_diet_1",
+                    PlacementFoodRegistration.PlacementFoodType.EATING)
                     .block(properties -> new TrainDietBoxBlock(properties, PlacementFoodBlock.FoodType.BOX))
                     .material(Material.CAKE, MaterialColor.COLOR_GRAY)
                     .soundType(SoundType.WOOL)
@@ -39,7 +40,8 @@ public class AllFoods {
                     .submit(AllElements.testRegistry);
 
     public static final PlacementFoodRegistration<ParticlesDrinkBlock> KUA_COLA =
-            new PlacementFoodRegistration<ParticlesDrinkBlock>("kua_cola", true)
+            new PlacementFoodRegistration<ParticlesDrinkBlock>("kua_cola",
+                    PlacementFoodRegistration.PlacementFoodType.DRINKING)
                     .block(properties -> new ParticlesDrinkBlock(properties, PlacementFoodBlock.FoodType.BOTTLE))
                     .material(Material.METAL, MaterialColor.COLOR_BLACK)
                     .soundType(SoundType.METAL)
@@ -47,6 +49,19 @@ public class AllFoods {
                     .noOcclusion()
                     .foodProperties(DRINK_COLA)
                     .stackSize(64)
+                    .tab(AllElements.neoKuayueDietTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final PlacementFoodRegistration<PlacementFoodBlock> DRIED_INSTANT_NOODLES =
+            new PlacementFoodRegistration<PlacementFoodBlock>("dried_instant_noodles",
+                    PlacementFoodRegistration.PlacementFoodType.DRIED_INSTANT_NOODLES)
+                    .block(properties -> new PlacementFoodBlock(properties, PlacementFoodBlock.FoodType.BOWL))
+                    .material(Material.WOOL, MaterialColor.COLOR_BLACK)
+                    .soundType(SoundType.WOOL)
+                    .strength(0.5F)
+                    .noOcclusion()
+                    .foodProperties(DRINK_COLA)
+                    .stackSize(16)
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
 

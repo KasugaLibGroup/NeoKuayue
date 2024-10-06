@@ -26,6 +26,7 @@ public class PlacementFoodBlockItem extends ExternalRemainderBlockItem {
 
     @Override
     public @NotNull ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity) {
+        // 获取返还物品栈
         ItemStack craftingRemainingItem = pStack.getCraftingRemainingItem();
         super.finishUsingItem(pStack, pLevel, pLivingEntity);
         if (pStack.isEmpty())
