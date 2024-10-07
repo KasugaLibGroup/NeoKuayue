@@ -6,6 +6,7 @@ import kasuga.lib.registrations.common.CreativeTabReg;
 import kasuga.lib.registrations.common.ItemReg;
 import kasuga.lib.registrations.registry.SimpleRegistry;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
@@ -20,64 +21,70 @@ import willow.train.kuayue.block.food.instant_noodles.SoakedInstantNoodlesBlockI
 
 import java.util.function.Supplier;
 
-public class PlacementFoodRegistration<T extends PlacementFoodBlock> {
+public class PlacementFoodRegistration<T extends PlacementFoodBlock, U extends BlockItem> {
 
-    public BlockReg<T> block;
+    private BlockReg<T> block;
 
-    public ItemReg item;
+    private ItemReg<U> item;
+
 
     public PlacementFoodRegistration(String registrationKey, PlacementFoodType placementFoodType) {
         this.block = new BlockReg<T>(registrationKey);
         itemRegistry(registrationKey, placementFoodType);
     }
 
-    public PlacementFoodRegistration<T> block(BlockReg.BlockBuilder<T> builder) {
+    public PlacementFoodRegistration<T, U> block(BlockReg.BlockBuilder<T> builder) {
         this.block.blockType(builder);
         return this;
     }
 
-    public PlacementFoodRegistration<T> noOcclusion() {
+    public PlacementFoodRegistration<T, U> item(BlockItemSupplier<U> supplier) {
+        this.item.itemType((prop) -> supplier.get(block.getBlock(), prop));
+        return this;
+    }
+
+    public PlacementFoodRegistration<T, U> noOcclusion() {
         block.addProperty(BlockBehaviour.Properties::noOcclusion);
         return this;
     }
 
-    public PlacementFoodRegistration<T> material(Material material, MaterialColor color) {
+    public PlacementFoodRegistration<T, U> material(Material material, MaterialColor color) {
         block.material(material);
         block.materialColor(color);
         return this;
     }
 
-    public PlacementFoodRegistration<T> soundType(SoundType soundType) {
+    public PlacementFoodRegistration<T, U> soundType(SoundType soundType) {
         this.block.addProperty(properties -> properties.sound(soundType));
         return this;
     }
 
-    public PlacementFoodRegistration<T> strength(float strength) {
+    public PlacementFoodRegistration<T, U> strength(float strength) {
         block.addProperty(properties -> properties.strength(strength));
         return this;
     }
 
-    public PlacementFoodRegistration<T> foodProperties(FoodProperties foodProperties) {
+    public PlacementFoodRegistration<T, U> foodProperties(FoodProperties foodProperties) {
         this.item.withProperty(properties -> properties.food(foodProperties));
         return this;
     }
 
-    public PlacementFoodRegistration<T> craftReminder(Supplier<Item> itemSupplier) {
+    public PlacementFoodRegistration<T, U> craftReminder(Supplier<Item> itemSupplier) {
         this.item.withProperty(properties -> ((ExternalProperties) properties).craftRemainder(itemSupplier));
         return this;
     }
 
-    public PlacementFoodRegistration<T> tab(CreativeTabReg reg) {
+    public PlacementFoodRegistration<T, U> tab(CreativeTabReg reg) {
         this.item.tab(reg);
         return this;
     }
 
-    public PlacementFoodRegistration<T> stackSize(int size) {
+    public PlacementFoodRegistration<T, U> stackSize(int size) {
         this.item.stackTo(size);
         return this;
     }
 
-    public PlacementFoodRegistration<T> submit(SimpleRegistry registry) {
+    public PlacementFoodRegistration<T, U> submit(SimpleRegistry registry) {
         this.block.submit(registry);
         this.item.submit(registry);
         return this;
@@ -106,7 +113,19 @@ public class PlacementFoodRegistration<T extends PlacementFoodBlock> {
         };
     }
 
+    public BlockReg<T> getBlock() {
+        return block;
+    }
+
+    public ItemReg<U> getItem() {
+        return item;
+    }
+
     public enum PlacementFoodType {
         EATING, DRINKING, DRIED_INSTANT_NOODLES, SOAKED_INSTANT_NOODLES;
+    }
+
+    public interface BlockItemSupplier<T extends BlockItem> {
+        public T get(Block block, Item.Properties prop);
     }
 }
