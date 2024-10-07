@@ -349,6 +349,7 @@
   "msg.kuayue.incompatible_types": "不兼容的接触网类型",
   "msg.kuayue.set_exit.true": "闸机已设置成出口",
   "msg.kuayue.set_exit.false": "闸机已设置成入口",
+  "msg.kuayue.jump_with_soaked_instant_noodles": "辊斤拷烫烫烫！",
   "tips.advancements": "------------------成就-----------------",
   "kuayue:advancement.root": "跨越",
   "kuayue:advancement.root.desc": "感谢您使用跨越",

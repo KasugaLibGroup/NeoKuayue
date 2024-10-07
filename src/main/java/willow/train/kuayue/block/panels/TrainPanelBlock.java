@@ -94,9 +94,11 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
         BlockState neoState = pState;
         ItemStack item = pPlayer.getItemInHand(pHand);
         // 手持剪贴板
+        // 手持带颜色刷子
         if (item.is(EditablePanelItem.COLORED_BRUSH.getItem())) {
-            // 手持带颜色刷子
+            // 带有下厢板标签
             if (pState.is(Objects.requireNonNull(AllTags.BOTTOM_PANEL.tag()))) {
+                // 当车厢板编辑类型不为NONE
                 if (pState.getValue(EDIT_TYPE) != TrainPanelProperties.EditType.NONE) {
                     if (!pLevel.isClientSide) {
                         NetworkHooks.openScreen(
@@ -108,7 +110,7 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
                 }
                 neoState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.TYPE);
             }
-
+            // 带有地板标签
             if (pState.is(Objects.requireNonNull(AllTags.FLOOR.tag())))
                 neoState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.SPEED);
 

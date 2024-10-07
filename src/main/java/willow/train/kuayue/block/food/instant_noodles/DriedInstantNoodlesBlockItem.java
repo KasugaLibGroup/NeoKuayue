@@ -1,8 +1,10 @@
 package willow.train.kuayue.block.food.instant_noodles;
 
+import com.simibubi.create.foundation.particle.AirParticleData;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -41,9 +43,22 @@ public class DriedInstantNoodlesBlockItem extends PlacementFoodBlockItem {
             // 替换玩家手中物品栈为已冲泡的方便面
             player.setItemInHand(hand, ItemUtils.createFilledResult(itemstack, player,
                     new ItemStack(AllFoods.SOAKED_INSTANT_NOODLES.item.getItem()), false));
+            // 加点特效
+            spawnParticles(level, pos);
 
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
         return super.useOn(pContext);
+    }
+
+    private static void spawnParticles(Level pLevel, BlockPos pPos) {
+        RandomSource randomsource = pLevel.random;
+
+        double d1 = 0.1 * randomsource.nextFloat();
+        double d2 = 0.1 * randomsource.nextFloat();
+        double d3 = 0.1 * randomsource.nextFloat();
+        pLevel.addParticle(new AirParticleData(),
+                pPos.getX() + 0.4 + d1, pPos.getY() + 0.7 + d2, pPos.getZ() + 0.4 + d3,
+                0.0D, 0.1D, 0.0D);
     }
 }

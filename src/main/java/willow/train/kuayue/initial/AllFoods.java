@@ -68,7 +68,7 @@ public class AllFoods {
 
     public static final PlacementFoodRegistration<SoakedInstantNoodlesBlock> SOAKED_INSTANT_NOODLES =
             new PlacementFoodRegistration<SoakedInstantNoodlesBlock>("soaked_instant_noodles",
-                    PlacementFoodRegistration.PlacementFoodType.DRINKING)
+                    PlacementFoodRegistration.PlacementFoodType.SOAKED_INSTANT_NOODLES)
                     .block(properties -> new SoakedInstantNoodlesBlock(properties, PlacementFoodBlock.FoodType.BOWL))
                     .material(Material.WOOL, MaterialColor.COLOR_BLACK)
                     .soundType(SoundType.WOOL)

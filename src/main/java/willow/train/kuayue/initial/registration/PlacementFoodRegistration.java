@@ -16,6 +16,7 @@ import willow.train.kuayue.block.food.PlacementDrinkBlockItem;
 import willow.train.kuayue.block.food.PlacementFoodBlock;
 import willow.train.kuayue.block.food.PlacementFoodBlockItem;
 import willow.train.kuayue.block.food.instant_noodles.DriedInstantNoodlesBlockItem;
+import willow.train.kuayue.block.food.instant_noodles.SoakedInstantNoodlesBlockItem;
 
 import java.util.function.Supplier;
 
@@ -95,6 +96,10 @@ public class PlacementFoodRegistration<T extends PlacementFoodBlock> {
                 this.item = new ItemReg<DriedInstantNoodlesBlockItem>(registrationKey);
                 item.itemType(properties -> new DriedInstantNoodlesBlockItem(this.block.getBlock(), properties));
             }
+            case SOAKED_INSTANT_NOODLES -> {
+                this.item = new ItemReg<SoakedInstantNoodlesBlockItem>(registrationKey);
+                item.itemType(properties -> new SoakedInstantNoodlesBlockItem(this.block.getBlock(), properties));
+            }
             default -> {
                 this.item = new ItemReg<PlacementFoodBlockItem>(registrationKey);
                 item.itemType(properties -> new PlacementFoodBlockItem(this.block.getBlock(), properties));}
@@ -102,6 +107,6 @@ public class PlacementFoodRegistration<T extends PlacementFoodBlock> {
     }
 
     public enum PlacementFoodType {
-        EATING, DRINKING, DRIED_INSTANT_NOODLES;
+        EATING, DRINKING, DRIED_INSTANT_NOODLES, SOAKED_INSTANT_NOODLES;
     }
 }
