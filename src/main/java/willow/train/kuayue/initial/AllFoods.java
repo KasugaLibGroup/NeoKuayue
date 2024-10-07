@@ -3,14 +3,13 @@ package willow.train.kuayue.initial;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
-import willow.train.kuayue.block.food.ParticlesDrinkBlock;
-import willow.train.kuayue.block.food.PlacementFoodBlock;
-import willow.train.kuayue.block.food.TrainDietBoxBlock;
+import willow.train.kuayue.block.food.*;
+import willow.train.kuayue.block.food.instant_noodles.DriedInstantNoodlesBlockItem;
 import willow.train.kuayue.block.food.instant_noodles.SoakedInstantNoodlesBlock;
+import willow.train.kuayue.block.food.instant_noodles.SoakedInstantNoodlesBlockItem;
 import willow.train.kuayue.initial.registration.PlacementFoodRegistration;
 
 public class AllFoods {
@@ -26,10 +25,10 @@ public class AllFoods {
             .nutrition(4).saturationMod(0.4f).alwaysEat()
             .effect(() -> TRAIN_DIET_EFFECT, 1.0F).build();
 
-    public static final PlacementFoodRegistration<TrainDietBoxBlock> TRAIN_DIET_1 =
-            new PlacementFoodRegistration<TrainDietBoxBlock>("train_diet_1",
-                    PlacementFoodRegistration.PlacementFoodType.EATING)
+    public static final PlacementFoodRegistration<TrainDietBoxBlock, PlacementFoodBlockItem> TRAIN_DIET_1 =
+            new PlacementFoodRegistration<TrainDietBoxBlock, PlacementFoodBlockItem>("train_diet_1")
                     .block(properties -> new TrainDietBoxBlock(properties, PlacementFoodBlock.FoodType.BOX))
+                    .item((reg, properties) -> new PlacementFoodBlockItem(reg.getBlock(), properties))
                     .material(Material.CAKE, MaterialColor.COLOR_GRAY)
                     .soundType(SoundType.WOOL)
                     .strength(0.5F)
@@ -40,10 +39,10 @@ public class AllFoods {
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
 
-    public static final PlacementFoodRegistration<ParticlesDrinkBlock> KUA_COLA =
-            new PlacementFoodRegistration<ParticlesDrinkBlock>("kua_cola",
-                    PlacementFoodRegistration.PlacementFoodType.DRINKING)
+    public static final PlacementFoodRegistration<ParticlesDrinkBlock, PlacementDrinkBlockItem> KUA_COLA =
+            new PlacementFoodRegistration<ParticlesDrinkBlock, PlacementDrinkBlockItem>("kua_cola")
                     .block(properties -> new ParticlesDrinkBlock(properties, PlacementFoodBlock.FoodType.BOTTLE))
+                    .item((reg, properties) -> new PlacementDrinkBlockItem(reg.getBlock(), properties))
                     .material(Material.METAL, MaterialColor.COLOR_BLACK)
                     .soundType(SoundType.METAL)
                     .strength(0.5F)
@@ -53,10 +52,10 @@ public class AllFoods {
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
 
-    public static final PlacementFoodRegistration<PlacementFoodBlock> DRIED_INSTANT_NOODLES =
-            new PlacementFoodRegistration<PlacementFoodBlock>("dried_instant_noodles",
-                    PlacementFoodRegistration.PlacementFoodType.DRIED_INSTANT_NOODLES)
+    public static final PlacementFoodRegistration<PlacementFoodBlock, DriedInstantNoodlesBlockItem> DRIED_INSTANT_NOODLES =
+            new PlacementFoodRegistration<PlacementFoodBlock, DriedInstantNoodlesBlockItem>("dried_instant_noodles")
                     .block(properties -> new PlacementFoodBlock(properties, PlacementFoodBlock.FoodType.BOWL))
+                    .item((reg, properties) -> new DriedInstantNoodlesBlockItem(reg.getBlock(), properties))
                     .material(Material.WOOL, MaterialColor.COLOR_BLACK)
                     .soundType(SoundType.WOOL)
                     .strength(0.5F)
@@ -66,10 +65,10 @@ public class AllFoods {
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
 
-    public static final PlacementFoodRegistration<SoakedInstantNoodlesBlock> SOAKED_INSTANT_NOODLES =
-            new PlacementFoodRegistration<SoakedInstantNoodlesBlock>("soaked_instant_noodles",
-                    PlacementFoodRegistration.PlacementFoodType.SOAKED_INSTANT_NOODLES)
+    public static final PlacementFoodRegistration<SoakedInstantNoodlesBlock, SoakedInstantNoodlesBlockItem> SOAKED_INSTANT_NOODLES =
+            new PlacementFoodRegistration<SoakedInstantNoodlesBlock, SoakedInstantNoodlesBlockItem>("soaked_instant_noodles")
                     .block(properties -> new SoakedInstantNoodlesBlock(properties, PlacementFoodBlock.FoodType.BOWL))
+                    .item((reg, properties) -> new SoakedInstantNoodlesBlockItem(reg.getBlock(), properties))
                     .material(Material.WOOL, MaterialColor.COLOR_BLACK)
                     .soundType(SoundType.WOOL)
                     .strength(0.5F)
