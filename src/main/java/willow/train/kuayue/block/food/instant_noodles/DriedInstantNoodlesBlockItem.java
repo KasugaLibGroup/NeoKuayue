@@ -1,7 +1,9 @@
 package willow.train.kuayue.block.food.instant_noodles;
 
 import com.simibubi.create.foundation.particle.AirParticleData;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
@@ -10,13 +12,17 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUtils;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.Nullable;
 import willow.train.kuayue.block.food.PlacementFoodBlock;
 import willow.train.kuayue.block.food.PlacementFoodBlockItem;
 import willow.train.kuayue.block.panels.deco.TeaBoilerBlock;
 import willow.train.kuayue.initial.AllFoods;
+
+import java.util.List;
 
 public class DriedInstantNoodlesBlockItem extends PlacementFoodBlockItem {
     public DriedInstantNoodlesBlockItem(PlacementFoodBlock pBlock, Properties pProperties) {
@@ -60,5 +66,13 @@ public class DriedInstantNoodlesBlockItem extends PlacementFoodBlockItem {
         pLevel.addParticle(new AirParticleData(),
                 pPos.getX() + 0.4 + d1, pPos.getY() + 0.7 + d2, pPos.getZ() + 0.4 + d3,
                 0.0D, 0.1D, 0.0D);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
+        pTooltip.add(Component.translatable("item.kuayue.tooltip.dried_instant_noodles.tip1")
+                .withStyle(ChatFormatting.BLUE));
+        pTooltip.add(Component.translatable("item.kuayue.tooltip.dried_instant_noodles.tip2")
+                .withStyle(ChatFormatting.BLUE));
     }
 }
