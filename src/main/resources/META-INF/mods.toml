@@ -8,7 +8,7 @@ displayName="KuaYue"
 displayURL="http://fairingstudio.com/KuaYue"
 logoFile="kuayue.jpg"
 credits="苟利国家生死以，岂因祸福避趋之。"
-authors="柳树怪,Carole,可爱金发小耗子,HTony03,radekemia,shazimingjiang,荒漠" #optional
+authors="柳树怪,Carole,可爱金发小耗子,HTony03,radekemia,shazimingjiang,荒漠,梧桐土豆,露米娅在线吃人" #optional
 # Display Test controls the display for your mod in the server connection screen
 # MATCH_VERSION means that your mod will cause a red X if the versions on client and server differ. This is the default behaviour and should be what you choose if you have server and client elements to your mod.
 # IGNORE_SERVER_VERSION means that your mod will not cause a red X if it's present on the server but not on the client. This is what you should use if you're a server only mod.
