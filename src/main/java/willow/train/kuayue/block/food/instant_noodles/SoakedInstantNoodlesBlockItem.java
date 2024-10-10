@@ -12,15 +12,14 @@ import willow.train.kuayue.block.food.PlacementFoodBlock;
 import java.util.List;
 
 public class SoakedInstantNoodlesBlockItem extends PlacementDrinkBlockItem {
-    public SoakedInstantNoodlesBlockItem(PlacementFoodBlock pBlock, Properties pProperties) {
-        super(pBlock, pProperties);
+    public SoakedInstantNoodlesBlockItem(PlacementFoodBlock pBlock, Properties pProperties, boolean hasEffect, boolean hasTooltip) {
+        super(pBlock, pProperties, hasEffect, hasTooltip);
     }
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
         pTooltip.add(Component.translatable("item.kuayue.tooltip.soaked_instant_noodles.tip1")
-                .withStyle(ChatFormatting.BLUE));
-        pTooltip.add(Component.translatable("item.kuayue.tooltip.soaked_instant_noodles.tip2")
                 .withStyle(ChatFormatting.RED));
+        super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
     }
 }

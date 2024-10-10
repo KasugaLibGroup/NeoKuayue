@@ -26,9 +26,11 @@ public class AllFoods {
             .effect(() -> TRAIN_DIET_EFFECT, 1.0F).build();
 
     public static final PlacementFoodRegistration<TrainDietBoxBlock, PlacementFoodBlockItem> TRAIN_DIET_1 =
-            new PlacementFoodRegistration<TrainDietBoxBlock, PlacementFoodBlockItem>("train_diet_1")
+            new PlacementFoodRegistration<TrainDietBoxBlock, PlacementFoodBlockItem>
+                    ("train_diet_1", true, true)
                     .block(properties -> new TrainDietBoxBlock(properties, PlacementFoodBlock.FoodType.BOX))
-                    .item((reg, properties) -> new PlacementFoodBlockItem(reg.getBlock(), properties))
+                    .item((reg, properties, hasEffect, hasTooltip) ->
+                            new PlacementFoodBlockItem(reg.getBlock(), properties, hasEffect, hasTooltip))
                     .material(Material.CAKE, MaterialColor.COLOR_GRAY)
                     .soundType(SoundType.WOOL)
                     .strength(0.5F)
@@ -40,9 +42,11 @@ public class AllFoods {
                     .submit(AllElements.testRegistry);
 
     public static final PlacementFoodRegistration<ParticlesDrinkBlock, PlacementDrinkBlockItem> KUA_COLA =
-            new PlacementFoodRegistration<ParticlesDrinkBlock, PlacementDrinkBlockItem>("kua_cola")
+            new PlacementFoodRegistration<ParticlesDrinkBlock, PlacementDrinkBlockItem>
+                    ("kua_cola", true, true)
                     .block(properties -> new ParticlesDrinkBlock(properties, PlacementFoodBlock.FoodType.BOTTLE))
-                    .item((reg, properties) -> new PlacementDrinkBlockItem(reg.getBlock(), properties))
+                    .item((reg, properties, hasEffect, hasTooltip) ->
+                            new PlacementDrinkBlockItem(reg.getBlock(), properties, hasEffect, hasTooltip))
                     .material(Material.METAL, MaterialColor.COLOR_BLACK)
                     .soundType(SoundType.METAL)
                     .strength(0.5F)
@@ -53,9 +57,11 @@ public class AllFoods {
                     .submit(AllElements.testRegistry);
 
     public static final PlacementFoodRegistration<PlacementFoodBlock, DriedInstantNoodlesBlockItem> DRIED_INSTANT_NOODLES =
-            new PlacementFoodRegistration<PlacementFoodBlock, DriedInstantNoodlesBlockItem>("dried_instant_noodles")
+            new PlacementFoodRegistration<PlacementFoodBlock, DriedInstantNoodlesBlockItem>
+                    ("dried_instant_noodles", true, true)
                     .block(properties -> new PlacementFoodBlock(properties, PlacementFoodBlock.FoodType.BOWL))
-                    .item((reg, properties) -> new DriedInstantNoodlesBlockItem(reg.getBlock(), properties))
+                    .item((reg, properties, hasEffect, hasTooltip) ->
+                            new DriedInstantNoodlesBlockItem(reg.getBlock(), properties, hasEffect, hasTooltip))
                     .material(Material.WOOL, MaterialColor.COLOR_BLACK)
                     .soundType(SoundType.WOOL)
                     .strength(0.5F)
@@ -66,9 +72,11 @@ public class AllFoods {
                     .submit(AllElements.testRegistry);
 
     public static final PlacementFoodRegistration<SoakedInstantNoodlesBlock, SoakedInstantNoodlesBlockItem> SOAKED_INSTANT_NOODLES =
-            new PlacementFoodRegistration<SoakedInstantNoodlesBlock, SoakedInstantNoodlesBlockItem>("soaked_instant_noodles")
+            new PlacementFoodRegistration<SoakedInstantNoodlesBlock, SoakedInstantNoodlesBlockItem>
+                    ("soaked_instant_noodles", true, true)
                     .block(properties -> new SoakedInstantNoodlesBlock(properties, PlacementFoodBlock.FoodType.BOWL))
-                    .item((reg, properties) -> new SoakedInstantNoodlesBlockItem(reg.getBlock(), properties))
+                    .item((reg, properties, hasEffect, hasTooltip) ->
+                            new SoakedInstantNoodlesBlockItem(reg.getBlock(), properties, hasEffect, hasTooltip))
                     .material(Material.WOOL, MaterialColor.COLOR_BLACK)
                     .soundType(SoundType.WOOL)
                     .strength(0.5F)

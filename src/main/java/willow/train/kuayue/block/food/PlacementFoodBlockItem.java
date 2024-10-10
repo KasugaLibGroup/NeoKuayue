@@ -13,13 +13,19 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import willow.train.kuayue.block.food.effect.EffectUtil;
 
 import java.util.List;
 
 public class PlacementFoodBlockItem extends ExternalRemainderBlockItem {
 
-    public PlacementFoodBlockItem(PlacementFoodBlock pBlock, Properties pProperties) {
+    protected final boolean hasTooltip;
+    protected final boolean hasEffect;
+
+    public PlacementFoodBlockItem(PlacementFoodBlock pBlock, Properties pProperties, boolean hasEffect, boolean hasTooltip) {
         super(pBlock, pProperties);
+        this.hasEffect = hasEffect;
+        this.hasTooltip = hasTooltip;
     }
 
     @Override
@@ -48,7 +54,10 @@ public class PlacementFoodBlockItem extends ExternalRemainderBlockItem {
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
-        pTooltip.add(Component.translatable("item.kuayue.tooltip."+ this)
-                .withStyle(ChatFormatting.BLUE));
+        if (hasTooltip)
+            pTooltip.add(Component.translatable("item.kuayue.tooltip." + this + ".tip0")
+                    .withStyle(ChatFormatting.BLUE));
+        if (hasEffect)
+            EffectUtil.addFoodEffectToTooltip(pStack, pTooltip);
     }
 }

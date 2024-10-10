@@ -21,14 +21,18 @@ public class PlacementFoodRegistration<T extends PlacementFoodBlock, U extends P
     public BlockReg<T> block;
 
     public ItemReg<U> item;
+    public boolean hasEffect;
+    public boolean hasTooltip;
 
     public interface BlockItemSup<T extends PlacementFoodBlock, U extends PlacementFoodBlockItem> {
-        public U apply(BlockReg<T> reg, Item.Properties properties);
+        public U apply(BlockReg<T> reg, Item.Properties properties, boolean hasEffect, boolean hasTooltip);
     }
 
-    public PlacementFoodRegistration(String registrationKey) {
+    public PlacementFoodRegistration(String registrationKey, boolean hasEffect, boolean hasTooltip) {
         this.block = new BlockReg<T>(registrationKey);
         this.item = new ItemReg<U>(registrationKey);
+        this.hasEffect = hasEffect;
+        this.hasTooltip = hasTooltip;
     }
 
     public PlacementFoodRegistration<T, U> block(BlockReg.BlockBuilder<T> builder) {
@@ -37,7 +41,8 @@ public class PlacementFoodRegistration<T extends PlacementFoodBlock, U extends P
     }
 
     public PlacementFoodRegistration<T, U> item(BlockItemSup<T, U> blockItemSup) {
-        this.item.itemType(properties -> blockItemSup.apply(this.block, properties));
+        this.item.itemType(properties ->
+                blockItemSup.apply(this.block, properties, this.hasEffect, this.hasTooltip));
         return this;
     }
 

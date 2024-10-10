@@ -9,12 +9,13 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
+import willow.train.kuayue.block.food.effect.EffectUtil;
 
 import java.util.List;
 
 public class PlacementDrinkBlockItem extends PlacementFoodBlockItem {
-    public PlacementDrinkBlockItem(PlacementFoodBlock pBlock, Properties pProperties) {
-        super(pBlock, pProperties);
+    public PlacementDrinkBlockItem(PlacementFoodBlock pBlock, Properties pProperties, boolean hasEffect, boolean hasTooltip) {
+        super(pBlock, pProperties, hasEffect, hasTooltip);
     }
 
     public UseAnim getUseAnimation(ItemStack stack) {
@@ -29,9 +30,4 @@ public class PlacementDrinkBlockItem extends PlacementFoodBlockItem {
         return SoundEvents.GENERIC_DRINK;
     }
 
-    @Override
-    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
-        pTooltip.add(Component.translatable("item.kuayue.tooltip."+ this)
-                .withStyle(ChatFormatting.BLUE));
-    }
 }
