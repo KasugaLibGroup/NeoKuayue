@@ -55,6 +55,12 @@ public class EffectUtil {
         if (foodProperties == null) {
             return;
         }
+        // 添加食物回复量
+        tooltip.add(Component.translatable("item.kuayue.tooltip.restores_health",
+                foodProperties.getNutrition()).withStyle(ChatFormatting.DARK_GREEN));
+        tooltip.add(Component.translatable("item.kuayue.tooltip.restores_saturation",
+                foodProperties.getSaturationModifier()).withStyle(ChatFormatting.DARK_GREEN));
+
         // 获取食物效果列表
         List<Pair<MobEffectInstance, Float>> effects = foodProperties.getEffects();
         // 新建一个属性列表（Pair类型的list集合）
@@ -68,38 +74,45 @@ public class EffectUtil {
             // （第二元素即为触发该效果的概率，最大值为1，即百分之百。）
             MobEffectInstance mobEffectInstance = effect.getFirst();
             // 从第一元素中获取效果对象（类型为MobEffect），其中包含了:
-            // 属性修改器列表（attributeModifiers），效果类型（category = "BENEFICIAL"），
+            // 属性修改器集合（attributeModifiers），效果类型（category = "BENEFICIAL"），
             // 效果颜色（color），类型id（descriptionId = "effect.minecraft.regeneration"）等属性。
             MobEffect mobEffect = mobEffectInstance.getEffect();
-            // 从效果对象中获取属性修改器列表
+            // 从效果对象中获取属性修改器集合
             Map<Attribute, AttributeModifier> attributeModifiers = mobEffect.getAttributeModifiers();
+
             // 先将效果类型id添加到可变文本输出组件对象（类型为MutableComponent）中
-            MutableComponent translatable = Component.translatable(mobEffectInstance.getDescriptionId());
-            // 若属性修改器列表不为空
+            MutableComponent translation = Component.translatable(mobEffectInstance.getDescriptionId());
+            // 若属性修改器集合不为空
             if (!attributeModifiers.isEmpty()) {
+                // 遍历属性修改器集合，集合中每个元素的key包含Attribute类型的descriptionId，
+                // value则包含了UUID，operation，name，属性提升幅度（amount）等属性。
                 for (Map.Entry<Attribute, AttributeModifier> entry : attributeModifiers.entrySet()) {
+                    // 获取属性修改器键值对的value，类型为AttributeModifier。
                     AttributeModifier rawModifier = entry.getValue();
+                    // 根据value中的参数创建一个新的AttributeModifier对象
                     AttributeModifier modifier =
                             new AttributeModifier(
                                     rawModifier.getName(),
                                     mobEffect.getAttributeModifierValue(mobEffectInstance.getAmplifier(), rawModifier),
                                     rawModifier.getOperation());
+                    // 以属性修改器的key为键，以新AttributeModifier对象为值，组装为一个Pair对象并添加到新的属性列表attributeList中。
                     attributeList.add(new Pair<>(entry.getKey(), modifier));
                 }
             }
             // 若效果等级大于0（游戏中为大于I级）
             if (mobEffectInstance.getAmplifier() > 0) {
-                translatable = Component.translatable("potion.withAmplifier",
-                        translatable, Component.translatable("potion.potency." + mobEffectInstance.getAmplifier()));
+                translation = Component.translatable("potion.withAmplifier",
+                        translation, Component.translatable("potion.potency." + mobEffectInstance.getAmplifier()));
             }
             // 若持续时间大于1秒
             if (mobEffectInstance.getDuration() > 20) {
                 // 将potion.withDuration作为key，再将其他文本作为args注入到可变文本输出组件对象。
-                translatable = Component.translatable("potion.withDuration",
-                        translatable, MobEffectUtil.formatDuration(mobEffectInstance, 1.0F));
+                translation = Component.translatable("potion.withDuration",
+                        translation, MobEffectUtil.formatDuration(mobEffectInstance, 1.0F));
             }
+            // translatable = Component.translatable(translatable, );
             // 将文本添加到工具栏
-            tooltip.add(translatable.withStyle(mobEffect.getCategory().getTooltipFormatting()));
+            tooltip.add(translation.withStyle(mobEffect.getCategory().getTooltipFormatting()));
             // 火车盒饭的文本内容:
             // translation{key='potion.withDuration',
             // args=[translation{key='effect.minecraft.regeneration', args=[]}, 0:05]}
@@ -108,25 +121,33 @@ public class EffectUtil {
         // 若新建属性列表不为空
         if (!attributeList.isEmpty()) {
             tooltip.add(CommonComponents.EMPTY);
+            // 添加紫色文本：当生效后
             tooltip.add((Component.translatable("potion.whenDrank")).withStyle(ChatFormatting.DARK_PURPLE));
-
+            // 遍历属性列表
             for (Pair<Attribute, AttributeModifier> pair : attributeList) {
+                // 获取属性value
                 AttributeModifier modifier = pair.getSecond();
+                // 获取属性提升幅度
                 double amount = modifier.getAmount();
+                // 定义格式化的提升幅度
                 double formattedAmount;
                 if (modifier.getOperation() != AttributeModifier.Operation.MULTIPLY_BASE && modifier.getOperation() != AttributeModifier.Operation.MULTIPLY_TOTAL) {
                     formattedAmount = modifier.getAmount();
                 } else {
+                    // 若value的operation属性为MULTIPLY_BASE或MULTIPLY_TOTAL，则将幅度乘以100。
                     formattedAmount = modifier.getAmount() * 100.0D;
                 }
-
+                // 如果是提升某项属性值
                 if (amount > 0.0D) {
+                    // 添加蓝色文本
                     tooltip.add((Component.translatable(
-                            "attribute.modifier.plus." + modifier.getOperation().toValue(),
-                            ItemStack.ATTRIBUTE_MODIFIER_FORMAT.format(formattedAmount),
-                            Component.translatable(pair.getFirst().getDescriptionId()))).withStyle(ChatFormatting.BLUE));
+                            "attribute.modifier.plus." + modifier.getOperation().toValue(),         // +
+                            ItemStack.ATTRIBUTE_MODIFIER_FORMAT.format(formattedAmount),    // 20%
+                            Component.translatable(pair.getFirst().getDescriptionId()))).withStyle(ChatFormatting.BLUE)); // 速度
                 } else if (amount < 0.0D) {
+                    // 如果是降低某项属性值，则将提升值置为负数。
                     formattedAmount = formattedAmount * -1.0D;
+                    // 添加红色文本
                     tooltip.add((Component.translatable(
                             "attribute.modifier.take." + modifier.getOperation().toValue(),
                             ItemStack.ATTRIBUTE_MODIFIER_FORMAT.format(formattedAmount),

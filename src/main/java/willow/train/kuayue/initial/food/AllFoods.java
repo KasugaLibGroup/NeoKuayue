@@ -1,8 +1,5 @@
-package willow.train.kuayue.initial;
+package willow.train.kuayue.initial.food;
 
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
@@ -10,20 +7,13 @@ import willow.train.kuayue.block.food.*;
 import willow.train.kuayue.block.food.instant_noodles.DriedInstantNoodlesBlockItem;
 import willow.train.kuayue.block.food.instant_noodles.SoakedInstantNoodlesBlock;
 import willow.train.kuayue.block.food.instant_noodles.SoakedInstantNoodlesBlockItem;
+import willow.train.kuayue.initial.AllElements;
+import willow.train.kuayue.initial.AllItems;
 import willow.train.kuayue.initial.registration.PlacementFoodRegistration;
 
+import static willow.train.kuayue.initial.food.AllFoodProperties.*;
+
 public class AllFoods {
-
-    public static final MobEffectInstance TRAIN_DIET_EFFECT =
-            new MobEffectInstance(MobEffects.REGENERATION, 100, 0);
-
-    public static final FoodProperties TRAIN_DIET_A = (new FoodProperties.Builder())
-            .nutrition(6).saturationMod(0.6f).alwaysEat()
-            .effect(() -> TRAIN_DIET_EFFECT, 1.0F).build();
-
-    public static final FoodProperties DRINK_COLA = (new FoodProperties.Builder())
-            .nutrition(4).saturationMod(0.4f).alwaysEat()
-            .effect(() -> TRAIN_DIET_EFFECT, 1.0F).build();
 
     public static final PlacementFoodRegistration<TrainDietBoxBlock, PlacementFoodBlockItem> TRAIN_DIET_1 =
             new PlacementFoodRegistration<TrainDietBoxBlock, PlacementFoodBlockItem>
@@ -35,7 +25,7 @@ public class AllFoods {
                     .soundType(SoundType.WOOL)
                     .strength(0.5F)
                     .noOcclusion()
-                    .foodProperties(TRAIN_DIET_A)
+                    .foodProperties(TRAIN_BOX_LUNCH_PROPS)
                     .craftReminder(AllItems.LUNCH_BOX::getItem)
                     .stackSize(16)
                     .tab(AllElements.neoKuayueDietTab)
@@ -51,7 +41,7 @@ public class AllFoods {
                     .soundType(SoundType.METAL)
                     .strength(0.5F)
                     .noOcclusion()
-                    .foodProperties(DRINK_COLA)
+                    .foodProperties(KUA_COLA_PROPS)
                     .stackSize(64)
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
@@ -66,7 +56,7 @@ public class AllFoods {
                     .soundType(SoundType.WOOL)
                     .strength(0.5F)
                     .noOcclusion()
-                    .foodProperties(DRINK_COLA)
+                    .foodProperties(DRIED_INSTANT_NOODLES_PROPS)
                     .stackSize(16)
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
@@ -81,10 +71,13 @@ public class AllFoods {
                     .soundType(SoundType.WOOL)
                     .strength(0.5F)
                     .noOcclusion()
-                    .foodProperties(TRAIN_DIET_A)
+                    .foodProperties(TRAIN_BOX_LUNCH_PROPS)
                     .stackSize(8)
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
 
-    public static void invoke() {}
+    public static void invoke() {
+        AllEffects.invoke();
+        AllFoodProperties.invoke();
+    }
 }

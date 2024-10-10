@@ -2,9 +2,7 @@ package willow.train.kuayue.initial;
 
 import kasuga.lib.core.util.Envs;
 import kasuga.lib.registrations.common.CreativeTabReg;
-import kasuga.lib.registrations.common.ItemReg;
 import kasuga.lib.registrations.registry.CreateRegistry;
-import net.minecraft.world.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.event.client.CarriageInventoryEvents;
@@ -12,9 +10,8 @@ import willow.train.kuayue.event.client.RenderArrowEvent;
 import willow.train.kuayue.event.server.ColorTemplateEvents;
 import willow.train.kuayue.event.server.PlayerJumpEvents;
 import willow.train.kuayue.initial.create.*;
+import willow.train.kuayue.initial.food.AllFoods;
 import willow.train.kuayue.initial.material.AllMaterials;
-import willow.train.kuayue.initial.panel.CR200JPanel;
-import willow.train.kuayue.initial.panel.I11GPanel;
 
 public class AllElements {
 

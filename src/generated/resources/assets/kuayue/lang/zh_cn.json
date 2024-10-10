@@ -273,6 +273,8 @@
   "item.kuayue.tooltip.dried_instant_noodles.tip1": "右击茶炉可以冲泡",
   "item.kuayue.tooltip.soaked_instant_noodles.tip0": "《这回是真加开水了》",
   "item.kuayue.tooltip.soaked_instant_noodles.tip1": "请勿手持冲好的泡面起跳！",
+  "item.kuayue.tooltip.restores_health": "回复%s点饥饿值",
+  "item.kuayue.tooltip.restores_saturation": "回复%s点饱和度",
 
   "block.kuayue.original_color_window_25z_level.tooltip": "§7使用§4「带颜色的刷子」§7来更改坐席等级§",
   "block.kuayue.original_color_window_25z_level.tooltip2": "§b(一等软座/二等软座)",

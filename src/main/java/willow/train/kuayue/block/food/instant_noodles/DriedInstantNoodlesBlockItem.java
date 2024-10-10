@@ -20,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 import willow.train.kuayue.block.food.PlacementFoodBlock;
 import willow.train.kuayue.block.food.PlacementFoodBlockItem;
 import willow.train.kuayue.block.panels.deco.TeaBoilerBlock;
-import willow.train.kuayue.initial.AllFoods;
+import willow.train.kuayue.initial.food.AllFoods;
 
 import java.util.List;
 
