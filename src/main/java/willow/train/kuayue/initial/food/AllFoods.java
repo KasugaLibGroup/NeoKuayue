@@ -71,7 +71,7 @@ public class AllFoods {
                     .soundType(SoundType.WOOL)
                     .strength(0.5F)
                     .noOcclusion()
-                    .foodProperties(TRAIN_BOX_LUNCH_PROPS)
+                    .foodProperties(SOAKED_INSTANT_NOODLES_PROPS)
                     .stackSize(8)
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);

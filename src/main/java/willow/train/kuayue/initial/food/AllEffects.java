@@ -7,12 +7,11 @@ import net.minecraft.world.effect.MobEffects;
 import willow.train.kuayue.block.food.effect.WarmEffect;
 import willow.train.kuayue.initial.AllElements;
 
-import java.util.function.Supplier;
-
 public class AllEffects {
 
     public static final EffectReg<WarmEffect> WARM = new EffectReg<WarmEffect>("warm")
             .effectType(WarmEffect::new)
+            .color(127, 0, 0)
             .category(MobEffectCategory.BENEFICIAL)
             .submit(AllElements.testRegistry);
 
@@ -20,7 +19,7 @@ public class AllEffects {
             new MobEffectInstance(MobEffects.REGENERATION, 100, 0);
 
     public static final MobEffectInstance KUA_COLA_EFFECT =
-            new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 0);
+            new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 400, 0);
 
     public static void invoke() {}
 }
