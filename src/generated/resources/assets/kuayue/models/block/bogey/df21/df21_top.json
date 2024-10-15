@@ -2,5 +2,8 @@
   "parent": "block/block",
   "loader": "forge:obj",
   "flip_v": true,
-  "model": "kuayue:models/block/bogey/df21/df21_top.obj"
+  "model": "kuayue:models/block/bogey/df21/df21_top.obj",
+  "textures": {
+    "particle": "kuayue:block/bogey/df21/df21_top"
+  }
 }

@@ -2,5 +2,8 @@
   "loader": "forge:obj",
   "model": "kuayue:models/block/df21/df21_fuel_tank.obj",
   "render_type": "cutout_mipped",
-  "flip_v": true
+  "flip_v": true,
+  "textures": {
+    "particle": "kuayue:block/df21/df21_fuel_tank"
+  }
 }

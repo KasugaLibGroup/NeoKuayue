@@ -38,7 +38,7 @@ public class TKZ1Renderer extends BogeyRenderer {
         for (int side : Iterate.positiveAndNegative) {
             if (!inInstancedContraption) ms.pushPose();
             BogeyModelData wheel = wheels[(side + 1) / 2];
-            wheel.translate(0, 0.695, ((double) side) * 0.97d).rotateX(wheelAngle);
+            wheel.translate(0, 0.695, ((double) side) * 0.97d).rotateX(wheelAngle * 1.22);
             wheel.render(ms, light, vb);
             if (!inInstancedContraption) ms.popPose();
         }

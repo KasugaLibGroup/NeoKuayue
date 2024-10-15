@@ -13,44 +13,43 @@ import net.minecraft.resources.ResourceLocation;
 import willow.train.kuayue.initial.AllElements;
 import willow.train.kuayue.initial.create.AllCarriageBogeys;
 
-public class MKZRenderer extends BogeyRenderer {
+public class ZK6Renderer extends BogeyRenderer {
 
     private static ResourceLocation asBlockModelResource(String path) {
         return AllElements.testRegistry.asResource("block/" + path);
     }
 
     public static final PartialModel
-            MKZ_FRAME = new PartialModel(asBlockModelResource("bogey/mkz/mkz_frame")),
-            MKZ_WHEEL = new PartialModel(asBlockModelResource("bogey/mkz/mkz_wheel"));
-
-    @Override
-    public void initialiseContraptionModelData(MaterialManager materialManager, CarriageBogey carriageBogey) {
-        this.createModelInstance(materialManager, MKZ_FRAME);
-        this.createModelInstance(materialManager, MKZ_WHEEL, 2);
-    }
-
-    @Override
-    public BogeySizes.BogeySize getSize() {
-        return AllCarriageBogeys.mkz.getSize();
-    }
+            ZK6_FRAME = new PartialModel(asBlockModelResource("bogey/mkz/mkz_frame")),
+            ZK6_WHEEL = new PartialModel(asBlockModelResource("bogey/mkz/mkz_wheel"));
 
     @Override
     public void render(CompoundTag bogeyData, float wheelAngle, PoseStack ms, int light, VertexConsumer vb, boolean inContraption) {
-
         boolean inInstancedContraption = vb == null;
 
-        BogeyModelData frame = getTransform(MKZ_FRAME, ms, inInstancedContraption);
-        frame.translate(0, 0.320, 0).render(ms, light, vb);
+        BogeyModelData frame = getTransform(ZK6_FRAME, ms, inInstancedContraption);
+        frame.translate(0, 0.50, 0).render(ms, light, vb);
 
         BogeyModelData[] wheels =
-                getTransform(MKZ_WHEEL, ms, inInstancedContraption, 2);
+                getTransform(ZK6_WHEEL, ms, inInstancedContraption, 2);
 
         for (int side : Iterate.positiveAndNegative) {
             if (!inInstancedContraption) ms.pushPose();
             BogeyModelData wheel = wheels[(side + 1) / 2];
-            wheel.translate(0, 0.695, ((double) side) * 0.733d).rotateX(wheelAngle * 1.22);
+            wheel.translate(0, 0.80, ((double) side) * 0.9d).rotateX(wheelAngle * 1.1);
             wheel.render(ms, light, vb);
             if (!inInstancedContraption) ms.popPose();
         }
+    }
+
+    @Override
+    public BogeySizes.BogeySize getSize() {
+        return AllCarriageBogeys.zk6.getSize();
+    }
+
+    @Override
+    public void initialiseContraptionModelData(MaterialManager materialManager, CarriageBogey carriageBogey) {
+        this.createModelInstance(materialManager, ZK6_FRAME);
+        this.createModelInstance(materialManager, ZK6_WHEEL, 2);
     }
 }

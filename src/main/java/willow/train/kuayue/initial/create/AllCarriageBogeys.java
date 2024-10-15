@@ -67,6 +67,10 @@ public class AllCarriageBogeys {
             .size(0.915F/2F)
             .submit(testRegistry);
 
+    public static final BogeySizeReg zk6 = new BogeySizeReg("zk6")
+            .size(0.915F/2F)
+            .submit(testRegistry);
+
     public static final BogeyGroupReg carriageBogeyGroup = new BogeyGroupReg("carriage", "kuayue_bogey")
             .bogey(pk209p.getSize(), PK209PRenderer::new, testRegistry.asResource("pk209p_bogey"))
             .bogey(pk209pNoMotor.getSize(), PK209PRenderer.NoMotor::new, testRegistry.asResource("pk209p_no_motor_bogey"))
@@ -76,6 +80,11 @@ public class AllCarriageBogeys {
             .bogey(sw220kBackward.getSize(), SW220KRenderer.Backward::new, testRegistry.asResource("sw220k_backward_bogey"))
             .bogey(sw160.getSize(), SW160Renderer::new, testRegistry.asResource("sw160_bogey"))
             .translationKey("carriage_group")
+            .submit(testRegistry);
+
+    public static final BogeyGroupReg freightCarriageBogeyGroup = new BogeyGroupReg("freight_carriage", "kuayue_bogey")
+            .bogey(zk6.getSize(), ZK6Renderer::new, testRegistry.asResource("zk6_bogey"))
+            .translationKey("freight_carriage_group")
             .submit(testRegistry);
 
     public static final BogeyGroupReg meterCarriageBogeyGroup = new BogeyGroupReg("meter_carriage", "kuayue_bogey_2")
@@ -102,11 +111,12 @@ public class AllCarriageBogeys {
                 case "pk209p_no_motor_bogey" -> reg.size(pk209pNoMotor).translationKey("pk209p_no_motor_bogey");
                 case "pk209p_backward_bogey" -> reg.size(pk209pBackward).translationKey("pk209p_bogey");
                 case "sw160_bogey" -> reg.size(sw160).translationKey("sw160_bogey");
+                case "zk6_bogey" -> reg.size(zk6).translationKey("zk6_bogey");
                 default -> reg.size(cw2).translationKey("cw2_bogey");
             })
             .element("sw220k_bogey").element("sw220k_backward_bogey").element("cw2_bogey")
             .element("pk209p_bogey").element("pk209p_no_motor_bogey").element("pk209p_backward_bogey")
-            .element("sw160_bogey")
+            .element("sw160_bogey").element("zk6_bogey")
             .submit(testRegistry);
 
     public static final BundledReg<BogeyBlockReg<MeterCarriageBogeyBlock>> meterCarriageBlockBundle =
@@ -151,6 +161,7 @@ public class AllCarriageBogeys {
                     .addBlock(() -> carriageBlockBundle.getElement("sw220k_bogey").getEntry().get())
                     .addBlock(() -> carriageBlockBundle.getElement("sw220k_backward_bogey").getEntry().get())
                     .addBlock(() -> carriageBlockBundle.getElement("sw160_bogey").getEntry().get())
+                    .addBlock(() -> carriageBlockBundle.getElement("zk6_bogey").getEntry().get())
                     .withRenderer(() -> BogeyBlockEntityRenderer::new)
                     .submit(testRegistry);
 

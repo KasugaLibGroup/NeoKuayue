@@ -2,5 +2,8 @@
   "loader": "forge:obj",
   "model": "kuayue:models/block/df21/df21_dynamic_carport.obj",
   "render_type": "cutout_mipped",
-  "flip_v": true
+  "flip_v": true,
+  "textures": {
+    "particle": "kuayue:block/df21/df21_general_carport2"
+  }
 }

@@ -44,7 +44,7 @@ public class TKZ2Renderer extends BogeyRenderer {
         for (int side : Iterate.positiveAndNegative) {
             if (!inInstancedContraption) ms.pushPose();
             BogeyModelData wheel = wheels[(side + 1) / 2];
-            wheel.translate(0, 0.695, ((double) side) * 0.97d).rotateX(wheelAngle);
+            wheel.translate(0, 0.695, ((double) side) * 0.97d).rotateX(wheelAngle * 1.22);
             wheel.render(ms, light, vb);
             if (!inInstancedContraption) ms.popPose();
         }
@@ -84,23 +84,23 @@ public class TKZ2Renderer extends BogeyRenderer {
 
             if (!inContraption) {
                 frame.translate(0, 0.129, 0).render(ms, light, vb);
-                wheel.translate(0, 0.695, 0.9761).rotateX(wheelAngle * 1.2).render(ms, light, vb);
-                motorWheel.translate(0, 0.695, -0.9761).rotateX(wheelAngle * 1.2).render(ms, light, vb);
+                wheel.translate(0, 0.695, 0.9761).rotateX(wheelAngle * 1.22).render(ms, light, vb);
+                motorWheel.translate(0, 0.695, -0.9761).rotateX(wheelAngle * 1.22).render(ms, light, vb);
                 motorPonyWheel.translate(0, 0.7235, -1.94).rotateX(wheelAngle * 3.256).render(ms, light, vb);
                 return;
             }
 
             if (direction == Direction.NORTH || direction == Direction.WEST) {
                 frame.translate(0, 0.129, 0).render(ms, light, vb);
-                wheel.translate(0, 0.695, 0.9761).rotateX(wheelAngle * 1.2).render(ms, light, vb);
-                motorWheel.translate(0, 0.695, -0.9761).rotateX(wheelAngle * 1.2).render(ms, light, vb);
+                wheel.translate(0, 0.695, 0.9761).rotateX(wheelAngle * 1.22).render(ms, light, vb);
+                motorWheel.translate(0, 0.695, -0.9761).rotateX(wheelAngle * 1.22).render(ms, light, vb);
                 motorPonyWheel.translate(0, 0.7235, -1.94).rotateX(wheelAngle * 3.256).render(ms, light, vb);
                 return;
             }
 
             frame.rotateY(180).translate(0, 0.129, 0).render(ms, light, vb);
-            wheel.rotateY(180).translate(0, 0.695, 0.9761).rotateX(-wheelAngle * 1.2).render(ms, light, vb);
-            motorWheel.rotateY(180).translate(0, 0.695, -0.9761).rotateX(-wheelAngle * 1.2).render(ms, light, vb);
+            wheel.rotateY(180).translate(0, 0.695, 0.9761).rotateX(-wheelAngle * 1.22).render(ms, light, vb);
+            motorWheel.rotateY(180).translate(0, 0.695, -0.9761).rotateX(-wheelAngle * 1.22).render(ms, light, vb);
             motorPonyWheel.rotateY(180).translate(0, 0.7235, -1.94).rotateX(-wheelAngle * 3.256).render(ms, light, vb);
         }
 
@@ -139,23 +139,23 @@ public class TKZ2Renderer extends BogeyRenderer {
 
             if (!inContraption) {
                 frame.rotateY(180).translate(0, 0.129, 0).render(ms, light, vb);
-                wheel.rotateY(180).translate(0, 0.695, 0.9761).rotateX(wheelAngle * 1.2).render(ms, light, vb);
-                motorWheel.rotateY(180).translate(0, 0.695, -0.9761).rotateX(wheelAngle * 1.2).render(ms, light, vb);
+                wheel.rotateY(180).translate(0, 0.695, 0.9761).rotateX(wheelAngle * 1.22).render(ms, light, vb);
+                motorWheel.rotateY(180).translate(0, 0.695, -0.9761).rotateX(wheelAngle * 1.22).render(ms, light, vb);
                 motorPonyWheel.rotateY(180).translate(0, 0.7235, -1.94).rotateX(wheelAngle * 3.256).render(ms, light, vb);
                 return;
             }
 
             if (direction == Direction.NORTH || direction == Direction.WEST) {
                 frame.rotateY(180).translate(0, 0.129, 0).render(ms, light, vb);
-                wheel.rotateY(180).translate(0, 0.695, 0.9761).rotateX(-wheelAngle * 1.2).render(ms, light, vb);
-                motorWheel.rotateY(180).translate(0, 0.695, -0.9761).rotateX(-wheelAngle * 1.2).render(ms, light, vb);
+                wheel.rotateY(180).translate(0, 0.695, 0.9761).rotateX(-wheelAngle * 1.22).render(ms, light, vb);
+                motorWheel.rotateY(180).translate(0, 0.695, -0.9761).rotateX(-wheelAngle * 1.22).render(ms, light, vb);
                 motorPonyWheel.rotateY(180).translate(0, 0.7235, -1.94).rotateX(-wheelAngle * 3.256).render(ms, light, vb);
                 return;
             }
 
             frame.translate(0, 0.129, 0).render(ms, light, vb);
-            wheel.translate(0, 0.695, 0.9761).rotateX(wheelAngle * 1.2).render(ms, light, vb);
-            motorWheel.translate(0, 0.695, -0.9761).rotateX(wheelAngle * 1.2).render(ms, light, vb);
+            wheel.translate(0, 0.695, 0.9761).rotateX(wheelAngle * 1.22).render(ms, light, vb);
+            motorWheel.translate(0, 0.695, -0.9761).rotateX(wheelAngle * 1.22).render(ms, light, vb);
             motorPonyWheel.translate(0, 0.7235, -1.94).rotateX(wheelAngle * 3.256).render(ms, light, vb);
         }
 
