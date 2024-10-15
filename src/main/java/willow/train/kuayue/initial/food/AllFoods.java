@@ -1,5 +1,6 @@
 package willow.train.kuayue.initial.food;
 
+import kasuga.lib.registrations.common.ItemReg;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
@@ -73,6 +74,20 @@ public class AllFoods {
                     .noOcclusion()
                     .foodProperties(SOAKED_INSTANT_NOODLES_PROPS)
                     .stackSize(8)
+                    .tab(AllElements.neoKuayueDietTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final ItemReg<HandHeldFoodItem> HAM_SAUSAGE =
+            new ItemReg<HandHeldFoodItem>("ham_sausage")
+                    .itemType(HandHeldFoodItem::new)
+                    .withProperty(properties -> properties.food(SMALL_SNACKS_PROPS))
+                    .tab(AllElements.neoKuayueDietTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final ItemReg<HandHeldFoodItem> MARINATED_EGG =
+            new ItemReg<HandHeldFoodItem>("marinated_egg")
+                    .itemType(HandHeldFoodItem::new)
+                    .withProperty(properties -> properties.food(SMALL_SNACKS_PROPS))
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
 

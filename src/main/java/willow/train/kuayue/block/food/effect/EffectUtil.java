@@ -63,11 +63,11 @@ public class EffectUtil {
 
         // 获取食物效果列表
         List<Pair<MobEffectInstance, Float>> effects = foodProperties.getEffects();
-        // 新建一个属性列表（Pair类型的list集合）
-        List<Pair<Attribute, AttributeModifier>> attributeList = Lists.newArrayList();
         if (effects.isEmpty()) {
             return;
         }
+        // 新建一个属性列表（Pair类型的list集合）
+        List<Pair<Attribute, AttributeModifier>> attributeList = Lists.newArrayList();
         // 遍历食物效果
         for (Pair<MobEffectInstance, Float> effect : effects) {
             // 获得食物效果Pair的第一个元素mobEffectInstance，其包含了效果对象，持续时间，效果等级等属性。

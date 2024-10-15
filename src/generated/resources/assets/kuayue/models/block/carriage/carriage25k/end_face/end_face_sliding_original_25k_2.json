@@ -1,5 +1,8 @@
 {
 	"loader": "forge:obj",
 	"flip_v": true,
-	"model": "kuayue:models/block/carriage/carriage25k/end_face/end_face_sliding_original_25k_2.obj"
+	"model": "kuayue:models/block/carriage/carriage25k/end_face/end_face_sliding_original_25k_2.obj",
+	"textures": {
+		"particle": "kuayue:block/carriage_end_face/end_face_25k_original_sliding_ac"
+	}
 }

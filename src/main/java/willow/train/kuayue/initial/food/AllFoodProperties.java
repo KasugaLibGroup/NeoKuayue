@@ -16,11 +16,15 @@ public class AllFoodProperties {
             .effect(() -> KUA_COLA_EFFECT, 1.0F).build();
 
     public static final FoodProperties DRIED_INSTANT_NOODLES_PROPS = (new FoodProperties.Builder())
-            .nutrition(3).saturationMod(0.3f).alwaysEat().build();
+            .nutrition(4).saturationMod(0.4f).alwaysEat().build();
 
     public static final FoodProperties SOAKED_INSTANT_NOODLES_PROPS = (new FoodProperties.Builder())
             .nutrition(6).saturationMod(0.6f).alwaysEat()
             .effect(() -> new MobEffectInstance(WARM.getEffect(), 2400, 0), 1.0F)
+            .build();
+
+    public static final FoodProperties SMALL_SNACKS_PROPS = (new FoodProperties.Builder())
+            .nutrition(3).saturationMod(0.3f).alwaysEat()
             .build();
 
     public static void invoke() {}
