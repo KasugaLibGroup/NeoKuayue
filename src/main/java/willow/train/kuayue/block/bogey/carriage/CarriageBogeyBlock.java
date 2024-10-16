@@ -18,11 +18,14 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import willow.train.kuayue.initial.create.AllCarriageBogeys;
 import willow.train.kuayue.initial.create.AllTrackMaterial;
 
@@ -45,6 +48,16 @@ public class CarriageBogeyBlock extends AbstractBogeyBlock<CarriageBogeyEntity>
     @Override
     public TrackMaterial.TrackType getTrackType(BogeyStyle style) {
         return AllTrackMaterial.standardMaterial.getTrackType();
+    }
+
+    @Override
+    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        return Block.box(0.005, 0.005, 0.005, 15.995, 15.995, 15.995);
+    }
+
+    @Override
+    public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        return getShape(pState, pLevel, pPos, pContext);
     }
 
     @Override

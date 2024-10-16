@@ -20,26 +20,26 @@ public class ZK6Renderer extends BogeyRenderer {
     }
 
     public static final PartialModel
-            ZK6_FRAME = new PartialModel(asBlockModelResource("bogey/mkz/mkz_frame")),
-            ZK6_WHEEL = new PartialModel(asBlockModelResource("bogey/mkz/mkz_wheel"));
+            ZK6_FRAME = new PartialModel(asBlockModelResource("bogey/zk6/zk6_frame")),
+            ZK6_WHEEL = new PartialModel(asBlockModelResource("bogey/zk6/zk6_wheel"));
 
     @Override
     public void render(CompoundTag bogeyData, float wheelAngle, PoseStack ms, int light, VertexConsumer vb, boolean inContraption) {
         boolean inInstancedContraption = vb == null;
 
         BogeyModelData frame = getTransform(ZK6_FRAME, ms, inInstancedContraption);
-        frame.translate(0, 0.50, 0).render(ms, light, vb);
+        frame.translate(0, 0.380, 0).render(ms, light, vb);
 
         BogeyModelData[] wheels =
                 getTransform(ZK6_WHEEL, ms, inInstancedContraption, 2);
 
-        for (int side : Iterate.positiveAndNegative) {
-            if (!inInstancedContraption) ms.pushPose();
-            BogeyModelData wheel = wheels[(side + 1) / 2];
-            wheel.translate(0, 0.80, ((double) side) * 0.9d).rotateX(wheelAngle * 1.1);
-            wheel.render(ms, light, vb);
-            if (!inInstancedContraption) ms.popPose();
-        }
+        if (!inInstancedContraption) ms.pushPose();
+        wheels[0].translate(0, 0.745, 0.924d).rotateX(wheelAngle * 1.09).render(ms, light, vb);
+        if (!inInstancedContraption) ms.popPose();
+
+        if (!inInstancedContraption) ms.pushPose();
+        wheels[1].translate(0, 0.745, -0.910d).rotateX(wheelAngle * 1.09).render(ms, light, vb);
+        if (!inInstancedContraption) ms.popPose();
     }
 
     @Override

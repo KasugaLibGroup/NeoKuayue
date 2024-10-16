@@ -1,0 +1,8 @@
+# Made in Blockbench 4.11.1
+newmtl m_35646b5f-4661-cc05-1da9-1394805097e0
+map_Kd kuayue:block/bogey/zk6/zk6_hang
+newmtl m_481a73e2-9093-85b1-7fd3-7def6292b340
+map_Kd kuayue:block/bogey/zk6/zk6_brake
+newmtl m_77e78f37-c2df-7e1b-4a78-99c50828936f
+map_Kd kuayue:block/bogey/zk6/zk6_frame
+newmtl none

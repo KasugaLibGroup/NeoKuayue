@@ -3,8 +3,8 @@
   "loader": "forge:obj",
   "flip_v": true,
   "render_type": "translucent",
-  "model": "kuayue:models/block/bogey/mkz/mkz_top.obj",
+  "model": "kuayue:models/block/bogey/zk6/zk6_top.obj",
   "textures": {
-    "particle": "kuayue:block/bogey/mkz/mkz_top"
+    "particle": "kuayue:block/bogey/zk6/zk6_top"
   }
 }
