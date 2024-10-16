@@ -1,6 +1,4 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "kuayue:block/df21/df21_general_bottom_slab_item"
-  }
+  "parent": "kuayue:block/df21/df21_general_bottom_slab"
 }
+

@@ -59,7 +59,8 @@ public class EffectUtil {
         tooltip.add(Component.translatable("item.kuayue.tooltip.restores_health",
                 foodProperties.getNutrition()).withStyle(ChatFormatting.DARK_GREEN));
         tooltip.add(Component.translatable("item.kuayue.tooltip.restores_saturation",
-                foodProperties.getSaturationModifier()).withStyle(ChatFormatting.DARK_GREEN));
+                Math.round(foodProperties.getNutrition() * foodProperties.getSaturationModifier() * 2 * 10) / 10.0)
+                .withStyle(ChatFormatting.DARK_GREEN));
 
         // 获取食物效果列表
         List<Pair<MobEffectInstance, Float>> effects = foodProperties.getEffects();

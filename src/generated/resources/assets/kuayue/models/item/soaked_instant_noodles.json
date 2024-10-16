@@ -1,6 +1,3 @@
 {
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "kuayue:item/food/soaked_instant_noodles_item"
-  }
+  "parent": "kuayue:block/food/soaked_instant_noodles/soaked_instant_noodles_opening"
 }

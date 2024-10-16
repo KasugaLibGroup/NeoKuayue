@@ -5,5 +5,30 @@
   "flip_v": true,
   "textures": {
     "particle": "kuayue:block/df21/df21_fuel_tank"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "translation": [0.5, -2.25, -3.25],
+      "scale": [0.375, 0.375, 0.375]
+    },
+    "thirdperson_lefthand": {
+      "translation": [0, -2.25, -3.5],
+      "scale": [0.375, 0.375, 0.375]
+    },
+    "firstperson_righthand": {
+      "rotation": [0, 103, 0],
+      "translation": [4, 0, 0],
+      "scale": [0.4, 0.4, 0.4]
+    },
+    "firstperson_lefthand": {
+      "rotation": [0, 133, 0],
+      "translation": [2, 0, 0],
+      "scale": [0.4, 0.4, 0.4]
+    },
+    "gui": {
+      "rotation": [30, 225, 0],
+      "translation": [0, 0, 0],
+      "scale": [0.3, 0.3, 0.3]
+    }
   }
 }
