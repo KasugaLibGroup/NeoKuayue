@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "kuayue:block/carriage/carriage_m1/m1_large_window_between_item"
-  }
+  "parent": "kuayue:block/carriage/carriage_m1/m1_large_window_between"
 }
