@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "kuayue:block/carriage/carriage_m1/m1_general_carport_item"
-  }
+  "parent": "kuayue:block/carriage/carriage_m1/carport/m1_general_carport"
 }
