@@ -1,0 +1,6 @@
+# Made in Blockbench 4.11.1
+newmtl m_c1917f7c-b285-1dc6-a1b0-0f81ad16d799
+map_Kd kuayue:block/bogey/ss3/ss3_dynamic
+newmtl m_2a98c519-12c8-9ff3-3507-663d07bbf561
+map_Kd kuayue:block/bogey/ss3/ss3_frame
+newmtl none

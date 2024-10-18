@@ -15,6 +15,7 @@ import willow.train.kuayue.block.bogey.loco.MeterLocoBogeyEntity;
 import willow.train.kuayue.block.bogey.loco.renderer.DF11GRenderer;
 import willow.train.kuayue.block.bogey.loco.renderer.DF21Renderer;
 import willow.train.kuayue.block.bogey.loco.renderer.QJMainRenderer;
+import willow.train.kuayue.block.bogey.loco.renderer.SS3Renderer;
 import willow.train.kuayue.initial.AllElements;
 
 public class AllLocoBogeys {
@@ -40,10 +41,20 @@ public class AllLocoBogeys {
             .size(0.915F / 2F)
             .submit(testRegistry);
 
+    public static final BogeySizeReg ss3 = new BogeySizeReg("ss3")
+            .size(0.915F / 2F)
+            .submit(testRegistry);
+
+    public static final BogeySizeReg ss3Backward = new BogeySizeReg("ss3_backward")
+            .size(0.915F / 2F)
+            .submit(testRegistry);
+
     public static final BogeyGroupReg locoBogeyGroup = new BogeyGroupReg("loco", "kuayue_bogey")
             .bogey(df11g.getSize(), DF11GRenderer::new, testRegistry.asResource("df11g_bogey"))
             .bogey(df11gBackward.getSize(), DF11GRenderer.Backward::new, testRegistry.asResource("df11g_backward_bogey"))
             .bogey(qjMain.getSize(), QJMainRenderer::new, testRegistry.asResource("qj_bogey"))
+            .bogey(ss3.getSize(), SS3Renderer::new, testRegistry.asResource("ss3_bogey"))
+            .bogey(ss3Backward.getSize(), SS3Renderer.Backward::new, testRegistry.asResource("ss3_backward_bogey"))
             .translationKey("loco_group")
             .submit(testRegistry);
 
@@ -80,12 +91,32 @@ public class AllLocoBogeys {
                     .size(qjMain)
                     .submit(testRegistry);
 
+    public static final BogeyBlockReg<LocoBogeyBlock> ss3Bogey =
+            new BogeyBlockReg<LocoBogeyBlock>("ss3_bogey")
+                    .block(LocoBogeyBlock::new)
+                    .material(Material.METAL)
+                    .materialColor(MaterialColor.PODZOL)
+                    .translationKey("ss3_bogey")
+                    .size(ss3)
+                    .submit(testRegistry);
+
+    public static final BogeyBlockReg<LocoBogeyBlock> ss3BackwardBogey =
+            new BogeyBlockReg<LocoBogeyBlock>("ss3_backward_bogey")
+                    .block(LocoBogeyBlock::new)
+                    .material(Material.METAL)
+                    .materialColor(MaterialColor.PODZOL)
+                    .translationKey("ss3_backward_bogey")
+                    .size(ss3Backward)
+                    .submit(testRegistry);
+
     public static final BlockEntityReg<LocoBogeyEntity> locoBogeyEntity =
             new BlockEntityReg<LocoBogeyEntity>("loco_bogey_entity")
                     .blockEntityType(LocoBogeyEntity::new)
                     .addBlock(() -> df11gBogey.getEntry().get())
                     .addBlock(() -> df11gBackwardBogey.getEntry().get())
                     .addBlock(() -> qjMainBogey.getEntry().get())
+                    .addBlock(() -> ss3Bogey.getEntry().get())
+                    .addBlock(() -> ss3BackwardBogey.getEntry().get())
                     .withRenderer(() -> BogeyBlockEntityRenderer::new)
                     .submit(testRegistry);
 
