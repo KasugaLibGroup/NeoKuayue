@@ -34,11 +34,11 @@ public class ZK6Renderer extends BogeyRenderer {
                 getTransform(ZK6_WHEEL, ms, inInstancedContraption, 2);
 
         if (!inInstancedContraption) ms.pushPose();
-        wheels[0].translate(0, 0.745, 0.918d).rotateX(wheelAngle * 1.09).render(ms, light, vb);
+        wheels[0].translate(0, 0.745, 0.917d).rotateX(wheelAngle * 1.09).render(ms, light, vb);
         if (!inInstancedContraption) ms.popPose();
 
         if (!inInstancedContraption) ms.pushPose();
-        wheels[1].translate(0, 0.745, -0.918d).rotateX(wheelAngle * 1.09).render(ms, light, vb);
+        wheels[1].translate(0, 0.745, -0.917d).rotateX(wheelAngle * 1.09).render(ms, light, vb);
         if (!inInstancedContraption) ms.popPose();
     }
 

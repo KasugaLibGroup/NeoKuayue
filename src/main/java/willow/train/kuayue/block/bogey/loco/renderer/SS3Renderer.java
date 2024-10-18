@@ -43,43 +43,60 @@ public class SS3Renderer extends BogeyRenderer {
         BogeyModelData[] wheels = getTransform(SS3_WHEEL, ms, inInstancedContraption, 3);
 
         if (!inContraption) {
-            frame.rotateY(180).translate(0, 0.225, 0.17).render(ms, light, vb);
+            // 正向转向架未组装架体
+            frame.rotateY(180).translate(0, 0.012, 0).render(ms, light, vb);
 
-            for (int side = -1; side < 2; side++) {
-                if (!inInstancedContraption) ms.pushPose();
-                BogeyModelData wheel = wheels[side + 1];
-                wheel.translate(0, 0.88, ((double) side) * 1.805d)
-                        .rotateX(wheelAngle)
-                        .render(ms, light, vb);
-                if (!inInstancedContraption) ms.popPose();
-            }
+            // 正向转向架未组装轮对
+            if (!inInstancedContraption) ms.pushPose();
+            wheels[0].translate(0, 0.905, -0.01).rotateY(180).render(ms, light, vb);
+            if (!inInstancedContraption) ms.popPose();
+
+            if (!inInstancedContraption) ms.pushPose();
+            wheels[1].translate(0, 0.905, 1.96).rotateY(180).render(ms, light, vb);
+            if (!inInstancedContraption) ms.popPose();
+
+            if (!inInstancedContraption) ms.pushPose();
+            wheels[2].translate(0, 0.905, -2.11).rotateY(180).render(ms, light, vb);
+            if (!inInstancedContraption) ms.popPose();
+
             return;
         }
 
         if (direction == Direction.NORTH || direction == Direction.WEST) {
-            frame.rotateY(180).translate(0, 0.225, 0.17).render(ms, light, vb);
+            // 正向转向架北西方向架体
+            frame.rotateY(180).translate(0, 0.012, 0).render(ms, light, vb);
 
-            for (int side = -1; side < 2; side++) {
-                if (!inInstancedContraption) ms.pushPose();
-                BogeyModelData wheel = wheels[side + 1];
-                wheel.translate(0, 0.88, ((double) side) * 1.805d)
-                        .rotateX(wheelAngle)
-                        .render(ms, light, vb);
-                if (!inInstancedContraption) ms.popPose();
-            }
+            // 正向转向架北西方向轮对
+            if (!inInstancedContraption) ms.pushPose();
+            wheels[0].translate(0, 0.905, -0.01).rotateY(180).rotateX(-wheelAngle).render(ms, light, vb);
+            if (!inInstancedContraption) ms.popPose();
+
+            if (!inInstancedContraption) ms.pushPose();
+            wheels[1].translate(0, 0.905, 1.96).rotateY(180).rotateX(-wheelAngle).render(ms, light, vb);
+            if (!inInstancedContraption) ms.popPose();
+
+            if (!inInstancedContraption) ms.pushPose();
+            wheels[2].translate(0, 0.905, -2.11).rotateY(180).rotateX(-wheelAngle).render(ms, light, vb);
+            if (!inInstancedContraption) ms.popPose();
+
             return;
         }
 
-        frame.translate(0, 0.225, 0.17).render(ms, light, vb);
+        // 正向转向架南东方向架体
+        frame.translate(0, 0.012, 0).render(ms, light, vb);
 
-        for (int side = -1; side < 2; side++) {
-            if (!inInstancedContraption) ms.pushPose();
-            BogeyModelData wheel = wheels[side + 1];
-            wheel.translate(0, 0.88, ((double) side) * 1.805d)
-                    .rotateX(wheelAngle)
-                    .render(ms, light, vb);
-            if (!inInstancedContraption) ms.popPose();
-        }
+        // 正向转向架南东方向轮对
+        if (!inInstancedContraption) ms.pushPose();
+        wheels[0].translate(0, 0.905, 0.01).rotateX(wheelAngle).render(ms, light, vb);
+        if (!inInstancedContraption) ms.popPose();
+
+        if (!inInstancedContraption) ms.pushPose();
+        wheels[1].translate(0, 0.905, 2.11).rotateX(wheelAngle).render(ms, light, vb);
+        if (!inInstancedContraption) ms.popPose();
+
+        if (!inInstancedContraption) ms.pushPose();
+        wheels[2].translate(0, 0.905, -1.96).rotateX(wheelAngle).render(ms, light, vb);
+        if (!inInstancedContraption) ms.popPose();
     }
 
     @Override
@@ -113,43 +130,63 @@ public class SS3Renderer extends BogeyRenderer {
             BogeyModelData frame = getTransform(SS3_FRAME, ms, inInstancedContraption);
             BogeyModelData[] wheels = getTransform(SS3_WHEEL, ms, inInstancedContraption, 3);
 
+            // 反向转向架未组装
             if (!inContraption) {
-                frame.translate(0, 0.225, 0.17).render(ms, light, vb);
-                for (int side = -1; side < 2; side++) {
-                    if (!inInstancedContraption) ms.pushPose();
-                    BogeyModelData wheel = wheels[side + 1];
-                    wheel.translate(0, 0.88, ((double) side) * 1.805d)
-                            .rotateX(wheelAngle)
-                            .render(ms, light, vb);
-                    if (!inInstancedContraption) ms.popPose();
-                }
-                return;
-            }
+                // 未组装架体
+                frame.translate(0, 0.012, 0).render(ms, light, vb);
 
-            if (direction == Direction.NORTH || direction == Direction.WEST) {
-                frame.translate(0, 0.225, 0.17).render(ms, light, vb);
-
-                for (int side = -1; side < 2; side++) {
-                    if (!inInstancedContraption) ms.pushPose();
-                    BogeyModelData wheel = wheels[side + 1];
-                    wheel.translate(0, 0.88, ((double) side) * 1.805d)
-                            .rotateX(-wheelAngle)
-                            .render(ms, light, vb);
-                    if (!inInstancedContraption) ms.popPose();
-                }
-                return;
-            }
-
-            frame.rotateY(180).translate(0, 0.225, 0.17).render(ms, light, vb);
-
-            for (int side = -1; side < 2; side++) {
+                // 未组装轮对
                 if (!inInstancedContraption) ms.pushPose();
-                BogeyModelData wheel = wheels[side + 1];
-                wheel.translate(0, 0.88, ((double) side) * 1.805d)
-                        .rotateX(-wheelAngle)
-                        .render(ms, light, vb);
+                wheels[0].translate(0, 0.905, 0.01).render(ms, light, vb);
                 if (!inInstancedContraption) ms.popPose();
+
+                if (!inInstancedContraption) ms.pushPose();
+                wheels[1].translate(0, 0.905, -1.96).render(ms, light, vb);
+                if (!inInstancedContraption) ms.popPose();
+
+                if (!inInstancedContraption) ms.pushPose();
+                wheels[2].translate(0, 0.905, 2.115).render(ms, light, vb);
+                if (!inInstancedContraption) ms.popPose();
+                return;
             }
+
+            // 反向转向架北西方向已组装
+            if (direction == Direction.NORTH || direction == Direction.WEST) {
+                // 北西方向已组装架体
+                frame.translate(0, 0.012, 0).render(ms, light, vb);
+
+                // 北西方向已组装轮对
+                if (!inInstancedContraption) ms.pushPose();
+                wheels[0].translate(0, 0.905, 0.01).rotateX(-wheelAngle).render(ms, light, vb);
+                if (!inInstancedContraption) ms.popPose();
+
+                if (!inInstancedContraption) ms.pushPose();
+                wheels[1].translate(0, 0.905, -1.96).rotateX(-wheelAngle).render(ms, light, vb);
+                if (!inInstancedContraption) ms.popPose();
+
+                if (!inInstancedContraption) ms.pushPose();
+                wheels[2].translate(0, 0.905, 2.115).rotateX(-wheelAngle).render(ms, light, vb);
+                if (!inInstancedContraption) ms.popPose();
+
+                return;
+            }
+
+            // 反向转向架南东方向已组装
+            // 南东方向已组装架体
+            frame.rotateY(180).translate(0, 0.012, 0).render(ms, light, vb);
+
+            // 南东方向已组装轮对
+            if (!inInstancedContraption) ms.pushPose();
+            wheels[0].translate(0, 0.905, -0.01).rotateX(-wheelAngle).render(ms, light, vb);
+            if (!inInstancedContraption) ms.popPose();
+
+            if (!inInstancedContraption) ms.pushPose();
+            wheels[1].translate(0, 0.905, -2.115).rotateX(-wheelAngle).render(ms, light, vb);
+            if (!inInstancedContraption) ms.popPose();
+
+            if (!inInstancedContraption) ms.pushPose();
+            wheels[2].translate(0, 0.905, 1.955).rotateX(-wheelAngle).render(ms, light, vb);
+            if (!inInstancedContraption) ms.popPose();
         }
 
         @Override
