@@ -118,5 +118,13 @@ public class CM1Panel {
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
 
+    public static final PanelRegistration<TrainOpenableWindowBlock> WINDOW_LARGE_JY30 =
+            new PanelRegistration<TrainOpenableWindowBlock>("window_large_jy30")
+                    .block(p -> new TrainOpenableWindowBlock(p, -1, 1, 2))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueCarriageTab)
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
     public static void invoke(){}
 }
