@@ -210,6 +210,8 @@
   "block.kuayue.end_face_m1": "M1客车端面",
   "block.kuayue.general_carport_m1": "M1客车通用车顶",
   "block.kuayue.middle_carport_m1": "M1客车中间车顶",
+  "block.kuayue.air_vent_carport_m1": "M1客车通风口车顶",
+  "block.kuayue.window_large_jy30": "JY30客车大窗",
 
   "block.kuayue.train_diet_1": "火车盒饭",
   "block.kuayue.kua_cola": "跨可乐",
