@@ -110,6 +110,14 @@ public class CM1Panel {
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
 
+    public static final SlabRegistration<TrainSlabBlock> AIR_VENT_CARPORT_M1 =
+            new SlabRegistration<TrainSlabBlock>("air_vent_carport_m1")
+                    .block(p -> new TrainSlabBlock(p, true))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueCarriageTab)
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
     public static final SlabRegistration<TrainSlabBlock> MIDDLE_CARPORT_M1 =
             new SlabRegistration<TrainSlabBlock>("middle_carport_m1")
                     .block(p -> new TrainSlabBlock(p, true))

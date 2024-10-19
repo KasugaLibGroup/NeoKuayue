@@ -1,0 +1,7 @@
+{
+  "loader": "kasuga_lib:bedrock_model",
+  "model": "kuayue:block/carriage/carriage_m1/carport/m1_air_vent_carport",
+  "texture": "kuayue:block/carriage/carriage_m1/m1_air_vent_carport",
+  "render_type": "translucent",
+  "particle": "kuayue:block/carriage/carriage_m1/m1_air_vent_carport"
+}
