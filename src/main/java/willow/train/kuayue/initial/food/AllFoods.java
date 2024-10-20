@@ -91,6 +91,27 @@ public class AllFoods {
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
 
+    public static final ItemReg<HandHeldFoodItem> CALCIUM_MILK_BISCUITS =
+            new ItemReg<HandHeldFoodItem>("calcium_milk_biscuits")
+                    .itemType(HandHeldFoodItem::new)
+                    .withProperty(properties -> properties.food(SMALL_SNACKS_PROPS))
+                    .tab(AllElements.neoKuayueDietTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final ItemReg<HandHeldFoodItem> SPICY_FISH_TOFU =
+            new ItemReg<HandHeldFoodItem>("spicy_fish_tofu")
+                    .itemType(HandHeldFoodItem::new)
+                    .withProperty(properties -> properties.food(SMALL_SNACKS_PROPS))
+                    .tab(AllElements.neoKuayueDietTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final ItemReg<HandHeldFoodItem> SALT_BAKED_DRUMSTICKS =
+            new ItemReg<HandHeldFoodItem>("salt_baked_drumsticks")
+                    .itemType(HandHeldFoodItem::new)
+                    .withProperty(properties -> properties.food(SMALL_SNACKS_PROPS))
+                    .tab(AllElements.neoKuayueDietTab)
+                    .submit(AllElements.testRegistry);
+
     public static void invoke() {
         AllEffects.invoke();
         AllFoodProperties.invoke();

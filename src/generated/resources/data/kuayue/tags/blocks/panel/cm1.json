@@ -1,7 +1,7 @@
 {
   "values": [
     "kuayue:floor_m1",
-    "kuayue:bottom_slab_m1",
+    "kuayue:slab_bottom_m1",
     "kuayue:window_large_m1",
     "kuayue:window_large_between_m1",
     "kuayue:window_small_m1",
@@ -9,9 +9,11 @@
     "kuayue:door_m1",
     "kuayue:ladder_m1",
     "kuayue:end_face_m1",
-    "kuayue:general_carport_m1",
-    "kuayue:air_vent_carport_m1",
-    "kuayue:middle_carport_m1",
-    "kuayue:window_large_jy30"
+    "kuayue:carport_general_m1",
+    "kuayue:carport_air_vent_m1",
+    "kuayue:carport_middle_m1",
+    "kuayue:window_large_jy30",
+    "kuayue:window_large_between_jy30",
+    "kuayue:slab_bottom_jy30"
   ]
 }

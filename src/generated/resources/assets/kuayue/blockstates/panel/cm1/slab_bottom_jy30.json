@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayue:block/carriage/carriage_m1/jy30_bottom_slab",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "kuayue:block/carriage/carriage_m1/jy30_bottom_slab",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "kuayue:block/carriage/carriage_m1/jy30_bottom_slab",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "kuayue:block/carriage/carriage_m1/jy30_bottom_slab",
+      "y": 90
+    }
+  }
+}
