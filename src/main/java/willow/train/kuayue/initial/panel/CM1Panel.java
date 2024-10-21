@@ -102,6 +102,18 @@ public class CM1Panel {
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
 
+    public static final PanelRegistration<MeterCarriageEndFaceBlock> END_FACE_MIDDLE_M1 =
+            new PanelRegistration<MeterCarriageEndFaceBlock>("end_face_middle_m1")
+                    .block(properties -> new MeterCarriageEndFaceBlock(
+                            properties, TrainPanelProperties.DoorType.SLIDE,
+                            "carriage/carriage_m1/end_face/m1_middle_end_face_door",
+                            null,
+                            "carriage/carriage_m1/end_face/m1_middle_end_face_frame"))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueCarriageTab)
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
     public static final SlabRegistration<TrainSlabBlock> GENERAL_CARPORT_M1 =
             new SlabRegistration<TrainSlabBlock>("carport_general_m1")
                     .block(p -> new TrainSlabBlock(p, true))

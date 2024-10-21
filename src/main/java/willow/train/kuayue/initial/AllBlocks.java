@@ -17,6 +17,8 @@ import willow.train.kuayue.block.structure.platform.PlatformWallBlock;
 import willow.train.kuayue.initial.panel.*;
 import willow.train.kuayue.initial.registration.PanelRegistration;
 
+import static willow.train.kuayue.initial.panel.CM1Panel.END_FACE_MIDDLE_M1;
+
 public class AllBlocks {
 
     public static final BlockReg<Block> CR_LOGO =
@@ -163,6 +165,13 @@ public class AllBlocks {
                     .blockEntityType(DoubleDoorEntity::new)
                     .withRenderer(() -> DoubleDoorRenderer::new)
                     .addBlock(PLATFORM_DOOR.block)
+                    .submit(AllElements.testRegistry);
+
+    public static final BlockEntityReg<SingleSlidingDoorEntity> SINGLE_SLIDING_DOOR_ENTITY =
+            new BlockEntityReg<SingleSlidingDoorEntity>("single_sliding_door")
+                    .blockEntityType(SingleSlidingDoorEntity::new)
+                    .withRenderer(() -> SingleSlidingDoorRenderer::new)
+                    .addBlock(END_FACE_MIDDLE_M1.block)
                     .submit(AllElements.testRegistry);
 
     public static final BlockEntityReg<SeatBlockEntity> SEAT_BLOCK_ENTITY =
