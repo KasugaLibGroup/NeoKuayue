@@ -102,15 +102,15 @@ public class EditableTypeConstants {
     };
 
     public static final SignRenderLambda CARRIAGE_NO_SIGN = (blockEntity, partialTick, poseStack, bufferSource, packedLight, packedOverlay) -> {
-        System.out.println("车厢编号渲染方法");
+        // System.out.println("车厢编号渲染方法");
     };
 
     public static final SignRenderLambda LAQUERED_BOARD_SIGN = (blockEntity, partialTick, poseStack, bufferSource, packedLight, packedOverlay) -> {
-        System.out.println("水牌渲染方法");
+        // System.out.println("水牌渲染方法");
     };
 
     public static final SignRenderLambda TRAIN_SPEED_SIGN = (blockEntity, partialTick, poseStack, bufferSource, packedLight, packedOverlay) -> {
-        System.out.println("速度等级渲染方法");
+        // System.out.println("速度等级渲染方法");
     };
 
     public static final DefaultTextsLambda CARRIAGE_TYPE_SIGN_MESSAGES = new DefaultTextsLambda() {

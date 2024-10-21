@@ -175,6 +175,14 @@ public class C25KPanel {
                     .tab(AllElements.neoKuayueCarriageTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
+
+    public static final PanelRegistration<TrainHingePanelBlock> PANEL_SYMBOL_MARSHALLED_25K_B =
+            new PanelRegistration<TrainHingePanelBlock>("panel_symbol_marshalled_25k_b")
+                    .block(p -> new TrainHingePanelBlock(p, new Vec2(0, 0), new Vec2(1, 1)))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueCarriageTab )
+                    .noOcclusion()
+                    .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainPanelBlock> PANEL_TOP_25K =
             new PanelRegistration<TrainPanelBlock>("panel_top_25k")
                     .block(p -> new TrainPanelBlock(p, new Vec2(0, 0), new Vec2(1, 1)))
