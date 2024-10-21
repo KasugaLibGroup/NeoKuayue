@@ -11,7 +11,6 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import willow.train.kuayue.utils.client.RenderablePicture;
 
 @OnlyIn(Dist.CLIENT)
 public class ImageButton extends Button {

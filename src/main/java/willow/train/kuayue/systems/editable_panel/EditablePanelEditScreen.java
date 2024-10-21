@@ -15,7 +15,6 @@ import willow.train.kuayue.block.panels.base.TrainPanelProperties;
 import willow.train.kuayue.block.panels.block_entity.EditablePanelEntity;
 import willow.train.kuayue.initial.ImageInit;
 import willow.train.kuayue.systems.editable_panel.widget.ImageButton;
-import willow.train.kuayue.utils.client.RenderablePicture;
 
 import java.util.Locale;
 import java.util.Objects;

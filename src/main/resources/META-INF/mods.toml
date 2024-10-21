@@ -44,6 +44,6 @@ description='''
 [[dependencies.kuayue]]
     modId="kasuga_lib"
     mandatory=true
-    versionRange="[0.16,)"
+    versionRange="[0.19,)"
     ordering="NONE"
     side="BOTH"
