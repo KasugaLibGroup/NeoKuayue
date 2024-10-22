@@ -96,7 +96,7 @@ public class CM1Panel {
             new PanelRegistration<MeterCarriageEndFaceBlock>("end_face_m1")
                     .block(properties ->
                             new MeterCarriageEndFaceBlock(
-                                    properties, TrainPanelProperties.DoorType.NO_DOOR))
+                                    properties, TrainPanelProperties.DoorType.NO_DOOR, true))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab)
                     .noOcclusion()
@@ -108,7 +108,7 @@ public class CM1Panel {
                             properties, TrainPanelProperties.DoorType.SLIDE,
                             "carriage/carriage_m1/end_face/m1_middle_end_face_door",
                             null,
-                            "carriage/carriage_m1/end_face/m1_middle_end_face_frame"))
+                            "carriage/carriage_m1/end_face/m1_middle_end_face_frame", false))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab)
                     .noOcclusion()

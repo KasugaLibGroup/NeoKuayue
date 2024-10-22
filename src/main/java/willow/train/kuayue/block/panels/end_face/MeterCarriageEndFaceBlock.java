@@ -20,32 +20,38 @@ import willow.train.kuayue.initial.AllBlocks;
 
 public class MeterCarriageEndFaceBlock extends CustomRenderedEndfaceBlock {
 
-    public MeterCarriageEndFaceBlock(Properties properties, TrainPanelProperties.DoorType doorType) {
+    private final boolean isOutside;
+
+    public MeterCarriageEndFaceBlock(Properties properties, TrainPanelProperties.DoorType doorType, boolean isOutside) {
         super(properties, doorType, (PartialModel) null, null, null);
+        this.isOutside = isOutside;
     }
 
     public MeterCarriageEndFaceBlock(Properties properties, TrainPanelProperties.DoorType doorType,
-                                     String leftModel, String frameModel) {
-        super(properties, doorType, leftModel, null, frameModel);
-    }
-
-    public MeterCarriageEndFaceBlock(Properties properties, TrainPanelProperties.DoorType doorType,
-                                     String leftModel, String rightModel, String frameModel) {
+                                     String leftModel, String rightModel, String frameModel, boolean isOutside) {
         super(properties, doorType, leftModel, rightModel, frameModel);
+        this.isOutside = isOutside;
     }
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-
-        return EndFaceShapes.getEndFaceShape(
-                pState.getValue(FACING).getOpposite(),
-                        DOOR_TYPE, pState.getValue(OPEN))
-                .move(0, 0.5, 0);
+        if (this.isOutside)
+            return EndFaceShapes.getEndFaceShape(
+                            pState.getValue(FACING).getOpposite(),
+                            DOOR_TYPE, pState.getValue(OPEN)).move(0, 0.5, 0);
+        return EndFaceShapes.getInsideEndFaceCloseShape(
+                        pState.getValue(FACING).getOpposite()).move(0, 0.5, 0);
     }
 
     @Override
     public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return getShape(pState, pLevel, pPos, pContext);
+        if (this.isOutside)
+            return EndFaceShapes.getEndFaceShape(
+                    pState.getValue(FACING).getOpposite(),
+                    DOOR_TYPE, pState.getValue(OPEN)).move(0, 0.5, 0);
+        return EndFaceShapes.getInsideEndFaceShape(
+                pState.getValue(FACING).getOpposite(),
+                pState.getValue(OPEN)).move(0, 0.5, 0);
     }
 
     @Override

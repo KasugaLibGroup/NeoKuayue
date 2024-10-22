@@ -138,6 +138,42 @@ public class EndFaceShapes {
                     Block.box(14, 1, 15, 15, 18, 16.25),
                     Block.box(14, 1, 20.75, 15, 18, 22));
 
+    protected static final VoxelShape M1_INSIDE_NORTH_AABB_OPEN =
+            Shapes.or(
+                    Block.box(16, -16, -1, 31, 21, 1),
+                    Block.box(-15, -16, -1, 0, 21, 1),
+                    Block.box(0, 18, -1, 16, 21, 1));
+
+    protected static final VoxelShape M1_INSIDE_WEST_AABB_OPEN =
+            Shapes.or(
+                    Block.box(-1, -16, -15, 1, 21, 0),
+                    Block.box(-1, -16, 16, 1, 21, 31),
+                    Block.box(-1, 18, 0, 1, 21, 16));
+
+    protected static final VoxelShape M1_INSIDE_SOUTH_AABB_OPEN =
+            Shapes.or(
+                    Block.box(-15, -16, 15, 0, 21, 17),
+                    Block.box(16, -16, 15, 31, 21, 17),
+                    Block.box(0, 18, 15, 16, 21, 17));
+
+    protected static final VoxelShape M1_INSIDE_EAST_AABB_OPEN =
+            Shapes.or(
+                    Block.box(15, -16, 16, 17, 21, 31),
+                    Block.box(15, -16, -15, 17, 21, 0),
+                    Block.box(15, 18, 0, 17, 21, 16));
+
+    protected static final VoxelShape M1_INSIDE_NORTH_AABB =
+            Block.box(-15, -16, -1, 31, 21, 1);
+
+    protected static final VoxelShape M1_INSIDE_WEST_AABB =
+            Block.box(-1, -16, -15, 1, 21, 31);
+
+    protected static final VoxelShape M1_INSIDE_SOUTH_AABB =
+            Block.box(-15, -16, 15, 31, 21, 17);
+
+    protected static final VoxelShape M1_INSIDE_EAST_AABB =
+            Block.box(15, -16, -15, 17, 21, 31);
+
     protected static final VoxelShape BG_NORTH_AABB =
             Shapes.or(
                     Block.box(-16, -16, -1, 32, 21, 1),
@@ -292,5 +328,31 @@ public class EndFaceShapes {
                 default -> KT_EAST_AABB;
             };
         }
+    }
+
+    public static VoxelShape getInsideEndFaceShape(Direction direction, boolean open) {
+        // 关
+        if (!open) {
+            return getInsideEndFaceCloseShape(direction);
+        }
+        // 开
+        return switch (direction) {
+            case NORTH -> M1_INSIDE_NORTH_AABB_OPEN;
+            case WEST -> M1_INSIDE_WEST_AABB_OPEN;
+            case SOUTH -> M1_INSIDE_SOUTH_AABB_OPEN;
+            case EAST -> M1_INSIDE_EAST_AABB_OPEN;
+            default -> M1_INSIDE_NORTH_AABB_OPEN;
+        };
+    }
+
+    public static VoxelShape getInsideEndFaceCloseShape(Direction direction) {
+        // 关
+        return switch (direction) {
+            case NORTH -> M1_INSIDE_NORTH_AABB;
+            case WEST -> M1_INSIDE_WEST_AABB;
+            case EAST -> M1_INSIDE_EAST_AABB;
+            case SOUTH -> M1_INSIDE_SOUTH_AABB;
+            default -> M1_INSIDE_NORTH_AABB;
+        };
     }
 }
