@@ -27,7 +27,7 @@ public class RZSeatBlock extends SeatBlock implements IWrenchable {
     private final VoxelShape eastShape;
 
     public RZSeatBlock(@NotNull Properties settings) {
-        super(settings.noOcclusion(), DyeColor.BLUE, true);
+        super(settings.noOcclusion(), DyeColor.BLUE);
         // Preventing lag
         this.northShape = makeNorthShape();
         this.southShape = makeSouthShape();

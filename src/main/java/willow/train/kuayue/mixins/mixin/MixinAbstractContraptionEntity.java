@@ -45,7 +45,7 @@ public abstract class MixinAbstractContraptionEntity {
     public int doIndexOf(List instance, Object o) {
         BlockPos pos = (BlockPos) o;
         StructureTemplate.StructureBlockInfo info = contraption.getBlocks().get(pos);
-        if (info.state.getBlock() instanceof YZSeatBlock && info.state.is(AllTags.MULTI_SEAT_BLOCK.tag())) {
+        if (info.state().getBlock() instanceof YZSeatBlock && info.state().is(AllTags.MULTI_SEAT_BLOCK.tag())) {
             return -1;
         }
         return instance.indexOf(o);
@@ -56,10 +56,10 @@ public abstract class MixinAbstractContraptionEntity {
         BlockPos pos = contraption.getSeatOf(passenger.getUUID());
         if (pos == null) return;
         StructureTemplate.StructureBlockInfo info = contraption.getBlocks().get(pos);
-        if (info.state.getBlock() instanceof YZSeatBlock yzSeatBlock) {
-            if (!info.state.is(AllTags.MULTI_SEAT_BLOCK.tag())) return;
+        if (info.state().getBlock() instanceof YZSeatBlock yzSeatBlock) {
+            if (!info.state().is(AllTags.MULTI_SEAT_BLOCK.tag())) return;
             int seatSize = yzSeatBlock.getSeatSize();
-            CompoundTag tag = info.nbt;
+            CompoundTag tag = info.nbt();
             int index = -1;
             for (int i = 0; i < seatSize; i++) {
                 if (tag.getBoolean("hasSeat" + i)) {
@@ -100,14 +100,14 @@ public abstract class MixinAbstractContraptionEntity {
                 .add(VecHelper.getCenterOf(BlockPos.ZERO))
                 .subtract(0.5, ySize, 0.5);
         StructureTemplate.StructureBlockInfo info = contraption.getBlocks().get(seat);
-        if (!(info.state.getBlock() instanceof YZSeatBlock seatBlock)) {
+        if (!(info.state().getBlock() instanceof YZSeatBlock seatBlock)) {
             return transformedVector;
         }
-        if (!info.state.is(AllTags.MULTI_SEAT_BLOCK.tag()))
+        if (!info.state().is(AllTags.MULTI_SEAT_BLOCK.tag()))
             return transformedVector;
         int seatSize = seatBlock.getSeatSize();
-        int index = -1; CompoundTag tag = info.nbt;
-        if (passenger.level.isClientSide) {
+        int index = -1; CompoundTag tag = info.nbt();
+        if (passenger.level().isClientSide) {
             BlockEntity entity = contraption.presentBlockEntities.get(seat);
             if (entity instanceof SeatBlockEntity seatBlockEntity) {
                 tag = seatBlockEntity.writeSeatData();
@@ -120,7 +120,7 @@ public abstract class MixinAbstractContraptionEntity {
             }
         }
         if (index == -1) return transformedVector;
-        Vec3 offset = seatBlock.getOffset(info.state, index);
+        Vec3 offset = seatBlock.getOffset(info.state(), index);
         offset = offset.yRot((float) - Math.toRadians(getStalledAngle() - 90));
         return transformedVector.subtract(offset);
     }

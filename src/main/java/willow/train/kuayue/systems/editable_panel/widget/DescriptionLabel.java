@@ -5,6 +5,7 @@ import kasuga.lib.core.client.render.SimpleColor;
 import kasuga.lib.core.client.render.texture.Vec2f;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 
 public class DescriptionLabel extends TooltipLabel {
@@ -69,8 +70,7 @@ public class DescriptionLabel extends TooltipLabel {
         }
     }
 
-    @Override
-    public void renderGuiBg(PoseStack poseStack, int minX, int minY, int maxX, int maxY, int bgColor, int borderColor) {}
+    public void renderGuiBg(GuiGraphics guiGraphics, int minX, int minY, int maxX, int maxY, int bgColor, int borderColor) {}
 
     /**
      * Don't use. Use {@link DescriptionLabel#setDescriptionOnClick(OnClick)} instead.

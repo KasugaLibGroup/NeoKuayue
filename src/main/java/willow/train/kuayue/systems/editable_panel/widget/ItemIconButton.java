@@ -4,6 +4,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.entity.ItemRenderer;
@@ -11,6 +12,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import willow.train.kuayue.Kuayue;
+
+import java.util.function.Supplier;
 
 public class ItemIconButton extends Button {
 
@@ -37,7 +40,7 @@ public class ItemIconButton extends Button {
             OnPress pOnPress,
             int x_offset,
             int y_offset) {
-        super(pX, pY, 20, 20, Component.empty(), pOnPress);
+        super(pX, pY, 20, 20, Component.empty(), pOnPress, Supplier::get);
         this.icon = icon;
         this.x_offset = x_offset;
         this.y_offset = y_offset;
@@ -45,16 +48,16 @@ public class ItemIconButton extends Button {
     }
 
     public void toggle() {
-        if (!toggled) this.x -= 20;
+        if (!toggled) this.setX(this.getX() - 20);
         this.toggled = true;
     }
 
     public void reset() {
-        if (toggled) this.x += 20;
+        if (toggled) this.setX(this.getX() + 20);
         this.toggled = false;
     }
 
-    public void render(PoseStack pPoseStack, int mouseX, int mouseY, float partialTicks) {
+    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
         if (!visible) return;
 
         Minecraft mc = Minecraft.getInstance();
@@ -74,21 +77,17 @@ public class ItemIconButton extends Button {
 
         Font font = Minecraft.getInstance().font;
 
-        int x = this.x;
-        int y = this.y;
+        int x = this.getX();
+        int y = this.getY();
 
         if (toggled) {
             this.drawTexture(x, y, 0, 0, 40, 20);
-            font.draw(pPoseStack, message, x + 20, y + y_offset + 3, 0x4699FF);
+            guiGraphics.drawString(Minecraft.getInstance().font, message, x + 20, y + y_offset + 3, 0x4699FF);
         } else {
             this.drawTexture(x, y, 0, 0, 20, 20);
         }
 
-        ItemRenderer renderer = mc.getItemRenderer();
-        renderer.blitOffset = 100.0F;
-        renderer.renderAndDecorateItem(this.icon, x + x_offset, y + y_offset);
-        renderer.renderGuiItemDecorations(mc.font, this.icon, x + x_offset, y + y_offset);
-        renderer.blitOffset = 0.0F;
+        guiGraphics.renderItem(this.icon, x + x_offset, y + y_offset);
     }
 
     private void drawTexture(int x, int y, int textureX, int textureY, int width, int height) {

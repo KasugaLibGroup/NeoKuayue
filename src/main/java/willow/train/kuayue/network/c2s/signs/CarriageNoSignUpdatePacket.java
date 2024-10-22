@@ -37,7 +37,7 @@ public class CarriageNoSignUpdatePacket implements KuayuePacket {
     public boolean handle(NetworkEvent.Context var1) {
         var1.enqueueWork(
                 () -> {
-                    ServerLevel level = var1.getSender().getLevel();
+                    ServerLevel level = (ServerLevel) var1.getSender().level();
                     BlockEntity entity = level.getBlockEntity(pos);
                     if (entity == null) {
                         return;

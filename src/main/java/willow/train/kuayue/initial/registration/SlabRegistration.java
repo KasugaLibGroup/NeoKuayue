@@ -8,8 +8,7 @@ import kasuga.lib.registrations.common.ItemReg;
 import kasuga.lib.registrations.registry.SimpleRegistry;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 import willow.train.kuayue.block.panels.slab.TrainSlabBlock;
 import willow.train.kuayue.item.SlabBlockItem;
 
@@ -23,8 +22,8 @@ public class SlabRegistration<T extends TrainSlabBlock> extends PanelRegistratio
         item.itemType(p -> new SlabBlockItem(block.getBlock(), p));
     }
     
-    public SlabRegistration<T> materialAndColor(Material material, MaterialColor materialColor) {
-        block.material(material).materialColor(materialColor);
+    public SlabRegistration<T> materialAndColor(MapColor materialColor) {
+        block.materialColor(materialColor);
         return this;
     }
 

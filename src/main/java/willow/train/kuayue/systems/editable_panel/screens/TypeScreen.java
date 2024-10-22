@@ -6,10 +6,10 @@ import kasuga.lib.core.client.render.texture.ImageMask;
 import kasuga.lib.core.util.LazyRecomputable;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
-import net.minecraft.client.gui.GuiComponent;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.EditBox;
-import net.minecraft.client.gui.components.Widget;
+import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.core.BlockPos;
@@ -73,7 +73,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
             nbt.putBoolean("revert", this.revert);
             TransparentEditBox[] boxes = new TransparentEditBox[5];
             int counter = 0;
-            for (Widget widget : getWidgets()) {
+            for (Renderable widget : getCustomWidgets()) {
                 if (widget instanceof TransparentEditBox box) {
                     boxes[counter] = box;
                     counter++;
@@ -93,7 +93,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
 
     public void buttonsInit() {
         titleLabel = new Label(Component.translatable("tooltip.kuayue.type_screen.title"));
-        addWidget(titleLabel);
+        addCustomWidget(titleLabel);
 
         mirrorBtn = new ImageButton(mirrotBtnImage, 0, 0, 16, 16, Component.empty(), b -> {
             revert = !revert;
@@ -106,12 +106,12 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         editBar.onCancelClick((w, x, y) -> editBar.visible = false);
         editBar.visible = false;
 
-        addWidget(cancelBtn);
-        addWidget(confirmBtn);
-        addWidget(editBar);
-        addWidget(mirrorBtn);
-        addWidget(colorEditor.getColorBtn());
-        addWidget(colorEditor.getTemplateBtn());
+        addCustomWidget(cancelBtn);
+        addCustomWidget(confirmBtn);
+        addCustomWidget(editBar);
+        addCustomWidget(mirrorBtn);
+        addCustomWidget(colorEditor.getColorBtn());
+        addCustomWidget(colorEditor.getTemplateBtn());
     }
 
     public void colorEditorInit() {
@@ -136,7 +136,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
             }
         });
         colorEditor.visible = false;
-        addWidget(colorEditor);
+        addCustomWidget(colorEditor);
     }
 
     public void buttonsInnerInit(Font font, float textScaleFactor, float size0,
@@ -176,33 +176,33 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
 
         basicX += revert ? (labelW - size1) *.9f : 0;
 
-        addWidget(new TransparentEditBox(font, basicX, basicY,
+        addCustomWidget(new TransparentEditBox(font, basicX, basicY,
                 font.width(values[0]), height, 0.13f * textScaleFactor, 0.18f * textScaleFactor,
                 Component.empty(), values[0], color));
 
         basicX -= (size1 - size0) / 2;
         basicY += height * 0.18f * textScaleFactor;
 
-        addWidget(new TransparentEditBox(font, basicX, basicY,
+        addCustomWidget(new TransparentEditBox(font, basicX, basicY,
                 font.width(values[1]), height, 0.08f * textScaleFactor, 0.08f * textScaleFactor,
                 Component.empty(), values[1], color));
 
         basicX += revert ? (- (size2 + size3 + size1 * 0.05) - (size4 + size3 * 0.4 + 20) + 20) : size1 * 1.05;
         basicY -= 23;
 
-        addWidget(new TransparentEditBox(font, basicX, basicY,
+        addCustomWidget(new TransparentEditBox(font, basicX, basicY,
                 font.width(values[2]), height, 0.23f * textScaleFactor, 0.25f * textScaleFactor,
                 Component.empty(), values[2], color));
 
         basicX += size2;
         basicY += textScaleFactor * height * 0.13f;
-        addWidget(new TransparentEditBox(font, basicX, basicY,
+        addCustomWidget(new TransparentEditBox(font, basicX, basicY,
                 font.width(values[3]), height, 0.12f * textScaleFactor, 0.12f * textScaleFactor,
                 Component.empty(), values[3], color));
 
         basicX += size3 * 1.4;
         basicY -= textScaleFactor * height * 0.13f;
-        addWidget(new TransparentEditBox(font, basicX, basicY,
+        addCustomWidget(new TransparentEditBox(font, basicX, basicY,
                 font.width(values[4]), height, 0.26f * textScaleFactor, 0.3f * textScaleFactor,
                 Component.empty(), values[4], color));
     }
@@ -212,7 +212,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         int counter = 0;
         int focus = -1;
         int focusIndex = -1;
-        for (Widget w : getWidgets()) {
+        for (Renderable w : getCustomWidgets()) {
             if (!(w instanceof TransparentEditBox box)) continue;
             values[counter] = box.getValue();
             if (box.isFocused()){
@@ -223,14 +223,14 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         }
         clearWidgets();
 
-        addWidget(cancelBtn);
-        addWidget(confirmBtn);
-        addWidget(titleLabel);
-        addWidget(editBar);
-        addWidget(mirrorBtn);
-        addWidget(colorEditor);
-        addWidget(colorEditor.getColorBtn());
-        addWidget(colorEditor.getTemplateBtn());
+        addCustomWidget(cancelBtn);
+        addCustomWidget(confirmBtn);
+        addCustomWidget(titleLabel);
+        addCustomWidget(editBar);
+        addCustomWidget(mirrorBtn);
+        addCustomWidget(colorEditor);
+        addCustomWidget(colorEditor.getColorBtn());
+        addCustomWidget(colorEditor.getTemplateBtn());
 
         clearLabels();
         Font font = Minecraft.getInstance().font;
@@ -238,29 +238,28 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         int color = getScreen().getMenu().getEditablePanelEntity().getColor();
         innerInit(values, color, font, revert);
         if (focus > -1 && focusIndex > -1) {
-            Widget w = getWidgets().get(focus);
+            Renderable w = getCustomWidgets().get(focus);
             if (!(w instanceof TransparentEditBox box)) return;
-            box.setFocus(true);
+            box.setFocused(true);
             box.setCursorPosition(focusIndex);
         }
     }
 
     @Override
-    public void render(PoseStack pose, int mouseX, int mouseY, float partial) {
-        super.render(pose, mouseX, mouseY, partial);
+    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partial) {
+        super.render(guiGraphics, mouseX, mouseY, partial);
     }
 
     @Override
-    public void mouseClicked(double mouseX, double mouseY, int btn) {
-        for (Widget widget : getWidgets()) {
-            if (!(widget instanceof GuiEventListener listener)) continue;
-            if (!listener.isMouseOver(mouseX, mouseY)) continue;
+    public boolean mouseClicked(double mouseX, double mouseY, int btn) {
+        for (Renderable widget : getCustomWidgets()) {
+            if (!(widget instanceof GuiEventListener listener) || !listener.isMouseOver(mouseX, mouseY)) continue;
             if (listener instanceof AbstractWidget widget1 && !widget1.visible) continue;
             if (listener instanceof ColorScreen cs && !cs.getVisible()) continue;
             if (listener instanceof GetShareTemplateScreen screen && !screen.isVisible()) continue;
-            if (widget instanceof TransparentEditBox box) {
-                editBar.setPosition(box.x + ((int) ((float) box.getWidth() * box.getScaleX()) - 200) / 2,
-                        box.y + (int) ((float) box.getHeight() * box.getScaleY()) + 2);
+            if (listener instanceof TransparentEditBox box) {
+                editBar.setPosition(box.getX() + ((int) ((float) box.getWidth() * box.getScaleX()) - 200) / 2,
+                        box.getY() + (int) ((float) box.getHeight() * box.getScaleY()) + 2);
                 editBar.setText(box.getValue());
                 editBar.onAcceptClick(
                         (w, x, y) -> {
@@ -271,35 +270,34 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
                 );
                 editBar.visible = true;
                 editBar.setFocused(true);
-                return;
+                return true;
             }
-            listener.mouseClicked(mouseX, mouseY, btn);
-            return;
+            return listener.mouseClicked(mouseX, mouseY, btn);
         }
-
+        return false;
     }
 
     @Override
-    public void renderBackGround(PoseStack pose, int mouseX, int mouseY, float partialTick) {
+    public void renderBackGround(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
         if (Minecraft.getInstance().screen == null) return;
         int sW = Minecraft.getInstance().screen.width;
         int sH = Minecraft.getInstance().screen.height;
-        GuiComponent.fill(pose, 0, 0, sW, sH, 0x80000000);
+        guiGraphics.fill(0, 0, sW, sH, 0x80000000);
     }
 
     @Override
-    public void renderTooltip(PoseStack pose, int mouseX, int mouseY) {
+    public void renderTooltip(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 
     }
 
     @Override
-    public void charTyped(char code, int modifier) {
-        super.charTyped(code, modifier);
+    public boolean charTyped(char code, int modifier) {
+        return super.charTyped(code, modifier);
     }
 
     @Override
-    public void keyReleased(int pKeyCode, int pScanCode, int pModifiers) {
-        super.keyReleased(pKeyCode, pScanCode, pModifiers);
+    public boolean keyReleased(int pKeyCode, int pScanCode, int pModifiers) {
+        return super.keyReleased(pKeyCode, pScanCode, pModifiers);
     }
 
     public void setButtonsVisible(boolean visible) {
@@ -314,14 +312,14 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
     }
 
     public void setBoardWidgetVisible(boolean visible) {
-        getWidgets().forEach(w -> {
+        getCustomWidgets().forEach(w -> {
             if (w instanceof TransparentEditBox box) box.visible = visible;
         });
         setButtonsVisible(visible);
     }
 
     public void setTextColor(int color) {
-        getWidgets().forEach(w -> {
+        getCustomWidgets().forEach(w -> {
             if (w instanceof TransparentEditBox box) box.setTextColor(color);
         });
     }

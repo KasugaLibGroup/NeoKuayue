@@ -1,14 +1,15 @@
 package willow.train.kuayue.systems.editable_panel.screens;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
 import kasuga.lib.core.client.render.SimpleColor;
 import kasuga.lib.core.client.render.texture.ImageMask;
 import kasuga.lib.core.client.render.texture.Vec2f;
 import kasuga.lib.core.util.LazyRecomputable;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.Component;
+import org.joml.Vector3f;
 import willow.train.kuayue.initial.AllPackets;
 import willow.train.kuayue.initial.ClientInit;
 import willow.train.kuayue.network.c2s.ColorTemplateC2SPacket;
@@ -87,8 +88,8 @@ public class ColorTemplateScreen extends AbstractWidget {
     public void init() {
         ImageMask mask = board.get();
         editScreen.init();
-        px = this.x + this.width / 2f - 192;
-        py = this.y + this.height / 2f - 120;
+        px = this.getX() + this.width / 2f - 192;
+        py = this.getY() + this.height / 2f - 120;
         mask.rectangle(new Vector3f(px, py, 0),
                 ImageMask.Axis.X, ImageMask.Axis.Y, true, true, 384, 240);
         title.setPosition(new Vec2f(px + 60, py + 20));
@@ -154,40 +155,45 @@ public class ColorTemplateScreen extends AbstractWidget {
     }
 
     @Override
-    public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
-        editScreen.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+    public void render(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+        editScreen.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        super.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
     }
 
     @Override
-    public void renderButton(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
+    public void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+        renderButton(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
+    }
+
+
+    public void renderButton(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         board.get().renderToGui();
-        title.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        fill(pPoseStack, title.x, title.y + title.getHeight() + 2,
-                title.x + (int)(title.getWidth() * 1.1f), title.y + title.getHeight() + 4,
+        title.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        guiGraphics.fill(title.getX(), title.getY() + title.getHeight() + 2,
+                title.getX() + (int)(title.getWidth() * 1.1f), title.getY() + title.getHeight() + 4,
                 0xff333333);
-        fill(pPoseStack, title.x + 4, title.y + title.getHeight() + 6,
-                title.x + (int)(title.getWidth() * 0.9f), title.y + title.getHeight() + 8,
+        guiGraphics.fill(title.getX() + 4, title.getY() + title.getHeight() + 6,
+                title.getX() + (int)(title.getWidth() * 0.9f), title.getY() + title.getHeight() + 8,
                 0xff555555);
         for (ColorTemplatesBox temp : temps) {
             if (temp == null) continue;
-            temp.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+            temp.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
         }
 
-        int bY = this.title.y + title.getHeight() + 10;
-        fill(pPoseStack, (int) px + 182, bY, (int) px + 184,
-                (this.title.y + title.getHeight() + 8 + 165), 0xff555555);
+        int bY = this.title.getY() + title.getHeight() + 10;
+        guiGraphics.fill((int) px + 182, bY, (int) px + 184,
+                (this.title.getY() + title.getHeight() + 8 + 165), 0xff555555);
         if (edit == null || cancel == null || confirm == null || delete == null || share == null) return;
-        edit.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        confirm.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        cancel.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        share.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        delete.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        edit.renderWidget(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        confirm.renderWidget(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        cancel.renderWidget(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        share.renderWidget(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        delete.renderWidget(guiGraphics, pMouseX, pMouseY, pPartialTick);
 
         if (data.getTemplates().size() > 4) {
-            int height = (this.title.y + title.getHeight() + 8 + 165) - bY;
+            int height = (this.title.getY() + title.getHeight() + 8 + 165) - bY;
             int yx = bY + (int) ((float) cursor / (float) (data.templates.size() - 3) * (float) height);
-            fill(pPoseStack, (int) px + 180, yx, (int) px + 182,
+            guiGraphics.fill((int) px + 180, yx, (int) px + 182,
                     yx + height / Math.max(1, data.templates.size()- 3), 0xff555555);
         }
 
@@ -202,8 +208,8 @@ public class ColorTemplateScreen extends AbstractWidget {
         titleLabel.setScale(2f, 2f);
         titleLabel.setColor(0xff555555);
         titleLabel.setForceLeftBegin(true);
-        titleLabel.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        fill(pPoseStack, titleLabel.x, bY + titleLabel.getHeight(), titleLabel.x + (titleLabel.getWidth() + 4),
+        titleLabel.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        guiGraphics.fill(titleLabel.getX(), bY + titleLabel.getHeight(), titleLabel.getX() + (titleLabel.getWidth() + 4),
                 bY + titleLabel.getHeight() + 2, 0xff000000);
 
         // RGB
@@ -213,14 +219,14 @@ public class ColorTemplateScreen extends AbstractWidget {
         colorLabel.setWidth(80);
         colorLabel.setPosition(px + 200, bY + 30);
         colorLabel.setColor(0xff000000 + template.getColor());
-        colorLabel.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        colorLabel.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
 
         // description
         DescriptionLabel descriptionLabel = new DescriptionLabel(template.getDocument());
         descriptionLabel.setWidthAndHeight(140, 80);
         descriptionLabel.setPosition(px + 200, bY + 45);
         descriptionLabel.setColor(0xff555555);
-        descriptionLabel.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        descriptionLabel.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
 
         // owner
         DescriptionLabel ownerLabel = new DescriptionLabel(template.getOwner());
@@ -228,7 +234,7 @@ public class ColorTemplateScreen extends AbstractWidget {
         ownerLabel.setPosition(px + 200, bY + 135);
         ownerLabel.setColor(0xff555555);
         ownerLabel.setForceLeftBegin(true);
-        ownerLabel.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        ownerLabel.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
     }
 
     @Override
@@ -292,6 +298,11 @@ public class ColorTemplateScreen extends AbstractWidget {
     }
 
     @Override
+    protected void updateWidgetNarration(NarrationElementOutput pNarrationElementOutput) {
+
+    }
+
+    @Override
     public boolean keyPressed(int pKeyCode, int pScanCode, int pModifiers) {
         if (editScreen.isVisible())
             return editScreen.keyPressed(pKeyCode, pScanCode, pModifiers);
@@ -308,11 +319,6 @@ public class ColorTemplateScreen extends AbstractWidget {
     public void share() {
         if (this.chosen == null) return;
         AllPackets.CHANNEL.sendToServer(new ColorTemplateC2SPacket(chosen.getTemplate()));
-    }
-
-    @Override
-    public void updateNarration(NarrationElementOutput pNarrationElementOutput) {
-
     }
 
     public void onCancelClick(OnClick<ImageButton> clk) {

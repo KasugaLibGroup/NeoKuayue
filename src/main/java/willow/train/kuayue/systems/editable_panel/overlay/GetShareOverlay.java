@@ -2,15 +2,15 @@ package willow.train.kuayue.systems.editable_panel.overlay;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
 import kasuga.lib.core.client.render.texture.ImageMask;
 import kasuga.lib.core.util.LazyRecomputable;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiComponent;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraftforge.client.gui.overlay.ForgeGui;
 import net.minecraftforge.client.gui.overlay.IGuiOverlay;
+import org.joml.Vector3f;
 import willow.train.kuayue.initial.AllKeys;
 import willow.train.kuayue.initial.ClientInit;
 import willow.train.kuayue.systems.editable_panel.ColorTemplate;
@@ -52,7 +52,7 @@ public class GetShareOverlay implements IGuiOverlay {
     }
 
     @Override
-    public void render(ForgeGui gui, PoseStack pose, float partial, int screenWidth, int screenHeight) {
+    public void render(ForgeGui gui, GuiGraphics guiGraphics, float partial, int screenWidth, int screenHeight) {
         if (this.template == null) return;
 
         ImageMask mask = toast.get();
@@ -65,13 +65,13 @@ public class GetShareOverlay implements IGuiOverlay {
             int x = (int) toastPos.x() + 4;
             int y = (int) toastPos.y() + 27;
             int w = (int) (152f * (1 - Math.pow((float) (100 - t) / 100f, 2)));
-            GuiComponent.fill(pose, x, y, x + w, y + 1, 0xffcecece);
+            guiGraphics.fill(x, y, x + w, y + 1, 0xffcecece);
         }
 
         Minecraft minecraft = Minecraft.getInstance();
-        GuiComponent.drawCenteredString(pose, minecraft.font, Component.translatable("tooltip.kuayue.get_share_overlay_toast.title"),
+        guiGraphics.drawCenteredString(minecraft.font, Component.translatable("tooltip.kuayue.get_share_overlay_toast.title"),
                 (int) toastPos.x() + 80, (int) toastPos.y() + 7, 0xffffffff);
-        GuiComponent.drawCenteredString(pose, minecraft.font, Component.translatable("tooltip.kuayue.get_share_overlay_toast.content",
+        guiGraphics.drawCenteredString(minecraft.font, Component.translatable("tooltip.kuayue.get_share_overlay_toast.content",
                         AllKeys.getShareTemplateKey.getMapping().getTranslatedKeyMessage()),
                 (int) toastPos.x() + 80, (int) toastPos.y() + 18, 0xffffffff);
 

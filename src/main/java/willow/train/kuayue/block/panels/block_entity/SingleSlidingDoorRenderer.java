@@ -2,7 +2,7 @@ package willow.train.kuayue.block.panels.block_entity;
 
 import com.jozufozu.flywheel.core.PartialModel;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 import com.simibubi.create.foundation.render.CachedBufferer;
 import com.simibubi.create.foundation.render.SuperByteBuffer;
 import com.simibubi.create.foundation.utility.Couple;
@@ -47,7 +47,7 @@ public class SingleSlidingDoorRenderer implements BlockEntityRenderer<SingleSlid
 
         pose.translate(0.5f, -1f, 0.5f);
         //根据角色朝向旋转建模
-        pose.mulPose(Vector3f.YP.rotationDegrees(f + 90f));
+        pose.mulPose(Axis.YP.rotationDegrees(f + 90f));
 
         //调整门框参数
         if (frame != null) {

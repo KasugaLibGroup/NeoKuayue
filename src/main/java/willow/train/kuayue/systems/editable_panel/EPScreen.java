@@ -2,6 +2,7 @@ package willow.train.kuayue.systems.editable_panel;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
@@ -27,19 +28,19 @@ public class EPScreen extends AbstractContainerScreen<EditablePanelEditMenu> {
     }
 
     @Override
-    public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
-        renderBg(pPoseStack, pPartialTick, pMouseX, pMouseY);
-        subScreen.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+    public void render(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+        renderBg(guiGraphics, pPartialTick, pMouseX, pMouseY);
+        subScreen.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
     }
 
     @Override
-    protected void renderBg(PoseStack pPoseStack, float pPartialTick, int pMouseX, int pMouseY) {
-        subScreen.renderBackGround(pPoseStack, pMouseX, pMouseY, pPartialTick);
+    protected void renderBg(GuiGraphics guiGraphics, float pPartialTick, int pMouseX, int pMouseY) {
+        subScreen.renderBackGround(guiGraphics, pMouseX, pMouseY, pPartialTick);
     }
 
     @Override
-    protected void renderTooltip(PoseStack pPoseStack, int pX, int pY) {
-        subScreen.renderTooltip(pPoseStack, pX, pY);
+    protected void renderTooltip(GuiGraphics guiGraphics, int pX, int pY) {
+        subScreen.renderTooltip(guiGraphics, pX, pY);
     }
 
     @Override
@@ -93,9 +94,9 @@ public class EPScreen extends AbstractContainerScreen<EditablePanelEditMenu> {
     }
 
     @Override
-    public boolean changeFocus(boolean pFocus) {
-        this.subScreen.changeFocus(pFocus);
-        return true;
+    public void setFocused(boolean pFocused) {
+        this.subScreen.setFocused(pFocused);
+        super.setFocused(pFocused);
     }
 
     public void close() {

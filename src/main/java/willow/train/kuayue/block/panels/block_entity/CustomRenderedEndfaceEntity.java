@@ -91,7 +91,7 @@ public class CustomRenderedEndfaceEntity extends SmartBlockEntity implements ICo
 
     @Override
     public void doMovement(Contraption contraption, BlockPos blockPos, BlockState blockState, BlockEntity blockEntity) {
-        ((CustomRenderedEndfaceEntity) blockEntity).setOpen(contraption.getBlocks().get(blockPos).state.getValue(DoorBlock.OPEN));
+        ((CustomRenderedEndfaceEntity) blockEntity).setOpen(contraption.getBlocks().get(blockPos).state().getValue(DoorBlock.OPEN));
         contraption.presentBlockEntities.put(blockPos, blockEntity);
     }
 }

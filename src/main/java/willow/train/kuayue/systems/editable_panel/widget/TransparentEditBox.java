@@ -4,7 +4,7 @@ import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
 import net.minecraft.client.gui.Font;
-import net.minecraft.client.gui.GuiComponent;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
@@ -47,26 +47,27 @@ public class TransparentEditBox extends EditBox {
     }
 
     @Override
-    public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
+    public void render(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         if (!this.visible) return;
-        float x = this.x - scaleX * this.x;
-        float y = this.y - scaleY * this.y;
+        float x = this.getX() - scaleX * this.getX();
+        float y = this.getY() - scaleY * this.getY();
+        PoseStack pPoseStack = guiGraphics.pose();
         pPoseStack.translate(x, y, 0);
         pPoseStack.scale(scaleX, scaleY, 1f);
-        this.isHovered = pMouseX >= this.x && pMouseY >= this.y &&
-                pMouseX < this.x + this.width * scaleX && pMouseY < this.y + this.height * scaleY;
-        this.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        this.isHovered = pMouseX >= this.getX() && pMouseY >= this.getY() &&
+                pMouseX < this.getX() + this.width * scaleX && pMouseY < this.getY() + this.height * scaleY;
+        this.renderButton(guiGraphics, pMouseX, pMouseY, pPartialTick);
         pPoseStack.scale(1 / scaleX, 1 / scaleY, 1f);
         pPoseStack.translate(- x, - y, 0);
     }
 
-    public void renderButton(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
+    public void renderButton(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         AccessorEditBox accessor = (AccessorEditBox) this;
         if (this.isVisible()) {
             if (accessor.getBordered()) {
                 int i = this.isFocused() ? -1 : -6250336;
-                fill(pPoseStack, this.x - 1, this.y - 1, this.x + this.width + 1, this.y + this.height + 1, i);
-                fill(pPoseStack, this.x, this.y, this.x + this.width, this.y + this.height, -16777216);
+                guiGraphics.fill(this.getX() - 1, this.getY() - 1, this.getX() + this.width + 1, this.getY() + this.height + 1, i);
+                guiGraphics.fill(this.getX(), this.getY(), this.getX() + this.width, this.getY() + this.height, -16777216);
             }
 
             int textColor = accessor.getIsEditable() ? accessor.getTextColor() : accessor.getTextColorUneditable();
@@ -75,15 +76,15 @@ public class TransparentEditBox extends EditBox {
             String displayedText = accessor.getFont().plainSubstrByWidth(accessor.getValue().substring(accessor.getDisplayPos()), this.getInnerWidth());
             boolean cursorInBox = headToCursor >= 0 && headToCursor <= displayedText.length();  // 游标是否在框内
             boolean shouldRenderCursor = this.isFocused() && accessor.getFrame() / 6 % 2 == 0 && cursorInBox;  // 是否应当渲染游标
-            int startX = accessor.getBordered() ? this.x + 4 : this.x;
-            int startY = accessor.getBordered() ? this.y + (this.height - 8) / 2 : this.y;
+            int startX = accessor.getBordered() ? this.getX() + 4 : this.getX();
+            int startY = accessor.getBordered() ? this.getY() + (this.height - 8) / 2 : this.getY();
             int lengthBeforeCursor = startX;
             if (headToHighlight > displayedText.length()) {
                 headToHighlight = displayedText.length();
             }
             String textBeforeCursor = cursorInBox ? displayedText.substring(0, headToCursor) : displayedText;
             if (!displayedText.isEmpty()) {
-                lengthBeforeCursor = accessor.getFont().draw(pPoseStack, accessor.getFormatter().apply(textBeforeCursor, accessor.getDisplayPos()), (float) startX, (float) startY, textColor);
+                lengthBeforeCursor = guiGraphics.drawString(accessor.getFont(), accessor.getFormatter().apply(textBeforeCursor, accessor.getDisplayPos()), startX, startY, textColor);
             }
 
             boolean cursorBeforeEnd = accessor.getCursorPos() < accessor.getValue().length() || accessor.getValue().length() >= accessor.getMaxLength();
@@ -96,18 +97,18 @@ public class TransparentEditBox extends EditBox {
             }
 
             if (!displayedText.isEmpty() && cursorInBox && headToCursor < displayedText.length()) {
-                accessor.getFont().draw(pPoseStack, accessor.getFormatter().apply(displayedText.substring(headToCursor), accessor.getCursorPos()), (float) lengthBeforeCursor, (float) startY, textColor);
+                guiGraphics.drawString(accessor.getFont(), accessor.getFormatter().apply(displayedText.substring(headToCursor), accessor.getCursorPos()), lengthBeforeCursor, startY, textColor);
             }
 
             if (!cursorBeforeEnd && accessor.getSuggestion() != null) {
-                accessor.getFont().draw(pPoseStack, accessor.getSuggestion(), (float)(positionAfterCursor - 1), (float) startY, -8355712);
+                guiGraphics.drawString(accessor.getFont(), accessor.getSuggestion(), (positionAfterCursor - 1), startY, -8355712);
             }
 
             if (shouldRenderCursor) {
                 if (cursorBeforeEnd) {
-                    GuiComponent.fill(pPoseStack, positionAfterCursor, startY - 1, positionAfterCursor + 1, startY + 1 + 9, -3092272);
+                    guiGraphics.fill(positionAfterCursor, startY - 1, positionAfterCursor + 1, startY + 1 + 9, -3092272);
                 } else {
-                    accessor.getFont().draw(pPoseStack, "_", (float) positionAfterCursor, (float) startY, textColor);
+                    guiGraphics.drawString(accessor.getFont(), "_", positionAfterCursor, startY, textColor);
                 }
             }
             if (headToHighlight != headToCursor) {
@@ -131,19 +132,19 @@ public class TransparentEditBox extends EditBox {
             pEndY = j;
         }
 
-        if (pEndX > this.x + this.width * scaleX) {
-            pEndX = this.x + (int)(this.width * scaleX);
+        if (pEndX > this.getX() + this.width * scaleX) {
+            pEndX = this.getX() + (int)(this.width * scaleX);
         }
 
-        if (pStartX > this.x + this.width * scaleX) {
-            pStartX = this.x + (int)(this.width * scaleX);
+        if (pStartX > this.getX() + this.width * scaleX) {
+            pStartX = this.getX() + (int)(this.width * scaleX);
         }
 
         Tesselator tesselator = Tesselator.getInstance();
         BufferBuilder bufferbuilder = tesselator.getBuilder();
         RenderSystem.setShader(GameRenderer::getPositionShader);
         RenderSystem.setShaderColor(0.0F, 0.0F, 1.0F, 1.0F);
-        RenderSystem.disableTexture();
+        RenderSystem.disableBlend();
         RenderSystem.enableColorLogicOp();
         RenderSystem.logicOp(GlStateManager.LogicOp.OR_REVERSE);
         bufferbuilder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
@@ -154,7 +155,7 @@ public class TransparentEditBox extends EditBox {
         tesselator.end();
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.disableColorLogicOp();
-        RenderSystem.enableTexture();
+        RenderSystem.enableBlend();
     }
 
     @Override
@@ -163,15 +164,15 @@ public class TransparentEditBox extends EditBox {
         if (!this.isVisible()) {
             return false;
         } else {
-            boolean flag = pMouseX >= this.x && pMouseY >= this.y &&
-                    pMouseX < this.x + this.width * scaleX &&
-                    pMouseY < this.y + this.height * scaleY;
+            boolean flag = pMouseX >= this.getX() && pMouseY >= this.getY() &&
+                    pMouseX < this.getX() + this.width * scaleX &&
+                    pMouseY < this.getY() + this.height * scaleY;
             if (accessor.getCanLoseFocus()) {
-                this.setFocus(flag);
+                this.setFocused(flag);
             }
 
             if (this.isFocused() && flag && pButton == 0) {
-                int position = (int) Math.round((pMouseX - this.x) / scaleX);
+                int position = (int) Math.round((pMouseX - this.getX()) / scaleX);
                 String textBeforePos = accessor.getFont().plainSubstrByWidth(accessor.getValue(), position);
                 setCursorPosition(textBeforePos.length());
                 return true;
@@ -183,12 +184,12 @@ public class TransparentEditBox extends EditBox {
 
     @Override
     public boolean isMouseOver(double pMouseX, double pMouseY) {
-        return pMouseX >= this.x && pMouseY >= this.y &&
-                pMouseX < this.x + this.width * scaleX &&
-                pMouseY < this.y + this.height * scaleY;
+        return pMouseX >= this.getX() && pMouseY >= this.getY() &&
+                pMouseX < this.getX() + this.width * scaleX &&
+                pMouseY < this.getY() + this.height * scaleY;
     }
 
     public void setY(int y) {
-        this.y = y;
+        super.setY(y);
     }
 }

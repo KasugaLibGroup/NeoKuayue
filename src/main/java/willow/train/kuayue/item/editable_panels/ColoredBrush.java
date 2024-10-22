@@ -74,11 +74,4 @@ public class ColoredBrush extends Item {
         float f = Math.max(0.0F, percentage);
         return Mth.hsvToRgb(f / 3.0F, 1.0F, 1.0F);
     }
-
-    @Override
-    public void fillItemCategory(CreativeModeTab group, NonNullList<ItemStack> stacks) {
-        if (this.allowedIn(group)) {
-            stacks.add(getDefaultInstance());
-        }
-    }
 }

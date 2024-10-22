@@ -60,19 +60,19 @@ public class SlabBlockItem extends BlockItem {
             min = Math.min(min, d3);
             min = Math.min(min, d4);
             if (min == d1) {
-                if (!level.getBlockState(pos1).getMaterial().isReplaceable())
+                if (!level.getBlockState(pos1).canBeReplaced())
                     return new SkirtBlockItem.PlacePosContext(context.getClickedPos(), 0);
                 return new SkirtBlockItem.PlacePosContext(pos1, 1);
             } else if (min == d2) {
-                if (!level.getBlockState(pos2).getMaterial().isReplaceable())
+                if (!level.getBlockState(pos2).canBeReplaced())
                     return new SkirtBlockItem.PlacePosContext(context.getClickedPos(), 0);
                 return new SkirtBlockItem.PlacePosContext(pos2, 1);
             } else if (min == d3) {
-                if (!level.getBlockState(pos3).getMaterial().isReplaceable())
+                if (!level.getBlockState(pos3).canBeReplaced())
                     return new SkirtBlockItem.PlacePosContext(context.getClickedPos(), 0);
                 return new SkirtBlockItem.PlacePosContext(pos3, 1);
             }
-            if (!level.getBlockState(pos4).getMaterial().isReplaceable())
+            if (!level.getBlockState(pos4).canBeReplaced())
                 return new SkirtBlockItem.PlacePosContext(context.getClickedPos(), 0);
             return new SkirtBlockItem.PlacePosContext(pos4, 1);
         }
@@ -82,9 +82,9 @@ public class SlabBlockItem extends BlockItem {
                 lLoc = DirectionUtil.centerOf(left),
                 rLoc = DirectionUtil.centerOf(right);
         boolean leftHinge = clicked.distanceToSqr(lLoc) <= clicked.distanceToSqr(rLoc);
-        if (leftHinge && level.getBlockState(left).getMaterial().isReplaceable()) {
+        if (leftHinge && level.getBlockState(left).canBeReplaced()) {
             return new SkirtBlockItem.PlacePosContext(left, 2);
-        } else if (!leftHinge && level.getBlockState(right).getMaterial().isReplaceable()) {
+        } else if (!leftHinge && level.getBlockState(right).canBeReplaced()) {
             return new SkirtBlockItem.PlacePosContext(right, 2);
         }
         return new SkirtBlockItem.PlacePosContext(context.getClickedPos(), 0);

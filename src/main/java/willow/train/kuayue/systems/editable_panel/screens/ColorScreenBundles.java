@@ -4,6 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import kasuga.lib.core.client.render.texture.ImageMask;
 import kasuga.lib.core.util.LazyRecomputable;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.Component;
@@ -160,11 +161,11 @@ public class ColorScreenBundles extends AbstractWidget {
         });
     }
 
-    @Override
-    public void renderButton(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
-        colorEditor.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        templateScreen.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        templateEditor.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+
+    public void renderButton(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+        colorEditor.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        templateScreen.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        templateEditor.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
     }
 
     public void setTemplateBtnVisible(boolean visible) {
@@ -213,8 +214,13 @@ public class ColorScreenBundles extends AbstractWidget {
     }
 
     @Override
-    public void updateNarration(NarrationElementOutput pNarrationElementOutput) {
+    protected void updateWidgetNarration(NarrationElementOutput pNarrationElementOutput) {
 
+    }
+
+    @Override
+    protected void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+        this.renderButton(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
     }
 
     @Override

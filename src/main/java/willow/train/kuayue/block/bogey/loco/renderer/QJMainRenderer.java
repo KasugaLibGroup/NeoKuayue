@@ -4,7 +4,7 @@ import com.jozufozu.flywheel.api.MaterialManager;
 import com.jozufozu.flywheel.core.PartialModel;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 import com.simibubi.create.content.trains.bogey.BogeyRenderer;
 import com.simibubi.create.content.trains.bogey.BogeySizes;
 import com.simibubi.create.content.trains.entity.Carriage;
@@ -139,7 +139,7 @@ public class QJMainRenderer extends BogeyRenderer {
         boolean rotateY = false;
         //System.out.println("inContraption:" + inContraption);
         if ((direction == Direction.EAST || direction == Direction.SOUTH) && !inContraption) {
-            ms.mulPose(Vector3f.YP.rotationDegrees(180));
+            ms.mulPose(Axis.YP.rotationDegrees(180));
         }
 
         boolean inInstancedContraption = vb == null;

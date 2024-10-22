@@ -26,13 +26,13 @@ description='''
 [[dependencies.kuayue]]
     modId="forge"
     mandatory=true
-    versionRange="[43,)"
+    versionRange="[47,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.kuayue]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19.2,1.20)"
+    versionRange="[1.20,1.20.6)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.kuayue]]

@@ -111,7 +111,7 @@ public class PanelBlockItem extends BlockItem {
         if (width <= 0 || height <= 0) return false;
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
-                if (!level.getBlockState(scanner).getMaterial().isReplaceable()) return false;
+                if (!level.getBlockState(scanner).canBeReplaced()) return false;
                 scanner = scanner.above();
             }
             scanner = scanner.below(height);
@@ -139,13 +139,13 @@ public class PanelBlockItem extends BlockItem {
 
         public boolean canShowArrow(Level level, BlockPos pos, Direction direction) {
             if (this == UP) {
-                return level.getBlockState(pos.above()).getMaterial().isReplaceable();
+                return level.getBlockState(pos.above()).canBeReplaced();
             } else if (this == DOWN) {
-                return level.getBlockState(pos.below()).getMaterial().isReplaceable();
+                return level.getBlockState(pos.below()).canBeReplaced();
             } else if (this == LEFT) {
-                return level.getBlockState(DirectionUtil.left(pos, direction, 1)).getMaterial().isReplaceable();
+                return level.getBlockState(DirectionUtil.left(pos, direction, 1)).canBeReplaced();
             }
-            return level.getBlockState(DirectionUtil.right(pos, direction, 1)).getMaterial().isReplaceable();
+            return level.getBlockState(DirectionUtil.right(pos, direction, 1)).canBeReplaced();
         }
     }
 }

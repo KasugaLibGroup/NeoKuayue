@@ -31,7 +31,7 @@ public class EditablePanelEditMenu extends AbstractContainerMenu {
     }
 
     public EditablePanelEditMenu(int containerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(containerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()),
+        this(containerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()),
                 new SimpleContainerData(2));
     }
 

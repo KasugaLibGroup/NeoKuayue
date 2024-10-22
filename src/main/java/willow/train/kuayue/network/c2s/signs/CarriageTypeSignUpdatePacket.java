@@ -68,7 +68,7 @@ public class CarriageTypeSignUpdatePacket implements KuayuePacket {
 
         context.enqueueWork(
                 () -> {
-                    ServerLevel level = context.getSender().getLevel();
+                    ServerLevel level = (ServerLevel) context.getSender().level();
                     BlockEntity entity = level.getBlockEntity(pos);
                     if (entity == null) {
                         return;

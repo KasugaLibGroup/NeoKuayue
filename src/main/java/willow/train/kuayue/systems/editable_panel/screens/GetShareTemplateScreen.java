@@ -2,15 +2,16 @@ package willow.train.kuayue.systems.editable_panel.screens;
 
 import com.mojang.blaze3d.platform.Window;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
 import kasuga.lib.core.client.render.SimpleColor;
 import kasuga.lib.core.client.render.texture.ImageMask;
 import kasuga.lib.core.client.render.texture.Vec2f;
 import kasuga.lib.core.util.LazyRecomputable;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import org.joml.Vector3f;
 import willow.train.kuayue.initial.ClientInit;
 import willow.train.kuayue.systems.editable_panel.ColorTemplate;
 import willow.train.kuayue.systems.editable_panel.widget.*;
@@ -118,15 +119,14 @@ public class GetShareTemplateScreen extends Screen {
     }
 
     @Override
-    public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
+    public void render(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         if (!visible) return;
         if (!editMode || (editMode && chosen != rgb)) {
             ImageMask mask = getShareBg.get();
             mask.rectangle(bgPos, ImageMask.Axis.X, ImageMask.Axis.Y, true, true, bgWidth, bgHeight);
             mask.renderToGui();
         }
-
-        super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        // super.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
     }
 
     public void onCancelClick(OnClick<ImageButton> clk) {
@@ -182,7 +182,7 @@ public class GetShareTemplateScreen extends Screen {
                     chosen = a;
                     if (a instanceof Label label)
                         bar.setText(label.getText().getString());
-                    bar.setPosition(a.x + (a.getWidth() - bar.getWidth())/2, a.y + a.getHeight() + 2);
+                    bar.setPosition(a.getX() + (a.getWidth() - bar.getWidth())/2, a.getY() + a.getHeight() + 2);
                     bar.visible = true;
                     bar.setFocused(true);
                 }

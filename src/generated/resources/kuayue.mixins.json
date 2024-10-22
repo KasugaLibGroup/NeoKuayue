@@ -8,6 +8,7 @@
     "MixinAbstractContraptionEntity"
   ],
   "client": [
+    "client.AccessorCreativeTabScreen",
     "client.AccessorEditBox",
     "client.MixinCarriageContraptionEntityRenderer"
   ],

@@ -5,6 +5,7 @@ import kasuga.lib.core.client.render.SimpleColor;
 import kasuga.lib.core.client.render.texture.Vec2f;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 
 import java.util.ArrayList;
@@ -84,25 +85,26 @@ public class TooltipLabel extends Label {
     }
 
     @Override
-    public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
-        super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+    public void render(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+        super.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
     }
 
     @Override
-    public void renderToGui(PoseStack poseStack, Font font) {
+    public void renderToGui(GuiGraphics guiGraphics, Font font) {
         if (!visible || texts.isEmpty()) return;
         int w = this.width;
         int h = this.texts.size() * 8;
         if (getHeight() > h) h = getHeight();
-        poseStack.translate(this.x, this.y, 0);
+        PoseStack poseStack = guiGraphics.pose();
+        poseStack.translate(this.getX(), this.getY(), 0);
         poseStack.scale(this.getScale().x(), this.getScale().y(), 1f);
-        renderGuiBg(poseStack, 0, 0, w, h, 0xff000000, 0xffffffff);
+        renderGuiBg(guiGraphics, 0, 0, w, h, 0xff000000, 0xffffffff);
         int i = 0;
         if (texts.size() > 1) {
             poseStack.translate(borderWidth + 1, borderWidth + 1, 0);
             for (String s : texts) {
                 i++;
-                font.draw(poseStack, s, 0, 0, getRGB());
+                guiGraphics.drawString(font, s, 0, 0, getRGB(), false);
                 poseStack.translate(0, 8, 0);
             }
             poseStack.translate(- (float) borderWidth - 1, - i * 8 - borderWidth - 1, 0);
@@ -111,17 +113,17 @@ public class TooltipLabel extends Label {
             float strWidth = font.width(str);
             float offset = (this.width - strWidth) / 2;
             poseStack.translate(offset, borderWidth + 1, 0);
-            font.draw(poseStack, str, 0, 0, getRGB());
+            guiGraphics.drawString(font, str, 0, 0, getRGB(), false);
             poseStack.translate(- offset, - borderWidth - 1, 0);
         } else {
-            font.draw(poseStack, texts.get(0), 0, 0, getRGB());
+            guiGraphics.drawString(font, texts.get(0), 0, 0, getRGB(), false);
         }
         poseStack.scale(1 / this.getScale().x(), 1 / this.getScale().y(), 1f);
-        poseStack.translate(- x, - y, 0);
+        poseStack.translate(- getX(), - getY(), 0);
     }
 
-    public void renderGuiBg(PoseStack poseStack, int minX, int minY, int maxX, int maxY, int bgColor, int borderColor) {
-        ColorTemplatesBox.renderGuiBg(poseStack, minX, minY, maxX, maxY, borderWidth, bgColor, borderColor);
+    public void renderGuiBg(GuiGraphics guiGraphics, int minX, int minY, int maxX, int maxY, int bgColor, int borderColor) {
+        ColorTemplatesBox.renderGuiBg(guiGraphics, minX, minY, maxX, maxY, borderWidth, bgColor, borderColor);
     }
 
     public void setOnClick(OnClick<TooltipLabel> clk) {

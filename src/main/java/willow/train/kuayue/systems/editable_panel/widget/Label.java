@@ -5,6 +5,7 @@ import kasuga.lib.core.client.render.SimpleColor;
 import kasuga.lib.core.client.render.texture.Vec2f;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarratedElementType;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
@@ -62,14 +63,14 @@ public class Label extends AbstractWidget {
 
     public void setPosition(Vec2f position) {
         this.position = position;
-        this.x = (int) position.x();
-        this.y = (int) position.y();
+        this.setX((int) position.x());
+        this.setY((int) position.y());
     }
 
     public void setPosition(float x, float y) {
         this.position = new Vec2f(x, y);
-        this.x = (int) x;
-        this.y = (int) y;
+        this.setX((int) x);
+        this.setY((int) y);
     }
 
     public SimpleColor getColor() {
@@ -125,27 +126,33 @@ public class Label extends AbstractWidget {
     }
 
     @Override
-    public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
+    public void render(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         if (!visible) return;
-        renderToGui(pPoseStack, Minecraft.getInstance().font);
+        renderToGui(guiGraphics, Minecraft.getInstance().font);
     }
 
-    public void renderToGui(PoseStack poseStack, Font font) {
+    @Override
+    protected void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+        render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
+    }
+
+    public void renderToGui(GuiGraphics guiGraphics, Font font) {
+        PoseStack poseStack = guiGraphics.pose();
         poseStack.translate(position.x(), position.y(), 0);
         poseStack.scale(scale.x(), scale.y(), 1f);
-        font.draw(poseStack, text, 0, 0, color.getRGB());
+        guiGraphics.drawString(font, text, 0, 0, color.getRGB(), false);
         poseStack.scale(1 / scale.x(), 1 / scale.y(), 1f);
         poseStack.translate(- position.x(), - position.y(), 0);
     }
 
     public void renderToWorld(PoseStack poseStack, Font font, MultiBufferSource buffer,
-                              boolean shadow, boolean transparent, SimpleColor backGroundColor,
+                              boolean shadow, SimpleColor backGroundColor,
                               int light) {
         if (!visible) return;
         poseStack.translate(position.x(), position.y(), 0);
         poseStack.scale(scale.x(), scale.y(), 1f);
         font.drawInBatch(text, 0, 0, color.getRGB(),
-                shadow, poseStack.last().pose(), buffer, transparent,
+                shadow, poseStack.last().pose(), buffer, Font.DisplayMode.NORMAL,
                 backGroundColor.getRGB(), light);
         poseStack.scale(1 / scale.x(), 1 / scale.y(), 1f);
         poseStack.translate(- position.x(), - position.y(), 0);
@@ -157,25 +164,20 @@ public class Label extends AbstractWidget {
         poseStack.translate(position.x(), position.y(), 0);
         poseStack.scale(scale.x(), scale.y(), 1f);
         font.drawInBatch(text, 0, 0, color.getRGB(), shadow, poseStack.last().pose(), buffer,
-                true, 0, light);
+                Font.DisplayMode.NORMAL, 0, light);
         poseStack.scale(1 / scale.x(), 1 / scale.y(), 1f);
         poseStack.translate(- position.x(), - position.y(), 0);
     }
 
     public void renderToWorld(PoseStack poseStack, Font font, MultiBufferSource buffer, boolean shadow,
-                              boolean transparent, int bgColor, int light) {
+                              Font.DisplayMode mode, int bgColor, int light) {
         poseStack.translate(position.x(), position.y(), 0);
         poseStack.scale(scale.x(), scale.y(), 1f);
         font.drawInBatch(text, 0, 0, color.getRGB(),
-                shadow, poseStack.last().pose(), buffer, transparent,
+                shadow, poseStack.last().pose(), buffer, mode,
                 bgColor, light);
         poseStack.scale(1 / scale.x(), 1 / scale.y(), 1f);
         poseStack.translate(- position.x(), - position.y(), 0);
-    }
-
-    @Override
-    public void updateNarration(NarrationElementOutput pNarrationElementOutput) {
-        pNarrationElementOutput.add(NarratedElementType.TITLE, this.text.getString());
     }
 
     public void setOnCLick(OnClick<Label> clk) {
@@ -186,5 +188,10 @@ public class Label extends AbstractWidget {
     public void onClick(double pMouseX, double pMouseY) {
         if (this.clk == null) return;
         this.clk.click(this, pMouseX, pMouseY);
+    }
+
+    @Override
+    protected void updateWidgetNarration(NarrationElementOutput pNarrationElementOutput) {
+
     }
 }

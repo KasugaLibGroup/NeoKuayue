@@ -33,10 +33,10 @@ public class ContraptionTagChangedPacket extends S2CPacket {
 
     public static void packet(ChannelReg channel, BlockPos localPos, AbstractContraptionEntity ace, CompoundTag nbt, StructureTemplate.StructureBlockInfo info) {
         Contraption contraption = ace.getContraption();
-        if (ace.level.isClientSide) return;
-        contraption.getBlocks().put(localPos, new StructureTemplate.StructureBlockInfo(localPos, info.state, nbt));
+        if (ace.level().isClientSide) return;
+        contraption.getBlocks().put(localPos, new StructureTemplate.StructureBlockInfo(localPos, info.state(), nbt));
         ContraptionTagChangedPacket packet = new ContraptionTagChangedPacket(localPos, nbt, ace.getId());
-        channel.boardcastToClients(packet, (ServerLevel) ace.level, ace.getOnPos());
+        channel.boardcastToClients(packet, (ServerLevel) ace.level(), ace.getOnPos());
     }
 
     @Override
@@ -46,7 +46,7 @@ public class ContraptionTagChangedPacket extends S2CPacket {
         Entity e = level.getEntity(entity);
         if (!(e instanceof AbstractContraptionEntity ace)) return;
         StructureTemplate.StructureBlockInfo info = ace.getContraption().getBlocks().get(localPos);
-        ace.getContraption().getBlocks().put(localPos, new StructureTemplate.StructureBlockInfo(localPos, info.state, nbt));
+        ace.getContraption().getBlocks().put(localPos, new StructureTemplate.StructureBlockInfo(localPos, info.state(), nbt));
         ace.getContraption().deferInvalidate = true;
         ace.getContraption().invalidateColliders();
     }

@@ -6,7 +6,6 @@ import kasuga.lib.core.create.SimpleTrackBlock;
 import kasuga.lib.core.create.TrackStateGenerator;
 import kasuga.lib.registrations.create.TrackReg;
 import kasuga.lib.registrations.registry.CreateRegistry;
-import net.minecraft.world.level.material.Material;
 import willow.train.kuayue.initial.AllElements;
 
 public class AllTracks {
@@ -27,7 +26,6 @@ public class AllTracks {
             new TrackReg<SimpleTrackBlock>("standard_track")
                     .trackState(stateBuilder)
                     .trackNameSuffix("Train Track")
-                    .material(Material.STONE)
                     .trackMaterial(AllTrackMaterial.standardMaterial::getMaterial)
                     .pickaxeOnly()
                     .addTags(AllTags.AllBlockTags.TRACKS.tag)
@@ -40,7 +38,6 @@ public class AllTracks {
             new TrackReg<SimpleTrackBlock>("tieless_track")
                     .trackState(stateBuilder)
                     .trackNameSuffix("Tieless Track")
-                    .material(Material.STONE)
                     .trackMaterial(AllTrackMaterial.tielessMaterial::getMaterial)
                     .pickaxeOnly()
                     .addTags(AllTags.AllBlockTags.TRACKS.tag)
@@ -53,7 +50,6 @@ public class AllTracks {
             new TrackReg<SimpleTrackBlock>("ballastless_track")
                     .trackState(stateBuilder)
                     .trackNameSuffix("Ballastless Track")
-                    .material(Material.STONE)
                     .trackMaterial(AllTrackMaterial.ballastlessMaterial::getMaterial)
                     .pickaxeOnly()
                     .addTags(AllTags.AllBlockTags.TRACKS.tag)
@@ -66,7 +62,6 @@ public class AllTracks {
             new TrackReg<SimpleTrackBlock>("meter_track")
                     .trackState(stateBuilder)
                     .trackNameSuffix("Meter Track")
-                    .material(Material.STONE)
                     .trackMaterial(AllTrackMaterial.meterMaterial::getMaterial)
                     .pickaxeOnly()
                     .addTags(AllTags.AllBlockTags.TRACKS.tag)

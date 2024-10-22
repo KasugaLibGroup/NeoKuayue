@@ -26,8 +26,8 @@ public class SeatClickBehaviour extends MovingInteractionBehaviour {
         Contraption contraption = contraptionEntity.getContraption();
         StructureTemplate.StructureBlockInfo info = contraption.getBlocks().get(localPos);
         boolean dirty = false;
-        CompoundTag tag = info.nbt;
-        BlockState state = info.state;
+        CompoundTag tag = info.nbt();
+        BlockState state = info.state();
         Block block = state.getBlock();
         if (!(block instanceof YZSeatBlock seatBlock)) return true;
         if (!state.is(AllTags.MULTI_SEAT_BLOCK.tag())) return true;
@@ -90,7 +90,7 @@ public class SeatClickBehaviour extends MovingInteractionBehaviour {
                           CompoundTag tag, Player player, int seatIndex) {
         contraption.getBlocks().put(localPos, info);
         contraptionEntity.addSittingPassenger(player, seatIndex);
-        if (contraptionEntity.level.isClientSide) {
+        if (contraptionEntity.level().isClientSide) {
             contraption.getSeatMapping().put(player.getUUID(), seatIndex);
             BlockEntity blockEntity = contraption.presentBlockEntities.get(localPos);
             if (!(blockEntity instanceof SeatBlockEntity seatBlockEntity)) return;

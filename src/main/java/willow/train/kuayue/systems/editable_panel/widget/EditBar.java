@@ -1,13 +1,13 @@
 package willow.train.kuayue.systems.editable_panel.widget;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
 import kasuga.lib.core.client.render.texture.ImageMask;
 import kasuga.lib.core.util.LazyRecomputable;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.Component;
+import org.joml.Vector3f;
 import willow.train.kuayue.initial.ClientInit;
 import willow.train.kuayue.systems.editable_panel.screens.GetShareTemplateScreen;
 
@@ -36,14 +36,14 @@ public class EditBar extends AbstractWidget {
         super(pX, pY, 200, 20, pMessage);
         ImageMask mask = editBarBg.get();
         mask.rectangle(new Vector3f(pX, pY, 0), ImageMask.Axis.X, ImageMask.Axis.Y, true, true, 200, 20);
-        editBox = new TransparentEditBox(Minecraft.getInstance().font, this.x + 6, this.y + 6,
+        editBox = new TransparentEditBox(Minecraft.getInstance().font, this.getX() + 6, this.getY() + 6,
                 150, 14, pMessage, defaultValue, 0xffffffff);
         cancel = new ImageButton(cancelImage, pX + 160, 2, 16, 16, Component.literal("cancel"), b -> {});
         accept = new ImageButton(acceptImage, pX + 180, 2, 16, 16, Component.literal("accept"), b -> {});
     }
 
     public void setX(int x) {
-        this.x = x;
+        super.setX(x);
         editBarBg.get().rectangle(new Vector3f(x, getY(), 0), ImageMask.Axis.X, ImageMask.Axis.Y, true, true, 200, 20);
         cancel.setX(x + 160);
         accept.setX(x + 180);
@@ -51,7 +51,7 @@ public class EditBar extends AbstractWidget {
     }
 
     public void setY(int y) {
-        this.y = y;
+        super.setY(y);
         editBarBg.get().rectangle(new Vector3f(getX(), y, 0), ImageMask.Axis.X, ImageMask.Axis.Y, true, true, 200, 20);
         cancel.setY(y + 2);
         accept.setY(y + 2);
@@ -59,8 +59,8 @@ public class EditBar extends AbstractWidget {
     }
 
     public void setPosition(int x, int y) {
-        this.x = x;
-        this.y = y;
+        this.setX(x);
+        this.setY(y);
         editBarBg.get().rectangle(new Vector3f(x, y, 0), ImageMask.Axis.X, ImageMask.Axis.Y, true, true, 200, 20);
         editBox.setX(x + 6);
         editBox.setY(y + 6);
@@ -69,20 +69,20 @@ public class EditBar extends AbstractWidget {
     }
 
     public int getX() {
-        return x;
+        return super.getX();
     }
 
     public int getY() {
-        return y;
+        return super.getY();
     }
 
     @Override
-    public void renderButton(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
+    public void renderWidget(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         editBarBg.get().renderToGui();
-        editBox.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        editBox.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
 
-        accept.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        cancel.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        accept.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        cancel.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
     }
 
     @Override
@@ -138,12 +138,13 @@ public class EditBar extends AbstractWidget {
         return editBox.keyReleased(pKeyCode, pScanCode, pModifiers);
     }
 
-    @Override
-    public void updateNarration(NarrationElementOutput pNarrationElementOutput) {
-
-    }
     public void setFocused(boolean focused) {
         super.setFocused(focused);
-        editBox.changeFocus(focused);
+        editBox.setFocused(focused);
+    }
+
+    @Override
+    protected void updateWidgetNarration(NarrationElementOutput pNarrationElementOutput) {
+
     }
 }

@@ -49,7 +49,7 @@ public class TrainSpeedSignUpdatePacket implements KuayuePacket {
     public boolean handle(NetworkEvent.Context context) {
         context.enqueueWork(
                 () -> {
-                    ServerLevel level = context.getSender().getLevel();
+                    ServerLevel level = (ServerLevel) context.getSender().level();
                     BlockEntity entity = level.getBlockEntity(pos);
 
                     if (entity instanceof EditablePanelEntity editablePanelEntity) {

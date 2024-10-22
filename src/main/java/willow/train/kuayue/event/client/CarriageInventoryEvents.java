@@ -7,6 +7,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
@@ -17,6 +18,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.initial.*;
 import willow.train.kuayue.initial.panel.*;
+import willow.train.kuayue.mixins.mixin.client.AccessorCreativeTabScreen;
 import willow.train.kuayue.systems.editable_panel.widget.ImageButton;
 import willow.train.kuayue.systems.editable_panel.widget.ItemIconButton;
 import willow.train.kuayue.utils.TagsUtil;
@@ -87,9 +89,10 @@ public class CarriageInventoryEvents {
         CreativeModeInventoryScreen.ItemPickerMenu menu =
                 ((CreativeModeInventoryScreen) event.getScreen()).getMenu();
         // 获取当前物品栏标签对象
-        int tab = ((CreativeModeInventoryScreen) event.getScreen()).getSelectedTab();
+        CreativeModeTab tab = ((AccessorCreativeTabScreen) event.getScreen()).getSelectedTab();
 
-        if (tab == AllElements.neoKuayueMainTab.getTab().getId()) {
+
+        if (tab.equals(AllElements.neoKuayueMainTab.getTab())) {
             addSchematicToTab(menu);
         }
 
@@ -187,7 +190,7 @@ public class CarriageInventoryEvents {
             // 给两个箭头按钮添加监听器
             event.addListener(b);
             // 当前标签为跨越列车物品栏时显示上下箭头按钮，反之隐藏。
-            b.visible = tab == AllElements.neoKuayueCarriageTab.getTab().getId();
+            b.visible = tab.equals(AllElements.neoKuayueCarriageTab.getTab());
         }
 
         // 默认显示所有的车厢板类型
@@ -201,13 +204,13 @@ public class CarriageInventoryEvents {
     }
 
     // 刷新列车车厢板类型按钮的显示状态
-    private void refreshBtn(int tab) {
+    private void refreshBtn(CreativeModeTab tab) {
         int right_edge = btn_location + showBtnNumber - 1;
         for(int i = 0; i < imgBtn.length; i++) {
             if(i < btn_location || i > right_edge) {
                 imgBtn[i].visible = false;
             } else {
-                imgBtn[i].visible = tab == AllElements.neoKuayueCarriageTab.getTab().getId();
+                imgBtn[i].visible = tab.equals(AllElements.neoKuayueCarriageTab.getTab());
             }
         }
     }
@@ -216,7 +219,7 @@ public class CarriageInventoryEvents {
     private void onUp() {
         // 列车车厢板类型按钮整体向上滚动
         for(ItemIconButton b : imgBtn) {
-            b.y += 22;
+            b.setY(b.getY() + 22);
         }
     }
 
@@ -224,7 +227,7 @@ public class CarriageInventoryEvents {
     private void onDown() {
         // 列车车厢板类型按钮整体向下滚动
         for(ItemIconButton b : imgBtn) {
-            b.y -= 22;
+            b.setY(b.getY() - 22);
         }
     }
 
@@ -239,15 +242,15 @@ public class CarriageInventoryEvents {
             // 更新列车车厢板类型按钮状态与物品栏中物品
             updateButtons();
             // 获取当前选择的物品栏标签
-            int tab = ((CreativeModeInventoryScreen) screen).getSelectedTab();
+            CreativeModeTab tab = ((AccessorCreativeTabScreen) event.getScreen()).getSelectedTab();
             // 当选择跨越列车物品栏时显示左侧上下箭头按钮
             for(ImageButton b : upAndDownBtn) {
-                b.visible = tab == AllElements.neoKuayueCarriageTab.getTab().getId();
+                b.visible = tab.equals(AllElements.neoKuayueCarriageTab.getTab());
             }
             // 刷新列车车厢板类型按钮显示状态
             refreshBtn(tab);
             // 若当前物品栏标签为跨越主标签
-            if (tab == AllElements.neoKuayueMainTab.getTab().getId()) {
+            if (tab.equals(AllElements.neoKuayueMainTab.getTab())) {
                 // 向当前标签的菜单中添加物品列表schematicItemList
                 addSchematicToTab(((CreativeModeInventoryScreen) screen).getMenu());
             }
@@ -259,14 +262,17 @@ public class CarriageInventoryEvents {
         // 当前screen
         Screen screen = Minecraft.getInstance().screen;
         // 当前物品栏标签
-        int tab = ((CreativeModeInventoryScreen) screen).getSelectedTab();
+        CreativeModeTab tab = null;
+        if (screen == null) return;
+        tab = ((AccessorCreativeTabScreen) screen).getSelectedTab();
+        ;
         // 物品选择菜单
         CreativeModeInventoryScreen.ItemPickerMenu menu =
                 ((CreativeModeInventoryScreen) screen).getMenu();
         // 是否为创造模式物品栏的screen
         if (screen instanceof CreativeModeInventoryScreen) {
             // 是否为跨越列车物品栏
-            boolean vis = tab == AllElements.neoKuayueCarriageTab.getTab().getId();
+            boolean vis = tab.equals(AllElements.neoKuayueCarriageTab.getTab());
             // 根据vis的值显示或隐藏列车车厢板类型按钮
             for (ItemIconButton b : imgBtn) {
                 b.visible = vis;

@@ -2,6 +2,7 @@ package willow.train.kuayue.systems.editable_panel.widget;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.narration.NarratedElementType;
@@ -21,11 +22,6 @@ public class TitledEditBox extends AbstractWidget {
     }
 
     @Override
-    public void updateNarration(NarrationElementOutput pNarrationElementOutput) {
-        pNarrationElementOutput.add(NarratedElementType.TITLE, getMessage().getString());
-    }
-
-    @Override
     public void setWidth(int pWidth) {
         super.setWidth(pWidth);
         if (pWidth < getTitleWidth() * 1.2f + 5)
@@ -40,14 +36,19 @@ public class TitledEditBox extends AbstractWidget {
         editBox.setHeight(value);
     }
 
+    @Override
+    protected void updateWidgetNarration(NarrationElementOutput pNarrationElementOutput) {
+
+    }
+
     public void setX(int x) {
-        this.x = x;
+        super.setX(x);
         editBox.setX(x + (int) Math.ceil(getTitleWidth()) + 3);
     }
 
     public void setY(int y) {
-        this.y = y;
-        editBox.y = y;
+        super.setY(y);
+        editBox.setY(y);
     }
 
     public void setTextColor(int textColor) {
@@ -72,18 +73,18 @@ public class TitledEditBox extends AbstractWidget {
     }
 
     @Override
-    public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
-        super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+    public void render(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+        super.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
     }
 
     @Override
-    public void renderButton(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
+    public void renderWidget(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         Component message = getMessage();
-        Minecraft.getInstance().font.draw(pPoseStack, message, x, y, textColor);
-        editBox.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        fill(pPoseStack, editBox.x - 1, editBox.y + 8,
-                editBox.x + Minecraft.getInstance().font.width(getValue()) + 2,
-                editBox.y + 9, 0xffffffff);
+        guiGraphics.drawString(Minecraft.getInstance().font, message, getX(), getY(), textColor);
+        editBox.renderWidget(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        guiGraphics.fill(editBox.getX() - 1, editBox.getY() + 8,
+                editBox.getX() + Minecraft.getInstance().font.width(getValue()) + 2,
+                editBox.getY() + 9, 0xffffffff);
     }
 
     @Override

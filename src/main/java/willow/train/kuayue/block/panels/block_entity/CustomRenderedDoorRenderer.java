@@ -3,7 +3,7 @@ package willow.train.kuayue.block.panels.block_entity;
 import com.jozufozu.flywheel.core.PartialModel;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 import com.simibubi.create.foundation.render.CachedBufferer;
 import com.simibubi.create.foundation.render.SuperByteBuffer;
 import com.simibubi.create.foundation.utility.Couple;
@@ -44,7 +44,7 @@ public class CustomRenderedDoorRenderer implements BlockEntityRenderer<CustomRen
         pose.pushPose();
         float f = -state.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite().toYRot();
         pose.translate(.5, 0, .5);
-        pose.mulPose(Vector3f.YP.rotationDegrees(f));
+        pose.mulPose(Axis.YP.rotationDegrees(f));
         pose.translate(leftSide ? .5 : -.5, 0, -.5);
         Vec3 offset = entity.offset;
         if (!offset.equals(Vec3.ZERO))

@@ -1,16 +1,17 @@
 package willow.train.kuayue.systems.editable_panel.screens;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
 import kasuga.lib.core.client.render.SimpleColor;
 import kasuga.lib.core.client.render.texture.ImageMask;
 import kasuga.lib.core.client.render.texture.Vec2f;
 import kasuga.lib.core.util.LazyRecomputable;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.Component;
+import org.joml.Vector3f;
 import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.initial.ClientInit;
 import willow.train.kuayue.systems.editable_panel.widget.*;
@@ -80,7 +81,7 @@ public class ColorScreen extends AbstractWidget {
     }
 
     public void init() {
-        int x = this.x, y = this.y;
+        int x = this.getX(), y = this.getY();
         int xOffset = 33, yOffset = 80;
         Font font = Minecraft.getInstance().font;
         r = new TitledEditBox(x + xOffset, y + yOffset, 50, 8, Component.literal("R:"), (px, py, pw, ph, t) -> {
@@ -109,19 +110,19 @@ public class ColorScreen extends AbstractWidget {
         b.setTextColor(0xff);
 
         ImageMask mask = backGround.get();
-        mask.rectangle(new Vector3f(this.x + 3, this.y + this.height / 2f - 37, 0), ImageMask.Axis.X, ImageMask.Axis.Y,
+        mask.rectangle(new Vector3f(this.getX() + 3, this.getY() + this.height / 2f - 37, 0), ImageMask.Axis.X, ImageMask.Axis.Y,
                 true, true, 200, 75);
         mask.rectangleUV(0, 0, 1, 1);
 
         ImageMask titleMask = title_bg.get();
-        titleMask.rectangle(new Vector3f(this.x + 125, this.y + this.height / 2f - 53, 0), ImageMask.Axis.X, ImageMask.Axis.Y,
+        titleMask.rectangle(new Vector3f(this.getX() + 125, this.getY() + this.height / 2f - 53, 0), ImageMask.Axis.X, ImageMask.Axis.Y,
                 true, true, 80, 16);
 
         title = new Label(this.getMessage());
-        title.setPosition(new Vec2f(this.x + 165 - title.getWidth() / 2f, this.y + this.height / 2f - 49));
+        title.setPosition(new Vec2f(this.getX() + 165 - title.getWidth() / 2f, this.getY() + this.height / 2f - 49));
 
-        int baseY = this.y + this.height / 2 + 36;
-        int baseX = this.x + 50;
+        int baseY = this.getY() + this.height / 2 + 36;
+        int baseX = this.getX() + 50;
         int labelSize = 20;
         save = new ImageButton(this.btn_save, LazyRecomputable.of(() -> this.btn_bg.get().copyWithOp(m -> m)),
                 baseX, baseY, labelSize, labelSize, Component.translatable("tooltip.kuayue.color_screen.save"), (b) -> {});
@@ -139,7 +140,7 @@ public class ColorScreen extends AbstractWidget {
         template.dynamicTooltipLabelWidth();
         cancel.dynamicTooltipLabelWidth();
 
-        enterKeyTooltip = new TooltipLabel(new Vec2f(this.x + 5, this.y + this.height / 2f - 50), Component.translatable("tooltip.kuayue.color_screen.key_enter"));
+        enterKeyTooltip = new TooltipLabel(new Vec2f(this.getX() + 5, this.getY() + this.height / 2f - 50), Component.translatable("tooltip.kuayue.color_screen.key_enter"));
         enterKeyTooltip.setWidth(font.width(enterKeyTooltip.getText().getString()) + 4);
         updateBox();
     }
@@ -298,39 +299,39 @@ public class ColorScreen extends AbstractWidget {
     }
 
     @Override
-    public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
+    public void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+        this.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
+    }
+
+
+    public void render(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         if (!visible) return;
 
-        save.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        load.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        template.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        cancel.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        confirm.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        save.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        load.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        template.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        cancel.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        confirm.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
 
         title_bg.get().renderToGui();
-        title.renderToGui(pPoseStack, Minecraft.getInstance().font);
+        title.renderToGui(guiGraphics, Minecraft.getInstance().font);
         backGround.get().renderToGui();
-        selector.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        selector.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
 
-        r.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        g.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        b.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        r.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        g.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        b.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
 
-        h.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        s.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-        v.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        h.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        s.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
+        v.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
 
-        hex.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+        hex.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
 
         if (r.isHoveredOrFocused() || g.isHoveredOrFocused() || b.isHoveredOrFocused() ||
         h.isHoveredOrFocused() || s.isHoveredOrFocused() || v.isHoveredOrFocused() ||
         hex.isHoveredOrFocused())
-            enterKeyTooltip.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
-    }
-
-    @Override
-    public void renderButton(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
-        super.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTick);
+            enterKeyTooltip.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
     }
 
     public void setHex(String hex) {
@@ -511,7 +512,7 @@ public class ColorScreen extends AbstractWidget {
     }
 
     @Override
-    public void updateNarration(NarrationElementOutput pNarrationElementOutput) {
+    protected void updateWidgetNarration(NarrationElementOutput pNarrationElementOutput) {
 
     }
 }

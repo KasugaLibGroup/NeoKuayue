@@ -3,8 +3,7 @@ package willow.train.kuayue.initial.panel;
 import com.simibubi.create.foundation.utility.Couple;
 import kasuga.lib.registrations.registry.CreateRegistry;
 import net.minecraft.world.level.block.RenderShape;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.Vec2;
 import willow.train.kuayue.block.panels.*;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
@@ -22,8 +21,8 @@ import willow.train.kuayue.initial.registration.SkirtRegistration;
 import willow.train.kuayue.initial.registration.SlabRegistration;
 
 public class CR200JPanel {
-    public static final MaterialColor CR200J_COLOR = MaterialColor.COLOR_GREEN;
-    public static final Material CR200J_MATERIAL = Material.METAL;
+    public static final MapColor CR200J_COLOR = MapColor.COLOR_GREEN;
+
     public static final CreateRegistry registry = AllElements.testRegistry;
 
     public static final PanelRegistration<CustomRenderedDoorBlock> DOOR_CR200J =
@@ -36,7 +35,7 @@ public class CR200JPanel {
                                     registry.asResource("carriage/carriage_marshalled_cr200j/door/door_bottom"),
                                     registry.asResource("carriage/carriage_marshalled_cr200j/door/door_top")),
                             RenderShape.ENTITYBLOCK_ANIMATED, false))
-                    .materialAndColor(CR200J_MATERIAL, CR200J_COLOR)
+                    .materialAndColor(CR200J_COLOR)
                     .tab(AllElements.neoKuayueCarriageTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
@@ -51,7 +50,7 @@ public class CR200JPanel {
                                     registry.asResource("carriage/carriage_marshalled_cr200j/door/door_bottom_2"),
                                     registry.asResource("carriage/carriage_marshalled_cr200j/door/door_top")),
                                     RenderShape.ENTITYBLOCK_ANIMATED, true))
-                    .materialAndColor(CR200J_MATERIAL, CR200J_COLOR)
+                    .materialAndColor(CR200J_COLOR)
                     .tab(AllElements.neoKuayueCarriageTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
@@ -66,7 +65,7 @@ public class CR200JPanel {
                                     registry.asResource("carriage/carriage_marshalled_cr200j/door/door_bottom"),
                                     registry.asResource("carriage/carriage_marshalled_cr200j/door/door_top_2")),
                                     RenderShape.MODEL, true))
-                    .materialAndColor(CR200J_MATERIAL, CR200J_COLOR)
+                    .materialAndColor(CR200J_COLOR)
                     .tab(AllElements.neoKuayueCarriageTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
@@ -80,7 +79,7 @@ public class CR200JPanel {
                                     "carriage/carriage_marshalled_cr200j/end_face/end_face_door",
                                     "carriage/carriage_marshalled_cr200j/end_face/end_face_frame"
                             )
-                    ).materialAndColor(CR200J_MATERIAL, CR200J_COLOR)
+                    ).materialAndColor(CR200J_COLOR)
                     .tab(AllElements.neoKuayueCarriageTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
@@ -94,7 +93,7 @@ public class CR200JPanel {
                                     "carriage/carriage_marshalled_cr200j/end_face/end_face_door",
                                     "carriage/carriage_marshalled_cr200j/end_face/end_face_frame"
                             )
-                    ).materialAndColor(CR200J_MATERIAL, CR200J_COLOR)
+                    ).materialAndColor(CR200J_COLOR)
                     .tab(AllElements.neoKuayueCarriageTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
@@ -102,7 +101,7 @@ public class CR200JPanel {
     public static final PanelRegistration<TrainPanelBlock> PANEL_BOTTOM_MARSHALLED_CR200J =
             new PanelRegistration<TrainPanelBlock>("panel_bottom_marshalled_cr200j")
             .block(p -> new TrainPanelBlock(p, new Vec2(0, 0), new Vec2(1, 1)))
-            .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+            .materialAndColor(CR200J_COLOR)
             .tab(AllElements.neoKuayueCarriageTab )
             .noOcclusion()
             .submit(AllElements.testRegistry);
@@ -110,7 +109,7 @@ public class CR200JPanel {
     public static final PanelRegistration<TrainHingePanelBlock> PANEL_MIDDLE_LOGO_CR_MARSHALLED_CR200J =
             new PanelRegistration<TrainHingePanelBlock>("panel_middle_logo_cr_marshalled_cr200j")
             .block(p -> new TrainHingePanelBlock(p, new Vec2(0, 0), new Vec2(1, 1)))
-            .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+            .materialAndColor(CR200J_COLOR)
             .tab(AllElements.neoKuayueCarriageTab )
             .noOcclusion()
             .submit(AllElements.testRegistry);
@@ -118,7 +117,7 @@ public class CR200JPanel {
     public static final PanelRegistration<TrainUnOpenableSmallWindowBlock> WINDOW_SEALED_MARSHALLED_CR200J =
             new PanelRegistration<TrainUnOpenableSmallWindowBlock>("window_sealed_marshalled_cr200j")
                     .block(TrainUnOpenableSmallWindowBlock::new)
-                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .materialAndColor(CR200J_COLOR)
                     .tab(AllElements.neoKuayueCarriageTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
@@ -126,7 +125,7 @@ public class CR200JPanel {
     public static final PanelRegistration<TrainHingePanelBlock> PANEL_MIDDLE_MARSHALLED_CR200J =
             new PanelRegistration<TrainHingePanelBlock>("panel_middle_marshalled_cr200j")
                     .block(p -> new TrainHingePanelBlock(p, new Vec2(0, 0), new Vec2(1, 1)))
-                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .materialAndColor(CR200J_COLOR)
                     .tab(AllElements.neoKuayueCarriageTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
@@ -134,7 +133,7 @@ public class CR200JPanel {
     public static final PanelRegistration<TrainPanelBlock> PANEL_TOP_MARSHALLED_CR200J =
             new PanelRegistration<TrainPanelBlock>("panel_top_marshalled_cr200j")
                     .block(p -> new TrainPanelBlock(p, new Vec2(0, 0), new Vec2(1, 1)))
-                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .materialAndColor(CR200J_COLOR)
                     .tab(AllElements.neoKuayueCarriageTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
@@ -142,7 +141,7 @@ public class CR200JPanel {
     public static final PanelRegistration<TrainHingePanelBlock> PANEL_TOP_MARSHALLED_CR200J_2 =
             new PanelRegistration<TrainHingePanelBlock>("panel_top_marshalled_cr200j_2")
                     .block(p -> new TrainHingePanelBlock(p, new Vec2(0, 0), new Vec2(1, 1)))
-                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .materialAndColor(CR200J_COLOR)
                     .tab(AllElements.neoKuayueCarriageTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
@@ -150,7 +149,7 @@ public class CR200JPanel {
     public static final PanelRegistration<TrainPanelBlock> PANEL_TOP_MARSHALLED_CR200J_3 =
             new PanelRegistration<TrainPanelBlock>("panel_top_marshalled_cr200j_3")
                     .block(p -> new TrainPanelBlock(p, new Vec2(0, 0), new Vec2(1, 1)))
-                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .materialAndColor(CR200J_COLOR)
                     .tab(AllElements.neoKuayueCarriageTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
@@ -158,7 +157,7 @@ public class CR200JPanel {
     public static final PanelRegistration<TrainHingePanelBlock> PANEL_WIDE_FU_XING_MARSHALLED_CR200J =
             new PanelRegistration<TrainHingePanelBlock>("panel_wide_fu_xing_marshalled_cr200j")
                     .block(p -> new TrainHingePanelBlock(p, new Vec2(-1, 0), new Vec2(2, 1)))
-                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .materialAndColor(CR200J_COLOR)
                     .tab(AllElements.neoKuayueCarriageTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
@@ -166,7 +165,7 @@ public class CR200JPanel {
     public static final PanelRegistration<TrainHingePanelBlock> PANEL_WIDE_LOGO_CR_MARSHALLED_CR200J =
             new PanelRegistration<TrainHingePanelBlock>("panel_wide_logo_cr_marshalled_cr200j")
                     .block(p -> new TrainHingePanelBlock(p, new Vec2(-1, 0), new Vec2(2, 2)))
-                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .materialAndColor(CR200J_COLOR)
                     .tab(AllElements.neoKuayueCarriageTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
@@ -174,7 +173,7 @@ public class CR200JPanel {
     public static final PanelRegistration<TrainHingePanelBlock> PANEL_WIDE_MARSHALLED_CR200J =
             new PanelRegistration<TrainHingePanelBlock>("panel_wide_marshalled_cr200j")
                     .block(p -> new TrainHingePanelBlock(p, new Vec2(-1, 0), new Vec2(2, 2)))
-                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .materialAndColor(CR200J_COLOR)
                     .tab(AllElements.neoKuayueCarriageTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
@@ -182,7 +181,7 @@ public class CR200JPanel {
     public static final PanelRegistration<TrainSmallWindowBlock> WINDOW_TOILET_MARSHALLED_CR200J =
             new PanelRegistration<TrainSmallWindowBlock>("window_toilet_marshalled_cr200j")
                     .block(TrainSmallWindowBlock::new)
-                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .materialAndColor(CR200J_COLOR)
                     .tab(AllElements.neoKuayueCarriageTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
@@ -190,7 +189,7 @@ public class CR200JPanel {
     public static final PanelRegistration<TrainOpenableWindowBlock> WINDOW_WIDE_MARSHALLED_CR200J =
             new PanelRegistration<TrainOpenableWindowBlock>("window_wide_marshalled_cr200j")
                     .block(p -> new TrainOpenableWindowBlock(p, 2))
-                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .materialAndColor(CR200J_COLOR)
                     .tab(AllElements.neoKuayueCarriageTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
@@ -198,7 +197,7 @@ public class CR200JPanel {
     public static final PanelRegistration<TrainUnOpenableWindowBlock> WINDOW_WIDE_SEALED_MARSHALLED_CR200J =
             new PanelRegistration<TrainUnOpenableWindowBlock>("window_wide_sealed_marshalled_cr200j")
                     .block(p -> new TrainUnOpenableWindowBlock(p, 2))
-                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .materialAndColor(CR200J_COLOR)
                     .tab(AllElements.neoKuayueCarriageTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
@@ -206,7 +205,7 @@ public class CR200JPanel {
     public static final SkirtRegistration<SkirtBlock> SKIRT_MARSHALLED_CR200J =
             new SkirtRegistration<SkirtBlock>("skirt_marshalled_cr200j")
                     .block(SkirtBlock::new)
-                    .materialAndColor(Material.METAL, MaterialColor.COLOR_BROWN)
+                    .materialAndColor(MapColor.COLOR_BROWN)
                     .tab(AllElements.neoKuayueCarriageTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
@@ -214,7 +213,7 @@ public class CR200JPanel {
     public static final SlabRegistration<TrainLadderBlock> LADDER_MARSHALLED_CR200J =
             new SlabRegistration<TrainLadderBlock>("ladder_marshalled_cr200j")
                     .block(TrainLadderBlock::new)
-                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .materialAndColor(MapColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
@@ -222,7 +221,7 @@ public class CR200JPanel {
     public static final SlabRegistration<TrainSlabBlock> FLOOR_MARSHALLED_CR200J =
             new SlabRegistration<TrainSlabBlock>("floor_marshalled_cr200j")
                     .block(properties -> new TrainSlabBlock(properties, false))
-                    .materialAndColor(Material.METAL, CR200J_COLOR)
+                    .materialAndColor(CR200J_COLOR)
                     .tab(AllElements.neoKuayueCarriageTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
@@ -230,7 +229,7 @@ public class CR200JPanel {
     public static final SlabRegistration<TrainSlabBlock> TOILET_DD_MARSHALLED_CR200J =
             new SlabRegistration<TrainSlabBlock>("toilet_dd_marshalled_cr200j")
                     .block(properties -> new TrainSlabBlock(properties, false))
-                    .materialAndColor(Material.METAL, CR200J_COLOR)
+                    .materialAndColor(CR200J_COLOR)
                     .tab(AllElements.neoKuayueCarriageTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
@@ -238,7 +237,7 @@ public class CR200JPanel {
     public static final SlabRegistration<TrainSlabBlock> CARPORT_CENTER_MARSHALLED_CR200J =
             new SlabRegistration<TrainSlabBlock>("carport_center_marshalled_cr200j")
                     .block(properties -> new TrainSlabBlock(properties, true))
-                    .materialAndColor(Material.METAL, CR200J_COLOR)
+                    .materialAndColor(CR200J_COLOR)
                     .tab(AllElements.neoKuayueCarriageTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
@@ -246,7 +245,7 @@ public class CR200JPanel {
     public static final SlabRegistration<TrainSlabBlock> CARPORT_MARSHALLED_CR200J =
             new SlabRegistration<TrainSlabBlock>("carport_marshalled_cr200j")
                     .block(properties -> new TrainSlabBlock(properties, true))
-                    .materialAndColor(Material.METAL, CR200J_COLOR)
+                    .materialAndColor(CR200J_COLOR)
                     .tab(AllElements.neoKuayueCarriageTab )
                     .noOcclusion()
                     .submit(AllElements.testRegistry);

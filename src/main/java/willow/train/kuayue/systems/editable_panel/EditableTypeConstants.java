@@ -1,7 +1,7 @@
 package willow.train.kuayue.systems.editable_panel;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 import kasuga.lib.core.util.Envs;
 import kasuga.lib.registrations.common.BlockTagReg;
 import net.minecraft.client.Minecraft;
@@ -39,7 +39,7 @@ public class EditableTypeConstants {
 
 //    TODO 各Renderer中的render方法lambda
     public static final SignRenderLambda CARRIAGE_TYPE_RENDER = (blockEntity, partialTick, pose, bufferSource, packedLight, packedOverlay) -> {
-    PoseStack poseStack = pose.getPoseStack();
+        PoseStack poseStack = pose.getPoseStack();
         BlockState blockstate = blockEntity.getBlockState();
         boolean revert = blockEntity.getNbt().getBoolean("revert");
         Label[] label = new Label[5];
@@ -51,7 +51,7 @@ public class EditableTypeConstants {
 
         poseStack.translate(0.5d, 0.5d, 0.5d);
         float f = -blockstate.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot();
-        poseStack.mulPose(Vector3f.YP.rotationDegrees(f));
+        poseStack.mulPose(Axis.YP.rotationDegrees(f));
         poseStack.translate(0.0d, -0.3d, -0.42d);
         // width 1.2，height 0.5
         // scale 0.133
@@ -70,13 +70,13 @@ public class EditableTypeConstants {
         poseStack.scale(0.133f * 0.55f, -0.133f * 0.55f, 0.133f * 0.55f); // standard size
 
         poseStack.scale(0.08f, 0.08f, 1.0f);
-        label[1].renderToGui(poseStack, Minecraft.getInstance().font);  // 硬座车
+        label[1].renderToWorld(poseStack, Minecraft.getInstance().font, bufferSource.getBuffer(), false, packedLight);  // 硬座车
         poseStack.scale(12.5f, 12.5f, 1.0f);
 
         poseStack.translate((size1 - size0) / 2, -1.7, 0);
 
         poseStack.scale(0.13f, 0.18f, 1.0f);
-        label[0].renderToGui(poseStack, Minecraft.getInstance().font);  // YINGZUOCHE
+        label[0].renderToWorld(poseStack, Minecraft.getInstance().font, bufferSource.getBuffer(), false, packedLight);  // YINGZUOCHE
         poseStack.scale(7.6923076924f, 5.555555555555f, 1.0f);
 
 
@@ -87,19 +87,19 @@ public class EditableTypeConstants {
         }
 
         poseStack.scale(0.23f, 0.32f, 1.0f);
-        label[2].renderToGui(poseStack, Minecraft.getInstance().font);  // YZ
+        label[2].renderToWorld(poseStack, Minecraft.getInstance().font, bufferSource.getBuffer(), false, packedLight);  // YZ
         poseStack.scale(4.347826086956f, 3.1250f, 1.0f);
 
         poseStack.translate(size2, 1.6, 0.0);
 
         poseStack.scale(0.12f, 0.12f, 1.0f);
-        label[3].renderToGui(poseStack, Minecraft.getInstance().font);  // 25k
+        label[3].renderToWorld(poseStack, Minecraft.getInstance().font, bufferSource.getBuffer(), false, packedLight);  // 25k
         poseStack.scale(8.333333333333f, 8.333333333333f, 1.0f);
 
         poseStack.translate(size3 + 1, -1.6, 0.0);
 
         poseStack.scale(0.26f, 0.32f, 1.0f);
-        label[4].renderToGui(poseStack, Minecraft.getInstance().font);  // 345674
+        label[4].renderToWorld(poseStack, Minecraft.getInstance().font, bufferSource.getBuffer(), false, packedLight);  // 345674
 
         poseStack.popPose();
     };

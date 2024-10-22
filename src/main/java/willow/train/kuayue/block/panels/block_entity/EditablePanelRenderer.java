@@ -11,6 +11,8 @@ import willow.train.kuayue.systems.editable_panel.EditableTypeConstants;
 import willow.train.kuayue.systems.editable_panel.SignType;
 import willow.train.kuayue.systems.editable_panel.interfaces.SignRenderLambda;
 
+import java.awt.*;
+
 public class EditablePanelRenderer implements BlockEntityRenderer<EditablePanelEntity> {
 
     private final Font font;
@@ -50,17 +52,17 @@ public class EditablePanelRenderer implements BlockEntityRenderer<EditablePanelE
                 false,
                 pPoseStack.last().pose(),
                 pBufferSource,
-                false,
+                Font.DisplayMode.NORMAL,
                 0,
                 pPackedLight);
     }
 
     private static int getDarkColor(EditablePanelEntity pBlockEntity) {
-        int i = pBlockEntity.getSignColor();
-        double d0 = 0.4D;
-        int j = (int) ((double) NativeImage.getR(i) * 0.4D);
-        int k = (int) ((double) NativeImage.getG(i) * 0.4D);
-        int l = (int) ((double) NativeImage.getB(i) * 0.4D);
-        return NativeImage.combine(0, l, k, j);
+        int i = pBlockEntity.getColor();
+        Color color = new Color(i);
+        int j = (int)((double) color.getRed() * 0.4D);
+        int k = (int)((double) color.getGreen() * 0.4D);
+        int l = (int)((double) color.getBlue() * 0.4D);
+        return new Color(j, k, l).getRGB();
     }
 }

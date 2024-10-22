@@ -7,8 +7,7 @@ import kasuga.lib.registrations.create.BogeyBlockReg;
 import kasuga.lib.registrations.create.BogeyGroupReg;
 import kasuga.lib.registrations.create.BogeySizeReg;
 import kasuga.lib.registrations.registry.CreateRegistry;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 import willow.train.kuayue.block.bogey.carriage.CarriageBogeyBlock;
 import willow.train.kuayue.block.bogey.carriage.CarriageBogeyEntity;
 import willow.train.kuayue.block.bogey.carriage.MeterCarriageBogeyBlock;
@@ -100,8 +99,7 @@ public class AllCarriageBogeys {
             new BundledReg<BogeyBlockReg<CarriageBogeyBlock>>("carriage_bundle")
             .factory(BogeyBlockReg::new)
             .action(reg -> reg.block(CarriageBogeyBlock::new))
-            .action(reg -> reg.material(Material.METAL))
-            .action(reg -> reg.materialColor(MaterialColor.PODZOL))
+            .action(reg -> reg.materialColor(MapColor.PODZOL))
             .action(BogeyBlockReg::noOcclusion)
             .drive((key, reg) -> switch (key) {
                 case "sw220k_bogey" -> reg.size(sw220k).translationKey("sw220k_bogey");
@@ -123,8 +121,7 @@ public class AllCarriageBogeys {
             new BundledReg<BogeyBlockReg<MeterCarriageBogeyBlock>>("meter_carriage_bundle")
             .factory(BogeyBlockReg::new)
             .action(reg -> reg.block(MeterCarriageBogeyBlock::new))
-            .action(reg -> reg.material(Material.METAL))
-            .action(reg -> reg.materialColor(MaterialColor.PODZOL))
+            .action(reg -> reg.materialColor(MapColor.PODZOL))
             .action(BogeyBlockReg::noOcclusion)
             .drive((key, reg) -> switch (key) {
                 case "mkz_bogey" -> reg.size(mkz).translationKey("mkz_bogey");
@@ -137,8 +134,7 @@ public class AllCarriageBogeys {
             new BundledReg<BogeyBlockReg<MeterCarriageBogeyBlock>>("meter_carriage_half_height_top_bundle")
             .factory(BogeyBlockReg::new)
             .action(reg -> reg.block((properties, bogeySize) -> new MeterCarriageBogeyBlock(properties, bogeySize, true)))
-            .action(reg -> reg.material(Material.METAL))
-            .action(reg -> reg.materialColor(MaterialColor.PODZOL))
+            .action(reg -> reg.materialColor(MapColor.PODZOL))
             .action(BogeyBlockReg::noOcclusion)
             .drive((key, reg) -> switch (key) {
                 case "tkz2_bogey" -> reg.size(tkz2).translationKey("tkz2_bogey");

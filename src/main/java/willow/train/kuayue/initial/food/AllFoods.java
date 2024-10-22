@@ -2,8 +2,7 @@ package willow.train.kuayue.initial.food;
 
 import kasuga.lib.registrations.common.ItemReg;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 import willow.train.kuayue.block.food.*;
 import willow.train.kuayue.block.food.instant_noodles.DriedInstantNoodlesBlockItem;
 import willow.train.kuayue.block.food.instant_noodles.SoakedInstantNoodlesBlock;
@@ -22,7 +21,7 @@ public class AllFoods {
                     .block(properties -> new TrainDietBoxBlock(properties, PlacementFoodBlock.FoodType.BOX))
                     .item((reg, properties, hasEffect, hasTooltip) ->
                             new PlacementFoodBlockItem(reg.getBlock(), properties, hasEffect, hasTooltip))
-                    .material(Material.CAKE, MaterialColor.COLOR_GRAY)
+                    .material(MapColor.COLOR_GRAY)
                     .soundType(SoundType.WOOL)
                     .strength(0.5F)
                     .noOcclusion()
@@ -38,7 +37,7 @@ public class AllFoods {
                     .block(properties -> new ParticlesDrinkBlock(properties, PlacementFoodBlock.FoodType.BOTTLE))
                     .item((reg, properties, hasEffect, hasTooltip) ->
                             new PlacementDrinkBlockItem(reg.getBlock(), properties, hasEffect, hasTooltip))
-                    .material(Material.METAL, MaterialColor.COLOR_BLACK)
+                    .material(MapColor.COLOR_BLACK)
                     .soundType(SoundType.METAL)
                     .strength(0.5F)
                     .noOcclusion()
@@ -53,7 +52,7 @@ public class AllFoods {
                     .block(properties -> new PlacementFoodBlock(properties, PlacementFoodBlock.FoodType.BOWL))
                     .item((reg, properties, hasEffect, hasTooltip) ->
                             new DriedInstantNoodlesBlockItem(reg.getBlock(), properties, hasEffect, hasTooltip))
-                    .material(Material.WOOL, MaterialColor.COLOR_BLACK)
+                    .material(MapColor.COLOR_BLACK)
                     .soundType(SoundType.WOOL)
                     .strength(0.5F)
                     .noOcclusion()
@@ -68,7 +67,7 @@ public class AllFoods {
                     .block(properties -> new SoakedInstantNoodlesBlock(properties, PlacementFoodBlock.FoodType.BOWL))
                     .item((reg, properties, hasEffect, hasTooltip) ->
                             new SoakedInstantNoodlesBlockItem(reg.getBlock(), properties, hasEffect, hasTooltip))
-                    .material(Material.WOOL, MaterialColor.COLOR_BLACK)
+                    .material(MapColor.COLOR_BLACK)
                     .soundType(SoundType.WOOL)
                     .strength(0.5F)
                     .noOcclusion()

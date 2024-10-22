@@ -88,7 +88,7 @@ public class DoubleDoorEntity extends SmartBlockEntity implements IContraptionMo
 
     @Override
     public void doMovement(Contraption contraption, BlockPos blockPos, BlockState blockState, BlockEntity blockEntity) {
-        ((DoubleDoorEntity) blockEntity).setOpen(contraption.getBlocks().get(blockPos).state.getValue(DoorBlock.OPEN));
+        ((DoubleDoorEntity) blockEntity).setOpen(contraption.getBlocks().get(blockPos).state().getValue(DoorBlock.OPEN));
         contraption.presentBlockEntities.put(blockPos, blockEntity);
     }
 

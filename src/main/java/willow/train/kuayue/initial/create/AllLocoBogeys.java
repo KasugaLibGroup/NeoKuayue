@@ -6,8 +6,7 @@ import kasuga.lib.registrations.create.BogeyBlockReg;
 import kasuga.lib.registrations.create.BogeyGroupReg;
 import kasuga.lib.registrations.create.BogeySizeReg;
 import kasuga.lib.registrations.registry.CreateRegistry;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 import willow.train.kuayue.block.bogey.loco.LocoBogeyBlock;
 import willow.train.kuayue.block.bogey.loco.LocoBogeyEntity;
 import willow.train.kuayue.block.bogey.loco.MeterLocoBogeyBlock;
@@ -67,8 +66,7 @@ public class AllLocoBogeys {
     public static final BogeyBlockReg<LocoBogeyBlock> df11gBogey =
             new BogeyBlockReg<LocoBogeyBlock>("df11g_bogey")
                     .block(LocoBogeyBlock::new)
-                    .material(Material.METAL)
-                    .materialColor(MaterialColor.PODZOL)
+                    .materialColor(MapColor.PODZOL)
                     .translationKey("df11g_bogey")
                     .size(df11g)
                     .submit(testRegistry);
@@ -76,8 +74,7 @@ public class AllLocoBogeys {
     public static final BogeyBlockReg<LocoBogeyBlock> df11gBackwardBogey =
             new BogeyBlockReg<LocoBogeyBlock>("df11g_backward_bogey")
                     .block(LocoBogeyBlock::new)
-                    .material(Material.METAL)
-                    .materialColor(MaterialColor.PODZOL)
+                    .materialColor(MapColor.PODZOL)
                     .translationKey("df11g_bogey")
                     .size(df11gBackward)
                     .submit(testRegistry);
@@ -85,8 +82,7 @@ public class AllLocoBogeys {
     public static final BogeyBlockReg<LocoBogeyBlock> qjMainBogey =
             new BogeyBlockReg<LocoBogeyBlock>("qj_bogey")
                     .block(LocoBogeyBlock::new)
-                    .material(Material.METAL)
-                    .materialColor(MaterialColor.PODZOL)
+                    .materialColor(MapColor.PODZOL)
                     .translationKey("qj_bogey")
                     .size(qjMain)
                     .submit(testRegistry);
@@ -94,8 +90,7 @@ public class AllLocoBogeys {
     public static final BogeyBlockReg<LocoBogeyBlock> ss3Bogey =
             new BogeyBlockReg<LocoBogeyBlock>("ss3_bogey")
                     .block(LocoBogeyBlock::new)
-                    .material(Material.METAL)
-                    .materialColor(MaterialColor.PODZOL)
+                    .materialColor(MapColor.PODZOL)
                     .translationKey("ss3_bogey")
                     .size(ss3)
                     .submit(testRegistry);
@@ -103,8 +98,7 @@ public class AllLocoBogeys {
     public static final BogeyBlockReg<LocoBogeyBlock> ss3BackwardBogey =
             new BogeyBlockReg<LocoBogeyBlock>("ss3_backward_bogey")
                     .block(LocoBogeyBlock::new)
-                    .material(Material.METAL)
-                    .materialColor(MaterialColor.PODZOL)
+                    .materialColor(MapColor.PODZOL)
                     .translationKey("ss3_backward_bogey")
                     .size(ss3Backward)
                     .submit(testRegistry);
@@ -123,8 +117,7 @@ public class AllLocoBogeys {
     public static final BogeyBlockReg<MeterLocoBogeyBlock> df21Bogey =
             new BogeyBlockReg<MeterLocoBogeyBlock>("df21_bogey")
                     .block(MeterLocoBogeyBlock::new)
-                    .material(Material.METAL)
-                    .materialColor(MaterialColor.PODZOL)
+                    .materialColor(MapColor.PODZOL)
                     .translationKey("df21_bogey")
                     .size(df21)
                     .submit(testRegistry);
@@ -132,8 +125,7 @@ public class AllLocoBogeys {
     public static final BogeyBlockReg<MeterLocoBogeyBlock> df21BackwardBogey =
             new BogeyBlockReg<MeterLocoBogeyBlock>("df21_backward_bogey")
                     .block(MeterLocoBogeyBlock::new)
-                    .material(Material.METAL)
-                    .materialColor(MaterialColor.PODZOL)
+                    .materialColor(MapColor.PODZOL)
                     .translationKey("df21_backward_bogey")
                     .size(df21Backward)
                     .submit(testRegistry);

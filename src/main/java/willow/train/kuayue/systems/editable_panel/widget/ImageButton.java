@@ -1,16 +1,19 @@
 package willow.train.kuayue.systems.editable_panel.widget;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
 import kasuga.lib.core.client.render.SimpleColor;
 import kasuga.lib.core.client.render.texture.ImageMask;
 import kasuga.lib.core.client.render.texture.Vec2f;
 import kasuga.lib.core.util.LazyRecomputable;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import org.joml.Vector3f;
+
+import java.util.function.Supplier;
 
 @OnlyIn(Dist.CLIENT)
 public class ImageButton extends Button {
@@ -23,33 +26,33 @@ public class ImageButton extends Button {
 
     public ImageButton(LazyRecomputable<ImageMask> mask, LazyRecomputable<ImageMask> bg, int x, int y,
                        int width, int height, Component tooltip, OnPress press) {
-        super(0, 0, width, height, tooltip, press);
+        super(0, 0, width, height, tooltip, press, Supplier::get);
         this.mask = mask;
         this.bg = bg;
         this.width = width;
         this.height = height;
-        this.x = x;
-        this.y = y;
-        this.tooltip = new TooltipLabel(new Vec2f(this.x, this.y + this.height + 2), tooltip);
+        this.setX(x);
+        this.setY(y);
+        this.tooltip = new TooltipLabel(new Vec2f(this.getX(), this.getY() + this.height + 2), tooltip);
         controlImage(baseAction);
         controlBg(baseAction);
         this.clk = (a, b, c) -> {};
     }
 
     public ImageButton(LazyRecomputable<ImageMask> mask, int x, int y, int width, int height, Component tooltip, OnPress press) {
-        super(0, 0, width, height, tooltip, press);
+        super(0, 0, width, height, tooltip, press, Supplier::get);
         this.mask = mask;
         this.bg = null;
         this.width = width;
         this.height = height;
-        this.x = x;
-        this.y = y;
-        this.tooltip = new TooltipLabel(new Vec2f(this.x, this.y + this.height + 2), tooltip);
+        this.setX(x);
+        this.setY(y);
+        this.tooltip = new TooltipLabel(new Vec2f(this.getX(), this.getY() + this.height + 2), tooltip);
         controlImage(baseAction);
     }
 
     public void setX(int x) {
-        this.x = x;
+        super.setX(x);
         if (mask != null){
             int leftTopX1 = (int) mask.get().getLeftTop().x();
             mask.get().offset(x - leftTopX1, 0, 0);
@@ -61,7 +64,7 @@ public class ImageButton extends Button {
     }
 
     public void setY(int y) {
-        this.y = y;
+        super.setY(y);
         if (mask != null){
             int leftTopY1 = (int) mask.get().getLeftTop().y();
             mask.get().offset(0, y - leftTopY1, 0);
@@ -73,8 +76,8 @@ public class ImageButton extends Button {
     }
 
     public void setPos(int x, int y) {
-        this.x = x;
-        this.y = y;
+        super.setX(x);
+        super.setY(y);
         if (mask != null){
             int leftTopX1 = (int) mask.get().getLeftTop().x();
             int leftTopY1 = (int) mask.get().getLeftTop().y();
@@ -88,11 +91,11 @@ public class ImageButton extends Button {
     }
 
     public int getX() {
-        return x;
+        return super.getX();
     }
 
     public int getY() {
-        return y;
+        return super.getY();
     }
 
     public void setMaskColor(SimpleColor color) {
@@ -108,7 +111,7 @@ public class ImageButton extends Button {
 
     public void setTooltipLabelWidth(int width) {
         this.tooltip.setWidth(width);
-        this.tooltip.setPosition(new Vec2f(this.x + (float) (this.width - width) / 2, this.y + this.height + 2));
+        this.tooltip.setPosition(new Vec2f(this.getX() + (float) (this.width - width) / 2, this.getY() + this.height + 2));
     }
 
     public void dynamicTooltipLabelWidth() {
@@ -123,11 +126,11 @@ public class ImageButton extends Button {
     }
 
     @Override
-    public void renderButton(PoseStack pPoseStack, int mouseX, int mouseY, float partialTicks) {
+    public void renderWidget(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         if (!visible) return;
         if (bg != null) bg.get().renderToGui();
         if (isHovered) {
-            if (showTooltip > 40) tooltip.render(pPoseStack, mouseX, mouseY, partialTicks);
+            if (showTooltip > 40) tooltip.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
             else showTooltip ++;
         } else if (showTooltip > 0) showTooltip --;
         this.mask.get().renderToGui();

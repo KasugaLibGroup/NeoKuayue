@@ -65,7 +65,7 @@ public class TrainLadderBlock extends TrainSlabBlock {
         if(pPlayer.getItemInHand(pHand).getItem() instanceof SlabBlockItem) {
             return InteractionResult.PASS;
         }
-        return TrainSmallWindowBlock.windowUse(pState, material, pLevel, pPos, pPlayer, pHand, pHit);
+        return TrainSmallWindowBlock.windowUse(pState, pLevel, pPos, pPlayer, pHand, pHit);
     }
 
     @Override

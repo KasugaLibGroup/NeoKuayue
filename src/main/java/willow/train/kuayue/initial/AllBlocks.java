@@ -5,8 +5,7 @@ import kasuga.lib.registrations.common.BlockReg;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.Vec2;
 import willow.train.kuayue.block.panels.TrainPanelBlock;
 import willow.train.kuayue.block.panels.base.*;
@@ -24,8 +23,7 @@ public class AllBlocks {
     public static final BlockReg<Block> CR_LOGO =
             new BlockReg<Block>("cr_logo")
                     .blockType(Block::new)
-                    .material(Material.METAL)
-                    .materialColor(MaterialColor.PLANT)
+                    .materialColor(MapColor.COLOR_GREEN)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
                     .addProperty(properties -> properties.sound(SoundType.POLISHED_DEEPSLATE))
                     .addProperty(properties -> properties.strength(1.5f, 3.0f))
@@ -36,40 +34,35 @@ public class AllBlocks {
     public static final BlockReg<CompanyTrainPanel> COMPANY_TRAIN_PANEL =
             new BlockReg<CompanyTrainPanel>("company_panel_block")
                     .blockType(CompanyTrainPanel::new)
-                    .material(Material.METAL)
-                    .materialColor(MaterialColor.COLOR_GRAY)
+                    .materialColor(MapColor.COLOR_GRAY)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
                     .submit(AllElements.testRegistry);
 
     public static final BlockReg<CompanyTrainDoor> COMPANY_TRAIN_DOOR =
             new BlockReg<CompanyTrainDoor>("company_door_block")
                     .blockType(CompanyTrainDoor::new)
-                    .material(Material.METAL)
-                    .materialColor(MaterialColor.COLOR_GRAY)
+                    .materialColor(MapColor.COLOR_GRAY)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
                     .submit(AllElements.testRegistry);
 
     public static final BlockReg<CompanyTrainDoor.Sliding> COMPANY_SLIDING_DOOR =
             new BlockReg<CompanyTrainDoor.Sliding>("company_sliding_door")
                     .blockType(CompanyTrainDoor.Sliding::new)
-                    .material(Material.METAL)
-                    .materialColor(MaterialColor.COLOR_GRAY)
+                    .materialColor(MapColor.COLOR_GRAY)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
                     .submit(AllElements.testRegistry);
 
     public static final BlockReg<CompanyTrainSlab> COMPANY_FLOOR =
             new BlockReg<CompanyTrainSlab>("company_floor")
                     .blockType(p -> new CompanyTrainSlab(p, false))
-                    .material(Material.METAL)
-                    .materialColor(MaterialColor.COLOR_GRAY)
+                    .materialColor(MapColor.COLOR_GRAY)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
                     .submit(AllElements.testRegistry);
 
     public static final BlockReg<CompanyTrainSlab> COMPANY_CARPORT =
             new BlockReg<CompanyTrainSlab>("company_carport")
                     .blockType(p -> new CompanyTrainSlab(p, true))
-                    .material(Material.METAL)
-                    .materialColor(MaterialColor.COLOR_GRAY)
+                    .materialColor(MapColor.COLOR_GRAY)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
                     .submit(AllElements.testRegistry);
 
@@ -83,7 +76,7 @@ public class AllBlocks {
                                     "door/platform_door/platform_door_left",
                                     "door/platform_door/platform_door_right"
                             )
-                    ).materialAndColor(Material.METAL, MaterialColor.METAL)
+                    ).materialAndColor(MapColor.METAL)
                     .tab(AllElements.neoKuayueMainTab)
                     .noOcclusion()
                     .submit(AllElements.testRegistry);
@@ -91,8 +84,7 @@ public class AllBlocks {
     public static final BlockReg<PlatformWallBlock> PLATFORM_WALL =
             new BlockReg<PlatformWallBlock>("platform_wall")
                     .blockType(PlatformWallBlock::new)
-                    .material(Material.METAL)
-                    .materialColor(MaterialColor.METAL)
+                    .materialColor(MapColor.METAL)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)

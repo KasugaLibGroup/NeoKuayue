@@ -2,7 +2,7 @@ package willow.train.kuayue.block.panels.block_entity;
 
 import com.jozufozu.flywheel.core.PartialModel;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 import com.simibubi.create.foundation.render.CachedBufferer;
 import com.simibubi.create.foundation.render.SuperByteBuffer;
 import com.simibubi.create.foundation.utility.Couple;
@@ -43,7 +43,7 @@ public class CustomRenderedEndFaceRenderer implements BlockEntityRenderer<Custom
         SuperByteBuffer rightBuffer = right == null ? null : CachedBufferer.partial(right, blockState);
         pose.pushPose();
         pose.translate(0.5f, -1f, 0.5f);
-        pose.mulPose(Vector3f.YP.rotationDegrees(f + 90f));
+        pose.mulPose(Axis.YP.rotationDegrees(f + 90f));
         // pose.translate(0, 0, -1);
         if (frame != null) {
             pose.translate(-.5, 2, -.5);
@@ -56,7 +56,7 @@ public class CustomRenderedEndFaceRenderer implements BlockEntityRenderer<Custom
             return;
         }
         pose.translate(0, 1, 0);
-        pose.mulPose(Vector3f.YN.rotationDegrees(-90f));
+        pose.mulPose(Axis.YN.rotationDegrees(-90f));
         if (pBlockEntity.type == TrainPanelProperties.DoorType.SLIDE_3) {
             if (leftBuffer != null)
                 leftBuffer.translate(-.6f, .13f, .375f);

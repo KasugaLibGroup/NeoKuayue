@@ -2,8 +2,10 @@ package willow.train.kuayue.block.panels.door;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -13,7 +15,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -64,10 +65,10 @@ public class TrainDoorBlock extends TrainPanelBlock {
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        return doorUse(pState, this.material, pLevel, pPos, pPlayer, pHand, pHit);
+        return doorUse(pState, pLevel, pPos, pPlayer, pHand, pHit);
     }
 
-    public static InteractionResult doorUse(BlockState state, Material material, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    public static InteractionResult doorUse(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         state = state.cycle(OPEN);
         BlockPos abovePos = pos.above();
         BlockState aboveState = level.getBlockState(abovePos);
@@ -75,21 +76,17 @@ public class TrainDoorBlock extends TrainPanelBlock {
             aboveState = aboveState.cycle(OPEN);
             level.setBlock(abovePos, aboveState, 10);
             CompanyTrainDoor.setParentBlock(abovePos, level, aboveState, pos);
-            level.levelEvent(player, aboveState.getValue(OPEN) ? getOpenSound(material) : getCloseSound(material), abovePos, 0);
+            playSound(player, level, pos, state.getValue(OPEN), BlockSetType.IRON);
             level.gameEvent(player, isOpen(aboveState) ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, abovePos);
         }
         level.setBlock(pos, state, 10);
-        level.levelEvent(player, state.getValue(OPEN) ? getOpenSound(material) : getCloseSound(material), pos, 0);
+        playSound(player, level, pos, state.getValue(OPEN), BlockSetType.IRON);
         level.gameEvent(player, isOpen(state) ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, pos);
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
 
-    public static int getCloseSound(Material material) {
-        return material == Material.METAL ? 1011 : 1012;
-    }
-
-    public static int getOpenSound(Material material) {
-        return material == Material.METAL ? 1005 : 1006;
+    public static void playSound(@javax.annotation.Nullable Entity pSource, Level pLevel, BlockPos pPos, boolean pIsOpening, BlockSetType type) {
+        pLevel.playSound(pSource, pPos, pIsOpening ? type.doorOpen() : type.doorClose(), SoundSource.BLOCKS, 1.0F, pLevel.getRandom().nextFloat() * 0.1F + 0.9F);
     }
 
     public static boolean isOpen(BlockState state) {

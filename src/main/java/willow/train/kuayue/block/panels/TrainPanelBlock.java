@@ -216,7 +216,7 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
         boolean leftHinge = !parentState.hasProperty(BlockStateProperties.DOOR_HINGE) ||
                 parentState.getValue(BlockStateProperties.DOOR_HINGE) == DoorHingeSide.LEFT;
         firstPos = DirectionUtil.left(firstPos, direction, (int) (leftHinge ? - beginPos.x : beginPos.x));
-        firstPos = firstPos.offset(0, beginPos.y, 0);
+        firstPos = firstPos.offset(0, (int) beginPos.y, 0);
         int length = (int) (endPos.x - beginPos.x),
                 height = (int) (endPos.y - beginPos.y);
 

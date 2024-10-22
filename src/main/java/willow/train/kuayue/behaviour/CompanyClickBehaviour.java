@@ -17,7 +17,7 @@ public class CompanyClickBehaviour extends MovingInteractionBehaviour {
     public boolean handlePlayerInteraction
             (Player player, InteractionHand activeHand, BlockPos localPos, AbstractContraptionEntity contraptionEntity) {
         Contraption contraption = contraptionEntity.getContraption();
-        CompoundTag tag = contraption.getBlocks().get(localPos).nbt;
+        CompoundTag tag = contraption.getBlocks().get(localPos).nbt();
         BlockPos offset = new BlockPos(tag.getInt("px"), tag.getInt("py"), tag.getInt("pz"));
         BlockPos parentPos = localPos.offset(offset);
         if (parentPos.equals(localPos)) return true;

@@ -9,8 +9,7 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.MapColor;
 import willow.train.kuayue.block.food.PlacementFoodBlock;
 import willow.train.kuayue.block.food.PlacementFoodBlockItem;
 
@@ -51,9 +50,8 @@ public class PlacementFoodRegistration<T extends PlacementFoodBlock, U extends P
         return this;
     }
 
-    public PlacementFoodRegistration<T, U> material(Material material, MaterialColor color) {
-        block.material(material);
-        block.materialColor(color);
+    public PlacementFoodRegistration<T, U> material(MapColor material) {
+        block.materialColor(material);
         return this;
     }
 

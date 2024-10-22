@@ -97,6 +97,6 @@ public class TrainEndfaceBlock extends TrainPanelBlock {
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        return TrainSmallWindowBlock.windowUse(pState, this.material, pLevel, pPos, pPlayer, pHand, pHit);
+        return TrainSmallWindowBlock.windowUse(pState, pLevel, pPos, pPlayer, pHand, pHit);
     }
 }

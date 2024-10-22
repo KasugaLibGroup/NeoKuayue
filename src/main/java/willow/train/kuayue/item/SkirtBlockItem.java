@@ -57,10 +57,10 @@ public class SkirtBlockItem extends BlockItem {
         boolean leftHinge = clickLoc.distanceToSqr(leftLoc) <= clickLoc.distanceToSqr(rightLoc);
         BlockState leftState = level.getBlockState(left),
                 rightState = level.getBlockState(right);
-        if (leftHinge && !leftState.getMaterial().isReplaceable()) {
+        if (leftHinge && !leftState.canBeReplaced()) {
             return new PlacePosContext(context.getClickedPos(), 0);
         }
-        if (!leftHinge && !rightState.getMaterial().isReplaceable()) {
+        if (!leftHinge && !rightState.canBeReplaced()) {
             return new PlacePosContext(context.getClickedPos(), 0);
         }
         return new PlacePosContext(leftHinge ? left : right, leftHinge ? -1 : 1);

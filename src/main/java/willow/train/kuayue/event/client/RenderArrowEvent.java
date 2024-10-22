@@ -1,6 +1,5 @@
 package willow.train.kuayue.event.client;
 
-import com.mojang.math.Vector3f;
 import kasuga.lib.core.client.render.model.SimpleModel;
 import kasuga.lib.core.client.render.texture.ImageMask;
 import kasuga.lib.core.client.render.texture.Vec2f;
@@ -26,7 +25,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.RenderGuiEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.royawesome.jlibnoise.module.combiner.Min;
+import org.joml.Vector3f;
 import willow.train.kuayue.block.panels.SkirtBlock;
 import willow.train.kuayue.block.panels.TrainPanelBlock;
 import willow.train.kuayue.block.panels.slab.TrainSlabBlock;

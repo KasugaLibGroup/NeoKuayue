@@ -4,6 +4,7 @@ import com.mojang.blaze3d.platform.Window;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.nbt.CompoundTag;
@@ -58,20 +59,20 @@ public class SpeedScreen extends CustomScreen<EditablePanelEditMenu, EditablePan
                 (float) (window.getGuiScaledHeight() / 2) - 8);
         addWidget(contentLabel);
 
-        colorSelector.getColorBtn().setPos(contentLabel.x + 10, contentLabel.y + 20);
-        colorSelector.getTemplateBtn().setPos(contentLabel.x + 30, contentLabel.y + 20);
+        colorSelector.getColorBtn().setPos(contentLabel.getX() + 10, contentLabel.getY() + 20);
+        colorSelector.getTemplateBtn().setPos(contentLabel.getX() + 30, contentLabel.getY() + 20);
 
         addWidget(colorSelector.getColorBtn());
         addWidget(colorSelector.getTemplateBtn());
     }
 
     @Override
-    public void renderBackGround(PoseStack pose, int mouseX, int mouseY, float partialTick) {
+    public void renderBackGround(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
 
     }
 
     @Override
-    public void renderTooltip(PoseStack pose, int mouseX, int mouseY) {
+    public void renderTooltip(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 
     }
 

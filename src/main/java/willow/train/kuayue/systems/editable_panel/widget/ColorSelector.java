@@ -1,14 +1,15 @@
 package willow.train.kuayue.systems.editable_panel.widget;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
 import kasuga.lib.core.client.render.SimpleColor;
 import kasuga.lib.core.client.render.texture.ImageMask;
 import kasuga.lib.core.client.render.texture.Vec2f;
 import kasuga.lib.core.util.LazyRecomputable;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.Component;
+import org.joml.Vector3f;
 import willow.train.kuayue.initial.ClientInit;
 
 import java.awt.*;
@@ -67,7 +68,7 @@ public class ColorSelector extends AbstractWidget {
         iOn = false;
         updateColor();
         tooltip.setWidth(100);
-        tooltip.setPosition(new Vec2f(this.x + 20, this.y - tooltip.getHeight() - 4));
+        tooltip.setPosition(new Vec2f(this.getX() + 20, this.getY() - tooltip.getHeight() - 4));
     }
 
     public void updateColor() {
@@ -80,41 +81,41 @@ public class ColorSelector extends AbstractWidget {
     public void updatePosition() {
         bg.get().rectangleUV(0, 0, 1, 1);
         bg.get().rectangle(
-                new Vector3f(this.x, this.y, 0), ImageMask.Axis.X, ImageMask.Axis.Y,
+                new Vector3f(this.getX(), this.getY(), 0), ImageMask.Axis.X, ImageMask.Axis.Y,
                 true, true, 140, 140);
         plate.get().rectangleUV(0, 0, 1, 1);
-        plate.get().rectangle(new Vector3f(this.x + 6, this.y + 6, 0), ImageMask.Axis.X, ImageMask.Axis.Y,
+        plate.get().rectangle(new Vector3f(this.getX() + 6, this.getY() + 6, 0), ImageMask.Axis.X, ImageMask.Axis.Y,
                 true, true, 128, 128);
         middleLayer.get().rectangleUV(0, 0, 1, 1);
-        middleLayer.get().rectangle(new Vector3f(this.x + 6, this.y + 6, 0), ImageMask.Axis.X, ImageMask.Axis.Y,
+        middleLayer.get().rectangle(new Vector3f(this.getX() + 6, this.getY() + 6, 0), ImageMask.Axis.X, ImageMask.Axis.Y,
                 true, true, 128, 128);
     }
 
     @Override
-    public void render(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
-        super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+    public void render(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+        super.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
     }
 
     @Override
-    public void renderButton(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
+    public void renderWidget(GuiGraphics guiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         plate.get().renderToGui();
-        fill(pPoseStack, x + 54, y + 54, x + 86, y + 86, color.getRGB());
+        guiGraphics.fill(getX() + 54, getY() + 54, getX() + 86, getY() + 86, color.getRGB());
         bg.get().renderToGui();
         middleLayer.get().setColor(fullColor);
         middleLayer.get().renderToGui();
-        button.get().rectangle(new Vector3f(this.x + 120, this.y + 61, 0), ImageMask.Axis.X, ImageMask.Axis.Y, true, true, 16, 16);
-        button.get().setPivot(new Vector3f(this.x + 70, this.y + 69, 0));
+        button.get().rectangle(new Vector3f(this.getX() + 120, this.getY() + 61, 0), ImageMask.Axis.X, ImageMask.Axis.Y, true, true, 16, 16);
+        button.get().setPivot(new Vector3f(this.getX() + 70, this.getY() + 69, 0));
         button.get().rotateByPivot(new Vector3f(0, 0, (float) Math.toRadians(-135f + this.h)));
         button.get().renderToGui();
-        button.get().rectangle(new Vector3f(this.x + 109, this.y + 61, 0), ImageMask.Axis.X, ImageMask.Axis.Y, true, true, 16, 16);
+        button.get().rectangle(new Vector3f(this.getX() + 109, this.getY() + 61, 0), ImageMask.Axis.X, ImageMask.Axis.Y, true, true, 16, 16);
         button.get().rotateByPivot(new Vector3f(0, 0, (float) Math.toRadians(-90 + 360 * this.s)));
         button.get().renderToGui();
-        button.get().rectangle(new Vector3f(this.x + 96, this.y + 61, 0), ImageMask.Axis.X, ImageMask.Axis.Y, true, true, 16, 16);
+        button.get().rectangle(new Vector3f(this.getX() + 96, this.getY() + 61, 0), ImageMask.Axis.X, ImageMask.Axis.Y, true, true, 16, 16);
         button.get().rotateByPivot(new Vector3f(0, 0, (float) Math.toRadians(-90 + this.v * 360)));
         button.get().renderToGui();
         if (isHovered) {
             if (showTooltip > 40) {
-                tooltip.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
+                tooltip.render(guiGraphics, pMouseX, pMouseY, pPartialTick);
             } else {
                 showTooltip ++;
             }
@@ -124,13 +125,8 @@ public class ColorSelector extends AbstractWidget {
         dealWithRelease((float) pMouseX, (float) pMouseY);
     }
 
-    @Override
-    public void updateNarration(NarrationElementOutput narrationElementOutput) {
-
-    }
-
     public Vec2f getWidgetCenter() {
-        return new Vec2f(this.x + 70, this.y + 70);
+        return new Vec2f(this.getX() + 70, this.getY() + 70);
     }
 
     @Override
@@ -151,6 +147,11 @@ public class ColorSelector extends AbstractWidget {
         }
         if (hOn || sOn || iOn) updateColor();
         return super.mouseDragged(pMouseX, pMouseY, pButton, pDragX, pDragY);
+    }
+
+    @Override
+    protected void updateWidgetNarration(NarrationElementOutput pNarrationElementOutput) {
+
     }
 
     private float getAngle(float mx, float my) {
