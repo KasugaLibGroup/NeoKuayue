@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.util.FormattedCharSequence;
 import willow.train.kuayue.systems.editable_panel.EditableTypeConstants;
 import willow.train.kuayue.systems.editable_panel.SignType;
+import willow.train.kuayue.systems.editable_panel.interfaces.SignRenderLambda;
 
 public class EditablePanelRenderer implements BlockEntityRenderer<EditablePanelEntity> {
 
@@ -23,7 +24,8 @@ public class EditablePanelRenderer implements BlockEntityRenderer<EditablePanelE
 
         for (SignType signType : EditableTypeConstants.getSignTypeMap().values()) {
             if (signType.shouldRender(pBlockEntity.getEditType())) {
-                signType.getLambdaSupplier().get().render(pBlockEntity, pPartialTick, pPoseStack, pBufferSource, pPackedLight ,pPackedOverlay);
+                signType.getLambdaSupplier().get().render(pBlockEntity, pPartialTick, new SignRenderLambda.ClientObject(pPoseStack),
+                        new SignRenderLambda.ClientObject(pBufferSource), pPackedLight ,pPackedOverlay);
                 return;
             }
         }

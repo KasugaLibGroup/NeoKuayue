@@ -1,6 +1,8 @@
 package willow.train.kuayue.systems.editable_panel;
 
+import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
+import kasuga.lib.core.util.Envs;
 import kasuga.lib.registrations.common.BlockTagReg;
 import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
@@ -36,7 +38,8 @@ public class EditableTypeConstants {
             BLACK = 789516;
 
 //    TODO 各Renderer中的render方法lambda
-    public static final SignRenderLambda CARRIAGE_TYPE_RENDER = (blockEntity, partialTick, poseStack, bufferSource, packedLight, packedOverlay) -> {
+    public static final SignRenderLambda CARRIAGE_TYPE_RENDER = (blockEntity, partialTick, pose, bufferSource, packedLight, packedOverlay) -> {
+    PoseStack poseStack = pose.getPoseStack();
         BlockState blockstate = blockEntity.getBlockState();
         boolean revert = blockEntity.getNbt().getBoolean("revert");
         Label[] label = new Label[5];
@@ -252,9 +255,9 @@ public class EditableTypeConstants {
                                               TrainPanelProperties.EditType editType,
                                               Supplier<Supplier<SignRenderLambda>> supplier,
                                               Supplier<DefaultTextsLambda> defaultTextSupplier,
-                                              SignType.CustomScreenSupplier<EditablePanelEditMenu, CustomScreen<EditablePanelEditMenu, EditablePanelEntity>> screenMethodsSupplier) {
+                                              Supplier<SignType.CustomScreenSupplier<EditablePanelEditMenu, CustomScreen<EditablePanelEditMenu, EditablePanelEntity>>> screenMethodsSupplier) {
 
-        SignType signType = new SignType(locationKey, editType, supplier, defaultTextSupplier, screenMethodsSupplier);
+        SignType signType = new SignType(locationKey, editType, supplier, defaultTextSupplier, Envs.isClient() ? screenMethodsSupplier.get() : null);
 
         EditableTypeConstants.getSignTypeMap().put(new ResourceLocation(locationKey), signType);
 

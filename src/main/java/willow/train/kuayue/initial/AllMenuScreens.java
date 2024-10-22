@@ -8,7 +8,7 @@ public class AllMenuScreens {
 
     public static final MenuReg<EditablePanelEditMenu, EPScreen> EDITABLE_PANEL =
             new MenuReg<EditablePanelEditMenu, EPScreen>("editable_panel")
-                    .withMenuAndScreen(EditablePanelEditMenu::new, EPScreen::new)
+                    .withMenuAndScreen(EditablePanelEditMenu::new, () -> EPScreen::new)
                     .submit(AllElements.testRegistry);
 
     public static void invoke(){}

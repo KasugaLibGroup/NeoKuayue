@@ -72,6 +72,7 @@ public class ColorScreenBundles extends AbstractWidget {
 
         colorEditor.onConfirmClick((btn, x, y) -> {
             colorEditor.setVisible(false);
+            ClientInit.COLOR_TEMPLATES.writeToFile();
             onSuccess(colorEditor);
         });
 
@@ -122,6 +123,7 @@ public class ColorScreenBundles extends AbstractWidget {
                 ClientInit.COLOR_TEMPLATES.addTemplate(templateEditor.getTemplate());
                 templateScreen.visible = true;
                 defTemplateBtn();
+                ClientInit.COLOR_TEMPLATES.writeToFile();
             });
             templateEditor.onCancelClick((w, x , y) -> {
                 templateEditor.setVisible(false);
