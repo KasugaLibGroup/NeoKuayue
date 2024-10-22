@@ -199,9 +199,10 @@
   "block.kuayue.carport_general_m1": "M1客车通用车顶",
   "block.kuayue.carport_middle_m1": "M1客车中间车顶",
   "block.kuayue.carport_air_vent_m1": "M1客车通风口车顶",
-  "block.kuayue.window_large_jy30": "JY30客车大窗",
-  "block.kuayue.window_large_between_jy30": "JY30客车大窗(单格宽)",
-  "block.kuayue.slab_bottom_jy30": "JY30客车下厢板",
+  "block.kuayue.window_large_jy30": "JY30宿营车大窗",
+  "block.kuayue.window_large_between_jy30": "JY30宿营车大窗(单格宽)",
+  "block.kuayue.slab_bottom_jy30": "JY30宿营车下厢板",
+  "block.kuayue.end_face_middle_m1": "M1客车内侧端面",
 
   "block.kuayue.train_diet_1": "火车盒饭",
   "block.kuayue.kua_cola": "跨可乐",
@@ -714,7 +715,7 @@
   "block.kuayue.end_face_25k_2": "原色25K橡胶端面(空调端)",
   "block.kuayue.end_face_25k_3": "原色25K橡胶端面",
 
-  "block.kuayue.end_face_25k_4": "原色25K折棚端面(非空调端)",
-  "block.kuayue.end_face_25k_5": "原色25K折棚端面(空调端)",
-  "block.kuayue.end_face_25k_6": "原色25K折棚端面"
+  "block.kuayue.end_face_sliding_25k_1": "原色25K折棚端面(非空调端)",
+  "block.kuayue.end_face_sliding_25k_2": "原色25K折棚端面(空调端)",
+  "block.kuayue.end_face_sliding_25k_3": "原色25K折棚端面"
 }

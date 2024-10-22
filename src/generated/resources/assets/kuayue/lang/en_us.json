@@ -670,6 +670,7 @@
  "block.kuayue.window_large_jy30": "JY30 Large Window",
  "block.kuayue.window_large_between_jy30": "JY30 Large Window (Single Block Width)",
  "block.kuayue.slab_bottom_jy30": "JY30 Bottom Panel",
+ "block.kuayue.end_face_middle_m1": "M1 Inside End Face",
 
  "block.kuayue.train_diet_1": "Train Boxed Meal",
  "block.kuayue.kua_cola": "Kuayue Cola",
@@ -722,7 +723,7 @@
  "block.kuayue.end_face_25k_2": "Original Color 25K Rubber End Face (AC Side)",
  "block.kuayue.end_face_25k_3": "Original Color 25K Rubber End Face",
 
- "block.kuayue.end_face_25k_4": "Original Color 25K Folding Shed End Face (None AC Side)",
- "block.kuayue.end_face_25k_5": "Original Color 25K Folding Shed End Face (AC Side)",
- "block.kuayue.end_face_25k_6": "Original Color 25K Folding Shed End Face"
+ "block.kuayue.end_face_sliding_25k_1": "Original Color 25K Folding Shed End Face (None AC Side)",
+ "block.kuayue.end_face_sliding_25k_2": "Original Color 25K Folding Shed End Face (AC Side)",
+ "block.kuayue.end_face_sliding_25k_3": "Original Color 25K Folding Shed End Face"
 }
