@@ -16,6 +16,9 @@ import willow.train.kuayue.block.structure.platform.PlatformWallBlock;
 import willow.train.kuayue.initial.panel.*;
 import willow.train.kuayue.initial.registration.PanelRegistration;
 
+import java.io.File;
+import java.io.FileWriter;
+
 import static willow.train.kuayue.initial.panel.CM1Panel.END_FACE_MIDDLE_M1;
 
 public class AllBlocks {
@@ -198,5 +201,38 @@ public class AllBlocks {
         I21Panel.invoke();
         AllDecoBlocks.invoke();
         CR200JPanel.invoke();
+    }
+
+    public static void generateDrops(String name) {
+        String basic = "{\n" +
+                "  \"type\": \"minecraft:block\",\n" +
+                "  \"pools\": [\n" +
+                "    {\n" +
+                "      \"bonus_rolls\": 1.0,\n" +
+                "      \"conditions\": [\n" +
+                "        {\n" +
+                "          \"condition\": \"minecraft:survives_explosion\"\n" +
+                "        }\n" +
+                "      ],\n" +
+                "      \"entries\": [\n" +
+                "        {\n" +
+                "          \"type\": \"minecraft:item\",\n" +
+                "          \"name\": \"kuayue:" + name + "\"\n" +
+                "        }\n" +
+                "      ],\n" +
+                "      \"rolls\": 1.0\n" +
+                "    }\n" +
+                "  ]\n" +
+                "}";
+
+        File file = new File("../src/generated/resources/data/kuayue/loot_tables/blocks/" + name + ".json");
+        try {
+            file.createNewFile();
+            FileWriter writer = new FileWriter(file);
+            writer.write(basic);
+            writer.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

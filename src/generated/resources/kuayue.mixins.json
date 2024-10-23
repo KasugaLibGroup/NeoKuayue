@@ -6,7 +6,8 @@
   "refmap": "kuayue.refmap.json",
   "mixins": [
     "AccessorExternalRemainderBlockItem",
-    "MixinAbstractContraptionEntity"
+    "MixinAbstractContraptionEntity",
+    "client.MixinBlockReg"
   ],
   "client": [
     "client.AccessorCreativeTabScreen",
