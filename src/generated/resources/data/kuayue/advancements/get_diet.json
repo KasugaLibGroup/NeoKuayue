@@ -1,0 +1,34 @@
+{
+  "parent": "kuayue:root",
+  "display": {
+    "icon": {
+      "item": "kuayue:train_diet_1"
+    },
+    "title": {
+      "translate": "kuayue.advancement.diet"
+    },
+    "description": {
+      "color": "#DBA213",
+      "translate": "kuayue.advancement.diet.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "1": {
+      "trigger": "minecraft:effects_changed",
+      "conditions": {
+        "effects": {
+          "kuayue:noodle_smell": {}
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "1"
+    ]
+  ]
+}

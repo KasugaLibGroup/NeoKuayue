@@ -1,0 +1,38 @@
+{
+  "parent": "kuayue:get_steel",
+  "display": {
+    "icon": {
+      "item": "kuayue:standard_track"
+    },
+    "title": {
+      "translate": "kuayue.advancement.track"
+    },
+    "description": {
+      "color": "#DBA213",
+      "translate": "kuayue.advancement.track.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "kuayue:standard_track"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ]
+}
