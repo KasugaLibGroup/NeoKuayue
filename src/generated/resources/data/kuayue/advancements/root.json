@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "item": "kuayue:cr_logo"
+    },
+    "title": {
+      "translate": "kuayue:advancement.root"
+    },
+    "description": {
+      "color": "#DBA213",
+      "translate": "kuayue:advancement.root.desc"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false,
+    "background": "kuayue:textures/gui/grid_display_board.png"
+  },
+  "criteria": {
+    "0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {}
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ]
+}

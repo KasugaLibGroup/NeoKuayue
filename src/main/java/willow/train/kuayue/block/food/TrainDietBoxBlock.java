@@ -1,10 +1,12 @@
 package willow.train.kuayue.block.food;
 
+import kasuga.lib.core.base.item_helper.ExternalRemainderBlockItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
@@ -14,6 +16,9 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import org.jetbrains.annotations.Nullable;
+import willow.train.kuayue.mixins.mixin.AccessorExternalRemainderBlockItem;
+
+import java.util.function.Supplier;
 
 public class TrainDietBoxBlock extends PlacementFoodBlock {
 
@@ -46,8 +51,17 @@ public class TrainDietBoxBlock extends PlacementFoodBlock {
         // 获取食物方块对应的物品栈
         ItemStack stack = pState.getBlock().asItem().getDefaultInstance();
         // 获取食用后剩余物品栈
-        ItemStack craftingRemainingItem =
-                new ItemStack(stack.getItem().getCraftingRemainingItem(stack).getItem());
+        ItemStack craftingRemainingItem;
+        if (stack.getItem() instanceof ExternalRemainderBlockItem erbi) {
+            Supplier<Item> itemSup = ((AccessorExternalRemainderBlockItem) erbi).getCraftingRemainder();
+            if (itemSup != null && itemSup.get() != null)
+                craftingRemainingItem = itemSup.get().getDefaultInstance();
+            else
+                craftingRemainingItem = ItemStack.EMPTY;
+        } else {
+            craftingRemainingItem = ItemStack.EMPTY;
+        }
+
 
         // 当盒饭没有食用
         if (!pState.getValue(EMPTY)) {

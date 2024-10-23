@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "kuayue.refmap.json",
   "mixins": [
+    "AccessorExternalRemainderBlockItem",
     "MixinAbstractContraptionEntity"
   ],
   "client": [
