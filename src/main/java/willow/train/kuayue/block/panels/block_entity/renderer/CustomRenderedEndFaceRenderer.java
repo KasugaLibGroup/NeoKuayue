@@ -1,4 +1,4 @@
-package willow.train.kuayue.block.panels.block_entity;
+package willow.train.kuayue.block.panels.block_entity.renderer;
 
 import com.jozufozu.flywheel.core.PartialModel;
 import com.mojang.blaze3d.vertex.PoseStack;

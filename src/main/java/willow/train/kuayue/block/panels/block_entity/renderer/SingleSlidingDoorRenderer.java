@@ -1,4 +1,4 @@
-package willow.train.kuayue.block.panels.block_entity;
+package willow.train.kuayue.block.panels.block_entity.renderer;
 
 import com.jozufozu.flywheel.core.PartialModel;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import willow.train.kuayue.block.panels.block_entity.SingleSlidingDoorEntity;
 
 public class SingleSlidingDoorRenderer implements BlockEntityRenderer<SingleSlidingDoorEntity> {
 

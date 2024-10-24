@@ -1,12 +1,17 @@
 package willow.train.kuayue.initial.panel;
 
 import com.simibubi.create.foundation.utility.Couple;
+import kasuga.lib.registrations.common.BlockReg;
 import kasuga.lib.registrations.registry.CreateRegistry;
 import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.Vec2;
 import willow.train.kuayue.block.panels.*;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
+import willow.train.kuayue.block.panels.block_entity.CR200jFrontBlockEntity;
+import willow.train.kuayue.block.panels.block_entity.renderer.CR200jFrontRenderer;
+import willow.train.kuayue.block.panels.cr200j.CR200jFrontBlock;
 import willow.train.kuayue.block.panels.door.CustomRenderedDoorBlock;
 import willow.train.kuayue.block.panels.end_face.CustomRenderedEndfaceBlock;
 import willow.train.kuayue.block.panels.slab.TrainLadderBlock;
@@ -248,6 +253,17 @@ public class CR200JPanel {
                     .materialAndColor(CR200J_COLOR)
                     .tab(AllElements.neoKuayueCarriageTab )
                     .noOcclusion()
+                    .submit(AllElements.testRegistry);
+
+    public static final BlockReg<CR200jFrontBlock> CR200J_FRONT_BLOCK =
+            new BlockReg<CR200jFrontBlock>("head_cr200j")
+                    .blockType(CR200jFrontBlock::new)
+                    .materialColor(MapColor.COLOR_GREEN)
+                    .defaultBlockItem()
+                    .withBlockEntity("cr200j_front_block_entity", CR200jFrontBlockEntity::new)
+                    .withBlockEntityRenderer(() -> CR200jFrontRenderer::new)
+                    .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .tabTo(AllElements.neoKuayueLocoTab)
                     .submit(AllElements.testRegistry);
 
     public static void invoke(){}

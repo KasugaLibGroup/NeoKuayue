@@ -1,4 +1,4 @@
-package willow.train.kuayue.block.panels.block_entity;
+package willow.train.kuayue.block.panels.block_entity.renderer;
 
 import com.jozufozu.flywheel.core.PartialModel;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -14,6 +14,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.Vec3;
+import willow.train.kuayue.block.panels.block_entity.CustomRenderedDoorEntity;
 
 public class CustomRenderedDoorRenderer implements BlockEntityRenderer<CustomRenderedDoorEntity> {
 
@@ -46,7 +47,7 @@ public class CustomRenderedDoorRenderer implements BlockEntityRenderer<CustomRen
         pose.translate(.5, 0, .5);
         pose.mulPose(Axis.YP.rotationDegrees(f));
         pose.translate(leftSide ? .5 : -.5, 0, -.5);
-        Vec3 offset = entity.offset;
+        Vec3 offset = entity.getOffset();
         if (!offset.equals(Vec3.ZERO))
             pose.translate((leftSide ? offset.x() : - offset.x()), offset.y(), offset.z());
         upper.translate(0, 1, 0);
