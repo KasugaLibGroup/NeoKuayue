@@ -1,4 +1,4 @@
-package willow.train.kuayue.block.panels.block_entity;
+package willow.train.kuayue.block.panels.block_entity.renderer;
 
 import com.mojang.blaze3d.platform.NativeImage;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -7,6 +7,7 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.util.FormattedCharSequence;
+import willow.train.kuayue.block.panels.block_entity.EditablePanelEntity;
 import willow.train.kuayue.systems.editable_panel.EditableTypeConstants;
 import willow.train.kuayue.systems.editable_panel.SignType;
 import willow.train.kuayue.systems.editable_panel.interfaces.SignRenderLambda;

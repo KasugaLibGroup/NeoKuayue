@@ -1,5 +1,6 @@
 package willow.train.kuayue.initial;
 
+import com.jozufozu.flywheel.core.PartialModel;
 import kasuga.lib.core.client.render.texture.StaticImageHolder;
 import kasuga.lib.registrations.client.ModelReg;
 import net.minecraft.resources.ResourceLocation;
@@ -58,6 +59,13 @@ public class ClientInit {
             new ModelReg("test_model", AllElements.testRegistry.asResource("block/test_block"))
                     .submit(AllElements.testRegistry);
 
+    public static final PartialModel
+
+            CR200J_HEAD_COUPLER_FAIRING_LEFT = block("carriage/carriage_marshalled_cr200j/head/coupler_fairing_lh"),
+            CR200J_HEAD_COUPLER_FAIRING_RIGHT = block("carriage/carriage_marshalled_cr200j/head/coupler_fairing"),
+            CR200J_HEAD_WIND_SHIELD_1 = block("carriage/carriage_marshalled_cr200j/head/wind_shield_1"),
+            CR200J_HEAD_WIND_SHIELD_2 = block("carriage/carriage_marshalled_cr200j/head/wind_shield_2");
+
     @SubscribeEvent
     public static void registerHUDOverlays(RegisterGuiOverlaysEvent event) {
         event.registerAboveAll("get_template_share_overlay", new GetShareOverlay());
@@ -65,5 +73,9 @@ public class ClientInit {
 
     public static void invoke() {
         AllKeys.invoke();
+    }
+
+    private static PartialModel block(String key) {
+        return new PartialModel(AllElements.testRegistry.asResource("block/" + key));
     }
 }

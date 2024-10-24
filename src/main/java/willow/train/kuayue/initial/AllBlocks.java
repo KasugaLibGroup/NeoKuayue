@@ -11,6 +11,8 @@ import net.minecraft.world.phys.Vec2;
 import willow.train.kuayue.block.panels.TrainPanelBlock;
 import willow.train.kuayue.block.panels.base.*;
 import willow.train.kuayue.block.panels.block_entity.*;
+import willow.train.kuayue.block.panels.block_entity.renderer.*;
+import willow.train.kuayue.block.panels.cr200j.CR200jFrontBlock;
 import willow.train.kuayue.block.panels.door.DoubleDoorBlock;
 import willow.train.kuayue.block.seat.SeatBlockEntity;
 import willow.train.kuayue.block.structure.platform.PlatformWallBlock;
@@ -190,6 +192,7 @@ public class AllBlocks {
                     .withRenderer(() -> EditablePanelRenderer::new)
                     .blockPredicates((location, block) -> block instanceof TrainPanelBlock)
                     .submit(AllElements.testRegistry);
+
 
 //    public static final MenuReg<EditablePanelEditMenu, EditablePanelEditScreen, EditablePanelEditScreen> EDITABLE_PANEL_EDIT_MENU =
 //            new MenuReg<EditablePanelEditMenu, EditablePanelEditScreen, EditablePanelEditScreen>("editable_panel_edit_menu")
