@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "kuayue:smooth_quartz_panel_2"
+    },
+	"A": {
+      "item": "create:fluid_tank"
+    },
+	"B": {
+      "item": "create:spout"
+    },	
+	"C": {
+      "item": "minecraft:dark_oak_planks"
+    },	
+	"D": {
+      "item": "minecraft:stick"
+    },	
+	"E": {
+      "item": "minecraft:white_wool"
+    },	
+    "F": {
+      "item": "minecraft:bucket"
+    }
+  },
+  "pattern": [
+    "#AD",
+    "#BE",
+    "#CF"
+  ],
+  "result": {
+    "count": 2,
+    "item": "kuayue:boiling_water_place"
+  },
+  "show_notification": true
+}

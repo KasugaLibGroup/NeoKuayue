@@ -725,5 +725,7 @@
 
  "block.kuayue.end_face_sliding_25k_1": "Original Color 25K Folding Shed End Face (None AC Side)",
  "block.kuayue.end_face_sliding_25k_2": "Original Color 25K Folding Shed End Face (AC Side)",
- "block.kuayue.end_face_sliding_25k_3": "Original Color 25K Folding Shed End Face"
+ "block.kuayue.end_face_sliding_25k_3": "Original Color 25K Folding Shed End Face",
+
+ "block.kuayue.blueprint_table": "Blueprint Table"
 }

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "create:iron_sheet"
+    },
+    "B": {
+      "item": "create:andesite_alloy"
+    }
+  },
+  "pattern": [
+    "BAA",
+    "BAA"
+  ],
+  "result": {
+    "count": 1,
+    "item": "kuayue:ceilin_shelf"
+  },
+  "show_notification": true
+}
