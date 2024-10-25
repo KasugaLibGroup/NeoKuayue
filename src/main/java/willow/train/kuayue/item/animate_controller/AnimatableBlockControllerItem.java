@@ -92,13 +92,6 @@ public class AnimatableBlockControllerItem extends Item implements MenuProvider 
     }
 
     @Override
-    public void fillItemCategory(CreativeModeTab group, NonNullList<ItemStack> stacks) {
-        if (this.allowedIn(group)) {
-            stacks.add(getDefaultInstance());
-        }
-    }
-
-    @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         if(pPlayer.getItemInHand(pUsedHand).getItem() instanceof AnimatableBlockControllerItem) {
             ItemStack stack = pPlayer.getItemInHand(pUsedHand);

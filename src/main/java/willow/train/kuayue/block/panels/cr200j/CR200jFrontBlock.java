@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.BlockHitResult;
 import willow.train.kuayue.block.panels.block_entity.CR200jFrontBlockEntity;
 import willow.train.kuayue.initial.AllBlocks;
@@ -29,11 +30,6 @@ public class CR200jFrontBlock extends HorizontalKineticBlock implements IBE<CR20
     @Override
     public Direction.Axis getRotationAxis(BlockState state) {
         return state.getValue(HORIZONTAL_FACING).getAxis();
-    }
-
-    @Override
-    public List<ItemStack> getDrops(BlockState pState, LootContext.Builder pBuilder) {
-        return List.of(this.asItem().getDefaultInstance());
     }
 
     @Override

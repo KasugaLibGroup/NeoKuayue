@@ -274,13 +274,6 @@ public class AutomaticControlCouplingItem extends Item implements MenuProvider {
         return Component.empty();
     }
 
-    @Override
-    public void fillItemCategory(CreativeModeTab group, NonNullList<ItemStack> stacks) {
-        if (this.allowedIn(group)) {
-            stacks.add(getDefaultInstance());
-        }
-    }
-
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, @NotNull Inventory pPlayerInventory, Player pPlayer) {

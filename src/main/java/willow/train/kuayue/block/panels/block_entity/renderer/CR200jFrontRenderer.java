@@ -3,7 +3,7 @@ package willow.train.kuayue.block.panels.block_entity.renderer;
 import com.jozufozu.flywheel.core.PartialModel;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
 import com.simibubi.create.foundation.render.CachedBufferer;
 import com.simibubi.create.foundation.render.SuperByteBuffer;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -51,7 +51,7 @@ public class CR200jFrontRenderer implements BlockEntityRenderer<CR200jFrontBlock
 
         pose.pushPose();
         pose.translate(0.5f, -0.03f, 0.5f);
-        pose.mulPose(Vector3f.YP.rotationDegrees(f));
+        pose.mulPose(Axis.YP.rotationDegrees(f));
         pose.translate(0, 0, 4.625f);
         if(fairing) {
             if (entity.counterFairing < 1)
@@ -78,10 +78,10 @@ public class CR200jFrontRenderer implements BlockEntityRenderer<CR200jFrontBlock
         double rotate_angle = 37.5, rotate_angle_2 = 10;
         double level = 0.85;
         pose.translate(0.5f, -0f, 0.5f);
-        pose.mulPose(Vector3f.YP.rotationDegrees(f));
+        pose.mulPose(Axis.YP.rotationDegrees(f));
         pose.translate(0, 2.3f, 3.71f);
-        pose.mulPose(Vector3f.XP.rotationDegrees(37.5f));
-        pose.mulPose(Vector3f.YP.rotationDegrees(180f));
+        pose.mulPose(Axis.XP.rotationDegrees(37.5f));
+        pose.mulPose(Axis.YP.rotationDegrees(180f));
         if(windShield || (!windShield && entity.counterWindShield >= 0 && entity.counterWindShield <= 1)) {
             if(entity.counterWindShield > .5 + level || entity.counterWindShield < .5 - level) {
                 if (entity.counterWindShield > .5 + level)
