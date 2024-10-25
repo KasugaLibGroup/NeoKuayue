@@ -16,6 +16,7 @@ import willow.train.kuayue.block.panels.door.DoubleDoorBlock;
 import willow.train.kuayue.block.seat.SeatBlockEntity;
 import willow.train.kuayue.block.structure.platform.PlatformWallBlock;
 import willow.train.kuayue.initial.panel.*;
+import willow.train.kuayue.initial.recipe.AllRecipeBlock;
 import willow.train.kuayue.initial.registration.PanelRegistration;
 
 import java.io.File;
@@ -204,6 +205,7 @@ public class AllBlocks {
         I21Panel.invoke();
         AllDecoBlocks.invoke();
         CR200JPanel.invoke();
+        AllRecipeBlock.invoke();
     }
 
     public static void generateDrops(String name) {

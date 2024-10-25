@@ -717,5 +717,7 @@
 
   "block.kuayue.end_face_sliding_25k_1": "原色25K折棚端面(非空调端)",
   "block.kuayue.end_face_sliding_25k_2": "原色25K折棚端面(空调端)",
-  "block.kuayue.end_face_sliding_25k_3": "原色25K折棚端面"
+  "block.kuayue.end_face_sliding_25k_3": "原色25K折棚端面",
+
+  "block.kuayue.blueprint_table": "蓝图桌"
 }
