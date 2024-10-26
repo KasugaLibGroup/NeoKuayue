@@ -12,6 +12,7 @@ import willow.train.kuayue.event.server.PlayerJumpEvents;
 import willow.train.kuayue.initial.create.*;
 import willow.train.kuayue.initial.food.AllFoods;
 import willow.train.kuayue.initial.material.AllMaterials;
+import willow.train.kuayue.initial.recipe.AllRecipes;
 
 public class AllElements {
 
@@ -47,6 +48,7 @@ public class AllElements {
         AllMenuScreens.invoke();
         AllItems.invoke();
         AllFoods.invoke();
+        AllRecipes.invoke();
         if (Envs.isClient()) {
             ClientInit.invoke();
             Kuayue.BUS.addListener(ClientInit::registerHUDOverlays);

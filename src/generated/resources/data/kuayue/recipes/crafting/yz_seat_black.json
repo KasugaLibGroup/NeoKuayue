@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "minecraft:white_wool"
+    },
+    "B": {
+      "item": "create:andesite_alloy"
+    },
+    "C": {
+      "item": "minecraft:black_dye"
+    }
+  },
+  "pattern": [
+    "CAC",
+    "AAA",
+    "B B"
+  ],
+  "result": {
+    "count": 1,
+    "item": "kuayue:yz_seat_black"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "minecraft:white_wool"
+    },
+    "B": {
+      "item": "minecraft:blue_wool"
+    },
+    "C": {
+      "item": "create:andesite_alloy"
+    },	
+    "D": {
+      "item": "create:electron_tube"
+    }
+  },
+  "pattern": [
+    "BAB",
+    "BAB",
+    "CDC"
+  ],
+  "result": {
+    "count": 1,
+    "item": "kuayue:seat_rz"
+  },
+  "show_notification": true
+}

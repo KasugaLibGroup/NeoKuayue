@@ -1,0 +1,41 @@
+{
+  "type": "create:mechanical_crafting",
+  "acceptMirrored": false,
+  "key": {
+    "A": {
+      "item": "create:nixie_tube"
+    },
+    "P": {
+      "item": "minecraft:iron_ingot"
+    },
+	"B": {
+      "item": "minecraft:writable_book"
+    },
+	"C": {
+      "item": "create:goggles"
+    },
+	"D": {
+      "item": "create:empty_schematic"
+    },
+	"E": {
+      "item": "create:schematic_table"
+    },
+	"F": {
+      "item": "minecraft:crafting_table"
+    },
+    "S": {
+      "item": "minecraft:stripped_mangrove_log"
+    }
+  },
+  "pattern": [
+    "  APP",
+    "BCD P",
+    "SSESS",
+    "SSFSS",
+    "S   S"
+  ],
+  "result": {
+    "count": 1,
+    "item": "kuayue:blueprint_table"
+  }
+}
