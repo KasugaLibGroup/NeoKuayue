@@ -5,6 +5,7 @@ import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import willow.train.kuayue.initial.material.AllMaterials;
 
 import java.util.Optional;
 import java.util.function.Supplier;
@@ -23,7 +24,16 @@ public interface IWeatheringSteel extends IChangeSixOverTimeBlock<IWeatheringSte
     Supplier<BiMap<Block, Block>> NEXT_BY_BLOCK = Suppliers.memoize(() -> {
         return ImmutableBiMap
                 .<Block, Block>builder()
-
+                .put(AllMaterials.WEATHERING_STEEL_BLOCK.getBlock(),
+                        AllMaterials.EXPOSED_WEATHERING_STEEL_BLOCK.getBlock())
+                .put(AllMaterials.EXPOSED_WEATHERING_STEEL_BLOCK.getBlock(),
+                        AllMaterials.YELLOWING_WEATHERING_STEEL_BLOCK.getBlock())
+                .put(AllMaterials.YELLOWING_WEATHERING_STEEL_BLOCK.getBlock(),
+                        AllMaterials.RUSTED_WEATHERING_STEEL_BLOCK.getBlock())
+                .put(AllMaterials.RUSTED_WEATHERING_STEEL_BLOCK.getBlock(),
+                        AllMaterials.STABLY_RUSTED_WEATHERING_STEEL_BLOCK.getBlock())
+                .put(AllMaterials.STABLY_RUSTED_WEATHERING_STEEL_BLOCK.getBlock(),
+                        AllMaterials.FULLY_RUSTED_WEATHERING_STEEL_BLOCK.getBlock())
                 .build();
     });
 
