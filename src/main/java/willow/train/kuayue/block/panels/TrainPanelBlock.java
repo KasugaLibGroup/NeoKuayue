@@ -97,47 +97,40 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
         // 手持带颜色刷子
         if (item.is(EditablePanelItem.COLORED_BRUSH.getItem())) {
             // 带有下厢板标签
-            if (pState.is(Objects.requireNonNull(AllTags.BOTTOM_PANEL.tag()))) {
-                // 当车厢板编辑类型不为NONE
-                if (pState.getValue(EDIT_TYPE) != TrainPanelProperties.EditType.NONE) {
-                    if (!pLevel.isClientSide) {
-                        NetworkHooks.openScreen(
-                                (ServerPlayer) pPlayer,
-                                (EditablePanelEntity) pLevel.getBlockEntity(pPos),
-                                pPos);
-                    }
-                    return InteractionResult.SUCCESS;
-                }
+            if (pState.is(Objects.requireNonNull(AllTags.BOTTOM_PANEL.tag())))
                 neoState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.TYPE);
-            }
             // 带有地板标签
             if (pState.is(Objects.requireNonNull(AllTags.FLOOR.tag())))
                 neoState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.SPEED);
 
-            BlockEntity blockEntity = newBlockEntity(pPos, neoState);
-            if (blockEntity == null) return InteractionResult.PASS;
-            pLevel.setBlockEntity(blockEntity);
-            pLevel.setBlock(pPos, neoState, 10);
-            if (!pLevel.isClientSide) {
-                NetworkHooks.openScreen(
-                        (ServerPlayer) pPlayer,
-                        (EditablePanelEntity) pLevel.getBlockEntity(pPos),
-                        pPos);
-            }
-            return InteractionResult.SUCCESS;
+            return openScreen(pLevel, pPos, pPlayer, neoState);
         }
         // 手持水牌
         if (item.is(EditablePanelItem.LAQUERED_BOARD.getItem()) && pState.is(Objects.requireNonNull(AllTags.BOTTOM_PANEL.tag()))) {
              neoState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.LAQUERED);
-
-            return InteractionResult.PASS;
+            return openScreen(pLevel, pPos, pPlayer, neoState);
         }
         // 手持贴纸
         if (item.is(EditablePanelItem.STICKER.getItem()) && pState.is(Objects.requireNonNull(AllTags.UPPER_PANEL.tag()))) {
             neoState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.NUM);
+            return openScreen(pLevel, pPos, pPlayer, neoState);
         }
 
         return InteractionResult.PASS;
+    }
+
+    public InteractionResult openScreen(Level pLevel, BlockPos pPos, Player pPlayer, BlockState neoState) {
+        BlockEntity blockEntity = newBlockEntity(pPos, neoState);
+        if (blockEntity == null) return InteractionResult.PASS;
+        pLevel.setBlockEntity(blockEntity);
+        pLevel.setBlock(pPos, neoState, 10);
+        if (!pLevel.isClientSide) {
+            NetworkHooks.openScreen(
+                    (ServerPlayer) pPlayer,
+                    (EditablePanelEntity) pLevel.getBlockEntity(pPos),
+                    pPos);
+        }
+        return InteractionResult.SUCCESS;
     }
 
     @Override

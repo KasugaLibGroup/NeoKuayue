@@ -18,6 +18,7 @@ public class ImageButton extends Button {
     private TooltipLabel tooltip;
     private int showTooltip = 0;
     private OnClick<ImageButton> clk;
+    private boolean isMouseDown;
     public static final ImageButton.ImageAction baseAction = (img, btn) -> img.rectangle(new Vector3f(btn.getX(), btn.getY(), 0),
             ImageMask.Axis.X, ImageMask.Axis.Y, true, true, btn.getWidth(), btn.getHeight());
 
@@ -133,6 +134,15 @@ public class ImageButton extends Button {
         this.mask.get().renderToGui();
     }
 
+    public void renderOnlyOnClicked(PoseStack poseStack, int mouseX, int mouseY, float partial) {
+        if (!visible) return;
+        if (isHovered) {
+            if (showTooltip > 40) tooltip.render(poseStack, mouseX, mouseY, partial);
+            else showTooltip ++;
+        } else if (showTooltip > 0) showTooltip --;
+        if (clicked(mouseX, mouseY) && isMouseDown) this.mask.get().renderToGui();
+    }
+
     public void setOnClick(OnClick<ImageButton> clk) {
         this.clk = clk;
     }
@@ -142,6 +152,18 @@ public class ImageButton extends Button {
         onPress();
         if (this.clk == null) return;
         this.clk.click(this, pMouseX, pMouseY);
+    }
+
+    @Override
+    public boolean mouseClicked(double pMouseX, double pMouseY, int pButton) {
+        isMouseDown = true;
+        return super.mouseClicked(pMouseX, pMouseY, pButton);
+    }
+
+    @Override
+    public boolean mouseReleased(double pMouseX, double pMouseY, int pButton) {
+        isMouseDown = false;
+        return super.mouseReleased(pMouseX, pMouseY, pButton);
     }
 
     public interface ImageAction {

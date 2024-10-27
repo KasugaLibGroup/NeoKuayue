@@ -54,7 +54,9 @@ public class ClientInit {
     public static final StaticImageHolder advancementWidgets =
             new StaticImageHolder(new ResourceLocation("minecraft", "textures/gui/advancements/widgets.png"));
     public static final StaticImageHolder offsetEditor =
-            new StaticImageHolder(AllElements.testRegistry.asResource("textures/gui/offset_editor.png"));
+            new StaticImageHolder(AllElements.testRegistry.asResource("textures/gui/editable/offset_editor_bg.png"));
+    public static final StaticImageHolder noSignTexture =
+            new StaticImageHolder(AllElements.testRegistry.asResource("textures/gui/editable/carriage_no_sign_texture.png"));
     public static final ModelReg testModel =
             new ModelReg("test_model", AllElements.testRegistry.asResource("block/test_block"))
                     .submit(AllElements.testRegistry);

@@ -7,6 +7,7 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.MenuProvider;
@@ -16,6 +17,7 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.network.KuayueNetworkHandler;
@@ -84,6 +86,17 @@ public class EditablePanelEntity extends SmartBlockEntity
         tag.put("data", nbt);
     }
 
+    @Override
+    public void onDataPacket(Connection connection, ClientboundBlockEntityDataPacket packet) {
+        super.onDataPacket(connection, packet);
+        if (level == null || !level.isClientSide) return;
+        level.sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 10);
+    }
+
+    public void saveNbt(CompoundTag nbt) {
+        this.nbt = nbt;
+    }
+
     public TrainPanelProperties.EditType getEditType() {
         return editType;
     }
@@ -142,10 +155,10 @@ public class EditablePanelEntity extends SmartBlockEntity
         return nbt;
     }
 
-    public void markUpdated(boolean isClientSide) {
+    public void markUpdated() {
         this.setChanged();
-        this.sendData();
-        this.level.sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 3);
+        if (level == null) return;
+        this.level.sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 10);
     }
 
     @Nullable
