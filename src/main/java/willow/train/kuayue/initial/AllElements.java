@@ -33,6 +33,10 @@ public class AllElements {
             .icon(() -> AllItems.CA_25T.getItem().getDefaultInstance())
             .submit(testRegistry);
 
+    public static final CreativeTabReg neoKuayueDeviceTab = new CreativeTabReg("device")
+            .icon(() -> AllItems.LOCO_LOGOS.getItem().getDefaultInstance())
+            .submit(testRegistry);
+
     public static void invoke() {
         AllTags.invoke();
         willow.train.kuayue.initial.AllBlocks.invoke();

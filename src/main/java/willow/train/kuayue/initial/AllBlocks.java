@@ -18,6 +18,7 @@ import willow.train.kuayue.block.seat.SeatBlockEntity;
 import willow.train.kuayue.block.structure.platform.PlatformWallBlock;
 import willow.train.kuayue.initial.panel.*;
 import willow.train.kuayue.initial.registration.PanelRegistration;
+import willow.train.kuayue.systems.device.AllDeviceBlocks;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -212,6 +213,7 @@ public class AllBlocks {
         I21Panel.invoke();
         AllDecoBlocks.invoke();
         CR200JPanel.invoke();
+        AllDeviceBlocks.invoke();
     }
 
     public static void generateDrops(String name) {
