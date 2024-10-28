@@ -4,10 +4,14 @@ import com.simibubi.create.foundation.particle.AirParticleData;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -18,6 +22,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import org.jetbrains.annotations.Nullable;
+import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.block.food.PlacementFoodBlock;
 
 import static willow.train.kuayue.block.food.instant_noodles.InstantNoodlesProperties.NoodlesState.FINISH_EATING;
@@ -101,5 +106,19 @@ public class SoakedInstantNoodlesBlock extends PlacementFoodBlock {
                     pPos.getX() + 0.4 + d1, pPos.getY() + 0.75 + d2, pPos.getZ() + 0.4 + d3,
                     0.0D, 0.1D, 0.0D);
         }
+    }
+
+    @Override
+    public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
+        if (pEntity instanceof LivingEntity livingEntity
+                && pState.getValue(NOODLES_STATE) != FINISH_EATING) {
+            livingEntity.hurt(DamageSource.HOT_FLOOR, 0.5F);
+            if (pLevel.isClientSide() && livingEntity instanceof Player player) {
+                String key = "step_on_soaked_instant_noodles";
+                player.displayClientMessage(
+                        Component.translatable("msg." + Kuayue.MODID + "." + key), true);
+            }
+        }
+        super.stepOn(pLevel, pPos, pState, pEntity);
     }
 }
