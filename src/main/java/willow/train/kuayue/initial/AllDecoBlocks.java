@@ -44,12 +44,12 @@ public class AllDecoBlocks {
                 Boolean isOffset = state.getValue(M1SeatBlock.SEAT_OFFSET);
                 if (facing == Direction.NORTH || facing == Direction.SOUTH) {
                     if (!isOffset)
-                        return index == 0 ? new Vec3(-.35, 0.3, 0) : new Vec3(.35, 0.3, 0);
+                        return index == 0 ? new Vec3(-.35, -0.3, 0) : new Vec3(.35, -0.3, 0);
                     return index == 0 ? new Vec3(-.25, -0.3, 0) : new Vec3(.45, -0.3, 0);
                 }
                 if (!isOffset)
                     return index == 0 ? new Vec3(0, -0.3, -.35) : new Vec3(0, -0.3, .35);
-                return index == 0 ? new Vec3(0, 0.3, -.25) : new Vec3(0, 0.3, .45);
+                return index == 0 ? new Vec3(0, -0.3, -.25) : new Vec3(0, -0.3, .45);
             });
 
     public static final BlockReg<TeaBoilerBlock> BOILING_WATER_PLACE =

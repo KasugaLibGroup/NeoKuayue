@@ -25,12 +25,21 @@ public class M1SeatBlock extends YZSeatBlock {
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return super.getShape(pState, pLevel, pPos, pContext).move(0, -0.5, 0);
+        if (!pState.getValue(SEAT_OFFSET))
+            return Block.box(0, 0, 0, 16, 4, 16).move(0, -0.5, 0);
+
+        return switch (pState.getValue(FACING)) {
+            case EAST -> Block.box(0, 0, 8, 16, 4, 24).move(0, -0.5, 0);
+            case WEST -> Block.box(0, 0, -8, 16, 4, 8).move(0, -0.5, 0);
+            case NORTH -> Block.box(8, 0, 0, 24, 4, 16).move(0, -0.5, 0);
+            case SOUTH -> Block.box(-8, 0, 0, 8, 4, 16).move(0, -0.5, 0);
+            default -> Block.box(0, 0, 8, 16, 4, 24).move(0, -0.5, 0);
+        };
     }
 
     @Override
     public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return getShape(pState, pLevel, pPos, pContext);
+        return Block.box(0, 0, 0, 0, 0, 0);
     }
 
     @Override
