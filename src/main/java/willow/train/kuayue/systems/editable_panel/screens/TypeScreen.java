@@ -232,6 +232,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
     }
 
     private void refresh() {
+        if (editBar.visible) return;
         String[] values = new String[5];
         int counter = 0;
         int focus = -1;
