@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
@@ -31,21 +32,24 @@ public class M1SeatBlock extends YZSeatBlock {
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        if (!pState.getValue(SEAT_OFFSET))
-            return Block.box(0, 0, 0, 16, 4, 16).move(0, -0.5, 0);
+        if (!pState.getValue(SEAT_OFFSET)) {
+            return Block.box(0, 0, 0, 16, 10, 16).move(0, -0.5, 0);
+            // return Shapes.block();
+        }
 
         return switch (pState.getValue(FACING)) {
-            case EAST -> Block.box(0, 0, 8, 16, 4, 24).move(0, -0.5, 0);
-            case WEST -> Block.box(0, 0, -8, 16, 4, 8).move(0, -0.5, 0);
-            case NORTH -> Block.box(8, 0, 0, 24, 4, 16).move(0, -0.5, 0);
-            case SOUTH -> Block.box(-8, 0, 0, 8, 4, 16).move(0, -0.5, 0);
-            default -> Block.box(0, 0, 8, 16, 4, 24).move(0, -0.5, 0);
+            case EAST -> Block.box(0, 0, 8, 16, 10, 24).move(0, -0.5, 0);
+            case WEST -> Block.box(0, 0, -8, 16, 10, 8).move(0, -0.5, 0);
+            case NORTH -> Block.box(8, 0, 0, 24, 10, 16).move(0, -0.5, 0);
+            case SOUTH -> Block.box(-8, 0, 0, 8, 10, 16).move(0, -0.5, 0);
+            default -> Block.box(0, 0, 8, 16, 10, 24).move(0, -0.5, 0);
         };
     }
 
     @Override
     public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return Block.box(0, 0, 0, 0, 0, 0);
+        // return Block.box(0, 0, 0, 0, 0, 0);
+        return Block.box(0, -8, 0, 16, -6, 16);
     }
 
     @Override
