@@ -16,6 +16,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import willow.train.kuayue.block.panels.block_entity.EditablePanelEntity;
 import willow.train.kuayue.initial.AllPackets;
+import willow.train.kuayue.network.c2s.DiscardChangeC2SPacket;
 import willow.train.kuayue.network.c2s.NbtC2SPacket;
 import willow.train.kuayue.systems.editable_panel.EditablePanelEditMenu;
 import willow.train.kuayue.systems.editable_panel.widget.*;
@@ -62,6 +63,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         innerInit(values, color, font, revert);
 
         cancelBtn.setOnClick((w, x, y) -> {
+            AllPackets.CHANNEL.sendToServer(new DiscardChangeC2SPacket(entity.getBlockPos()));
             this.close();
         });
 
@@ -69,6 +71,9 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
             BlockPos pos = entity.getBlockPos();
             nbt.putInt("color", this.color);
             nbt.putBoolean("revert", this.revert);
+            Pair<Float, Float> offset = offsetEditor.getCursorPosition();
+            nbt.putFloat("offset_x", offset.getFirst());
+            nbt.putFloat("offset_y", offset.getSecond());
             TransparentEditBox[] boxes = new TransparentEditBox[5];
             int counter = 0;
             for (Widget widget : getWidgets()) {
@@ -256,6 +261,8 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         addWidget(colorEditor);
         addWidget(colorEditor.getColorBtn());
         addWidget(colorEditor.getTemplateBtn());
+        addWidget(offsetEditor.getEditorBtn());
+        addWidget(offsetEditor);
 
         clearLabels();
         Font font = Minecraft.getInstance().font;

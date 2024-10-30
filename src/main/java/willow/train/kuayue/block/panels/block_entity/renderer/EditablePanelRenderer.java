@@ -2,6 +2,8 @@ package willow.train.kuayue.block.panels.block_entity.renderer;
 
 import com.mojang.blaze3d.platform.NativeImage;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.Options;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
@@ -26,7 +28,7 @@ public class EditablePanelRenderer implements BlockEntityRenderer<EditablePanelE
         for (SignType signType : EditableTypeConstants.getSignTypeMap().values()) {
             if (signType.shouldRender(pBlockEntity.getEditType())) {
                 signType.getLambdaSupplier().get().render(pBlockEntity, pPartialTick, new SignRenderLambda.ClientObject(pPoseStack),
-                        new SignRenderLambda.ClientObject(pBufferSource), pPackedLight ,pPackedOverlay);
+                        new SignRenderLambda.ClientObject(pBufferSource), pPackedLight ,pPackedOverlay, Minecraft.getInstance().options.forceUnicodeFont().get());
                 return;
             }
         }
