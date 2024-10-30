@@ -37,6 +37,9 @@ public class AllColorTemplates {
     public static final ColorTemplate color25Default = new ColorTemplate(
             Component.translatable("tooltip.kuayue.color_template_screen.default_element_25.name")
             , 16776961, ownerTag, false, false, false);
+    public static final ColorTemplate colorM1 = new ColorTemplate(
+            Component.translatable("tooltip.kuayue.color_template_screen.default_element_m1.name")
+            , 0x2B4CA1, ownerTag, false, false, false);
 
     static {
         color25G.setDocument(Component.translatable("tooltip.kuayue.color_template_screen.default_element_25g.doc"));
@@ -45,6 +48,7 @@ public class AllColorTemplates {
         color25T.setDocument(Component.translatable("tooltip.kuayue.color_template_screen.default_element_25t.doc"));
         color25K.setDocument(Component.translatable("tooltip.kuayue.color_template_screen.default_element_25k.doc"));
         color25Default.setDocument(Component.translatable("tooltip.kuayue.color_template_screen.default_element_25.doc"));
+        colorM1.setDocument(Component.translatable("tooltip.kuayue.color_template_screen.default_element_m1.doc"));
     }
     public AllColorTemplates(String path) {
         templates = new ArrayList<>();
@@ -55,6 +59,7 @@ public class AllColorTemplates {
         templates.add(color25T);
         templates.add(color25K);
         templates.add(color25Default);
+        templates.add(colorM1);
     }
 
     public void readFromFile() {
@@ -75,6 +80,7 @@ public class AllColorTemplates {
             templates.add(color25T);
             templates.add(color25K);
             templates.add(color25Default);
+            templates.add(colorM1);
         } catch (IOException e) {
             Kuayue.LOGGER.error("Fail to read color templates from disk.", e);
         }
