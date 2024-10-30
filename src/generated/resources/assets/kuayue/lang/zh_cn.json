@@ -667,6 +667,8 @@
   "block.kuayue.floor_hxd3d": "HXD3D地板",
   "block.kuayue.platform_door": "站台屏蔽门",
   "block.kuayue.platform_wall": "站台屏蔽墙",
+  "block.kuayue.luggage_rack_m1": "M1客车行李架",
+  "block.kuayue.seat_m1": "M1客车座椅",
 
   "tooltip.kuayue.color_selector": "鼠标左键+拖动/滚动鼠标滚轮",
   "tooltip.kuayue.color_screen.title": "颜色编辑器",
@@ -685,6 +687,7 @@
   "tooltip.kuayue.color_template_screen.default_element_25t.name": "25T 蓝色",
   "tooltip.kuayue.color_template_screen.default_element_25k.name": "25K 蓝色",
   "tooltip.kuayue.color_template_screen.default_element_25.name": "25 系列默认色",
+  "tooltip.kuayue.color_template_screen.default_element_m1.name": "M1 蓝色",
 
   "tooltip.kuayue.color_template_screen.default_element_25g.doc": "本色适用于25g车厢板类型下厢板",
   "tooltip.kuayue.color_template_screen.default_element_25b.doc": "本色适用于25b车厢板类型下厢板",
@@ -692,6 +695,7 @@
   "tooltip.kuayue.color_template_screen.default_element_25t.doc": "本色适用于25t车厢板类型下厢板",
   "tooltip.kuayue.color_template_screen.default_element_25k.doc": "本色适用于25k车厢板类型下厢板",
   "tooltip.kuayue.color_template_screen.default_element_25.doc": "默认颜色(黄色)",
+  "tooltip.kuayue.color_template_screen.default_element_m1.doc": "本色适用于M1车厢板类型下厢板",
 
   "tooltip.kuayue.color_template_screen.default_element_25.owner": "跨越开发组",
   "tooltip.kuayue.get_share_overlay_toast.title": "收到新颜色模板",

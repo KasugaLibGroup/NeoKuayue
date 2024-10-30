@@ -50,6 +50,7 @@ public class EditableTypeConstants {
             BLUE = 22220,
             BLUE2 = 0x60A0B0,
             BLUE3 = 468326,
+            BLUE4 = 0x2B4CA1,
             BLACK = 789516;
 
 //    TODO 各Renderer中的render方法lambda
