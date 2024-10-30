@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "facing=north,seat_offset=false": { "model": "kuayue:block/seats/m1_seat", "y": 0 },
+    "facing=east,seat_offset=false":  { "model": "kuayue:block/seats/m1_seat", "y": 90 },
+    "facing=south,seat_offset=false": { "model": "kuayue:block/seats/m1_seat", "y": 180 },
+    "facing=west,seat_offset=false":  { "model": "kuayue:block/seats/m1_seat", "y": 270 },
+    "facing=north,seat_offset=true": { "model": "kuayue:block/seats/m1_seat_offset", "y": 0 },
+    "facing=east,seat_offset=true":  { "model": "kuayue:block/seats/m1_seat_offset", "y": 90 },
+    "facing=south,seat_offset=true": { "model": "kuayue:block/seats/m1_seat_offset", "y": 180 },
+    "facing=west,seat_offset=true":  { "model": "kuayue:block/seats/m1_seat_offset", "y": 270 }
+  }
+}

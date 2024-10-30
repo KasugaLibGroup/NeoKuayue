@@ -10,6 +10,7 @@ import java.util.Optional;
 
 public interface IChangeSixOverTimeBlock<T extends Enum<T>> {
 
+    static final float TRIGGER_PROBABILITY = 0.1F;
     int SCAN_DISTANCE = 6;
 
     Optional<BlockState> getNext(BlockState blockState);
@@ -17,8 +18,8 @@ public interface IChangeSixOverTimeBlock<T extends Enum<T>> {
     float getChanceModifier();
 
     default void onRandomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-        float f = 0.05688889F;
-        if (pRandom.nextFloat() < 0.05688889F) {
+
+        if (pRandom.nextFloat() < TRIGGER_PROBABILITY) {
             this.applyChangeOverTime(pState, pLevel, pPos, pRandom);
         }
     }

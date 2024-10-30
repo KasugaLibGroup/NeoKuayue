@@ -27,6 +27,7 @@ import willow.train.kuayue.initial.AllTags;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 @Mixin(value = AbstractContraptionEntity.class, remap = false)
@@ -103,7 +104,7 @@ public abstract class MixinAbstractContraptionEntity {
         if (!(info.state().getBlock() instanceof YZSeatBlock seatBlock)) {
             return transformedVector;
         }
-        if (!info.state().is(AllTags.MULTI_SEAT_BLOCK.tag()))
+        if (!info.state().is(Objects.requireNonNull(AllTags.MULTI_SEAT_BLOCK.tag())))
             return transformedVector;
         int seatSize = seatBlock.getSeatSize();
         int index = -1; CompoundTag tag = info.nbt();
@@ -122,6 +123,6 @@ public abstract class MixinAbstractContraptionEntity {
         if (index == -1) return transformedVector;
         Vec3 offset = seatBlock.getOffset(info.state(), index);
         offset = offset.yRot((float) - Math.toRadians(getStalledAngle() - 90));
-        return transformedVector.subtract(offset);
+        return transformedVector.add(offset);
     }
 }

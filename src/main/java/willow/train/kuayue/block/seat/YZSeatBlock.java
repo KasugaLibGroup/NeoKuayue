@@ -44,7 +44,8 @@ public class YZSeatBlock extends SeatBlock implements IWrenchable, IBE<SeatBlock
     protected static final VoxelShape BASE_AABB = Block.box(0, 4, 0, 16, 8, 16);
     // protected static final VoxelShape SN_AABB = Block.box(0, 8, 6, 16, 23, 10);
     // protected static final VoxelShape WE_AABB = Block.box(6, 8, 0, 10, 23, 16);
-    public final int seatSize; public final OffsetFunction offsetFunction;
+    public final int seatSize;
+    public final OffsetFunction offsetFunction;
 
     public YZSeatBlock(Properties properties, DyeColor color, int seatSize, OffsetFunction offsetFunction) {
         super(properties, color);

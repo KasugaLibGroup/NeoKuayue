@@ -49,6 +49,7 @@ public class AllElements {
         AllItems.invoke();
         AllFoods.invoke();
         AllRecipes.invoke();
+        AllEntities.invoke();
         if (Envs.isClient()) {
             ClientInit.invoke();
             Kuayue.BUS.addListener(ClientInit::registerHUDOverlays);

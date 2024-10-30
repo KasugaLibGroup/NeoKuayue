@@ -177,6 +177,7 @@ public class AllBlocks {
                     .blockEntityType(SeatBlockEntity::new)
                     .addBlock(AllDecoBlocks.YZ_SEAT_BLUE)
                     .addBlock(AllDecoBlocks.YZ_SEAT_2)
+                    .addBlock(AllDecoBlocks.SEAT_M1)
                     .submit(AllElements.testRegistry);
 
     public static final BlockEntityReg<EditablePanelEntity> EDITABLE_PANEL_ENTITY =

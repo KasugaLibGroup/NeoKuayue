@@ -39,6 +39,13 @@ public class AllEditableTypes {
                     () -> EditableTypeConstants.TRAIN_SPEED_SIGN_MESSAGES,
                     () -> SpeedScreen::new);
 
+    public static final SignType CARRIAGE_NO_SIGN = EditableTypeConstants
+            .signLambdaRegister("carriage_no_sign",
+                    TrainPanelProperties.EditType.NUM,
+                    () -> () -> EditableTypeConstants.CARRIAGE_NO_SIGN,
+                    () -> EditableTypeConstants.CARRIAGE_NO_SIGN_MESSAGES,
+                    () -> SpeedScreen::new);
+
     /*
     public static final SignType CARRIAGE_NO_SIGN = EditableTypeConstants
             .signLambdaRegister("carriage_no_sign",

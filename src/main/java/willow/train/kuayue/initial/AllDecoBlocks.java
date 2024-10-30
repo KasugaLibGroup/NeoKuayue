@@ -2,6 +2,7 @@ package willow.train.kuayue.initial;
 
 import kasuga.lib.registrations.common.BlockReg;
 import net.minecraft.core.Direction;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.MapColor;
@@ -12,6 +13,7 @@ import willow.train.kuayue.block.panels.deco.TeaBoilerBlock;
 import willow.train.kuayue.block.panels.deco.YZTableBlock;
 import willow.train.kuayue.block.panels.slab.CeilinShelfBlock;
 import willow.train.kuayue.block.panels.slab.TrainSlabBlock;
+import willow.train.kuayue.block.seat.M1SeatBlock;
 import willow.train.kuayue.block.seat.RZSeatBlock;
 import willow.train.kuayue.block.seat.YZSeatBlock;
 
@@ -34,6 +36,27 @@ public class AllDecoBlocks {
                     case 2 -> new Vec3(-0.3125, 0, -.25);
                     default -> new Vec3(-0.3125, 0, .25);
                 };
+            });
+
+    public static final YZSeatBlock.OffsetFunction M1_SEAT_FUNCTION =
+            ((state, index) -> {
+                Direction facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
+                Boolean isOffset = state.getValue(M1SeatBlock.SEAT_OFFSET);
+                double yOffset = -.8;
+                if (facing == Direction.NORTH || facing == Direction.SOUTH) {
+                    if (!isOffset)
+                        return index == 0 ? new Vec3(-.35, yOffset, 0) : new Vec3(.35, yOffset, 0);
+                    if (facing == Direction.NORTH)
+                        return index == 0 ? new Vec3(.25, yOffset, 0) : new Vec3(.85, yOffset, 0);
+                    else
+                        return index == 0 ? new Vec3(-.85, yOffset, 0) : new Vec3(-.25, yOffset, 0);
+                }
+                if (!isOffset)
+                    return index == 0 ? new Vec3(0, yOffset, -.35) : new Vec3(0, yOffset, .35);
+                if (facing == Direction.WEST)
+                    return index == 0 ? new Vec3(0, yOffset, -.85) : new Vec3(0, yOffset, -.25);
+                else
+                    return index == 0 ? new Vec3(0, yOffset, .25) : new Vec3(0, yOffset, .85);
             });
 
     public static final BlockReg<TeaBoilerBlock> BOILING_WATER_PLACE =
@@ -65,6 +88,15 @@ public class AllDecoBlocks {
 
     public static final BlockReg<CeilinShelfBlock> CEILIN_SHELF_3 =
             new BlockReg<CeilinShelfBlock>("ceilin_shelf_3")
+                    .blockType(CeilinShelfBlock::new)
+                    .materialColor(MapColor.COLOR_BLACK)
+                    .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .defaultBlockItem()
+                    .tabTo(AllElements.neoKuayueMainTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final BlockReg<CeilinShelfBlock> LUGGAGE_RACK_M1 =
+            new BlockReg<CeilinShelfBlock>("luggage_rack_m1")
                     .blockType(CeilinShelfBlock::new)
                     .materialColor(MapColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
@@ -161,9 +193,19 @@ public class AllDecoBlocks {
                                     if (facing == Direction.NORTH || facing == Direction.SOUTH) {
                                         return index == 0 ? new Vec3(-.25, 0, 0) : new Vec3(.25, 0, 0);
                                     }
-                                    return index == 0 ? new Vec3(0, 0, -.25) : new Vec3(0, 0, 25);
+                                    return index == 0 ? new Vec3(0, 0, -.25) : new Vec3(0, 0, .25);
                                 })
                             ))
+                    .materialColor(MapColor.COLOR_BLACK)
+                    .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .defaultBlockItem()
+                    .tabTo(AllElements.neoKuayueMainTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final BlockReg<M1SeatBlock> SEAT_M1 =
+            new BlockReg<M1SeatBlock>("seat_m1")
+                    .blockType(properties ->
+                            new M1SeatBlock(properties, 2, M1_SEAT_FUNCTION))
                     .materialColor(MapColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
                     .defaultBlockItem()
