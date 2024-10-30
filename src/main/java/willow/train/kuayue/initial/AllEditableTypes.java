@@ -25,6 +25,9 @@ public class AllEditableTypes {
     public static final PanelColorType C25T_BLUE3  = EditableTypeConstants
             .signColorRegister("blue3", AllTags.C25T, EditableTypeConstants.BLUE3);
 
+    public static final PanelColorType CM1_BLUE4 = EditableTypeConstants
+            .signColorRegister("blue4", AllTags.CM1, EditableTypeConstants.BLUE4);
+
     public static final SignType CARRIAGE_TYPE_SIGN = EditableTypeConstants
             .signLambdaRegister("carriage_type_sign",
                     TrainPanelProperties.EditType.TYPE,

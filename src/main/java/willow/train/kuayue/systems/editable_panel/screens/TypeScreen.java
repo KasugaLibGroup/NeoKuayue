@@ -63,6 +63,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         innerInit(values, color, font, revert);
 
         cancelBtn.setOnClick((w, x, y) -> {
+            AllPackets.CHANNEL.sendToServer(new DiscardChangeC2SPacket(entity.getBlockPos()));
             this.close();
         });
 
@@ -70,6 +71,9 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
             BlockPos pos = entity.getBlockPos();
             nbt.putInt("color", this.color);
             nbt.putBoolean("revert", this.revert);
+            Pair<Float, Float> offset = offsetEditor.getCursorPosition();
+            nbt.putFloat("offset_x", offset.getFirst());
+            nbt.putFloat("offset_y", offset.getSecond());
             TransparentEditBox[] boxes = new TransparentEditBox[5];
             int counter = 0;
             for (Renderable widget : getCustomWidgets()) {
@@ -257,6 +261,8 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         addCustomWidget(colorEditor);
         addCustomWidget(colorEditor.getColorBtn());
         addCustomWidget(colorEditor.getTemplateBtn());
+        addCustomWidget(offsetEditor.getEditorBtn());
+        addCustomWidget(offsetEditor);
 
         clearLabels();
         Font font = Minecraft.getInstance().font;
