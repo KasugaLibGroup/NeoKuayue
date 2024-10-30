@@ -65,7 +65,7 @@ public class SpeedScreen extends CustomScreen<EditablePanelEditMenu, EditablePan
         colorSelector.setCancel((selector, template, now) -> {
             setWidgetsVisible(true);
         });
-        addWidget(colorSelector);
+        addCustomWidget(colorSelector);
 
         color = nbt.getInt("color");
         Font font = Minecraft.getInstance().font;
@@ -106,8 +106,8 @@ public class SpeedScreen extends CustomScreen<EditablePanelEditMenu, EditablePan
         );
         offsetEditor.visible = false;
 
-        addWidget(offsetEditor);
-        addWidget(contentLabel);
+        addCustomWidget(offsetEditor);
+        addCustomWidget(contentLabel);
 
         editBar = new EditBar(0, 0, Component.empty(), contentLabel.getPlainText());
         editBar.onCancelClick((widget, mouseX, mouseY) -> editBar.visible = false);
@@ -148,12 +148,12 @@ public class SpeedScreen extends CustomScreen<EditablePanelEditMenu, EditablePan
 
         offsetEditor.setCursorPosition(nbt.getFloat("offset_x"), nbt.getFloat("offset_y"));
 
-        addWidget(colorSelector.getColorBtn());
-        addWidget(colorSelector.getTemplateBtn());
-        addWidget(offsetEditor.getEditorBtn());
-        addWidget(editBar);
-        addWidget(confirmBtn);
-        addWidget(cancelBtn);
+        addCustomWidget(colorSelector.getColorBtn());
+        addCustomWidget(colorSelector.getTemplateBtn());
+        addCustomWidget(offsetEditor.getEditorBtn());
+        addCustomWidget(editBar);
+        addCustomWidget(confirmBtn);
+        addCustomWidget(cancelBtn);
     }
 
     @Override

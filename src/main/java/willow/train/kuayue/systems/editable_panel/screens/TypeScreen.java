@@ -17,6 +17,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import willow.train.kuayue.block.panels.block_entity.EditablePanelEntity;
 import willow.train.kuayue.initial.AllPackets;
+import willow.train.kuayue.network.c2s.DiscardChangeC2SPacket;
 import willow.train.kuayue.network.c2s.NbtC2SPacket;
 import willow.train.kuayue.systems.editable_panel.EditablePanelEditMenu;
 import willow.train.kuayue.systems.editable_panel.widget.*;
