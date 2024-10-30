@@ -43,7 +43,7 @@ public class AllDecoBlocks {
             ((state, index) -> {
                 Direction facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
                 Boolean isOffset = state.getValue(M1SeatBlock.SEAT_OFFSET);
-                double yOffset = -.6;
+                double yOffset = -.8;
                 if (facing == Direction.NORTH || facing == Direction.SOUTH) {
                     if (!isOffset)
                         return index == 0 ? new Vec3(-.35, yOffset, 0) : new Vec3(.35, yOffset, 0);

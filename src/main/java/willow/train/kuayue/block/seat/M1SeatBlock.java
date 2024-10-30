@@ -25,7 +25,7 @@ public class M1SeatBlock extends YZSeatBlock {
 
     public static final BooleanProperty SEAT_OFFSET = BooleanProperty.create("seat_offset");
     public M1SeatBlock(@NotNull Properties settings, int seatSize, OffsetFunction offsetFunction) {
-        super(settings, DyeColor.GREEN, seatSize, offsetFunction, false);
+        super(settings, DyeColor.GREEN, seatSize, offsetFunction, true);
         registerDefaultState(
                 this.stateDefinition.any().setValue(SEAT_OFFSET, false));
     }
