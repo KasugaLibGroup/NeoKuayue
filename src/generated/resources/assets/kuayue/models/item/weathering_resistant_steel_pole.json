@@ -1,0 +1,6 @@
+{
+ "parent": "item/generated",
+ "textures": {
+  "layer0": "kuayue:item/crafting/weathering_resistant_steel_pole"
+ }
+}
