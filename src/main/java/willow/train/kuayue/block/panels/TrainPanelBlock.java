@@ -95,35 +95,46 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
         ItemStack item = pPlayer.getItemInHand(pHand);
         // 手持剪贴板
         // 手持带颜色刷子
+        TrainPanelProperties.EditType orgType = pState.getValue(EDIT_TYPE);
+        boolean changed = false;
         if (item.is(EditablePanelItem.COLORED_BRUSH.getItem())) {
             // 带有下厢板标签
-            if (pState.is(Objects.requireNonNull(AllTags.BOTTOM_PANEL.tag())))
+            if (pState.is(Objects.requireNonNull(AllTags.BOTTOM_PANEL.tag()))) {
                 neoState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.TYPE);
+                changed = orgType != TrainPanelProperties.EditType.TYPE;
+            }
             // 带有地板标签
-            if (pState.is(Objects.requireNonNull(AllTags.FLOOR.tag())))
+            if (pState.is(Objects.requireNonNull(AllTags.FLOOR.tag()))) {
                 neoState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.SPEED);
+                changed = orgType != TrainPanelProperties.EditType.SPEED;
+            }
 
-            return openScreen(pLevel, pPos, pPlayer, neoState);
+            return openScreen(pLevel, pPos, pPlayer, neoState, changed);
         }
         // 手持水牌
         if (item.is(EditablePanelItem.LAQUERED_BOARD.getItem()) && pState.is(Objects.requireNonNull(AllTags.BOTTOM_PANEL.tag()))) {
              neoState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.LAQUERED);
-            return openScreen(pLevel, pPos, pPlayer, neoState);
+             changed = orgType != TrainPanelProperties.EditType.LAQUERED;
+            return openScreen(pLevel, pPos, pPlayer, neoState, changed);
         }
         // 手持贴纸
         if (item.is(EditablePanelItem.STICKER.getItem()) && pState.is(Objects.requireNonNull(AllTags.UPPER_PANEL.tag()))) {
             neoState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.NUM);
-            return openScreen(pLevel, pPos, pPlayer, neoState);
+            changed = orgType != TrainPanelProperties.EditType.NUM;
+            return openScreen(pLevel, pPos, pPlayer, neoState, changed);
         }
 
         return InteractionResult.PASS;
     }
 
-    public InteractionResult openScreen(Level pLevel, BlockPos pPos, Player pPlayer, BlockState neoState) {
-        BlockEntity blockEntity = newBlockEntity(pPos, neoState);
-        if (blockEntity == null) return InteractionResult.PASS;
-        pLevel.setBlockEntity(blockEntity);
-        pLevel.setBlock(pPos, neoState, 10);
+    public InteractionResult openScreen(Level pLevel, BlockPos pPos, Player pPlayer, BlockState neoState, boolean changed) {
+        BlockEntity oldBe = pLevel.getBlockEntity(pPos);
+        if (!(oldBe instanceof EditablePanelEntity) || changed) {
+            BlockEntity blockEntity = newBlockEntity(pPos, neoState);
+            if (blockEntity == null) return InteractionResult.PASS;
+            pLevel.setBlockEntity(blockEntity);
+            pLevel.setBlock(pPos, neoState, 10);
+        }
         if (!pLevel.isClientSide) {
             NetworkHooks.openScreen(
                     (ServerPlayer) pPlayer,

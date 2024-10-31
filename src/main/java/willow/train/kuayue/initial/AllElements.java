@@ -34,6 +34,10 @@ public class AllElements {
             .icon(() -> AllItems.CA_25T.getItem().getDefaultInstance())
             .submit(testRegistry);
 
+    public static final CreativeTabReg neoKuayueMaterialTab = new CreativeTabReg("materials")
+            .icon(() -> AllItems.CIRCUIT_MOTHERBOARD.getItem().getDefaultInstance())
+            .submit(testRegistry);
+
     public static void invoke() {
         AllTags.invoke();
         willow.train.kuayue.initial.AllBlocks.invoke();
@@ -49,6 +53,7 @@ public class AllElements {
         AllItems.invoke();
         AllFoods.invoke();
         AllRecipes.invoke();
+        AllEntities.invoke();
         if (Envs.isClient()) {
             ClientInit.invoke();
             Kuayue.BUS.addListener(ClientInit::registerHUDOverlays);

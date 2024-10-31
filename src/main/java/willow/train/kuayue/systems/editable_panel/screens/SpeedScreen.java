@@ -15,6 +15,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import willow.train.kuayue.block.panels.block_entity.EditablePanelEntity;
 import willow.train.kuayue.initial.AllPackets;
+import willow.train.kuayue.network.c2s.DiscardChangeC2SPacket;
 import willow.train.kuayue.network.c2s.NbtC2SPacket;
 import willow.train.kuayue.systems.editable_panel.EditablePanelEditMenu;
 import willow.train.kuayue.systems.editable_panel.widget.*;
@@ -141,6 +142,7 @@ public class SpeedScreen extends CustomScreen<EditablePanelEditMenu, EditablePan
 
         cancelBtn = new ImageButton(cancelBtnImage, q + 65, contentLabel.y + 20,
                 16, 16, Component.empty(), b -> {
+            AllPackets.CHANNEL.sendToServer(new DiscardChangeC2SPacket(getBlockEntity().getBlockPos()));
             this.close();
         });
 

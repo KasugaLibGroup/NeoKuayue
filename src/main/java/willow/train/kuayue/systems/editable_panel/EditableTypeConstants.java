@@ -50,11 +50,13 @@ public class EditableTypeConstants {
             BLUE = 22220,
             BLUE2 = 0x60A0B0,
             BLUE3 = 468326,
+            BLUE4 = 0x2B4CA1,
             BLACK = 789516;
 
 //    TODO 各Renderer中的render方法lambda
-    public static final SignRenderLambda CARRIAGE_TYPE_RENDER = (blockEntity, partialTick, pose, bufferSource, packedLight, packedOverlay) -> {
-    PoseStack poseStack = pose.getPoseStack();
+    public static final SignRenderLambda CARRIAGE_TYPE_RENDER = (blockEntity, partialTick, pose, bufferSource, packedLight, packedOverlay, unicode) -> {
+        float factor = unicode ? 1.2f : 1f;
+        PoseStack poseStack = pose.getPoseStack();
         BlockState blockstate = blockEntity.getBlockState();
         boolean revert = blockEntity.getNbt().getBoolean("revert");
         Label[] label = new Label[5];
@@ -91,7 +93,7 @@ public class EditableTypeConstants {
         label[1].renderToGui(poseStack, Minecraft.getInstance().font);  // 硬座车
         poseStack.scale(12.5f, 12.5f, 1.0f);
 
-        poseStack.translate((size1 - size0) / 2, -1.7, 0);
+        poseStack.translate((size1 - size0) / 2, -1.7 * (2 - factor), 0);
 
         poseStack.scale(0.13f, 0.18f, 1.0f);
         label[0].renderToGui(poseStack, Minecraft.getInstance().font);  // YINGZUOCHE
@@ -99,9 +101,9 @@ public class EditableTypeConstants {
 
 
         if (revert) {
-            poseStack.translate(-size2 - size4 - size3 - 1, 0, 0);
+            poseStack.translate((-size2 - size4 - size3 - 1), unicode ? -0.4 : 0, 0);
         } else {
-            poseStack.translate(size1, 0, 0);
+            poseStack.translate(size1 * factor, unicode ? -0.4 : 0, 0);
         }
 
         poseStack.scale(0.23f, 0.32f, 1.0f);
@@ -122,7 +124,7 @@ public class EditableTypeConstants {
         poseStack.popPose();
     };
 
-    public static final SignRenderLambda CARRIAGE_NO_SIGN = (blockEntity, partialTick, pose, bufferSource, packedLight, packedOverlay) -> {
+    public static final SignRenderLambda CARRIAGE_NO_SIGN = (blockEntity, partialTick, pose, bufferSource, packedLight, packedOverlay, unicode) -> {
         PoseStack poseStack = pose.getPoseStack();
         MultiBufferSource buffer = bufferSource.getBuffer();
         Font font = Minecraft.getInstance().font;
@@ -162,11 +164,11 @@ public class EditableTypeConstants {
         poseStack.popPose();
     };
 
-    public static final SignRenderLambda LAQUERED_BOARD_SIGN = (blockEntity, partialTick, poseStack, bufferSource, packedLight, packedOverlay) -> {
+    public static final SignRenderLambda LAQUERED_BOARD_SIGN = (blockEntity, partialTick, poseStack, bufferSource, packedLight, packedOverlay, unicode) -> {
         // System.out.println("水牌渲染方法");
     };
 
-    public static final SignRenderLambda TRAIN_SPEED_SIGN = (blockEntity, partialTick, pose, bufferSource, packedLight, packedOverlay) -> {
+    public static final SignRenderLambda TRAIN_SPEED_SIGN = (blockEntity, partialTick, pose, bufferSource, packedLight, packedOverlay, unicode) -> {
         BlockState blockState = blockEntity.getBlockState();
         PoseStack poseStack = pose.getPoseStack();
         CompoundTag nbt = blockEntity.getNbt();

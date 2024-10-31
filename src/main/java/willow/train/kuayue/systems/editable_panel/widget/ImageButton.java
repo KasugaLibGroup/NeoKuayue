@@ -166,6 +166,11 @@ public class ImageButton extends Button {
         return super.mouseReleased(pMouseX, pMouseY, pButton);
     }
 
+    @Override
+    public boolean keyPressed(int pKeyCode, int pScanCode, int pModifiers) {
+        return false;
+    }
+
     public interface ImageAction {
         void act(ImageMask mask, ImageButton button);
     }

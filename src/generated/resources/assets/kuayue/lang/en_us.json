@@ -262,12 +262,11 @@
  "tooltip.kuayue.acc.explain.text_4": "-> CR200j Front Block",
  "tooltip.kuayue.acc.explain.cautions": "Cautions : Bounding could only be applied in Contraptions, bindings would be invalid after re-assemble.",
  "tips.group": "--------------------------------all groups above here-------------------------------------------",
- "itemGroup.item_group_main": "Kuayue | Structures",
- "itemGroup.item_group_diet": "Kuayue | Foods",
- "itemGroup.item_group_catenary": "Kuayue | Catenary",
- "itemGroup.item_group_ground": "Kuayue | Station System",
- "itemGroup.item_group_normal_speed_passage_carriage": "Kuayue | Regular-Speed Passanger Train Carriage",
- "itemGroup.item_locos": "Kuayue | Locos",
+ "itemGroup.main": "Kuayue",
+ "itemGroup.loco": "Kuayue·Locomotors",
+ "itemGroup.carriage": "Kuayue·Carriages",
+ "itemGroup.diet": "Kuayue·Catering",
+ "itemGroup.materials": "Kuayue·Materials",
  "tips.sound": "--------------------------------all sounds above here-------------------------------------------",
  "sounds.kuayue.crossing_ringing": "Cation: TRAINS!",
  "tips.effect": "--------------------------------all effect above here-------------------------------------------",
@@ -596,6 +595,8 @@
  "block.kuayue.panel_red_hxd3d": "HXD3D General Panel",
  "block.kuayue.floor_hxd3d": "HXD3D Floor",
  "block.kuayue.platform_door": "Platform door",
+ "block.kuayue.luggage_rack_m1": "M1 Luggage Rack",
+ "block.kuayue.seat_m1": "M1 Seat",
 
  "tooltip.kuayue.color_selector": "Left click and drag your mouse or Scroll your mouse wheel.",
  "tooltip.kuayue.color_screen.title": "Color Editor",
@@ -614,6 +615,7 @@
  "tooltip.kuayue.color_template_screen.default_element_25t.name": "25T Blue",
  "tooltip.kuayue.color_template_screen.default_element_25k.name": "25K Blue",
  "tooltip.kuayue.color_template_screen.default_element_25.name": "25 Series Default Color",
+ "tooltip.kuayue.color_template_screen.default_element_m1.name": "M1 blue",
 
  "tooltip.kuayue.color_template_screen.default_element_25g.doc": "This color is used on 25G type panel.",
  "tooltip.kuayue.color_template_screen.default_element_25b.doc": "This color is used on 25B type panel.",
@@ -621,6 +623,7 @@
  "tooltip.kuayue.color_template_screen.default_element_25t.doc": "This color is used on 25T type panel.",
  "tooltip.kuayue.color_template_screen.default_element_25k.doc": "This color is used on 25K type panel.",
  "tooltip.kuayue.color_template_screen.default_element_25.doc": "Default Color (Yellow).",
+ "tooltip.kuayue.color_template_screen.default_element_m1.doc": "This color is used on M1 type panel.",
 
  "tooltip.kuayue.color_template_screen.default_element_25.owner": "Kuayue Group.",
  "tooltip.kuayue.get_share_overlay_toast.title": "New Color Template.",
@@ -694,10 +697,6 @@
  "item.kuayue.tooltip.restores_health": "Energy recovery: %s",
  "item.kuayue.tooltip.restores_saturation": "Saturability recovery: %s",
 
- "itemGroup.main": "Kuayue",
- "itemGroup.loco": "Kuayue·Locomotors",
- "itemGroup.carriage": "Kuayue·Carriages",
- "itemGroup.diet": "Kuayue·Catering",
  "effect.kuayue.warm": "Warm",
 
  "msg.kuayue.jump_with_soaked_instant_noodles": "So fxxking hot!!!",
