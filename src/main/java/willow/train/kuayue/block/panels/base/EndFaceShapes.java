@@ -348,10 +348,10 @@ public class EndFaceShapes {
     public static VoxelShape getInsideEndFaceCloseShape(Direction direction) {
         // 关
         return switch (direction) {
-            case NORTH -> M1_INSIDE_NORTH_AABB;
-            case WEST -> M1_INSIDE_WEST_AABB;
-            case EAST -> M1_INSIDE_EAST_AABB;
-            case SOUTH -> M1_INSIDE_SOUTH_AABB;
+            case NORTH -> M1_INSIDE_NORTH_AABB.move(0, 0, 0.125);
+            case WEST -> M1_INSIDE_WEST_AABB.move(0.125, 0, 0);
+            case EAST -> M1_INSIDE_EAST_AABB.move(-0.125, 0, 0);
+            case SOUTH -> M1_INSIDE_SOUTH_AABB.move(0, 0, -0.125);
             default -> M1_INSIDE_NORTH_AABB;
         };
     }

@@ -197,7 +197,7 @@ public class AllItems {
                     .submit(AllElements.testRegistry);
 
     public static final BundledReg<ItemReg<Item>> CIRCUITS_CONSTRUCTING =
-            new BundledReg<ItemReg<Item>>("circuit")
+            new BundledReg<ItemReg<Item>>("circuit_constructing")
                     .factory(ItemReg::new)
                     .action(reg -> reg.itemType(Item::new))
                     .action(reg -> reg.tab(AllElements.neoKuayueMaterialTab))
@@ -234,7 +234,7 @@ public class AllItems {
                     .submit(AllElements.testRegistry);
 
     public static final BundledReg<ItemReg<Item>> MOULDS_CONSTRUCTING =
-            new BundledReg<ItemReg<Item>>("mould")
+            new BundledReg<ItemReg<Item>>("mould_constructing")
                     .factory(ItemReg::new)
                     .action(reg -> reg.itemType(Item::new))
                     .action(reg -> reg.tab(AllElements.neoKuayueMaterialTab))
