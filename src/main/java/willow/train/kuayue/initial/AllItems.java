@@ -154,6 +154,7 @@ public class AllItems {
                     .element("carriage_25g_circuit_blueprint")
                     .element("carriage_25k_circuit_blueprint")
                     .element("carriage_25z_circuit_blueprint")
+                    .element("carriage_25t_circuit_blueprint")
                     .element("carriage_cr200j_circuit_blueprint")
                     .submit(AllElements.testRegistry);
 
