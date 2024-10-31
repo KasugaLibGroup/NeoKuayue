@@ -2,9 +2,6 @@ package willow.train.kuayue.initial;
 
 import kasuga.lib.registrations.BundledReg;
 import kasuga.lib.registrations.common.ItemReg;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 
 public class AllItems {
@@ -32,20 +29,57 @@ public class AllItems {
     public static final ItemReg<Item> WEATHERING_RESISTANT_STEEL_INGOT =
             new ItemReg<Item>("weathering_resistant_steel_ingot")
                     .itemType(Item::new)
-                    .tab(AllElements.neoKuayueMainTab)
+                    .tab(AllElements.neoKuayueMaterialTab)
                     .submit(AllElements.testRegistry);
 
     public static final ItemReg<Item> WEATHERING_RESISTANT_STEEL_NUGGET =
             new ItemReg<Item>("weathering_resistant_steel_nugget")
                     .itemType(Item::new)
-                    .tab(AllElements.neoKuayueMainTab)
+                    .tab(AllElements.neoKuayueMaterialTab)
                     .submit(AllElements.testRegistry);
 
 
     public static final ItemReg<Item> WEATHERING_RESISTANT_STEEL_BOARD =
             new ItemReg<Item>("weathering_resistant_steel_board")
                     .itemType(Item::new)
-                    .tab(AllElements.neoKuayueMainTab)
+                    .tab(AllElements.neoKuayueMaterialTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final ItemReg<Item> WEATHERING_RESISTANT_STEEL_DUST =
+            new ItemReg<Item>("weathering_resistant_steel_dust")
+                    .itemType(Item::new)
+                    .tab(AllElements.neoKuayueMaterialTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final ItemReg<Item> WEATHERING_RESISTANT_STEEL_POLE =
+            new ItemReg<Item>("weathering_resistant_steel_pole")
+                    .itemType(Item::new)
+                    .tab(AllElements.neoKuayueMaterialTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final ItemReg<Item> PLASTIC_INGOT =
+            new ItemReg<Item>("plastic_ingot")
+                    .itemType(Item::new)
+                    .tab(AllElements.neoKuayueMaterialTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final ItemReg<Item> PLASTIC_NUGGET =
+            new ItemReg<Item>("plastic_nugget")
+                    .itemType(Item::new)
+                    .tab(AllElements.neoKuayueMaterialTab)
+                    .submit(AllElements.testRegistry);
+
+
+    public static final ItemReg<Item> PLASTIC_BOARD =
+            new ItemReg<Item>("plastic_board")
+                    .itemType(Item::new)
+                    .tab(AllElements.neoKuayueMaterialTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final ItemReg<Item> PLASTIC_POLE =
+            new ItemReg<Item>("plastic_pole")
+                    .itemType(Item::new)
+                    .tab(AllElements.neoKuayueMaterialTab)
                     .submit(AllElements.testRegistry);
 
     public static final ItemReg<Item> LUNCH_BOX =
@@ -54,11 +88,40 @@ public class AllItems {
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
 
+    public static final ItemReg<Item> SOLIDIFY_SLIME_BALL =
+            new ItemReg<>("solidify_slime_ball")
+                    .itemType(Item::new)
+                    .tab(AllElements.neoKuayueMaterialTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final ItemReg<Item> RESEARCH_REPORT =
+            new ItemReg<>("research_report")
+                    .itemType(Item::new)
+                    .tab(AllElements.neoKuayueMaterialTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final ItemReg<Item> RESEARCH_REPORT_THINKING =
+            new ItemReg<>("research_report_thinking")
+                    .itemType(Item::new)
+                    .tab(AllElements.neoKuayueMaterialTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final ItemReg<Item> CIRCUIT_MOTHERBOARD =
+            new ItemReg<>("circuit_motherboard")
+                    .itemType(Item::new)
+                    .tab(AllElements.neoKuayueMaterialTab)
+                    .submit(AllElements.testRegistry);
+    public static final ItemReg<Item> COLOR_MASTERBATCH =
+            new ItemReg<>("color_masterbatch")
+                    .itemType(Item::new)
+                    .tab(AllElements.neoKuayueMaterialTab)
+                    .submit(AllElements.testRegistry);
+
     public static final BundledReg<ItemReg<Item>> CIRCUIT_BLUEPRINTS =
             new BundledReg<ItemReg<Item>>("circuit_blueprint")
                     .factory(ItemReg::new)
                     .action(reg -> reg.itemType(Item::new))
-                    .action(reg -> reg.tab(AllElements.neoKuayueMainTab))
+                    .action(reg -> reg.tab(AllElements.neoKuayueMaterialTab))
                     .element("head_df11g_circuit_blueprint")
                     .element("head_df21_circuit_blueprint")
                     .element("head_hxd3d_circuit_blueprint")
@@ -75,7 +138,7 @@ public class AllItems {
             new BundledReg<ItemReg<Item>>("blueprint")
                     .factory(ItemReg::new)
                     .action(reg -> reg.itemType(Item::new))
-                    .action(reg -> reg.tab(AllElements.neoKuayueMainTab))
+                    .action(reg -> reg.tab(AllElements.neoKuayueMaterialTab))
                     .element("head_df11g_blueprint")
                     .element("head_df21_blueprint")
                     .element("head_hxd3d_blueprint")
@@ -95,7 +158,7 @@ public class AllItems {
             new BundledReg<ItemReg<Item>>("circuit")
                     .factory(ItemReg::new)
                     .action(reg -> reg.itemType(Item::new))
-                    .action(reg -> reg.tab(AllElements.neoKuayueMainTab))
+                    .action(reg -> reg.tab(AllElements.neoKuayueMaterialTab))
                     .element("head_df11g_circuit")
                     .element("head_df21_circuit")
                     .element("head_hxd3d_circuit")
@@ -112,7 +175,7 @@ public class AllItems {
             new BundledReg<ItemReg<Item>>("circuit")
                     .factory(ItemReg::new)
                     .action(reg -> reg.itemType(Item::new))
-                    .action(reg -> reg.tab(AllElements.neoKuayueMainTab))
+                    .action(reg -> reg.tab(AllElements.neoKuayueMaterialTab))
                     .element("head_df11g_circuit_constructing")
                     .element("head_df21_circuit_constructing")
                     .element("head_hxd3d_circuit_constructing")
@@ -130,7 +193,7 @@ public class AllItems {
             new BundledReg<ItemReg<Item>>("mould")
                     .factory(ItemReg::new)
                     .action(reg -> reg.itemType(Item::new))
-                    .action(reg -> reg.tab(AllElements.neoKuayueMainTab))
+                    .action(reg -> reg.tab(AllElements.neoKuayueMaterialTab))
                     .element("head_df11g_mould")
                     .element("head_df21_mould")
                     .element("head_hxd3d_mould")
@@ -149,7 +212,7 @@ public class AllItems {
             new BundledReg<ItemReg<Item>>("mould")
                     .factory(ItemReg::new)
                     .action(reg -> reg.itemType(Item::new))
-                    .action(reg -> reg.tab(AllElements.neoKuayueMainTab))
+                    .action(reg -> reg.tab(AllElements.neoKuayueMaterialTab))
                     .element("head_df11g_mould_constructing")
                     .element("head_df21_mould_constructing")
                     .element("head_hxd3d_mould_constructing")
