@@ -117,6 +117,30 @@ public class AllItems {
                     .tab(AllElements.neoKuayueMaterialTab)
                     .submit(AllElements.testRegistry);
 
+    public static final ItemReg<Item> CARBON_DUST =
+            new ItemReg<>("carbon_dust")
+                    .itemType(Item::new)
+                    .tab(AllElements.neoKuayueMaterialTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final ItemReg<Item> IRON_DUST =
+            new ItemReg<>("iron_dust")
+                    .itemType(Item::new)
+                    .tab(AllElements.neoKuayueMaterialTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final ItemReg<Item> COPPER_DUST =
+            new ItemReg<>("copper_dust")
+                    .itemType(Item::new)
+                    .tab(AllElements.neoKuayueMaterialTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final ItemReg<Item> ZINC_DUST =
+            new ItemReg<>("zinc_dust")
+                    .itemType(Item::new)
+                    .tab(AllElements.neoKuayueMaterialTab)
+                    .submit(AllElements.testRegistry);
+
     public static final BundledReg<ItemReg<Item>> CIRCUIT_BLUEPRINTS =
             new BundledReg<ItemReg<Item>>("circuit_blueprint")
                     .factory(ItemReg::new)
