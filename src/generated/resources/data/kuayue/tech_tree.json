@@ -1,0 +1,36 @@
+{
+  "groups": {
+    "version": "1.0.0",
+    "main_group": {
+      "description": "description.kuayue.tech_tree",
+      "hide": {
+        "conditions": {
+          "advancements": [],
+          "nodes": [],
+          "contains_namespaces": []
+        },
+        "on_unlock": {
+          "advancements": [],
+          "description": "",
+          "items": [],
+          "nodes": []
+        }
+      },
+      "root_node": "node1",
+      "nodes": {
+        "node1": {
+          "next_nodes": [],
+          "next_groups": [],
+          "description": "",
+          "type": "plain",
+          "label": "",
+          "hide": {
+
+          },
+          "advancements": [],
+          "item_unlock": []
+        }
+      }
+    }
+  }
+}
