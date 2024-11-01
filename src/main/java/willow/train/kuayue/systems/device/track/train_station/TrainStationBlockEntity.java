@@ -1,4 +1,4 @@
-package willow.train.kuayue.systems.device.station.train_station;
+package willow.train.kuayue.systems.device.track.train_station;
 
 import com.simibubi.create.content.trains.track.TrackTargetingBehaviour;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
@@ -10,10 +10,10 @@ import willow.train.kuayue.systems.device.AllDeviceBlocks;
 
 import java.util.List;
 
-public class StationBlockEntity extends SmartBlockEntity {
+public class TrainStationBlockEntity extends SmartBlockEntity {
     public TrackTargetingBehaviour<TrainStation> edgePoint;
 
-    public StationBlockEntity(BlockPos blockPos, BlockState state) {
+    public TrainStationBlockEntity(BlockPos blockPos, BlockState state) {
         super(AllDeviceBlocks.STATION_BLOCK_ENTITY.getType(), blockPos, state);
     }
 

@@ -1,4 +1,4 @@
-package willow.train.kuayue.systems.device.station.train_station;
+package willow.train.kuayue.systems.device.track.train_station;
 
 import com.simibubi.create.foundation.block.IBE;
 import net.minecraft.core.BlockPos;
@@ -9,19 +9,19 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import willow.train.kuayue.systems.device.AllDeviceBlocks;
 
-public class StationBlock extends Block implements IBE<StationBlockEntity> {
+public class TrainStationBlock extends Block implements IBE<TrainStationBlockEntity> {
 
-    public StationBlock(Properties pProperties) {
+    public TrainStationBlock(Properties pProperties) {
         super(pProperties.noOcclusion());
     }
 
     @Override
-    public Class<StationBlockEntity> getBlockEntityClass() {
-        return StationBlockEntity.class;
+    public Class<TrainStationBlockEntity> getBlockEntityClass() {
+        return TrainStationBlockEntity.class;
     }
 
     @Override
-    public BlockEntityType<? extends StationBlockEntity> getBlockEntityType() {
+    public BlockEntityType<? extends TrainStationBlockEntity> getBlockEntityType() {
         return AllDeviceBlocks.STATION_BLOCK_ENTITY.getType();
     }
 

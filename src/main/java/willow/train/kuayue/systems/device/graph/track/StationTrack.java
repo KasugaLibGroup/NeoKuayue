@@ -2,10 +2,9 @@ package willow.train.kuayue.systems.device.graph.track;
 
 import com.simibubi.create.content.trains.graph.TrackGraph;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.Tag;
 import willow.train.kuayue.initial.AllEdgePoints;
 import willow.train.kuayue.systems.device.graph.station.GraphStation;
-import willow.train.kuayue.systems.device.station.train_station.TrainStation;
+import willow.train.kuayue.systems.device.track.train_station.TrainStation;
 
 import java.util.UUID;
 

@@ -1,4 +1,4 @@
-package willow.train.kuayue.systems.device.station.train_station;
+package willow.train.kuayue.systems.device.track.train_station;
 
 import com.simibubi.create.content.trains.graph.DimensionPalette;
 import com.simibubi.create.content.trains.graph.TrackGraphVisualizer;

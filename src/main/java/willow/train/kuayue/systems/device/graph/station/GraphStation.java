@@ -5,12 +5,11 @@ import com.simibubi.create.content.trains.graph.TrackGraph;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import willow.train.kuayue.initial.AllEdgePoints;
 import willow.train.kuayue.systems.device.graph.signals.entry.EntrySignal;
 import willow.train.kuayue.systems.device.graph.track.StationTrack;
-import willow.train.kuayue.systems.device.station.train_station.TrainStation;
+import willow.train.kuayue.systems.device.track.train_station.TrainStation;
 
 import java.util.ArrayList;
 import java.util.UUID;
