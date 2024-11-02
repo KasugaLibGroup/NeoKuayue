@@ -55,6 +55,9 @@ public class AllTags {
     public static final BlockTagReg CM1 = new BlockTagReg("cm1", "panel/cm1")
             .submit(AllElements.testRegistry);
 
+    public static final BlockTagReg C_FREIGHT = new BlockTagReg("c_freight", "panel/c_freight")
+            .submit(AllElements.testRegistry);
+
     public static final BlockTagReg I3D = new BlockTagReg("i3d", "panel/i3d")
             .submit(AllElements.testRegistry);
 
