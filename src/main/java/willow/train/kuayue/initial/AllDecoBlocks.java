@@ -64,6 +64,8 @@ public class AllDecoBlocks {
                     .blockType(p -> new TeaBoilerBlock(p, new Vec2(0, 0), new Vec2(1, 2)))
                     .materialColor(MapColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -73,6 +75,8 @@ public class AllDecoBlocks {
                     .blockType(CeilinShelfBlock::new)
                     .materialColor(MapColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -82,6 +86,8 @@ public class AllDecoBlocks {
                     .blockType(CeilinShelfBlock::new)
                     .materialColor(MapColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -91,6 +97,8 @@ public class AllDecoBlocks {
                     .blockType(CeilinShelfBlock::new)
                     .materialColor(MapColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -100,6 +108,8 @@ public class AllDecoBlocks {
                     .blockType(CeilinShelfBlock::new)
                     .materialColor(MapColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -109,6 +119,8 @@ public class AllDecoBlocks {
                     .blockType(YZTableBlock::new)
                     .materialColor(MapColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -118,6 +130,8 @@ public class AllDecoBlocks {
                     .blockType(RZSeatBlock::new)
                     .materialColor(MapColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -127,6 +141,8 @@ public class AllDecoBlocks {
                     .blockType(p -> new YZSeatBlock(p, 4, YZ_FUNCTION_1))
                     .materialColor(MapColor.COLOR_BLUE)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -136,6 +152,8 @@ public class AllDecoBlocks {
                     .blockType(p -> new YZSeatBlock(p, 4, YZ_FUNCTION_1))
                     .materialColor(MapColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -145,6 +163,8 @@ public class AllDecoBlocks {
                     .blockType(p -> new YZSeatBlock(p, 4, YZ_FUNCTION_1))
                     .materialColor(MapColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -154,6 +174,8 @@ public class AllDecoBlocks {
                     .blockType(p -> new YZSeatBlock(p, 4, YZ_FUNCTION_1))
                     .materialColor(MapColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -163,6 +185,8 @@ public class AllDecoBlocks {
                     .blockType(p -> new YZSeatBlock(p, 4, YZ_FUNCTION_1))
                     .materialColor(MapColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -172,6 +196,8 @@ public class AllDecoBlocks {
                     .blockType(p -> new YZSeatBlock(p, 4, YZ_FUNCTION_1))
                     .materialColor(MapColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -181,6 +207,8 @@ public class AllDecoBlocks {
                     .blockType(p -> new YZSeatBlock(p, 4, YZ_FUNCTION_1))
                     .materialColor(MapColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -198,6 +226,8 @@ public class AllDecoBlocks {
                             ))
                     .materialColor(MapColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -208,6 +238,8 @@ public class AllDecoBlocks {
                             new M1SeatBlock(properties, 2, M1_SEAT_FUNCTION))
                     .materialColor(MapColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -217,6 +249,8 @@ public class AllDecoBlocks {
                     .blockType(p -> new TrainSlabBlock(p, false))
                     .materialColor(MapColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);

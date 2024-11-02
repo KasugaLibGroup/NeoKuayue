@@ -1,0 +1,17 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "create:brass_sheet"
+    },
+    {
+      "item": "kuayue:head_df21_blueprint"
+    }
+  ],
+  "keepHeldItem": true,
+  "results": [
+    {
+      "item": "kuayue:head_df21_mould"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "type": "create:mechanical_crafting",
+  "acceptMirrored": false,
+  "key": {
+    "A": {
+      "item": "kuayue:weathering_resistant_steel_block_0"
+    },
+	"B": {
+      "item": "create:rose_quartz_lamp"
+    },
+	"C": {
+      "item": "kuayue:weathering_resistant_steel_board"
+    },
+	"D": {
+      "item": "kuayue:weathering_resistant_steel_pole"
+    },
+	"E": {
+      "item": "create:framed_glass"
+    },
+	"F": {
+      "item": "kuayue:weathering_resistant_steel_ingot"
+    },
+	"G": {
+      "item": "kuayue:color_masterbatch"
+    },
+	"H": {
+      "item": "kuayue:head_df21_circuit"
+    },
+    "I": {
+      "item": "create:nixie_tube"
+    },
+    "J": {
+      "item": "kuayue:head_df21_mould"
+    }
+  },
+  "pattern": [
+    "AAABAAA",
+    "AACCCAA",
+    "ADDDDDA",
+    "GEEFEEG",
+	"GEEHEEG",
+	"AIIJIIA",
+    "AAAAAAA"
+  ],
+  "result": {
+    "count": 1,
+    "item": "kuayue:head_df21"
+  }
+}

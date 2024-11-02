@@ -57,6 +57,22 @@ public class SkirtRegistration<T extends SkirtBlock> extends PanelRegistration<T
         return this;
     }
 
+    public SkirtRegistration<T> strength(float strength, float explosionResistance) {
+        this.block.addProperty(properties -> properties.strength(strength, explosionResistance));
+        return this;
+    }
+
+    public SkirtRegistration<T> requireCorrectTools() {
+        this.block.addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops);
+        return this;
+    }
+
+    public SkirtRegistration<T> strengthAndTool(float strength, float explosionResistance) {
+        this.block.addProperty(properties -> properties.strength(strength, explosionResistance));
+        this.block.addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops);
+        return this;
+    }
+
     public SkirtRegistration<T> submit(SimpleRegistry registry) {
         this.block.submit(registry);
         this.item.submit(registry);

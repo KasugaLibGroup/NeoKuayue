@@ -1,0 +1,17 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "kuayue:circuit_motherboard"
+    },
+    {
+      "item": "kuayue:head_cr200j_circuit_blueprint"
+    }
+  ],
+  "keepHeldItem": true,
+  "results": [
+    {
+      "item": "kuayue:head_cr200j_circuit_constructing"
+    }
+  ]
+}

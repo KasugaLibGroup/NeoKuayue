@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "kuayue:panel_wide_logo_cr_marshalled_cr200j"
+  },
+  "result": "kuayue:door_cabin_marshalled_cr200j"
+}

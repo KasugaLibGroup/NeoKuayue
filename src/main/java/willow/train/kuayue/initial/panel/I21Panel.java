@@ -42,7 +42,7 @@ public class I21Panel {
                     .block(p -> new CarportHingeSlabBlock(p, true))
                     .materialAndColor(MapColor.COLOR_RED)
                     .tab(AllElements.neoKuayueLocoTab)
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final SlabRegistration<CarportHingeSlabBlock> DYNAMIC_CARPORT_DF21 =
@@ -50,7 +50,7 @@ public class I21Panel {
                     .block(p -> new CarportHingeSlabBlock(p, true))
                     .materialAndColor(MapColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueLocoTab)
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final SlabRegistration<CarportHingeSlabBlock> DYNAMIC_TRANSITION_CARPORT_DF21 =
@@ -58,7 +58,7 @@ public class I21Panel {
                     .block(p -> new CarportHingeSlabBlock(p, true))
                     .materialAndColor(MapColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueLocoTab)
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final SlabRegistration<CarportHingeSlabBlock> DYNAMIC_RADIATOR_DF21 =
@@ -66,7 +66,7 @@ public class I21Panel {
                     .block(p -> new CarportHingeSlabBlock(p, true))
                     .materialAndColor(MapColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueLocoTab)
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final SlabRegistration<CarportHingeSlabBlock> GENERAL_CARPORT_DF21 =
@@ -74,7 +74,7 @@ public class I21Panel {
                     .block(p -> new CarportHingeSlabBlock(p, true))
                     .materialAndColor(MapColor.COLOR_RED)
                     .tab(AllElements.neoKuayueLocoTab)
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final SlabRegistration<TrainSlabBlock> GENERAL_SLAB_DF21 =
@@ -82,7 +82,7 @@ public class I21Panel {
                     .block(p -> new TrainSlabBlock(p, false))
                     .materialAndColor(MapColor.COLOR_RED)
                     .tab(AllElements.neoKuayueLocoTab)
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final PanelRegistration<CustomRenderedDoorBlock> DOOR_CABIN_DF21 =
@@ -97,7 +97,7 @@ public class I21Panel {
                     ), new Vec3(0, 0, 0), RenderShape.ENTITYBLOCK_ANIMATED, false
                     ))
                     .materialAndColor(MapColor.COLOR_GREEN)
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .tab(AllElements.neoKuayueLocoTab)
                     .submit(AllElements.testRegistry);
 
@@ -113,7 +113,7 @@ public class I21Panel {
                     ), new Vec3(0, 0, 0), RenderShape.MODEL, false
                     ))
                     .materialAndColor(MapColor.COLOR_GREEN)
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .tab(AllElements.neoKuayueLocoTab)
                     .submit(AllElements.testRegistry);
 
@@ -122,7 +122,7 @@ public class I21Panel {
                     .block(p -> new TrainUnOpenableWindowBlock(p, -1, 2))
                     .materialAndColor(MapColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueLocoTab)
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final PanelRegistration<TrainUnOpenableWindowBlock> EQUIP_MIDDLE_EARLY_DF21 =
@@ -130,7 +130,7 @@ public class I21Panel {
                     .block(p -> new TrainUnOpenableWindowBlock(p, 1, 0, 2))
                     .materialAndColor(MapColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueLocoTab)
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final PanelRegistration<TrainHingePanelBlock> GENERAL_BOTTOM_SLAB_DF21 =
@@ -138,7 +138,7 @@ public class I21Panel {
                     .block(p -> new TrainHingePanelBlock(p, new Vec2(0, 0), new Vec2(1, 1)))
                     .materialAndColor(MapColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueLocoTab)
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final BlockReg<FullShapeDirectionalBlock> FUEL_TANK_DF21 =

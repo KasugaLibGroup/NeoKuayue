@@ -141,6 +141,17 @@ public class AllItems {
                     .tab(AllElements.neoKuayueMaterialTab)
                     .submit(AllElements.testRegistry);
 
+    public static final BundledReg<ItemReg<Item>> INCOMPLETE_TRACKS =
+            new BundledReg<ItemReg<Item>>("incomplete_tracks")
+                    .factory(ItemReg::new)
+                    .action(reg -> reg.itemType(Item::new))
+                    .action(reg -> reg.tab(AllElements.neoKuayueMaterialTab))
+                    .element("incomplete_standard_track")
+                    .element("incomplete_ballastless_track")
+                    .element("incomplete_tieless_track")
+                    .element("incomplete_meter_track")
+                    .submit(AllElements.testRegistry);
+
     public static final BundledReg<ItemReg<Item>> CIRCUIT_BLUEPRINTS =
             new BundledReg<ItemReg<Item>>("circuit_blueprint")
                     .factory(ItemReg::new)

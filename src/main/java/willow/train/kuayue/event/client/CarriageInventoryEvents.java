@@ -31,7 +31,7 @@ import java.util.Set;
 @OnlyIn(Dist.CLIENT)
 public class CarriageInventoryEvents {
 
-    private static final int CARRIAGE_TYPE_COUNTS = 9;
+    private static final int CARRIAGE_TYPE_COUNTS = 10;
     private static int carriageType = 0;
     ItemIconButton[] imgBtn = new ItemIconButton[CARRIAGE_TYPE_COUNTS];
     ImageButton[] upAndDownBtn = new ImageButton[2];
@@ -107,6 +107,7 @@ public class CarriageInventoryEvents {
         icons[6] = new ItemStack(C25BPanel.PANEL_SYMBOL_MARSHALLED_25B.block.getBlock());
         icons[7] = new ItemStack(CR200JPanel.PANEL_BOTTOM_MARSHALLED_CR200J.block.getBlock());
         icons[8] = new ItemStack(CM1Panel.BOTTOM_SLAB_M1.block.getBlock());
+        icons[9] = new ItemStack(CFreightPanel.FREIGHT_C70_END_FACE.block.getBlock());
 
         // 定义左侧向上箭头按钮
         upAndDownBtn[0] = new ImageButton(upRegex, this.guiLeft - 22, this.guiTop - 8, 20, 20, Component.empty(),
@@ -154,6 +155,8 @@ public class CarriageInventoryEvents {
                 Component.translatable("container." + Kuayue.MODID + ".inventory.button.cr200j");
         components[8] =
                 Component.translatable("container." + Kuayue.MODID + ".inventory.button.m1");
+        components[9] =
+                Component.translatable("container." + Kuayue.MODID + ".inventory.button.freight");
 
         // 定义所有列车车厢板类型按钮
         for (int i = 0; i < imgBtn.length; i++) {
@@ -337,6 +340,10 @@ public class CarriageInventoryEvents {
                 menu.items.clear();
                 menu.items.addAll(itemList.get(9));
                 break;
+            case 9: // Freight
+                menu.items.clear();
+                menu.items.addAll(itemList.get(10));
+                break;
             default: // carriageType为0时添加所有类型
                 menu.items.clear();
                 menu.items.addAll(itemList.get(0)); // B
@@ -349,6 +356,7 @@ public class CarriageInventoryEvents {
                 menu.items.addAll(itemList.get(7)); // general
                 menu.items.addAll(itemList.get(8)); // bgkzt
                 menu.items.addAll(itemList.get(9)); // M1
+                menu.items.addAll(itemList.get(10)); // Freight
         }
     }
 
@@ -366,6 +374,7 @@ public class CarriageInventoryEvents {
                         add(List.of()); // 通用 7
                         add(getListByTag(AllTags.C25BGKZT.tag())); // BGKZT 8
                         add(getListByTag(AllTags.CM1.tag()));   // M1 9
+                        add(getListByTag(AllTags.C_FREIGHT.tag())); // Freight 10
                     }
                 };
     }

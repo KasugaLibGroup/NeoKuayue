@@ -7,6 +7,7 @@ import kasuga.lib.registrations.create.BogeyGroupReg;
 import kasuga.lib.registrations.create.BogeySizeReg;
 import kasuga.lib.registrations.registry.CreateRegistry;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import willow.train.kuayue.block.bogey.loco.LocoBogeyBlock;
 import willow.train.kuayue.block.bogey.loco.LocoBogeyEntity;
 import willow.train.kuayue.block.bogey.loco.MeterLocoBogeyBlock;
@@ -68,6 +69,8 @@ public class AllLocoBogeys {
                     .block(LocoBogeyBlock::new)
                     .materialColor(MapColor.PODZOL)
                     .translationKey("df11g_bogey")
+                    .property(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .property(properties -> properties.strength(2.0f, 3.0f))
                     .size(df11g)
                     .submit(testRegistry);
 
@@ -76,6 +79,8 @@ public class AllLocoBogeys {
                     .block(LocoBogeyBlock::new)
                     .materialColor(MapColor.PODZOL)
                     .translationKey("df11g_bogey")
+                    .property(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .property(properties -> properties.strength(2.0f, 3.0f))
                     .size(df11gBackward)
                     .submit(testRegistry);
 
@@ -84,6 +89,8 @@ public class AllLocoBogeys {
                     .block(LocoBogeyBlock::new)
                     .materialColor(MapColor.PODZOL)
                     .translationKey("qj_bogey")
+                    .property(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .property(properties -> properties.strength(2.0f, 3.0f))
                     .size(qjMain)
                     .submit(testRegistry);
 
@@ -92,6 +99,8 @@ public class AllLocoBogeys {
                     .block(LocoBogeyBlock::new)
                     .materialColor(MapColor.PODZOL)
                     .translationKey("ss3_bogey")
+                    .property(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .property(properties -> properties.strength(2.0f, 3.0f))
                     .size(ss3)
                     .submit(testRegistry);
 
@@ -100,6 +109,8 @@ public class AllLocoBogeys {
                     .block(LocoBogeyBlock::new)
                     .materialColor(MapColor.PODZOL)
                     .translationKey("ss3_backward_bogey")
+                    .property(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .property(properties -> properties.strength(2.0f, 3.0f))
                     .size(ss3Backward)
                     .submit(testRegistry);
 
@@ -119,6 +130,8 @@ public class AllLocoBogeys {
                     .block(MeterLocoBogeyBlock::new)
                     .materialColor(MapColor.PODZOL)
                     .translationKey("df21_bogey")
+                    .property(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .property(properties -> properties.strength(2.0f, 3.0f))
                     .size(df21)
                     .submit(testRegistry);
 
@@ -127,6 +140,8 @@ public class AllLocoBogeys {
                     .block(MeterLocoBogeyBlock::new)
                     .materialColor(MapColor.PODZOL)
                     .translationKey("df21_backward_bogey")
+                    .property(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .property(properties -> properties.strength(2.0f, 3.0f))
                     .size(df21Backward)
                     .submit(testRegistry);
 

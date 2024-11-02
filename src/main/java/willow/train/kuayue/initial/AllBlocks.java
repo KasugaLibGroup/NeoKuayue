@@ -33,8 +33,8 @@ public class AllBlocks {
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
                     .addProperty(properties -> properties.sound(SoundType.POLISHED_DEEPSLATE))
                     .addProperty(properties -> properties.strength(1.5f, 3.0f))
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
                     .defaultBlockItem()
-                    // .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
 
     public static final BlockReg<CompanyTrainPanel> COMPANY_TRAIN_PANEL =
@@ -42,6 +42,8 @@ public class AllBlocks {
                     .blockType(CompanyTrainPanel::new)
                     .materialColor(MapColor.COLOR_GRAY)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(properties -> properties.strength(1.5f, 3.0f))
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
                     .submit(AllElements.testRegistry);
 
     public static final BlockReg<CompanyTrainDoor> COMPANY_TRAIN_DOOR =
@@ -49,6 +51,8 @@ public class AllBlocks {
                     .blockType(CompanyTrainDoor::new)
                     .materialColor(MapColor.COLOR_GRAY)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(properties -> properties.strength(1.5f, 3.0f))
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
                     .submit(AllElements.testRegistry);
 
     public static final BlockReg<CompanyTrainDoor.Sliding> COMPANY_SLIDING_DOOR =
@@ -56,6 +60,8 @@ public class AllBlocks {
                     .blockType(CompanyTrainDoor.Sliding::new)
                     .materialColor(MapColor.COLOR_GRAY)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(properties -> properties.strength(1.5f, 3.0f))
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
                     .submit(AllElements.testRegistry);
 
     public static final BlockReg<CompanyTrainSlab> COMPANY_FLOOR =
@@ -63,6 +69,8 @@ public class AllBlocks {
                     .blockType(p -> new CompanyTrainSlab(p, false))
                     .materialColor(MapColor.COLOR_GRAY)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(properties -> properties.strength(1.5f, 3.0f))
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
                     .submit(AllElements.testRegistry);
 
     public static final BlockReg<CompanyTrainSlab> COMPANY_CARPORT =
@@ -70,6 +78,8 @@ public class AllBlocks {
                     .blockType(p -> new CompanyTrainSlab(p, true))
                     .materialColor(MapColor.COLOR_GRAY)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(properties -> properties.strength(1.5f, 3.0f))
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
                     .submit(AllElements.testRegistry);
 
     public static final PanelRegistration<DoubleDoorBlock> PLATFORM_DOOR =
@@ -85,6 +95,7 @@ public class AllBlocks {
                     ).materialAndColor(MapColor.METAL)
                     .tab(AllElements.neoKuayueMainTab)
                     .noOcclusion()
+                    .strengthAndTool(2f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final BlockReg<PlatformWallBlock> PLATFORM_WALL =
@@ -92,6 +103,8 @@ public class AllBlocks {
                     .blockType(PlatformWallBlock::new)
                     .materialColor(MapColor.METAL)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(properties -> properties.strength(1.5f, 3.0f))
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -176,6 +189,12 @@ public class AllBlocks {
             new BlockEntityReg<SeatBlockEntity>("seat_block_entity")
                     .blockEntityType(SeatBlockEntity::new)
                     .addBlock(AllDecoBlocks.YZ_SEAT_BLUE)
+                    .addBlock(AllDecoBlocks.YZ_SEAT_GRAY)
+                    .addBlock(AllDecoBlocks.YZ_SEAT_GREEN)
+                    .addBlock(AllDecoBlocks.YZ_SEAT_BLACK)
+                    .addBlock(AllDecoBlocks.YZ_SEAT_CYAN)
+                    .addBlock(AllDecoBlocks.YZ_SEAT_RED)
+                    .addBlock(AllDecoBlocks.YZ_SEAT_YELLOW)
                     .addBlock(AllDecoBlocks.YZ_SEAT_2)
                     .addBlock(AllDecoBlocks.SEAT_M1)
                     .submit(AllElements.testRegistry);
@@ -201,6 +220,7 @@ public class AllBlocks {
         C25ZPanel.invoke();
         C25Panel.invoke();
         CM1Panel.invoke();
+        CFreightPanel.invoke();
         I11GPanel.invoke();
         I3DPanel.invoke();
         I21Panel.invoke();

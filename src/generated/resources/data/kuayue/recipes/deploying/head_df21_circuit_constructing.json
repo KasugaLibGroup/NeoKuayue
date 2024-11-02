@@ -1,0 +1,17 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "kuayue:circuit_motherboard"
+    },
+    {
+      "item": "kuayue:head_df21_circuit_blueprint"
+    }
+  ],
+  "keepHeldItem": true,
+  "results": [
+    {
+      "item": "kuayue:head_df21_circuit_constructing"
+    }
+  ]
+}

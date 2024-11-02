@@ -57,6 +57,22 @@ public class SlabRegistration<T extends TrainSlabBlock> extends PanelRegistratio
         return this;
     }
 
+    public SlabRegistration<T> strength(float strength, float explosionResistance) {
+        this.block.addProperty(properties -> properties.strength(strength, explosionResistance));
+        return this;
+    }
+
+    public SlabRegistration<T> requireCorrectTools() {
+        this.block.addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops);
+        return this;
+    }
+
+    public SlabRegistration<T> strengthAndTool(float strength, float explosionResistance) {
+        this.block.addProperty(properties -> properties.strength(strength, explosionResistance));
+        this.block.addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops);
+        return this;
+    }
+
     public SlabRegistration<T> submit(SimpleRegistry registry) {
         this.block.submit(registry);
         this.item.submit(registry);

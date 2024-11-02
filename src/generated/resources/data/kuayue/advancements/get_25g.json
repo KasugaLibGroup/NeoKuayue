@@ -2,7 +2,7 @@
  "parent": "kuayue:get_steel",
  "display": {
   "icon": {
-   "item": "kuayue:panel_bottom_c25g"
+   "item": "kuayue:panel_bottom_25g"
   },
   "title": {
    "translate": "kuayue.advancement.c25g"

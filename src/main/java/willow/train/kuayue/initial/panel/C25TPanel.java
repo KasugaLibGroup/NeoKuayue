@@ -37,7 +37,7 @@ public class C25TPanel {
                     ), RenderShape.ENTITYBLOCK_ANIMATED, false))
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final PanelRegistration<CustomRenderedDoorBlock> DOOR_SLIDING_25T =
@@ -52,7 +52,7 @@ public class C25TPanel {
                     ), RenderShape.ENTITYBLOCK_ANIMATED, true))
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final PanelRegistration<CustomRenderedEndfaceBlock> END_FACE_25T_1 =
@@ -66,7 +66,7 @@ public class C25TPanel {
                             )
                     ).materialAndColor(MapColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final PanelRegistration<CustomRenderedEndfaceBlock> END_FACE_25T_2 =
@@ -80,7 +80,7 @@ public class C25TPanel {
                             )
                     ).materialAndColor(MapColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final PanelRegistration<CustomRenderedEndfaceBlock> END_FACE_25T_3 =
@@ -94,7 +94,7 @@ public class C25TPanel {
                             )
                     ).materialAndColor(MapColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final PanelRegistration<CustomRenderedEndfaceBlock> END_FACE_SLIDING_25T_1 =
@@ -108,7 +108,7 @@ public class C25TPanel {
                             )
                     ).materialAndColor(MapColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final PanelRegistration<CustomRenderedEndfaceBlock> END_FACE_SLIDING_25T_2 =
@@ -122,7 +122,7 @@ public class C25TPanel {
                             )
                     ).materialAndColor(MapColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final PanelRegistration<CustomRenderedEndfaceBlock> END_FACE_SLIDING_25T_3 =
@@ -136,7 +136,7 @@ public class C25TPanel {
                             )
                     ).materialAndColor(MapColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final PanelRegistration<TrainPanelBlock> PANEL_BOTTOM_25T =
@@ -144,168 +144,168 @@ public class C25TPanel {
                     .block(p -> new TrainPanelBlock(p, new Vec2(0, 0), new Vec2(1, 1)))
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainHingePanelBlock> PANEL_BOTTOM_25T_2 =
             new PanelRegistration<TrainHingePanelBlock>("panel_bottom_25t_2")
                     .block(p -> new TrainHingePanelBlock(p, new Vec2(0, 0), new Vec2(1, 1)))
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainPanelBlock> PANEL_MIDDLE_25T =
             new PanelRegistration<TrainPanelBlock>("panel_middle_25t")
                     .block(p -> new TrainPanelBlock(p, new Vec2(0, 0), new Vec2(1, 1)))
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainHingePanelBlock> PANEL_MIDDLE_25T_2 =
             new PanelRegistration<TrainHingePanelBlock>("panel_middle_25t_2")
                     .block(p -> new TrainHingePanelBlock(p, new Vec2(0, 0), new Vec2(1, 1)))
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainPanelBlock> PANEL_TOP_25T =
             new PanelRegistration<TrainPanelBlock>("panel_top_25t")
                     .block(p -> new TrainPanelBlock(p, new Vec2(0, 0), new Vec2(1, 1)))
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainHingePanelBlock> PANEL_TOP_25T_2 =
             new PanelRegistration<TrainHingePanelBlock>("panel_top_25t_2")
                     .block(p -> new TrainHingePanelBlock(p, new Vec2(0, 0), new Vec2(1, 1)))
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainPanelBlock> PANEL_TOP_XL25T =
             new PanelRegistration<TrainPanelBlock>("panel_top_xl25t")
                     .block(p -> new TrainPanelBlock(p, new Vec2(0, 0), new Vec2(1, 1)))
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainSmallWindowBlock> WINDOW_OC_BLUE_25T =
             new PanelRegistration<TrainSmallWindowBlock>("window_oc_blue_25t")
                     .block(TrainSmallWindowBlock::new)
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainUnOpenableSmallWindowBlock> WINDOW_OC_SEALED_BLUE_25T =
             new PanelRegistration<TrainUnOpenableSmallWindowBlock>("window_oc_sealed_blue_25t")
                     .block(TrainUnOpenableSmallWindowBlock::new)
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainUnOpenableSmallWindowBlock> WINDOW_OC_SEALED_SMALL_25T =
             new PanelRegistration<TrainUnOpenableSmallWindowBlock>("window_oc_sealed_small_25t")
                     .block(TrainUnOpenableSmallWindowBlock::new)
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainUnOpenableSmallWindowBlock> WINDOW_OC_SEALED_SMALL_BLUE_25T =
             new PanelRegistration<TrainUnOpenableSmallWindowBlock>("window_oc_sealed_small_blue_25t")
                     .block(TrainUnOpenableSmallWindowBlock::new)
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainUnOpenableSmallWindowBlock> WINDOW_OC_SEALED_SMALL_BLUE_BSP25T =
             new PanelRegistration<TrainUnOpenableSmallWindowBlock>("window_oc_sealed_small_blue_bsp25t")
                     .block(TrainUnOpenableSmallWindowBlock::new)
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainUnOpenableWindowBlock> WINDOW_OC_SEALED_WIDE_BLUE_BSP25T =
             new PanelRegistration<TrainUnOpenableWindowBlock>("window_oc_sealed_wide_blue_bsp25t")
                     .block(p -> new TrainUnOpenableWindowBlock(p, 2))
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainSmallWindowBlock> WINDOW_OC_SMALL_25T =
             new PanelRegistration<TrainSmallWindowBlock>("window_oc_small_25t")
                     .block(TrainSmallWindowBlock::new)
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainSmallWindowBlock> WINDOW_OC_SMALL_BLUE_25T =
             new PanelRegistration<TrainSmallWindowBlock>("window_oc_small_blue_25t")
                     .block(TrainSmallWindowBlock::new)
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainSmallWindowBlock> WINDOW_OC_SMALL_BLUE_BSP25T =
             new PanelRegistration<TrainSmallWindowBlock>("window_oc_small_blue_bsp25t")
                     .block(TrainSmallWindowBlock::new)
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainSmallWindowBlock> WINDOW_OC_TOILET_25T =
             new PanelRegistration<TrainSmallWindowBlock>("window_oc_toilet_25t")
                     .block(TrainSmallWindowBlock::new)
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainSmallWindowBlock> WINDOW_OC_TOILET_BLUE_25T =
             new PanelRegistration<TrainSmallWindowBlock>("window_oc_toilet_blue_25t")
                     .block(TrainSmallWindowBlock::new)
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainSmallWindowBlock> WINDOW_OC_TOILET_BLUE_BSP25T =
             new PanelRegistration<TrainSmallWindowBlock>("window_oc_toilet_blue_bsp25t")
                     .block(TrainSmallWindowBlock::new)
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainOpenableWindowBlock> WINDOW_OC_WIDE_25T =
             new PanelRegistration<TrainOpenableWindowBlock>("window_oc_wide_25t")
                     .block(p -> new TrainOpenableWindowBlock(p, 2))
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainOpenableWindowBlock> WINDOW_OC_WIDE_BLUE_25T =
             new PanelRegistration<TrainOpenableWindowBlock>("window_oc_wide_blue_25t")
                     .block(p -> new TrainOpenableWindowBlock(p, 2))
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainOpenableWindowBlock> WINDOW_OC_WIDE_BLUE_BSP25T =
             new PanelRegistration<TrainOpenableWindowBlock>("window_oc_wide_blue_bsp25t")
                     .block(p -> new TrainOpenableWindowBlock(p, 2))
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainUnOpenableWindowBlock> WINDOW_OC_WIDE_SEALED_25T =
             new PanelRegistration<TrainUnOpenableWindowBlock>("window_oc_wide_sealed_25t")
                     .block(p -> new TrainUnOpenableWindowBlock(p, 2))
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainUnOpenableWindowBlock> WINDOW_OC_WIDE_SEALED_BLUE_25T =
             new PanelRegistration<TrainUnOpenableWindowBlock>("window_oc_wide_sealed_blue_25t")
                     .block(p -> new TrainUnOpenableWindowBlock(p, 2))
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final SkirtRegistration<SkirtBlock> SKIRT_25T =
@@ -313,7 +313,7 @@ public class C25TPanel {
                     .block(SkirtBlock::new)
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final SkirtRegistration<SkirtBlock> SKIRT_MARSHALLED_25T =
@@ -321,7 +321,7 @@ public class C25TPanel {
                     .block(SkirtBlock::new)
                     .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final SlabRegistration<TrainLadderBlock> LADDER_SLIDING_25T =
@@ -329,14 +329,14 @@ public class C25TPanel {
                     .block(TrainLadderBlock::new)
                     .materialAndColor(MapColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final SlabRegistration<TrainSlabBlock> FLOOR_25T =
             new SlabRegistration<TrainSlabBlock>("floor_25t")
                     .block(p -> new TrainSlabBlock(p, false))
                     .materialAndColor(MapColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final SlabRegistration<TrainSlabBlock> TOILET_DD_25T =
@@ -344,7 +344,7 @@ public class C25TPanel {
                     .block(p -> new TrainSlabBlock(p, false))
                     .materialAndColor(MapColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final SlabRegistration<TrainSlabBlock> CARPORT_25T =
@@ -352,21 +352,21 @@ public class C25TPanel {
                     .block(p -> new TrainSlabBlock(p, true))
                     .materialAndColor(MapColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final SlabRegistration<TrainSlabBlock> CARPORT_CENTER_NSP25T =
             new SlabRegistration<TrainSlabBlock>("carport_center_bsp25t")
                     .block(p -> new TrainSlabBlock(p, true))
                     .materialAndColor(MapColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final SlabRegistration<TrainSlabBlock> CARPORT_TOILET_25T =
             new SlabRegistration<TrainSlabBlock>("carport_toilet_25t")
                     .block(p -> new TrainSlabBlock(p, true))
                     .materialAndColor(MapColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final SlabRegistration<TrainSlabBlock> AIR_CONDITION_BSP25T =
@@ -374,7 +374,7 @@ public class C25TPanel {
                     .block(p -> new TrainSlabBlock(p, true))
                     .materialAndColor(MapColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab )
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static void invoke(){}
 }

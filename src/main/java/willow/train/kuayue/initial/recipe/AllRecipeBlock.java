@@ -13,6 +13,8 @@ public class AllRecipeBlock {
                     .blockType(BlueprintBlock::new)
                     .materialColor(MapColor.WOOD)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 1.5f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);

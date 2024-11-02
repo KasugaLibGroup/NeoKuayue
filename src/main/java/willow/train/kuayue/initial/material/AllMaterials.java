@@ -24,6 +24,8 @@ public class AllMaterials {
                     .blockType(SlabBlock::new)
                     .materialColor(MapColor.STONE)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -33,6 +35,8 @@ public class AllMaterials {
                     .blockType(properties -> new StairBlock(Blocks.CLAY::defaultBlockState, BlockBehaviour.Properties.of()))
                     .materialColor(MapColor.STONE)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -42,7 +46,7 @@ public class AllMaterials {
                     .block(QuartzPanelBlock2::new)
                     .materialAndColor(MapColor.NONE)
                     .tab(AllElements.neoKuayueMainTab)
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final PanelRegistration<QuartzPanelBlockHalf> SMOOTH_QUARTZ_PANEL_HALF =
@@ -50,7 +54,7 @@ public class AllMaterials {
                     .block(QuartzPanelBlockHalf::new)
                     .materialAndColor(MapColor.NONE)
                     .tab(AllElements.neoKuayueMainTab)
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final PanelRegistration<QuartzPanelBlock4> SMOOTH_QUARTZ_PANEL_4 =
@@ -58,7 +62,7 @@ public class AllMaterials {
                     .block(QuartzPanelBlock4::new)
                     .materialAndColor(MapColor.NONE)
                     .tab(AllElements.neoKuayueMainTab)
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final PanelRegistration<QuartzAngleBlock22> SMOOTH_QUARTZ_ANGLE_22_UP =
@@ -66,7 +70,7 @@ public class AllMaterials {
                     .block(QuartzAngleBlock22::new)
                     .materialAndColor(MapColor.NONE)
                     .tab(AllElements.neoKuayueMainTab)
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1f, 3f)
                     .submit(AllElements.testRegistry);
 
     //耐候钢块
