@@ -1,0 +1,17 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "kuayue:head_df21_mould"
+    },
+    {
+      "item": "create:fluid_tank"
+    }
+  ],
+  "keepHeldItem": false,
+  "results": [
+    {
+      "item": "kuayue:fuel_tank_df21"
+    }
+  ]
+}

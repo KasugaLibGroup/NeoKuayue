@@ -21,7 +21,7 @@
       "trigger": "minecraft:effects_changed",
       "conditions": {
         "effects": {
-          "kuayue:noodle_smell": {}
+          "kuayue:warm": {}
         }
       }
     }

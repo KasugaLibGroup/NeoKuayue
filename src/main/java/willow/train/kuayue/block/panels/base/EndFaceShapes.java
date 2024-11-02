@@ -282,6 +282,18 @@ public class EndFaceShapes {
                     Block.box(15, 18, 1, 17, 21, 15),
                     Block.box(15, -16, -16, 17, 21, 1));
 
+    protected static final VoxelShape FREIGHT_NORTH_AABB =
+            Block.box(-16, 0, -3, 32, 32, 2);
+
+    protected static final VoxelShape FREIGHT_WEST_AABB =
+            Block.box(-3, 0, -16, 2, 32, 32);
+
+    protected static final VoxelShape FREIGHT_SOUTH_AABB =
+            Block.box(-16, 0, 13, 32, 32, 18);
+
+    protected static final VoxelShape FREIGHT_EAST_AABB =
+            Block.box(13, 0, -16, 18, 32, 32);
+
     public static VoxelShape moveByDirection(VoxelShape shape, Direction direction, double x, double y, double z) {
         Vec3 vec3 = new Vec3(x, y, z);
         vec3 = vec3.yRot(-direction.toYRot());
@@ -353,6 +365,16 @@ public class EndFaceShapes {
             case EAST -> M1_INSIDE_EAST_AABB.move(-0.125, 0, 0);
             case SOUTH -> M1_INSIDE_SOUTH_AABB.move(0, 0, -0.125);
             default -> M1_INSIDE_NORTH_AABB;
+        };
+    }
+
+    public static VoxelShape getFreightEndFaceShape(Direction direction) {
+        return switch (direction) {
+            case NORTH -> FREIGHT_NORTH_AABB.move(0, -0.5, 0);
+            case WEST -> FREIGHT_WEST_AABB.move(0, -0.5, 0);
+            case EAST -> FREIGHT_EAST_AABB.move(0, -0.5, 0);
+            case SOUTH -> FREIGHT_SOUTH_AABB.move(0, -0.5, 0);
+            default -> FREIGHT_NORTH_AABB;
         };
     }
 }

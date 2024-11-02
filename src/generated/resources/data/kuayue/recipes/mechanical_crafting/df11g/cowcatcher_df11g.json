@@ -1,0 +1,27 @@
+{
+  "type": "create:mechanical_crafting",
+  "acceptMirrored": false,
+  "key": {
+    "A": {
+      "item": "kuayue:weathering_resistant_steel_block_0"
+    },
+	"B": {
+      "item": "kuayue:weathering_resistant_steel_board"
+    },
+	"C": {
+      "item": "create:minecart_coupling"
+    },
+    "I": {
+      "item": "create:nixie_tube"
+    }
+  },
+  "pattern": [
+    "AABBBAA",
+    "AIICIIA",
+    "AAAAAAA"
+  ],
+  "result": {
+    "count": 1,
+    "item": "kuayue:cowcatcher_df11g"
+  }
+}

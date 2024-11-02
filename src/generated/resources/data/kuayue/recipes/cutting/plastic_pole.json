@@ -1,0 +1,15 @@
+{
+  "type": "create:cutting",
+  "ingredients": [
+    {
+      "item": "kuayue:plastic_board"
+    }
+  ],
+  "processingTime": 800,
+  "results": [
+    {
+      "count": 4,
+      "item": "kuayue:plastic_pole"
+    }
+  ]
+}

@@ -1,7 +1,15 @@
 {
   "values": [
-    "kuayue:seat_rz",
+    "kuayue:yz_seat_black",
     "kuayue:yz_seat_blue",
-    "kuayue:yz_seat_22"
+    "kuayue:yz_seat_green",
+    "kuayue:yz_seat_red",
+    "kuayue:yz_seat_yellow",
+    "kuayue:yz_seat_cyan",
+    "kuayue:yz_seat_gray",
+    "kuayue:yz_seat_22",
+    "kuayue:seat_m1",
+    "kuayue:seat_rz",
+    "kuayue:blueprint_table"
   ]
 }
