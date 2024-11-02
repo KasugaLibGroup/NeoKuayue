@@ -7,8 +7,8 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.world.level.LevelAccessor;
 import willow.train.kuayue.initial.AllEdgePoints;
-import willow.train.kuayue.systems.device.graph.signals.entry.EntrySignal;
 import willow.train.kuayue.systems.device.graph.track.StationTrack;
+import willow.train.kuayue.systems.device.track.entry.StationEntry;
 import willow.train.kuayue.systems.device.track.train_station.TrainStation;
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ public class GraphStation {
     public String name;
     public String shortenCode;
     public ArrayList<TrainStation> stations = new ArrayList<>();
-    public ArrayList<EntrySignal> entries = new ArrayList<>();
+    public ArrayList<StationEntry> entries = new ArrayList<StationEntry>();
     public ArrayList<StationTrack> stationTracks = new ArrayList<>();
 
     public GraphStation(UUID uuid) {
@@ -41,7 +41,7 @@ public class GraphStation {
         tag.putString("Name", name);
         tag.putString("ShortenCode", shortenCode);
         ListTag entriesTag = new ListTag();
-        for (EntrySignal entry : entries) {
+        for (StationEntry entry : entries) {
             CompoundTag entryTag = new CompoundTag();
             entryTag.putUUID("Id", entry.getId());
             entriesTag.add(entryTag);
@@ -84,7 +84,7 @@ public class GraphStation {
         for(int i=0;i<tag.size();i++){
             CompoundTag entryTag = tag.getCompound(i);
             UUID entryId = entryTag.getUUID("Id");
-            EntrySignal entrySignal = network.getPoint(AllEdgePoints.ENTRY_SIGNAL, entryId);
+            StationEntry entrySignal = network.getPoint(AllEdgePoints.ENTRY_SIGNAL, entryId);
             if(entrySignal != null){
                 this.entries.add(entrySignal);
             }

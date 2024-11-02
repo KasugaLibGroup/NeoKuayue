@@ -12,6 +12,7 @@ import willow.train.kuayue.event.server.PlayerJumpEvents;
 import willow.train.kuayue.initial.create.*;
 import willow.train.kuayue.initial.food.AllFoods;
 import willow.train.kuayue.initial.material.AllMaterials;
+import willow.train.kuayue.systems.device.AllDeviceItems;
 
 public class AllElements {
 
@@ -34,7 +35,7 @@ public class AllElements {
             .submit(testRegistry);
 
     public static final CreativeTabReg neoKuayueDeviceTab = new CreativeTabReg("device")
-            .icon(() -> AllItems.LOCO_LOGOS.getItem().getDefaultInstance())
+            .icon(() -> AllDeviceItems.ITEM_LOGO.getItem().getDefaultInstance())
             .submit(testRegistry);
 
     public static void invoke() {

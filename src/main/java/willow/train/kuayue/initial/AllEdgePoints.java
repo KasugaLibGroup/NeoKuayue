@@ -3,6 +3,7 @@ package willow.train.kuayue.initial;
 import com.simibubi.create.content.trains.graph.EdgePointType;
 import net.minecraft.resources.ResourceLocation;
 import willow.train.kuayue.systems.device.graph.signals.entry.EntrySignal;
+import willow.train.kuayue.systems.device.track.entry.StationEntry;
 import willow.train.kuayue.systems.device.track.train_station.TrainStation;
 
 public class AllEdgePoints {
@@ -11,8 +12,8 @@ public class AllEdgePoints {
         TrainStation::new
     );
 
-    public static EdgePointType<EntrySignal> ENTRY_SIGNAL = EdgePointType.register(
+    public static EdgePointType<StationEntry> ENTRY_SIGNAL = EdgePointType.register(
             new ResourceLocation("kuayue","entry_signal"),
-            EntrySignal::new
+            StationEntry::new
     );
 }

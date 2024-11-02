@@ -6,6 +6,7 @@ import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import willow.train.kuayue.systems.device.AllDeviceBlocks;
 import willow.train.kuayue.systems.device.AllDeviceEdgePoints;
 
 import java.util.List;
@@ -13,8 +14,8 @@ import java.util.List;
 public class StationEntryBlockEntity extends SmartBlockEntity{
     private TrackTargetingBehaviour<StationEntry> edgePoint;
 
-    public StationEntryBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
-        super(type, pos, state);
+    public StationEntryBlockEntity(BlockPos blockPos, BlockState state) {
+        super(AllDeviceBlocks.STATION_ENTRY_BLOCK_ENTITY.getType(), blockPos, state);
     }
 
     @Override

@@ -1,5 +1,6 @@
 {
   "model": [
-    "kuayue:block/signal/track/station/station"
+    "kuayue:block/signal/track/station/station",
+    "kuayue:block/signal/track/entry/entry"
   ]
 }

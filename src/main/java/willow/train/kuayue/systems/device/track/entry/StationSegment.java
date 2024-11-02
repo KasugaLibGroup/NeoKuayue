@@ -8,4 +8,8 @@ public class StationSegment extends CustomTrackSegment {
     public StationSegment(UUID segmentId) {
         super(segmentId);
     }
+
+    public UUID getSegmentId(){
+        return segmentId;
+    }
 }

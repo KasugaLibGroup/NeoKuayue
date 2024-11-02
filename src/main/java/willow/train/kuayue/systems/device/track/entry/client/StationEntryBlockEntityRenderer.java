@@ -10,13 +10,14 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import willow.train.kuayue.initial.AllElements;
 import willow.train.kuayue.systems.device.track.entry.StationEntryBlockEntity;
 
-public class StationEntryEntityRenderer extends SmartBlockEntityRenderer<StationEntryBlockEntity> {
+public class StationEntryBlockEntityRenderer
+        extends SmartBlockEntityRenderer<StationEntryBlockEntity> {
     protected static AnimModel bedrockModel = BedrockModelLoader.getModel(
             AllElements.testRegistry.asResource("block/signal/track/entry/entry"),
             RenderType.cutoutMipped()
     );
 
-    public StationEntryEntityRenderer(BlockEntityRendererProvider.Context context) {
+    public StationEntryBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
         super(context);
     }
 
