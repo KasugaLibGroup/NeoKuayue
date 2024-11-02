@@ -14,7 +14,7 @@ public class CFreightPanel {
                     .block(FreightEndFaceBlock::new)
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab)
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static void invoke(){}

@@ -236,9 +236,12 @@
   "item.kuayue.weathering_resistant_steel_nugget": "耐候钢粒",
   "item.kuayue.weathering_resistant_steel_stick": "耐候钢棒",
   "item.kuayue.steel_string": "钢线",
+
   "item.kuayue.incomplete_standard_track": "标准轨（半成品）",
   "item.kuayue.incomplete_ballastless_track": "无砟轨道（半成品）",
   "item.kuayue.incomplete_tieless_track": "无枕轨道（半成品）",
+  "item.kuayue.incomplete_meter_track": "米轨（半成品）",
+
   "item.kuayue.animatable_block_controller": "可动方块控制器",
   "item.kuayue.automatic_control_coupling": "自动控制联轴器",
   "item.kuayue.ky_schematic_25b": "原色 25B 车厢蓝图",

@@ -1,0 +1,13 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "kuayue:weathering_resistant_steel_ingot"
+    }
+  ],
+  "results": [
+    {
+      "item": "kuayue:weathering_resistant_steel_board"
+    }
+  ]
+}

@@ -15,6 +15,8 @@ public class AllRecipeBlock {
                     .material(Material.WOOD)
                     .materialColor(MaterialColor.WOOD)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 1.5f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);

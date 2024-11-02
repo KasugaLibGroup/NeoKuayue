@@ -203,6 +203,11 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
         pLevel.removeBlock(pPos, pIsMoving);
     }
 
+    public void specialRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
+        onRemove(state, level, pos, newState, isMoving);
+        if (!isMoving) dropResources(state, level, pos);
+    }
+
     public void removeCompanyBlock(Level level, BlockState state, BlockPos pos, boolean isMoving) {
         BlockUseFunction function = (l, p, parentState, myPos, myState, player, hand, hit) -> {
             if (p.equals(myPos)) return InteractionResult.SUCCESS;

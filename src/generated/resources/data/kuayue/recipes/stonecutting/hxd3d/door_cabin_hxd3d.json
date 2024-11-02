@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "kuayue:panel_hexie_hxd3d"
+  },
+  "result": "kuayue:door_cabin_hxd3d"
+}

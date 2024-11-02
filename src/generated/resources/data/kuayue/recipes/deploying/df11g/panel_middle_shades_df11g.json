@@ -1,0 +1,17 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "kuayue:panel_middle_general_df11g"
+    },
+    {
+      "item": "kuayue:head_df11g_circuit"
+    }
+  ],
+  "keepHeldItem": false,
+  "results": [
+    {
+      "item": "kuayue:panel_middle_shades_df11g"
+    }
+  ]
+}

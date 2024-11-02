@@ -66,6 +66,8 @@ public class AllDecoBlocks {
                     .material(Material.METAL)
                     .materialColor(MaterialColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -76,6 +78,8 @@ public class AllDecoBlocks {
                     .material(Material.METAL)
                     .materialColor(MaterialColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -86,6 +90,8 @@ public class AllDecoBlocks {
                     .material(Material.METAL)
                     .materialColor(MaterialColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -96,6 +102,8 @@ public class AllDecoBlocks {
                     .material(Material.METAL)
                     .materialColor(MaterialColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -106,6 +114,8 @@ public class AllDecoBlocks {
                     .material(Material.METAL)
                     .materialColor(MaterialColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -116,6 +126,8 @@ public class AllDecoBlocks {
                     .material(Material.METAL)
                     .materialColor(MaterialColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -126,6 +138,8 @@ public class AllDecoBlocks {
                     .material(Material.METAL)
                     .materialColor(MaterialColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -136,6 +150,8 @@ public class AllDecoBlocks {
                     .material(Material.METAL)
                     .materialColor(MaterialColor.COLOR_BLUE)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -146,6 +162,8 @@ public class AllDecoBlocks {
                     .material(Material.METAL)
                     .materialColor(MaterialColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -156,6 +174,8 @@ public class AllDecoBlocks {
                     .material(Material.METAL)
                     .materialColor(MaterialColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -166,6 +186,8 @@ public class AllDecoBlocks {
                     .material(Material.METAL)
                     .materialColor(MaterialColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -176,6 +198,8 @@ public class AllDecoBlocks {
                     .material(Material.METAL)
                     .materialColor(MaterialColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -186,6 +210,8 @@ public class AllDecoBlocks {
                     .material(Material.METAL)
                     .materialColor(MaterialColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -196,6 +222,8 @@ public class AllDecoBlocks {
                     .material(Material.METAL)
                     .materialColor(MaterialColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -214,6 +242,8 @@ public class AllDecoBlocks {
                     .material(Material.METAL)
                     .materialColor(MaterialColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -225,6 +255,8 @@ public class AllDecoBlocks {
                     .material(Material.METAL)
                     .materialColor(MaterialColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -235,6 +267,8 @@ public class AllDecoBlocks {
                     .material(Material.METAL)
                     .materialColor(MaterialColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);

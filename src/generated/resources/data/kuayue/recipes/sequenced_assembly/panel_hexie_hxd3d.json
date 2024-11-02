@@ -1,0 +1,94 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "kuayue:head_hxd3d_mould"
+  },
+  "loops": 3,
+  "results": [
+    {
+      "item": "kuayue:panel_hexie_hxd3d"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:head_hxd3d_mould_constructing"
+        },
+        {
+          "item": "kuayue:head_hxd3d_circuit"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:head_hxd3d_mould_constructing"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:head_hxd3d_mould_constructing"
+        },
+        {
+          "item": "kuayue:weathering_resistant_steel_board"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:head_hxd3d_mould_constructing"
+        }
+      ]
+    },
+	{
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:head_hxd3d_mould_constructing"
+        },
+        {
+          "item": "kuayue:weathering_resistant_steel_board"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:head_hxd3d_mould_constructing"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:head_hxd3d_mould_constructing"
+        },
+        {
+          "item": "kuayue:color_masterbatch"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:head_hxd3d_mould_constructing"
+        }
+      ]
+    },
+	{
+      "type": "create:cutting",
+      "ingredients": [
+        {
+          "item": "kuayue:head_hxd3d_mould_constructing"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:head_hxd3d_mould_constructing"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "kuayue:head_hxd3d_mould_constructing"
+  }
+}

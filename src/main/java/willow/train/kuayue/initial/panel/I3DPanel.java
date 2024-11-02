@@ -31,7 +31,7 @@ public class I3DPanel {
                     ), new Vec3(-.3125, .25, 0), RenderShape.MODEL, false
                     ))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .tab(AllElements.neoKuayueLocoTab)
                     .submit(AllElements.testRegistry);
 
@@ -40,28 +40,28 @@ public class I3DPanel {
                     .block(p -> new TrainSlabBlock(p, true))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_RED)
                     .tab(AllElements.neoKuayueLocoTab)
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final SlabRegistration<HeightSlabBlock> FLOOR_HXD3D =
             new SlabRegistration<HeightSlabBlock>("floor_hxd3d")
                     .block(p -> new HeightSlabBlock(p, false))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_RED)
                     .tab(AllElements.neoKuayueLocoTab)
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainPanelBlock> PANEL_HEXIE_HXD3D =
             new PanelRegistration<TrainPanelBlock>("panel_hexie_hxd3d")
                     .block(p -> new TrainPanelBlock(p, new Vec2(-1, 0), new Vec2(2, 2)))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_RED)
                     .tab(AllElements.neoKuayueLocoTab)
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainPanelBlock> PANEL_RED_HXD3D =
             new PanelRegistration<TrainPanelBlock>("panel_red_hxd3d")
                     .block(p -> new TrainPanelBlock(p, new Vec2(0, 0), new Vec2(1, 1)))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_RED)
                     .tab(AllElements.neoKuayueLocoTab)
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final BlockReg<FullShapeDirectionalBlock> HEAD_HXD3D =
