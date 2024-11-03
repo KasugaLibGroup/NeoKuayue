@@ -1,6 +1,7 @@
 package willow.train.kuayue.block.panels.door;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
@@ -14,6 +15,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
+import willow.train.kuayue.block.panels.base.TrainPanelShapes;
 import willow.train.kuayue.block.panels.block_entity.CustomRenderedEndfaceEntity;
 import willow.train.kuayue.block.panels.end_face.CustomRenderedEndfaceBlock;
 import willow.train.kuayue.block.panels.window.TrainOpenableWindowBlock;
@@ -43,13 +45,17 @@ public class DoubleRotateDoorBlock extends CustomRenderedEndfaceBlock {
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        // if (pState.getValue(OPEN) == true)
-        return super.getShape(pState, pLevel, pPos, pContext);
+        Direction direction = pState.getValue(FACING).getOpposite();
+        DoorHingeSide hinge = pState.getValue(HINGE);
+        return TrainPanelShapes.getDoubleRotateDoorCloseShape(hinge, direction);
     }
 
     @Override
     public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return getShape(pState, pLevel, pPos, pContext);
+        boolean open = pState.getValue(BlockStateProperties.OPEN);
+        Direction direction = pState.getValue(FACING).getOpposite();
+        DoorHingeSide hinge = pState.getValue(HINGE);
+        return TrainPanelShapes.getDoubleRotateDoorShape(open, hinge, direction);
     }
 
     @Override

@@ -103,29 +103,29 @@
 	"gui_light": "front",
 	"display": {
 		"thirdperson_righthand": {
-			"translation": [-6.25, 0, -4],
+			"translation": [-3.25, 0, 2.75],
 			"scale": [0.4, 0.4, 0.4]
 		},
 		"thirdperson_lefthand": {
-			"translation": [-6.25, 0, -4],
+			"translation": [-3.25, 0, 2.75],
 			"scale": [0.4, 0.4, 0.4]
 		},
 		"firstperson_righthand": {
-			"rotation": [0, -160, 0],
-			"translation": [6.25, -0.25, 1.25],
+			"rotation": [0, -33, 0],
+			"translation": [1, 1.25, 1.25],
 			"scale": [0.4, 0.4, 0.4]
 		},
 		"firstperson_lefthand": {
-			"rotation": [0, -160, 0],
-			"translation": [6.25, -0.25, 1.25],
+			"rotation": [0, -33, 0],
+			"translation": [1, 1.25, 1.25],
 			"scale": [0.4, 0.4, 0.4]
 		},
 		"ground": {
 			"scale": [0.4, 0.4, 0.4]
 		},
 		"gui": {
-			"rotation": [20, -125, 0],
-			"translation": [5.75, -0.5, 0],
+			"rotation": [20, 45, 0],
+			"translation": [0.25, -3.25, 0],
 			"scale": [0.5, 0.5, 0.5]
 		},
 		"fixed": {
