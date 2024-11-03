@@ -283,16 +283,16 @@ public class EndFaceShapes {
                     Block.box(15, -16, -16, 17, 21, 1));
 
     protected static final VoxelShape FREIGHT_NORTH_AABB =
-            Block.box(-16, 0, -3, 32, 32, 2);
+            Block.box(-16, 0, -1, 32, 32, 3);
 
     protected static final VoxelShape FREIGHT_WEST_AABB =
-            Block.box(-3, 0, -16, 2, 32, 32);
+            Block.box(-1, 0, -16, 3, 32, 32);
 
     protected static final VoxelShape FREIGHT_SOUTH_AABB =
-            Block.box(-16, 0, 13, 32, 32, 18);
+            Block.box(-16, 0, 15, 32, 32, 19);
 
     protected static final VoxelShape FREIGHT_EAST_AABB =
-            Block.box(13, 0, -16, 18, 32, 32);
+            Block.box(15, 0, -16, 19, 32, 32);
 
     public static VoxelShape moveByDirection(VoxelShape shape, Direction direction, double x, double y, double z) {
         Vec3 vec3 = new Vec3(x, y, z);

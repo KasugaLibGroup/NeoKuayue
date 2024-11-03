@@ -204,6 +204,11 @@
   "block.kuayue.slab_bottom_jy30": "JY30宿营车下厢板",
   "block.kuayue.end_face_middle_m1": "M1客车内侧端面",
 
+  "block.kuayue.freight_c70_end_face": "敞70敞车端面",
+  "block.kuayue.freight_c70_slab_bottom": "敞70敞车下厢板",
+  "block.kuayue.freight_c70_slab_top": "敞70敞车上厢板",
+  "block.kuayue.freight_c70_door": "敞70敞车侧门",
+
   "block.kuayue.train_diet_1": "火车盒饭",
   "block.kuayue.kua_cola": "跨可乐",
   "block.kuayue.dried_instant_noodles": "未冲泡的方便面",
@@ -438,6 +443,8 @@
   "container.kuayue.inventory.button.marshalled_25_series": "统型",
   "container.kuayue.inventory.button.cr200j": "cr200j",
   "container.kuayue.inventory.button.m1": "M1",
+  "container.kuayue.inventory.button.freight": "货车",
+
   "container.kuayue.train_speed_sign_edit_menu.x_offset": "X 轴偏移",
   "container.kuayue.train_speed_sign_edit_menu.y_offset": "Y 轴偏移",
   "container.kuayue.train_speed_sign_edit_menu.x_revert": "X 轴反转",

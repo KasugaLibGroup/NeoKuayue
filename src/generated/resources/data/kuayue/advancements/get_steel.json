@@ -2,7 +2,7 @@
   "parent": "kuayue:root",
   "display": {
     "icon": {
-      "item": "kuayue:weathering_resistant_steel_block_0"
+      "item": "kuayue:weathering_resistant_steel_ingot"
     },
     "title": {
       "translate": "kuayue.advancement.steel"
@@ -23,7 +23,7 @@
         "items": [
           {
             "items": [
-              "kuayue:weathering_resistant_steel_block_0"
+              "kuayue:weathering_resistant_steel_ingot"
             ]
           }
         ]

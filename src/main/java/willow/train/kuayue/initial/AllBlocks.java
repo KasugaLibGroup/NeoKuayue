@@ -14,6 +14,7 @@ import willow.train.kuayue.block.panels.block_entity.*;
 import willow.train.kuayue.block.panels.block_entity.renderer.*;
 import willow.train.kuayue.block.panels.cr200j.CR200jFrontBlock;
 import willow.train.kuayue.block.panels.door.DoubleDoorBlock;
+import willow.train.kuayue.block.panels.door.DoubleRotateDoorBlock;
 import willow.train.kuayue.block.seat.SeatBlockEntity;
 import willow.train.kuayue.block.structure.platform.PlatformWallBlock;
 import willow.train.kuayue.initial.panel.*;
@@ -191,6 +192,13 @@ public class AllBlocks {
                     .blockEntityType(SingleSlidingDoorEntity::new)
                     .withRenderer(() -> SingleSlidingDoorRenderer::new)
                     .addBlock(END_FACE_MIDDLE_M1.block)
+                    .submit(AllElements.testRegistry);
+
+    public static final BlockEntityReg<DoubleRotateDoorEntity> DOUBLE_ROTATE_DOOR_ENTITY =
+            new BlockEntityReg<DoubleRotateDoorEntity>("double_rotate_door")
+                    .blockEntityType(DoubleRotateDoorEntity::new)
+                    .withRenderer(() -> DoubleRotateDoorRenderer::new)
+                    .addBlock(CFreightPanel.FREIGHT_C70_DOOR.block)
                     .submit(AllElements.testRegistry);
 
     public static final BlockEntityReg<SeatBlockEntity> SEAT_BLOCK_ENTITY =

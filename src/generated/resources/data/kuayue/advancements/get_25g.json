@@ -5,11 +5,11 @@
    "item": "kuayue:panel_bottom_25g"
   },
   "title": {
-   "translate": "kuayue.advancement.c25g"
+   "translate": "kuayue.advancement.25g"
   },
   "description": {
    "color": "#DBA213",
-   "translate": "kuayue.advancement.c25g.desc"
+   "translate": "kuayue.advancement.25g.desc"
   },
   "frame": "task",
   "show_toast": true,
@@ -23,7 +23,7 @@
     "items": [
      {
       "items": [
-       "kuayue:panel_c25g_original_bottom"
+       "kuayue:panel_bottom_25g"
       ]
      }
     ]
