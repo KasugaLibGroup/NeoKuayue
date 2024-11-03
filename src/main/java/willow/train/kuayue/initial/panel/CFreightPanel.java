@@ -4,6 +4,9 @@ import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.Vec2;
 import willow.train.kuayue.block.panels.TrainPanelBlock;
+import willow.train.kuayue.block.panels.base.TrainPanelProperties;
+import willow.train.kuayue.block.panels.door.DoubleRotateDoorBlock;
+import willow.train.kuayue.block.panels.end_face.CustomRenderedEndfaceBlock;
 import willow.train.kuayue.block.panels.end_face.FreightEndFaceBlock;
 import willow.train.kuayue.block.panels.window.TrainOpenableWindowBlock;
 import willow.train.kuayue.initial.AllElements;
@@ -31,6 +34,20 @@ public class CFreightPanel {
             new PanelRegistration<TrainOpenableWindowBlock>("freight_c70_slab_top")
                     .block(p -> new TrainOpenableWindowBlock(p, -1, 1, 1))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueCarriageTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+                    .submit(AllElements.testRegistry);
+
+    public static final PanelRegistration<DoubleRotateDoorBlock> FREIGHT_C70_DOOR =
+            new PanelRegistration<DoubleRotateDoorBlock>("freight_c70_door")
+                    .block(properties ->
+                            new DoubleRotateDoorBlock(
+                                    properties, TrainPanelProperties.DoorType.ROTATE_SINGLE_SIDED,
+                                    "carriage/freight/c70/freight_c70_door_left",
+                                    "carriage/freight/c70/freight_c70_door_right",
+                                    "carriage/freight/c70/freight_c70_door_frame"
+                            )
+                    ).materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab)
                     .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
