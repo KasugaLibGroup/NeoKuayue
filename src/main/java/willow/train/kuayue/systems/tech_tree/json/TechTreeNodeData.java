@@ -1,4 +1,4 @@
-package willow.train.kuayue.systems.tech_tree;
+package willow.train.kuayue.systems.tech_tree.json;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -6,13 +6,14 @@ import com.google.gson.JsonObject;
 import kasuga.lib.core.util.ComponentHelper;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import willow.train.kuayue.systems.tech_tree.NodeLocation;
+import willow.train.kuayue.systems.tech_tree.NodeType;
 
-import java.util.HashMap;
 import java.util.Map;
 
-public class TechTreeNode {
+public class TechTreeNodeData {
 
-    public final TechTreeGroup group;
+    public final TechTreeGroupData group;
     private final String identifier, description;
     private final HideContext hide;
     private final OnUnlockContext unlock;
@@ -23,7 +24,7 @@ public class TechTreeNode {
     private final int exp, level;
     private final ItemContext[] itemConsume, blueprints, itemReward;
     private final ResourceLocation[] advancements;
-    public TechTreeNode(TechTreeGroup group, String identifier, JsonObject jsonObject) {
+    public TechTreeNodeData(TechTreeGroupData group, String identifier, JsonObject jsonObject) {
         this.group = group;
         this.identifier = identifier;
 
@@ -124,7 +125,7 @@ public class TechTreeNode {
         return identifier;
     }
 
-    public TechTreeGroup getGroup() {
+    public TechTreeGroupData getGroup() {
         return group;
     }
 
@@ -134,5 +135,13 @@ public class TechTreeNode {
 
     public Component getDescription() {
         return ComponentHelper.translatable(this.description);
+    }
+
+    public NodeLocation[] getNextNodes() {
+        return nextNodes;
+    }
+
+    public ResourceLocation[] getNextGroups() {
+        return nextGroups;
     }
 }

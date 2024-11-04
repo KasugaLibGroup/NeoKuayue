@@ -1,6 +1,7 @@
 package willow.train.kuayue.systems.tech_tree;
 
 import net.minecraft.resources.ResourceLocation;
+import willow.train.kuayue.systems.tech_tree.json.TechTreeNodeData;
 
 public class NodeLocation {
     private final String namespace, group, name;
@@ -24,7 +25,7 @@ public class NodeLocation {
         }
     }
 
-    public NodeLocation(TechTreeNode node) {
+    public NodeLocation(TechTreeNodeData node) {
         this.namespace = node.group.tree.namespace;
         this.group = node.group.identifier;
         this.name = node.getIdentifier();
@@ -46,6 +47,10 @@ public class NodeLocation {
         return new ResourceLocation(this.namespace, this.group);
     }
 
+    public String toString() {
+        return this.namespace + ":" + this.group + "." + this.name;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == this) return true;
@@ -53,5 +58,10 @@ public class NodeLocation {
         return this.namespace.equals(location.namespace) &&
                 this.group.equals(location.group) &&
                 this.name.equals(location.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return toString().hashCode();
     }
 }

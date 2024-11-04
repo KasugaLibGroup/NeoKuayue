@@ -18,17 +18,17 @@ import willow.train.kuayue.initial.recipe.AllRecipes;
 
 public class BlueprintTableRecipe extends SingleItemRecipe {
 
-    public final ResourceLocation img_location;
+    public final ResourceLocation icon;
     public final int level_require, exp_consume;
 
-    public BlueprintTableRecipe(ResourceLocation pId, ResourceLocation img_location,
+    public BlueprintTableRecipe(ResourceLocation pId, ResourceLocation icon,
                                 String pGroup, int level_require, int exp_consume,
                                 Ingredient pIngredient, ItemStack pResult) {
         super(
                 AllRecipes.BLUEPRINT.getRecipeType(), AllRecipes.BLUEPRINT.getSerializer(),
                 pId, pGroup, pIngredient, pResult
         );
-        this.img_location = img_location;
+        this.icon = icon;
         this.level_require = level_require;
         this.exp_consume = exp_consume;
     }
@@ -52,13 +52,7 @@ public class BlueprintTableRecipe extends SingleItemRecipe {
             String s = GsonHelper.getAsString(pJson, "group", "");
             int level_require = GsonHelper.getAsInt(pJson, "level_require", 0);
             int exp_consume = GsonHelper.getAsInt(pJson, "exp_consume", 0);
-            String img = GsonHelper.getAsString(pJson, "img_location", "kuayue:blank.png");
-
-            ResourceLocation img_location;
-            if(!img.equals("kuayue:blank.png"))
-                img_location = new ResourceLocation(pRecipeId.getNamespace(), "textures/" + img);
-            else
-                img_location = new ResourceLocation(Kuayue.MODID, "textures/recipes/blank.png");
+            ResourceLocation icon = new ResourceLocation(GsonHelper.getAsString(pJson, "icon"));
 
             Ingredient ingredient;
             if (GsonHelper.isArrayNode(pJson, "ingredients")) {
@@ -72,7 +66,7 @@ public class BlueprintTableRecipe extends SingleItemRecipe {
             Item itemLike = ForgeRegistries.ITEMS.getValue(new ResourceLocation(s1));
             if(itemLike != null) {
                 ItemStack itemStack = new ItemStack(itemLike, i);
-                return new BlueprintTableRecipe(pRecipeId, img_location, s, level_require, exp_consume, ingredient, itemStack);
+                return new BlueprintTableRecipe(pRecipeId, icon, s, level_require, exp_consume, ingredient, itemStack);
             }
             return null;
         }
@@ -89,7 +83,7 @@ public class BlueprintTableRecipe extends SingleItemRecipe {
 
         public void toNetwork(FriendlyByteBuf pBuffer, BlueprintTableRecipe pRecipe) {
             pBuffer.writeUtf(pRecipe.group);
-            pBuffer.writeResourceLocation(pRecipe.img_location);
+            pBuffer.writeResourceLocation(pRecipe.icon);
             pBuffer.writeInt(pRecipe.level_require);
             pBuffer.writeInt(pRecipe.exp_consume);
             pRecipe.ingredient.toNetwork(pBuffer);
