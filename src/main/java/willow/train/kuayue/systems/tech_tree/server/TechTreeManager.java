@@ -15,15 +15,18 @@ import willow.train.kuayue.systems.tech_tree.json.TechTreeData;
 import javax.annotation.Nullable;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
 public class TechTreeManager implements ResourceManagerReloadListener {
     private final HashMap<String, TechTree> trees;
+    private final Set<String> namespaces;
     public static final TechTreeManager MANAGER = new TechTreeManager();
 
     protected TechTreeManager() {
         trees = new HashMap<>();
+        namespaces = new HashSet<>();
     }
 
     public HashMap<String, TechTree> trees() {
@@ -61,11 +64,13 @@ public class TechTreeManager implements ResourceManagerReloadListener {
 
     @Override
     public void onResourceManagerReload(@NotNull ResourceManager resourceManager) {
-        Set<String> namespaces = resourceManager.getNamespaces();
+        this.namespaces.clear();
+        this.namespaces.addAll(resourceManager.getNamespaces());
     }
 
     public void loadData(@NotNull ResourceManager manager) {
-        Set<String> namespaces = manager.getNamespaces();
+        namespaces.clear();
+        namespaces.addAll(manager.getNamespaces());
         for (String namespace : namespaces) {
             Optional<Resource> resource = manager.getResource(
                     new ResourceLocation(namespace, "tech_tree/tech_tree.json")
@@ -76,7 +81,9 @@ public class TechTreeManager implements ResourceManagerReloadListener {
                 if (!element.isJsonObject()) continue;
                 JsonObject object = element.getAsJsonObject();
                 TechTreeData data = new TechTreeData(namespace, object);
-                this.trees.put(namespace, new TechTree(data));
+                TechTree tree = new TechTree(data);
+                tree.grepNbt(manager);
+                this.trees.put(namespace, tree);
             } catch (IOException e) {
                 Kuayue.LOGGER.error("Failed to read tech tree json: " + namespace, e);
             } catch (NullPointerException e) {
@@ -92,5 +99,9 @@ public class TechTreeManager implements ResourceManagerReloadListener {
         trees.forEach((namespace, tree) -> {
             tree.compileConnections();
         });
+    }
+
+    public Set<String> getNamespaces() {
+        return namespaces;
     }
 }

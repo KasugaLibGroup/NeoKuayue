@@ -6,17 +6,19 @@ import com.google.gson.JsonObject;
 import kasuga.lib.core.util.ComponentHelper;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.resources.ResourceManager;
 import willow.train.kuayue.systems.tech_tree.NodeLocation;
 import willow.train.kuayue.systems.tech_tree.NodeType;
 
+import javax.annotation.Nullable;
 import java.util.Map;
 
 public class TechTreeNodeData {
 
     public final TechTreeGroupData group;
     private final String identifier, description;
-    private final HideContext hide;
-    private final OnUnlockContext unlock;
+    private final @Nullable HideContext hide;
+    private final @Nullable OnUnlockContext unlock;
     private final NodeLocation[] nextNodes;
     private final ResourceLocation[] nextGroups;
     private final NodeType type;
@@ -115,6 +117,29 @@ public class TechTreeNodeData {
 
     public String getNamespaceName() {
         return this.group.tree.namespace;
+    }
+
+    public void loadAllNbt(ResourceManager manager) {
+        logo.updateNbt(manager);
+        if (this.unlock != null) this.unlock.loadAllNbt(manager);
+        for (ItemContext context : itemConsume) {
+            context.updateNbt(manager);
+        }
+        for (ItemContext context : blueprints) {
+            context.updateNbt(manager);
+        }
+        for (ItemContext context : itemReward) {
+            context.updateNbt(manager);
+        }
+    }
+
+    @Nullable
+    public HideContext getHide() {
+        return hide;
+    }
+
+    public boolean isHide() {
+        return hide != null;
     }
 
     public String getGroupName() {
