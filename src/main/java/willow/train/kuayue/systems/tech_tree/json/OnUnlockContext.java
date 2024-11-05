@@ -1,9 +1,12 @@
-package willow.train.kuayue.systems.tech_tree;
+package willow.train.kuayue.systems.tech_tree.json;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import kasuga.lib.core.util.ComponentHelper;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import willow.train.kuayue.systems.tech_tree.NodeLocation;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,9 +16,9 @@ public class OnUnlockContext {
     public final String description;
     private final NodeLocation[] unlockNodes;
     private final ResourceLocation[] unlockAdvancements;
-    private final HashMap<ResourceLocation, Integer> items;
+    private final ItemContext[] items;
     
-    public OnUnlockContext(TechTreeGroup group, JsonObject json) {
+    public OnUnlockContext(TechTreeGroupData group, JsonObject json) {
         description = json.get("description").getAsString();
 
         if (json.has("advancements") && json.get("advancements").isJsonArray()) {
@@ -28,13 +31,15 @@ public class OnUnlockContext {
             unlockAdvancements = new ResourceLocation[0];
         }
 
-        items = new HashMap<>();
         if (json.has("items") && json.get("items").isJsonObject()) {
             JsonObject obj = json.getAsJsonObject("items");
+            items = new ItemContext[obj.size()];
+            int counter = 0;
             for (Map.Entry<String, JsonElement> entry : obj.entrySet()) {
-                items.put(new ResourceLocation(entry.getKey()), entry.getValue().getAsInt());
+                items[counter] = new ItemContext(entry);
+                counter++;
             }
-        }
+        } else items = new ItemContext[0];
 
         if (json.has("nodes") && json.get("nodes").isJsonArray()) {
             JsonArray array = json.getAsJsonArray("nodes");
@@ -44,7 +49,22 @@ public class OnUnlockContext {
             }
         } else {
             unlockNodes = new NodeLocation[0];
-
         }
+    }
+
+    public ItemContext[] getItems() {
+        return items;
+    }
+
+    public NodeLocation[] getUnlockNodes() {
+        return unlockNodes;
+    }
+
+    public ResourceLocation[] getUnlockAdvancements() {
+        return unlockAdvancements;
+    }
+
+    public Component getDescription() {
+        return ComponentHelper.translatable(description);
     }
 }

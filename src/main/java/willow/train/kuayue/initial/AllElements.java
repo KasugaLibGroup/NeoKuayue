@@ -9,6 +9,7 @@ import willow.train.kuayue.event.client.CarriageInventoryEvents;
 import willow.train.kuayue.event.client.RenderArrowEvent;
 import willow.train.kuayue.event.server.ColorTemplateEvents;
 import willow.train.kuayue.event.server.PlayerJumpEvents;
+import willow.train.kuayue.event.server.ServerResourceReloadEvent;
 import willow.train.kuayue.initial.create.*;
 import willow.train.kuayue.initial.food.AllFoods;
 import willow.train.kuayue.initial.material.AllMaterials;
@@ -65,6 +66,7 @@ public class AllElements {
             // MinecraftForge.EVENT_BUS.addListener(RenderPrePosedBlockEvent::renderBlock);
             MinecraftForge.EVENT_BUS.register(new CarriageInventoryEvents());
         }
+        MinecraftForge.EVENT_BUS.addListener(ServerResourceReloadEvent::onServerResourceReload);
         testRegistry.submit();
     }
 }

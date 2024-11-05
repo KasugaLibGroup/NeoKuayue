@@ -1,4 +1,4 @@
-package willow.train.kuayue.systems.tech_tree;
+package willow.train.kuayue.systems.tech_tree.json;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
