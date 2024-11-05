@@ -3,14 +3,18 @@ package willow.train.kuayue.initial.panel;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.Vec2;
+import willow.train.kuayue.block.panels.TrainHingePanelBlock;
 import willow.train.kuayue.block.panels.TrainPanelBlock;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
 import willow.train.kuayue.block.panels.door.DoubleRotateDoorBlock;
 import willow.train.kuayue.block.panels.end_face.CustomRenderedEndfaceBlock;
 import willow.train.kuayue.block.panels.end_face.FreightEndFaceBlock;
+import willow.train.kuayue.block.panels.slab.HingeSlabBlock;
+import willow.train.kuayue.block.panels.slab.TrainSlabBlock;
 import willow.train.kuayue.block.panels.window.TrainOpenableWindowBlock;
 import willow.train.kuayue.initial.AllElements;
 import willow.train.kuayue.initial.registration.PanelRegistration;
+import willow.train.kuayue.initial.registration.SlabRegistration;
 
 public class CFreightPanel {
 
@@ -48,6 +52,38 @@ public class CFreightPanel {
                                     "carriage/freight/c70/freight_c70_door_frame"
                             )
                     ).materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueCarriageTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+                    .submit(AllElements.testRegistry);
+
+    public static final SlabRegistration<TrainSlabBlock> FREIGHT_NX70_FLOOR_CENTER =
+            new SlabRegistration<TrainSlabBlock>("freight_nx70_floor_center")
+                    .block(p -> new TrainSlabBlock(p, false))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)
+                    .tab(AllElements.neoKuayueCarriageTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+                    .submit(AllElements.testRegistry);
+
+    public static final SlabRegistration<TrainSlabBlock> FREIGHT_NX70_FLOOR_HIGH =
+            new SlabRegistration<TrainSlabBlock>("freight_nx70_floor_high")
+                    .block(p -> new TrainSlabBlock(p, false))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)
+                    .tab(AllElements.neoKuayueCarriageTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+                    .submit(AllElements.testRegistry);
+
+    public static final SlabRegistration<TrainSlabBlock> FREIGHT_NX70_FLOOR_COVER_PLATE =
+            new SlabRegistration<TrainSlabBlock>("freight_nx70_floor_cover_plate")
+                    .block(p -> new TrainSlabBlock(p, true))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)
+                    .tab(AllElements.neoKuayueCarriageTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+                    .submit(AllElements.testRegistry);
+
+    public static final SlabRegistration<HingeSlabBlock> FREIGHT_NX70_FLOOR_CONNECTION =
+            new SlabRegistration<HingeSlabBlock>("freight_nx70_floor_connection")
+                    .block(p -> new HingeSlabBlock(p, false, 2))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab)
                     .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);

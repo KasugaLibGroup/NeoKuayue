@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "facing=east,hinge=right": {
+      "model": "kuayue:block/carriage/freight/nx70/freight_nx70_floor_connection",
+      "y": 270
+    },
+    "facing=north,hinge=right": {
+      "model": "kuayue:block/carriage/freight/nx70/freight_nx70_floor_connection",
+      "y": 180
+    },
+    "facing=south,hinge=right": {
+      "model": "kuayue:block/carriage/freight/nx70/freight_nx70_floor_connection",
+      "y": 0
+    },
+    "facing=west,hinge=right": {
+      "model": "kuayue:block/carriage/freight/nx70/freight_nx70_floor_connection",
+      "y": 90
+    },
+    "facing=east,hinge=left": {
+      "model": "kuayue:block/carriage/freight/nx70/freight_nx70_floor_connection_lh",
+      "y": 270
+    },
+    "facing=north,hinge=left": {
+      "model": "kuayue:block/carriage/freight/nx70/freight_nx70_floor_connection_lh",
+      "y": 180
+    },
+    "facing=south,hinge=left": {
+      "model": "kuayue:block/carriage/freight/nx70/freight_nx70_floor_connection_lh",
+      "y": 0
+    },
+    "facing=west,hinge=left": {
+      "model": "kuayue:block/carriage/freight/nx70/freight_nx70_floor_connection_lh",
+      "y": 90
+    }
+  }
+}

@@ -3,6 +3,11 @@
     "kuayue:freight_c70_end_face",
     "kuayue:freight_c70_slab_bottom",
     "kuayue:freight_c70_slab_top",
-    "kuayue:freight_c70_door"
+    "kuayue:freight_c70_door",
+
+    "kuayue:freight_nx70_floor_high",
+    "kuayue:freight_nx70_floor_center",
+    "kuayue:freight_nx70_floor_connection",
+    "kuayue:freight_nx70_floor_cover_plate"
   ]
 }

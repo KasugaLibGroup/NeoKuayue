@@ -1,0 +1,39 @@
+{
+  "loader": "forge:obj",
+  "model": "kuayue:models/block/carriage/freight/nx70/freight_nx70_floor_connection.obj",
+  "render_type": "translucent",
+  "flip_v": true,
+  "textures": {
+    "particle": "kuayue:block/carriage/freight/nx70/freight_nx70_floor_connection"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [90, 0, 0],
+      "translation": [0, 2, -1.75],
+      "scale": [0.5, 0.5, 0.5]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [90, 0, 0],
+      "translation": [0, 2, -1.75],
+      "scale": [0.5, 0.5, 0.5]
+    },
+    "firstperson_righthand": {
+      "rotation": [-10, 0, 0],
+      "translation": [4.75, -1.25, 0],
+      "scale": [0.5, 0.5, 0.5]
+    },
+    "firstperson_lefthand": {
+      "rotation": [-10, 0, 0],
+      "translation": [4.75, -1.25, 0],
+      "scale": [0.5, 0.5, 0.5]
+    },
+    "ground": {
+      "scale": [0.375, 0.375, 0.375]
+    },
+    "gui": {
+      "rotation": [30, 30, 0],
+      "translation": [0.25, 0.5, 0],
+      "scale": [0.375, 0.375, 0.375]
+    }
+  }
+}

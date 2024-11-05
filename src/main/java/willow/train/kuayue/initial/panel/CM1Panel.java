@@ -20,7 +20,7 @@ import willow.train.kuayue.initial.registration.SlabRegistration;
 
 public class CM1Panel {
 
-    public static final SlabRegistration<TrainSlabBlock> FLOOR_25B =
+    public static final SlabRegistration<TrainSlabBlock> FLOOR_M1 =
             new SlabRegistration<TrainSlabBlock>("floor_m1")
                     .block(p -> new TrainSlabBlock(p, true))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)
