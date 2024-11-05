@@ -1,0 +1,9 @@
+{
+  "loader": "forge:obj",
+  "model": "kuayue:models/block/carriage/freight/nx70/freight_nx70_end_face.obj",
+  "render_type": "translucent",
+  "flip_v": true,
+  "textures": {
+    "particle": "kuayue:block/carriage/freight/nx70/freight_nx70_end_face"
+  }
+}

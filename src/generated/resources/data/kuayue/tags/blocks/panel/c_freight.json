@@ -8,6 +8,9 @@
     "kuayue:freight_nx70_floor_high",
     "kuayue:freight_nx70_floor_center",
     "kuayue:freight_nx70_floor_connection",
-    "kuayue:freight_nx70_floor_cover_plate"
+    "kuayue:freight_nx70_floor_cover_plate",
+    "kuayue:freight_nx70_floor_low",
+    "kuayue:freight_nx70_floor_low_ladder",
+    "kuayue:freight_nx70_end_face"
   ]
 }

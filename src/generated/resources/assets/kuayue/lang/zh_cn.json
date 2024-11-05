@@ -204,10 +204,18 @@
   "block.kuayue.slab_bottom_jy30": "JY30宿营车下厢板",
   "block.kuayue.end_face_middle_m1": "M1客车内侧端面",
 
-  "block.kuayue.freight_c70_end_face": "敞70敞车端面",
-  "block.kuayue.freight_c70_slab_bottom": "敞70敞车下厢板",
-  "block.kuayue.freight_c70_slab_top": "敞70敞车上厢板",
-  "block.kuayue.freight_c70_door": "敞70敞车侧门",
+  "block.kuayue.freight_c70_end_face": "C70敞车端面",
+  "block.kuayue.freight_c70_slab_bottom": "C70敞车下厢板",
+  "block.kuayue.freight_c70_slab_top": "C70敞车上厢板",
+  "block.kuayue.freight_c70_door": "C70敞车侧门",
+
+  "block.kuayue.freight_nx70_floor_center": "NX70平车中央地板",
+  "block.kuayue.freight_nx70_floor_high": "NX70平车高地板",
+  "block.kuayue.freight_nx70_floor_cover_plate": "NX70平车地板盖板",
+  "block.kuayue.freight_nx70_floor_connection": "NX70平车高低连接地板",
+  "block.kuayue.freight_nx70_floor_low": "NX70平车低地板",
+  "block.kuayue.freight_nx70_floor_low_ladder": "NX70平车低地板(登车梯)",
+  "block.kuayue.freight_nx70_end_face": "NX70平车端面",
 
   "block.kuayue.train_diet_1": "火车盒饭",
   "block.kuayue.kua_cola": "跨可乐",

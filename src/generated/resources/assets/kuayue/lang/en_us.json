@@ -685,6 +685,14 @@
  "block.kuayue.freight_c70_slab_top": "C70 Top Slab",
  "block.kuayue.freight_c70_door": "C70 Side Door",
 
+ "block.kuayue.freight_nx70_floor_center": "NX70 Center Floor",
+ "block.kuayue.freight_nx70_floor_high": "NX70 High Floor",
+ "block.kuayue.freight_nx70_floor_cover_plate": "NX70 Floor Cover Plate",
+ "block.kuayue.freight_nx70_floor_connection": "NX70 Connection Floor",
+ "block.kuayue.freight_nx70_floor_low": "NX70 Low Floor",
+ "block.kuayue.freight_nx70_floor_low_ladder": "NX70 Low Ladder Floor",
+ "block.kuayue.freight_nx70_end_face": "NX70 End Face",
+
  "block.kuayue.train_diet_1": "Train Boxed Meal",
  "block.kuayue.kua_cola": "Kuayue Cola",
  "block.kuayue.dried_instant_noodles": "Unbrewed Instant Noodles",

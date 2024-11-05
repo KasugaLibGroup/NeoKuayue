@@ -20,7 +20,8 @@ public class CFreightPanel {
 
     public static final PanelRegistration<FreightEndFaceBlock> FREIGHT_C70_END_FACE =
             new PanelRegistration<FreightEndFaceBlock>("freight_c70_end_face")
-                    .block(FreightEndFaceBlock::new)
+                    .block((properties) -> new FreightEndFaceBlock(properties,
+                            FreightEndFaceBlock.FreightType.C70))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab)
                     .noOcclusion().strengthAndTool(1.5f, 3f)
@@ -84,6 +85,31 @@ public class CFreightPanel {
             new SlabRegistration<HingeSlabBlock>("freight_nx70_floor_connection")
                     .block(p -> new HingeSlabBlock(p, false, 2))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)
+                    .tab(AllElements.neoKuayueCarriageTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+                    .submit(AllElements.testRegistry);
+
+    public static final SlabRegistration<TrainSlabBlock> FREIGHT_NX70_FLOOR_LOW =
+            new SlabRegistration<TrainSlabBlock>("freight_nx70_floor_low")
+                    .block(p -> new TrainSlabBlock(p, false))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)
+                    .tab(AllElements.neoKuayueCarriageTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+                    .submit(AllElements.testRegistry);
+
+    public static final SlabRegistration<TrainSlabBlock> FREIGHT_NX70_FLOOR_LOW_LADDER =
+            new SlabRegistration<TrainSlabBlock>("freight_nx70_floor_low_ladder")
+                    .block(p -> new TrainSlabBlock(p, false))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)
+                    .tab(AllElements.neoKuayueCarriageTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+                    .submit(AllElements.testRegistry);
+
+    public static final PanelRegistration<FreightEndFaceBlock> FREIGHT_NX70_END_FACE =
+            new PanelRegistration<FreightEndFaceBlock>("freight_nx70_end_face")
+                    .block((properties) -> new FreightEndFaceBlock(properties,
+                            FreightEndFaceBlock.FreightType.NX70))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab)
                     .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
