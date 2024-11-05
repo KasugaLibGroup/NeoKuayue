@@ -40,6 +40,11 @@ public class TrainPanelShapes {
             Block.box(0.0D, 0.0D, 24.0D, 5.0D, 20.0D, 40.0D));
 
     public static final VoxelShape FLOOR = Block.box(0, 8, 0, 16, 16, 16);
+    public static final VoxelShape FLOOR_TWO_GRID_NORTH = Block.box(-16, 8, 0, 16, 16, 16);
+    public static final VoxelShape FLOOR_TWO_GRID_SOUTH = Block.box(0, 8, 0, 32, 16, 16);
+    public static final VoxelShape FLOOR_TWO_GRID_WEST = Block.box(0, 8, 0, 16, 16, 32);
+    public static final VoxelShape FLOOR_TWO_GRID_EAST = Block.box(0, 8, -16, 16, 16, 16);
+
     public static final VoxelShape CARPORT_CENTER = Block.box(0, 0, 0, 16, 8, 16);
     public static final VoxelShape EXTEND_CARPORT_CENTER_EAST = Block.box(0, 0, 0, 24, 8, 16);
     public static final VoxelShape EXTEND_CARPORT_CENTER_WEST = Block.box(-8, 0, 0, 16, 8, 16);
