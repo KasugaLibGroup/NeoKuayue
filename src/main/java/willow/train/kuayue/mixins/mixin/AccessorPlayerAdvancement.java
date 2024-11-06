@@ -11,6 +11,6 @@ import java.util.Map;
 @Mixin(PlayerAdvancements.class)
 public interface AccessorPlayerAdvancement {
 
-    @Accessor(value = "advancements")
+    @Accessor(value = "progress")
     public Map<Advancement, AdvancementProgress> getAdvancements();
 }

@@ -81,6 +81,6 @@ public class TrainOpenableWindowBlock extends TrainPanelBlock {
         if (pState.getBlock().getDescriptionId().equals("block.kuayue.freight_c70_slab_top")
                 && pPlayer.getItemInHand(pHand).is(EditablePanelItem.COLORED_BRUSH.getItem()))
             return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
-        return TrainSmallWindowBlock.windowUse(pState, this.material, pLevel, pPos, pPlayer, pHand, pHit);
+        return TrainSmallWindowBlock.windowUse(pState, pLevel, pPos, pPlayer, pHand, pHit);
     }
 }

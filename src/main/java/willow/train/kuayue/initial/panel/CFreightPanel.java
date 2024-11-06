@@ -1,8 +1,6 @@
 package willow.train.kuayue.initial.panel;
 
 import net.minecraft.world.level.material.MapColor;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.Vec2;
 import willow.train.kuayue.block.panels.TrainHingePanelBlock;
 import willow.train.kuayue.block.panels.TrainPanelBlock;
