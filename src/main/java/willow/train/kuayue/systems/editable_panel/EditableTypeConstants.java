@@ -40,7 +40,7 @@ import java.util.function.Supplier;
 
 public class EditableTypeConstants {
 
-    @OnlyIn(Dist.CLIENT)
+    // @OnlyIn(Dist.CLIENT)
     public static final LazyRecomputable<ImageMask> image = new LazyRecomputable<>(
             () -> ClientInit.noSignTexture.getImageSafe().get().getMask()
                     .rectangleUV(0, 0, 1, 1)
@@ -53,6 +53,7 @@ public class EditableTypeConstants {
             BLUE2 = 0x60A0B0,
             BLUE3 = 468326,
             BLUE4 = 0x2B4CA1,
+            WHITE = 0xFFFFFF,
             BLACK = 789516;
 
 //    TODO 各Renderer中的render方法lambda

@@ -1,0 +1,28 @@
+{
+  "loader": "forge:obj",
+  "model": "kuayue:models/block/carriage/freight/nx70/freight_nx70_floor_low_ladder.obj",
+  "render_type": "translucent",
+  "flip_v": true,
+  "textures": {
+    "particle": "kuayue:block/carriage/freight/nx70/freight_nx70_floor_low_ladder"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [90, 180, 0],
+      "translation": [0, 1.75, -2.25],
+      "scale": [0.375, 0.375, 0.375]
+    },
+    "firstperson_righthand": {
+      "rotation": [0, 180, 0],
+      "translation": [8.25, -4.5, -8.5]
+    },
+    "ground": {
+      "scale": [0.375, 0.375, 0.375]
+    },
+    "gui": {
+      "rotation": [30, -150, 0],
+      "translation": [0, 0.5, 0],
+      "scale": [0.5, 0.5, 0.5]
+    }
+  }
+}

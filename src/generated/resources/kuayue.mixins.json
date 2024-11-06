@@ -6,6 +6,7 @@
   "refmap": "kuayue.refmap.json",
   "mixins": [
     "AccessorExternalRemainderBlockItem",
+    "AccessorPlayerAdvancement",
     "MixinAbstractContraptionEntity",
     "client.MixinBlockReg"
   ],

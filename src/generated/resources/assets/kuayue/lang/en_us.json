@@ -374,6 +374,8 @@
  "container.kuayue.inventory.button.marshalled_25_series": "Marshalled",
  "container.kuayue.inventory.button.cr200j": "cr200j",
  "container.kuayue.inventory.button.m1": "M1",
+ "container.kuayue.inventory.button.freight": "Freight",
+
  "container.kuayue.train_speed_sign_edit_menu.x_offset": "X offset",
  "container.kuayue.train_speed_sign_edit_menu.y_offset": "Y offset",
  "container.kuayue.train_speed_sign_edit_menu.x_revert": "Revert X offset",
@@ -619,6 +621,7 @@
  "tooltip.kuayue.color_template_screen.default_element_25k.name": "25K Blue",
  "tooltip.kuayue.color_template_screen.default_element_25.name": "25 Series Default Color",
  "tooltip.kuayue.color_template_screen.default_element_m1.name": "M1 blue",
+ "tooltip.kuayue.color_template_screen.default_element_freight_white.name": "Freight White",
 
  "tooltip.kuayue.color_template_screen.default_element_25g.doc": "This color is used on 25G type panel.",
  "tooltip.kuayue.color_template_screen.default_element_25b.doc": "This color is used on 25B type panel.",
@@ -627,6 +630,7 @@
  "tooltip.kuayue.color_template_screen.default_element_25k.doc": "This color is used on 25K type panel.",
  "tooltip.kuayue.color_template_screen.default_element_25.doc": "Default Color (Yellow).",
  "tooltip.kuayue.color_template_screen.default_element_m1.doc": "This color is used on M1 type panel.",
+ "tooltip.kuayue.color_template_screen.default_element_freight_white.doc": "This color is used on Freight type panel.",
 
  "tooltip.kuayue.color_template_screen.default_element_25.owner": "Kuayue Group.",
  "tooltip.kuayue.get_share_overlay_toast.title": "New Color Template.",
@@ -677,6 +681,19 @@
  "block.kuayue.window_large_between_jy30": "JY30 Large Window (Single Block Width)",
  "block.kuayue.slab_bottom_jy30": "JY30 Bottom Panel",
  "block.kuayue.end_face_middle_m1": "M1 Inside End Face",
+
+ "block.kuayue.freight_c70_end_face": "C70 End Face",
+ "block.kuayue.freight_c70_slab_bottom": "C70 Bottom Slab",
+ "block.kuayue.freight_c70_slab_top": "C70 Top Slab",
+ "block.kuayue.freight_c70_door": "C70 Side Door",
+
+ "block.kuayue.freight_nx70_floor_center": "NX70 Center Floor",
+ "block.kuayue.freight_nx70_floor_high": "NX70 High Floor",
+ "block.kuayue.freight_nx70_floor_cover_plate": "NX70 Floor Cover Plate",
+ "block.kuayue.freight_nx70_floor_connection": "NX70 Connection Floor",
+ "block.kuayue.freight_nx70_floor_low": "NX70 Low Floor",
+ "block.kuayue.freight_nx70_floor_low_ladder": "NX70 Low Ladder Floor",
+ "block.kuayue.freight_nx70_end_face": "NX70 End Face",
 
  "block.kuayue.train_diet_1": "Train Boxed Meal",
  "block.kuayue.kua_cola": "Kuayue Cola",

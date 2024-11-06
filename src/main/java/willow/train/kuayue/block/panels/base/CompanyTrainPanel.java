@@ -77,7 +77,7 @@ public class CompanyTrainPanel extends BaseEntityBlock implements IWrenchable {
         }
         BlockState state = pLevel.getBlockState(pos);
         Block block = state.getBlock();
-        if (block instanceof TrainPanelBlock trainPanelBlock)
+        if (block instanceof TrainPanelBlock trainPanelBlock && !pState.getBlock().equals(pNewState.getBlock()))
             trainPanelBlock.specialRemove(state, pLevel, pos, pNewState, pIsMoving);
         else
             super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);

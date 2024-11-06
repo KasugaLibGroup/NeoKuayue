@@ -1,0 +1,59 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"render_type": "translucent",
+	"flip_v": true,
+	"textures": {
+		"0": "kuayue:block/carriage/freight/nx70/freight_nx70_floor_cover_plate",
+		"particle": "kuayue:block/carriage/freight/nx70/freight_nx70_floor_cover_plate"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 0.1, 16],
+			"faces": {
+				"north": {"uv": [8, 0, 16, 0.55], "texture": "#0"},
+				"east": {"uv": [8, 0.5, 16, 1.05], "texture": "#0"},
+				"south": {"uv": [8, 1, 16, 1.55], "texture": "#0"},
+				"west": {"uv": [8, 1.5, 16, 2.05], "texture": "#0"},
+				"up": {"uv": [0, 0, 8, 8], "texture": "#0"},
+				"down": {"uv": [0, 8, 8, 16], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [90, 0, 0],
+			"translation": [0, 2.25, 4],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [90, 0, 0],
+			"translation": [0, 2.25, 4],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_righthand": {
+			"translation": [7.25, 5.5, 0]
+		},
+		"firstperson_lefthand": {
+			"translation": [7.25, 5.5, 0]
+		},
+		"ground": {
+			"translation": [0, 2, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [30, 30, 0],
+			"translation": [0, 4, 0],
+			"scale": [0.625, 0.625, 0.625]
+		}
+	},
+	"groups": [
+		{
+			"name": "group",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0]
+		}
+	]
+}

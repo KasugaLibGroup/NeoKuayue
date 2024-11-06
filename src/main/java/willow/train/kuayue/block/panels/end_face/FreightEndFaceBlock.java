@@ -10,17 +10,29 @@ import willow.train.kuayue.block.panels.base.EndFaceShapes;
 import willow.train.kuayue.block.panels.base.TrainPanelShapes;
 
 public class FreightEndFaceBlock extends TrainPanelBlock {
-    public FreightEndFaceBlock(Properties properties) {
+
+    private final FreightType FREIGHT_TYPE;
+
+    public FreightEndFaceBlock(Properties properties, FreightType freightType) {
         super(properties);
+        this.FREIGHT_TYPE = freightType;
     }
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return EndFaceShapes.getFreightEndFaceShape(pState.getValue(FACING).getOpposite());
+        return switch (FREIGHT_TYPE) {
+            case C70 -> EndFaceShapes.getC70EndFaceShape(pState.getValue(FACING).getOpposite());
+            case NX70 -> EndFaceShapes.getNX70EndFaceShape(pState.getValue(FACING).getOpposite());
+            default -> EndFaceShapes.getC70EndFaceShape(pState.getValue(FACING).getOpposite());
+        };
     }
 
     @Override
     public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return getShape(pState, pLevel, pPos, pContext);
+    }
+
+    public enum FreightType {
+        C70, NX70;
     }
 }

@@ -1,7 +1,9 @@
 {
-  "loader": "kasuga_lib:bedrock_model",
-  "model": "kuayue:block/carriage/freight/c70/freight_c70_end_face",
-  "texture": "kuayue:block/carriage/freight/c70/freight_c70_end_face",
+  "loader": "forge:obj",
+  "flip_v": true,
   "render_type": "translucent",
-  "particle": "kuayue:block/carriage/freight/c70/freight_c70_end_face"
+  "model": "kuayue:models/block/carriage/freight/c70/freight_c70_end_face.obj",
+  "textures": {
+    "particle": "kuayue:block/carriage/freight/c70/freight_c70_end_face"
+  }
 }

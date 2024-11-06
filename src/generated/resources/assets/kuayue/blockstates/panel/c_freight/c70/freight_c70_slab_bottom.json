@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayue:block/carriage/freight/c70/freight_c70_slab_bottom",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "kuayue:block/carriage/freight/c70/freight_c70_slab_bottom",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "kuayue:block/carriage/freight/c70/freight_c70_slab_bottom",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "kuayue:block/carriage/freight/c70/freight_c70_slab_bottom",
+      "y": 90
+    }
+  }
+}
