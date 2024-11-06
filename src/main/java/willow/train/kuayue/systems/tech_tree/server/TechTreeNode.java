@@ -2,6 +2,7 @@ package willow.train.kuayue.systems.tech_tree.server;
 
 import net.minecraft.resources.ResourceLocation;
 import willow.train.kuayue.systems.tech_tree.NodeLocation;
+import willow.train.kuayue.systems.tech_tree.json.HideContext;
 import willow.train.kuayue.systems.tech_tree.json.TechTreeData;
 import willow.train.kuayue.systems.tech_tree.json.TechTreeNodeData;
 
@@ -35,6 +36,18 @@ public class TechTreeNode {
             if (g == null) continue;
             this.nextGroups.add(g);
         }
+    }
+
+    public NodeLocation getLocation() {
+        return data.getLocation();
+    }
+
+    public boolean isHide() {
+        return data.isHide();
+    }
+
+    public HideContext getHideContext() {
+        return data.getHide();
     }
 
     public void addPrev(TechTreeNode node) {

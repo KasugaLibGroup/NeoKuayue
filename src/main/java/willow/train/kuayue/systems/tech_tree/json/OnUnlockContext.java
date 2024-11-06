@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import kasuga.lib.core.util.ComponentHelper;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.resources.ResourceManager;
 import willow.train.kuayue.systems.tech_tree.NodeLocation;
 
 import java.util.HashMap;
@@ -49,6 +50,12 @@ public class OnUnlockContext {
             }
         } else {
             unlockNodes = new NodeLocation[0];
+        }
+    }
+
+    public void loadAllNbt(ResourceManager manager) {
+        for (ItemContext context : items) {
+            context.updateNbt(manager);
         }
     }
 

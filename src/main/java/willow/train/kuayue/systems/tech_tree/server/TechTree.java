@@ -1,9 +1,11 @@
 package willow.train.kuayue.systems.tech_tree.server;
 
+import net.minecraft.server.packs.resources.ResourceManager;
 import willow.train.kuayue.systems.tech_tree.NodeLocation;
 import willow.train.kuayue.systems.tech_tree.json.TechTreeData;
 
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class TechTree {
 
@@ -26,6 +28,18 @@ public class TechTree {
     protected void compileConnections() {
         nodes.forEach((loc, node) -> {
             node.compileConnections();
+        });
+        groups.forEach((str, grp) -> {
+            nodes.values().forEach(n -> {
+                if (!n.getNextGroups().contains(grp)) return;
+                grp.addPrev(n);
+            });
+        });
+    }
+
+    protected void grepNbt(ResourceManager manager) {
+        groups.forEach((loc, group) -> {
+            group.data.loadAllNbt(manager);
         });
     }
 

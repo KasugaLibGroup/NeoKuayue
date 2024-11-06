@@ -2,11 +2,11 @@ package willow.train.kuayue.systems.tech_tree.json;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import kasuga.lib.core.util.Resources;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtIo;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.Resource;
+import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -25,6 +25,7 @@ public class ItemContext {
     public final ResourceLocation location;
     private final int size;
     private final ResourceLocation nbtLocation;
+    private final CompoundTag nbt;
 
     public ItemContext(ResourceLocation location, JsonElement element) {
         this.location = location;
@@ -34,20 +35,22 @@ public class ItemContext {
         } else if (element.isJsonObject()) {
             JsonObject obj = element.getAsJsonObject();
             this.size = obj.get("size").getAsInt();
-            if (obj.has("nbt"))
-                nbtLocation = new ResourceLocation(obj.get("nbt").getAsString());
-            else
+            if (obj.has("nbt")) {
+                nbtLocation = getNbtLocation(new ResourceLocation(obj.get("nbt").getAsString()));
+            } else
                 nbtLocation = null;
         } else {
             this.size = 1;
             this.nbtLocation = null;
         }
+        nbt = new CompoundTag();
     }
 
     public ItemContext(ResourceLocation location) {
         this.location = location;
         this.size = 1;
         this.nbtLocation = null;
+        this.nbt = new CompoundTag();
     }
 
     public ItemContext(Map.Entry<String, JsonElement> entry) {
@@ -72,17 +75,17 @@ public class ItemContext {
         return location;
     }
 
-    public CompoundTag getNbt() {
-        if (!hasNbt()) return new CompoundTag();
-        Optional<Resource> resource = Resources.attemptGetResource(nbtLocation);
-        if (resource.isEmpty()) return new CompoundTag();
+    public void updateNbt(ResourceManager manager) {
+        if (!hasNbt()) return;
+        Optional<Resource> resource = manager.getResource(nbtLocation);
+        if (resource.isEmpty()) return;
         try {
             InputStream stream = resource.get().open();
             DataInputStream dis = new DataInputStream(stream);
-            return NbtIo.read(dis);
+            this.nbt.merge(NbtIo.read(dis));
         } catch (IOException e) {
             Kuayue.LOGGER.error("Failed to read nbt file: ", e);
-            return new CompoundTag();
+            return;
         }
     }
 
@@ -95,7 +98,7 @@ public class ItemContext {
             for (int i = 0; i < pile; i++) {
                 ItemStack stack = item.getDefaultInstance();
                 if (hasNbt()) {
-                    stack.getOrCreateTag().merge(getNbt());
+                    stack.getOrCreateTag().merge(nbt);
                 } else {
                     stack.setCount(item.getMaxStackSize());
                 }
@@ -108,5 +111,9 @@ public class ItemContext {
         lastStack.setCount(lastCount);
         result.add(lastStack);
         return result;
+    }
+
+    public static ResourceLocation getNbtLocation(ResourceLocation location) {
+        return new ResourceLocation(location.getNamespace(), "tech_tree/nbt/" + location.getPath() + ".nbt");
     }
 }

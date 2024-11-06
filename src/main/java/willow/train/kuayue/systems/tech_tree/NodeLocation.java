@@ -31,6 +31,14 @@ public class NodeLocation {
         this.name = node.getIdentifier();
     }
 
+    public NodeLocation(String fullPath) {
+        String[] namespaceAndPath = fullPath.split(":");
+        this.namespace = namespaceAndPath[0];
+        String[] groupAndName = namespaceAndPath[1].split("\\.");
+        this.group = groupAndName[0];
+        this.name = groupAndName[1];
+    }
+
     public String getNamespace() {
         return namespace;
     }
