@@ -19,6 +19,7 @@ import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 import willow.train.kuayue.block.panels.TrainPanelBlock;
+import willow.train.kuayue.initial.item.EditablePanelItem;
 import willow.train.kuayue.utils.DirectionUtil;
 
 public class TrainOpenableWindowBlock extends TrainPanelBlock {
@@ -77,6 +78,9 @@ public class TrainOpenableWindowBlock extends TrainPanelBlock {
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        if (pState.getBlock().getDescriptionId().equals("block.kuayue.freight_c70_slab_top")
+                && pPlayer.getItemInHand(pHand).is(EditablePanelItem.COLORED_BRUSH.getItem()))
+            return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
         return TrainSmallWindowBlock.windowUse(pState, this.material, pLevel, pPos, pPlayer, pHand, pHit);
     }
 }

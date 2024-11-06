@@ -701,6 +701,7 @@
   "tooltip.kuayue.color_template_screen.default_element_25k.name": "25K 蓝色",
   "tooltip.kuayue.color_template_screen.default_element_25.name": "25 系列默认色",
   "tooltip.kuayue.color_template_screen.default_element_m1.name": "M1 蓝色",
+  "tooltip.kuayue.color_template_screen.default_element_freight_white.name": "货车 白色",
 
   "tooltip.kuayue.color_template_screen.default_element_25g.doc": "本色适用于25g车厢板类型下厢板",
   "tooltip.kuayue.color_template_screen.default_element_25b.doc": "本色适用于25b车厢板类型下厢板",
@@ -709,6 +710,7 @@
   "tooltip.kuayue.color_template_screen.default_element_25k.doc": "本色适用于25k车厢板类型下厢板",
   "tooltip.kuayue.color_template_screen.default_element_25.doc": "默认颜色(黄色)",
   "tooltip.kuayue.color_template_screen.default_element_m1.doc": "本色适用于M1车厢板类型下厢板",
+  "tooltip.kuayue.color_template_screen.default_element_freight_white.doc": "本色适用于货车车厢板类型",
 
   "tooltip.kuayue.color_template_screen.default_element_25.owner": "跨越开发组",
   "tooltip.kuayue.get_share_overlay_toast.title": "收到新颜色模板",

@@ -621,6 +621,7 @@
  "tooltip.kuayue.color_template_screen.default_element_25k.name": "25K Blue",
  "tooltip.kuayue.color_template_screen.default_element_25.name": "25 Series Default Color",
  "tooltip.kuayue.color_template_screen.default_element_m1.name": "M1 blue",
+ "tooltip.kuayue.color_template_screen.default_element_freight_white.name": "Freight White",
 
  "tooltip.kuayue.color_template_screen.default_element_25g.doc": "This color is used on 25G type panel.",
  "tooltip.kuayue.color_template_screen.default_element_25b.doc": "This color is used on 25B type panel.",
@@ -629,6 +630,7 @@
  "tooltip.kuayue.color_template_screen.default_element_25k.doc": "This color is used on 25K type panel.",
  "tooltip.kuayue.color_template_screen.default_element_25.doc": "Default Color (Yellow).",
  "tooltip.kuayue.color_template_screen.default_element_m1.doc": "This color is used on M1 type panel.",
+ "tooltip.kuayue.color_template_screen.default_element_freight_white.doc": "This color is used on Freight type panel.",
 
  "tooltip.kuayue.color_template_screen.default_element_25.owner": "Kuayue Group.",
  "tooltip.kuayue.get_share_overlay_toast.title": "New Color Template.",
