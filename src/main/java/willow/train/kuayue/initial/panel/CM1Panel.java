@@ -10,6 +10,7 @@ import willow.train.kuayue.block.panels.TrainPanelBlock;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
 import willow.train.kuayue.block.panels.door.CustomRenderedDoorBlock;
 import willow.train.kuayue.block.panels.end_face.MeterCarriageEndFaceBlock;
+import willow.train.kuayue.block.panels.slab.HingeSlabBlock;
 import willow.train.kuayue.block.panels.slab.TrainLadderBlock;
 import willow.train.kuayue.block.panels.slab.TrainSlabBlock;
 import willow.train.kuayue.block.panels.window.TrainOpenableWindowBlock;
@@ -130,6 +131,14 @@ public class CM1Panel {
                     .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
+    public static final SlabRegistration<TrainSlabBlock> AIR_VENT_CARPORT_M1_2 =
+            new SlabRegistration<TrainSlabBlock>("carport_air_vent_m1_2")
+                    .block(p -> new TrainSlabBlock(p, true))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueCarriageTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+                    .submit(AllElements.testRegistry);
+
     public static final SlabRegistration<TrainSlabBlock> MIDDLE_CARPORT_M1 =
             new SlabRegistration<TrainSlabBlock>("carport_middle_m1")
                     .block(p -> new TrainSlabBlock(p, true))
@@ -157,6 +166,22 @@ public class CM1Panel {
     public static final PanelRegistration<TrainPanelBlock> BOTTOM_SLAB_JY30 =
             new PanelRegistration<TrainPanelBlock>("slab_bottom_jy30")
                     .block(p -> new TrainPanelBlock(p, new Vec2(0, 0), new Vec2(1, 1)))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)
+                    .tab(AllElements.neoKuayueCarriageTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+                    .submit(AllElements.testRegistry);
+
+    public static final SlabRegistration<HingeSlabBlock> FLOOR_BATTERY_M1 =
+            new SlabRegistration<HingeSlabBlock>("floor_battery_m1")
+                    .block(p -> new HingeSlabBlock(p, true))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)
+                    .tab(AllElements.neoKuayueCarriageTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+                    .submit(AllElements.testRegistry);
+
+    public static final SlabRegistration<TrainSlabBlock> FLOOR_RESERVOIR_BOX_M1 =
+            new SlabRegistration<TrainSlabBlock>("floor_reservoir_box_m1")
+                    .block(p -> new TrainSlabBlock(p, true))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab)
                     .noOcclusion().strengthAndTool(1.5f, 3f)
