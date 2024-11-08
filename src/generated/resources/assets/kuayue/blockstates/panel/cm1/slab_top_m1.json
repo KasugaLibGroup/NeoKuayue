@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "facing=east,hinge=right": {
+      "model": "kuayue:block/carriage/carriage_m1/m1_top_slab",
+      "y": 90
+    },
+    "facing=north,hinge=right": {
+      "model": "kuayue:block/carriage/carriage_m1/m1_top_slab",
+      "y": 0
+    },
+    "facing=south,hinge=right": {
+      "model": "kuayue:block/carriage/carriage_m1/m1_top_slab",
+      "y": 180
+    },
+    "facing=west,hinge=right": {
+      "model": "kuayue:block/carriage/carriage_m1/m1_top_slab",
+      "y": 270
+    },
+    "facing=east,hinge=left": {
+      "model": "kuayue:block/carriage/carriage_m1/m1_top_slab_lh",
+      "y": 90
+    },
+    "facing=north,hinge=left": {
+      "model": "kuayue:block/carriage/carriage_m1/m1_top_slab_lh",
+      "y": 0
+    },
+    "facing=south,hinge=left": {
+      "model": "kuayue:block/carriage/carriage_m1/m1_top_slab_lh",
+      "y": 180
+    },
+    "facing=west,hinge=left": {
+      "model": "kuayue:block/carriage/carriage_m1/m1_top_slab_lh",
+      "y": 270
+    }
+  }
+}

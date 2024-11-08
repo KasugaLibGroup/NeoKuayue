@@ -203,6 +203,10 @@
   "block.kuayue.window_large_between_jy30": "JY30宿营车大窗(单格宽)",
   "block.kuayue.slab_bottom_jy30": "JY30宿营车下厢板",
   "block.kuayue.end_face_middle_m1": "M1客车内侧端面",
+  "block.kuayue.carport_air_vent_m1_2": "M1客车通风口车顶2",
+  "block.kuayue.floor_battery_m1": "M1客车车底电池",
+  "block.kuayue.floor_reservoir_box_m1": "M1客车制动风缸与受电盒",
+  "block.kuayue.slab_top_m1": "M1客车无窗上厢板",
 
   "block.kuayue.freight_c70_end_face": "C70敞车端面",
   "block.kuayue.freight_c70_slab_bottom": "C70敞车下厢板",
