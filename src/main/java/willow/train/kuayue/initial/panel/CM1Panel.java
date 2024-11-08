@@ -15,6 +15,7 @@ import willow.train.kuayue.block.panels.slab.TrainLadderBlock;
 import willow.train.kuayue.block.panels.slab.TrainSlabBlock;
 import willow.train.kuayue.block.panels.window.TrainOpenableWindowBlock;
 import willow.train.kuayue.block.panels.window.TrainSmallWindowBlock;
+import willow.train.kuayue.block.panels.window.TrainUnOpenableWindowBlock;
 import willow.train.kuayue.initial.AllElements;
 import willow.train.kuayue.initial.registration.PanelRegistration;
 import willow.train.kuayue.initial.registration.SlabRegistration;
@@ -183,6 +184,14 @@ public class CM1Panel {
             new SlabRegistration<TrainSlabBlock>("floor_reservoir_box_m1")
                     .block(p -> new TrainSlabBlock(p, true))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)
+                    .tab(AllElements.neoKuayueCarriageTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+                    .submit(AllElements.testRegistry);
+
+    public static final PanelRegistration<TrainUnOpenableWindowBlock> SLAB_TOP_M1 =
+            new PanelRegistration<TrainUnOpenableWindowBlock>("slab_top_m1")
+                    .block(p -> new TrainUnOpenableWindowBlock(p, 2, 0, 2))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab)
                     .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
