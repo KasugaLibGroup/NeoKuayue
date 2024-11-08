@@ -1,5 +1,6 @@
 package willow.train.kuayue.systems.tech_tree.server;
 
+import lombok.Getter;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import willow.train.kuayue.systems.tech_tree.NodeLocation;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+@Getter
 public class TechTreeGroup {
 
     public final TechTreeGroupData data;
@@ -41,10 +43,6 @@ public class TechTreeGroup {
         prev.add(node);
     }
 
-    public ArrayList<TechTreeNode> getPrev() {
-        return prev;
-    }
-
     public boolean isHide() {
         return data.isHide();
     }
@@ -55,14 +53,6 @@ public class TechTreeGroup {
 
     public HideContext getHideContext() {
         return data.getHide();
-    }
-
-    public TechTreeNode getRoot() {
-        return root;
-    }
-
-    public HashMap<NodeLocation, TechTreeNode> getNodes() {
-        return nodes;
     }
 
     public String getIdentifier() {
@@ -79,5 +69,9 @@ public class TechTreeGroup {
 
     public boolean is(String str) {
         return data.getLocation().toString().equals(str);
+    }
+
+    public ResourceLocation getId() {
+        return data.getLocation();
     }
 }

@@ -2,6 +2,7 @@ package willow.train.kuayue.systems.tech_tree.player;
 
 import kasuga.lib.core.base.NbtSerializable;
 import kasuga.lib.core.util.Envs;
+import lombok.Getter;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementList;
 import net.minecraft.client.Minecraft;
@@ -16,6 +17,7 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nullable;
 import java.util.*;
 
+@Getter
 public class PlayerDataManager extends SavedData implements NbtSerializable {
 
     public static final PlayerDataManager MANAGER = new PlayerDataManager();
@@ -71,10 +73,6 @@ public class PlayerDataManager extends SavedData implements NbtSerializable {
         return containsPlayerData(player.getUUID());
     }
 
-    public HashMap<UUID, PlayerData> getPlayerData() {
-        return playerData;
-    }
-
     public void loadAdvancements(Collection<Advancement> list) {
         this.advancements.clear();
         this.advancements.addAll(list);
@@ -102,7 +100,4 @@ public class PlayerDataManager extends SavedData implements NbtSerializable {
         }
     }
 
-    public Set<Advancement> getAdvancements() {
-        return advancements;
-    }
 }

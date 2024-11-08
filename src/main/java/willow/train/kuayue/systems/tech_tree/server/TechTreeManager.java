@@ -3,6 +3,7 @@ package willow.train.kuayue.systems.tech_tree.server;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import lombok.Getter;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
@@ -21,6 +22,7 @@ import java.util.Set;
 
 public class TechTreeManager implements ResourceManagerReloadListener {
     private final HashMap<String, TechTree> trees;
+    @Getter
     private final Set<String> namespaces;
     public static final TechTreeManager MANAGER = new TechTreeManager();
 
@@ -101,7 +103,4 @@ public class TechTreeManager implements ResourceManagerReloadListener {
         });
     }
 
-    public Set<String> getNamespaces() {
-        return namespaces;
-    }
 }

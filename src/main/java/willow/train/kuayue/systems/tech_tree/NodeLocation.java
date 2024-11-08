@@ -1,5 +1,6 @@
 package willow.train.kuayue.systems.tech_tree;
 
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import willow.train.kuayue.systems.tech_tree.json.TechTreeNodeData;
 
@@ -71,5 +72,13 @@ public class NodeLocation {
     @Override
     public int hashCode() {
         return toString().hashCode();
+    }
+
+    public void writeToByteBuf(FriendlyByteBuf buf) {
+        buf.writeUtf(this.toString());
+    }
+
+    public static NodeLocation readFromByteBuf(FriendlyByteBuf buf) {
+        return new NodeLocation(buf.readUtf());
     }
 }
