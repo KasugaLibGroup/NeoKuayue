@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "minecraft:potion" },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    { "item": "minecraft:brown_dye" }
+  ],
+  "result": {
+    "item": "kuayue:kua_cola",
+    "count": 1
+  }
+}

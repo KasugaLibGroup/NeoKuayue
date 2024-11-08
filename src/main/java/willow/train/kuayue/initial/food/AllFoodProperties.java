@@ -12,8 +12,9 @@ public class AllFoodProperties {
             .effect(() -> TRAIN_BOX_LUNCH_EFFECT, 1.0F).build();
 
     public static final FoodProperties KUA_COLA_PROPS = (new FoodProperties.Builder())
-            .nutrition(3).saturationMod(0.3f).alwaysEat()
-            .effect(() -> KUA_COLA_EFFECT, 1.0F).build();
+            .nutrition(2).saturationMod(0.2f).alwaysEat()
+            .effect(() -> KUA_COLA_EFFECT, 1.0F)
+            .build();
 
     public static final FoodProperties DRIED_INSTANT_NOODLES_PROPS = (new FoodProperties.Builder())
             .nutrition(4).saturationMod(0.4f).alwaysEat().build();
