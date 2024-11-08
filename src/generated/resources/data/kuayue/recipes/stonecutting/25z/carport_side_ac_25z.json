@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "kuayue:carport_ac_25z"
+  },
+  "result": "kuayue:carport_side_ac_25z"
+}

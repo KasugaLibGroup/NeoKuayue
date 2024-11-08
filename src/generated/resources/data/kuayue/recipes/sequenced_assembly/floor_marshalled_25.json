@@ -1,0 +1,94 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "kuayue:carriage_marshalled_mould"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item": "kuayue:floor_marshalled_25"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:carriage_marshalled_mould_constructing"
+        },
+        {
+          "item": "kuayue:weathering_resistant_steel_block_0"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:carriage_marshalled_mould_constructing"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:carriage_marshalled_mould_constructing"
+        },
+        {
+          "item": "minecraft:green_dye"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:carriage_marshalled_mould_constructing"
+        }
+      ]
+    },
+	{
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:carriage_marshalled_mould_constructing"
+        },
+        {
+          "item": "kuayue:green_brush"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:carriage_marshalled_mould_constructing"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:carriage_marshalled_mould_constructing"
+        },
+        {
+          "item": "kuayue:color_masterbatch"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:carriage_marshalled_mould_constructing"
+        }
+      ]
+    },
+	{
+      "type": "create:cutting",
+      "ingredients": [
+        {
+          "item": "kuayue:carriage_marshalled_mould_constructing"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:carriage_marshalled_mould_constructing"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "kuayue:carriage_marshalled_mould_constructing"
+  }
+}

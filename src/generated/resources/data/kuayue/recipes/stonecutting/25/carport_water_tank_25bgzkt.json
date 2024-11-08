@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "kuayue:weathering_resistant_steel_block_0"
+  },
+  "result": "kuayue:carport_water_tank_25bgzkt"
+}

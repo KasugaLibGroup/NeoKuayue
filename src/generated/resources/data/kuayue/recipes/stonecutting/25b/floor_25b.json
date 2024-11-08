@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "kuayue:end_face_25b_1"
+  },
+  "result": "kuayue:floor_25b"
+}

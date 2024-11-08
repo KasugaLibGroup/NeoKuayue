@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 3,
+  "ingredient": {
+    "item": "kuayue:weathering_resistant_steel_block_0"
+  },
+  "result": "kuayue:window_oc_sealed_25"
+}

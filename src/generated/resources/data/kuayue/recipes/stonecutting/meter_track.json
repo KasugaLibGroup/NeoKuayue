@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "kuayue:standard_track"
+  },
+  "result": "kuayue:meter_track"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "kuayue:end_face_25k_1"
+    },
+    {
+      "item": "kuayue:carriage_25k_circuit"
+    }
+  ],
+  "keepHeldItem": false,
+  "results": [
+    {
+      "item": "kuayue:end_face_25k_2"
+    }
+  ]
+}

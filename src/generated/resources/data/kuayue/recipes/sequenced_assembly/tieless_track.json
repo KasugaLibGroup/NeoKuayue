@@ -1,0 +1,113 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "kuayue:ballastless_track"
+  },
+  "loops": 1,
+  "results": [
+    {
+	  "chance": 0.65,
+      "item": "kuayue:tieless_track"
+    },
+	{
+	  "chance": 0.35,
+      "item": "kuayue:weathering_resistant_steel_nugget"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:incomplete_tieless_track"
+        },
+        {
+          "item": "create:wrench"
+        }
+      ],
+	  "keepHeldItem": true,
+      "results": [
+        {
+          "item": "kuayue:incomplete_tieless_track"
+        }
+      ]
+    },
+	{
+      "type": "create:cutting",
+      "ingredients": [
+        {
+          "item": "kuayue:incomplete_tieless_track"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:incomplete_tieless_track"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:incomplete_tieless_track"
+        },
+        {
+          "item": "kuayue:weathering_resistant_steel_pole"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:incomplete_tieless_track"
+        }
+      ]
+    },
+	{
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:incomplete_tieless_track"
+        },
+        {
+          "item": "kuayue:weathering_resistant_steel_pole"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:incomplete_tieless_track"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:incomplete_tieless_track"
+        },
+        {
+          "item": "create:sturdy_sheet"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:incomplete_tieless_track"
+        }
+      ]
+    },
+	{
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "kuayue:incomplete_tieless_track"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:incomplete_tieless_track"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "kuayue:incomplete_tieless_track"
+  }
+}

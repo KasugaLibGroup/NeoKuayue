@@ -1,0 +1,17 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "kuayue:floor_25b"
+    },
+    {
+      "item": "create:brass_ladder"
+    }
+  ],
+  "keepHeldItem": false,
+  "results": [
+    {
+      "item": "kuayue:ladder_25b"
+    }
+  ]
+}
