@@ -26,7 +26,7 @@ public class PlayerDataEvent {
     @SubscribeEvent
     public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
         Player player = event.getEntity();
-        if (player.level.isClientSide) return;
+        if (player.level().isClientSide) return;
         PlayerDataManager.MANAGER.createPlayerData(player);
     }
 }

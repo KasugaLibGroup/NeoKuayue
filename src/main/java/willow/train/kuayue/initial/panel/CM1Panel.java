@@ -134,7 +134,7 @@ public class CM1Panel {
     public static final SlabRegistration<TrainSlabBlock> AIR_VENT_CARPORT_M1_2 =
             new SlabRegistration<TrainSlabBlock>("carport_air_vent_m1_2")
                     .block(p -> new TrainSlabBlock(p, true))
-                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .materialAndColor(MapColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab)
                     .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
@@ -174,7 +174,7 @@ public class CM1Panel {
     public static final SlabRegistration<HingeSlabBlock> FLOOR_BATTERY_M1 =
             new SlabRegistration<HingeSlabBlock>("floor_battery_m1")
                     .block(p -> new HingeSlabBlock(p, true))
-                    .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)
+                    .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab)
                     .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
@@ -182,7 +182,7 @@ public class CM1Panel {
     public static final SlabRegistration<TrainSlabBlock> FLOOR_RESERVOIR_BOX_M1 =
             new SlabRegistration<TrainSlabBlock>("floor_reservoir_box_m1")
                     .block(p -> new TrainSlabBlock(p, true))
-                    .materialAndColor(Material.METAL, MaterialColor.COLOR_BLUE)
+                    .materialAndColor(MapColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueCarriageTab)
                     .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
@@ -190,7 +190,7 @@ public class CM1Panel {
     public static final PanelRegistration<TrainUnOpenableWindowBlock> SLAB_TOP_M1 =
             new PanelRegistration<TrainUnOpenableWindowBlock>("slab_top_m1")
                     .block(p -> new TrainUnOpenableWindowBlock(p, 2, 0, 2))
-                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .materialAndColor(MapColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueCarriageTab)
                     .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
