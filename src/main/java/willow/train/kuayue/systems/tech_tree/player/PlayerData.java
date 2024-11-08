@@ -8,6 +8,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
 import net.minecraft.nbt.Tag;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.PlayerAdvancements;
 import net.minecraft.server.level.ServerLevel;
@@ -286,5 +287,37 @@ public class PlayerData implements NbtSerializable {
     public static double quadraticYtoX(double A, double B, double C, double y, boolean right) {
         Pair<Double, Double> pair = quadraticYtoX(A, B, C, y);
         return right ? pair.getSecond() : pair.getFirst();
+    }
+
+    public void toNetwork(FriendlyByteBuf buf) {
+        buf.writeUUID(playerID);
+
+        buf.writeInt(unlocked.size());
+        unlocked.forEach(node -> {
+            node.writeToByteBuf(buf);
+        });
+
+        buf.writeInt(unlockedGroups.size());
+        unlockedGroups.forEach(buf::writeResourceLocation);
+
+        buf.writeInt(visibleGroups.size());
+        visibleGroups.forEach(buf::writeResourceLocation);
+    }
+
+    public void fromNetwork(FriendlyByteBuf buf) {
+        int unlockSize = buf.readInt();
+        for (int i = 0; i < unlockSize; i++) {
+            this.unlocked.add(NodeLocation.readFromByteBuf(buf));
+        }
+
+        int unlockGroupSize = buf.readInt();
+        for (int i = 0; i < unlockGroupSize; i++) {
+            this.unlockedGroups.add(buf.readResourceLocation());
+        }
+
+        int visibleGroupSize = buf.readInt();
+        for (int i = 0; i < visibleGroupSize; i++) {
+            this.visibleGroups.add(buf.readResourceLocation());
+        }
     }
 }

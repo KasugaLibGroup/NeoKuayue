@@ -1,5 +1,7 @@
 package willow.train.kuayue.systems.tech_tree.server;
 
+import lombok.Getter;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.packs.resources.ResourceManager;
 import willow.train.kuayue.systems.tech_tree.NodeLocation;
 import willow.train.kuayue.systems.tech_tree.json.TechTreeData;
@@ -7,11 +9,15 @@ import willow.train.kuayue.systems.tech_tree.json.TechTreeData;
 import java.util.HashMap;
 import java.util.HashSet;
 
+@Getter
 public class TechTree {
 
     public final TechTreeData data;
+
     private final HashMap<String, TechTreeGroup> groups;
+
     private final HashMap<NodeLocation, TechTreeNode> nodes;
+
     public TechTree(TechTreeData data) {
         this.data = data;
         this.groups = new HashMap<>();
@@ -49,13 +55,5 @@ public class TechTree {
 
     public String getNamespace() {
         return data.namespace;
-    }
-
-    public HashMap<NodeLocation, TechTreeNode> getNodes() {
-        return nodes;
-    }
-
-    public HashMap<String, TechTreeGroup> getGroups() {
-        return groups;
     }
 }
