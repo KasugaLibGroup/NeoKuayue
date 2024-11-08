@@ -1,0 +1,94 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "kuayue:carriage_25z_mould"
+  },
+  "loops": 6,
+  "results": [
+    {
+      "item": "kuayue:end_face_25z_2"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:carriage_25z_mould_constructing"
+        },
+        {
+          "item": "kuayue:weathering_resistant_steel_board"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:carriage_25z_mould_constructing"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:carriage_25z_mould_constructing"
+        },
+        {
+          "item": "create:framed_glass_pane"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:carriage_25z_mould_constructing"
+        }
+      ]
+    },
+	{
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:carriage_25z_mould_constructing"
+        },
+        {
+          "item": "kuayue:weathering_resistant_steel_board"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:carriage_25z_mould_constructing"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:carriage_25z_mould_constructing"
+        },
+        {
+          "item": "kuayue:color_masterbatch"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:carriage_25z_mould_constructing"
+        }
+      ]
+    },
+	{
+      "type": "create:cutting",
+      "ingredients": [
+        {
+          "item": "kuayue:carriage_25z_mould_constructing"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:carriage_25z_mould_constructing"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "kuayue:carriage_25z_mould_constructing"
+  }
+}

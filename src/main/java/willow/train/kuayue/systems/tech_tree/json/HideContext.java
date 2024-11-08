@@ -2,9 +2,11 @@ package willow.train.kuayue.systems.tech_tree.json;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import lombok.Getter;
 import net.minecraft.resources.ResourceLocation;
 import willow.train.kuayue.systems.tech_tree.NodeLocation;
 
+@Getter
 public class HideContext {
     private final NodeLocation[] needNodes;
     private final ResourceLocation[] needAdvancements;
@@ -51,15 +53,4 @@ public class HideContext {
         }
     }
 
-    public NodeLocation[] getNeedNodes() {
-        return needNodes;
-    }
-
-    public String[] getNeedNamespaces() {
-        return needNamespaces;
-    }
-
-    public ResourceLocation[] getNeedAdvancements() {
-        return needAdvancements;
-    }
 }

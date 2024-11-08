@@ -235,6 +235,25 @@
   "kuayue:company_floor",
   "kuayue:company_carport",
   "kuayue:platform_door",
-  "kuayue:platform_wall"
+  "kuayue:platform_wall",
+
+  "kuayue:standard_track",
+  "kuayue:tieless_track",
+  "kuayue:ballastless_track",
+  "kuayue:meter_track",
+
+  "kuayue:clay_slab",
+  "kuayue:clay_stairs",
+  "kuayue:smooth_quartz_panel_2",
+  "kuayue:smooth_quartz_panel_half",
+  "kuayue:smooth_quartz_panel_4",
+  "kuayue:smooth_quartz_angle_22_up",
+  "kuayue:weathering_resistant_steel_block_0",
+  "kuayue:exposed_weathering_steel_block",
+  "kuayue:yellowing_weathering_steel_block",
+  "kuayue:rusted_weathering_steel_block",
+  "kuayue:stably_rusted_weathering_steel_block",
+  "kuayue:fully_rusted_weathering_steel_block",
+  "kuayue:original_25z_floor_carpet"
  ]
 }

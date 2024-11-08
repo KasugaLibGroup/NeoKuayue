@@ -1,0 +1,6 @@
+# Made in Blockbench 4.11.1
+newmtl m_6e2f96b1-2427-e96a-06fb-73d0480d2386
+map_Kd kuayue:block/carriage/carriage_m1/m1_general_carport
+newmtl m_077040de-2272-4f4d-2387-8c0d0c3cdd48
+map_Kd kuayue:block/carriage/carriage_m1/m1_air_vent_carport
+newmtl none
