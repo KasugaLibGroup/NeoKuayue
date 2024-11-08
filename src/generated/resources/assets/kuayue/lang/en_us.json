@@ -681,6 +681,10 @@
  "block.kuayue.window_large_between_jy30": "JY30 Large Window (Single Block Width)",
  "block.kuayue.slab_bottom_jy30": "JY30 Bottom Panel",
  "block.kuayue.end_face_middle_m1": "M1 Inside End Face",
+ "block.kuayue.carport_air_vent_m1_2": "M1 Air Vent Carport 2",
+ "block.kuayue.floor_battery_m1": "M1 Underbody Battery",
+ "block.kuayue.floor_reservoir_box_m1": "M1 Underbody Equipment",
+ "block.kuayue.slab_top_m1": "M1 Top Panel",
 
  "block.kuayue.freight_c70_end_face": "C70 End Face",
  "block.kuayue.freight_c70_slab_bottom": "C70 Bottom Slab",
