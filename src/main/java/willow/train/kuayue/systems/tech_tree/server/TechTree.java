@@ -56,4 +56,11 @@ public class TechTree {
     public String getNamespace() {
         return data.namespace;
     }
+
+    public void toNetwork(FriendlyByteBuf buf) {
+        buf.writeUtf(getNamespace());
+
+        buf.writeInt(groups.size());
+        groups.forEach((location, grp) -> grp.toNetwork(buf));
+    }
 }

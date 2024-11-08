@@ -6,6 +6,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import willow.train.kuayue.systems.tech_tree.NodeLocation;
+import willow.train.kuayue.systems.tech_tree.NodeType;
 import willow.train.kuayue.systems.tech_tree.json.HideContext;
 import willow.train.kuayue.systems.tech_tree.json.OnUnlockContext;
 import willow.train.kuayue.systems.tech_tree.json.TechTreeData;
@@ -95,11 +96,37 @@ public class TechTreeNode {
         nextGroups.add(group);
     }
 
+    public NodeType getType() {
+        return data.getType();
+    }
+
     public boolean is(NodeLocation location) {
         return location.equals(data.getLocation());
     }
 
     public boolean is(String location) {
         return new NodeLocation(group.getNamespace(), group.getIdentifier(), location).equals(data.getLocation());
+    }
+
+    public void toNetwork(FriendlyByteBuf buf) {
+        // meta data
+        getLocation().writeToByteBuf(buf);
+        getType().writeToByteBuf(buf);
+        buf.writeResourceLocation(group.getId());
+        buf.writeUtf(getData().getName());
+        buf.writeUtf(getData().getDescription());
+
+        // item consume
+        Set<ItemStack> consume = getItemConsume();
+        buf.writeInt(consume.size());
+        consume.forEach(stack -> buf.writeItemStack(stack, false));
+
+        // next nodes
+        buf.writeInt(next.size());
+        next.forEach(node -> node.getLocation().writeToByteBuf(buf));
+
+        // next groups
+        buf.writeInt(nextGroups.size());
+        nextGroups.forEach(grp -> buf.writeResourceLocation(grp.getId()));
     }
 }

@@ -7,6 +7,8 @@ import willow.train.kuayue.network.c2s.DiscardChangeC2SPacket;
 import willow.train.kuayue.network.c2s.NbtC2SPacket;
 import willow.train.kuayue.network.s2c.ColorTemplateS2CPacket;
 import willow.train.kuayue.network.s2c.ContraptionTagChangedPacket;
+import willow.train.kuayue.network.s2c.DistributeTechTreePacket;
+import willow.train.kuayue.network.s2c.DistributeTechTreePayloadPacket;
 
 import java.util.LinkedList;
 
@@ -20,6 +22,12 @@ public class AllPackets {
             .loadPacket(ColorTemplateC2SPacket.class, ColorTemplateC2SPacket::new)
             .loadPacket(DiscardChangeC2SPacket.class, DiscardChangeC2SPacket::new)
             .loadPacket(NbtC2SPacket.class, NbtC2SPacket::new)
+            .submit(AllElements.testRegistry);
+
+    public static final ChannelReg TECH_TREE_CHANNEL = new ChannelReg("kuayue_tech_tree_channel")
+            .brand(KUAYUE_NETWORK_VERSION)
+            .loadPacket(DistributeTechTreePacket.class, DistributeTechTreePacket::new)
+            .loadPacket(DistributeTechTreePayloadPacket.class, DistributeTechTreePayloadPacket::new)
             .submit(AllElements.testRegistry);
 
     public static void invoke() {}

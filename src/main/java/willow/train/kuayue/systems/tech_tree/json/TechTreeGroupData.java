@@ -3,6 +3,7 @@ package willow.train.kuayue.systems.tech_tree.json;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import kasuga.lib.core.util.ComponentHelper;
+import lombok.Getter;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
@@ -23,6 +24,8 @@ public class TechTreeGroupData {
     private final NodeLocation root;
     private final HashMap<NodeLocation, TechTreeNodeData> nodes;
     private final @Nullable HideContext hide;
+
+    @Getter
     private final @Nullable OnUnlockContext unlock;
     public TechTreeGroupData(TechTreeData tree, String identifier, JsonObject json) {
         this.tree = tree;
@@ -72,12 +75,12 @@ public class TechTreeGroupData {
         return new ResourceLocation(this.tree.namespace, this.identifier);
     }
 
-    public Component getTitle() {
-        return ComponentHelper.translatable(nameTranslationKey);
+    public String getTitle() {
+        return nameTranslationKey;
     }
 
-    public Component getDescription() {
-        return ComponentHelper.translatable(descriptionTranslationKey);
+    public String getDescription() {
+        return descriptionTranslationKey;
     }
 
     public ItemStack getIcon() {

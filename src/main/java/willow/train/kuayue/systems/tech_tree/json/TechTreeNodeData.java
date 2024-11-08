@@ -22,13 +22,17 @@ public class TechTreeNodeData {
     @Getter
     public final TechTreeGroupData group;
 
-    private final String identifier, description;
+    private final String identifier, name, description;
     private final @Nullable HideContext hide;
     private final @Nullable OnUnlockContext unlock;
+
     @Getter
     private final NodeLocation[] nextNodes;
+
     @Getter
     private final ResourceLocation[] nextGroups;
+
+    @Getter
     private final NodeType type;
     private final ItemContext logo;
 
@@ -72,6 +76,7 @@ public class TechTreeNodeData {
         }
 
         description = jsonObject.get("description").getAsString();
+        name = jsonObject.get("name").getAsString();
         if (jsonObject.has("type")) {
             this.type = NodeType.getType(jsonObject.get("type").getAsString());
         } else {
@@ -191,8 +196,12 @@ public class TechTreeNodeData {
         return new NodeLocation(this);
     }
 
-    public Component getDescription() {
-        return ComponentHelper.translatable(this.description);
+    public String getDescription() {
+        return this.description;
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     public String getIdentifier() {

@@ -6,11 +6,13 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
+import java.util.Optional;
+
 @Getter
 @OnlyIn(Dist.CLIENT)
 public class ClientPlayerData {
 
-    public static PlayerData data = null;
+    private static PlayerData data = null;
 
     public static void updateDataFromNetwork(FriendlyByteBuf buf) {
         if (Minecraft.getInstance().player == null) return;
@@ -19,5 +21,9 @@ public class ClientPlayerData {
             data = new PlayerData(buf.readUUID());
         }
         data.fromNetwork(buf);
+    }
+
+    public static Optional<PlayerData> getData() {
+        return Optional.of(data);
     }
 }

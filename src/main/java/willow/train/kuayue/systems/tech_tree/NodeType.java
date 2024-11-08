@@ -1,5 +1,6 @@
 package willow.train.kuayue.systems.tech_tree;
 
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.util.StringRepresentable;
 
 public enum NodeType implements StringRepresentable {
@@ -18,5 +19,13 @@ public enum NodeType implements StringRepresentable {
             case "epic" -> EPIC;
             default -> PLAIN;
         };
+    }
+
+    public void writeToByteBuf(FriendlyByteBuf buf) {
+        buf.writeUtf(this.getSerializedName());
+    }
+
+    public static NodeType readFromByteBuf(FriendlyByteBuf buf) {
+        return getType(buf.readUtf());
     }
 }
