@@ -5,6 +5,7 @@ import kasuga.lib.registrations.common.CreativeTabReg;
 import kasuga.lib.registrations.registry.CreateRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import willow.train.kuayue.Kuayue;
+import willow.train.kuayue.event.both.PlayerDataEvent;
 import willow.train.kuayue.event.client.CarriageInventoryEvents;
 import willow.train.kuayue.event.client.RenderArrowEvent;
 import willow.train.kuayue.event.server.ColorTemplateEvents;
@@ -14,6 +15,7 @@ import willow.train.kuayue.initial.create.*;
 import willow.train.kuayue.initial.food.AllFoods;
 import willow.train.kuayue.initial.material.AllMaterials;
 import willow.train.kuayue.initial.recipe.AllRecipes;
+import willow.train.kuayue.systems.tech_tree.player.PlayerDataDist;
 
 public class AllElements {
 
@@ -67,6 +69,9 @@ public class AllElements {
             MinecraftForge.EVENT_BUS.register(new CarriageInventoryEvents());
         }
         MinecraftForge.EVENT_BUS.addListener(ServerResourceReloadEvent::onServerResourceReload);
+        MinecraftForge.EVENT_BUS.addListener(PlayerDataEvent::onPlayerLogin);
+        MinecraftForge.EVENT_BUS.addListener(PlayerDataEvent::onLevelLoad);
+        MinecraftForge.EVENT_BUS.addListener(PlayerDataEvent::onLevelSave);
         testRegistry.submit();
     }
 }

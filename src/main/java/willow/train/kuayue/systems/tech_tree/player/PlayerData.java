@@ -15,6 +15,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
 import willow.train.kuayue.mixins.mixin.AccessorPlayerAdvancement;
@@ -33,11 +34,16 @@ public class PlayerData implements NbtSerializable {
     public final Set<NodeLocation> unlocked;
     public final Set<ResourceLocation> unlockedGroups;
     public final Set<ResourceLocation> visibleGroups;
-    public PlayerData(Player player) {
-        this.playerID = player.getUUID();
+
+    public PlayerData(UUID uuid) {
+        this.playerID = uuid;
         unlocked = new HashSet<>();
         visibleGroups = new HashSet<>();
         unlockedGroups = new HashSet<>();
+    }
+
+    public PlayerData(Player player) {
+        this(player.getUUID());
     }
 
     public void read(CompoundTag nbt) {
@@ -89,6 +95,7 @@ public class PlayerData implements NbtSerializable {
                 checkItems(player.getInventory(), node.getItemConsume()) &&
                 checkExpAndLevel(player, node.getExpAndLevel()))) return false;
         consumeExpAndLevel(player, node.getExpAndLevel());
+        consumePlayerItem(player, level, node.getItemConsume());
         unlocked.add(node.getLocation());
         rewardPlayer(level, player, node.getUnlockContext());
         givePlayerItem(player, level, node.getBlueprints());
@@ -102,7 +109,7 @@ public class PlayerData implements NbtSerializable {
         return level >= expAndLevel.getSecond() && exp >= expAndLevel.getFirst();
     }
 
-    public void consumeExpAndLevel(ServerPlayer player, Pair<Integer, Integer> expAndLevel) {
+    public static void consumeExpAndLevel(ServerPlayer player, Pair<Integer, Integer> expAndLevel) {
         int expConsume = expAndLevel.getFirst();
         int level;
         int exp = player.totalExperience - expConsume;
@@ -161,12 +168,48 @@ public class PlayerData implements NbtSerializable {
         });
     }
 
-    public static void consumePlayerItem(Player player, ServerLevel level, Set<ItemStack> items) {
+    public static boolean consumePlayerItem(Player player, ServerLevel level, Set<ItemStack> items) {
         Inventory inventory = player.getInventory();
-        for (int i = 0; i < 36; i++) {
-            ItemStack item = inventory.getItem(i);
+        HashSet<ItemStack> result = new HashSet<>();
+        items.forEach(item -> {
+            Item type = item.getItem();
+            boolean flag = item.hasTag();
 
-        }
+            // items that has nbt
+            if (flag) {
+                for (int i = 0; i < 36; i++) {
+                    ItemStack stack = inventory.getItem(i);
+                    if (stack.getItem().equals(type) &&
+                        stack.hasTag() && stack.getTag().equals(item.getTag())
+                    ) {
+                        inventory.setItem(i, ItemStack.EMPTY);
+                        result.add(item);
+                        return;
+                    }
+                }
+            }
+
+            // items that without nbt
+            int count = item.getCount();
+            for (int i = 0; i < 36; i++) {
+                ItemStack stack = inventory.getItem(i);
+                if (!stack.getItem().equals(type)) continue;
+                if (stack.getCount() > count) {
+                    stack.setCount(stack.getCount() - count);
+                    result.add(item);
+                    return;
+                } else if (stack.getCount() == count) {
+                    inventory.setItem(i, ItemStack.EMPTY);
+                    result.add(item);
+                    return;
+                } else {
+                    inventory.setItem(i, ItemStack.EMPTY);
+                    count -= stack.getCount();
+                }
+            }
+        });
+
+        return result.size() == items.size();
     }
 
     public boolean checkItems(Inventory inventory, Collection<ItemStack> items) {
