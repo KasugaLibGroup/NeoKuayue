@@ -7,10 +7,13 @@ import kasuga.lib.core.util.ComponentHelper;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
+import net.minecraft.world.item.ItemStack;
 import willow.train.kuayue.systems.tech_tree.NodeLocation;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class OnUnlockContext {
     
@@ -57,6 +60,14 @@ public class OnUnlockContext {
         for (ItemContext context : items) {
             context.updateNbt(manager);
         }
+    }
+
+    public Set<ItemStack> getReward() {
+        Set<ItemStack> result = new HashSet<>();
+        for (ItemContext context : items) {
+            result.addAll(context.getItem());
+        }
+        return result;
     }
 
     public ItemContext[] getItems() {

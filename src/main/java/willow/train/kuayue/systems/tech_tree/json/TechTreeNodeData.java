@@ -7,11 +7,14 @@ import kasuga.lib.core.util.ComponentHelper;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
+import net.minecraft.world.item.ItemStack;
 import willow.train.kuayue.systems.tech_tree.NodeLocation;
 import willow.train.kuayue.systems.tech_tree.NodeType;
 
 import javax.annotation.Nullable;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class TechTreeNodeData {
 
@@ -136,6 +139,48 @@ public class TechTreeNodeData {
     @Nullable
     public HideContext getHide() {
         return hide;
+    }
+
+    public int getExp() {
+        return exp;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public ItemStack getLogo() {
+        return logo.getAsLogo();
+    }
+
+    public Set<ItemStack> getItemConsume() {
+        Set<ItemStack> result = new HashSet<>();
+        for (ItemContext context : itemConsume)
+            result.addAll(context.getItem());
+        return result;
+    }
+
+    public Set<ItemStack> getBlueprint() {
+        Set<ItemStack> result = new HashSet<>();
+        for (ItemContext context : blueprints)
+            result.addAll(context.getItem());
+        return result;
+    }
+
+    public Set<ItemStack> getItemRewards() {
+        Set<ItemStack> result = new HashSet<>();
+        for (ItemContext context : itemReward)
+            result.addAll(context.getItem());
+        return result;
+    }
+
+    public ResourceLocation[] getAdvancements() {
+        return advancements;
+    }
+
+    @Nullable
+    public OnUnlockContext getUnlock() {
+        return unlock;
     }
 
     public boolean isHide() {

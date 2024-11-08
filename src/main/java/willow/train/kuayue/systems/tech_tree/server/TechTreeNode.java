@@ -1,12 +1,17 @@
 package willow.train.kuayue.systems.tech_tree.server;
 
+import kasuga.lib.core.util.data_type.Pair;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
 import willow.train.kuayue.systems.tech_tree.NodeLocation;
 import willow.train.kuayue.systems.tech_tree.json.HideContext;
+import willow.train.kuayue.systems.tech_tree.json.OnUnlockContext;
 import willow.train.kuayue.systems.tech_tree.json.TechTreeData;
 import willow.train.kuayue.systems.tech_tree.json.TechTreeNodeData;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
+import java.util.Set;
 
 public class TechTreeNode {
 
@@ -38,6 +43,22 @@ public class TechTreeNode {
         }
     }
 
+    public Set<ItemStack> getItemConsume() {
+        return data.getItemConsume();
+    }
+
+    public Set<ItemStack> getBlueprints() {
+        return data.getBlueprint();
+    }
+
+    public Set<ItemStack> getItemReward() {
+        return data.getItemRewards();
+    }
+
+    public Pair<Integer, Integer> getExpAndLevel() {
+        return Pair.of(data.getExp(), data.getLevel());
+    }
+
     public NodeLocation getLocation() {
         return data.getLocation();
     }
@@ -48,6 +69,11 @@ public class TechTreeNode {
 
     public HideContext getHideContext() {
         return data.getHide();
+    }
+
+    @Nullable
+    public OnUnlockContext getUnlockContext() {
+        return data.getUnlock();
     }
 
     public void addPrev(TechTreeNode node) {
