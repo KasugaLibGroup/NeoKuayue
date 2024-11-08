@@ -2,6 +2,7 @@ package willow.train.kuayue.systems.tech_tree.json;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import lombok.Getter;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtIo;
 import net.minecraft.resources.ResourceLocation;
@@ -20,9 +21,12 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
+
 public class ItemContext {
 
+    @Getter
     public final ResourceLocation location;
+    @Getter
     private final int size;
     private final ResourceLocation nbtLocation;
     private final CompoundTag nbt;
@@ -65,14 +69,6 @@ public class ItemContext {
         Item item = ForgeRegistries.ITEMS.getValue(location);
         if (item == null) return ItemStack.EMPTY;
         return item.getDefaultInstance();
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public ResourceLocation getLocation() {
-        return location;
     }
 
     public void updateNbt(ResourceManager manager) {

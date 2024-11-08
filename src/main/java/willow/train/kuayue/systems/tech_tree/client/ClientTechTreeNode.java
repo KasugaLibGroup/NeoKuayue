@@ -7,6 +7,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 public class ClientTechTreeNode {
 
     public ClientTechTreeNode() {
-
+        
     }
 }

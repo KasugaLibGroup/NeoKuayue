@@ -16,6 +16,7 @@ public class Kuayue {
     public static IEventBus BUS = FMLJavaModLoadingContext.get().getModEventBus();
     public static final LocalFileEnv LOCAL_FILE = new LocalFileEnv("./kuayue");
     public static final TechTreeManager TECH_TREE = TechTreeManager.MANAGER;
+
     public Kuayue() {
         BUS.register(this);
         AllElements.invoke();
