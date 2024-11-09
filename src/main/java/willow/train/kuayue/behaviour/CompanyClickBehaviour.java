@@ -8,8 +8,12 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import willow.train.kuayue.block.panels.base.CompanyTrainBlockEntity;
+import willow.train.kuayue.block.panels.door.TrainDoorBlock;
 
 public class CompanyClickBehaviour extends MovingInteractionBehaviour {
 
@@ -22,5 +26,13 @@ public class CompanyClickBehaviour extends MovingInteractionBehaviour {
         BlockPos parentPos = localPos.offset(offset);
         if (parentPos.equals(localPos)) return true;
         return contraptionEntity.handlePlayerInteraction(player, parentPos, Direction.DOWN, activeHand);
+    }
+
+    public static void neoKuayue$doorOpen(BlockState currentState, Contraption contraption, BlockPos pos) {
+        if (!(currentState.getBlock() instanceof TrainDoorBlock)) return;
+        StructureTemplate.StructureBlockInfo info = contraption.getBlocks().getOrDefault(pos.above(), null);
+        if (info == null) return;
+        info.state().setValue(DoorBlock.OPEN, currentState.getValue(DoorBlock.OPEN));
+        contraption.getBlocks().put(pos.above(), info);
     }
 }
