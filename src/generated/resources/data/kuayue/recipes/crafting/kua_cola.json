@@ -1,13 +1,12 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
-    { "item": "minecraft:potion" },
     {
-      "item": "minecraft:sugar"
+      "type": "forge:nbt",
+      "item": "minecraft:potion",
+      "nbt": "{Potion:'minecraft:water'}"
     },
-    {
-      "item": "minecraft:sugar"
-    },
+    { "item": "minecraft:sugar" },
     { "item": "minecraft:brown_dye" }
   ],
   "result": {

@@ -91,6 +91,13 @@ public class AllFoods {
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
 
+    public static final ItemReg<HandHeldFoodItem> HALF_MARINATED_EGG =
+            new ItemReg<HandHeldFoodItem>("half_marinated_egg")
+                    .itemType(HandHeldFoodItem::new)
+                    .withProperty(properties -> properties.food(TINY_SNACKS_PROPS))
+                    .tab(AllElements.neoKuayueDietTab)
+                    .submit(AllElements.testRegistry);
+
     public static final ItemReg<HandHeldFoodItem> CALCIUM_MILK_BISCUITS =
             new ItemReg<HandHeldFoodItem>("calcium_milk_biscuits")
                     .itemType(HandHeldFoodItem::new)
