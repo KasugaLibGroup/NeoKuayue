@@ -6,6 +6,7 @@ import com.simibubi.create.content.contraptions.behaviour.SimpleBlockMovingInter
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import org.spongepowered.asm.mixin.Mixin;
@@ -31,6 +32,7 @@ public abstract class MixinSimpleBlockMovingInteraction {
         if (!cir.getReturnValue()) return;
         StructureTemplate.StructureBlockInfo info = contraptionEntity.getContraption().getBlocks().get(localPos);
         if (!(info.state().getBlock() instanceof TrainDoorBlock door && door.endPos.y > 1)) return;
+        if (!contraptionEntity.getContraption().getBlocks().get(localPos.above()).state().hasProperty(DoorBlock.OPEN)) return;
         handlePlayerInteraction(player, activeHand, localPos.above(), contraptionEntity);
     }
 }
