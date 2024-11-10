@@ -29,6 +29,7 @@ public class DistributeTechTreePayloadPacket extends S2CPacket {
         this.index = buf.readInt();
         this.buf = new FriendlyByteBuf(buf.readBytes(buf.writerIndex() - buf.readerIndex() - 1));
     }
+
     @Override
     public void handle(Minecraft minecraft) {
         ClientTechTreeManager.CACHE.addPayload(this);

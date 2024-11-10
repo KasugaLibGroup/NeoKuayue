@@ -6,73 +6,11 @@
   "loops": 1,
   "results": [
     {
-	  "chance": 0.8,
+	  "count": 8,
       "item": "kuayue:ballastless_track"
-    },
-	{
-	  "chance": 0.2,
-      "item": "kuayue:weathering_resistant_steel_ingot"
     }
   ],
   "sequence": [
-    {
-      "type": "create:cutting",
-      "ingredients": [
-        {
-          "item": "kuayue:incomplete_ballastless_track"
-        }
-      ],
-      "results": [
-        {
-          "item": "kuayue:incomplete_ballastless_track"
-        }
-      ]
-    },
-	{
-      "type": "create:cutting",
-      "ingredients": [
-        {
-          "item": "kuayue:incomplete_ballastless_track"
-        }
-      ],
-      "results": [
-        {
-          "item": "kuayue:incomplete_ballastless_track"
-        }
-      ]
-    },
-    {
-      "type": "create:deploying",
-      "ingredients": [
-        {
-          "item": "kuayue:incomplete_ballastless_track"
-        },
-        {
-          "item": "kuayue:weathering_resistant_steel_nugget"
-        }
-      ],
-      "results": [
-        {
-          "item": "kuayue:incomplete_ballastless_track"
-        }
-      ]
-    },
-	{
-      "type": "create:deploying",
-      "ingredients": [
-        {
-          "item": "kuayue:incomplete_ballastless_track"
-        },
-        {
-          "item": "kuayue:weathering_resistant_steel_nugget"
-        }
-      ],
-      "results": [
-        {
-          "item": "kuayue:incomplete_ballastless_track"
-        }
-      ]
-    },
     {
       "type": "create:deploying",
       "ingredients": [
@@ -81,6 +19,64 @@
         },
         {
           "item": "kuayue:weathering_resistant_steel_board"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:incomplete_ballastless_track"
+        }
+      ]
+    },
+	{
+      "type": "create:cutting",
+      "ingredients": [
+        {
+          "item": "kuayue:incomplete_ballastless_track"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:incomplete_ballastless_track"
+        }
+      ]
+    },
+	{
+      "type": "create:cutting",
+      "ingredients": [
+        {
+          "item": "kuayue:incomplete_ballastless_track"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:incomplete_ballastless_track"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:incomplete_ballastless_track"
+        },
+        {
+          "item": "kuayue:weathering_resistant_steel_nugget"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:incomplete_ballastless_track"
+        }
+      ]
+    },
+	{
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:incomplete_ballastless_track"
+        },
+        {
+          "item": "kuayue:weathering_resistant_steel_nugget"
         }
       ],
       "results": [

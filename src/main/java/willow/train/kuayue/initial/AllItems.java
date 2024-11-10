@@ -1,8 +1,12 @@
 package willow.train.kuayue.initial;
 
+import com.simibubi.create.AllRecipeTypes;
 import kasuga.lib.registrations.BundledReg;
 import kasuga.lib.registrations.common.ItemReg;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeType;
+import willow.train.kuayue.item.FuelItem;
 
 public class AllItems {
 
@@ -117,9 +121,14 @@ public class AllItems {
                     .tab(AllElements.neoKuayueMaterialTab)
                     .submit(AllElements.testRegistry);
 
-    public static final ItemReg<Item> CARBON_DUST =
-            new ItemReg<>("carbon_dust")
-                    .itemType(Item::new)
+    public static final ItemReg<FuelItem> CARBON_DUST =
+            new ItemReg<FuelItem>("carbon_dust")
+                    .itemType(properties -> new FuelItem(properties, type -> {
+                        if (type.equals(RecipeType.SMELTING)) return 1600;
+                        else if (type.equals(RecipeType.BLASTING)) return 2000;
+                        else if (type.equals(RecipeType.SMOKING)) return 1400;
+                        else return 0;
+                    }))
                     .tab(AllElements.neoKuayueMaterialTab)
                     .submit(AllElements.testRegistry);
 

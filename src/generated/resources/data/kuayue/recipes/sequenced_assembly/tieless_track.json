@@ -6,12 +6,8 @@
   "loops": 1,
   "results": [
     {
-	  "chance": 0.65,
+	  "count": 8,
       "item": "kuayue:tieless_track"
-    },
-	{
-	  "chance": 0.35,
-      "item": "kuayue:weathering_resistant_steel_nugget"
     }
   ],
   "sequence": [
