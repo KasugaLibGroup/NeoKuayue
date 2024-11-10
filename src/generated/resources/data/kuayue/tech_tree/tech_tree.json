@@ -34,7 +34,7 @@
         "node_steel": {
           "next_nodes": ["node_fully"],
           "next_groups": [],
-          "node_name": "node.steel.name",
+          "name": "node.steel.name",
           "description": "node.steel.description",
           "type": "plain",
           "logo": "kuayue:weathering_resistant_steel_ingot",
@@ -52,7 +52,7 @@
         "node_fully": {
           "next_nodes": [],
           "next_groups": ["ordinary_groups"],
-          "node_name": "node.fully.name",
+          "name": "node.fully.name",
           "description": "node.fully.description",
           "type": "plain",
           "logo": "minecraft:clock",

@@ -1,21 +1,27 @@
 {
   "type": "create:sequenced_assembly",
   "ingredient": {
-    "item": "kuayue:fully_rusted_weathering_steel_block"
+    "item": "kuayue:weathering_resistant_steel_board"
   },
   "loops": 1,
   "results": [
     {
+	  "count": 8,
       "item": "kuayue:standard_track"
     }
   ],
   "sequence": [
     {
-      "type": "create:cutting",
+      "type": "create:filling",
       "ingredients": [
-        {
-          "item": "kuayue:incomplete_standard_track"
-        }
+       {
+         "item": "kuayue:incomplete_standard_track"
+       },
+       {
+         "amount": 100,
+         "fluid": "minecraft:water",
+         "nbt": {}
+       }
       ],
       "results": [
         {

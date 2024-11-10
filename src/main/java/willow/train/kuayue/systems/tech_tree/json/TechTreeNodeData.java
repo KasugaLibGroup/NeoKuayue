@@ -4,6 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import kasuga.lib.core.util.ComponentHelper;
+import lombok.Getter;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
@@ -18,16 +19,27 @@ import java.util.Set;
 
 public class TechTreeNodeData {
 
+    @Getter
     public final TechTreeGroupData group;
-    private final String identifier, description;
+
+    private final String identifier, name, description;
     private final @Nullable HideContext hide;
     private final @Nullable OnUnlockContext unlock;
+
+    @Getter
     private final NodeLocation[] nextNodes;
+
+    @Getter
     private final ResourceLocation[] nextGroups;
+
+    @Getter
     private final NodeType type;
     private final ItemContext logo;
+
+    @Getter
     private final int exp, level;
     private final ItemContext[] itemConsume, blueprints, itemReward;
+    @Getter
     private final ResourceLocation[] advancements;
     public TechTreeNodeData(TechTreeGroupData group, String identifier, JsonObject jsonObject) {
         this.group = group;
@@ -64,6 +76,7 @@ public class TechTreeNodeData {
         }
 
         description = jsonObject.get("description").getAsString();
+        name = jsonObject.get("name").getAsString();
         if (jsonObject.has("type")) {
             this.type = NodeType.getType(jsonObject.get("type").getAsString());
         } else {
@@ -141,14 +154,6 @@ public class TechTreeNodeData {
         return hide;
     }
 
-    public int getExp() {
-        return exp;
-    }
-
-    public int getLevel() {
-        return level;
-    }
-
     public ItemStack getLogo() {
         return logo.getAsLogo();
     }
@@ -174,10 +179,6 @@ public class TechTreeNodeData {
         return result;
     }
 
-    public ResourceLocation[] getAdvancements() {
-        return advancements;
-    }
-
     @Nullable
     public OnUnlockContext getUnlock() {
         return unlock;
@@ -191,27 +192,19 @@ public class TechTreeNodeData {
         return this.group.identifier;
     }
 
-    public String getIdentifier() {
-        return identifier;
-    }
-
-    public TechTreeGroupData getGroup() {
-        return group;
-    }
-
     public NodeLocation getLocation() {
         return new NodeLocation(this);
     }
 
-    public Component getDescription() {
-        return ComponentHelper.translatable(this.description);
+    public String getDescription() {
+        return this.description;
     }
 
-    public NodeLocation[] getNextNodes() {
-        return nextNodes;
+    public String getName() {
+        return this.name;
     }
 
-    public ResourceLocation[] getNextGroups() {
-        return nextGroups;
+    public String getIdentifier() {
+        return identifier;
     }
 }

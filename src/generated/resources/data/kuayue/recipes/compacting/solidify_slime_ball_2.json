@@ -1,0 +1,26 @@
+{
+  "type": "create:compacting",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "item": "minecraft:slime_ball"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+	{
+      "item": "minecraft:sugar"
+    },
+	{
+      "item": "minecraft:sugar"
+    },
+	{
+      "item": "minecraft:sugar"
+    }
+  ],
+  "results": [
+    {
+      "item": "kuayue:solidify_slime_ball"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "type": "forge:nbt",
+      "item": "minecraft:potion",
+      "nbt": "{Potion:'minecraft:water'}"
+    },
+    { "item": "minecraft:sugar" },
+    { "item": "minecraft:brown_dye" }
+  ],
+  "result": {
+    "item": "kuayue:kua_cola",
+    "count": 1
+  }
+}

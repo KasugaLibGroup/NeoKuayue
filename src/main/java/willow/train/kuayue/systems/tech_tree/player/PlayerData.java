@@ -8,6 +8,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
 import net.minecraft.nbt.Tag;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.PlayerAdvancements;
 import net.minecraft.server.level.ServerLevel;
@@ -23,6 +24,7 @@ import willow.train.kuayue.mixins.mixin.AccessorPlayerAdvancement;
 import willow.train.kuayue.systems.tech_tree.NodeLocation;
 import willow.train.kuayue.systems.tech_tree.json.HideContext;
 import willow.train.kuayue.systems.tech_tree.json.OnUnlockContext;
+import willow.train.kuayue.systems.tech_tree.server.TechTree;
 import willow.train.kuayue.systems.tech_tree.server.TechTreeGroup;
 import willow.train.kuayue.systems.tech_tree.server.TechTreeManager;
 import willow.train.kuayue.systems.tech_tree.server.TechTreeNode;
@@ -35,12 +37,14 @@ public class PlayerData implements NbtSerializable {
     public final Set<NodeLocation> unlocked;
     public final Set<ResourceLocation> unlockedGroups;
     public final Set<ResourceLocation> visibleGroups;
+    public final Set<NodeLocation> visibleNodes;
 
     public PlayerData(UUID uuid) {
         this.playerID = uuid;
         unlocked = new HashSet<>();
         visibleGroups = new HashSet<>();
         unlockedGroups = new HashSet<>();
+        visibleNodes = new HashSet<>();
     }
 
     public PlayerData(Player player) {
@@ -59,6 +63,10 @@ public class PlayerData implements NbtSerializable {
         ListTag vGrp = nbt.getList("visible_groups", Tag.TAG_STRING);
         visibleGroups.clear();
         vGrp.forEach(tag -> visibleGroups.add(new ResourceLocation(tag.getAsString())));
+
+        ListTag vNode = nbt.getList("visible_nodes", Tag.TAG_STRING);
+        visibleNodes.clear();;
+        vNode.forEach(node -> visibleNodes.add(new NodeLocation(node.getAsString())));
     }
 
     public void write(CompoundTag nbt) {
@@ -73,10 +81,15 @@ public class PlayerData implements NbtSerializable {
         ListTag vGrp = new ListTag();
         visibleGroups.forEach(grp -> vGrp.add(StringTag.valueOf(grp.toString())));
         nbt.put("visible_groups", vGrp);
+
+        ListTag vNode = new ListTag();
+        visibleNodes.forEach(node -> vNode.add(StringTag.valueOf(node.toString())));
+        nbt.put("visible_nodes", vNode);
     }
 
-    public boolean canUnlock(ServerLevel level, ServerPlayer player, TechTreeGroup group) {
-        if (!canBeSeen(player, group.getHideContext())) return false;
+    public boolean canUnlock(ServerPlayer player, TechTreeGroup group) {
+        if (!canBeSeen(player, group.getHideContext()) &&
+                !visibleGroups.contains(group.getId())) return false;
         for (TechTreeNode node : group.getPrev()) {
             if (!unlocked.contains(node.getLocation())) return false;
         }
@@ -84,7 +97,8 @@ public class PlayerData implements NbtSerializable {
     }
 
     public boolean canUnlock(ServerPlayer player, TechTreeNode node) {
-        if (!canBeSeen(player, node.getHideContext())) return false;
+        if (!canBeSeen(player, node.getHideContext()) &&
+                !visibleNodes.contains(node.getLocation())) return false;
         for (TechTreeNode n : node.getPrev()) {
             if (!unlocked.contains(n.getLocation())) return false;
         }
@@ -97,11 +111,27 @@ public class PlayerData implements NbtSerializable {
                 checkExpAndLevel(player, node.getExpAndLevel()))) return false;
         consumeExpAndLevel(player, node.getExpAndLevel());
         consumePlayerItem(player, level, node.getItemConsume());
+        forceUnlock(level, player, node);
+        return true;
+    }
+
+    public void forceUnlock(ServerLevel level, ServerPlayer player, TechTreeNode node) {
         unlocked.add(node.getLocation());
-        rewardPlayer(level, player, node.getUnlockContext());
+        rewardPlayer(level, player, node.getUnlockContext(), node.getGroup().getTree());
         givePlayerItem(player, level, node.getBlueprints());
         givePlayerItem(player, level, node.getItemReward());
-        return false;
+        checkVisible(node.group.getTree(), player);
+    }
+
+    public boolean unlock(ServerLevel level, ServerPlayer player, TechTreeGroup group) {
+        if (!canUnlock(player, group)) return false;
+        forceUnlock(level, player, group);
+        return true;
+    }
+
+    public void forceUnlock(ServerLevel level, ServerPlayer player, TechTreeGroup group) {
+        unlockedGroups.add(group.getId());
+        rewardPlayer(level, player, group.getUnlockContext(), group.tree);
     }
 
     public boolean checkExpAndLevel(ServerPlayer player, Pair<Integer, Integer> expAndLevel) {
@@ -130,7 +160,7 @@ public class PlayerData implements NbtSerializable {
         player.totalExperience = exp;
     }
 
-    public void rewardPlayer(ServerLevel level, ServerPlayer player, @Nullable OnUnlockContext context) {
+    public void rewardPlayer(ServerLevel level, ServerPlayer player, @Nullable OnUnlockContext context, TechTree tree) {
         if (context == null) return;
 
         // items
@@ -157,6 +187,11 @@ public class PlayerData implements NbtSerializable {
         });
 
         // unlock nodes;
+        for (NodeLocation location : context.getUnlockNodes()) {
+            TechTreeNode node = tree.getNodes().getOrDefault(location, null);
+            if (node == null) continue;
+            forceUnlock(level, player, node);
+        }
         unlocked.addAll(Arrays.asList(context.getUnlockNodes()));
     }
 
@@ -215,21 +250,21 @@ public class PlayerData implements NbtSerializable {
 
     public boolean checkItems(Inventory inventory, Collection<ItemStack> items) {
         Collection<ItemStack> collection = new HashSet<>(items);
-        for (int i = 0; i < 36; i++) {
-            ItemStack stack = inventory.getItem(i);
-            collection.removeIf(item -> {
-                if (item == null || item.equals(ItemStack.EMPTY)) return true;
-                if (item.hasTag() && !stack.hasTag()) return false;
-                if (!item.hasTag() && stack.hasTag()) return false;
-                boolean flag = true;
-                if (item.hasTag() && stack.hasTag()) {
-                    flag = item.getTag().equals(stack.getTag());
+        collection.removeIf(stack -> {
+            int count = stack.getCount();
+            for (int i = 0; i < 36; i++) {
+                ItemStack item = inventory.getItem(i);
+                if (!item.getItem().equals(stack.getItem())) continue;
+                if (count <= 0) return true;
+                if (stack.hasTag() && item.hasTag()) {
+                    if (stack.getTag().equals(item.getTag())) count --;
+                    continue;
                 }
-                return item.getItem().equals(stack.getItem()) &&
-                        item.getCount() <= stack.getCount() &&
-                        flag;
-            });
-        }
+                if (stack.hasTag() || item.hasTag()) continue;
+                count -= item.getCount();
+            }
+            return count <= 0;
+        });
         return collection.isEmpty();
     }
 
@@ -283,8 +318,68 @@ public class PlayerData implements NbtSerializable {
         return Pair.of((-B - Math.sqrt(q)) / (2 * A), (-B + Math.sqrt(q)) / (2 * A));
     }
 
+
     public static double quadraticYtoX(double A, double B, double C, double y, boolean right) {
         Pair<Double, Double> pair = quadraticYtoX(A, B, C, y);
         return right ? pair.getSecond() : pair.getFirst();
+    }
+
+    public void checkVisible(TechTree tree, ServerPlayer player) {
+        tree.getGroups().forEach(
+                (location, grp) -> {
+                    if (!grp.isHide()) return;
+                    if (!canBeSeen(player, grp.getHideContext())) return;
+                    this.visibleGroups.add(grp.getId());
+                }
+        );
+        tree.getNodes().forEach(
+                (location, node) -> {
+                    if (!node.isHide()) return;
+                    if (!canBeSeen(player, node.getHideContext())) return;
+                    this.visibleNodes.add(node.getLocation());
+                }
+        );
+    }
+
+
+    public void toNetwork(FriendlyByteBuf buf) {
+        buf.writeUUID(playerID);
+
+        buf.writeInt(unlocked.size());
+        unlocked.forEach(node -> {
+            node.writeToByteBuf(buf);
+        });
+
+        buf.writeInt(unlockedGroups.size());
+        unlockedGroups.forEach(buf::writeResourceLocation);
+
+        buf.writeInt(visibleGroups.size());
+        visibleGroups.forEach(buf::writeResourceLocation);
+
+        buf.writeInt(visibleNodes.size());
+        visibleNodes.forEach(node -> node.writeToByteBuf(buf));
+    }
+
+
+    public void fromNetwork(FriendlyByteBuf buf) {
+        int unlockSize = buf.readInt();
+        for (int i = 0; i < unlockSize; i++) {
+            this.unlocked.add(NodeLocation.readFromByteBuf(buf));
+        }
+
+        int unlockGroupSize = buf.readInt();
+        for (int i = 0; i < unlockGroupSize; i++) {
+            this.unlockedGroups.add(buf.readResourceLocation());
+        }
+
+        int visibleGroupSize = buf.readInt();
+        for (int i = 0; i < visibleGroupSize; i++) {
+            this.visibleGroups.add(buf.readResourceLocation());
+        }
+
+        int visibleNodeSize = buf.readInt();
+        for (int i = 0; i < visibleNodeSize; i++) {
+            this.visibleNodes.add(NodeLocation.readFromByteBuf(buf));
+        }
     }
 }

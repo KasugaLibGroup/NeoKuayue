@@ -3,12 +3,18 @@ package willow.train.kuayue.systems.tech_tree.server;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import io.netty.buffer.ByteBuf;
+import lombok.Getter;
 import net.minecraft.client.Minecraft;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.resources.*;
 import org.jetbrains.annotations.NotNull;
 import willow.train.kuayue.Kuayue;
+import willow.train.kuayue.initial.AllPackets;
+import willow.train.kuayue.network.s2c.DistributeTechTreePayloadPacket;
 import willow.train.kuayue.systems.tech_tree.NodeLocation;
 import willow.train.kuayue.systems.tech_tree.json.TechTreeData;
 
@@ -21,8 +27,10 @@ import java.util.Set;
 
 public class TechTreeManager implements ResourceManagerReloadListener {
     private final HashMap<String, TechTree> trees;
+    @Getter
     private final Set<String> namespaces;
     public static final TechTreeManager MANAGER = new TechTreeManager();
+    public static final HashSet<DistributeTechTreePayloadPacket> networkPayloads = new HashSet<>();
 
     protected TechTreeManager() {
         trees = new HashMap<>();
@@ -101,7 +109,15 @@ public class TechTreeManager implements ResourceManagerReloadListener {
         });
     }
 
-    public Set<String> getNamespaces() {
-        return namespaces;
+    public static void addPayload(DistributeTechTreePayloadPacket payload) {
+        networkPayloads.add(payload);
     }
+
+    public static void sendAllPayloads(ServerPlayer player) {
+        networkPayloads.forEach(payload -> {
+            AllPackets.TECH_TREE_CHANNEL.sendToClient(payload, player);
+        });
+        networkPayloads.clear();
+    }
+
 }

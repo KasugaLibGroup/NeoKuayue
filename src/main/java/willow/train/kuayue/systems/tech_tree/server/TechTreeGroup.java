@@ -1,17 +1,16 @@
 package willow.train.kuayue.systems.tech_tree.server;
 
+import lombok.Getter;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import willow.train.kuayue.systems.tech_tree.NodeLocation;
-import willow.train.kuayue.systems.tech_tree.json.HideContext;
-import willow.train.kuayue.systems.tech_tree.json.ItemContext;
-import willow.train.kuayue.systems.tech_tree.json.TechTreeGroupData;
-import willow.train.kuayue.systems.tech_tree.json.TechTreeNodeData;
+import willow.train.kuayue.systems.tech_tree.json.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
+@Getter
 public class TechTreeGroup {
 
     public final TechTreeGroupData data;
@@ -41,10 +40,6 @@ public class TechTreeGroup {
         prev.add(node);
     }
 
-    public ArrayList<TechTreeNode> getPrev() {
-        return prev;
-    }
-
     public boolean isHide() {
         return data.isHide();
     }
@@ -57,12 +52,8 @@ public class TechTreeGroup {
         return data.getHide();
     }
 
-    public TechTreeNode getRoot() {
-        return root;
-    }
-
-    public HashMap<NodeLocation, TechTreeNode> getNodes() {
-        return nodes;
+    public OnUnlockContext getUnlockContext() {
+        return data.getUnlock();
     }
 
     public String getIdentifier() {
@@ -79,5 +70,23 @@ public class TechTreeGroup {
 
     public boolean is(String str) {
         return data.getLocation().toString().equals(str);
+    }
+
+    public ResourceLocation getId() {
+        return data.getLocation();
+    }
+
+    public void toNetwork(FriendlyByteBuf buf) {
+        buf.writeResourceLocation(getId());
+        buf.writeUtf(data.getTitle());
+        buf.writeUtf(data.getDescription());
+        buf.writeItemStack(icon(), false);
+
+        root.getLocation().writeToByteBuf(buf);
+        buf.writeInt(prev.size());
+        prev.forEach(node -> node.getLocation().writeToByteBuf(buf));
+
+        buf.writeInt(nodes.size());
+        nodes.forEach((location, node) -> node.toNetwork(buf));
     }
 }

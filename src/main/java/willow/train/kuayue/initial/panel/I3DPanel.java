@@ -3,6 +3,7 @@ package willow.train.kuayue.initial.panel;
 import com.simibubi.create.foundation.utility.Couple;
 import kasuga.lib.registrations.common.BlockReg;
 import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.Vec2;
@@ -41,12 +42,23 @@ public class I3DPanel {
                     .tab(AllElements.neoKuayueLocoTab)
                     .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
-    public static final SlabRegistration<HeightSlabBlock> FLOOR_HXD3D =
-            new SlabRegistration<HeightSlabBlock>("floor_hxd3d")
-                    .block(p -> new HeightSlabBlock(p, false))
-                    .materialAndColor(MapColor.COLOR_RED)
-                    .tab(AllElements.neoKuayueLocoTab)
-                    .noOcclusion().strengthAndTool(1.5f, 3f)
+
+//    public static final SlabRegistration<HeightSlabBlock> FLOOR_HXD3D =
+//            new SlabRegistration<HeightSlabBlock>("floor_hxd3d")
+//                    .block(p -> new HeightSlabBlock(p, false))
+//                    .materialAndColor(Material.METAL, MaterialColor.COLOR_RED)
+//                    .tab(AllElements.neoKuayueLocoTab)
+//                    .noOcclusion().strengthAndTool(1.5f, 3f)
+//                    .submit(AllElements.testRegistry);
+
+    public static final BlockReg<SlabBlock> SLAB_HXD3D =
+            new BlockReg<SlabBlock>("floor_hxd3d")
+                    .blockType(SlabBlock::new)
+                    .materialColor(MapColor.COLOR_RED)
+                    .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(properties -> properties.strength(1.5f, 3f))
+                    .defaultBlockItem()
+                    .tabTo(AllElements.neoKuayueLocoTab)
                     .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainPanelBlock> PANEL_HEXIE_HXD3D =
             new PanelRegistration<TrainPanelBlock>("panel_hexie_hxd3d")

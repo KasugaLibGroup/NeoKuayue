@@ -1,9 +1,12 @@
 package willow.train.kuayue.systems.tech_tree.server;
 
 import kasuga.lib.core.util.data_type.Pair;
+import lombok.Getter;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import willow.train.kuayue.systems.tech_tree.NodeLocation;
+import willow.train.kuayue.systems.tech_tree.NodeType;
 import willow.train.kuayue.systems.tech_tree.json.HideContext;
 import willow.train.kuayue.systems.tech_tree.json.OnUnlockContext;
 import willow.train.kuayue.systems.tech_tree.json.TechTreeData;
@@ -13,14 +16,19 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Set;
 
+@Getter
 public class TechTreeNode {
 
     public final TechTreeNodeData data;
 
     public final TechTreeGroup group;
+
     private final ArrayList<TechTreeNode> prev;
+
     private final ArrayList<TechTreeNode> next;
+
     private final ArrayList<TechTreeGroup> nextGroups;
+
     public TechTreeNode(TechTreeGroup group, TechTreeNodeData data) {
         this.data = data;
         this.group = group;
@@ -80,24 +88,16 @@ public class TechTreeNode {
         prev.add(node);
     }
 
-    public ArrayList<TechTreeNode> getPrev() {
-        return prev;
-    }
-
     public void addNext(TechTreeNode node) {
         next.add(node);
-    }
-
-    public ArrayList<TechTreeNode> getNext() {
-        return next;
     }
 
     public void addNextGroup(TechTreeGroup group) {
         nextGroups.add(group);
     }
 
-    public ArrayList<TechTreeGroup> getNextGroups() {
-        return nextGroups;
+    public NodeType getType() {
+        return data.getType();
     }
 
     public boolean is(NodeLocation location) {
@@ -106,5 +106,27 @@ public class TechTreeNode {
 
     public boolean is(String location) {
         return new NodeLocation(group.getNamespace(), group.getIdentifier(), location).equals(data.getLocation());
+    }
+
+    public void toNetwork(FriendlyByteBuf buf) {
+        // meta data
+        getLocation().writeToByteBuf(buf);
+        getType().writeToByteBuf(buf);
+        buf.writeResourceLocation(group.getId());
+        buf.writeUtf(getData().getName());
+        buf.writeUtf(getData().getDescription());
+
+        // item consume
+        Set<ItemStack> consume = getItemConsume();
+        buf.writeInt(consume.size());
+        consume.forEach(stack -> buf.writeItemStack(stack, false));
+
+        // next nodes
+        buf.writeInt(next.size());
+        next.forEach(node -> node.getLocation().writeToByteBuf(buf));
+
+        // next groups
+        buf.writeInt(nextGroups.size());
+        nextGroups.forEach(grp -> buf.writeResourceLocation(grp.getId()));
     }
 }

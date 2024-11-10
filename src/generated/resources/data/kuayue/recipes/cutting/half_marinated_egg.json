@@ -1,0 +1,13 @@
+{
+  "type": "create:cutting",
+  "ingredients": [
+    { "item": "kuayue:marinated_egg" }
+  ],
+  "processingTime": 200,
+  "results": [
+    {
+      "count": 2,
+      "item": "kuayue:half_marinated_egg"
+    }
+  ]
+}
