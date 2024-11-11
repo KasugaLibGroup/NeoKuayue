@@ -32,10 +32,12 @@ public abstract class MixinSimpleBlockMovingInteraction {
         if (!cir.getReturnValue()) return;
         if (contraptionEntity.getContraption() == null) return;
         if (contraptionEntity.getContraption().getBlocks() == null) return;
-        StructureTemplate.StructureBlockInfo info = contraptionEntity.getContraption().getBlocks().get(localPos);
+        StructureTemplate.StructureBlockInfo info = contraptionEntity.getContraption()
+                .getBlocks().getOrDefault(localPos, null);
         if (info == null) return;
         if (!(info.state().getBlock() instanceof TrainDoorBlock door && door.endPos.y > 1)) return;
-        StructureTemplate.StructureBlockInfo aboveInfo = contraptionEntity.getContraption().getBlocks().get(localPos.above());
+        StructureTemplate.StructureBlockInfo aboveInfo = contraptionEntity.getContraption()
+                .getBlocks().getOrDefault(localPos.above(), null);
         if (aboveInfo == null) return;
         if (!aboveInfo.state().hasProperty(DoorBlock.OPEN)) return;
         handlePlayerInteraction(player, activeHand, localPos.above(), contraptionEntity);
