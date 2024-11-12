@@ -1,16 +1,19 @@
 package willow.train.kuayue.block.panels.block_entity;
 
 import com.jozufozu.flywheel.core.PartialModel;
+import com.simibubi.create.content.contraptions.AbstractContraptionEntity;
 import com.simibubi.create.content.contraptions.Contraption;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.simibubi.create.foundation.utility.Couple;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
@@ -87,19 +90,13 @@ public class DoubleDoorEntity extends SmartBlockEntity implements IContraptionMo
     }
 
     @Override
-    public void doMovement(Contraption contraption, BlockPos blockPos, BlockState blockState, BlockEntity blockEntity) {
-        ((DoubleDoorEntity) blockEntity).setOpen(contraption.getBlocks().get(blockPos).state.getValue(DoorBlock.OPEN));
-        contraption.presentBlockEntities.put(blockPos, blockEntity);
-    }
-
-    @Override
-    public boolean dirty(Contraption contraption, BlockPos blockPos, BlockState blockState, BlockEntity blockEntity) {
-        return open != blockState.getValue(DoorBlock.OPEN);
-    }
-
-    @Override
     protected AABB createRenderBoundingBox() {
         // 以当前方块实体为中心，5×5×5格范围内均渲染方块实体。
         return AABB.ofSize(Vec3.atCenterOf(this.getBlockPos()), 5, 5, 5);
+    }
+
+    @Override
+    public void update(StructureTemplate.StructureBlockInfo info, Player player, BlockPos pos, AbstractContraptionEntity entity) {
+        this.open = !open;
     }
 }

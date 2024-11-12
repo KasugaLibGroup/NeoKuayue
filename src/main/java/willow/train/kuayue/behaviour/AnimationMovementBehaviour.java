@@ -10,17 +10,6 @@ import willow.train.kuayue.block.panels.block_entity.IContraptionMovementBlockEn
 public class AnimationMovementBehaviour implements MovementBehaviour {
 
     @Override
-    public void tick(MovementContext context) {
-        BlockPos pos = context.localPos;
-        BlockEntity be = context.contraption.presentBlockEntities.get(pos);
-        BlockState state = context.state;
-        if (be instanceof IContraptionMovementBlockEntity icmbe) {
-            if (!icmbe.dirty(context.contraption, pos, state, be)) return;
-            icmbe.doMovement(context.contraption, pos, state, be);
-        }
-    }
-
-    @Override
     public boolean mustTickWhileDisabled() {
         return true;
     }
