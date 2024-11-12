@@ -124,6 +124,7 @@ public class AllItems {
     public static final ItemReg<FuelItem> CARBON_DUST =
             new ItemReg<FuelItem>("carbon_dust")
                     .itemType(properties -> new FuelItem(properties, type -> {
+                        if (type == null) return 0;
                         if (type.equals(RecipeType.SMELTING)) return 1600;
                         else if (type.equals(RecipeType.BLASTING)) return 2000;
                         else if (type.equals(RecipeType.SMOKING)) return 1400;
