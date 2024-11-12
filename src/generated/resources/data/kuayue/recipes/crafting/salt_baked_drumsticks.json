@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "minecraft:cooked_chicken" },
+    { "item": "minecraft:bone_meal" }
+  ],
+  "result": {
+    "item": "kuayue:salt_baked_drumsticks",
+    "count": 2
+  }
+}
