@@ -80,8 +80,13 @@ public class CustomRenderedDoorEntity extends SmartBlockEntity implements IContr
 
     @Override
     public void doMovement(Contraption contraption, BlockPos blockPos, BlockState blockState, BlockEntity blockEntity) {
-        ((CustomRenderedDoorEntity) blockEntity).setOpen(contraption.getBlocks().get(blockPos).state.getValue(DoorBlock.OPEN));
+        ((CustomRenderedDoorEntity) blockEntity).setOpen(blockState.getValue(DoorBlock.OPEN));
         contraption.presentBlockEntities.put(blockPos, blockEntity);
+    }
+
+    @Override
+    public boolean dirty(Contraption contraption, BlockPos blockPos, BlockState blockState, BlockEntity blockEntity) {
+        return open != blockState.getValue(DoorBlock.OPEN);
     }
 
     @Override

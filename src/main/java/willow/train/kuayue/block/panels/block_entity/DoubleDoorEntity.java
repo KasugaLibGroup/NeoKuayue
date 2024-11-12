@@ -93,6 +93,11 @@ public class DoubleDoorEntity extends SmartBlockEntity implements IContraptionMo
     }
 
     @Override
+    public boolean dirty(Contraption contraption, BlockPos blockPos, BlockState blockState, BlockEntity blockEntity) {
+        return open != blockState.getValue(DoorBlock.OPEN);
+    }
+
+    @Override
     protected AABB createRenderBoundingBox() {
         // 以当前方块实体为中心，5×5×5格范围内均渲染方块实体。
         return AABB.ofSize(Vec3.atCenterOf(this.getBlockPos()), 5, 5, 5);

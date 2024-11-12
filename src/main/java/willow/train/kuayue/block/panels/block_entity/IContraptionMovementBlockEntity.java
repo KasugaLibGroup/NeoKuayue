@@ -6,5 +6,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
 public interface IContraptionMovementBlockEntity {
-    public void doMovement(Contraption contraption, BlockPos blockPos, BlockState blockState, BlockEntity blockEntity);
+
+    void doMovement(Contraption contraption, BlockPos blockPos, BlockState blockState, BlockEntity blockEntity);
+
+    boolean dirty(Contraption contraption, BlockPos blockPos, BlockState blockState, BlockEntity blockEntity);
 }

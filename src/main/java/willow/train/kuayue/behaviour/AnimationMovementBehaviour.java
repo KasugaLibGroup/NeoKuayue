@@ -14,8 +14,10 @@ public class AnimationMovementBehaviour implements MovementBehaviour {
         BlockPos pos = context.localPos;
         BlockEntity be = context.contraption.presentBlockEntities.get(pos);
         BlockState state = context.state;
-        if (be instanceof IContraptionMovementBlockEntity icmbe)
+        if (be instanceof IContraptionMovementBlockEntity icmbe) {
+            if (!icmbe.dirty(context.contraption, pos, state, be)) return;
             icmbe.doMovement(context.contraption, pos, state, be);
+        }
     }
 
     @Override
