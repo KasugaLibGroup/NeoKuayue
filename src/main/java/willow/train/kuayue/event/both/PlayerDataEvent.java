@@ -11,9 +11,10 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.level.LevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import willow.train.kuayue.initial.AllPackets;
-import willow.train.kuayue.network.s2c.DistributeTechTreePacket;
 import willow.train.kuayue.systems.tech_tree.player.PlayerDataDist;
 import willow.train.kuayue.systems.tech_tree.player.PlayerDataManager;
+import willow.train.kuayue.systems.tech_tree.server.NetworkCacheManager;
+import willow.train.kuayue.systems.tech_tree.server.ServerNetworkCache;
 import willow.train.kuayue.systems.tech_tree.server.TechTreeManager;
 
 import java.util.Optional;
@@ -33,6 +34,12 @@ public class PlayerDataEvent {
     }
 
     @SubscribeEvent
+    public static void onLevelUnload(LevelEvent.Unload event) {
+        if (event.getLevel().isClientSide()) return;
+        NetworkCacheManager.MANAGER.stopAll();
+    }
+
+    @SubscribeEvent
     public static void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event) {
         Player player = event.getEntity();
         if (player.level.isClientSide) return;
@@ -43,8 +50,18 @@ public class PlayerDataEvent {
 //                (ServerPlayer) player
 //        );
 //        TechTreeManager.sendAllPayloads((ServerPlayer) player);
+        ServerNetworkCache cache = NetworkCacheManager.MANAGER.addCacheFor((ServerPlayer) player);
+        TechTreeManager.MANAGER.trees().forEach((s, tree) -> cache.enqueueTree(tree));
 
         if (PlayerDataManager.MANAGER.containsPlayerData(player)) return;
         PlayerDataManager.MANAGER.createPlayerData(player);
+    }
+
+    @SubscribeEvent
+    public static void onPlayerLogout(PlayerEvent.PlayerLoggedOutEvent event) {
+        Player player = event.getEntity();
+        if (player.level.isClientSide) return;
+
+        NetworkCacheManager.MANAGER.removeCache((ServerPlayer) player);
     }
 }

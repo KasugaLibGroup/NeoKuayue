@@ -61,6 +61,8 @@ public class TechTree {
         buf.writeUtf(getNamespace());
 
         buf.writeInt(groups.size());
-        groups.forEach((location, grp) -> grp.toNetwork(buf));
+        buf.writeInt(nodes.size());
+        groups.forEach((loc, grp) -> buf.writeUtf(loc));
+        // groups.forEach((location, grp) -> grp.toNetwork(buf));
     }
 }

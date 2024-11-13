@@ -70,6 +70,7 @@ public class AllElements {
         }
         MinecraftForge.EVENT_BUS.addListener(ServerResourceReloadEvent::onServerResourceReload);
         MinecraftForge.EVENT_BUS.addListener(PlayerDataEvent::onPlayerLogin);
+        MinecraftForge.EVENT_BUS.addListener(PlayerDataEvent::onPlayerLogout);
         MinecraftForge.EVENT_BUS.addListener(PlayerDataEvent::onLevelLoad);
         MinecraftForge.EVENT_BUS.addListener(PlayerDataEvent::onLevelSave);
         testRegistry.submit();

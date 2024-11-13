@@ -112,7 +112,6 @@ public class TechTreeNode {
         // meta data
         getLocation().writeToByteBuf(buf);
         getType().writeToByteBuf(buf);
-        buf.writeResourceLocation(group.getId());
         buf.writeUtf(getData().getName());
         buf.writeUtf(getData().getDescription());
 

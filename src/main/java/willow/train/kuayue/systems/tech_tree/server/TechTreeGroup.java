@@ -87,6 +87,6 @@ public class TechTreeGroup {
         prev.forEach(node -> node.getLocation().writeToByteBuf(buf));
 
         buf.writeInt(nodes.size());
-        nodes.forEach((location, node) -> node.toNetwork(buf));
+        nodes.forEach((location, node) -> location.writeToByteBuf(buf));
     }
 }

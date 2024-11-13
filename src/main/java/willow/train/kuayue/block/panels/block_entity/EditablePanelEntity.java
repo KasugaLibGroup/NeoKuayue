@@ -20,7 +20,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import willow.train.kuayue.Kuayue;
-import willow.train.kuayue.network.KuayueNetworkHandler;
 import willow.train.kuayue.network.c2s.signs.CarriageTypeSignUpdatePacket;
 import willow.train.kuayue.systems.editable_panel.EditablePanelEditMenu;
 import willow.train.kuayue.systems.editable_panel.interfaces.DefaultTextsLambda;

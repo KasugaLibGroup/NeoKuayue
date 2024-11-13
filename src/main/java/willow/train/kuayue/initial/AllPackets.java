@@ -2,13 +2,8 @@ package willow.train.kuayue.initial;
 
 import kasuga.lib.core.network.Packet;
 import kasuga.lib.registrations.common.ChannelReg;
-import willow.train.kuayue.network.c2s.ColorTemplateC2SPacket;
-import willow.train.kuayue.network.c2s.DiscardChangeC2SPacket;
-import willow.train.kuayue.network.c2s.NbtC2SPacket;
-import willow.train.kuayue.network.s2c.ColorTemplateS2CPacket;
-import willow.train.kuayue.network.s2c.ContraptionTagChangedPacket;
-import willow.train.kuayue.network.s2c.DistributeTechTreePacket;
-import willow.train.kuayue.network.s2c.DistributeTechTreePayloadPacket;
+import willow.train.kuayue.network.c2s.*;
+import willow.train.kuayue.network.s2c.*;
 
 import java.util.LinkedList;
 
@@ -26,8 +21,13 @@ public class AllPackets {
 
     public static final ChannelReg TECH_TREE_CHANNEL = new ChannelReg("kuayue_tech_tree_channel")
             .brand(KUAYUE_NETWORK_VERSION)
-            .loadPacket(DistributeTechTreePacket.class, DistributeTechTreePacket::new)
-            .loadPacket(DistributeTechTreePayloadPacket.class, DistributeTechTreePayloadPacket::new)
+            .loadPacket(TechTreePacket.class, TechTreePacket::new)
+            .loadPacket(TechTreeGroupPacket.class, TechTreeGroupPacket::new)
+            .loadPacket(TechTreeNodePacket.class, TechTreeNodePacket::new)
+            .loadPacket(TechTreeHandShakeS2CPacket.class, TechTreeHandShakeS2CPacket::new)
+            .loadPacket(TechTreeHandShakeC2SPacket.class, TechTreeHandShakeC2SPacket::new)
+            .loadPacket(TechTreeEOFS2CPacket.class, TechTreeEOFS2CPacket::new)
+            .loadPacket(TechTreeEOFC2SPacket.class, TechTreeEOFC2SPacket::new)
             .submit(AllElements.testRegistry);
 
     public static void invoke() {}
