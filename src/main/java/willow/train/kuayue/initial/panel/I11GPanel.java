@@ -203,4 +203,11 @@ public class I11GPanel {
                     .submit(AllElements.testRegistry);
 
     public static void invoke(){}
+    public static final PanelRegistration<TrainPanelBlock> PANEL_TOP_DF11G =
+            new PanelRegistration<TrainPanelBlock>("panel_top_df11g")
+                    .block(p -> new TrainPanelBlock(p, new Vec2(0,0),new Vec2(1,1)))
+                    .materialAndColor(Material.METAL,MaterialColor.COLOR_BLUE)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion().strengthAndTool(1.5f,3f)
+                    .submit(AllElements.testRegistry);
 }
