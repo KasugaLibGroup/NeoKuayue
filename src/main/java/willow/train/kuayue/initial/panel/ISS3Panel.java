@@ -20,7 +20,7 @@ import willow.train.kuayue.initial.registration.SlabRegistration;
 
 public class ISS3Panel {
 
-    public static final PanelRegistration<TrainHingePanelBlock> panel_top_ss3 =
+    public static final PanelRegistration<TrainHingePanelBlock> PANEL_TOP_SS3 =
             new PanelRegistration<TrainHingePanelBlock>("panel_top_ss3")
                     .block(p -> new TrainHingePanelBlock(p, new Vec2(0, 0), new Vec2(1, 1)))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
