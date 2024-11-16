@@ -687,6 +687,11 @@
   "block.kuayue.platform_wall": "站台屏蔽墙",
   "block.kuayue.luggage_rack_m1": "M1客车行李架",
   "block.kuayue.seat_m1": "M1客车座椅",
+  "block.kuayue.panel_bottom_df11g": "DF11G下箱板",
+  "block.kuayue.panel_top_df11g": "DF11G上箱板",
+  "block.kuayue.panel_top_ss3": "SS3上箱板",
+
+
 
   "tooltip.kuayue.color_selector": "鼠标左键+拖动/滚动鼠标滚轮",
   "tooltip.kuayue.color_screen.title": "颜色编辑器",

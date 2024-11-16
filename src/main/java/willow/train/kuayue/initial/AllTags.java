@@ -63,6 +63,8 @@ public class AllTags {
 
     public static final BlockTagReg I11G = new BlockTagReg("i11g", "panel/i11g")
             .submit(AllElements.testRegistry);
+    public static final BlockTagReg ISS3 = new BlockTagReg("iss3", "panel/iss3")
+            .submit(AllElements.testRegistry);
 
     public static final BlockTagReg I21 = new BlockTagReg("i21", "panel/i21")
             .submit(AllElements.testRegistry);

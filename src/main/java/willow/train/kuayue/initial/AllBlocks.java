@@ -242,6 +242,7 @@ public class AllBlocks {
         I21Panel.invoke();
         AllDecoBlocks.invoke();
         CR200JPanel.invoke();
+        ISS3Panel.invoke();
         AllRecipeBlock.invoke();
     }
 
