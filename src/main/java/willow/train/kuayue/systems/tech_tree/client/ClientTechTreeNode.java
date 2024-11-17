@@ -20,6 +20,8 @@ public class ClientTechTreeNode {
 
     private final Set<ItemStack> itemConsume;
 
+    private final ItemStack logo;
+
     private final Set<NodeLocation> next;
 
     private final Set<ClientTechTreeNode> nextNode;
@@ -29,6 +31,7 @@ public class ClientTechTreeNode {
         type = NodeType.readFromByteBuf(buf);
         name = buf.readUtf();
         description = buf.readUtf();
+        logo = buf.readItem();
 
         itemConsume = new HashSet<>();
         next = new HashSet<>();

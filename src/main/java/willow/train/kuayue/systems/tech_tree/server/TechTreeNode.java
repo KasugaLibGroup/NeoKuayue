@@ -114,6 +114,7 @@ public class TechTreeNode {
         getType().writeToByteBuf(buf);
         buf.writeUtf(getData().getName());
         buf.writeUtf(getData().getDescription());
+        buf.writeItemStack(data.getLogo(), false);
 
         // item consume
         Set<ItemStack> consume = getItemConsume();
