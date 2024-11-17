@@ -217,8 +217,8 @@ public class I11GPanel {
                     .tab(AllElements.neoKuayueLocoTab)
                     .noOcclusion().strengthAndTool(1.5f,3f)
                     .submit(AllElements.testRegistry);
-    public static final SlabRegistration<HingeSlabBlock> BOTTOM_DF11G =
-            new SlabRegistration<HingeSlabBlock>("slab_bottom_df11g")
+    public static final SlabRegistration<HingeSlabBlock> FLOOR_DF11G =
+            new SlabRegistration<HingeSlabBlock>("floor_df11g")
                     .block(p -> new HingeSlabBlock(p, false))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_BLACK)
                     .tab(AllElements.neoKuayueLocoTab)
