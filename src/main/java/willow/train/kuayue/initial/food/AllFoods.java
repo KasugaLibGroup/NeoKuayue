@@ -12,7 +12,7 @@ import willow.train.kuayue.initial.AllElements;
 import willow.train.kuayue.initial.AllItems;
 import willow.train.kuayue.initial.registration.PlacementFoodRegistration;
 
-import static net.minecraft.world.item.Items.GLASS_BOTTLE;
+import static willow.train.kuayue.initial.AllItems.EMPTY_CAN;
 import static willow.train.kuayue.initial.food.AllFoodProperties.*;
 
 public class AllFoods {
@@ -44,7 +44,7 @@ public class AllFoods {
                     .strength(0.5F)
                     .noOcclusion()
                     .foodProperties(KUA_COLA_PROPS)
-                    .craftReminder(() -> GLASS_BOTTLE)
+                    .craftReminder(EMPTY_CAN::getItem)
                     .stackSize(16)
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
