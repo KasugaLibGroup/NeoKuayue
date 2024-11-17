@@ -92,6 +92,12 @@ public class AllItems {
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
 
+    public static final ItemReg<Item> EMPTY_CAN =
+            new ItemReg<Item>("empty_can")
+                    .itemType(Item::new)
+                    .tab(AllElements.neoKuayueDietTab)
+                    .submit(AllElements.testRegistry);
+
     public static final ItemReg<Item> SOLIDIFY_SLIME_BALL =
             new ItemReg<>("solidify_slime_ball")
                     .itemType(Item::new)

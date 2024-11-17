@@ -1,11 +1,8 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
-    {
-      "type": "forge:nbt",
-      "item": "minecraft:potion",
-      "nbt": "{Potion:'minecraft:water'}"
-    },
+    { "item": "kuayue:empty_can"},
+    { "item": "minecraft:water_bucket"},
     { "item": "minecraft:sugar" },
     { "item": "minecraft:brown_dye" }
   ],
