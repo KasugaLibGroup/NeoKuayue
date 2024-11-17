@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "kuayue:block/df11g/bottom_df11g",
-		"particle": "kuayue:block/df11g/bottom_df11g"
+		"0": "kuayue:block/df11g/slab_bottom_df11g",
+		"particle": "kuayue:block/df11g/slab_bottom_df11g"
 	},
 	"elements": [
 		{
