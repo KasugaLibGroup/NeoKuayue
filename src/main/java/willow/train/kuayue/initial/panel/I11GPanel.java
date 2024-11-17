@@ -217,7 +217,20 @@ public class I11GPanel {
                     .tab(AllElements.neoKuayueLocoTab)
                     .noOcclusion().strengthAndTool(1.5f,3f)
                     .submit(AllElements.testRegistry);
-
+    public static final SlabRegistration<HingeSlabBlock> BOTTOM_DF11G =
+            new SlabRegistration<HingeSlabBlock>("bottom_df11g")
+                    .block(p -> new HingeSlabBlock(p, false))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_BLACK)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+                    .submit(AllElements.testRegistry);
+    public static final PanelRegistration<TrainPanelBlock> WINDOW_EQUIP_ROOM_DF11G_1 =
+            new PanelRegistration<TrainPanelBlock>("window_equip_room_df11g_1")
+                    .block(p -> new TrainPanelBlock(p, new Vec2(0,0),new Vec2(1,2)))
+                    .materialAndColor(Material.METAL,MaterialColor.COLOR_BLUE)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion().strengthAndTool(1.5f,3f)
+                    .submit(AllElements.testRegistry);
 
     public static void invoke(){}
 

@@ -842,5 +842,7 @@
 
   "block.kuayue.head_df11g_2": "DF11G 车头方块",
   "block.kuayue.panel_symbol_marshalled_25k": "统型 25K 标识线下厢板",
-  "block.kuayue.panel_symbol_marshalled_25k_b": "统型 25K 标识线下厢板 (类型B)"
+  "block.kuayue.panel_symbol_marshalled_25k_b": "统型 25K 标识线下厢板 (类型B)",
+  "block.kuayue.bottom_df11g": "DF11G车底",
+  "block.kuayue.window_equip_room_df11g_1": "DF11G设备间窗户 (类型1)"
 }
