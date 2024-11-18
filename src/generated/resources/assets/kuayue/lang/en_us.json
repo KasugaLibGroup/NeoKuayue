@@ -849,6 +849,8 @@
  "block.kuayue.panel_symbol_marshalled_25k": "Marshalled 25K Symbol Panel",
  "block.kuayue.panel_symbol_marshalled_25k_b": "Marshalled 25K Symbol Panel (Type B)",
  "block.kuayue.panel_top_df11g": "DF11G Top Panel",
+ "block.kuayue.road_sign_df11g": "DF11G Road Sign",
  "block.kuayue.floor_df11g": "DF11G Floor",
- "block.kuayue.window_equip_room_df11g_1": "DF11G Equipment Room Window (Type 1)"
+ "block.kuayue.window_equip_room_df11g_1": "DF11G Equipment Room Window (Type 1)",
+ "block.kuayue.window_equip_room_df11g_2": "DF11G Equipment Room Window (Type 2)"
 }
