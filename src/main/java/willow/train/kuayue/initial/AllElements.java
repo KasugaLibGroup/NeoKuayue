@@ -12,10 +12,11 @@ import willow.train.kuayue.event.server.ColorTemplateEvents;
 import willow.train.kuayue.event.server.PlayerJumpEvents;
 import willow.train.kuayue.event.server.ServerResourceReloadEvent;
 import willow.train.kuayue.initial.create.*;
+import willow.train.kuayue.initial.fluid.FluidTypesInit;
+import willow.train.kuayue.initial.fluid.FluidsInit;
 import willow.train.kuayue.initial.food.AllFoods;
 import willow.train.kuayue.initial.material.AllMaterials;
 import willow.train.kuayue.initial.recipe.AllRecipes;
-import willow.train.kuayue.systems.tech_tree.player.PlayerDataDist;
 
 public class AllElements {
 
@@ -57,6 +58,10 @@ public class AllElements {
         AllFoods.invoke();
         AllRecipes.invoke();
         AllEntities.invoke();
+        FluidsInit.register(testRegistry.eventBus);
+        FluidTypesInit.register(testRegistry.eventBus);
+        AllBlocks.register(testRegistry.eventBus);
+        AllItems.register(testRegistry.eventBus);
         if (Envs.isClient()) {
             ClientInit.invoke();
             Kuayue.BUS.addListener(ClientInit::registerHUDOverlays);

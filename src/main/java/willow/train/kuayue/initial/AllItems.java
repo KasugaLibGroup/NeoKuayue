@@ -1,14 +1,20 @@
 package willow.train.kuayue.initial;
 
-import com.simibubi.create.AllRecipeTypes;
 import kasuga.lib.registrations.BundledReg;
 import kasuga.lib.registrations.common.ItemReg;
+import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
+import willow.train.kuayue.Kuayue;
+import willow.train.kuayue.initial.fluid.FluidsInit;
 import willow.train.kuayue.item.FuelItem;
 
 public class AllItems {
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Kuayue.MODID);
 
     public static final ItemReg<Item> SERIES_25_LOGOS =
             new ItemReg<Item>("series25_logos")
@@ -279,5 +285,13 @@ public class AllItems {
                     .element("carriage_marshalled_mould_constructing")
                     .submit(AllElements.testRegistry);
 
+    public static final RegistryObject<Item> COLA_BUCKET = ITEMS.register("cola_bucket",
+            () -> new BucketItem(FluidsInit.STILL_COLA,
+                    new Item.Properties().tab(AllElements.neoKuayueDietTab.getTab())));
+
     public static void invoke() {}
+
+    public static void register(IEventBus eventBus){
+        ITEMS.register(eventBus);
+    }
 }
