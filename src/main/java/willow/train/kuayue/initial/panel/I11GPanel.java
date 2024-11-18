@@ -188,6 +188,8 @@ public class I11GPanel {
             new BlockReg<FullShapeDirectionalBlock>("cowcatcher_df11g")
                     .blockType(FullShapeDirectionalBlock::new)
                     .material(Material.METAL).materialColor(MaterialColor.COLOR_BLACK)
+                    .addProperty(properties -> properties.strength(1.5f, 3f))
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
                     .defaultBlockItem()
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
                     .tabTo(AllElements.neoKuayueLocoTab)
@@ -198,6 +200,8 @@ public class I11GPanel {
                     .blockType(FullShapeDirectionalBlock::new)
                     .material(Material.METAL).materialColor(MaterialColor.COLOR_BLACK)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(properties -> properties.strength(1.5f, 3f))
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueLocoTab)
                     .submit(AllElements.testRegistry);
@@ -217,9 +221,9 @@ public class I11GPanel {
                     .tab(AllElements.neoKuayueLocoTab)
                     .noOcclusion().strengthAndTool(1.5f,3f)
                     .submit(AllElements.testRegistry);
-    public static final SlabRegistration<HingeSlabBlock> FLOOR_DF11G =
-            new SlabRegistration<HingeSlabBlock>("floor_df11g")
-                    .block(p -> new HingeSlabBlock(p, false))
+    public static final SlabRegistration<TrainSlabBlock> FLOOR_DF11G =
+            new SlabRegistration<TrainSlabBlock>("floor_df11g")
+                    .block(p -> new TrainSlabBlock(p, false))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_BLACK)
                     .tab(AllElements.neoKuayueLocoTab)
                     .noOcclusion().strengthAndTool(1.5f, 3f)
