@@ -236,6 +236,21 @@ public class I11GPanel {
                     .noOcclusion().strengthAndTool(1.5f,3f)
                     .submit(AllElements.testRegistry);
 
+    public static final PanelRegistration<TrainPanelBlock> WINDOW_EQUIP_ROOM_DF11G_2 =
+            new PanelRegistration<TrainPanelBlock>("window_equip_room_df11g_2")
+                    .block(p -> new TrainPanelBlock(p, new Vec2(0,0),new Vec2(1,1)))
+                    .materialAndColor(Material.METAL,MaterialColor.COLOR_BLUE)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion().strengthAndTool(1.5f,3f)
+                    .submit(AllElements.testRegistry);
+    public static final PanelRegistration<TrainPanelBlock> ROAD_SIGN_DF11G =
+                    new PanelRegistration<TrainPanelBlock>("road_sign_df11g")
+                    .block(p -> new TrainPanelBlock(p, new Vec2(-1,0),new Vec2(2,1)))
+                    .materialAndColor(Material.METAL,MaterialColor.COLOR_BLUE)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion().strengthAndTool(1.5f,3f)
+                    .submit(AllElements.testRegistry);
+
     public static void invoke(){}
 
 
