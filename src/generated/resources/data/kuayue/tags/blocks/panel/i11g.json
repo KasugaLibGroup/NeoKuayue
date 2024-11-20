@@ -24,6 +24,13 @@
     "kuayue:head_df11g_2",
     "kuayue:panel_bottom_df11g",
     "kuayue:panel_top_df11g",
-    "kuayue:df11g_carport_kua"
+    "kuayue:df11g_carport_kua",
+    "kuayue:road_sign_df11g",
+    "kuayue:window_equip_room_df11g_2",
+    "kuayue:window_pr_df11g",
+    "kuayue:louver_equip_room_df11g_1",
+    "kuayue:louver_equip_room_df11g_2_bottom",
+    "kuayue:louver_equip_room_df11g_2_top"
+
   ]
 }

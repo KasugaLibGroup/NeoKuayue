@@ -846,7 +846,16 @@
   "block.kuayue.head_df11g_2": "DF11G 车头方块",
   "block.kuayue.panel_symbol_marshalled_25k": "统型 25K 标识线下厢板",
   "block.kuayue.panel_symbol_marshalled_25k_b": "统型 25K 标识线下厢板 (类型B)",
+
   "block.kuayue.floor_df11g": "DF11G地板",
-  "block.kuayue.window_equip_room_df11g_1": "DF11G设备间窗户 (类型A)",
-  "block.kuayue.df11g_carport_kua": "DF11G车顶“跨”字"
+  "block.kuayue.df11g_carport_kua": "DF11G车顶“跨”字",
+
+  "block.kuayue.road_sign_df11g": "路徽",
+  "block.kuayue.window_equip_room_df11g_1": "DF11G设备间窗户 (类型1)",
+  "block.kuayue.window_equip_room_df11g_2": "DF11G设备间窗户 (类型2)",
+  "block.kuayue.window_pr_df11g": "DF11G 动力间百叶窗",
+  "block.kuayue.louver_equip_room_df11g_1": "DF11G设备间百叶窗1",
+  "block.kuayue.louver_equip_room_df11g_2_bottom": "DF11G 设备间百叶窗2 (下半)",
+  "block.kuayue.louver_equip_room_df11g_2_top": "DF11G 设备间百叶窗2 (上半)"
+
 }

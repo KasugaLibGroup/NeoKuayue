@@ -3,19 +3,11 @@ package willow.train.kuayue.initial;
 import kasuga.lib.registrations.common.BlockEntityReg;
 import kasuga.lib.registrations.common.BlockReg;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.Vec2;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
-import willow.train.kuayue.Kuayue;
-import willow.train.kuayue.block.food.fluid.ColaBlock;
 import willow.train.kuayue.block.panels.TrainPanelBlock;
 import willow.train.kuayue.block.panels.base.*;
 import willow.train.kuayue.block.panels.block_entity.*;
@@ -23,7 +15,6 @@ import willow.train.kuayue.block.panels.block_entity.renderer.*;
 import willow.train.kuayue.block.panels.door.DoubleDoorBlock;
 import willow.train.kuayue.block.seat.SeatBlockEntity;
 import willow.train.kuayue.block.structure.platform.PlatformWallBlock;
-import willow.train.kuayue.initial.fluid.FluidsInit;
 import willow.train.kuayue.initial.panel.*;
 import willow.train.kuayue.initial.recipe.AllRecipeBlock;
 import willow.train.kuayue.initial.registration.PanelRegistration;
@@ -34,8 +25,6 @@ import java.io.FileWriter;
 import static willow.train.kuayue.initial.panel.CM1Panel.END_FACE_MIDDLE_M1;
 
 public class AllBlocks {
-
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Kuayue.MODID);
 
     public static final BlockReg<Block> CR_LOGO =
             new BlockReg<Block>("cr_logo")
@@ -126,10 +115,6 @@ public class AllBlocks {
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
-
-    public static final RegistryObject<ColaBlock> COLA_BLOCK = BLOCKS.register("cola_block",
-            () -> new ColaBlock(FluidsInit.STILL_COLA,
-                    BlockBehaviour.Properties.copy(Blocks.WATER)));
 
     public static final BlockEntityReg<CompanyTrainBlockEntity> COMPANY_TRAIN_BLOCK_ENTITY =
             new BlockEntityReg<CompanyTrainBlockEntity>("company_panel")
@@ -257,10 +242,6 @@ public class AllBlocks {
         CR200JPanel.invoke();
         ISS3Panel.invoke();
         AllRecipeBlock.invoke();
-    }
-
-    public static void register(IEventBus eventBus){
-        BLOCKS.register(eventBus);
     }
 
     public static void generateDrops(String name) {
