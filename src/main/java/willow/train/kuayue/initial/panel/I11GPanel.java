@@ -250,6 +250,34 @@ public class I11GPanel {
                     .tab(AllElements.neoKuayueLocoTab)
                     .noOcclusion().strengthAndTool(1.5f,3f)
                     .submit(AllElements.testRegistry);
+    public static final PanelRegistration<TrainPanelBlock> WINDOW_PR_DF11G =
+            new PanelRegistration<TrainPanelBlock>("window_pr_df11g")
+                    .block(p -> new TrainPanelBlock(p, new Vec2(0,0),new Vec2(1,1)))
+                    .materialAndColor(Material.METAL,MaterialColor.COLOR_BLUE)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion().strengthAndTool(1.5f,3f)
+                    .submit(AllElements.testRegistry);
+    public static final PanelRegistration<TrainPanelBlock> LOUVER_EQUIP_ROOM_DF11G_2_TOP =
+            new PanelRegistration<TrainPanelBlock>("louver_equip_room_df11g_2_top")
+                    .block(p -> new TrainPanelBlock(p, new Vec2(0,0),new Vec2(1,1)))
+                    .materialAndColor(Material.METAL,MaterialColor.COLOR_BLUE)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion().strengthAndTool(1.5f,3f)
+                    .submit(AllElements.testRegistry);
+    public static final PanelRegistration<TrainPanelBlock> LOUVER_EQUIP_ROOM_DF11G_2_BOTTOM =
+            new PanelRegistration<TrainPanelBlock>("louver_equip_room_df11g_2_bottom")
+                    .block(p -> new TrainPanelBlock(p, new Vec2(0,0),new Vec2(1,1)))
+                    .materialAndColor(Material.METAL,MaterialColor.COLOR_BLUE)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion().strengthAndTool(1.5f,3f)
+                    .submit(AllElements.testRegistry);
+    public static final PanelRegistration<TrainPanelBlock> LOUVER_EQUIP_ROOM_DF11G_1 =
+            new PanelRegistration<TrainPanelBlock>("louver_equip_room_df11g_1")
+                    .block(p -> new TrainPanelBlock(p, new Vec2(0,0),new Vec2(1,1)))
+                    .materialAndColor(Material.METAL,MaterialColor.COLOR_BLUE)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion().strengthAndTool(1.5f,3f)
+                    .submit(AllElements.testRegistry);
 
     public static void invoke(){}
 
