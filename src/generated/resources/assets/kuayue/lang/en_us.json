@@ -852,5 +852,9 @@
  "block.kuayue.road_sign_df11g": "DF11G Road Sign",
  "block.kuayue.floor_df11g": "DF11G Floor",
  "block.kuayue.window_equip_room_df11g_1": "DF11G Equipment Room Window (Type 1)",
- "block.kuayue.window_equip_room_df11g_2": "DF11G Equipment Room Window (Type 2)"
+ "block.kuayue.window_equip_room_df11g_2": "DF11G Equipment Room Window (Type 2)",
+ "block.kuayue.window_pr_df11g": "DF11G Power Room Window",
+ "block.kuayue.louver_equip_room_df11g_1": "DF11G Equipment Room Louver (Type 1)",
+ "block.kuayue.louver_equip_room_df11g_2_bottom": "DF11G Equipment Room Bottom Louver (Type 2)",
+ "block.kuayue.louver_equip_room_df11g_2_top": "DF11G Equipment Room Top Louver (Type 2)"
 }
