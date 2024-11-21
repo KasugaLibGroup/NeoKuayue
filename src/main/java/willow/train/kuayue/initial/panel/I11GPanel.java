@@ -288,6 +288,21 @@ public class I11GPanel {
 
                     .submit(AllElements.testRegistry);
 
+    public static final SlabRegistration<TrainSlabBlock> DF11G_CARPORT_YUE =
+            new SlabRegistration<TrainSlabBlock>("df11g_carport_yue")
+                    .block(p -> new TrainSlabBlock(p, true))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+                    .submit(AllElements.testRegistry);
+
+    public static final SlabRegistration<TrainSlabBlock> DF11G_CARPORT_PH =
+            new SlabRegistration<TrainSlabBlock>("df11g_carport_ph")
+                    .block(p -> new TrainSlabBlock(p, true))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+                    .submit(AllElements.testRegistry);
     public static void invoke(){}
 
 

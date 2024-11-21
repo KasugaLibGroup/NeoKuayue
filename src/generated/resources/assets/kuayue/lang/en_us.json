@@ -844,7 +844,9 @@
  "item.kuayue.plastic_ingot": "Plastic Cubic",
  "item.kuayue.weathering_resistant_steel_dust": "Weathering Resistant Steel Dust",
  "item.kuayue.weathering_resistant_steel_pole": "Weathering Resistant Steel Pole",
- "block.kuayue.df11g_carport_kua": "DF11G“with KUA roof” ",
+ "block.kuayue.df11g_carport_kua": "DF11G carport with KUA roof ",
+ "block.kuayue.df11g_carport_yue": "DF11G carport with YUE roof” ",
+ "block.kuayue.df11g_carport_ph": "DF11G powerhouse carport ",
 
  "block.kuayue.head_df11g_2": "DF11G Loco Head",
  "block.kuayue.panel_symbol_marshalled_25k": "Marshalled 25K Symbol Panel",
