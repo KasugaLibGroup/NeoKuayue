@@ -236,6 +236,14 @@ public class I11GPanel {
                     .noOcclusion().strengthAndTool(1.5f,3f)
                     .submit(AllElements.testRegistry);
 
+
+    public static final SlabRegistration<TrainSlabBlock> DF11G_CARPORT_KUA =
+            new SlabRegistration<TrainSlabBlock>("df11g_carport_kua")
+                    .block(p -> new TrainSlabBlock(p, true))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+
     public static final PanelRegistration<TrainPanelBlock> WINDOW_EQUIP_ROOM_DF11G_2 =
             new PanelRegistration<TrainPanelBlock>("window_equip_room_df11g_2")
                     .block(p -> new TrainPanelBlock(p, new Vec2(0,0),new Vec2(1,1)))
@@ -277,6 +285,7 @@ public class I11GPanel {
                     .materialAndColor(Material.METAL,MaterialColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueLocoTab)
                     .noOcclusion().strengthAndTool(1.5f,3f)
+
                     .submit(AllElements.testRegistry);
 
     public static void invoke(){}
