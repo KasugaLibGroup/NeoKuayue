@@ -24,7 +24,7 @@ public class ColaBlock extends LiquidBlock {
 
     @Override
     public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
-        spawnParticles(pLevel, pPos);
+        // spawnParticles(pLevel, pPos);
     }
 
     private static void spawnParticles(Level pLevel, BlockPos pPos) {
