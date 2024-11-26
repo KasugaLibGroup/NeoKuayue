@@ -844,9 +844,9 @@
  "item.kuayue.plastic_ingot": "Plastic Cubic",
  "item.kuayue.weathering_resistant_steel_dust": "Weathering Resistant Steel Dust",
  "item.kuayue.weathering_resistant_steel_pole": "Weathering Resistant Steel Pole",
- "block.kuayue.df11g_carport_kua": "DF11G carport with KUA roof ",
- "block.kuayue.df11g_carport_yue": "DF11G carport with YUE roof” ",
- "block.kuayue.df11g_carport_ph": "DF11G powerhouse carport ",
+ "block.kuayue.df11g_carport_kua": "DF11G Carport with KUA Roof ",
+ "block.kuayue.df11g_carport_yue": "DF11G Carport with YUE Roof” ",
+ "block.kuayue.df11g_carport_ph": "DF11G Power Room Carport ",
 
  "block.kuayue.head_df11g_2": "DF11G Loco Head",
  "block.kuayue.panel_symbol_marshalled_25k": "Marshalled 25K Symbol Panel",
@@ -859,5 +859,11 @@
  "block.kuayue.window_pr_df11g": "DF11G Power Room Window",
  "block.kuayue.louver_equip_room_df11g_1": "DF11G Equipment Room Louver (Type 1)",
  "block.kuayue.louver_equip_room_df11g_2_bottom": "DF11G Equipment Room Bottom Louver (Type 2)",
- "block.kuayue.louver_equip_room_df11g_2_top": "DF11G Equipment Room Top Louver (Type 2)"
+ "block.kuayue.louver_equip_room_df11g_2_top": "DF11G Equipment Room Top Louver (Type 2)",
+ "block.kuayue.df11g_windows_ph_eh":"DF11G Power and Equipment Room windows ",
+ "block.kuayue.df11g_panel_bottom_blind":"DF11G Bottom Blind",
+ "block.kuayue.df11g_panel_bottom_cooling_blind":"DF11G Radiator Room Bottom Blind",
+ "block.kuayue.df11g_panel_upper_blind":"DF11G Upper Blind",
+ "block.kuayue.df11g_panel_upper_cooling_blind":"DF11G Radiator Room Upper Blind",
+ "block.kuayue.df11g_tank":"DF11G Blowcylinders And Flue Tank"
 }
