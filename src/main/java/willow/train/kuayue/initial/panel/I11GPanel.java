@@ -4,7 +4,6 @@ import com.simibubi.create.foundation.utility.Couple;
 import kasuga.lib.registrations.common.BlockReg;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.Vec2;
@@ -237,7 +236,6 @@ public class I11GPanel {
                     .noOcclusion().strengthAndTool(1.5f,3f)
                     .submit(AllElements.testRegistry);
 
-
     public static final SlabRegistration<TrainSlabBlock> DF11G_CARPORT_KUA =
             new SlabRegistration<TrainSlabBlock>("df11g_carport_kua")
                     .block(p -> new TrainSlabBlock(p, true ))
@@ -245,6 +243,7 @@ public class I11GPanel {
                     .tab(AllElements.neoKuayueLocoTab)
                     .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
+
     public static final PanelRegistration<TrainPanelBlock> WINDOW_EQUIP_ROOM_DF11G_2 =
             new PanelRegistration<TrainPanelBlock>("window_equip_room_df11g_2")
                     .block(p -> new TrainPanelBlock(p, new Vec2(0,0),new Vec2(1,1)))

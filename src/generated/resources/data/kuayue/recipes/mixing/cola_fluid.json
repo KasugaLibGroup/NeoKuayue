@@ -1,0 +1,19 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "amount": 1000,
+      "fluid": "minecraft:water",
+      "nbt": {}
+    },
+    { "item": "minecraft:sugar" },
+    { "item": "minecraft:brown_dye" }
+  ],
+  "results": [
+    {
+      "amount": 1000,
+      "fluid": "kuayue:cola_fluid"
+    }
+  ]
+}

@@ -1,12 +1,9 @@
 package willow.train.kuayue.block.food.fluid;
 
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
-import org.jetbrains.annotations.Nullable;
 
 public class ColaFluid extends ForgeFlowingFluid {
 
