@@ -23,6 +23,9 @@
     "kuayue:slab_bottom_jy30",
     "kuayue:freight_c70_slab_top",
     "kuayue:freight_nx70_floor_high",
-    "kuayue:panel_bottom_df11g"
+    "kuayue:panel_bottom_df11g",
+    "kuayue:df11g_panel_bottom_blind",
+    "kuayue:df11g_panel_bottom_cooling_blind"
+
   ]
 }

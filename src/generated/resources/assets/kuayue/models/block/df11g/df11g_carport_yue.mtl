@@ -1,8 +1,6 @@
 # Made in Blockbench 4.11.2
-newmtl m_e676da9a-a1ba-464c-94f0-5dbd97b92bd5
-map_Kd kuayue:block/df11g/df11g_carport_cooling_2
-newmtl m_c76cc4bd-3df2-33e6-1e40-b17b7d68c016
-map_Kd kuayue:block/df11g/df11g_carport_cooling_1
-newmtl m_8e6c8860-4e2b-3471-5abd-2f70108195a5
+newmtl m_7afa28e0-3c66-8585-5324-f18bf6369df3
+map_Kd kuayue:block/df11g/df11g_carport_addition
+newmtl m_f632c3af-86e4-5e97-a454-400fd55e6cbc
 map_Kd kuayue:block/df11g/df11g_carport_yue
 newmtl none

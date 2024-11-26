@@ -18,6 +18,7 @@ import willow.train.kuayue.block.panels.end_face.CustomRenderedEndfaceBlock;
 import willow.train.kuayue.block.panels.slab.HingeSlabBlock;
 import willow.train.kuayue.block.panels.slab.TrainSlabBlock;
 import willow.train.kuayue.block.panels.window.TrainUnOpenableSmallWindowBlock;
+import willow.train.kuayue.block.panels.window.TrainUnOpenableWindowBlock;
 import willow.train.kuayue.initial.AllElements;
 import willow.train.kuayue.initial.registration.PanelRegistration;
 import willow.train.kuayue.initial.registration.SlabRegistration;
@@ -239,11 +240,11 @@ public class I11GPanel {
 
     public static final SlabRegistration<TrainSlabBlock> DF11G_CARPORT_KUA =
             new SlabRegistration<TrainSlabBlock>("df11g_carport_kua")
-                    .block(p -> new TrainSlabBlock(p, true))
+                    .block(p -> new TrainSlabBlock(p, true ))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueLocoTab)
                     .noOcclusion().strengthAndTool(1.5f, 3f)
-
+                    .submit(AllElements.testRegistry);
     public static final PanelRegistration<TrainPanelBlock> WINDOW_EQUIP_ROOM_DF11G_2 =
             new PanelRegistration<TrainPanelBlock>("window_equip_room_df11g_2")
                     .block(p -> new TrainPanelBlock(p, new Vec2(0,0),new Vec2(1,1)))
@@ -296,13 +297,57 @@ public class I11GPanel {
                     .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
-    public static final SlabRegistration<TrainSlabBlock> DF11G_CARPORT_PH =
-            new SlabRegistration<TrainSlabBlock>("df11g_carport_ph")
-                    .block(p -> new TrainSlabBlock(p, true))
+    public static final PanelRegistration<TrainPanelBlock> DF11G_PANEL_BOTTOM_BLIND =
+            new PanelRegistration<TrainPanelBlock>("df11g_panel_bottom_blind")
+                    .block(p -> new TrainPanelBlock(p, new Vec2(0,0),new Vec2(1,1)))
+                    .materialAndColor(Material.METAL,MaterialColor.COLOR_BLUE)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion().strengthAndTool(1.5f,3f)
+                    .submit(AllElements.testRegistry);
+
+    public static final PanelRegistration<TrainPanelBlock> DF11G_PANEL_UPPER_BLIND =
+            new PanelRegistration<TrainPanelBlock>("df11g_panel_upper_blind")
+                    .block(p -> new TrainPanelBlock(p, new Vec2(0,0),new Vec2(1,1)))
+                    .materialAndColor(Material.METAL,MaterialColor.COLOR_BLUE)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion().strengthAndTool(1.5f,3f)
+                    .submit(AllElements.testRegistry);
+
+
+    public static final PanelRegistration<TrainUnOpenableWindowBlock> DF11G_PANEL_BOTTOM_COOLING_BLIND =
+            new PanelRegistration<TrainUnOpenableWindowBlock>("df11g_panel_bottom_cooling_blind")
+                    .block(p -> new TrainUnOpenableWindowBlock(p, 2))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
                     .tab(AllElements.neoKuayueLocoTab)
                     .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
+
+
+    public static final BlockReg<FullShapeDirectionalBlock> DF11G_TANK =
+            new BlockReg<FullShapeDirectionalBlock>("df11g_tank")
+                    .blockType(FullShapeDirectionalBlock::new)
+                    .material(Material.METAL).materialColor(MaterialColor.COLOR_BLACK)
+                    .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .defaultBlockItem()
+                    .tabTo(AllElements.neoKuayueLocoTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final PanelRegistration<TrainUnOpenableWindowBlock> DF11G_WINDOWS_PH_EH =
+            new PanelRegistration<TrainUnOpenableWindowBlock>("df11g_windows_ph_eh")
+                    .block(p -> new TrainUnOpenableWindowBlock(p, 2))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+                    .submit(AllElements.testRegistry);
+
+    public static final PanelRegistration<TrainUnOpenableWindowBlock> DF11G_PANEL_UPPER_COOLING_BLIND =
+            new PanelRegistration<TrainUnOpenableWindowBlock>("df11g_panel_upper_cooling_blind")
+                    .block(p -> new TrainUnOpenableWindowBlock(p, 2))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+                    .submit(AllElements.testRegistry);
+
     public static void invoke(){}
 
 
