@@ -1,7 +1,6 @@
 package willow.train.kuayue.initial.fluid;
 
 import kasuga.lib.core.base.BucketItem;
-import kasuga.lib.example_env.block.fluid.ExampleFluidBlock;
 import kasuga.lib.registrations.common.FluidReg;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Blocks;
@@ -12,6 +11,7 @@ import willow.train.kuayue.initial.AllElements;
 
 public class AllFluids {
 
+/*
     public static final FluidReg<ColaFluid> COLA_FLUID = new FluidReg<ColaFluid>("cola_fluid")
             .still(ColaFluid::new, "fluid/water_still")
             .flow(ColaFluid.Flowing::new, "fluid/water_flow")
@@ -28,6 +28,6 @@ public class AllFluids {
             .setRenderType(RenderType.translucent())
             .tab(AllElements.neoKuayueDietTab)
             .submit(AllElements.testRegistry);
-
+*/
     public static void invoke() {}
 }

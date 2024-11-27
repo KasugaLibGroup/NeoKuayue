@@ -1,6 +1,6 @@
 {
   "values": [
-    "kuayue:cola_fluid_flow",
-    "kuayue:cola_fluid"
+    "kuayue:cola_still_fluid",
+    "kuayue:cola_flowing_fluid"
   ]
 }

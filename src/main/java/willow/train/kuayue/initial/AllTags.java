@@ -1,7 +1,9 @@
 package willow.train.kuayue.initial;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import kasuga.lib.registrations.Reg;
 import kasuga.lib.registrations.common.BlockTagReg;
+import kasuga.lib.registrations.common.FluidTagReg;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -74,6 +76,10 @@ public class AllTags {
 
     public static final BlockTagReg END_FACES = new BlockTagReg("end_face", "panel/end_face")
             .submit(AllElements.testRegistry);
+
+    public static final Reg COLA_FLUID =
+            new FluidTagReg("forge", "cola_fluid", "fluids/cola_fluid")
+                    .submit(AllElements.testRegistry);
 
     public static void invoke() {}
 
