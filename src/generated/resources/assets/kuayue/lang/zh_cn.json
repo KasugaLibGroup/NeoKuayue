@@ -849,6 +849,7 @@
 
   "block.kuayue.floor_df11g": "DF11G地板",
   "block.kuayue.df11g_carport_kua": "DF11G车顶“跨”字",
+  "block.kuayue.df11g_carport_yue": "DF11G车顶“越”字",
 
   "block.kuayue.road_sign_df11g": "路徽",
   "block.kuayue.window_equip_room_df11g_1": "DF11G设备间窗户 (类型1)",
@@ -856,6 +857,12 @@
   "block.kuayue.window_pr_df11g": "DF11G 动力间百叶窗",
   "block.kuayue.louver_equip_room_df11g_1": "DF11G设备间百叶窗1",
   "block.kuayue.louver_equip_room_df11g_2_bottom": "DF11G 设备间百叶窗2 (下半)",
-  "block.kuayue.louver_equip_room_df11g_2_top": "DF11G 设备间百叶窗2 (上半)"
+  "block.kuayue.louver_equip_room_df11g_2_top": "DF11G 设备间百叶窗2 (上半)",
+  "block.kuayue.df11g_windows_ph_eh":"DF11G动力间与动力间窗户",
+  "block.kuayue.df11g_panel_bottom_blind":"DF11G下格栅",
+  "block.kuayue.df11g_panel_bottom_cooling_blind":"DF11G散热室下格栅",
+  "block.kuayue.df11g_panel_upper_blind":"DF11G上格栅",
+  "block.kuayue.df11g_panel_upper_cooling_blind":"DF11G散热室上格栅",
+  "block.kuayue.df11g_tank":"DF11G风缸油箱"
 
 }
