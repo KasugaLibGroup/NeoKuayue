@@ -347,6 +347,72 @@ public class I11GPanel {
                     .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
+    public static final SlabRegistration<TrainSlabBlock> DF11G_CARPORT =
+            new SlabRegistration<TrainSlabBlock>("df11g_carport")
+                    .block(p -> new TrainSlabBlock(p, true))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+                    .submit(AllElements.testRegistry);
+
+
+    public static final SlabRegistration<TrainSlabBlock> DF11G_CARPORT_CENTRE =
+            new SlabRegistration<TrainSlabBlock>("df11g_carport_centre")
+                    .block(p -> new TrainSlabBlock(p, true))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+                    .submit(AllElements.testRegistry);
+
+    public static final SlabRegistration<HingeSlabBlock> DF11G_CARPORT_CENTRE_COOLING_BLIND =
+            new SlabRegistration<HingeSlabBlock>("df11g_carport_centre_cooling_blind")
+                    .block(p -> new HingeSlabBlock(p, true))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+                    .submit(AllElements.testRegistry);
+
+    public static final SlabRegistration<TrainSlabBlock> DF11G_CARPORT_CENTRE_FAN_BLIND =
+            new SlabRegistration<TrainSlabBlock>("df11g_carport_centre_fan_blind")
+                    .block(p -> new TrainSlabBlock(p, true))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+                    .submit(AllElements.testRegistry);
+
+
+    public static final SlabRegistration<HingeSlabBlock> DF11G_CARPORT_EH =
+            new SlabRegistration<HingeSlabBlock>("df11g_carport_eh")
+                    .block(p -> new HingeSlabBlock(p, true))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+                    .submit(AllElements.testRegistry);
+
+    public static final SlabRegistration<HingeSlabBlock> DF11G_CARPORT_EH_AD =
+            new SlabRegistration<HingeSlabBlock>("df11g_carport_eh_ad")
+                    .block(p -> new HingeSlabBlock(p, true))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+                    .submit(AllElements.testRegistry);
+
+    public static final SlabRegistration<TrainSlabBlock> DF11G_CARPORT_EH_BLIND =
+            new SlabRegistration<TrainSlabBlock>("df11g_carport_eh_blind")
+                    .block(p -> new TrainSlabBlock(p, true))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+                    .submit(AllElements.testRegistry);
+
+    public static final SlabRegistration<TrainSlabBlock> DF11G_CARPORT_FILTER_BLIND =
+            new SlabRegistration<TrainSlabBlock>("df11g_carport_filter_blind")
+                    .block(p -> new TrainSlabBlock(p, true))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
+                    .submit(AllElements.testRegistry);
+
     public static void invoke(){}
 
 
