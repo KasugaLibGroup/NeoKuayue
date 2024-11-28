@@ -47,7 +47,7 @@ public class FluidTypesInit {
         return FLUID_TYPES.register(name,
                 () -> new BaseFluidType(properties, COLA_STILL_RL, COLA_FLOWING_RL,
                         COLA_OVERLAY_RL,
-                        0xFFD2691E,
+                        0xFF5E1C10,
                         new Vector3f(210f / 255f, 105f / 255f, 30f / 255f)));
         // tintColor参数每个8位分别表示alpha、红色、绿色和蓝色通道。
     }
