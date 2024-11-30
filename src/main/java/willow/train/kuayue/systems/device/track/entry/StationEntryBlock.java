@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import willow.train.kuayue.systems.device.AllDeviceBlockEntities;
 import willow.train.kuayue.systems.device.AllDeviceBlocks;
 
 import java.util.Properties;
@@ -23,7 +24,7 @@ public class StationEntryBlock extends Block implements IBE<StationEntryBlockEnt
 
     @Override
     public BlockEntityType<StationEntryBlockEntity> getBlockEntityType() {
-        return AllDeviceBlocks.STATION_ENTRY_BLOCK_ENTITY.getType();
+        return AllDeviceBlockEntities.STATION_ENTRY_BLOCK_ENTITY.getType();
     }
 
     @Override

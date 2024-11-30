@@ -1,0 +1,3 @@
+[submodule "javascript"]
+	path = javascript
+	url = https://github.com/KuaYueTeam/KuaYueJS.git

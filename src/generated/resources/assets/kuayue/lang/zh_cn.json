@@ -208,6 +208,8 @@
   "block.kuayue.kua_cola": "跨可乐",
   "block.kuayue.dried_instant_noodles": "未冲泡的方便面",
   "block.kuayue.soaked_instant_noodles": "已冲泡的方便面",
+  "block.kuayue.internal_combustion_drive_controller":"内燃机通用驾驶台",
+
   "tips.item": "--------------------------------以下是物品-------------------------------------------",
   "item.kuayue.train_diet_1": "火车餐A",
   "item.kuayue.lunch_box": "餐盒",
@@ -333,6 +335,7 @@
   "itemGroup.loco": "跨越·机车",
   "itemGroup.carriage": "跨越·列车",
   "itemGroup.diet": "跨越·餐饮",
+  "itemGroup.device": "跨越·信号设备",
   "tips.sound": "--------------------------------以下是音效-------------------------------------------",
   "sounds.kuayue.crossing_ringing": "道口:小心火车",
   "tips.effect": "--------------------------------以下是效果-------------------------------------------",
@@ -717,5 +720,12 @@
 
   "block.kuayue.end_face_sliding_25k_1": "原色25K折棚端面(非空调端)",
   "block.kuayue.end_face_sliding_25k_2": "原色25K折棚端面(空调端)",
-  "block.kuayue.end_face_sliding_25k_3": "原色25K折棚端面"
+  "block.kuayue.end_face_sliding_25k_3": "原色25K折棚端面",
+  "block.kuayue.end_face_eubber_25t": "Original Color 25k Carriage End Face(Rubber Windscreen)",
+  "block.kuayue.panel_bottommarshalled_25": "Marshalled 25Series Carriage Bottom Panel",
+  "block.kuayue.panel_25_marshalled_window": "Marshalled 25Series Carriage Window",
+  "block.kuayue.fl_marshalled_25": "Marshalled 25Series Carriage Floor",
+  "block.kuayue.Carrier": "Gantry Cast Catenary Hanger",
+  "block.kuayue.end_face_25t_upper": "Original Color 25T Carriage End Face Upper",
+  "block.kuayue.end_face_25t_upper_2": "Original Color 25T Carriage End Face Upper(For air Conditioner End)"
 }

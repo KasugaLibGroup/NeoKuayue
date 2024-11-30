@@ -1,0 +1,6 @@
+{
+  "loader": "kasuga_lib:bedrock_model",
+  "model": "kuayue:block/drive/drive_internal_combustion",
+  "texture": "kuayue:block/drive/drive_internal_combustion",
+  "render_type": "translucent"
+}
