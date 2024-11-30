@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "kuayue:platform_wall"
+    },
+    "B": {
+      "item": "create:framed_glass_door"
+    }
+  },
+  "pattern": [
+    "ABA"
+  ],
+  "result": {
+    "count": 1,
+    "item": "kuayue:platform_door"
+  },
+  "show_notification": true
+}

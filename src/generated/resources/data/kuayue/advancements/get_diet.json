@@ -18,10 +18,10 @@
   },
   "criteria": {
     "1": {
-      "trigger": "minecraft:effects_changed",
+      "trigger": "minecraft:consume_item",
       "conditions": {
-        "effects": {
-          "kuayue:noodle_smell": {}
+        "item": {
+          "items": ["kuayue:train_diet_1"]
         }
       }
     }

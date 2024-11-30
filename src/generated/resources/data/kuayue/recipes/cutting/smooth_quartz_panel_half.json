@@ -1,0 +1,15 @@
+{
+  "type": "create:cutting",
+  "ingredients": [
+    {
+      "item": "minecraft:smooth_quartz"
+    }
+  ],
+  "processingTime": 50,
+  "results": [
+    {
+	  "count": 2,
+      "item": "kuayue:smooth_quartz_panel_half"
+    }
+  ]
+}

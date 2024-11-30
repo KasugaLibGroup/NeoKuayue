@@ -25,6 +25,12 @@ public class AllEditableTypes {
     public static final PanelColorType C25T_BLUE3  = EditableTypeConstants
             .signColorRegister("blue3", AllTags.C25T, EditableTypeConstants.BLUE3);
 
+    public static final PanelColorType CM1_BLUE4 = EditableTypeConstants
+            .signColorRegister("blue4", AllTags.CM1, EditableTypeConstants.BLUE4);
+
+    public static final PanelColorType FREIGHT_WHITE = EditableTypeConstants
+            .signColorRegister("white", AllTags.C_FREIGHT, EditableTypeConstants.WHITE);
+
     public static final SignType CARRIAGE_TYPE_SIGN = EditableTypeConstants
             .signLambdaRegister("carriage_type_sign",
                     TrainPanelProperties.EditType.TYPE,
@@ -37,6 +43,13 @@ public class AllEditableTypes {
                     TrainPanelProperties.EditType.SPEED,
                     () -> () -> EditableTypeConstants.TRAIN_SPEED_SIGN,
                     () -> EditableTypeConstants.TRAIN_SPEED_SIGN_MESSAGES,
+                    () -> SpeedScreen::new);
+
+    public static final SignType CARRIAGE_NO_SIGN = EditableTypeConstants
+            .signLambdaRegister("carriage_no_sign",
+                    TrainPanelProperties.EditType.NUM,
+                    () -> () -> EditableTypeConstants.CARRIAGE_NO_SIGN,
+                    () -> EditableTypeConstants.CARRIAGE_NO_SIGN_MESSAGES,
                     () -> SpeedScreen::new);
 
     /*

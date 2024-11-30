@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "tag": "forge:dough" },
+    { "item": "minecraft:bone_meal" },
+    [
+      { "item": "minecraft:cooked_beef" },
+      { "item": "minecraft:cooked_porkchop" },
+      { "item": "minecraft:cooked_chicken" }
+    ],
+    [
+      { "item": "minecraft:baked_potato" },
+      { "item": "minecraft:carrot" },
+      { "item": "minecraft:beetroot" }
+    ]
+  ],
+  "result": {
+    "count": 1,
+    "item": "kuayue:dried_instant_noodles"
+  }
+}

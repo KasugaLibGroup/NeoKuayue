@@ -1,0 +1,17 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "create:brass_sheet"
+    },
+    {
+      "item": "kuayue:carriage_marshalled_blueprint"
+    }
+  ],
+  "keepHeldItem": true,
+  "results": [
+    {
+      "item": "carriage_marshalled_mould"
+    }
+  ]
+}

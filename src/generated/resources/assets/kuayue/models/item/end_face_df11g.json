@@ -1,3 +1,6 @@
 {
-  "parent": "kuayue:block/df11g/df11g_end_face"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "kuayue:block/df11g/df11g_end_face_item"
+  }
 }

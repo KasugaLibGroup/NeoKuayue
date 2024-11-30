@@ -12,9 +12,13 @@
     "kuayue:end_face_middle_m1",
     "kuayue:carport_general_m1",
     "kuayue:carport_air_vent_m1",
+    "kuayue:carport_air_vent_m1_2",
     "kuayue:carport_middle_m1",
     "kuayue:window_large_jy30",
     "kuayue:window_large_between_jy30",
-    "kuayue:slab_bottom_jy30"
+    "kuayue:slab_bottom_jy30",
+    "kuayue:floor_battery_m1",
+    "kuayue:floor_reservoir_box_m1",
+    "kuayue:slab_top_m1"
   ]
 }

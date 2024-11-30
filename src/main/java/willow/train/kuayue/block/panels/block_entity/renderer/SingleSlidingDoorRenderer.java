@@ -62,7 +62,7 @@ public class SingleSlidingDoorRenderer implements BlockEntityRenderer<SingleSlid
         pose.translate(0, 1, 0);
         //调整门静态参数
         if (leftBuffer != null)
-            leftBuffer.translate(-0.5f, 0, -0.5f);
+            leftBuffer.translate(-0.5f, 0, -0.625f);
 
         //如果门开启且counter小于1
         if(isOpened && pBlockEntity.counter < 0.89f) {

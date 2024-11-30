@@ -1,0 +1,37 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "kuayue:plastic_board"
+    },
+	{
+      "item": "kuayue:plastic_board"
+    },
+	{
+      "item": "create:copper_sheet"
+    },
+	{
+      "item": "create:golden_sheet"
+    },
+	{
+      "item": "minecraft:redstone"
+    },
+	{
+      "item": "minecraft:redstone"
+    },
+	{
+      "item": "minecraft:redstone"
+    },
+	{
+      "item": "minecraft:redstone"
+    },
+	{
+      "item": "minecraft:lime_dye"
+    }
+  ],
+  "results": [
+    {
+      "item": "kuayue:circuit_motherboard"
+    }
+  ]
+}

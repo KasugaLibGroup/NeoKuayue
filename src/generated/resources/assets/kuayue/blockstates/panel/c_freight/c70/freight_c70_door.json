@@ -1,0 +1,68 @@
+{
+  "variants": {
+    "facing=east,open=false,hinge=right": {
+      "model": "kuayue:block/carriage/freight/c70/freight_c70_door_frame",
+      "y": 90
+    },
+    "facing=north,open=false,hinge=right": {
+      "model": "kuayue:block/carriage/freight/c70/freight_c70_door_frame",
+      "y": 0
+    },
+    "facing=south,open=false,hinge=right": {
+      "model": "kuayue:block/carriage/freight/c70/freight_c70_door_frame",
+      "y": 180
+    },
+    "facing=west,open=false,hinge=right": {
+      "model": "kuayue:block/carriage/freight/c70/freight_c70_door_frame",
+      "y": 270
+    },
+    "facing=east,open=true,hinge=right": {
+      "model": "kuayue:block/carriage/freight/c70/freight_c70_door_frame",
+      "y": 90
+    },
+    "facing=north,open=true,hinge=right": {
+      "model": "kuayue:block/carriage/freight/c70/freight_c70_door_frame",
+      "y": 0
+    },
+    "facing=south,open=true,hinge=right": {
+      "model": "kuayue:block/carriage/freight/c70/freight_c70_door_frame",
+      "y": 180
+    },
+    "facing=west,open=true,hinge=right": {
+      "model": "kuayue:block/carriage/freight/c70/freight_c70_door_frame",
+      "y": 270
+    },
+    "facing=east,open=false,hinge=left": {
+      "model": "kuayue:block/carriage/freight/c70/freight_c70_door_frame",
+      "y": 90
+    },
+    "facing=north,open=false,hinge=left": {
+      "model": "kuayue:block/carriage/freight/c70/freight_c70_door_frame",
+      "y": 0
+    },
+    "facing=south,open=false,hinge=left": {
+      "model": "kuayue:block/carriage/freight/c70/freight_c70_door_frame",
+      "y": 180
+    },
+    "facing=west,open=false,hinge=left": {
+      "model": "kuayue:block/carriage/freight/c70/freight_c70_door_frame",
+      "y": 270
+    },
+    "facing=east,open=true,hinge=left": {
+      "model": "kuayue:block/carriage/freight/c70/freight_c70_door_frame",
+      "y": 90
+    },
+    "facing=north,open=true,hinge=left": {
+      "model": "kuayue:block/carriage/freight/c70/freight_c70_door_frame",
+      "y": 0
+    },
+    "facing=south,open=true,hinge=left": {
+      "model": "kuayue:block/carriage/freight/c70/freight_c70_door_frame",
+      "y": 180
+    },
+    "facing=west,open=true,hinge=left": {
+      "model": "kuayue:block/carriage/freight/c70/freight_c70_door_frame",
+      "y": 270
+    }
+  }
+}

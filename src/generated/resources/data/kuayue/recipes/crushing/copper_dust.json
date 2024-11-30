@@ -1,0 +1,18 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "minecraft:copper_ingot"
+    }
+  ],
+  "processingTime": 800,
+  "results": [
+    {
+      "item": "kuayue:copper_dust"
+    },
+    {
+      "chance": 0.02,
+      "item": "create:experience_nugget"
+    }
+  ]
+}

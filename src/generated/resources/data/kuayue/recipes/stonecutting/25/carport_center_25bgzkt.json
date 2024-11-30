@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 2,
+  "ingredient": {
+    "item": "kuayue:weathering_resistant_steel_block_0"
+  },
+  "result": "kuayue:carport_center_25bgzkt"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "kuayue:dynamic_carport_df21"
+    },
+    {
+      "item": "kuayue:head_df21_circuit"
+    }
+  ],
+  "keepHeldItem": false,
+  "results": [
+    {
+      "item": "kuayue:dynamic_radiator_df21"
+    }
+  ]
+}

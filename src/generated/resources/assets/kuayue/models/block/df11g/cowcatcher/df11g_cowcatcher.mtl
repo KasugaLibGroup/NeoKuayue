@@ -1,10 +1,4 @@
-# Made in Blockbench 4.5.2
-newmtl m_5e63d126-f6bb-eb59-a46b-7d0ff5efdc73
-map_Kd kuayue:block/df11g/df11g_power_socket
-newmtl m_1905c77d-01ec-af20-de12-0f5e48c2f3de
-map_Kd kuayue:block/df11g/df11g_coupler
-newmtl m_55aea16b-f428-1356-d992-2603c550f09d
+# Made in Blockbench 4.11.2
+newmtl m_d8b72bb6-1302-7eca-288b-178ab28c7c51
 map_Kd kuayue:block/df11g/df11g_cowcatcher
-newmtl m_17f956c4-3480-1e62-e472-12db46d7955d
-map_Kd kuayue:block/df11g/df11g_front
 newmtl none

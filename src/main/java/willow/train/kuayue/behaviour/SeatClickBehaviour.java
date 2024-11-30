@@ -16,6 +16,7 @@ import willow.train.kuayue.block.seat.YZSeatBlock;
 import willow.train.kuayue.initial.AllTags;
 
 import java.util.Collection;
+import java.util.Objects;
 import java.util.UUID;
 
 public class SeatClickBehaviour extends MovingInteractionBehaviour {
@@ -30,7 +31,7 @@ public class SeatClickBehaviour extends MovingInteractionBehaviour {
         BlockState state = info.state;
         Block block = state.getBlock();
         if (!(block instanceof YZSeatBlock seatBlock)) return true;
-        if (!state.is(AllTags.MULTI_SEAT_BLOCK.tag())) return true;
+        if (!state.is(Objects.requireNonNull(AllTags.MULTI_SEAT_BLOCK.tag()))) return true;
         int seatSize = seatBlock.getSeatSize();
         if (seatSize == 0) return true;
         UUID[] passengers = new UUID[seatSize];

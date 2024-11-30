@@ -1,0 +1,94 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "kuayue:head_df11g_mould"
+  },
+  "loops": 3,
+  "results": [
+    {
+      "item": "kuayue:carport_kuayue_df11g"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:head_df11g_mould_constructing"
+        },
+        {
+          "item": "kuayue:weathering_resistant_steel_block_0"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:head_df11g_mould_constructing"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:head_df11g_mould_constructing"
+        },
+        {
+          "item": "kuayue:weathering_resistant_steel_pole"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:head_df11g_mould_constructing"
+        }
+      ]
+    },
+	{
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:head_df11g_mould_constructing"
+        },
+        {
+          "item": "kuayue:weathering_resistant_steel_board"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:head_df11g_mould_constructing"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:head_df11g_mould_constructing"
+        },
+        {
+          "item": "kuayue:color_masterbatch"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:head_df11g_mould_constructing"
+        }
+      ]
+    },
+	{
+      "type": "create:cutting",
+      "ingredients": [
+        {
+          "item": "kuayue:head_df11g_mould_constructing"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:head_df11g_mould_constructing"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "kuayue:head_df11g_mould_constructing"
+  }
+}

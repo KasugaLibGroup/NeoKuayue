@@ -17,7 +17,7 @@
     "kuayue:carport_louver_df11g",
     "kuayue:carport_louver_df11g_2",
     "kuayue:carport_louver_df11g_3",
-    "kuayue:carport_25gbzk",
+    "kuayue:carport_25bgzk",
     "kuayue:carport_air_condition_25bgzk",
     "kuayue:carport_air_condition_side_25bgzk",
     "kuayue:carport_center_25bgzkt",
@@ -25,6 +25,16 @@
     "kuayue:dynamic_carport_df21",
     "kuayue:dynamic_transition_carport_df21",
     "kuayue:dynamic_radiator_df21",
-    "kuayue:general_carport_df21"
+    "kuayue:general_carport_df21",
+    "kuayue:df11g_carport_kua",
+    "kuayue:df11g_carport_yue",
+    "kauyue:df11g_carport",
+    "kuayue:df11g_carport_centre",
+    "kuayue:df11g_carport_centre_cooling_blind",
+    "kuayue:df11g_carport_centre_fan_blind",
+    "kuayue:df11g_carport_eh",
+    "kuayue:df11g_carport_eh_ad",
+    "kuayue:df11g_carport_eh_blind",
+    "kuayue:df11g_carport_filter_blind"
   ]
 }

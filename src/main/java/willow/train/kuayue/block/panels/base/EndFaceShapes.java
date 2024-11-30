@@ -282,6 +282,30 @@ public class EndFaceShapes {
                     Block.box(15, 18, 1, 17, 21, 15),
                     Block.box(15, -16, -16, 17, 21, 1));
 
+    protected static final VoxelShape FREIGHT_C70_NORTH_AABB =
+            Block.box(-16, 0, -1, 32, 32, 3);
+
+    protected static final VoxelShape FREIGHT_C70_WEST_AABB =
+            Block.box(-1, 0, -16, 3, 32, 32);
+
+    protected static final VoxelShape FREIGHT_C70_SOUTH_AABB =
+            Block.box(-16, 0, 15, 32, 32, 19);
+
+    protected static final VoxelShape FREIGHT_C70_EAST_AABB =
+            Block.box(15, 0, -16, 19, 32, 32);
+
+    protected static final VoxelShape FREIGHT_NX70_NORTH_AABB =
+            Block.box(-16, 0, -1, 32, 20, 3);
+
+    protected static final VoxelShape FREIGHT_NX70_WEST_AABB =
+            Block.box(-1, 0, -16, 3, 20, 32);
+
+    protected static final VoxelShape FREIGHT_NX70_SOUTH_AABB =
+            Block.box(-16, 0, 15, 32, 20, 19);
+
+    protected static final VoxelShape FREIGHT_NX70_EAST_AABB =
+            Block.box(15, 0, -16, 19, 20, 32);
+
     public static VoxelShape moveByDirection(VoxelShape shape, Direction direction, double x, double y, double z) {
         Vec3 vec3 = new Vec3(x, y, z);
         vec3 = vec3.yRot(-direction.toYRot());
@@ -348,11 +372,31 @@ public class EndFaceShapes {
     public static VoxelShape getInsideEndFaceCloseShape(Direction direction) {
         // 关
         return switch (direction) {
-            case NORTH -> M1_INSIDE_NORTH_AABB;
-            case WEST -> M1_INSIDE_WEST_AABB;
-            case EAST -> M1_INSIDE_EAST_AABB;
-            case SOUTH -> M1_INSIDE_SOUTH_AABB;
+            case NORTH -> M1_INSIDE_NORTH_AABB.move(0, 0, 0.125);
+            case WEST -> M1_INSIDE_WEST_AABB.move(0.125, 0, 0);
+            case EAST -> M1_INSIDE_EAST_AABB.move(-0.125, 0, 0);
+            case SOUTH -> M1_INSIDE_SOUTH_AABB.move(0, 0, -0.125);
             default -> M1_INSIDE_NORTH_AABB;
+        };
+    }
+
+    public static VoxelShape getC70EndFaceShape(Direction direction) {
+        return switch (direction) {
+            case NORTH -> FREIGHT_C70_NORTH_AABB.move(0, -0.5, 0);
+            case WEST -> FREIGHT_C70_WEST_AABB.move(0, -0.5, 0);
+            case EAST -> FREIGHT_C70_EAST_AABB.move(0, -0.5, 0);
+            case SOUTH -> FREIGHT_C70_SOUTH_AABB.move(0, -0.5, 0);
+            default -> FREIGHT_C70_NORTH_AABB;
+        };
+    }
+
+    public static VoxelShape getNX70EndFaceShape(Direction direction) {
+        return switch (direction) {
+            case NORTH -> FREIGHT_NX70_NORTH_AABB.move(0, -0.5, 0);
+            case WEST -> FREIGHT_NX70_WEST_AABB.move(0, -0.5, 0);
+            case EAST -> FREIGHT_NX70_EAST_AABB.move(0, -0.5, 0);
+            case SOUTH -> FREIGHT_NX70_SOUTH_AABB.move(0, -0.5, 0);
+            default -> FREIGHT_NX70_NORTH_AABB;
         };
     }
 }

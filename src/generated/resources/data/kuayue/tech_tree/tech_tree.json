@@ -1,0 +1,73 @@
+{
+  "version": "1.0.0",
+  "groups": {
+    "ready_group": {
+      "name": "ready.group.name",
+      "description": "ready.group",
+      "icon":"create:brass_ingot",
+      "on_unlock": {
+        "description": "ready.group.unlock"
+      },
+      "root_node": "node_plastic",
+      "nodes": {
+        "node_plastic": {
+          "next_nodes": ["node_steel"],
+          "next_groups": [],
+          "name": "node.plastic.name",
+          "description": "node.plastic.description",
+          "type": "plain",
+          "logo": "kuayue:plastic_ingot",
+          "exp": 0,
+          "level": 0,
+          "item_consume": {
+            "kuayue:plastic_nugget": 4,
+            "kuayue:plastic_ingot": 4,
+            "kuayue:plastic_board": 4,
+            "kuayue:plastic_pole": 4
+          },
+          "advancements": [],
+          "blueprint": {},
+          "item": {
+            "kuayue:research_report": 1
+          }
+        },
+        "node_steel": {
+          "next_nodes": ["node_fully"],
+          "next_groups": [],
+          "name": "node.steel.name",
+          "description": "node.steel.description",
+          "type": "plain",
+          "logo": "kuayue:weathering_resistant_steel_ingot",
+          "exp": 0,
+          "level": 0,
+          "item_consume": {
+            "kuayue:weathering_resistant_steel_ingot": 4
+          },
+          "advancements": [],
+          "blueprint": {},
+          "item": {
+            "kuayue:research_report": 1
+          }
+        },
+        "node_fully": {
+          "next_nodes": [],
+          "next_groups": ["ordinary_groups"],
+          "name": "node.fully.name",
+          "description": "node.fully.description",
+          "type": "plain",
+          "logo": "minecraft:clock",
+          "exp": 0,
+          "level": 0,
+          "item_consume": {
+            "kuayue:fully_rusted_weathering_steel_block": 4
+          },
+          "advancements": [],
+          "blueprint": {},
+          "item": {
+            "kuayue:research_report": 1
+          }
+        }
+      }
+    }
+  }
+}

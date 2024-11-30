@@ -1,14 +1,13 @@
 package willow.train.kuayue.systems.editable_panel.screens;
 
-import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.blaze3d.vertex.PoseStack;
 import kasuga.lib.core.client.render.texture.ImageMask;
 import kasuga.lib.core.util.LazyRecomputable;
+import kasuga.lib.core.util.data_type.Pair;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiComponent;
 import net.minecraft.client.gui.components.AbstractWidget;
-import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.components.Widget;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -17,12 +16,10 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import willow.train.kuayue.block.panels.block_entity.EditablePanelEntity;
 import willow.train.kuayue.initial.AllPackets;
+import willow.train.kuayue.network.c2s.DiscardChangeC2SPacket;
 import willow.train.kuayue.network.c2s.NbtC2SPacket;
 import willow.train.kuayue.systems.editable_panel.EditablePanelEditMenu;
-import willow.train.kuayue.systems.editable_panel.widget.EditBar;
-import willow.train.kuayue.systems.editable_panel.widget.ImageButton;
-import willow.train.kuayue.systems.editable_panel.widget.Label;
-import willow.train.kuayue.systems.editable_panel.widget.TransparentEditBox;
+import willow.train.kuayue.systems.editable_panel.widget.*;
 
 public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePanelEntity> {
     private int color;
@@ -31,18 +28,20 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
     public ImageButton mirrorBtn, cancelBtn, confirmBtn;
     public EditBar editBar;
     public ColorScreenBundles colorEditor;
+    private OffsetEditor offsetEditor;
 
-    public static final LazyRecomputable<ImageMask> cancelBtnImage =
+    private final LazyRecomputable<ImageMask> cancelBtnImage =
             new LazyRecomputable<>(() -> GetShareTemplateScreen.cancelImage.get().copyWithOp(p -> p));
 
-    public static final LazyRecomputable<ImageMask> acceptBtnImage =
+    private final LazyRecomputable<ImageMask> acceptBtnImage =
             new LazyRecomputable<>(() -> GetShareTemplateScreen.acceptImage.get().copyWithOp(p -> p));
 
-    public static final LazyRecomputable<ImageMask> mirrotBtnImage =
+    private final LazyRecomputable<ImageMask> mirrorBtnImage =
             new LazyRecomputable<>(() -> ColorTemplateScreen.buttons.get().copyWithOp(p -> p.rectangleUV(.125f, .375f, .25f, .5f)));
 
     public TypeScreen(AbstractContainerScreen<EditablePanelEditMenu> screen, CompoundTag nbt) {
         super(screen, nbt);
+        setBlockEntity(screen.getMenu().getEditablePanelEntity());
         editBar = new EditBar(0, 0, Component.empty(), "");
     }
 
@@ -64,6 +63,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         innerInit(values, color, font, revert);
 
         cancelBtn.setOnClick((w, x, y) -> {
+            AllPackets.CHANNEL.sendToServer(new DiscardChangeC2SPacket(entity.getBlockPos()));
             this.close();
         });
 
@@ -71,6 +71,9 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
             BlockPos pos = entity.getBlockPos();
             nbt.putInt("color", this.color);
             nbt.putBoolean("revert", this.revert);
+            Pair<Float, Float> offset = offsetEditor.getCursorPosition();
+            nbt.putFloat("offset_x", offset.getFirst());
+            nbt.putFloat("offset_y", offset.getSecond());
             TransparentEditBox[] boxes = new TransparentEditBox[5];
             int counter = 0;
             for (Widget widget : getWidgets()) {
@@ -85,7 +88,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
             CompoundTag tag = new CompoundTag();
             tag.put("data", nbt);
             entity.load(tag);
-            entity.setChanged();
+            entity.markUpdated();
             AllPackets.CHANNEL.sendToServer(new NbtC2SPacket(pos, tag));
             this.close();
         });
@@ -95,16 +98,39 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         titleLabel = new Label(Component.translatable("tooltip.kuayue.type_screen.title"));
         addWidget(titleLabel);
 
-        mirrorBtn = new ImageButton(mirrotBtnImage, 0, 0, 16, 16, Component.empty(), b -> {
+        mirrorBtn = new ImageButton(mirrorBtnImage, 0, 0, 16, 16, Component.empty(), b -> {
             revert = !revert;
             refresh();
         });
+
+        offsetEditor = new OffsetEditor(0, 0, Component.literal("offset"),
+                -.5f, .5f, -.5f, .5f, 0f, 0f);
+        offsetEditor.setPosition((Minecraft.getInstance().screen.width - offsetEditor.getWidth()) / 2,
+                (Minecraft.getInstance().screen.height - offsetEditor.getHeight()) / 2);
+        offsetEditor.visible = false;
 
         cancelBtn = new ImageButton(cancelBtnImage, 0, 0, 16, 16, Component.empty(), b -> {});
         confirmBtn = new ImageButton(acceptBtnImage, 0, 0, 16, 16, Component.empty(), b -> {});
 
         editBar.onCancelClick((w, x, y) -> editBar.visible = false);
         editBar.visible = false;
+        offsetEditor.onCancelBtnClick(((widget, mouseX, mouseY) -> {
+            setBoardWidgetVisible(true);
+            offsetEditor.visible = false;
+        }));
+        offsetEditor.onEditorBtnClick((widget, mouseX, mouseY) -> {
+            setBoardWidgetVisible(false);
+            offsetEditor.visible = true;
+            offsetEditor.setCursorPosition(getNbt().getFloat("offset_x"), getNbt().getFloat("offset_y"));
+        });
+        offsetEditor.onAcceptBtnClick((widget, mouseX, mouseY) -> {
+            setBoardWidgetVisible(true);
+            Pair<Float, Float> offset = offsetEditor.getCursorPosition();
+            getNbt().putFloat("offset_x", offset.getFirst());
+            getNbt().putFloat("offset_y", offset.getSecond());
+            getBlockEntity().saveNbt(this.getNbt());
+            offsetEditor.visible = false;
+        });
 
         addWidget(cancelBtn);
         addWidget(confirmBtn);
@@ -112,6 +138,8 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         addWidget(mirrorBtn);
         addWidget(colorEditor.getColorBtn());
         addWidget(colorEditor.getTemplateBtn());
+        addWidget(offsetEditor);
+        addWidget(offsetEditor.getEditorBtn());
     }
 
     public void colorEditorInit() {
@@ -154,6 +182,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         cancelBtn.setPos(basicX + labelW - 60, btnY);
         confirmBtn.setPos(basicX + labelW - 80, btnY);
         mirrorBtn.setPos(basicX + 40, btnY);
+        offsetEditor.getEditorBtn().setPos(basicX + labelW - 100, btnY);
     }
 
     private void innerInit(String[] values, int color, Font font, boolean revert) {
@@ -208,6 +237,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
     }
 
     private void refresh() {
+        if (editBar.visible) return;
         String[] values = new String[5];
         int counter = 0;
         int focus = -1;
@@ -231,6 +261,8 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         addWidget(colorEditor);
         addWidget(colorEditor.getColorBtn());
         addWidget(colorEditor.getTemplateBtn());
+        addWidget(offsetEditor.getEditorBtn());
+        addWidget(offsetEditor);
 
         clearLabels();
         Font font = Minecraft.getInstance().font;
@@ -248,6 +280,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
     @Override
     public void render(PoseStack pose, int mouseX, int mouseY, float partial) {
         super.render(pose, mouseX, mouseY, partial);
+        if (offsetEditor == null) return;
     }
 
     @Override
@@ -267,6 +300,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
                             box.setValue(editBar.getText());
                             editBar.visible = false;
                             refresh();
+                            getBlockEntity().saveNbt(this.getNbt());
                         }
                 );
                 editBar.visible = true;
@@ -310,6 +344,7 @@ public class TypeScreen extends CustomScreen<EditablePanelEditMenu, EditablePane
         this.titleLabel.visible = visible;
         this.mirrorBtn.visible = visible;
         editBar.visible = false;
+        this.offsetEditor.getEditorBtn().visible = visible;
         editBar.setFocused(false);
     }
 

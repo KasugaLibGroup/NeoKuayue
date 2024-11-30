@@ -1,0 +1,17 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "kuayue:carport_df11g_2"
+    },
+    {
+      "item": "kuayue:head_df11g_circuit"
+    }
+  ],
+  "keepHeldItem": false,
+  "results": [
+    {
+      "item": "kuayue:carport_louver_df11g"
+    }
+  ]
+}

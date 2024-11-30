@@ -44,12 +44,7 @@ public class DF11GRenderer extends BogeyRenderer {
             VertexConsumer vb,
             boolean inContraption) {
 
-            /*if (yaw != null){
-                double tickYaw = yaw.getValue();
-                //System.out.println("tickYaw:"+tickYaw);
-            }*/
-
-        boolean forwards = BogeyDataConstants.isForwards(bogeyData, inContraption);
+        light *= 1.1;
 
         Direction direction =
                 bogeyData.contains(BogeyDataConstants.BOGEY_ASSEMBLY_DIRECTION_KEY)
@@ -58,8 +53,6 @@ public class DF11GRenderer extends BogeyRenderer {
                         BogeyDataConstants.BOGEY_ASSEMBLY_DIRECTION_KEY,
                         Direction.class)
                         : Direction.NORTH;
-
-        //LOGGER.info(bogeyData + "DF11G direction:" + direction + ";DF11G forwards:" + forwards);
 
         boolean inInstancedContraption = vb == null;
 
@@ -91,7 +84,7 @@ public class DF11GRenderer extends BogeyRenderer {
                 }
             }
         } else {
-            frame.translate(0, 0.375, 0).render(ms, light, vb);
+            frame.rotateY(180).translate(0, 0.375, 0).render(ms, light, vb);
 
             for (int side = -1; side < 2; side++) {
                 if (!inInstancedContraption) ms.pushPose();
@@ -115,7 +108,7 @@ public class DF11GRenderer extends BogeyRenderer {
                 VertexConsumer vb,
                 boolean inContraption) {
 
-            boolean forwards = BogeyDataConstants.isForwards(bogeyData, inContraption);
+            light *= 1.1;
 
             Direction direction =
                     bogeyData.contains(BogeyDataConstants.BOGEY_ASSEMBLY_DIRECTION_KEY)
@@ -124,8 +117,6 @@ public class DF11GRenderer extends BogeyRenderer {
                             BogeyDataConstants.BOGEY_ASSEMBLY_DIRECTION_KEY,
                             Direction.class)
                             : Direction.NORTH;
-
-            //LOGGER.info(bogeyData + "backward DF11G direction:" + direction + ";backward DF11G forwards:" + forwards);
 
             wheelAngle = -wheelAngle;
             boolean inInstancedContraption = vb == null;
@@ -158,7 +149,7 @@ public class DF11GRenderer extends BogeyRenderer {
                     }
                 }
             } else {
-                frame.rotateY(180).translate(0, 0.375, 0).render(ms, light, vb);
+                frame.translate(0, 0.375, 0).render(ms, light, vb);
 
                 for (int side = -1; side < 2; side++) {
                     if (!inInstancedContraption) ms.pushPose();

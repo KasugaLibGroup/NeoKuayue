@@ -5,14 +5,20 @@ import kasuga.lib.registrations.common.CreativeTabReg;
 import kasuga.lib.registrations.registry.CreateRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import willow.train.kuayue.Kuayue;
+import willow.train.kuayue.event.both.PlayerDataEvent;
 import willow.train.kuayue.event.client.CarriageInventoryEvents;
 import willow.train.kuayue.event.client.RenderArrowEvent;
 import willow.train.kuayue.event.server.ColorTemplateEvents;
 import willow.train.kuayue.event.server.PlayerJumpEvents;
+import willow.train.kuayue.event.server.ServerResourceReloadEvent;
 import willow.train.kuayue.initial.create.*;
+import willow.train.kuayue.initial.fluid.AllFluids;
+import willow.train.kuayue.initial.fluid.FluidTypesInit;
+import willow.train.kuayue.initial.fluid.FluidsInit;
 import willow.train.kuayue.initial.food.AllFoods;
 import willow.train.kuayue.initial.material.AllMaterials;
 import willow.train.kuayue.systems.device.AllDeviceItems;
+import willow.train.kuayue.initial.recipe.AllRecipes;
 
 public class AllElements {
 
@@ -37,6 +43,9 @@ public class AllElements {
     public static final CreativeTabReg neoKuayueDeviceTab = new CreativeTabReg("device")
             .icon(() -> AllDeviceItems.ITEM_LOGO.getItem().getDefaultInstance())
             .submit(testRegistry);
+    public static final CreativeTabReg neoKuayueMaterialTab = new CreativeTabReg("materials")
+            .icon(() -> AllItems.CIRCUIT_MOTHERBOARD.getItem().getDefaultInstance())
+            .submit(testRegistry);
 
     public static void invoke() {
         AllTags.invoke();
@@ -52,6 +61,11 @@ public class AllElements {
         AllMenuScreens.invoke();
         AllItems.invoke();
         AllFoods.invoke();
+        AllRecipes.invoke();
+        AllEntities.invoke();
+        FluidsInit.register(testRegistry.eventBus);
+        FluidTypesInit.register(testRegistry.eventBus);
+        // AllFluids.invoke();
         if (Envs.isClient()) {
             ClientInit.invoke();
             Kuayue.BUS.addListener(ClientInit::registerHUDOverlays);
@@ -63,6 +77,11 @@ public class AllElements {
             // MinecraftForge.EVENT_BUS.addListener(RenderPrePosedBlockEvent::renderBlock);
             MinecraftForge.EVENT_BUS.register(new CarriageInventoryEvents());
         }
+        MinecraftForge.EVENT_BUS.addListener(ServerResourceReloadEvent::onServerResourceReload);
+        MinecraftForge.EVENT_BUS.addListener(PlayerDataEvent::onPlayerLogin);
+        MinecraftForge.EVENT_BUS.addListener(PlayerDataEvent::onPlayerLogout);
+        MinecraftForge.EVENT_BUS.addListener(PlayerDataEvent::onLevelLoad);
+        MinecraftForge.EVENT_BUS.addListener(PlayerDataEvent::onLevelSave);
         testRegistry.submit();
     }
 }

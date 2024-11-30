@@ -18,6 +18,15 @@
     "kuayue:panel_symbol_marshalled_25k_b",
     "kuayue:panel_symbol_marshalled_25b",
     "kuayue:panel_symbol_marshalled_25g",
-    "kuayue:panel_bottom_marshalled_cr200j"
+    "kuayue:panel_bottom_marshalled_cr200j",
+    "kuayue:slab_bottom_m1",
+    "kuayue:slab_bottom_jy30",
+    "kuayue:freight_c70_slab_top",
+    "kuayue:freight_nx70_floor_high",
+    "kuayue:panel_bottom_df11g",
+    "kuayue:df11g_panel_bottom_blind",
+    "kuayue:df11g_panel_bottom_cooling_blind",
+    "kuayue:df11g_panel_bottom_eh_blind",
+    "kuayue:df11g_panel_bottom_ph_blind"
   ]
 }

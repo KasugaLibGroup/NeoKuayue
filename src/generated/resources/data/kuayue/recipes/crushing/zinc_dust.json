@@ -1,0 +1,18 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "create:zinc_ingot"
+    }
+  ],
+  "processingTime": 800,
+  "results": [
+    {
+      "item": "kuayue:zinc_dust"
+    },
+    {
+      "chance": 0.02,
+      "item": "create:experience_nugget"
+    }
+  ]
+}

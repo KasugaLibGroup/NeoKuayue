@@ -95,49 +95,53 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
         ItemStack item = pPlayer.getItemInHand(pHand);
         // 手持剪贴板
         // 手持带颜色刷子
+        TrainPanelProperties.EditType orgType = pState.getValue(EDIT_TYPE);
+        boolean changed = false;
         if (item.is(EditablePanelItem.COLORED_BRUSH.getItem())) {
             // 带有下厢板标签
             if (pState.is(Objects.requireNonNull(AllTags.BOTTOM_PANEL.tag()))) {
-                // 当车厢板编辑类型不为NONE
-                if (pState.getValue(EDIT_TYPE) != TrainPanelProperties.EditType.NONE) {
-                    if (!pLevel.isClientSide) {
-                        NetworkHooks.openScreen(
-                                (ServerPlayer) pPlayer,
-                                (EditablePanelEntity) pLevel.getBlockEntity(pPos),
-                                pPos);
-                    }
-                    return InteractionResult.SUCCESS;
-                }
                 neoState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.TYPE);
+                changed = orgType != TrainPanelProperties.EditType.TYPE;
             }
             // 带有地板标签
-            if (pState.is(Objects.requireNonNull(AllTags.FLOOR.tag())))
+            if (pState.is(Objects.requireNonNull(AllTags.FLOOR.tag()))) {
                 neoState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.SPEED);
-
-            BlockEntity blockEntity = newBlockEntity(pPos, neoState);
-            if (blockEntity == null) return InteractionResult.PASS;
-            pLevel.setBlockEntity(blockEntity);
-            pLevel.setBlock(pPos, neoState, 10);
-            if (!pLevel.isClientSide) {
-                NetworkHooks.openScreen(
-                        (ServerPlayer) pPlayer,
-                        (EditablePanelEntity) pLevel.getBlockEntity(pPos),
-                        pPos);
+                changed = orgType != TrainPanelProperties.EditType.SPEED;
             }
-            return InteractionResult.SUCCESS;
+
+            return openScreen(pLevel, pPos, pPlayer, neoState, changed);
         }
         // 手持水牌
         if (item.is(EditablePanelItem.LAQUERED_BOARD.getItem()) && pState.is(Objects.requireNonNull(AllTags.BOTTOM_PANEL.tag()))) {
              neoState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.LAQUERED);
-
-            return InteractionResult.PASS;
+             changed = orgType != TrainPanelProperties.EditType.LAQUERED;
+            return openScreen(pLevel, pPos, pPlayer, neoState, changed);
         }
         // 手持贴纸
         if (item.is(EditablePanelItem.STICKER.getItem()) && pState.is(Objects.requireNonNull(AllTags.UPPER_PANEL.tag()))) {
             neoState = pState.setValue(EDIT_TYPE, TrainPanelProperties.EditType.NUM);
+            changed = orgType != TrainPanelProperties.EditType.NUM;
+            return openScreen(pLevel, pPos, pPlayer, neoState, changed);
         }
 
         return InteractionResult.PASS;
+    }
+
+    public InteractionResult openScreen(Level pLevel, BlockPos pPos, Player pPlayer, BlockState neoState, boolean changed) {
+        BlockEntity oldBe = pLevel.getBlockEntity(pPos);
+        if (!(oldBe instanceof EditablePanelEntity) || changed) {
+            BlockEntity blockEntity = newBlockEntity(pPos, neoState);
+            if (blockEntity == null) return InteractionResult.PASS;
+            pLevel.setBlockEntity(blockEntity);
+            pLevel.setBlock(pPos, neoState, 10);
+        }
+        if (!pLevel.isClientSide) {
+            NetworkHooks.openScreen(
+                    (ServerPlayer) pPlayer,
+                    (EditablePanelEntity) pLevel.getBlockEntity(pPos),
+                    pPos);
+        }
+        return InteractionResult.SUCCESS;
     }
 
     @Override
@@ -197,6 +201,11 @@ public class TrainPanelBlock extends Block implements IWrenchable, EntityBlock {
         removeCompanyBlock(pLevel, pState, pPos, pIsMoving);
         if(pNewState.getBlock().getClass().equals(pState.getBlock().getClass())) return;
         pLevel.removeBlock(pPos, pIsMoving);
+    }
+
+    public void specialRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
+        onRemove(state, level, pos, newState, isMoving);
+        if (!isMoving) dropResources(state, level, pos);
     }
 
     public void removeCompanyBlock(Level level, BlockState state, BlockPos pos, boolean isMoving) {

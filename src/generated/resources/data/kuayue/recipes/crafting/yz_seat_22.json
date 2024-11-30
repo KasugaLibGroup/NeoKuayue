@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "minecraft:oak_planks"
+    },
+    "B": {
+      "item": "minecraft:black_dye"
+    },
+    "C": {
+      "item": "create:andesite_alloy"
+    },	
+	"D": {
+      "item": "minecraft:leather"
+    },	
+    "E": {
+      "item": "minecraft:green_dye"
+    }
+  },
+  "pattern": [
+    "BDE",
+    "AAA",
+    "C C"
+  ],
+  "result": {
+    "count": 1,
+    "item": "kuayue:yz_seat_22"
+  },
+  "show_notification": true
+}

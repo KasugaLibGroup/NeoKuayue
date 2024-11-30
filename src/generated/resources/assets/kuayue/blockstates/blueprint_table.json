@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayue:block/recipe/blueprint_table",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "kuayue:block/recipe/blueprint_table",
+      "y": 0
+    },
+    "facing=south": {
+      "model": "kuayue:block/recipe/blueprint_table",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "kuayue:block/recipe/blueprint_table",
+      "y": 270
+    }
+  }
+}

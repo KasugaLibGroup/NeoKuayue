@@ -1,7 +1,9 @@
 package willow.train.kuayue.initial;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import kasuga.lib.registrations.Reg;
 import kasuga.lib.registrations.common.BlockTagReg;
+import kasuga.lib.registrations.common.FluidTagReg;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -55,10 +57,15 @@ public class AllTags {
     public static final BlockTagReg CM1 = new BlockTagReg("cm1", "panel/cm1")
             .submit(AllElements.testRegistry);
 
+    public static final BlockTagReg C_FREIGHT = new BlockTagReg("c_freight", "panel/c_freight")
+            .submit(AllElements.testRegistry);
+
     public static final BlockTagReg I3D = new BlockTagReg("i3d", "panel/i3d")
             .submit(AllElements.testRegistry);
 
     public static final BlockTagReg I11G = new BlockTagReg("i11g", "panel/i11g")
+            .submit(AllElements.testRegistry);
+    public static final BlockTagReg ISS3 = new BlockTagReg("iss3", "panel/iss3")
             .submit(AllElements.testRegistry);
 
     public static final BlockTagReg I21 = new BlockTagReg("i21", "panel/i21")
@@ -69,6 +76,10 @@ public class AllTags {
 
     public static final BlockTagReg END_FACES = new BlockTagReg("end_face", "panel/end_face")
             .submit(AllElements.testRegistry);
+
+    public static final Reg COLA_FLUID =
+            new FluidTagReg("forge", "cola_fluid", "fluids/cola_fluid")
+                    .submit(AllElements.testRegistry);
 
     public static void invoke() {}
 

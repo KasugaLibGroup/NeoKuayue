@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "create:wheat_flour"
+    },
+    "A": {
+      "item": "minecraft:egg"
+    },
+    "B": {
+      "item": "minecraft:milk_bucket"
+    }
+  },
+  "pattern": [
+    "#A#",
+    "#B#",
+    "#A#"
+  ],
+  "result": {
+    "count": 16,
+    "item": "kuayue:calcium_milk_biscuits"
+  },
+  "show_notification": true
+}

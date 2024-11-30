@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 4,
+  "ingredient": {
+    "item": "kuayue:floor_marshalled_25"
+  },
+  "result": "kuayue:panel_top_marshalled_25"
+}

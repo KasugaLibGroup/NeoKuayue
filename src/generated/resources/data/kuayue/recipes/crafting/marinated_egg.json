@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "tag": "minecraft:small_flowers" },
+    { "tag": "minecraft:small_flowers" },
+    { "tag": "minecraft:small_flowers" },
+    { "tag": "minecraft:small_flowers" },
+    { "tag": "minecraft:small_flowers" },
+    { "tag": "minecraft:small_flowers" },
+    { "item": "minecraft:egg" }
+  ],
+  "result": {
+    "item": "kuayue:marinated_egg",
+    "count": 1
+  }
+}

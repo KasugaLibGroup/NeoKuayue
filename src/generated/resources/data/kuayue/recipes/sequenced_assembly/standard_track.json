@@ -1,0 +1,110 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "kuayue:weathering_resistant_steel_board"
+  },
+  "loops": 1,
+  "results": [
+    {
+	  "count": 8,
+      "item": "kuayue:standard_track"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:filling",
+      "ingredients": [
+       {
+         "item": "kuayue:incomplete_standard_track"
+       },
+       {
+         "amount": 100,
+         "fluid": "minecraft:water",
+         "nbt": {}
+       }
+      ],
+      "results": [
+        {
+          "item": "kuayue:incomplete_standard_track"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:incomplete_standard_track"
+        },
+        {
+          "item": "minecraft:stone"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:incomplete_standard_track"
+        }
+      ]
+    },
+    {
+      "type": "create:cutting",
+      "ingredients": [
+        {
+          "item": "kuayue:incomplete_standard_track"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:incomplete_standard_track"
+        }
+      ]
+    },
+	{
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:incomplete_standard_track"
+        },
+        {
+          "item": "kuayue:weathering_resistant_steel_nugget"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:incomplete_standard_track"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:incomplete_standard_track"
+        },
+        {
+          "item": "kuayue:weathering_resistant_steel_nugget"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:incomplete_standard_track"
+        }
+      ]
+    },
+	{
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "kuayue:incomplete_standard_track"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:incomplete_standard_track"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "kuayue:incomplete_standard_track"
+  }
+}

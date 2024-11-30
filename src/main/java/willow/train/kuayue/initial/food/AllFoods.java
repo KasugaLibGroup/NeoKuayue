@@ -12,6 +12,7 @@ import willow.train.kuayue.initial.AllElements;
 import willow.train.kuayue.initial.AllItems;
 import willow.train.kuayue.initial.registration.PlacementFoodRegistration;
 
+import static willow.train.kuayue.initial.AllItems.EMPTY_CAN;
 import static willow.train.kuayue.initial.food.AllFoodProperties.*;
 
 public class AllFoods {
@@ -43,7 +44,8 @@ public class AllFoods {
                     .strength(0.5F)
                     .noOcclusion()
                     .foodProperties(KUA_COLA_PROPS)
-                    .stackSize(64)
+                    .craftReminder(EMPTY_CAN::getItem)
+                    .stackSize(16)
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
 
@@ -91,6 +93,13 @@ public class AllFoods {
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
 
+    public static final ItemReg<HandHeldFoodItem> HALF_MARINATED_EGG =
+            new ItemReg<HandHeldFoodItem>("half_marinated_egg")
+                    .itemType(HandHeldFoodItem::new)
+                    .withProperty(properties -> properties.food(TINY_SNACKS_PROPS))
+                    .tab(AllElements.neoKuayueDietTab)
+                    .submit(AllElements.testRegistry);
+
     public static final ItemReg<HandHeldFoodItem> CALCIUM_MILK_BISCUITS =
             new ItemReg<HandHeldFoodItem>("calcium_milk_biscuits")
                     .itemType(HandHeldFoodItem::new)
@@ -108,7 +117,7 @@ public class AllFoods {
     public static final ItemReg<HandHeldFoodItem> SALT_BAKED_DRUMSTICKS =
             new ItemReg<HandHeldFoodItem>("salt_baked_drumsticks")
                     .itemType(HandHeldFoodItem::new)
-                    .withProperty(properties -> properties.food(SMALL_SNACKS_PROPS))
+                    .withProperty(properties -> properties.food(DRIED_INSTANT_NOODLES_PROPS))
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
 

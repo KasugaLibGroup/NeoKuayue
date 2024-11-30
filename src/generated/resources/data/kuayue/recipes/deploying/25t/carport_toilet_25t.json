@@ -1,0 +1,17 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "kuayue:carport_25t"
+    },
+    {
+      "item": "kuayue:carriage_25t_circuit"
+    }
+  ],
+  "keepHeldItem": false,
+  "results": [
+    {
+      "item": "kuayue:carport_toilet_25t"
+    }
+  ]
+}

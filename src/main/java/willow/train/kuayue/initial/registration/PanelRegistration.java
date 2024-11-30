@@ -61,6 +61,23 @@ public class PanelRegistration<T extends TrainPanelBlock> {
         return this;
     }
 
+    public PanelRegistration<T> strength(float strength, float explosionResistance) {
+        this.block.addProperty(properties -> properties.strength(strength, explosionResistance));
+        return this;
+    }
+
+    public PanelRegistration<T> requireCorrectTools() {
+        this.block.addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops);
+        return this;
+    }
+
+    public PanelRegistration<T> strengthAndTool(float strength, float explosionResistance) {
+        this.block.addProperty(properties -> properties.strength(strength, explosionResistance));
+        this.block.addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops);
+        return this;
+    }
+
+
     public PanelRegistration<T> submit(SimpleRegistry registry) {
         this.block.submit(registry);
         this.item.submit(registry);

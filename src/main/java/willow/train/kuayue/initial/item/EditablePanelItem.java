@@ -1,6 +1,7 @@
 package willow.train.kuayue.initial.item;
 
 import kasuga.lib.registrations.common.ItemReg;
+import net.minecraft.world.item.Item;
 import willow.train.kuayue.initial.AllElements;
 import willow.train.kuayue.item.editable_panels.ColoredBrush;
 import willow.train.kuayue.item.editable_panels.LaqueredBoard;
@@ -12,6 +13,18 @@ public class EditablePanelItem {
             new ItemReg<ColoredBrush>("colored_brush")
                     .itemType(ColoredBrush::new)
                     .tab(AllElements.neoKuayueMainTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final ItemReg<Item> BRUSH =
+            new ItemReg<Item>("brush")
+                    .itemType(Item::new)
+                    .tab(AllElements.neoKuayueMaterialTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final ItemReg<Item> GREEN_BRUSH =
+            new ItemReg<Item>("green_brush")
+                    .itemType(Item::new)
+                    .tab(AllElements.neoKuayueMaterialTab)
                     .submit(AllElements.testRegistry);
 
     public static final ItemReg<LaqueredBoard> LAQUERED_BOARD =

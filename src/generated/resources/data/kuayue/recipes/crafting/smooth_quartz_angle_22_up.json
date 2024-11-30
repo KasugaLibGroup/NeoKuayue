@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "kuayue:smooth_quartz_panel_half"
+    }
+  },
+  "pattern": [
+    "#  ",
+    " # ",
+    "  #"
+  ],
+  "result": {
+    "count": 6,
+    "item": "kuayue:smooth_quartz_angle_22_up"
+  },
+  "show_notification": true
+}

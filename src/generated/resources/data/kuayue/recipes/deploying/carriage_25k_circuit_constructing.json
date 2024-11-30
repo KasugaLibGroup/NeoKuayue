@@ -1,0 +1,17 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "kuayue:circuit_motherboard"
+    },
+    {
+      "item": "kuayue:carriage_25k_circuit_blueprint"
+    }
+  ],
+  "keepHeldItem": true,
+  "results": [
+    {
+      "item": "kuayue:carriage_25k_circuit_constructing"
+    }
+  ]
+}

@@ -22,10 +22,9 @@ public class MixinBlockReg<T extends Block> {
             at = @At(value = "INVOKE", target = "Lnet/minecraftforge/registries/DeferredRegister;register(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/registries/RegistryObject;"),
             remap = false)
     public RegistryObject<T> doSubmit(DeferredRegister<T> instance, String s, Supplier<? extends T> name) {
-        // AllBlocks.generateDrops(s);
+        // System.out.println("kuayue:" + s);
         return instance.register(s, name);
     }
+    
      */
-
-
 }

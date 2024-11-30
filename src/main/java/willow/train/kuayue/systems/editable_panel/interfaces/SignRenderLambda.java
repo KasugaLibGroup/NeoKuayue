@@ -10,7 +10,7 @@ import willow.train.kuayue.block.panels.block_entity.EditablePanelEntity;
 public interface SignRenderLambda {
 
     void render(EditablePanelEntity blockEntity, float pPartialTick, ClientObject pose,
-                ClientObject pBufferSource, int pPackedLight, int pPackedOverlay);
+                ClientObject pBufferSource, int pPackedLight, int pPackedOverlay, boolean forceUnicodeFont);
 
     static record ClientObject(Object obj) {
 

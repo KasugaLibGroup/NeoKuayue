@@ -1,0 +1,107 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "kuayue:carriage_25b_circuit_constructing"
+  },
+  "loops": 2,
+  "results": [
+    {
+      "chance": 0.6,
+      "item": "kuayue:carriage_25b_circuit"
+    },
+    {
+      "chance": 0.1,
+      "item": "minecraft:redstone"
+    },
+    {
+      "chance": 0.2,
+      "item": "create:precision_mechanism"
+    },
+    {
+      "chance": 0.1,
+      "item": "create:electron_tube"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:carriage_25b_circuit_constructing"
+        },
+        {
+          "item": "minecraft:redstone"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:carriage_25b_circuit_constructing"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:carriage_25b_circuit_constructing"
+        },
+        {
+          "item": "create:precision_mechanism"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:carriage_25b_circuit_constructing"
+        }
+      ]
+    },
+	{
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:carriage_25b_circuit_constructing"
+        },
+        {
+          "item": "create:electron_tube"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:carriage_25b_circuit_constructing"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "kuayue:carriage_25b_circuit_constructing"
+        },
+        {
+          "item": "create:precision_mechanism"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:carriage_25b_circuit_constructing"
+        }
+      ]
+    },
+	{
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "kuayue:carriage_25b_circuit_constructing"
+        }
+      ],
+      "results": [
+        {
+          "item": "kuayue:carriage_25b_circuit_constructing"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "kuayue:carriage_25b_circuit_constructing"
+  }
+}

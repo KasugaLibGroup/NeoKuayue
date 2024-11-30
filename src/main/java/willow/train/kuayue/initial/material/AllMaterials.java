@@ -26,6 +26,8 @@ public class AllMaterials {
                     .material(Material.CLAY)
                     .materialColor(MaterialColor.STONE)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -39,6 +41,8 @@ public class AllMaterials {
                         }
                     })
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .addProperty(properties -> properties.strength(1.0f, 2.0f))
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -48,7 +52,7 @@ public class AllMaterials {
                     .block(QuartzPanelBlock2::new)
                     .materialAndColor(Material.STONE, MaterialColor.NONE)
                     .tab(AllElements.neoKuayueMainTab)
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final PanelRegistration<QuartzPanelBlockHalf> SMOOTH_QUARTZ_PANEL_HALF =
@@ -56,7 +60,7 @@ public class AllMaterials {
                     .block(QuartzPanelBlockHalf::new)
                     .materialAndColor(Material.STONE, MaterialColor.NONE)
                     .tab(AllElements.neoKuayueMainTab)
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final PanelRegistration<QuartzPanelBlock4> SMOOTH_QUARTZ_PANEL_4 =
@@ -64,7 +68,7 @@ public class AllMaterials {
                     .block(QuartzPanelBlock4::new)
                     .materialAndColor(Material.STONE, MaterialColor.NONE)
                     .tab(AllElements.neoKuayueMainTab)
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static final PanelRegistration<QuartzAngleBlock22> SMOOTH_QUARTZ_ANGLE_22_UP =
@@ -72,25 +76,19 @@ public class AllMaterials {
                     .block(QuartzAngleBlock22::new)
                     .materialAndColor(Material.STONE, MaterialColor.NONE)
                     .tab(AllElements.neoKuayueMainTab)
-                    .noOcclusion()
+                    .noOcclusion().strengthAndTool(1f, 3f)
                     .submit(AllElements.testRegistry);
 
     //耐候钢块
     public static final BlockReg<FullWeatheringSteelBlock> WEATHERING_STEEL_BLOCK =
             new BlockReg<FullWeatheringSteelBlock>("weathering_resistant_steel_block_0")
-                    .blockType(new BlockReg.BlockBuilder<FullWeatheringSteelBlock>() {
-                        @Override
-                        public FullWeatheringSteelBlock build(BlockBehaviour.Properties properties) {
-                            return new FullWeatheringSteelBlock(
-                                    IWeatheringSteel.WSWeatherState.WS,
-                                    BlockBehaviour.Properties
-                                            .of(Material.METAL, MaterialColor.METAL)
-                                            .strength(2.0f, 3.0f)
-                                            .sound(SoundType.COPPER)
-                                            .requiresCorrectToolForDrops());
-                        }
-                    })
+                    .blockType(p -> new FullWeatheringSteelBlock(IWeatheringSteel.WSWeatherState.WS, p))
+                    .material(Material.METAL)
+                    .materialColor(MaterialColor.METAL)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(p -> p.strength(2.0f, 3.0f))
+                    .withSound(SoundType.COPPER)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -98,19 +96,13 @@ public class AllMaterials {
     //斑驳的耐候钢块
     public static final BlockReg<FullWeatheringSteelBlock> EXPOSED_WEATHERING_STEEL_BLOCK =
             new BlockReg<FullWeatheringSteelBlock>("exposed_weathering_steel_block")
-                    .blockType(new BlockReg.BlockBuilder<FullWeatheringSteelBlock>() {
-                        @Override
-                        public FullWeatheringSteelBlock build(BlockBehaviour.Properties properties) {
-                            return new FullWeatheringSteelBlock(
-                                    IWeatheringSteel.WSWeatherState.EXPOSED_WS,
-                                    BlockBehaviour.Properties
-                                            .of(Material.METAL, MaterialColor.METAL)
-                                            .strength(2.0f, 3.0f)
-                                            .sound(SoundType.COPPER)
-                                            .requiresCorrectToolForDrops());
-                        }
-                    })
+                    .blockType(p -> new FullWeatheringSteelBlock(IWeatheringSteel.WSWeatherState.EXPOSED_WS, p))
+                    .material(Material.METAL)
+                    .materialColor(MaterialColor.METAL)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(p -> p.strength(2.0f, 3.0f))
+                    .withSound(SoundType.COPPER)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -118,19 +110,13 @@ public class AllMaterials {
     //泛黄的耐候钢块
     public static final BlockReg<FullWeatheringSteelBlock> YELLOWING_WEATHERING_STEEL_BLOCK =
             new BlockReg<FullWeatheringSteelBlock>("yellowing_weathering_steel_block")
-                    .blockType(new BlockReg.BlockBuilder<FullWeatheringSteelBlock>() {
-                        @Override
-                        public FullWeatheringSteelBlock build(BlockBehaviour.Properties properties) {
-                            return new FullWeatheringSteelBlock(
-                                    IWeatheringSteel.WSWeatherState.YELLOWING_WS,
-                                    BlockBehaviour.Properties
-                                            .of(Material.METAL, MaterialColor.METAL)
-                                            .strength(2.0f, 3.0f)
-                                            .sound(SoundType.COPPER)
-                                            .requiresCorrectToolForDrops());
-                        }
-                    })
+                    .blockType(p -> new FullWeatheringSteelBlock(IWeatheringSteel.WSWeatherState.YELLOWING_WS, p))
+                    .material(Material.METAL)
+                    .materialColor(MaterialColor.METAL)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(p -> p.strength(2.0f, 3.0f))
+                    .withSound(SoundType.COPPER)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -138,19 +124,13 @@ public class AllMaterials {
     //耐候钢锈块
     public static final BlockReg<FullWeatheringSteelBlock> RUSTED_WEATHERING_STEEL_BLOCK =
             new BlockReg<FullWeatheringSteelBlock>("rusted_weathering_steel_block")
-                    .blockType(new BlockReg.BlockBuilder<FullWeatheringSteelBlock>() {
-                        @Override
-                        public FullWeatheringSteelBlock build(BlockBehaviour.Properties properties) {
-                            return new FullWeatheringSteelBlock(
-                                    IWeatheringSteel.WSWeatherState.RUSTED_WS,
-                                    BlockBehaviour.Properties
-                                            .of(Material.METAL, MaterialColor.METAL)
-                                            .strength(2.0f, 3.0f)
-                                            .sound(SoundType.COPPER)
-                                            .requiresCorrectToolForDrops());
-                        }
-                    })
+                    .blockType(p -> new FullWeatheringSteelBlock(IWeatheringSteel.WSWeatherState.RUSTED_WS, p))
+                    .material(Material.METAL)
+                    .materialColor(MaterialColor.METAL)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(p -> p.strength(2.0f, 3.0f))
+                    .withSound(SoundType.COPPER)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -158,19 +138,13 @@ public class AllMaterials {
     //稳定的耐候钢锈块
     public static final BlockReg<FullWeatheringSteelBlock> STABLY_RUSTED_WEATHERING_STEEL_BLOCK =
             new BlockReg<FullWeatheringSteelBlock>("stably_rusted_weathering_steel_block")
-                    .blockType(new BlockReg.BlockBuilder<FullWeatheringSteelBlock>() {
-                        @Override
-                        public FullWeatheringSteelBlock build(BlockBehaviour.Properties properties) {
-                            return new FullWeatheringSteelBlock(
-                                    IWeatheringSteel.WSWeatherState.STABLY_WS,
-                                    BlockBehaviour.Properties
-                                            .of(Material.METAL, MaterialColor.METAL)
-                                            .strength(2.0f, 3.0f)
-                                            .sound(SoundType.COPPER)
-                                            .requiresCorrectToolForDrops());
-                        }
-                    })
+                    .blockType(p -> new FullWeatheringSteelBlock(IWeatheringSteel.WSWeatherState.STABLY_WS, p))
+                    .material(Material.METAL)
+                    .materialColor(MaterialColor.METAL)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(p -> p.strength(2.0f, 3.0f))
+                    .withSound(SoundType.COPPER)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
@@ -178,19 +152,13 @@ public class AllMaterials {
     //致密的耐候钢锈块
     public static final BlockReg<FullWeatheringSteelBlock> FULLY_RUSTED_WEATHERING_STEEL_BLOCK =
             new BlockReg<FullWeatheringSteelBlock>("fully_rusted_weathering_steel_block")
-                    .blockType(new BlockReg.BlockBuilder<FullWeatheringSteelBlock>() {
-                        @Override
-                        public FullWeatheringSteelBlock build(BlockBehaviour.Properties properties) {
-                            return new FullWeatheringSteelBlock(
-                                    IWeatheringSteel.WSWeatherState.FULLY_WS,
-                                    BlockBehaviour.Properties
-                                            .of(Material.METAL, MaterialColor.METAL)
-                                            .strength(2.0f, 3.0f)
-                                            .sound(SoundType.COPPER)
-                                            .requiresCorrectToolForDrops());
-                        }
-                    })
+                    .blockType(p -> new FullWeatheringSteelBlock(IWeatheringSteel.WSWeatherState.FULLY_WS, p))
+                    .material(Material.METAL)
+                    .materialColor(MaterialColor.METAL)
                     .addProperty(BlockBehaviour.Properties::noOcclusion)
+                    .addProperty(p -> p.strength(2.0f, 3.0f))
+                    .withSound(SoundType.COPPER)
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
