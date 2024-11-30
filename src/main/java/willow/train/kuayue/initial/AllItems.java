@@ -3,6 +3,7 @@ package willow.train.kuayue.initial;
 import kasuga.lib.registrations.BundledReg;
 import kasuga.lib.registrations.common.ItemReg;
 import net.minecraft.world.item.Item;
+import willow.train.kuayue.systems.device.AllDeviceItems;
 import net.minecraft.world.item.crafting.RecipeType;
 import willow.train.kuayue.item.FuelItem;
 
@@ -277,5 +278,7 @@ public class AllItems {
                     .element("carriage_marshalled_mould_constructing")
                     .submit(AllElements.testRegistry);
 
-    public static void invoke() {}
+    public static void invoke() {
+        AllDeviceItems.invoke();
+    }
 }

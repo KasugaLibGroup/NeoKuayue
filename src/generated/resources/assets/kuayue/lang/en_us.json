@@ -164,6 +164,8 @@
  "block.kuayue.waxed_rusted_weathering_steel_block": "Waxed Rusted Weathering Steel Block",
  "block.kuayue.waxed_stably_rusted_weathering_steel_block": "Waxed Stably Rusted Weathering Steel Block",
  "block.kuayue.waxed_fully_rusted_weathering_steel_block": "Waxed Fully Rusted Weathering Steel Block",
+ "block.kuayue.internal_combustion_drive_controller":"Common Drive Controller of Internal Combustion Trains",
+
  "tips.item": "--------------------------------all items above here-------------------------------------------",
  "item.kuayue.train_diet_1": "Train Meal A",
  "item.kuayue.ca_25t": "Dining Car CA25T",
@@ -270,6 +272,7 @@
  "itemGroup.carriage": "Kuayue·Carriages",
  "itemGroup.diet": "Kuayue·Catering",
  "itemGroup.materials": "Kuayue·Materials",
+ "itemGroup.device": "Kuayue·Signal Devices",
  "tips.sound": "--------------------------------all sounds above here-------------------------------------------",
  "sounds.kuayue.crossing_ringing": "Cation: TRAINS!",
  "tips.effect": "--------------------------------all effect above here-------------------------------------------",

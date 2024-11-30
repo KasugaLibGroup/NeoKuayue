@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "name": "@kuayue/main",
+  "version": "0.1.0",
+  "description": "The javascript part of KasugaLib",
+  "main": "index.js",
+  "repository": "https://github.com/KasugaLibGroup/KasugaLib",
+  "author": "TimeBather <open-source@timebather.cn>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.9.3",
+    "esbuild": "^0.24.0",
+    "execa": "^5.1.1",
+    "glob": "^11.0.0",
+    "tsx": "^4.19.2"
+  },
+  "scripts": {
+    "build": "tsx javascript/build.ts"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}

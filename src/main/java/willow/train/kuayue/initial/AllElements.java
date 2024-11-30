@@ -17,6 +17,7 @@ import willow.train.kuayue.initial.fluid.FluidTypesInit;
 import willow.train.kuayue.initial.fluid.FluidsInit;
 import willow.train.kuayue.initial.food.AllFoods;
 import willow.train.kuayue.initial.material.AllMaterials;
+import willow.train.kuayue.systems.device.AllDeviceItems;
 import willow.train.kuayue.initial.recipe.AllRecipes;
 
 public class AllElements {
@@ -39,6 +40,9 @@ public class AllElements {
             .icon(() -> AllItems.CA_25T.getItem().getDefaultInstance())
             .submit(testRegistry);
 
+    public static final CreativeTabReg neoKuayueDeviceTab = new CreativeTabReg("device")
+            .icon(() -> AllDeviceItems.ITEM_LOGO.getItem().getDefaultInstance())
+            .submit(testRegistry);
     public static final CreativeTabReg neoKuayueMaterialTab = new CreativeTabReg("materials")
             .icon(() -> AllItems.CIRCUIT_MOTHERBOARD.getItem().getDefaultInstance())
             .submit(testRegistry);

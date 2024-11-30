@@ -9,7 +9,6 @@ import java.util.function.Supplier;
 
 @Mixin(ExternalRemainderBlockItem.class)
 public interface AccessorExternalRemainderBlockItem {
-
     @Accessor("craftingRemainder")
     Supplier<Item> getCraftingRemainder();
 }
