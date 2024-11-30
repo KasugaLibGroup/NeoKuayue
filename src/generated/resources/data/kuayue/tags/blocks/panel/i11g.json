@@ -38,6 +38,17 @@
     "kuayue:df11g_panel_upper_blind",
     "kuayue:df11g_tank",
     "kuayue:df11g_carport_kua",
-    "kuayue:df11g_carport_yue"
+    "kuayue:df11g_carport_yue",
+    "kauyue:df11g_carport",
+    "kuayue:df11g_carport_centre",
+    "kuayue:df11g_carport_centre_cooling_blind",
+    "kuayue:df11g_carport_centre_fan_blind",
+    "kuayue:df11g_carport_eh",
+    "kuayue:df11g_carport_eh_ad",
+    "kuayue:df11g_carport_eh_blind",
+    "kuayue:df11g_carport_filter_blind",
+    "kuayue:df11g_panel_upper_eh_blind",
+    "kuayue:df11g_panel_bottom_eh_blind",
+    "kuayue:df11g_panel_bottom_ph_blind"
   ]
 }

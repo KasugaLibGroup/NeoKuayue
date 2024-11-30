@@ -1,19 +1,35 @@
 {
   "variants": {
-    "facing=east": {
+    "facing=east,hinge=right": {
       "model": "kuayue:block/df11g/louver_equip_room_df11g_1",
       "y": 90
     },
-    "facing=north": {
+    "facing=north,hinge=right": {
       "model": "kuayue:block/df11g/louver_equip_room_df11g_1",
       "y": 0
     },
-    "facing=south": {
+    "facing=south,hinge=right": {
       "model": "kuayue:block/df11g/louver_equip_room_df11g_1",
       "y": 180
     },
-    "facing=west": {
+    "facing=west,hinge=right": {
       "model": "kuayue:block/df11g/louver_equip_room_df11g_1",
+      "y": 270
+    },
+    "facing=east,hinge=left": {
+      "model": "kuayue:block/df11g/louver_equip_room_df11g_1_lh",
+      "y": 90
+    },
+    "facing=north,hinge=left": {
+      "model": "kuayue:block/df11g/louver_equip_room_df11g_1_lh",
+      "y": 0
+    },
+    "facing=south,hinge=left": {
+      "model": "kuayue:block/df11g/louver_equip_room_df11g_1_lh",
+      "y": 180
+    },
+    "facing=west,hinge=left": {
+      "model": "kuayue:block/df11g/louver_equip_room_df11g_1_lh",
       "y": 270
     }
   }

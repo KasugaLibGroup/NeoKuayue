@@ -19,7 +19,7 @@
   "block.kuayue.ky_semaphore": "色灯信号机(调车)",
   "block.kuayue.through_signal": "通过信号机",
   "block.kuayue.end_face_door_25bg": "25B/G车厢隔离门",
-  "block.kuayue.panel_bottom_line_25k": "原色25Z车厢下厢板 (带腰线)",
+  "block.kuayue.panel_bottom_line_25k": "原色25K车厢下厢板 (带腰线)",
   "block.kuayue.panel_25k_marshalled_symbol": "统型25K车厢标识线",
   "block.kuayue.panel_25k_marshalled_symbol_b": "统型25K车厢标识线(2)",
   "block.kuayue.panel_bottom_25k": "原色25K车厢下厢板",
@@ -850,6 +850,15 @@
   "block.kuayue.floor_df11g": "DF11G地板",
   "block.kuayue.df11g_carport_kua": "DF11G车顶“跨”字",
   "block.kuayue.df11g_carport_yue": "DF11G车顶“越”字",
+  "block.kuayue.df11g_carport": "DF11G车顶",
+  "block.kuayue.df11g_carport_centre":"DF11G中央车顶",
+  "block.kuayue.df11g_carport_centre_cooling_blind": "DF11G中央冷却风扇",
+  "block.kuayue.df11g_carport_centre_fan_blind": "DF11G电阻制动风机百叶扇",
+  "block.kuayue.df11g_carport_eh": "DF11G设备间车顶A",
+  "block.kuayue.df11g_carport_eh_ad": "DF11G设备间车顶B",
+  "block.kuayue.df11g_carport_eh_blind": "DF11G机械室通风百叶窗",
+  "block.kuayue.df11g_carport_filter_blind": "DF11G辅助风滤器百叶窗",
+  "block.kuayue.panel_slab_universal_25": "25型客车通用中置地板",
 
   "block.kuayue.road_sign_df11g": "路徽",
   "block.kuayue.window_equip_room_df11g_1": "DF11G设备间窗户 (类型1)",
@@ -863,6 +872,9 @@
   "block.kuayue.df11g_panel_bottom_cooling_blind":"DF11G散热室下格栅",
   "block.kuayue.df11g_panel_upper_blind":"DF11G上格栅",
   "block.kuayue.df11g_panel_upper_cooling_blind":"DF11G散热室上格栅",
-  "block.kuayue.df11g_tank":"DF11G风缸油箱"
+  "block.kuayue.df11g_tank":"DF11G风缸油箱",
+  "block.kuayue.df11g_panel_bottom_ph_blind": "DF11G动力间下格栅",
+  "block.kuayue.df11g_panel_bottom_eh_blind": "DF11G设备间下格栅",
+  "block.kuayue.df11g_panel_upper_ph_blind": "DF11G动力间上格栅"
 
 }

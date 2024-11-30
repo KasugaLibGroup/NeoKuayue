@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayue:block/panel_slab_universal_25",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "kuayue:block/panel_slab_universal_25",
+      "y": 0
+    },
+    "facing=south": {
+      "model": "kuayue:block/panel_slab_universal_25",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "kuayue:block/panel_slab_universal_25",
+      "y": 270
+    }
+  }
+}
