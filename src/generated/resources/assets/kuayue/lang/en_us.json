@@ -874,5 +874,9 @@
  "block.kuayue.df11g_panel_bottom_cooling_blind":"DF11G Radiator Room Bottom Blind",
  "block.kuayue.df11g_panel_upper_blind":"DF11G Upper Blind",
  "block.kuayue.df11g_panel_upper_cooling_blind":"DF11G Radiator Room Upper Blind",
- "block.kuayue.df11g_tank":"DF11G Blowcylinders And Flue Tank"
+ "block.kuayue.df11g_tank":"DF11G Blowcylinders And Flue Tank",
+ "block.kuayue.df11g_panel_bottom_ph_blind": "DF11G Power Room Bottom Blind",
+ "block.kuayue.df11g_panel_bottom_eh_blind": "DF11G Equipmen Room Bottom Blind",
+ "block.kuayue.df11g_panel_upper_ph_blind": "DF11G Power Room Upper Blind"
 }
+

@@ -1,0 +1,36 @@
+{
+	"variants": {
+		"facing=east,hinge=right": {
+			"model": "kuayue:block/df11g/df11g_panel_upper_ph_blind",
+			"y": 90
+		},
+		"facing=north,hinge=right": {
+			"model": "kuayue:block/df11g/df11g_panel_upper_ph_blind",
+			"y": 0
+		},
+		"facing=south,hinge=right": {
+			"model": "kuayue:block/df11g/df11g_panel_upper_ph_blind",
+			"y": 180
+		},
+		"facing=west,hinge=right": {
+			"model": "kuayue:block/df11g/df11g_panel_upper_ph_blind",
+			"y": 270
+		},
+		"facing=east,hinge=left": {
+			"model": "kuayue:block/df11g/df11g_panel_upper_ph_blind_lh",
+			"y": 90
+		},
+		"facing=north,hinge=left": {
+			"model": "kuayue:block/df11g/df11g_panel_upper_ph_blind_lh",
+			"y": 0
+		},
+		"facing=south,hinge=left": {
+			"model": "kuayue:block/df11g/df11g_panel_upper_ph_blind_lh",
+			"y": 180
+		},
+		"facing=west,hinge=left": {
+			"model": "kuayue:block/df11g/df11g_panel_upper_ph_blind_lh",
+			"y": 270
+		}
+	}
+}
