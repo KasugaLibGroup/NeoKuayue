@@ -46,6 +46,9 @@
     "kuayue:df11g_carport_eh",
     "kuayue:df11g_carport_eh_ad",
     "kuayue:df11g_carport_eh_blind",
-    "kuayue:df11g_carport_filter_blind"
+    "kuayue:df11g_carport_filter_blind",
+    "kuayue:df11g_panel_upper_eh_blind",
+    "kuayue:df11g_panel_bottom_eh_blind",
+    "kuayue:df11g_panel_bottom_ph_blind"
   ]
 }
