@@ -4,7 +4,7 @@
   "render_type": "translucent",
   "model": "kuayue:models/block/carriage/freight/c70/freight_c70_slab_top_lh.obj",
   "textures": {
-    "particle": "kuayue:block/carriage/freight/c70/freight_c70_slab_top_lh"
+    "particle": "kuayue:block/carriage/freight/c70/freight_c70_slab_top"
   },
   "gui_light": "front",
   "display": {

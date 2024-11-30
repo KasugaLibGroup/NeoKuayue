@@ -1,8 +1,0 @@
-{
-	"loader": "forge:obj",
-	"flip_v": true,
-	"model": "kuayue:models/block/df11g/door/frame_door_cabin_df11g_right.obj",
-	"textures": {
-		"particle": "kuayue:block/df11g/door/df11g_cab_door_temp_bottom"
-	}
-}

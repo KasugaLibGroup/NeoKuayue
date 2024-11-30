@@ -26,7 +26,7 @@ public class FluidTypesInit {
     public static final ResourceLocation COLA_STILL_RL = new ResourceLocation("block/water_still");
     public static final ResourceLocation COLA_FLOWING_RL = new ResourceLocation("block/water_flow");
     public static final ResourceLocation COLA_OVERLAY_RL =
-            new ResourceLocation(Kuayue.MODID, "misc/cola_fluid");
+            new ResourceLocation(Kuayue.MODID, "fluid/cola_fluid");
 
     public static final DeferredRegister<FluidType> FLUID_TYPES =
             DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, Kuayue.MODID);

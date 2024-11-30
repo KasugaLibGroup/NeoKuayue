@@ -1,23 +1,66 @@
 {
 	"credit": "Made with Blockbench",
-	"texture_size": [32, 32],
+	"texture_size": [64, 64],
 	"textures": {
-		"0": "kuayue:block/df11g/door/df11g_equip_room_door_bottom",
-		"particle": "kuayue:block/df11g/door/df11g_equip_room_door_bottom"
+		"0": "kuayue:block/df11g/door/df11g_equip_door",
+		"particle": "kuayue:block/df11g/door/df11g_equip_door"
 	},
 	"elements": [
 		{
-			"from": [-10, 0, -1],
-			"to": [0, 16, 0],
-			"rotation": {"angle": 0, "axis": "y", "origin": [-3, 0, -1]},
+			"name": "sbj",
+			"from": [-13, 0, -1.475],
+			"to": [0, 16, -0.475],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-6.5, 16, -0.975]},
 			"faces": {
-				"north": {"uv": [0, 0, 5, 8], "texture": "#0"},
-				"east": {"uv": [10, 0, 10.5, 8], "texture": "#0"},
-				"south": {"uv": [5, 0, 10, 8], "texture": "#0"},
-				"west": {"uv": [10, 8, 10.5, 16], "texture": "#0"},
-				"up": {"uv": [15.5, 0.5, 10.5, 0], "texture": "#0"},
-				"down": {"uv": [15.5, 0.5, 10.5, 1], "texture": "#0"}
+				"north": {"uv": [14, 1.0625, 11, 5.0625], "texture": "#0"},
+				"east": {"uv": [2, 8, 1.75, 12], "texture": "#0"},
+				"south": {"uv": [2.5, 0, 0, 4], "texture": "#0"},
+				"west": {"uv": [1.75, 8, 1.5, 12], "texture": "#0"},
+				"up": {"uv": [2.5, 10.5, 2.75, 8], "rotation": 270, "texture": "#0"},
+				"down": {"uv": [2.75, 8, 3, 10.5], "rotation": 90, "texture": "#0"}
 			}
+		}
+	],
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, -180, 0],
+			"translation": [0, 0, 3],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, -180, 0],
+			"translation": [0, 0, 3],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, -180, 0],
+			"translation": [5.75, -1.25, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, -180, 0],
+			"translation": [5.75, -1.25, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"ground": {
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [23, -125, 0],
+			"translation": [3, -4, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"fixed": {
+			"translation": [0, -8, -7.5]
+		}
+	},
+	"groups": [
+		{
+			"name": "sbj4",
+			"origin": [8.94167, 16, 15.83333],
+			"color": 0,
+			"children": [0]
 		}
 	]
 }

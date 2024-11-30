@@ -28,11 +28,11 @@ public class I11GPanel {
             new PanelRegistration<CustomRenderedDoorBlock>("door_cabin_df11g")
                     .block(p -> new CustomRenderedDoorBlock(p,
                             Couple.create(
-                                    AllElements.testRegistry.asResource("df11g/door/door_cabin_bottom_df11g_left"),
-                                    AllElements.testRegistry.asResource("df11g/door/door_cabin_upper_df11g_left")
+                                    AllElements.testRegistry.asResource("df11g/door/door_cabin_bottom_df11g_right"),
+                                    AllElements.testRegistry.asResource("df11g/door/door_cabin_upper_df11g_right")
                             ), Couple.create(
-                            AllElements.testRegistry.asResource("df11g/door/door_cabin_bottom_df11g_right"),
-                            AllElements.testRegistry.asResource("df11g/door/door_cabin_upper_df11g_right")
+                            AllElements.testRegistry.asResource("df11g/door/door_cabin_bottom_df11g_left"),
+                            AllElements.testRegistry.asResource("df11g/door/door_cabin_upper_df11g_left")
                     ), new Vec3(0, 0, 0), RenderShape.ENTITYBLOCK_ANIMATED, false
                     ))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
