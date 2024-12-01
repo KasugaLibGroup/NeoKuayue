@@ -12,6 +12,7 @@ import willow.train.kuayue.block.panels.FullShapeDirectionalBlock;
 import willow.train.kuayue.block.panels.TrainHingePanelBlock;
 import willow.train.kuayue.block.panels.TrainPanelBlock;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
+import willow.train.kuayue.block.panels.carport.DF11GChimneyBlock;
 import willow.train.kuayue.block.panels.door.CustomRenderedDoorBlock;
 import willow.train.kuayue.block.panels.end_face.CustomRenderedEndfaceBlock;
 import willow.train.kuayue.block.panels.slab.HingeSlabBlock;
@@ -28,11 +29,11 @@ public class I11GPanel {
             new PanelRegistration<CustomRenderedDoorBlock>("door_cabin_df11g")
                     .block(p -> new CustomRenderedDoorBlock(p,
                             Couple.create(
-                                    AllElements.testRegistry.asResource("df11g/door/door_cabin_bottom_df11g_left"),
-                                    AllElements.testRegistry.asResource("df11g/door/door_cabin_upper_df11g_left")
+                                    AllElements.testRegistry.asResource("df11g/door/door_cabin_bottom_df11g_right"),
+                                    AllElements.testRegistry.asResource("df11g/door/door_cabin_upper_df11g_right")
                             ), Couple.create(
-                            AllElements.testRegistry.asResource("df11g/door/door_cabin_bottom_df11g_right"),
-                            AllElements.testRegistry.asResource("df11g/door/door_cabin_upper_df11g_right")
+                            AllElements.testRegistry.asResource("df11g/door/door_cabin_bottom_df11g_left"),
+                            AllElements.testRegistry.asResource("df11g/door/door_cabin_upper_df11g_left")
                     ), new Vec3(0, 0, 0), RenderShape.ENTITYBLOCK_ANIMATED, false
                     ))
                     .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
@@ -435,6 +436,14 @@ public class I11GPanel {
                     .materialAndColor(Material.METAL,MaterialColor.COLOR_BLUE)
                     .tab(AllElements.neoKuayueLocoTab)
                     .noOcclusion().strengthAndTool(1.5f,3f)
+                    .submit(AllElements.testRegistry);
+
+    public static final SlabRegistration<DF11GChimneyBlock> DF11G_CHIMNEY =
+            new SlabRegistration<DF11GChimneyBlock>("df11g_chimney")
+                    .block(p -> new DF11GChimneyBlock(p, false))
+                    .materialAndColor(Material.METAL, MaterialColor.COLOR_GREEN)
+                    .tab(AllElements.neoKuayueLocoTab)
+                    .noOcclusion().strengthAndTool(1.5f, 3f)
                     .submit(AllElements.testRegistry);
 
     public static void invoke(){}

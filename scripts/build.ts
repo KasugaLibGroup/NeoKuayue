@@ -12,7 +12,7 @@ export function spawnAsync(args: string[], options: spawn.Options = {}) {
 }
 async function compileCore(){
     console.info(" * Compiling Core ....")
-    await spawnAsync(["yarn"], { cwd: resolve(__dirname, "../javascript") })
+    await spawnAsync(["yarn", "install"], { cwd: resolve(__dirname, "../javascript") })
     await spawnAsync(["yarn", "workspace", "@kuayue/train-devices", "build:server"], { cwd: resolve(__dirname, "../javascript")  })
     await spawnAsync(["yarn", "workspace", "@kuayue/train-devices", "build:client"], { cwd: resolve(__dirname, "../javascript")  })
     console.info(" * Compiled Core")

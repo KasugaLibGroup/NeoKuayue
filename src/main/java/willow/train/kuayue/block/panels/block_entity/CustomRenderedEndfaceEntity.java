@@ -14,6 +14,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 import willow.train.kuayue.block.panels.base.TrainPanelProperties;
 import willow.train.kuayue.block.panels.end_face.CustomRenderedEndfaceBlock;
 import willow.train.kuayue.initial.AllBlocks;
@@ -95,5 +97,10 @@ public class CustomRenderedEndfaceEntity extends SmartBlockEntity implements ICo
     @Override
     public void update(StructureTemplate.StructureBlockInfo info, Player player, BlockPos pos, AbstractContraptionEntity entity) {
         this.open = !open;
+    }
+
+    @Override
+    protected AABB createRenderBoundingBox() {
+        return AABB.ofSize(Vec3.atCenterOf(this.getBlockPos()), 5, 5, 5);
     }
 }

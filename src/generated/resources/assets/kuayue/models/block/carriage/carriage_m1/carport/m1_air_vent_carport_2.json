@@ -4,7 +4,7 @@
   "render_type": "translucent",
   "model": "kuayue:models/block/carriage/carriage_m1/carport/m1_air_vent_carport_2.obj",
   "textures": {
-    "particle": "kuayue:block/carriage/carriage_m1/m1_air_vent_carport_2"
+    "particle": "kuayue:block/carriage/carriage_m1/m1_air_vent_carport"
   },
   "display": {
     "thirdperson_righthand": {

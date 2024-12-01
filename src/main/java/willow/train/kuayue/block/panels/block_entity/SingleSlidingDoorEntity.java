@@ -16,9 +16,4 @@ public class SingleSlidingDoorEntity extends CustomRenderedEndfaceEntity impleme
     public SingleSlidingDoorEntity(BlockPos pos, BlockState state) {
         this(AllBlocks.SINGLE_SLIDING_DOOR_ENTITY.getType(), pos, state);
     }
-
-    @Override
-    protected AABB createRenderBoundingBox() {
-        return AABB.ofSize(Vec3.atCenterOf(this.getBlockPos()), 5, 5, 5);
-    }
 }

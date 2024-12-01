@@ -3,7 +3,7 @@
 	"texture_size": [64, 64],
 	"textures": {
 		"5": "kuayue:block/df11g/panel_bottom_df11g",
-		"particle": "kuayue:block/df11g/panel_botttom_df11g"
+		"particle": "kuayue:block/df11g/panel_bottom_df11g"
 	},
 	"elements": [
 		{
