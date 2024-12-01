@@ -26,9 +26,4 @@ public class DoubleRotateDoorEntity extends CustomRenderedEndfaceEntity implemen
     public DoorHingeSide getHinge() {
         return this.hinge;
     }
-
-    @Override
-    protected AABB createRenderBoundingBox() {
-        return AABB.ofSize(Vec3.atCenterOf(this.getBlockPos()), 5, 5, 5);
-    }
 }

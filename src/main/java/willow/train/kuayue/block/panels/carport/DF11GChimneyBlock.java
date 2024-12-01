@@ -1,5 +1,6 @@
 package willow.train.kuayue.block.panels.carport;
 
+import com.simibubi.create.foundation.block.IBE;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -9,14 +10,17 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import org.jetbrains.annotations.Nullable;
+import willow.train.kuayue.block.panels.block_entity.DF11GChimneyBlockEntity;
 import willow.train.kuayue.block.panels.slab.HingeSlabBlock;
+import willow.train.kuayue.initial.AllBlocks;
 
-public class DF11GChimneyBlock extends HingeSlabBlock {
+public class DF11GChimneyBlock extends HingeSlabBlock implements IBE<DF11GChimneyBlockEntity> {
 
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
@@ -92,5 +96,15 @@ public class DF11GChimneyBlock extends HingeSlabBlock {
                                 -(double)(0.05F + pRandom.nextFloat() / 10.0F) : 0.0F);
             }
         }
+    }
+
+    @Override
+    public Class<DF11GChimneyBlockEntity> getBlockEntityClass() {
+        return DF11GChimneyBlockEntity.class;
+    }
+
+    @Override
+    public BlockEntityType<? extends DF11GChimneyBlockEntity> getBlockEntityType() {
+        return AllBlocks.DF11G_CHIMNEY_BLOCK_ENTITY.getType();
     }
 }

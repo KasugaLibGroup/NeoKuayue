@@ -4,9 +4,11 @@ import com.simibubi.create.foundation.block.IBE;
 import kasuga.lib.registrations.create.InteractionReg;
 import kasuga.lib.registrations.create.MovementReg;
 import willow.train.kuayue.behaviour.AnimationMovementBehaviour;
+import willow.train.kuayue.behaviour.ChimneyMovementBehaviour;
 import willow.train.kuayue.behaviour.CompanyClickBehaviour;
 import willow.train.kuayue.behaviour.SeatClickBehaviour;
 import willow.train.kuayue.block.panels.block_entity.IContraptionMovementBlockEntity;
+import willow.train.kuayue.block.panels.carport.DF11GChimneyBlock;
 import willow.train.kuayue.block.seat.YZSeatBlock;
 import willow.train.kuayue.initial.AllBlocks;
 import willow.train.kuayue.initial.AllElements;
@@ -30,6 +32,14 @@ public class AllBehaviours {
                     .statePredicate(
                             state -> state.getBlock() instanceof IBE<?> ibe &&
                                     IContraptionMovementBlockEntity.class.isAssignableFrom(ibe.getBlockEntityClass())
+                    )
+                    .submit(AllElements.testRegistry);
+
+    public static final MovementReg<ChimneyMovementBehaviour> CHIMNEY_MOVEMENT_BEHAVIOUR =
+            new MovementReg<ChimneyMovementBehaviour>("chimney_movement_behaviour")
+                    .behaviour(new ChimneyMovementBehaviour())
+                    .statePredicate(
+                            state -> state.getBlock() instanceof DF11GChimneyBlock
                     )
                     .submit(AllElements.testRegistry);
 
