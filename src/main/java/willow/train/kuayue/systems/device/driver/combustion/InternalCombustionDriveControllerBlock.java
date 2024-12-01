@@ -38,7 +38,7 @@ public class InternalCombustionDriveControllerBlock extends Block implements IBE
         return RenderShape.ENTITYBLOCK_ANIMATED;
     }
 
-    private static VoxelShape EMPTY_SHAPE = Block.box(0, 0, 0, 0, 0, 0);
+    private static VoxelShape EMPTY_SHAPE = Block.box(0, 0, 0, 0.1, 0.1, 0.1);
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {

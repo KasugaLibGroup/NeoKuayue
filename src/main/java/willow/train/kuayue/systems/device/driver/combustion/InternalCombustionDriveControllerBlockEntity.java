@@ -7,8 +7,10 @@ import kasuga.lib.core.menu.locator.GuiMenuHolder;
 import kasuga.lib.example_env.AllExampleElements;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import willow.train.kuayue.systems.device.AllDeviceBlockEntities;
 import willow.train.kuayue.systems.device.AllDevicesMenus;
 import willow.train.kuayue.systems.device.driver.devices.CIRMenu;
@@ -50,6 +52,12 @@ public class InternalCombustionDriveControllerBlockEntity extends SmartBlockEnti
     }
 
     @Override
+    public void onChunkUnloaded() {
+        super.onChunkUnloaded();
+        holder.disable();
+    }
+
+    @Override
     public void clearRemoved() {
         super.clearRemoved();
         holder.enable(level);
@@ -61,5 +69,10 @@ public class InternalCombustionDriveControllerBlockEntity extends SmartBlockEnti
 
     public Optional<CIRMenu> getCIRMenu() {
         return holder.getMenu(1).map((t)->(t instanceof CIRMenu menu) ? menu : null);
+    }
+
+    @Override
+    public AABB getRenderBoundingBox() {
+        return new AABB(getBlockPos().offset(-2, -2,-2), getBlockPos().offset(2,2,2));
     }
 }
