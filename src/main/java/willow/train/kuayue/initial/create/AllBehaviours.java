@@ -31,7 +31,8 @@ public class AllBehaviours {
                     .behaviour(new AnimationMovementBehaviour())
                     .statePredicate(
                             state -> state.getBlock() instanceof IBE<?> ibe &&
-                                    IContraptionMovementBlockEntity.class.isAssignableFrom(ibe.getBlockEntityClass())
+                                    IContraptionMovementBlockEntity.class.isAssignableFrom(ibe.getBlockEntityClass()) &&
+                                    !(state.getBlock() instanceof DF11GChimneyBlock)
                     )
                     .submit(AllElements.testRegistry);
 

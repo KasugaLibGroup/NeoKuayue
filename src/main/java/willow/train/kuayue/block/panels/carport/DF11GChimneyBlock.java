@@ -16,11 +16,11 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import org.jetbrains.annotations.Nullable;
-import willow.train.kuayue.block.panels.block_entity.DF11GChimneyBlockEntity;
+import willow.train.kuayue.block.panels.block_entity.DF11GChimneyEntity;
 import willow.train.kuayue.block.panels.slab.HingeSlabBlock;
 import willow.train.kuayue.initial.AllBlocks;
 
-public class DF11GChimneyBlock extends HingeSlabBlock implements IBE<DF11GChimneyBlockEntity> {
+public class DF11GChimneyBlock extends HingeSlabBlock implements IBE<DF11GChimneyEntity> {
 
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
@@ -99,12 +99,12 @@ public class DF11GChimneyBlock extends HingeSlabBlock implements IBE<DF11GChimne
     }
 
     @Override
-    public Class<DF11GChimneyBlockEntity> getBlockEntityClass() {
-        return DF11GChimneyBlockEntity.class;
+    public Class<DF11GChimneyEntity> getBlockEntityClass() {
+        return DF11GChimneyEntity.class;
     }
 
     @Override
-    public BlockEntityType<? extends DF11GChimneyBlockEntity> getBlockEntityType() {
-        return AllBlocks.DF11G_CHIMNEY_BLOCK_ENTITY.getType();
+    public BlockEntityType<? extends DF11GChimneyEntity> getBlockEntityType() {
+        return AllBlocks.DF11G_CHIMNEY_ENTITY.getType();
     }
 }
