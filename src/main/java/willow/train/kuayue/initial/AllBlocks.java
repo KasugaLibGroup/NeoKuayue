@@ -12,7 +12,6 @@ import willow.train.kuayue.block.panels.TrainPanelBlock;
 import willow.train.kuayue.block.panels.base.*;
 import willow.train.kuayue.block.panels.block_entity.*;
 import willow.train.kuayue.block.panels.block_entity.renderer.*;
-import willow.train.kuayue.block.panels.carport.DF11GChimneyBlock;
 import willow.train.kuayue.block.panels.door.DoubleDoorBlock;
 import willow.train.kuayue.block.seat.SeatBlockEntity;
 import willow.train.kuayue.block.structure.platform.PlatformWallBlock;
@@ -222,12 +221,11 @@ public class AllBlocks {
                     .blockPredicates((location, block) -> block instanceof TrainPanelBlock)
                     .submit(AllElements.testRegistry);
 
-    public static final BlockEntityReg<DF11GChimneyBlockEntity> DF11G_CHIMNEY_BLOCK_ENTITY =
-            new BlockEntityReg<DF11GChimneyBlockEntity>("df11g_chimney_block_entity")
-                    .blockEntityType(DF11GChimneyBlockEntity::new)
+    public static final BlockEntityReg<DF11GChimneyEntity> DF11G_CHIMNEY_ENTITY =
+            new BlockEntityReg<DF11GChimneyEntity>("df11g_chimney_entity")
+                    .blockEntityType(DF11GChimneyEntity::new)
                     .addBlock(I11GPanel.DF11G_CHIMNEY.block)
                     .submit(AllElements.testRegistry);
-
 
 //    public static final MenuReg<EditablePanelEditMenu, EditablePanelEditScreen, EditablePanelEditScreen> EDITABLE_PANEL_EDIT_MENU =
 //            new MenuReg<EditablePanelEditMenu, EditablePanelEditScreen, EditablePanelEditScreen>("editable_panel_edit_menu")

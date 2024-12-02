@@ -14,9 +14,6 @@ import static willow.train.kuayue.block.panels.carport.DF11GChimneyBlock.LIT;
 
 public class ChimneyMovementBehaviour implements MovementBehaviour {
 
-    public ChimneyMovementBehaviour() {
-    }
-
     @Override
     public boolean renderAsNormalBlockEntity() {
         return true;
@@ -24,6 +21,7 @@ public class ChimneyMovementBehaviour implements MovementBehaviour {
 
     @Override
     public void tick(MovementContext context) {
+        System.out.println("method tick is being executed");
         Level pLevel = context.world;
         BlockState pState = context.state;
         if (pLevel == null || !pLevel.isClientSide || context.position == null
