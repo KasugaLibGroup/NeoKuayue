@@ -6,6 +6,7 @@ import com.simibubi.create.foundation.blockEntity.renderer.SmartBlockEntityRende
 import kasuga.lib.core.client.frontend.rendering.RenderContext;
 import kasuga.lib.core.client.model.BedrockModelLoader;
 import kasuga.lib.core.client.model.anim_model.AnimModel;
+import kasuga.lib.core.menu.locator.GuiMenuHolder;
 import kasuga.lib.core.menu.targets.Target;
 import kasuga.lib.core.menu.targets.WorldRendererTarget;
 import net.minecraft.client.renderer.LightTexture;
@@ -19,6 +20,10 @@ public class InternalCombustionDriveControllerBlockEntityRenderer extends SmartB
             AllElements.testRegistry.asResource("block/drive/drive_internal_combustion"),
             RenderType.cutoutMipped()
     );
+
+    static {
+        bedrockModel.init();
+    }
 
     public InternalCombustionDriveControllerBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
         super(context);
@@ -62,6 +67,52 @@ public class InternalCombustionDriveControllerBlockEntityRenderer extends SmartB
         poseStack.scale(0.0025f * 0.35f, 0.0025f * 0.35f, 0.0025f);
 
         blockEntity.getCIRMenu().ifPresent(menu -> {
+            WorldRendererTarget binding = menu.getBinding().apply(Target.WORLD_RENDERER);
+            if(binding != null) {
+                binding.render(worldContext);
+            }
+        });
+
+        poseStack.popPose();
+    }
+
+    public static void renderInContraption(
+            GuiMenuHolder holder,
+            PoseStack poseStack,
+            MultiBufferSource bufferSource,
+            int packedLight,
+            int overlay,
+            float partialTicks
+    ){
+        bedrockModel.render(poseStack, bufferSource, packedLight, overlay);
+
+        poseStack.pushPose();
+        poseStack.translate(1.125,1.1,0.925);
+        poseStack.mulPose(Quaternion.fromXYZ((float) (22.5 * (Math.PI) / 180),(float) (Math.PI),0));
+        poseStack.scale(0.0025f * 0.35f, 0.0025f * 0.35f, 0.0025f);
+
+        RenderContext worldContext = new RenderContext(RenderContext.RenderContextType.WORLD);
+        worldContext.setBufferSource(bufferSource);
+        worldContext.setPoseStack(poseStack);
+        worldContext.pushLight(packedLight);
+        worldContext.pushLight(LightTexture.FULL_BRIGHT);
+        worldContext.setSource(WorldRendererTarget.class);
+
+        (holder.getMenu(0)).ifPresent(menu -> {
+            WorldRendererTarget binding = menu.getBinding().apply(Target.WORLD_RENDERER);
+            if(binding != null) {
+                binding.render(worldContext);
+            }
+        });
+
+        poseStack.popPose();
+        poseStack.pushPose();
+
+        poseStack.translate(0.725,1.1,0.925);
+        poseStack.mulPose(Quaternion.fromXYZ((float) (22.5 * (Math.PI) / 180),(float) (Math.PI),0));
+        poseStack.scale(0.0025f * 0.35f, 0.0025f * 0.35f, 0.0025f);
+
+        (holder.getMenu(1)).ifPresent(menu -> {
             WorldRendererTarget binding = menu.getBinding().apply(Target.WORLD_RENDERER);
             if(binding != null) {
                 binding.render(worldContext);
