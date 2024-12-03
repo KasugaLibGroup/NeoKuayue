@@ -8,9 +8,9 @@
 	"elements": [
 		{
 			"name": "sbj",
-			"from": [13, 0, -1.975],
-			"to": [16, 32, 0.025],
-			"rotation": {"angle": 0, "axis": "y", "origin": [0, 0, -0.975]},
+			"from": [13, 0, -1.175],
+			"to": [16, 32, 0.825],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 0, -0.175]},
 			"faces": {
 				"north": {"uv": [8.75, 0.3125, 9.75, 8.3125], "texture": "#0"},
 				"east": {"uv": [8, 0, 8.5, 8], "texture": "#0"},

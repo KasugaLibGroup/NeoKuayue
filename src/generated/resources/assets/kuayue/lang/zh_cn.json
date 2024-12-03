@@ -886,5 +886,6 @@
   "block.kuayue.df11g_tank":"DF11G风缸油箱",
   "block.kuayue.df11g_panel_bottom_ph_blind": "DF11G动力间下格栅",
   "block.kuayue.df11g_panel_bottom_eh_blind": "DF11G设备间下格栅",
-  "block.kuayue.df11g_panel_upper_ph_blind": "DF11G动力间上格栅"
+  "block.kuayue.df11g_panel_upper_ph_blind": "DF11G动力间上格栅",
+  "block.kuayue.df11g_chimney": "DF11G烟囱"
 }
