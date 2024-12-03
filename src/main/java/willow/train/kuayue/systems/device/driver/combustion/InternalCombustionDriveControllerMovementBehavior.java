@@ -4,9 +4,12 @@ import com.jozufozu.flywheel.core.virtual.VirtualRenderWorld;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Matrix4f;
 import com.mojang.math.Vector4f;
+import com.simibubi.create.Create;
+import com.simibubi.create.content.contraptions.AbstractContraptionEntity;
 import com.simibubi.create.content.contraptions.behaviour.MovementBehaviour;
 import com.simibubi.create.content.contraptions.behaviour.MovementContext;
 import com.simibubi.create.content.contraptions.render.ContraptionMatrices;
+import com.simibubi.create.content.trains.entity.CarriageContraptionEntity;
 import com.simibubi.create.foundation.render.BlockEntityRenderHelper;
 import com.simibubi.create.foundation.utility.AnimationTickHolder;
 import kasuga.lib.core.menu.locator.ContraptionBlockMenuLocator;
@@ -32,7 +35,11 @@ public class InternalCombustionDriveControllerMovementBehavior implements Moveme
             ContraptionBlockMenuLocator locator = ContraptionBlockMenuLocator.fromLocator(context);
             locator.withLevel(context.world);
             GuiMenuHolder holder = new GuiMenuHolder.Builder()
-                    .with(AllDevicesMenus.LKJ2000)
+                    .with(AllDevicesMenus.LKJ2000, (menu)->{
+                        if(context.contraption.entity instanceof CarriageContraptionEntity carriageContraption){
+                            menu.provideTrainData(new TrainDataHandler(Create.RAILWAYS.trains.get(carriageContraption.trainId)));
+                        }
+                    })
                     .with(AllDevicesMenus.CIR)
                     .locatedAt(locator)
                     .build();
@@ -59,6 +66,7 @@ public class InternalCombustionDriveControllerMovementBehavior implements Moveme
     }
 
     private static BlockPos getLightPos(@Nullable Matrix4f lightTransform, BlockPos contraptionPos) {
+        // Copied from Create mod
         if (lightTransform != null) {
             Vector4f lightVec = new Vector4f((float)contraptionPos.getX() + 0.5F, (float)contraptionPos.getY() + 0.5F, (float)contraptionPos.getZ() + 0.5F, 1.0F);
             lightVec.transform(lightTransform);
@@ -77,7 +85,8 @@ public class InternalCombustionDriveControllerMovementBehavior implements Moveme
         PoseStack ms = matrices.getModelViewProjection();
         ms.pushPose();
         ms.translate(context.localPos.getX(), context.localPos.getY(), context.localPos.getZ());
-        InternalCombustionDriveControllerBlockEntityRenderer.renderInContraption(
+        InternalCombustionDriveControllerBlockEntityRenderer.renderCommon(
+                context.state,
                 holder,
                 matrices.getModelViewProjection(),
                 buffer,

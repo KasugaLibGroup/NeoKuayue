@@ -1,21 +1,40 @@
 package willow.train.kuayue.systems.device.driver.combustion;
 
 import com.simibubi.create.AllItems;
+import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.foundation.block.IBE;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import willow.train.kuayue.block.panels.TrainPanelBlock;
+import willow.train.kuayue.block.panels.base.TrainPanelProperties;
 import willow.train.kuayue.systems.device.AllDeviceBlockEntities;
 
-public class InternalCombustionDriveControllerBlock extends Block implements IBE<InternalCombustionDriveControllerBlockEntity> {
+public class InternalCombustionDriveControllerBlock extends Block implements IBE<InternalCombustionDriveControllerBlockEntity>, IWrenchable {
+
+    public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static final IntegerProperty OFFSET = IntegerProperty.create("effect_offset", 0 ,15);
+
     public InternalCombustionDriveControllerBlock(Properties pProperties) {
         super(pProperties.noOcclusion());
+        this.registerDefaultState(
+                this.getStateDefinition().any()
+                        .setValue(FACING, Direction.EAST)
+                        .setValue(OFFSET, 0)
+        );
     }
 
     @Override
@@ -43,5 +62,23 @@ public class InternalCombustionDriveControllerBlock extends Block implements IBE
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return super.getShape(pState, pLevel, pPos, pContext);
+    }
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+        pBuilder.add(FACING, OFFSET);
+    }
+
+    @Override
+    public InteractionResult onWrenched(BlockState state, UseOnContext context) {
+        if(context.getClickedFace() == Direction.UP){
+            return IWrenchable.super.onWrenched(state, context);
+        }
+        // Set OFFSET to next value
+        int offset = state.getValue(OFFSET);
+        offset = (offset + 1) % 16;
+        IWrenchable.super.updateAfterWrenched(state.setValue(OFFSET, offset) ,context);
+        context.getLevel().setBlock(context.getClickedPos(), state.setValue(OFFSET, offset), 3);
+        return InteractionResult.SUCCESS;
     }
 }
