@@ -71,7 +71,7 @@ public class DF11GChimneyBlock extends HingeSlabBlock implements IBE<DF11GChimne
         Direction direction = pState.getValue(FACING);
 
         if (pState.getValue(LIT)) {
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 3; i++) {
                 if (pRandom.nextFloat() < 0.5f) {
                     pLevel.addParticle(
                             ParticleTypes.LARGE_SMOKE,

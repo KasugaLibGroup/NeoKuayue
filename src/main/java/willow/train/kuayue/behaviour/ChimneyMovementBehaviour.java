@@ -16,7 +16,7 @@ import static willow.train.kuayue.block.panels.carport.DF11GChimneyBlock.LIT;
 
 public class ChimneyMovementBehaviour implements MovementBehaviour {
 
-    private double posSpeedDiff = 0;
+    private double posSpeedDiff = 0.0F;
 
     private boolean isStopped = true;
 
@@ -53,8 +53,10 @@ public class ChimneyMovementBehaviour implements MovementBehaviour {
         Direction direction = pState.getValue(FACING);
 
         float density = 0.5F;
-        if (isStopped)
+        if (isStopped) {
             density = 0.1F;
+            posSpeedDiff = 0.0F;
+        }
 
         if (pState.getValue(LIT)) {
             if (pRandom.nextFloat() < (density + posSpeedDiff * 10)) {

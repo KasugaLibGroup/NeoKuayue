@@ -97,6 +97,18 @@ public class AllItems {
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
 
+    public static final ItemReg<Item> MONOSODIUM_GLUTAMATE =
+            new ItemReg<Item>("monosodium_glutamate")
+                    .itemType(Item::new)
+                    .tab(AllElements.neoKuayueDietTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final ItemReg<Item> SALT =
+            new ItemReg<Item>("salt")
+                    .itemType(Item::new)
+                    .tab(AllElements.neoKuayueDietTab)
+                    .submit(AllElements.testRegistry);
+
     public static final ItemReg<Item> SOLIDIFY_SLIME_BALL =
             new ItemReg<>("solidify_slime_ball")
                     .itemType(Item::new)
