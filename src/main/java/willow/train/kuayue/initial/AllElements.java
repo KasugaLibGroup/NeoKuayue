@@ -19,6 +19,7 @@ import willow.train.kuayue.initial.food.AllFoods;
 import willow.train.kuayue.initial.material.AllMaterials;
 import willow.train.kuayue.systems.device.AllDeviceItems;
 import willow.train.kuayue.initial.recipe.AllRecipes;
+import willow.train.kuayue.systems.device.EntityTrackingListener;
 
 public class AllElements {
 
@@ -82,6 +83,7 @@ public class AllElements {
         MinecraftForge.EVENT_BUS.addListener(PlayerDataEvent::onPlayerLogout);
         MinecraftForge.EVENT_BUS.addListener(PlayerDataEvent::onLevelLoad);
         MinecraftForge.EVENT_BUS.addListener(PlayerDataEvent::onLevelSave);
+        MinecraftForge.EVENT_BUS.addListener(EntityTrackingListener::onEntityUnload);
         testRegistry.submit();
     }
 }
