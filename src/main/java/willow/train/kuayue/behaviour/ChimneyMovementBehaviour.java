@@ -4,15 +4,21 @@ import com.simibubi.create.content.contraptions.behaviour.MovementBehaviour;
 import com.simibubi.create.content.contraptions.behaviour.MovementContext;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.CampfireBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 
 import static willow.train.kuayue.block.panels.TrainPanelBlock.FACING;
 import static willow.train.kuayue.block.panels.carport.DF11GChimneyBlock.LIT;
 
 public class ChimneyMovementBehaviour implements MovementBehaviour {
+
+    private double posSpeedDiff = 0;
+
+    private boolean isStopped = true;
 
     @Override
     public boolean renderAsNormalBlockEntity() {
@@ -20,8 +26,23 @@ public class ChimneyMovementBehaviour implements MovementBehaviour {
     }
 
     @Override
+    public void startMoving(MovementContext context) {
+        MovementBehaviour.super.startMoving(context);
+    }
+
+    @Override
+    public void onSpeedChanged(MovementContext context, Vec3 oldMotion, Vec3 motion) {
+        MovementBehaviour.super.onSpeedChanged(context, oldMotion, motion);
+        double speed = motion.length();
+        double oldSpeed = oldMotion.length();
+        double speedDiff = speed - oldSpeed;
+        posSpeedDiff = speedDiff > 0 ? speedDiff : 0;
+        isStopped = Mth.equal(motion.length(), 0);
+    }
+
+    @Override
     public void tick(MovementContext context) {
-        System.out.println("method tick is being executed");
+
         Level pLevel = context.world;
         BlockState pState = context.state;
         if (pLevel == null || !pLevel.isClientSide || context.position == null
@@ -31,14 +52,18 @@ public class ChimneyMovementBehaviour implements MovementBehaviour {
         RandomSource pRandom = pLevel.random;
         Direction direction = pState.getValue(FACING);
 
+        float density = 0.5F;
+        if (isStopped)
+            density = 0.1F;
+
         if (pState.getValue(LIT)) {
-            for (int i = 0; i < 5; i++) {
+            if (pRandom.nextFloat() < (density + posSpeedDiff * 10)) {
                 if (pRandom.nextFloat() < 0.5f) {
                     pLevel.addParticle(
                             ParticleTypes.LARGE_SMOKE,
-                            context.position.y() + 0.5D,
-                            context.position.y() + 1.0D,
-                            context.position.y() + 0.5D,
+                            context.position.x(),
+                            context.position.y() + 0.70D,
+                            context.position.z(),
                             (direction == Direction.EAST || direction == Direction.WEST) ?
                                     (double)(0.05F + pRandom.nextFloat() / 10.0F) : 0.0F,
                             0.2F,
@@ -47,9 +72,9 @@ public class ChimneyMovementBehaviour implements MovementBehaviour {
                 }
                 pLevel.addParticle(
                         ParticleTypes.LARGE_SMOKE,
-                        context.position.y() + 0.5D,
-                        context.position.y() + 1.0D,
-                        context.position.y() + 0.5D,
+                        context.position.x(),
+                        context.position.y() + 0.70D,
+                        context.position.z(),
                         (direction == Direction.EAST || direction == Direction.WEST) ?
                                 -(double)(0.05F + pRandom.nextFloat() / 10.0F) : 0.0F,
                         0.2F,
