@@ -82,42 +82,42 @@ public class AllFoods {
     public static final ItemReg<HandHeldFoodItem> HAM_SAUSAGE =
             new ItemReg<HandHeldFoodItem>("ham_sausage")
                     .itemType(HandHeldFoodItem::new)
-                    .withProperty(properties -> properties.food(SMALL_SNACKS_PROPS))
+                    .withProperty(properties -> properties.food(HAM_SAUSAGE_PROPS))
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
 
     public static final ItemReg<HandHeldFoodItem> MARINATED_EGG =
             new ItemReg<HandHeldFoodItem>("marinated_egg")
                     .itemType(HandHeldFoodItem::new)
-                    .withProperty(properties -> properties.food(SMALL_SNACKS_PROPS))
+                    .withProperty(properties -> properties.food(MARINATED_EGG_PROPS))
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
 
     public static final ItemReg<HandHeldFoodItem> HALF_MARINATED_EGG =
             new ItemReg<HandHeldFoodItem>("half_marinated_egg")
                     .itemType(HandHeldFoodItem::new)
-                    .withProperty(properties -> properties.food(TINY_SNACKS_PROPS))
+                    .withProperty(properties -> properties.food(HALF_MARINATED_EGG_PROPS))
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
 
     public static final ItemReg<HandHeldFoodItem> CALCIUM_MILK_BISCUITS =
             new ItemReg<HandHeldFoodItem>("calcium_milk_biscuits")
                     .itemType(HandHeldFoodItem::new)
-                    .withProperty(properties -> properties.food(SMALL_SNACKS_PROPS))
+                    .withProperty(properties -> properties.food(CALCIUM_MILK_PROPS))
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
 
     public static final ItemReg<HandHeldFoodItem> SPICY_FISH_TOFU =
             new ItemReg<HandHeldFoodItem>("spicy_fish_tofu")
                     .itemType(HandHeldFoodItem::new)
-                    .withProperty(properties -> properties.food(SMALL_SNACKS_PROPS))
+                    .withProperty(properties -> properties.food(SPICY_FISH_TOFU_PROPS))
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
 
     public static final ItemReg<HandHeldFoodItem> SALT_BAKED_DRUMSTICKS =
             new ItemReg<HandHeldFoodItem>("salt_baked_drumsticks")
                     .itemType(HandHeldFoodItem::new)
-                    .withProperty(properties -> properties.food(DRIED_INSTANT_NOODLES_PROPS))
+                    .withProperty(properties -> properties.food(SALT_BAKED_DRUMSTICKS_PROPS))
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
 

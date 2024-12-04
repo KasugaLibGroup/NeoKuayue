@@ -1,15 +1,39 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    { "item": "kuayue:lunch_box" },
-    { "item": "minecraft:egg" },
-    { "item": "minecraft:cooked_beef" },
-    { "item": "minecraft:baked_potato" },
-    { "item": "minecraft:carrot" },
-    { "item": "minecraft:wheat" }
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": {
+      "item": "kuayue:lunch_box"
+    },
+    "B": {
+      "item": "minecraft:egg"
+    },
+    "C": [
+      { "item": "minecraft:cooked_beef" },
+      { "item": "minecraft:cooked_chicken" },
+      { "item": "minecraft:cooked_porkchop" }
+    ],
+    "D": [
+      { "item": "minecraft:baked_potato" },
+      { "item": "minecraft:carrot" },
+      { "item": "minecraft:beetroot" }
+    ],
+    "E": [
+      { "item": "minecraft:baked_potato" },
+      { "item": "minecraft:carrot" },
+      { "item": "minecraft:beetroot" }
+    ],
+    "F": {
+      "item": "minecraft:wheat"
+    }
+  },
+  "pattern": [
+    "BDE",
+    "CAF",
+    "   "
   ],
   "result": {
     "item": "kuayue:train_diet_1",
     "count": 1
-  }
+  },
+  "show_notification": true
 }

@@ -1,16 +1,20 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    { "tag": "minecraft:small_flowers" },
-    { "tag": "minecraft:small_flowers" },
-    { "tag": "minecraft:small_flowers" },
-    { "tag": "minecraft:small_flowers" },
-    { "tag": "minecraft:small_flowers" },
-    { "tag": "minecraft:small_flowers" },
-    { "item": "minecraft:egg" }
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": { "tag": "minecraft:small_flowers" },
+    "B": { "item": "minecraft:sugar" },
+    "C": { "item": "kuayue:salt" },
+    "D": { "item": "kuayue:monosodium_glutamate" },
+    "E": { "item": "minecraft:egg" }
+  },
+  "pattern": [
+    "AAA",
+    "EEE",
+    "BCD"
   ],
   "result": {
     "item": "kuayue:marinated_egg",
-    "count": 1
-  }
+    "count": 3
+  },
+  "show_notification": true
 }

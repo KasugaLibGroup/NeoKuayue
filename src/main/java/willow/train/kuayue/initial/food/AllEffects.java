@@ -19,7 +19,7 @@ public class AllEffects {
             new MobEffectInstance(MobEffects.REGENERATION, 100, 0);
 
     public static final MobEffectInstance KUA_COLA_EFFECT =
-            new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 600, 1);
+            new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 800, 1);
 
     public static void invoke() {}
 }
