@@ -63,16 +63,12 @@ public class InternalCombustionDriveControllerBlockEntity extends SmartBlockEnti
         holder.enable(level);
     }
 
-    public Optional<LKJ2000Menu> getLKJ2000Menu() {
-        return holder.getMenu(0).map((t)->(t instanceof LKJ2000Menu menu) ? menu : null);
-    }
-
-    public Optional<CIRMenu> getCIRMenu() {
-        return holder.getMenu(1).map((t)->(t instanceof CIRMenu menu) ? menu : null);
-    }
-
     @Override
     public AABB getRenderBoundingBox() {
         return new AABB(getBlockPos().offset(-2, -2,-2), getBlockPos().offset(2,2,2));
+    }
+
+    public GuiMenuHolder getMenuHolder() {
+        return holder;
     }
 }
