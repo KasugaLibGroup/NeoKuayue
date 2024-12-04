@@ -39,16 +39,17 @@ async function copyCore(){
 
             if(isIgnore){
                 ignored.add(file.relative());
-                console.info("Ignore: " + file.relative());
+                // console.info("Ignore: " + file.relative());
             }else{
                 matched.add(file.relative());
-                console.info("Matched: " + file.relative());
+                // console.info("Matched: " + file.relative());
                 mapper.set(file.relative(), file);
             }
         }
     }
     ignored.forEach((s)=>matched.delete(s));
-    console.info(" + Added: " + matched.size);
+    matched.forEach((s)=>console.info(" + Added: " + s));
+    console.info(" + Total Added: " + matched.size);
 
     const destDir = resolve(__dirname, "../src/generated/resources/script");
     await fs.rm(destDir, { recursive: true, force: true });
