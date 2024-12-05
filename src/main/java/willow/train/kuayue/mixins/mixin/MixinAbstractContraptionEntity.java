@@ -13,6 +13,8 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fml.DistExecutor;
 import org.checkerframework.checker.units.qual.A;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
@@ -24,6 +26,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import willow.train.kuayue.block.seat.SeatBlockEntity;
 import willow.train.kuayue.block.seat.YZSeatBlock;
 import willow.train.kuayue.initial.AllTags;
+import willow.train.kuayue.systems.device.driver.seat.IContraptionSeatListenerBlock;
+import willow.train.kuayue.systems.device.driver.seat.MinecraftUtil;
 
 import java.util.Collection;
 import java.util.List;
@@ -57,6 +61,13 @@ public abstract class MixinAbstractContraptionEntity {
         BlockPos pos = contraption.getSeatOf(passenger.getUUID());
         if (pos == null) return;
         StructureTemplate.StructureBlockInfo info = contraption.getBlocks().get(pos);
+        if(info.state.getBlock() instanceof IContraptionSeatListenerBlock listenerBlock){
+            Boolean isLocalPlayer = DistExecutor.unsafeCallWhenOn(Dist.CLIENT, ()->()->MinecraftUtil.isLocalPlayer(passenger));
+            if(isLocalPlayer == null) isLocalPlayer = false;
+            if(isLocalPlayer){
+                listenerBlock.onCurrentPlayerStandUpOnContraption(passenger, (AbstractContraptionEntity) (Object) this);
+            }
+        }
         if (info.state.getBlock() instanceof YZSeatBlock yzSeatBlock) {
             if (!info.state.is(AllTags.MULTI_SEAT_BLOCK.tag())) return;
             int seatSize = yzSeatBlock.getSeatSize();
