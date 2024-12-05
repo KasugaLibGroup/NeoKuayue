@@ -4,6 +4,8 @@ import kasuga.lib.registrations.common.BlockEntityReg;
 import kasuga.lib.registrations.common.BlockReg;
 import net.minecraft.world.level.material.Material;
 import willow.train.kuayue.initial.AllElements;
+import willow.train.kuayue.systems.device.driver.seat.DoubleDriverSeatBlock;
+import willow.train.kuayue.systems.device.driver.seat.DoubleDriverSeatBlockEntity;
 import willow.train.kuayue.systems.device.track.entry.StationEntryBlock;
 import willow.train.kuayue.systems.device.track.entry.StationEntryBlockEntity;
 import willow.train.kuayue.systems.device.track.entry.client.StationEntryBlockEntityRenderer;
@@ -36,6 +38,14 @@ public class AllDeviceBlocks {
                 .defaultBlockItem()
                 .tabTo(AllElements.neoKuayueDeviceTab)
                 .submit(AllElements.testRegistry);
+
+    public static BlockReg<DoubleDriverSeatBlock> DOUBLE_DRIVER_SEAT =
+            new BlockReg<DoubleDriverSeatBlock>("double_driver_seat")
+                    .blockType(DoubleDriverSeatBlock::new)
+                    .material(Material.METAL)
+                    .defaultBlockItem()
+                    .tabTo(AllElements.neoKuayueDeviceTab)
+                    .submit(AllElements.testRegistry);
 
     public static void invoke(){
         AllDeviceBlockEntities.invoke();
