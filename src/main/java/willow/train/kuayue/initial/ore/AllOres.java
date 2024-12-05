@@ -20,7 +20,7 @@ public class AllOres {
                     .addProperty(properties -> properties.strength(1.5f, 6.0F))
                     .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
                     .defaultBlockItem()
-                    .tabTo(AllElements.neoKuayueDietTab)
+                    .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
 
     public static void invoke() {}
