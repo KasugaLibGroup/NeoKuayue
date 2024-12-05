@@ -3,7 +3,7 @@
   "ingredients": [
     { "tag": "forge:dough" },
     { "item": "minecraft:bone_meal" },
-    { "item": "kuayue:salt" },
+    { "tag": "forge:salt" },
     [
       { "item": "minecraft:cooked_beef" },
       { "item": "minecraft:cooked_porkchop" },

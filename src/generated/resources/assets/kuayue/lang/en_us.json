@@ -883,6 +883,8 @@
  "block.kuayue.df11g_panel_bottom_ph_blind": "DF11G Power Room Bottom Blind",
  "block.kuayue.df11g_panel_bottom_eh_blind": "DF11G Equipmen Room Bottom Blind",
  "block.kuayue.df11g_panel_upper_ph_blind": "DF11G Power Room Upper Blind",
- "block.kuayue.df11g_chimney": "DF11G Chimney"
+ "block.kuayue.df11g_chimney": "DF11G Chimney",
+
+ "block.kuayue.salt_ore": "Salt Ore"
 }
 

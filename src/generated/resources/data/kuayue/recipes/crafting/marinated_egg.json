@@ -3,7 +3,7 @@
   "key": {
     "A": { "tag": "minecraft:small_flowers" },
     "B": { "item": "minecraft:sugar" },
-    "C": { "item": "kuayue:salt" },
+    "C": { "tag": "forge:salt" },
     "D": { "item": "kuayue:monosodium_glutamate" },
     "E": { "item": "minecraft:egg" }
   },

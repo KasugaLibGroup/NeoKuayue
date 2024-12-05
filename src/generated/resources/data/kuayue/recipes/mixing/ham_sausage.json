@@ -13,7 +13,7 @@
       { "item": "minecraft:chicken" }
     ],
     { "item": "create:wheat_flour" },
-    { "item": "kuayue:salt" }
+    { "tag": "forge:salt" }
   ],
   "results": [
     {

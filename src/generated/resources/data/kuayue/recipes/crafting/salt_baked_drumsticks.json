@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     { "item": "minecraft:cooked_chicken" },
-    { "item": "kuayue:salt" },
+    { "tag": "forge:salt" },
     { "item": "kuayue:monosodium_glutamate" }
   ],
   "result": {

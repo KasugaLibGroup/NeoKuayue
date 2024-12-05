@@ -172,6 +172,8 @@
   "kuayue:carport_louver_df11g_3",
   "kuayue:cowcatcher_df11g",
   "kuayue:head_df11g_2",
+  "kuayue:df11g_chimney",
+
   "kuayue:door_cabin_hxd3d",
   "kuayue:carport_general_hxd3d",
   "kuayue:floor_hxd3d",
@@ -254,6 +256,8 @@
   "kuayue:rusted_weathering_steel_block",
   "kuayue:stably_rusted_weathering_steel_block",
   "kuayue:fully_rusted_weathering_steel_block",
-  "kuayue:original_25z_floor_carpet"
+  "kuayue:original_25z_floor_carpet",
+
+  "kuayue:salt_ore"
  ]
 }

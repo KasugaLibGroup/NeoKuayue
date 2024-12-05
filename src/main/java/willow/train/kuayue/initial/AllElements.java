@@ -17,6 +17,7 @@ import willow.train.kuayue.initial.fluid.FluidTypesInit;
 import willow.train.kuayue.initial.fluid.FluidsInit;
 import willow.train.kuayue.initial.food.AllFoods;
 import willow.train.kuayue.initial.material.AllMaterials;
+import willow.train.kuayue.initial.ore.AllOres;
 import willow.train.kuayue.systems.device.AllDeviceItems;
 import willow.train.kuayue.initial.recipe.AllRecipes;
 import willow.train.kuayue.systems.device.EntityTrackingListener;
@@ -64,6 +65,7 @@ public class AllElements {
         AllFoods.invoke();
         AllRecipes.invoke();
         AllEntities.invoke();
+        AllOres.invoke();
         FluidsInit.register(testRegistry.eventBus);
         FluidTypesInit.register(testRegistry.eventBus);
         // AllFluids.invoke();
