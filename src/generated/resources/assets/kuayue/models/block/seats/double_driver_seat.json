@@ -1,0 +1,8 @@
+{
+  "loader": "kasuga_lib:bedrock_animated",
+  "model": "kuayue:block/seats/double_driver_seat",
+  "texture": "kuayue:block/seats/double_driver_seat",
+  "geometry": "geometry.unknown",
+  "render_type": "translucent",
+  "identifier": "kuayue:block/seats/double_driver_seat"
+}

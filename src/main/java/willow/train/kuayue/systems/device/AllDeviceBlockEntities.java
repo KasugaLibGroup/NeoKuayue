@@ -4,6 +4,8 @@ import kasuga.lib.registrations.common.BlockEntityReg;
 import willow.train.kuayue.initial.AllElements;
 import willow.train.kuayue.systems.device.driver.combustion.InternalCombustionDriveControllerBlockEntity;
 import willow.train.kuayue.systems.device.driver.combustion.InternalCombustionDriveControllerBlockEntityRenderer;
+import willow.train.kuayue.systems.device.driver.seat.DoubleDriverSeatBlockEntity;
+import willow.train.kuayue.systems.device.driver.seat.DoubleDriverSeatBlockRenderer;
 import willow.train.kuayue.systems.device.track.entry.StationEntryBlockEntity;
 import willow.train.kuayue.systems.device.track.entry.client.StationEntryBlockEntityRenderer;
 import willow.train.kuayue.systems.device.track.train_station.TrainStationBlockEntity;
@@ -30,6 +32,14 @@ public class AllDeviceBlockEntities {
                 .addBlock(AllDeviceBlocks.INTERNAL_COMBUSTION_DRIVE_CONTROLLER)
                 .withRenderer(()-> InternalCombustionDriveControllerBlockEntityRenderer::new)
                 .submit(AllElements.testRegistry);
+
+
+    public static BlockEntityReg<DoubleDriverSeatBlockEntity> DOUBLE_DRIVER_SEAT =
+            new BlockEntityReg<DoubleDriverSeatBlockEntity>("double_driver_seat")
+                    .blockEntityType(DoubleDriverSeatBlockEntity::new)
+                    .addBlock(AllDeviceBlocks.DOUBLE_DRIVER_SEAT)
+                    .withRenderer(()-> DoubleDriverSeatBlockRenderer::new)
+                    .submit(AllElements.testRegistry);
 
     public static void invoke() {}
 }

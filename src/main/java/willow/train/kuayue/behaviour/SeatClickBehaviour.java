@@ -11,9 +11,12 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import net.minecraftforge.network.PacketDistributor;
 import willow.train.kuayue.block.seat.SeatBlockEntity;
 import willow.train.kuayue.block.seat.YZSeatBlock;
+import willow.train.kuayue.initial.AllPackets;
 import willow.train.kuayue.initial.AllTags;
+import willow.train.kuayue.network.s2c.ContraptionNbtUpdatePacket;
 
 import java.util.Collection;
 import java.util.Objects;
@@ -24,6 +27,8 @@ public class SeatClickBehaviour extends MovingInteractionBehaviour {
     @Override
     public boolean handlePlayerInteraction
             (Player player, InteractionHand activeHand, BlockPos localPos, AbstractContraptionEntity contraptionEntity) {
+        if(contraptionEntity.level.isClientSide)
+            return true; // Update at server side only
         Contraption contraption = contraptionEntity.getContraption();
         StructureTemplate.StructureBlockInfo info = contraption.getBlocks().get(localPos);
         boolean dirty = false;
@@ -91,11 +96,9 @@ public class SeatClickBehaviour extends MovingInteractionBehaviour {
                           CompoundTag tag, Player player, int seatIndex) {
         contraption.getBlocks().put(localPos, info);
         contraptionEntity.addSittingPassenger(player, seatIndex);
-        if (contraptionEntity.level.isClientSide) {
-            contraption.getSeatMapping().put(player.getUUID(), seatIndex);
-            BlockEntity blockEntity = contraption.presentBlockEntities.get(localPos);
-            if (!(blockEntity instanceof SeatBlockEntity seatBlockEntity)) return;
-            seatBlockEntity.readSeatData(tag);
-        }
+        AllPackets.INTERACTION.getChannel().send(
+                PacketDistributor.TRACKING_ENTITY.with(()->contraptionEntity),
+                new ContraptionNbtUpdatePacket(contraptionEntity.getId(), localPos, tag)
+        );
     }
 }

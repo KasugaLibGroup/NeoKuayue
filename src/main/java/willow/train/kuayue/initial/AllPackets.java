@@ -30,5 +30,12 @@ public class AllPackets {
             .loadPacket(TechTreeEOFC2SPacket.class, TechTreeEOFC2SPacket::new)
             .submit(AllElements.testRegistry);
 
+    public static final ChannelReg INTERACTION = new ChannelReg("interaction")
+            .brand(KUAYUE_NETWORK_VERSION)
+            .loadPacket(ContraptionNbtUpdatePacket.class, ContraptionNbtUpdatePacket::new)
+            .loadPacket(SeatDismountPacket.class, SeatDismountPacket::new)
+            .loadPacket(OnSeatActionPacket.class, OnSeatActionPacket::new)
+            .submit(AllElements.testRegistry);
+
     public static void invoke() {}
 }

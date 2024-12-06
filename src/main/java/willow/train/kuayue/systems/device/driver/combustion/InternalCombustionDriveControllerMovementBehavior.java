@@ -17,17 +17,20 @@ import kasuga.lib.core.menu.locator.GuiMenuHolder;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import willow.train.kuayue.systems.device.AllDevicesMenus;
 import willow.train.kuayue.systems.device.IEntityTrackingMovementBehavior;
+import willow.train.kuayue.systems.device.driver.seat.InteractiveBehaviour;
 
 import javax.annotation.Nullable;
 import java.util.HashMap;
+import java.util.List;
 
-public class InternalCombustionDriveControllerMovementBehavior implements MovementBehaviour, IEntityTrackingMovementBehavior {
+public class InternalCombustionDriveControllerMovementBehavior
+        implements MovementBehaviour, IEntityTrackingMovementBehavior, InteractiveBehaviour {
     protected HashMap<MovementContext, GuiMenuHolder> MENUS = new HashMap<>();
-
 
     @Override
     public void tick(MovementContext context) {
@@ -95,5 +98,12 @@ public class InternalCombustionDriveControllerMovementBehavior implements Moveme
                 AnimationTickHolder.getPartialTicks()
         );
         ms.popPose();
+    }
+
+    @Override
+    public List<MenuEntry> getMenusOf(MovementContext context) {
+        return List.of(
+                new MenuEntry(Component.literal("LKJ2000"), ()->MENUS.containsKey(context), ()->MENUS.get(context).getMenu(0).orElseThrow())
+        );
     }
 }

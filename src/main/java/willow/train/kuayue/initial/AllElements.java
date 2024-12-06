@@ -7,6 +7,8 @@ import net.minecraftforge.common.MinecraftForge;
 import willow.train.kuayue.Kuayue;
 import willow.train.kuayue.event.both.PlayerDataEvent;
 import willow.train.kuayue.event.client.CarriageInventoryEvents;
+import willow.train.kuayue.event.client.ClientPassengerEvent;
+import willow.train.kuayue.event.client.ClientTickScheduler;
 import willow.train.kuayue.event.client.RenderArrowEvent;
 import willow.train.kuayue.event.server.ColorTemplateEvents;
 import willow.train.kuayue.event.server.PlayerJumpEvents;
@@ -79,6 +81,8 @@ public class AllElements {
             MinecraftForge.EVENT_BUS.addListener(ColorTemplateEvents::saveEvent);
             MinecraftForge.EVENT_BUS.addListener(ColorTemplateEvents::loadEvent);
             MinecraftForge.EVENT_BUS.addListener(PlayerJumpEvents::playerJumpEvent);
+            MinecraftForge.EVENT_BUS.addListener(ClientPassengerEvent::onMountEvent);
+            MinecraftForge.EVENT_BUS.addListener(ClientTickScheduler::onClientEarlyTick);
             // MinecraftForge.EVENT_BUS.addListener(RenderPrePosedBlockEvent::renderBlock);
             MinecraftForge.EVENT_BUS.register(new CarriageInventoryEvents());
         }
