@@ -1,5 +1,6 @@
 package willow.train.kuayue.systems.device.driver.seat;
 
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.simibubi.create.content.contraptions.AbstractContraptionEntity;
 import com.simibubi.create.content.contraptions.Contraption;
 import net.minecraft.client.Minecraft;
@@ -13,7 +14,7 @@ public class MinecraftUtil {
     }
 
     public static void createDriverInteractiveScreen(AbstractContraptionEntity entity, Contraption contraption) {
-        Minecraft.getInstance().setScreen(new InteractiveDriveScreen(contraption, entity));
+        RenderSystem.recordRenderCall(()->Minecraft.getInstance().setScreen(new InteractiveDriveScreen(contraption, entity)));
     }
 
     public static void closeCurrentDriverInteractiveScreen() {
@@ -21,7 +22,7 @@ public class MinecraftUtil {
                 Minecraft.getInstance().screen != null &&
                 Minecraft.getInstance().screen instanceof InteractiveDriveScreen interactiveScreen
         ){
-            interactiveScreen.onClose();
+            RenderSystem.recordRenderCall(interactiveScreen::onClose);
         }
     }
 
