@@ -4,6 +4,7 @@ import kasuga.lib.registrations.common.BlockReg;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DropExperienceBlock;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
@@ -18,6 +19,18 @@ public class AllOres {
                     .material(Material.STONE)
                     .materialColor(MaterialColor.STONE)
                     .addProperty(properties -> properties.strength(1.5f, 6.0F))
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .defaultBlockItem()
+                    .tabTo(AllElements.neoKuayueMainTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final BlockReg<Block> SALT_BLOCK =
+            new BlockReg<Block>("salt_block")
+                    .blockType(Block::new)
+                    .material(Material.STONE)
+                    .materialColor(MaterialColor.STONE)
+                    .addProperty(properties -> properties.sound(SoundType.TUFF))
+                    .addProperty(properties -> properties.strength(1.0f, 3.0F))
                     .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
                     .defaultBlockItem()
                     .tabTo(AllElements.neoKuayueMainTab)

@@ -32,8 +32,10 @@ public class FluidsInit {
                     BlockBehaviour.Properties.copy(Blocks.WATER)));
 
     public static final RegistryObject<Item> COLA_BUCKET = ITEMS.register("cola_fluid_bucket",
-            () -> new BucketItem(FluidsInit.STILL_COLA,
-                    new Item.Properties().tab(AllElements.neoKuayueDietTab.getTab())));
+            () -> new BucketItem(
+                    FluidsInit.STILL_COLA,
+                    new Item.Properties()
+                            .stacksTo(1).tab(AllElements.neoKuayueDietTab.getTab())));
 
     public static final RegistryObject<FlowingFluid> STILL_COLA = FLUIDS.register("cola_still_fluid",
             () -> new ForgeFlowingFluid.Source(FluidsInit.COLA_FLUID_PROPERTIES));
