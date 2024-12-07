@@ -97,6 +97,12 @@ public class AllItems {
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);
 
+    public static final ItemReg<Item> EMPTY_CAN_BLUE =
+            new ItemReg<Item>("empty_can_blue")
+                    .itemType(Item::new)
+                    .tab(AllElements.neoKuayueDietTab)
+                    .submit(AllElements.testRegistry);
+
     public static final ItemReg<Item> MONOSODIUM_GLUTAMATE =
             new ItemReg<Item>("monosodium_glutamate")
                     .itemType(Item::new)

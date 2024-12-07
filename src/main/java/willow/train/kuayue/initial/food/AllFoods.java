@@ -13,6 +13,7 @@ import willow.train.kuayue.initial.AllItems;
 import willow.train.kuayue.initial.registration.PlacementFoodRegistration;
 
 import static willow.train.kuayue.initial.AllItems.EMPTY_CAN;
+import static willow.train.kuayue.initial.AllItems.EMPTY_CAN_BLUE;
 import static willow.train.kuayue.initial.food.AllFoodProperties.*;
 
 public class AllFoods {
@@ -45,6 +46,23 @@ public class AllFoods {
                     .noOcclusion()
                     .foodProperties(KUA_COLA_PROPS)
                     .craftReminder(EMPTY_CAN::getItem)
+                    .stackSize(16)
+                    .tab(AllElements.neoKuayueDietTab)
+                    .submit(AllElements.testRegistry);
+
+    public static final PlacementFoodRegistration<ParticlesDrinkBlock, PlacementDrinkBlockItem> BLUE_BULL =
+            new PlacementFoodRegistration<ParticlesDrinkBlock, PlacementDrinkBlockItem>
+                    ("blue_bull", true, true)
+                    .block(properties ->
+                            new ParticlesDrinkBlock(properties, PlacementFoodBlock.FoodType.BOTTLE, false))
+                    .item((reg, properties, hasEffect, hasTooltip) ->
+                            new PlacementDrinkBlockItem(reg.getBlock(), properties, hasEffect, hasTooltip))
+                    .material(Material.METAL, MaterialColor.COLOR_BLACK)
+                    .soundType(SoundType.METAL)
+                    .strength(0.5F)
+                    .noOcclusion()
+                    .foodProperties(BLUE_BULL_PROPS)
+                    .craftReminder(EMPTY_CAN_BLUE::getItem)
                     .stackSize(16)
                     .tab(AllElements.neoKuayueDietTab)
                     .submit(AllElements.testRegistry);

@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "kuayue:block/food/blue_bull",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "kuayue:block/food/blue_bull",
+      "y": 0
+    },
+    "facing=south": {
+      "model": "kuayue:block/food/blue_bull",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "kuayue:block/food/blue_bull",
+      "y": 270
+    }
+  }
+}

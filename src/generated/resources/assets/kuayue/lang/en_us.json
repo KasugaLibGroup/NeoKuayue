@@ -704,11 +704,13 @@
 
  "block.kuayue.train_diet_1": "Train Boxed Meal",
  "block.kuayue.kua_cola": "Kuayue Cola",
+ "block.kuayue.blue_bull": "Blue Bull",
  "block.kuayue.dried_instant_noodles": "Unbrewed Instant Noodles",
  "block.kuayue.soaked_instant_noodles": "Instant Noodles",
 
  "item.kuayue.lunch_box": "Lunch Box",
  "item.kuayue.empty_can": "Empty Can",
+ "item.kuayue.empty_can_blue": "Blue Empty Can",
  "item.kuayue.ham_sausage": "HAM",
  "item.kuayue.marinated_egg": "Spiced Corned Egg",
  "item.kuayue.half_marinated_egg": "Half Spiced Corned Egg",
@@ -719,10 +721,13 @@
  "item.kuayue.tooltip.train_diet_1.tip0": "Taste Pandora",
  "item.kuayue.cola_fluid_bucket": "Kua Cola Bucket",
  "fluid_type.kuayue.cola_fluid": "Kua Cola Fluid",
+ "item.kuayue.blue_bull_fluid_bucket": "Blue Bull Fluid Bucket",
+ "blue_bull_fluid": "Blue Bull Fluid",
  "item.kuayue.monosodium_glutamate": "Monosodium Glutamate",
  "item.kuayue.salt": "Salt",
 
- "item.kuayue.tooltip.kua_cola.tip0": "The leap in taste, starting from Kuayue Cola！",
+ "item.kuayue.tooltip.kua_cola.tip0": "The leap in taste, starting from Kuayue Cola!",
+ "item.kuayue.tooltip.blue_bull.tip0": "Be a jump master!",
  "item.kuayue.tooltip.dried_instant_noodles.tip0": "Really want to eat this?",
  "item.kuayue.tooltip.dried_instant_noodles.tip1": "Right click the boiler to brew.",
  "item.kuayue.tooltip.soaked_instant_noodles.tip0": "REALLY HOT",

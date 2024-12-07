@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "kuayue:item/food/blue_bull_bucket"
+  }
+}

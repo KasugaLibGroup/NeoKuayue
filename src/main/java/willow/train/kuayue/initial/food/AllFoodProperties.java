@@ -15,6 +15,10 @@ public class AllFoodProperties {
             .nutrition(1).saturationMod(0.5f).alwaysEat()
             .effect(() -> KUA_COLA_EFFECT, 1.0F).build();
 
+    public static final FoodProperties BLUE_BULL_PROPS = (new FoodProperties.Builder())
+            .nutrition(1).saturationMod(0.5f).alwaysEat()
+            .effect(() -> BLUE_BULL_EFFECT, 1.0F).build();
+
     public static final FoodProperties DRIED_INSTANT_NOODLES_PROPS = (new FoodProperties.Builder())
             .nutrition(6).saturationMod(0.5f).build();
 

@@ -72,7 +72,7 @@ public class AllElements {
         FluidsInit.register(testRegistry.eventBus);
         FluidTypesInit.register(testRegistry.eventBus);
         FeaturesInit.register(testRegistry.eventBus);
-        // AllFluids.invoke();
+        AllFluids.invoke();
         if (Envs.isClient()) {
             ClientInit.invoke();
             Kuayue.BUS.addListener(ClientInit::registerHUDOverlays);

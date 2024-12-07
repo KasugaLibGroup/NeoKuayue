@@ -21,5 +21,8 @@ public class AllEffects {
     public static final MobEffectInstance KUA_COLA_EFFECT =
             new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 800, 1);
 
+    public static final MobEffectInstance BLUE_BULL_EFFECT =
+            new MobEffectInstance(MobEffects.JUMP, 800, 1);
+
     public static void invoke() {}
 }

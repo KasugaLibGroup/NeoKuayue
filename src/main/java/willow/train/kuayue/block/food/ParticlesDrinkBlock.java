@@ -12,19 +12,29 @@ import net.minecraft.world.phys.BlockHitResult;
 
 public class ParticlesDrinkBlock extends PlacementFoodBlock{
 
+    private boolean hasParticle;
+
     public ParticlesDrinkBlock(Properties pProperties, FoodType foodType) {
         super(pProperties, foodType);
+        this.hasParticle = true;
+    }
+
+    public ParticlesDrinkBlock(Properties pProperties, FoodType foodType, boolean hasParticle) {
+        super(pProperties, foodType);
+        this.hasParticle = hasParticle;
     }
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        spawnParticles(pLevel, pPos);
+        if (hasParticle)
+            spawnParticles(pLevel, pPos);
         return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
     }
 
     @Override
     public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
-        spawnParticles(pLevel, pPos);
+        if (hasParticle)
+            spawnParticles(pLevel, pPos);
     }
 
     private static void spawnParticles(Level pLevel, BlockPos pPos) {

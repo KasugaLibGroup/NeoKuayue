@@ -224,6 +224,7 @@
 
   "block.kuayue.train_diet_1": "火车盒饭",
   "block.kuayue.kua_cola": "跨可乐",
+  "block.kuayue.blue_bull": "蓝牛运动饮料",
   "block.kuayue.dried_instant_noodles": "未冲泡的方便面",
   "block.kuayue.soaked_instant_noodles": "已冲泡的方便面",
   "block.kuayue.internal_combustion_drive_controller":"内燃机通用驾驶台",
@@ -232,6 +233,7 @@
   "item.kuayue.train_diet_1": "火车餐A",
   "item.kuayue.lunch_box": "餐盒",
   "item.kuayue.empty_can": "空易拉罐",
+  "item.kuayue.empty_can_blue": "空易拉罐(蓝色)",
   "item.kuayue.ham_sausage": "玉中玉火腿肠",
   "item.kuayue.marinated_egg": "六香卤蛋",
   "item.kuayue.half_marinated_egg": "六香卤蛋(半个)",
@@ -240,6 +242,8 @@
   "item.kuayue.salt_baked_drumsticks": "盐焗鸡腿",
   "item.kuayue.cola_fluid_bucket": "跨可乐桶",
   "fluid_type.kuayue.cola_fluid": "跨可乐流体",
+  "item.kuayue.blue_bull_fluid_bucket": "蓝牛运动饮料桶",
+  "blue_bull_fluid": "蓝牛运动饮料流体",
   "item.kuayue.monosodium_glutamate": "味精",
   "item.kuayue.salt": "盐",
 
@@ -297,6 +301,7 @@
   "item.kuayue.wire_coil.tooltip_3": "Shift + 右键以清除所选",
   "item.kuayue.tooltip.train_diet_1.tip0": "味觉盲盒",
   "item.kuayue.tooltip.kua_cola.tip0": "味觉上的跨越，从跨越可乐开始！",
+  "item.kuayue.tooltip.blue_bull.tip0": "不是黑牛，更不是黄牛！",
   "item.kuayue.tooltip.dried_instant_noodles.tip0": "确定要当成干脆面吃吗？",
   "item.kuayue.tooltip.dried_instant_noodles.tip1": "右击茶炉可以冲泡",
   "item.kuayue.tooltip.soaked_instant_noodles.tip0": "《这回是真加开水了》",
