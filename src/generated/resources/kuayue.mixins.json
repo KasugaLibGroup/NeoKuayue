@@ -13,7 +13,8 @@
   ],
   "client": [
     "client.AccessorEditBox",
-    "client.MixinCarriageContraptionEntityRenderer"
+    "client.MixinCarriageContraptionEntityRenderer",
+    "client.MixinLivingEntityRenderer"
   ],
   "minVersion": "0.8"
 }

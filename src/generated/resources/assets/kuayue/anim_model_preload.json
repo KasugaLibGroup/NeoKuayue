@@ -2,6 +2,7 @@
   "model": [
     "kuayue:block/signal/track/station/station",
     "kuayue:block/signal/track/entry/entry",
-    "kuayue:block/drive/drive_internal_combustion"
+    "kuayue:block/drive/drive_internal_combustion",
+    "kuayue:block/seats/double_driver_seat"
   ]
 }
