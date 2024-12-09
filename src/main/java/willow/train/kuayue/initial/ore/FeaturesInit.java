@@ -31,7 +31,10 @@ public class FeaturesInit {
             Suppliers.memoize(() ->
                     List.of(OreConfiguration.target(
                                     OreFeatures.STONE_ORE_REPLACEABLES,
-                                    AllOres.SALT_ORE.getBlock().defaultBlockState())
+                                    AllOres.SALT_ORE.getBlock().defaultBlockState()),
+                            OreConfiguration.target(
+                                    OreFeatures.DEEPSLATE_ORE_REPLACEABLES,
+                                    AllOres.DEEPSLATE_SALT_ORE.getBlock().defaultBlockState())
                     ));
 
     // 注册盐矿石生成方式
@@ -46,7 +49,7 @@ public class FeaturesInit {
             PLACED_FEATURES.register(
                     "salt_ore_placed",
                     () -> new PlacedFeature(SALT_ORE.getHolder().get(),
-                            commonOrePlacement(50,
+                            commonOrePlacement(90,
                                     HeightRangePlacement.triangle(
                                             VerticalAnchor.absolute(-80),
                                             VerticalAnchor.absolute(80))

@@ -24,6 +24,18 @@ public class AllOres {
                     .tabTo(AllElements.neoKuayueMainTab)
                     .submit(AllElements.testRegistry);
 
+    public static final BlockReg<DropExperienceBlock> DEEPSLATE_SALT_ORE =
+            new BlockReg<DropExperienceBlock>("deepslate_salt_ore")
+                    .blockType(props ->
+                            new DropExperienceBlock(props, UniformInt.of(3, 7)))
+                    .material(Material.STONE)
+                    .materialColor(MaterialColor.STONE)
+                    .addProperty(properties -> properties.strength(1.5f, 6.0F))
+                    .addProperty(BlockBehaviour.Properties::requiresCorrectToolForDrops)
+                    .defaultBlockItem()
+                    .tabTo(AllElements.neoKuayueMainTab)
+                    .submit(AllElements.testRegistry);
+
     public static final BlockReg<Block> SALT_BLOCK =
             new BlockReg<Block>("salt_block")
                     .blockType(Block::new)

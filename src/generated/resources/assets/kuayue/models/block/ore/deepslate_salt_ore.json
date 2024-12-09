@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "kuayue:block/ore/deepslate_salt_ore"
+  }
+}
