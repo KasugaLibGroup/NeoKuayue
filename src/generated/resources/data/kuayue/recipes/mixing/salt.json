@@ -7,12 +7,18 @@
       "fluid": "minecraft:water",
       "nbt": {}
     },
-    { "tag": "forge:salt" }
+    { "item": "minecraft:sea_pickle" },
+    { "item": "minecraft:sea_pickle" },
+    { "item": "minecraft:sea_pickle" },
+    { "item": "minecraft:sea_pickle" }
   ],
   "results": [
     {
-      "item": "kuayue:salt",
-      "count": 2
+      "item": "kuayue:salt"
+    },
+    {
+      "chance": 0.125,
+      "item": "kuayue:salt"
     }
   ]
 }

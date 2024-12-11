@@ -1,0 +1,27 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "kuayue:deepslate_salt_ore"
+    }
+  ],
+  "processingTime": 250,
+  "results": [
+    {
+      "item": "kuayue:salt",
+      "count": 7
+    },
+    {
+      "chance": 0.75,
+      "item": "kuayue:salt"
+    },
+    {
+      "chance": 0.75,
+      "item": "create:experience_nugget"
+    },
+    {
+      "chance": 0.125,
+      "item": "minecraft:cobbled_deepslate"
+    }
+  ]
+}
