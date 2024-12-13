@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "kuayue:empty_can_blue"
+    },
+    {
+      "amount": 500,
+      "fluid": "kuayue:blue_bull_fluid"
+    }
+  ],
+  "results": [
+    {
+      "item": "kuayue:blue_bull",
+      "count": 1
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "amount": 1000,
+      "fluid": "minecraft:water",
+      "nbt": {}
+    },
+    { "item": "minecraft:sugar" },
+    { "tag": "forge:salt" },
+    { "item": "minecraft:glowstone_dust"}
+  ],
+  "results": [
+    {
+      "amount": 1000,
+      "fluid": "kuayue:blue_bull_fluid"
+    }
+  ]
+}

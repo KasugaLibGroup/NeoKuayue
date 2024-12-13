@@ -19,10 +19,10 @@ public class AllEffects {
             new MobEffectInstance(MobEffects.REGENERATION, 100, 0);
 
     public static final MobEffectInstance KUA_COLA_EFFECT =
-            new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1800, 1);
+            new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 3600, 1);
 
     public static final MobEffectInstance BLUE_BULL_EFFECT =
-            new MobEffectInstance(MobEffects.JUMP, 1800, 1);
+            new MobEffectInstance(MobEffects.JUMP, 7200, 1);
 
     public static void invoke() {}
 }

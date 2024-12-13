@@ -40,8 +40,8 @@ public class AllFluids {
             .bucketItem(BucketItem::new)
             .basicFluidProperties(2, 15, 5, true)
             .defaultSounds()
-            .tintColor(0xFFFFE4B5)
-            .fogColor(255, 228, 181)
+            .tintColor(0xFFEEDD82)
+            .fogColor(238, 221, 130)
             .blockType((fluid, properties) ->
                     new BlueBullBlock(fluid, BlockBehaviour.Properties.copy(Blocks.WATER)))
             .noLootAndOcclusion()
