@@ -17,7 +17,8 @@ public class BlueBullFluid extends ForgeFlowingFluid {
 
     @Override
     public boolean isSource(FluidState pState) {
-        return true;
+        return pState.getType() instanceof BlueBullFluid
+                && !(pState.getType() instanceof BlueBullFluid.Flowing);
     }
 
     @Override
@@ -33,7 +34,7 @@ public class BlueBullFluid extends ForgeFlowingFluid {
 
         @Override
         public boolean isSource(FluidState fluidState) {
-            return false;
+            return super.isSource(fluidState);
         }
     }
 }

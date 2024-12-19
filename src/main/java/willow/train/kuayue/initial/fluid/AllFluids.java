@@ -38,6 +38,7 @@ public class AllFluids {
             .numericProperties(2, 2, 3, 10)
             .overlayTexPath("fluid/cola_fluid")
             .bucketItem(BucketItem::new)
+            .stackTo(1)
             .basicFluidProperties(2, 15, 5, true)
             .defaultSounds()
             .tintColor(0xFFEEDD82)
